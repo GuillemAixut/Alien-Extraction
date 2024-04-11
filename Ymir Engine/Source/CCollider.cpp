@@ -644,6 +644,12 @@ void CCollider::SetOBBSize()
 			componentMesh->obb.Size().y / trans.GetScale().y,
 			componentMesh->obb.Size().z / trans.GetScale().z
 		);
+
+		//trans.SetTranslatePart(componentMesh->obb.CenterPoint());
+		//transform->SetPosition(componentMesh->obb.CenterPoint());
+		//physBody->SetPosition(componentMesh->obb.CenterPoint());
+		offset = componentMesh->obb.CenterPoint();
+
 	}
 	if (size.x == 0) size.x = 0.1;
 	if (size.y == 0) size.y = 0.1;
