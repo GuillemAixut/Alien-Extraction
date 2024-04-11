@@ -46,6 +46,7 @@
 
 class GameObject;
 class CCamera;
+class ParticleEmitter;
 
 class ModuleRenderer3D : public Module
 {
@@ -93,6 +94,9 @@ public:
 
 	void DrawLightsDebug();
 
+	//ERIC: Esto habria que hacerle un rework, el renderer no ha de tener ninguna lista de emmiter
+	//Habria que hacer que recorriera todos los game objects y si tiene component particles pues hacerle un draw particles (maybe se puede poner en el propio DrawGameObjects()
+	void DrawParticles(ParticleEmitter* emitter);
 	void DrawOutline(CMesh* cMeshReference, float4x4 transform);
 
 public:
@@ -115,6 +119,8 @@ public:
 	Font* defaultFont;
 	std::vector<Font*> mFonts;
 
+	std::vector<ParticleEmitter*> particleEmitters;
+	bool initParticles = false;
 	// Outline Shader
 	Shader* outlineShader;
 

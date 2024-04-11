@@ -308,6 +308,8 @@ void ModuleEditor::DrawEditor()
 
 			LightsMenu();
 
+			CreateParticleSystemMenu();
+
 			ImGui::Separator();
 
 			if (ImGui::MenuItem("Clear Scene")) {
@@ -1669,6 +1671,19 @@ void ModuleEditor::UIMenu()
 			}
 		}
 		ImGui::EndMenu();
+	}
+}
+
+void ModuleEditor::CreateParticleSystemMenu()
+{
+	if (ImGui::MenuItem("Particle System")) {
+
+		GameObject* empty = App->scene->CreateGameObject("Paticle System", App->scene->selectedGO != nullptr ? App->scene->selectedGO : App->scene->mRootNode);
+		empty->UID = Random::Generate();
+
+		//TONI: We dont need material in Particle System
+		//empty->AddComponent(ComponentType::MATERIAL);
+		empty->AddComponent(ComponentType::PARTICLE);
 	}
 }
 
@@ -3100,6 +3115,79 @@ void ModuleEditor::DrawInspector()
 						if (ImGui::MenuItem("Material"))
 						{
 							App->scene->selectedGO->AddComponent(ComponentType::MATERIAL);
+						}
+					}
+				}
+
+				//// --- Add component Camera ---
+
+				if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
+				{
+					if (ImGui::MenuItem("Camera"))
+					{
+						App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
+					}
+				}
+
+				//// --- Add component Physics ---
+
+				if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
+				{
+					if (ImGui::MenuItem("Physics"))
+					{
+						App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
+					}
+				}
+
+				if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
+				{
+					if (ImGui::MenuItem("Audio_Source"))
+					{
+						App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
+					}
+				}
+
+				if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
+				{
+					if (ImGui::MenuItem("Audio_Listener"))
+					{
+						App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
+					}
+				}
+
+				// --- Add component Particles ---
+
+				//ERIC: Por necesitar un Material lo quito de poder crearlo directamente desde aqui
+				/*if ((CParticleSystem*)App->scene->selectedGO->GetComponent(ComponentType::PARTICLE) == nullptr)
+				{
+					if (ImGui::MenuItem("Particle"))
+					{
+						App->scene->selectedGO->AddComponent(ComponentType::PARTICLE);
+					}
+				}*/
+
+				if (ImGui::BeginMenu("Script"))
+				{
+					if (ImGui::MenuItem("Add New Script")) {
+
+						//Todo: Add NewScript
+						showNewScriptPopUp = true;
+
+					}
+
+					ImGui::Separator();
+
+					for (const auto& entry : std::filesystem::directory_iterator("Assets/Scripts")) {
+
+						if (!entry.is_directory()) {
+
+							std::string entryName = entry.path().filename().string();
+							if (ImGui::MenuItem(entryName.c_str()))
+							{
+								script_name = entryName.c_str();
+								App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
+							}
+
 						}
 					}
 

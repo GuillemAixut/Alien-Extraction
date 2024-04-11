@@ -20,6 +20,7 @@ enum ComponentType {
 	RIGIDBODY,
 	PHYSICS,
 	ANIMATION,
+	PARTICLE,
 	UI_TRAMSFORM,
 	UI,
 	LIGHT,

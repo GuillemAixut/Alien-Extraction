@@ -306,6 +306,14 @@ bool GameObject::AddComponent(ComponentType ctype, void* var)
 		}
 		else { ret = false; }
 		break;
+	case ComponentType::PARTICLE:
+		if (GetComponent(ComponentType::PARTICLE) == nullptr)
+		{
+			temp = new CParticleSystem(this);
+			mComponents.push_back(temp);
+		}
+		else { ret = false; }
+		break;
 	default:
 		break;
 	}
@@ -367,6 +375,16 @@ std::vector<Component*> GameObject::GetAllComponentsByType(ComponentType type)
 	}
 	
 	return vec;
+}
+
+int GameObject::GetComponentPosition(Component* component)
+{
+	int ret = -1; //If not in the list
+	for (int i = 0; i < mComponents.size(); i++)
+	{
+		if (mComponents.at(i) == component) { ret = i; }
+	}
+	return ret;
 }
 
 void GameObject::RemoveComponent(Component* component)
