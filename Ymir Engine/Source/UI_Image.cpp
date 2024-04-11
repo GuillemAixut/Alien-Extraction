@@ -487,6 +487,8 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 		JsonFile* metaFile = JsonFile::GetJSON(imgPath + ".meta");
 
 		std::string libraryPath = metaFile->GetString("Library Path");
+		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
 		uint UID = metaFile->GetInt("UID");
 		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
 
@@ -496,6 +498,8 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 	else {
 
 		std::string libraryPath = metaFile->GetString("Library Path");
+		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
 		uint UID = metaFile->GetInt("UID");
 		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
 
