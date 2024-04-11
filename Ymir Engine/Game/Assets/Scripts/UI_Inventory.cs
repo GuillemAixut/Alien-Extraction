@@ -61,7 +61,7 @@ public class UI_Inventory : YmirComponent
                 _focusedGO.GetComponent<UI_Item_Button>().item.itemType = ITEM_SLOT.NONE;
 
                 // Add real art and other stuff
-                UI.ChangeImageUI(_focusedGO, "Assets/juan.png", (int)UI_STATE.NORMAL);
+                UI.ChangeImageUI(_focusedGO, "Assets/UI/Inventory Buttons/InventorySlotUnselected.png", (int)UI_STATE.NORMAL);
 
                 //GameObject text = InternalCalls.GetChildrenByName(_focusedGO, "Text");
                 UI.TextEdit(InternalCalls.GetChildrenByName(_focusedGO, "Text"), " ");
