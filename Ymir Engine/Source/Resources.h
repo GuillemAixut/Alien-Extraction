@@ -15,7 +15,9 @@ enum class ResourceType {
 	MATERIAL,
 	PREFAB,
 	ANIMATION,
+	NAV,
 	FONT,
+	
 
 	META,
 

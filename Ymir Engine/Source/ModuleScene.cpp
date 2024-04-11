@@ -15,6 +15,7 @@
 #include "ModuleFileSystem.h"
 #include "PhysfsEncapsule.h"
 #include "ModuleMonoManager.h"
+#include "ModulePathfinding.h"
 #include "CScript.h"
 
 #include "External/Optick/include/optick.h"
@@ -65,7 +66,7 @@ bool ModuleScene::Init()
 	selectedUIGO = nullptr;
 	focusedUIGO = nullptr;
 	canTab = true;
-
+	
 	return ret;
 }
 
@@ -380,10 +381,15 @@ void ModuleScene::ClearScene()
 
 	ClearVec(vTempComponents);
 	ClearVec(vCanvas);
+
+	External->pathFinding->ClearNavMeshes();
 }
 
 void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 {
+	char str[20];
+	sprintf(str, "%u", App->pathFinding->Save(fileName.c_str()));
+	ysceneFile.SetString("NavMesh", str);
 	ysceneFile.SetFloat3("Editor Camera Position", App->camera->editorCamera->GetPos());
 	ysceneFile.SetFloat3("Editor Camera Right (X)", App->camera->editorCamera->GetRight());
 	ysceneFile.SetFloat3("Editor Camera Up (Y)", App->camera->editorCamera->GetUp());
@@ -409,6 +415,7 @@ void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 
 void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 {
+	JSON_Value* scene = json_parse_file(fileName.c_str());
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
 		App->scene->currentSceneDir = dir;
@@ -432,8 +439,18 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
+	
+	for (int i = 0; i < gameObjects.size(); i++) {
+		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
+		ctrans->UpdateGlobalMatrix();
+	}
 
 	LoadScriptsData();
+
+
+	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
+	if (navMeshId != -1)
+		External->pathFinding->Load(navMeshId);
 
 	RELEASE(sceneToLoad);
 }
@@ -490,7 +507,16 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
 
+	for (int i = 0; i < gameObjects.size(); i++) {
+		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
+		ctrans->UpdateGlobalMatrix();
+	}
+
 	LoadScriptsData();
+
+	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
+	if (navMeshId != -1)
+		External->pathFinding->Load(navMeshId);
 
 	RELEASE(sceneToLoad);
 }

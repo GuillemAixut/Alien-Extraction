@@ -1,4 +1,4 @@
-#include <Windows.h>
+			#include <Windows.h>
 #include <Psapi.h>
 #include <iostream>
 #include <fstream>
@@ -19,6 +19,7 @@
 #include "GameObject.h"
 #include "G_UI.h"
 #include "PhysfsEncapsule.h"
+#include "External/RecastNavigation/NavMeshBuilder.h"
 
 #include "External/SDL/include/SDL_opengl.h"
 
@@ -358,6 +359,12 @@ void ModuleEditor::DrawEditor()
 			if (ImGui::MenuItem("Inspector")) {
 
 				showInspector = true;
+
+			}
+
+			if (ImGui::MenuItem("Navigation")) {
+
+				showNavMesh = true;
 
 			}
 
@@ -1023,6 +1030,19 @@ void ModuleEditor::DrawEditor()
 
 	}
 
+	if (showNavMesh) {
+
+
+		if (ImGui::Begin("Navigation", &showNavMesh), true)
+		{
+			
+			DrawBakingTab();;
+		}
+		ImGui::End();
+
+
+	}
+
 	// END OF APPLICATION MENU
 
 	if (showImGuiDemo) {
@@ -1382,6 +1402,42 @@ void ModuleEditor::DrawEditor()
 
 			if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT && !ImGuizmo::IsUsing())
 			{
+				if (ImGui::IsWindowHovered())
+				{
+					if (!ImGuizmo::IsUsing() && !App->input->GetKey(SDL_SCANCODE_LALT) == KEY_DOWN)	
+					{
+
+
+						App->camera->mousePickingRay.Transform(App->pathFinding->matrizglobal.Inverted());
+
+						if (External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN)
+								External->pathFinding->CheckNavMeshIntersection(App->camera->mousePickingRay, SDL_BUTTON_LEFT);
+	
+					}
+				}
+			}
+
+			if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT && !ImGuizmo::IsUsing())
+			{
+				if (ImGui::IsWindowHovered())
+				{
+					if (!ImGuizmo::IsUsing() && !App->input->GetKey(SDL_SCANCODE_LALT) == KEY_DOWN)
+					{
+
+						App->camera->mousePickingRay.Transform(App->pathFinding->matrizglobal.Inverted());
+
+
+						if (External->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_DOWN)
+							External->pathFinding->CheckNavMeshIntersection(App->camera->mousePickingRay, SDL_BUTTON_RIGHT);
+
+					}
+				}
+			}
+
+
+
+			if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT && !ImGuizmo::IsUsing())
+			{
 				MousePickingManagement(mousePosition, sceneWindowPos, sceneWindowSize, sceneFrameHeightOffset);
 			}
 
@@ -1498,6 +1554,17 @@ void ModuleEditor::DrawEditor()
 		SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 
 	}
+
+}
+
+ImVec2 ModuleEditor::NormalizeOnSceneWindow(float x, float y, float z, float h, float w, ImVec2 point) {
+
+	ImVec2 normalizePoint;
+
+	normalizePoint.x = (point.x - x) / ((x + w) - x);
+	normalizePoint.y = (point.y - y) / ((y + h) - y);
+
+	return normalizePoint;
 
 }
 
@@ -2919,6 +2986,113 @@ void ModuleEditor::CreateHierarchyTree(GameObject* node)
 //
 //}
 
+void ModuleEditor::DrawBakingTab()
+{
+	char buffer[50];
+
+	ImGui::Text("Agent Properties");
+
+	ImGui::Spacing();
+	ImGui::Separator();
+	ImGui::Spacing();
+
+	ImGui::Columns(2, NULL, FALSE);
+	ImGui::Spacing();
+	ImGui::Text("Radius");
+	ImGui::Spacing();
+	ImGui::Text("Height");
+	ImGui::Spacing();
+	ImGui::Text("Step Height");
+	ImGui::Spacing();
+	ImGui::Text("Max Slope");
+	ImGui::Spacing();
+	ImGui::NextColumn();
+
+	sprintf_s(buffer, 50, "%.2f", External->pathFinding->bakedNav.radius);
+	if (ImGui::InputText("##Radius", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.radius = strtod(buffer, NULL);
+		}
+	}
+	sprintf_s(buffer, 50, "%.2f", External->pathFinding->bakedNav.height);
+	if (ImGui::InputText("##Height", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.height = strtod(buffer, NULL);
+		}
+	}
+	sprintf_s(buffer, 50, "%.2f", External->pathFinding->bakedNav.stopHeight);
+	if (ImGui::InputText("##StopHeight", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.stopHeight = strtod(buffer, NULL);
+		}
+	}
+	sprintf_s(buffer, 50, "%d", External->pathFinding->bakedNav.maxSlope);
+	if (ImGui::InputText("##Slope", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.maxSlope = strtod(buffer, NULL);
+		}
+	}
+
+	ImGui::Columns(1);
+
+	ImGui::Dummy({ 0,10 });
+
+	if (ImGui::Button("Calculate"))
+	{
+		External->pathFinding->BakeNavMesh();
+	}
+
+	ImGui::SameLine();
+	if (ImGui::Button("Clear"))
+	{
+		External->pathFinding->ClearNavMeshes();
+	}
+
+	ImGui::Checkbox("Debug Draw", &External->pathFinding->debugDraw);
+
+	/*ImGui::Text("Input Mesh");
+	ImGui::Button("Drop mesh here");
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("_GAMEOBJECT"))
+		{
+			int uid = *(int*)payload->Data;
+
+			GameObject* droppedGO = External->moduleScene->GetGOFromUID(External->moduleScene->root, uid);
+			External->pathFinding->AddGameObjectToNavMesh(droppedGO);
+		}
+		ImGui::EndDragDropTarget();
+	}
+
+	ImGui::Text("Current NavMesh");
+	*/
+
+	NavMeshBuilder* navMeshBuilder = External->pathFinding->GetNavMeshBuilder();
+	if (navMeshBuilder != nullptr)
+	{
+		navMeshBuilder->OnEditor();
+	}
+
+	/*if(ImGui::Button("Create Walkability Test"))
+	{
+		External->pathFinding->CreateWalkabilityTestPoint();
+	}*/
+
+	ImGui::Text("Path Type");
+
+	if (ImGui::RadioButton("Smooth Path", External->pathFinding->pathfinder.pathType == PathType::SMOOTH))
+		External->pathFinding->pathfinder.pathType = PathType::SMOOTH;
+
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Straight Path", External->pathFinding->pathfinder.pathType == PathType::STRAIGHT))
+		External->pathFinding->pathfinder.pathType = PathType::STRAIGHT;
+
+}
+
 void ModuleEditor::DrawInspector()
 {
 	//for (auto it = App->scene->gameObjects.begin(); it != App->scene->gameObjects.end(); ++it) {
@@ -2947,6 +3121,8 @@ void ModuleEditor::DrawInspector()
 			}
 
 			ImGui::Spacing();
+
+			ImGui::Checkbox("Static", &App->scene->selectedGO->isStatic);
 
 			ImGui::Text("Tag"); ImGui::SameLine();
 
@@ -3179,9 +3355,20 @@ void ModuleEditor::DrawInspector()
 						ImGui::EndMenu();
 					}
 
+					if ((CNavMeshAgent*)App->scene->selectedGO->GetComponent(ComponentType::NAVMESHAGENT) == nullptr)
+					{
+						if (ImGui::MenuItem("NavMesh_Agent"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::NAVMESHAGENT);
+						}
+					}
+
 					//delete physics;
 					ImGui::EndPopup();
 				}
+
+
+
 			}
 
 			if (!App->scene->selectedGO->active) { ImGui::EndDisabled(); }
