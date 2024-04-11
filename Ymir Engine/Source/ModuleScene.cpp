@@ -92,7 +92,7 @@ bool ModuleScene::Start()
 
 #ifdef _STANDALONE
 
-	//LoadSceneFromStart("Assets", "VS2 Release");
+	LoadSceneFromStart("Assets", "Alpha1_Level");
 	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
