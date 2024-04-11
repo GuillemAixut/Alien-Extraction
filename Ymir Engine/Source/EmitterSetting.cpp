@@ -214,7 +214,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 	}
 
 	//Stop
-	if (numParticlesSpawned < numParticlesForStop)
+	if (numParticlesSpawned >= numParticlesForStop)
 	{
 		playTriggered = false;
 	}
