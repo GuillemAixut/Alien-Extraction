@@ -70,6 +70,9 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma endregion
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);	//TODO: Descomentar cuando est� el CreateBullet()
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateTailSensor", CreateTailSensor);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidicSpit", CreateAcidicSpit);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidPuddle", CreateAcidPuddle);
 
 #pragma region Transform
 	mono_add_internal_call("YmirEngine.Transform::GetForward", GetForward);
@@ -172,6 +175,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Animation::SetSpeed", SetSpeed);		
 	mono_add_internal_call("YmirEngine.Animation::SetPingPong", SetPingPong);
 	mono_add_internal_call("YmirEngine.Animation::AddBlendOption", AddBlendOption);
+	mono_add_internal_call("YmirEngine.Animation::SetResetToZero", SetResetToZero);
+	mono_add_internal_call("YmirEngine.Animation::AnimationHasFinished", HasFinished);
 #pragma endregion
 
 	mono_add_internal_call("YmirEngine.Time::get_deltaTime", GetDT);

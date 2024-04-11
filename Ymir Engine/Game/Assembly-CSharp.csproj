@@ -52,6 +52,7 @@
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Quaternion.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Time.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Vector3.cs" />
+    <Compile Include="Assets\Scripts\AcidicSpit.cs" />
     <Compile Include="Assets\Scripts\BH_Bullet.cs" />
     <Compile Include="Assets\Scripts\BH_Plane.cs" />
     <Compile Include="Assets\Scripts\Button.cs" />
@@ -68,6 +69,14 @@
     <Compile Include="Assets\Scripts\UI_Bullets.cs" />
     <Compile Include="Assets\Scripts\Button_Navigation.cs" />
     <Compile Include="Assets\Scripts\Button_Exit.cs" />
+    <Compile Include="Assets\Scripts\Test_Anim.cs" />
+    <Compile Include="Assets\Scripts\BH_Tail.cs" />
+    <Compile Include="Assets\Scripts\Teleport.cs" />
+    <Compile Include="Assets\Scripts\Level_Selection_Canvas.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Test.cs" />
+    <Compile Include="Assets\Scripts\Inventory_chest.cs" />
+    <Compile Include="Assets\Scripts\Beacon.cs" />
+    <Compile Include="Assets\Scripts\AcidicPuddle.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

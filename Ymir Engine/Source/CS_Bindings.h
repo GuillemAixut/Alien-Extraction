@@ -555,6 +555,132 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 
 }
 
+void CreateTailSensor(MonoObject* position, MonoObject* rotation)
+{
+	//Crea un game object temporal llamado "Bullet"
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("Tail", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "Tail";
+
+	//Hace unbox de los parametros de transform pasados
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(1, 1, 3);
+
+
+	//Añade RigidBody a la bala
+	CCollider* physBody;
+	physBody = new CCollider(go);
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector.Normalized());
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	//Añade el script Tail al gameObject Bullet
+	const char* t = "BH_Tail";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+
+}
+
+void CreateAcidicSpit(MonoObject* name, MonoObject* position)
+{
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	float3 scaleVector = float3(2.0f, 2.0f, 2.0f);
+	char* p = mono_string_to_utf8(mono_object_to_string(name, NULL));
+
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject(p, External->scene->mRootNode);
+	go->UID = Random::Generate();
+
+	//Settea el transform a la bola de acido
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+
+	uint UID = 1798080460; // UID of Sphere.fbx mesh in meta (lo siento)
+	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
+
+	//Añade la mesh a la bola de acido
+	ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
+	CMesh* cmesh = new CMesh(go);
+	cmesh->rMeshReference = rMesh;
+	go->AddComponent(cmesh);
+
+	//Añade el material a la bola de acido
+	CMaterial* cmaterial = new CMaterial(go);
+	cmaterial->shaderPath = WATER_SHADER;
+	cmaterial->shader.LoadShader(cmaterial->shaderPath);
+	cmaterial->shaderDirtyFlag = false;
+	go->AddComponent(cmaterial);
+
+	//Añade RigidBody a la bola de acido
+	CCollider* physBody = new CCollider(go);
+	physBody->useGravity = false;
+	physBody->size = scaleVector;
+	physBody->physBody->SetPosition(posVector);
+	go->AddComponent(physBody);
+
+	//Añade el script AcidicSpit al gameObject go
+	const char* t = "AcidicSpit";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+
+}
+
+void CreateAcidPuddle(MonoObject* name, MonoObject* position)
+{
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	float3 scaleVector = float3(12.0f, 1.0f, 12.0f);
+	char* p = mono_string_to_utf8(mono_object_to_string(name, NULL));
+
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject(p, External->scene->mRootNode);
+	go->UID = Random::Generate();
+
+	//Settea el transform a la bullet
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+
+	uint UID = 1051177528; // UID of Cylinder.fbx mesh in meta (lo siento)
+	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
+
+	//Añade la mesh a la bullet
+	ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
+	CMesh* cmesh = new CMesh(go);
+	cmesh->rMeshReference = rMesh;
+	go->AddComponent(cmesh);
+
+	//Añade el material a la Bullet
+	CMaterial* cmaterial = new CMaterial(go);
+	cmaterial->shaderPath = "Assets/Shaders/LavaShader.glsl";
+	cmaterial->shader.LoadShader(cmaterial->shaderPath);
+	cmaterial->shaderDirtyFlag = false;
+	go->AddComponent(cmaterial);
+
+	//Añade RigidBody a la bala
+	CCollider* physBody = new CCollider(go);
+	physBody->useGravity = true;
+	physBody->size = scaleVector;
+	physBody->physBody->SetPosition(posVector);
+	go->AddComponent(physBody);
+
+	//Añade el script Bullet al gameObject Bullet
+	const char* t = "AcidPuddle";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+
+}
+
+
 //---------- GLOBAL GETTERS ----------//
 MonoObject* SendGlobalPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
 {
@@ -618,11 +744,12 @@ MonoObject* CreateImageUI(MonoObject* pParent, MonoString* newImage, int x, int 
 	return External->moduleMono->GoToCSGO(tempGameObject);
 }
 
-void Rumble_Controller(int time)
+void Rumble_Controller(int time, int intenisty)
 {
 	if (External != nullptr) {
 
-		if (SDL_JoystickRumble(External->input->joystick, 0xFFFF, 0xFFFF, time) == -1) {
+		intenisty = intenisty * 6500;
+		if (SDL_JoystickRumble(External->input->joystick, intenisty, intenisty, time) == -1) {
 			printf("Rumble failed...?\n");
 		}
 		else {
