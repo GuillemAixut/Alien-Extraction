@@ -8,8 +8,8 @@ using YmirEngine;
 
 public class OpenMenu_OnCollision : YmirComponent
 {
-    public string goName;
-    public GameObject canvas;
+    public string goName = "";
+    public GameObject canvas = null;
 
     private Player player = null;
 
@@ -32,10 +32,14 @@ public class OpenMenu_OnCollision : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")
+        //Debug.Log("other.name");
+        //Debug.Log("" + other.name);
+        //Debug.Log("" + other.Name);
+
+        if (other.Tag == "Player" || other.Name == "Player")
         {
             canvas.SetActive(true);
-            player.inputsList.Add(INPUT.I_STOP);
+            //player.inputsList.Add(INPUT.I_STOP);
         }
     }
 }
