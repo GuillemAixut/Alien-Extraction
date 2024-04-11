@@ -23,7 +23,6 @@
 #include "External/FreeType/include/freetype/ftglyph.h"
 #pragma comment(lib, "Source/External/FreeType/libx86/freetype.lib")
 
-
 #ifdef _DEBUG
 #pragma comment (lib, "Source/External/MathGeoLib/libx86/lib_Debug/MathGeoLib.lib") /* link Microsoft OpenGL lib   */
 #else
@@ -41,6 +40,7 @@
 #include "Texture.h"
 #include "Shader.h"
 #include "UI_Text.h"
+#include "CMesh.h"
 
 #define MAX_GL_LIGHTS 8
 
@@ -80,9 +80,8 @@ public:
 
 	void OnResize(int width, int height);
 	void SetGameCamera(CCamera* cam = nullptr);
-
-	void DrawGameObjects();
 	bool IsWalkable(float3 pointToCheck);
+	void DrawGameObjects(bool isGame);
 	void ClearModels();
 
 	void EnableAssimpDebugger();
@@ -120,11 +119,14 @@ public:
 
 	// Draw Physics Colliders
 	void DrawPhysicsColliders();
+
 	// Draw UI
 	void GetUIGOs(GameObject* go, std::vector<C_UI*>& listgo);
 	void DrawUIElements(bool isGame, bool isBuild);
 
 	void DrawLightsDebug();
+
+	void DrawOutline(CMesh* cMeshReference, float4x4 transform);
 
 public:
 
@@ -153,5 +155,7 @@ private:
 	std::vector<LineRender> rays;
 
 	LineSegment pickingDebug;
+	// Outline Shader
+	Shader* outlineShader;
 
 };

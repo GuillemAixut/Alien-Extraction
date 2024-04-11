@@ -894,7 +894,7 @@ void JsonFile::SetGameObject(JSON_Array* hArray, const GameObject& gameObject)
 	// Set Type 
 	json_object_set_string(gameObjectObject, "Element_Type", gameObject.type.c_str());
 
-	if (gameObject.type == "Model") {
+	if (gameObject.type == "Mesh") {
 
 		// Set Origin Path
 		json_object_set_string(gameObjectObject, "Origin_Path", gameObject.originPath.c_str());
@@ -1025,7 +1025,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 		json_object_set_number(componentObject, "Active", cmesh->active);
 
-		//json_object_set_string(componentObject, "Model Path", cmesh->originModelPath.c_str());
+		json_object_set_number(componentObject, "UID", cmesh->rMeshReference->GetUID());
 
 		json_object_set_number(componentObject, "Vertex Count", cmesh->nVertices);
 		json_object_set_number(componentObject, "Index Count", cmesh->nIndices);
@@ -1116,9 +1116,53 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 		// Texture maps
 
-		json_object_set_number(componentObject, "ID", cmaterial->ID);
-		json_object_set_string(componentObject, "Diffuse", cmaterial->path.c_str());
-		json_object_set_number(componentObject, "UID", cmaterial->UID);
+		if (!cmaterial->diffuse_path.empty()) {
+
+			json_object_set_number(componentObject, "Diffuse_ID", cmaterial->diffuse_ID);
+			json_object_set_string(componentObject, "Diffuse_Path", cmaterial->diffuse_path.c_str());
+			json_object_set_number(componentObject, "Diffuse_UID", cmaterial->diffuse_UID);
+
+		}
+
+		if (!cmaterial->specular_path.empty()) {
+
+			json_object_set_number(componentObject, "Specular_ID", cmaterial->specular_ID);
+			json_object_set_string(componentObject, "Specular_Path", cmaterial->specular_path.c_str());
+			json_object_set_number(componentObject, "Specular_UID", cmaterial->specular_UID);
+
+		}
+
+		if (!cmaterial->normal_path.empty()) {
+
+			json_object_set_number(componentObject, "Normal_ID", cmaterial->normal_ID);
+			json_object_set_string(componentObject, "Normal_Path", cmaterial->normal_path.c_str());
+			json_object_set_number(componentObject, "Normal_UID", cmaterial->normal_UID);
+
+		}
+
+		if (!cmaterial->height_path.empty()) {
+
+			json_object_set_number(componentObject, "Height_ID", cmaterial->height_ID);
+			json_object_set_string(componentObject, "Height_Path", cmaterial->height_path.c_str());
+			json_object_set_number(componentObject, "Height_UID", cmaterial->height_UID);
+
+		}
+
+		if (!cmaterial->ambient_path.empty()) {
+
+			json_object_set_number(componentObject, "Ambient_ID", cmaterial->ambient_ID);
+			json_object_set_string(componentObject, "Ambient_Path", cmaterial->ambient_path.c_str());
+			json_object_set_number(componentObject, "Ambient_UID", cmaterial->ambient_UID);
+
+		}
+
+		if (!cmaterial->emissive_path.empty()) {
+
+			json_object_set_number(componentObject, "Emissive_ID", cmaterial->emissive_ID);
+			json_object_set_string(componentObject, "Emissive_Path", cmaterial->emissive_path.c_str());
+			json_object_set_number(componentObject, "Emissive_UID", cmaterial->emissive_UID);
+
+		}
 
 	}
 	break;
@@ -1255,14 +1299,6 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 		json_object_set_value(componentObject, "Size", sizeArrayValue);
 
-		// Radius
-
-		json_object_set_number(componentObject, "Radius", ccollider->radius);
-
-		//Height
-
-		json_object_set_number(componentObject, "Height", ccollider->height);
-
 		// Physics type
 
 		json_object_set_number(componentObject, "Physics Type", (int)static_cast<const CCollider&>(component).physType);
@@ -1270,6 +1306,14 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		// Mass
 
 		json_object_set_number(componentObject, "Mass", ccollider->mass);
+
+		//Friction
+
+		json_object_set_number(componentObject, "Friction", ccollider->friction);
+
+		//Angular Friction
+
+		json_object_set_number(componentObject, "Angular Friction", ccollider->angularFriction);
 
 		// Gravity
 
@@ -1285,7 +1329,16 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		json_object_set_boolean(componentObject, "LockY", ccollider->lockY);
 		json_object_set_boolean(componentObject, "LockZ", ccollider->lockZ);
 
+		// Offset
 
+		JSON_Value* offsetArrayValue = json_value_init_array();
+		JSON_Array* offsetArray = json_value_get_array(offsetArrayValue);
+
+		json_array_append_number(offsetArray, ccollider->offset.x);
+		json_array_append_number(offsetArray, ccollider->offset.y);
+		json_array_append_number(offsetArray, ccollider->offset.z);
+
+		json_object_set_value(componentObject, "Offset", offsetArrayValue);
 
 		break;
 	}
@@ -1371,7 +1424,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 			json_object_set_number(componentObject, "Width", static_cast<const UI_Image&>(component).width);
 			json_object_set_number(componentObject, "Height", static_cast<const UI_Image&>(component).height);
 
-			json_object_set_string(componentObject, "Path", (static_cast<const UI_Image&>(component).mat->path == "" ? "" : static_cast<const UI_Image&>(component).mat->path).c_str());
+			json_object_set_string(componentObject, "Path", (static_cast<const UI_Image&>(component).mat->diffuse_path == "" ? "" : static_cast<const UI_Image&>(component).mat->diffuse_path).c_str());
 			json_object_set_string(componentObject, "Shader Path", (static_cast<const UI_Image&>(component).mat->shaderPath == "" ? "" : static_cast<const UI_Image&>(component).mat->shaderPath).c_str());
 
 			// Colors
@@ -1734,12 +1787,20 @@ void JsonFile::GetGameObject(const std::vector<GameObject*>& gameObjects, const 
 {
 	// Get Name
 
-	const char* name = json_object_get_string(gameObjectObject, "Name");
-	gameObject.name = (name != nullptr) ? name : "";
+	gameObject.name = json_object_get_string(gameObjectObject, "Name");
 
 	// Get Position, Rotation, Scale
 	// Get Name
-	
+
+	gameObject.type = json_object_get_string(gameObjectObject, "Element_Type");
+
+	if (gameObject.type == "Mesh") {
+
+		// Get Origin Path
+		gameObject.originPath = json_object_get_string(gameObjectObject, "Origin_Path");
+
+	}
+
 	// Get Tag
 
 	bool _isStatic;
@@ -1770,21 +1831,6 @@ void JsonFile::GetGameObject(const std::vector<GameObject*>& gameObjects, const 
 	// Get Type
 
 	gameObject.type = json_object_get_string(gameObjectObject, "Element_Type");
-
-	// Re import if necessary (needs an improvement in the future)
-
-	if (gameObject.type == "Model") {
-
-		// Get Origin Path
-		gameObject.originPath = json_object_get_string(gameObjectObject, "Origin_Path");
-
-		if (!PhysfsEncapsule::FileExists(External->fileSystem->libraryModelsPath + std::to_string(gameObject.UID) + ".ymodel")) {
-
-			External->resourceManager->ImportFile(gameObject.originPath, true);
-
-		}
-
-	}
 
 	// Get Components Info
 
@@ -1915,17 +1961,43 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 	}
 	else if (type == "Mesh") {
 
-		std::string libraryPath = "Library/Meshes/" + std::to_string(gameObject->UID) + ".ymesh";
-		ResourceMesh* rMesh = (ResourceMesh*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, gameObject->UID);
+		uint UID = json_object_get_number(componentObject, "UID");
+	
+		std::string libraryPath = "Library/Meshes/" + std::to_string(UID) + ".ymesh";
+
+		if (!PhysfsEncapsule::FileExists(libraryPath)) {
+
+			External->resourceManager->ReImportModel(gameObject->originPath, true);
+
+		}
+
+		auto itr = External->resourceManager->resources.find(UID);
+
+		ResourceMesh* rMesh = nullptr;
+
+		if (itr == External->resourceManager->resources.end()) {
+
+			rMesh = (ResourceMesh*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID);
+
+		}
+		else {
+
+			rMesh = static_cast<ResourceMesh*>(itr->second);
+
+			itr->second->IncreaseReferenceCount();
+
+		}
 
 		CMesh* cmesh = new CMesh(gameObject);
 
+		cmesh->active = json_object_get_number(componentObject, "Active");
+		
 		cmesh->nVertices = json_object_get_number(componentObject, "Vertex Count");
 		cmesh->nIndices = json_object_get_number(componentObject, "Index Count");
 
 		cmesh->rMeshReference = rMesh;
 
-		cmesh->active = json_object_get_number(componentObject, "Active");
+		cmesh->InitBoundingBoxes();
 
 		gameObject->AddComponent(cmesh);
 
@@ -2083,15 +2155,211 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		}
 
-		uint ID = json_object_get_number(componentObject, "ID");
-		cmaterial->ID = ID;
+		if (json_object_has_value_of_type(componentObject, "Diffuse_Path", JSONString)) {
 
-		std::string diffusePath = json_object_get_string(componentObject, "Diffuse");
+			uint ID = json_object_get_number(componentObject, "Diffuse_ID");
+			cmaterial->diffuse_ID = ID;
 
-		cmaterial->path = diffusePath;
+			std::string diffusePath = json_object_get_string(componentObject, "Diffuse_Path");
+			cmaterial->diffuse_path = diffusePath;
 
-		uint UID = json_object_get_number(componentObject, "UID");
-		cmaterial->UID = UID;
+			uint UID = json_object_get_number(componentObject, "Diffuse_UID");
+			cmaterial->diffuse_UID = UID;
+
+			if (diffusePath == "Checker Image") {
+
+				ResourceTexture* rTex = new ResourceTexture();
+
+				rTex->type = TextureType::DIFFUSE;
+				rTex->LoadCheckerImage();
+
+				cmaterial->rTextures.push_back(rTex);
+
+			}
+			else {
+				
+				ResourceTexture* rTex = new ResourceTexture();
+
+				auto itr = External->resourceManager->resources.find(UID);
+
+				if (itr == External->resourceManager->resources.end()) {
+
+					rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(diffusePath, ResourceType::TEXTURE, UID, TextureType::DIFFUSE);
+
+				}
+				else {
+
+					rTex = static_cast<ResourceTexture*>(itr->second);
+					rTex->type = TextureType::DIFFUSE;
+					itr->second->IncreaseReferenceCount();
+
+				}
+
+				cmaterial->rTextures.push_back(rTex);
+
+			}
+
+		}
+
+		if (json_object_has_value_of_type(componentObject, "Specular_Path", JSONString)) {
+
+			uint ID = json_object_get_number(componentObject, "Specular_ID");
+			cmaterial->specular_ID = ID;
+
+			std::string specularPath = json_object_get_string(componentObject, "Specular_Path");
+			cmaterial->specular_path = specularPath;
+
+			uint UID = json_object_get_number(componentObject, "Specular_UID");
+			cmaterial->specular_UID = UID;
+
+			ResourceTexture* rTex = new ResourceTexture();
+
+			auto itr = External->resourceManager->resources.find(UID);
+
+			if (itr == External->resourceManager->resources.end()) {
+
+				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(specularPath, ResourceType::TEXTURE, UID, TextureType::SPECULAR);
+
+			}
+			else {
+
+				rTex = static_cast<ResourceTexture*>(itr->second);
+				rTex->type = TextureType::SPECULAR;
+				itr->second->IncreaseReferenceCount();
+
+			}
+
+			cmaterial->rTextures.push_back(rTex);
+
+		}
+
+		if (json_object_has_value_of_type(componentObject, "Normal_Path", JSONString)) {
+
+			uint ID = json_object_get_number(componentObject, "Normal_ID");
+			cmaterial->normal_ID = ID;
+
+			std::string normalPath = json_object_get_string(componentObject, "Normal_Path");
+			cmaterial->normal_path = normalPath;
+
+			uint UID = json_object_get_number(componentObject, "Normal_UID");
+			cmaterial->normal_UID = UID;
+
+			ResourceTexture* rTex = new ResourceTexture();
+
+			auto itr = External->resourceManager->resources.find(UID);
+
+			if (itr == External->resourceManager->resources.end()) {
+
+				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(normalPath, ResourceType::TEXTURE, UID, TextureType::NORMAL);
+
+			}
+			else {
+
+				rTex = static_cast<ResourceTexture*>(itr->second);
+				rTex->type = TextureType::NORMAL;
+				itr->second->IncreaseReferenceCount();
+
+			}
+			
+			cmaterial->rTextures.push_back(rTex);
+
+		}
+
+		if (json_object_has_value_of_type(componentObject, "Height_Path", JSONString)) {
+
+			uint ID = json_object_get_number(componentObject, "Height_ID");
+			cmaterial->height_ID = ID;
+
+			std::string heightPath = json_object_get_string(componentObject, "Height_Path");
+			cmaterial->height_path = heightPath;
+
+			uint UID = json_object_get_number(componentObject, "Height_UID");
+			cmaterial->height_UID = UID;
+
+			ResourceTexture* rTex = new ResourceTexture();
+
+			auto itr = External->resourceManager->resources.find(UID);
+
+			if (itr == External->resourceManager->resources.end()) {
+
+				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(heightPath, ResourceType::TEXTURE, UID, TextureType::HEIGHT);
+
+			}
+			else {
+
+				rTex = static_cast<ResourceTexture*>(itr->second);
+				rTex->type = TextureType::HEIGHT;
+				itr->second->IncreaseReferenceCount();
+
+			}
+
+			cmaterial->rTextures.push_back(rTex);
+
+		}
+
+		if (json_object_has_value_of_type(componentObject, "Ambient_Path", JSONString)) {
+
+			uint ID = json_object_get_number(componentObject, "Ambient_ID");
+			cmaterial->ambient_ID = ID;
+
+			std::string ambientPath = json_object_get_string(componentObject, "Ambient_Path");
+			cmaterial->ambient_path = ambientPath;
+
+			uint UID = json_object_get_number(componentObject, "Ambient_UID");
+			cmaterial->ambient_UID = UID;
+
+			ResourceTexture* rTex = new ResourceTexture();
+
+			auto itr = External->resourceManager->resources.find(UID);
+
+			if (itr == External->resourceManager->resources.end()) {
+
+				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(ambientPath, ResourceType::TEXTURE, UID, TextureType::AMBIENT);
+
+			}
+			else {
+
+				rTex = static_cast<ResourceTexture*>(itr->second);
+				rTex->type = TextureType::AMBIENT;
+				itr->second->IncreaseReferenceCount();
+
+			}
+
+			cmaterial->rTextures.push_back(rTex);
+
+		}
+
+		if (json_object_has_value_of_type(componentObject, "Emissive_Path", JSONString)) {
+
+			uint ID = json_object_get_number(componentObject, "Emissive_ID");
+			cmaterial->emissive_ID = ID;
+
+			std::string emissivePath = json_object_get_string(componentObject, "Emissive_Path");
+			cmaterial->emissive_path = emissivePath;
+
+			uint UID = json_object_get_number(componentObject, "Emissive_UID");
+			cmaterial->emissive_UID = UID;
+
+			ResourceTexture* rTex = new ResourceTexture();
+
+			auto itr = External->resourceManager->resources.find(UID);
+
+			if (itr == External->resourceManager->resources.end()) {
+
+				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(emissivePath, ResourceType::TEXTURE, UID, TextureType::EMISSIVE);
+
+			}
+			else {
+
+				rTex = static_cast<ResourceTexture*>(itr->second);
+				rTex->type = TextureType::EMISSIVE;
+				itr->second->IncreaseReferenceCount();
+
+			}
+
+			cmaterial->rTextures.push_back(rTex);
+
+		}
 
 		// FRANCESC: BUG WITH THE RESOURCETEXTURES HAVING UID 0, IT BREAKS THE MAP IF SOLVED
 		
@@ -2101,21 +2369,6 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		//	cmaterial->rTextures.push_back(rTex);
 
 		//}
-
-		ResourceTexture* rTex = new ResourceTexture();
-
-		if (diffusePath == "Checker Image") {
-
-			rTex->LoadCheckerImage();
-
-		}
-		else {
-
-			rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(diffusePath, ResourceType::TEXTURE, UID);
-
-		}
-		
-		cmaterial->rTextures.push_back(rTex);
 	
 		cmaterial->active = json_object_get_number(componentObject, "Active");
 		gameObject->AddComponent(cmaterial);
@@ -2169,15 +2422,15 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		JSON_Array* jsonSizeArray = json_value_get_array(jsonSizeValue);
 		JSON_Array* jsonSizeAssetsArray = json_value_get_array(jsonSizeAssetsValue);
 		for (int i = 0; i < json_object_get_number(componentObject, "NumPaths"); i++) {
-			if (json_array_get_string(jsonSizeArray, i) != "") {
+			if (json_array_get_string(jsonSizeArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeArray, i))) {
 				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeArray, i), ResourceType::ANIMATION, gameObject->UID);
 				cAnim->AddAnimation(*rAnim);
-				LOG("Loaded animation from Library");
+				LOG("Loaded animation '%s' from Library", rAnim->name.c_str());
 			}
-			else if(json_array_get_string(jsonSizeAssetsArray, i) != "") {
-				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromAssets(json_array_get_string(jsonSizeAssetsArray, i), ResourceType::ANIMATION, gameObject->UID);
+			else if(json_array_get_string(jsonSizeAssetsArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeAssetsArray, i))) {
+				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeAssetsArray, i), ResourceType::ANIMATION, gameObject->UID);
 				cAnim->AddAnimation(*rAnim);
-				LOG("Loaded animation from Assets");
+				LOG("Loaded animation '%s' from Assets", rAnim->name.c_str());
 			}
 			else {
 				LOG("[ERROR]Couldn't load animation");
@@ -2242,19 +2495,36 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		ccollider->size = size;
 
-		ccollider->shape->setLocalScaling(btVector3(size.x, size.y, size.z));
+		// Offset
+		
+		JSON_Value* jsonOffsetValue = json_object_get_value(componentObject, "Offset");
 
-		// Radius
+		if (jsonOffsetValue == nullptr || json_value_get_type(jsonOffsetValue) != JSONArray) {
 
-		ccollider->radius = json_object_get_number(componentObject, "Radius");
+			return;
+		}
 
-		// Height
+		JSON_Array* jsonOffsetArray = json_value_get_array(jsonOffsetValue);
 
-		ccollider->height = json_object_get_number(componentObject, "Height");
+		float3 _offset;
+
+		_offset.x = static_cast<float>(json_array_get_number(jsonOffsetArray, 0));
+		_offset.y = static_cast<float>(json_array_get_number(jsonOffsetArray, 1));
+		_offset.z = static_cast<float>(json_array_get_number(jsonOffsetArray, 2));
+
+		ccollider->offset = _offset;
 
 		// Mass
 
 		ccollider->mass = static_cast<float>(json_object_get_number(componentObject, "Mass"));
+
+		// Friction
+		
+		ccollider->friction = static_cast<float>(json_object_get_number(componentObject, "Friction"));
+
+		// Angular Friction
+
+		ccollider->angularFriction = static_cast<float>(json_object_get_number(componentObject, "Angular Friction"));
 
 		// Gravity
 
@@ -2365,7 +2635,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			ui_comp->width = json_object_get_number(componentObject, "Width");
 			ui_comp->height = json_object_get_number(componentObject, "Height");
 
-			ui_comp->mat->path = json_object_get_string(componentObject, "Path");
+			ui_comp->mat->diffuse_path = json_object_get_string(componentObject, "Path");
 			ui_comp->mat->shaderPath = json_object_get_string(componentObject, "Shader Path");
 
 			if (External->scene->GetCanvas() == nullptr)
@@ -2379,7 +2649,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 			gameObject->canvas = static_cast<G_UI*>(gameObject->mParent)->canvas;
 
-			ui_comp->SetImg(ui_comp->mat->path, UI_STATE::NORMAL); 
+			ui_comp->SetImg(ui_comp->mat->diffuse_path, UI_STATE::NORMAL); 
 			ui_comp->selectedTexture = ui_comp->mapTextures.find(ui_comp->state)->second;
 
 			// Colors
