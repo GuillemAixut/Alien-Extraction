@@ -61,7 +61,9 @@ bool ModuleScene::Init()
 	selectedGO = nullptr;
 	godMode = false;
 
-	selectedUI = 0;
+	onHoverUI = 0;
+	selectedUIGO = nullptr;
+	focusedUIGO = nullptr;
 	canTab = true;
 
 	return ret;
@@ -70,6 +72,8 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
+	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
+	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
 
 #ifdef _RELEASE
 
@@ -77,6 +81,8 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
+	//LoadSceneFromStart("Assets", "Enemigo player");
+	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
 
@@ -92,23 +98,6 @@ bool ModuleScene::Start()
 
 #endif // _STANDALONE
 
-	// Test for Physics
-	// LoadSceneFromStart("Assets", "PhysicsTest"); 
-
-	// Test for Game Extraction
-	// LoadSceneFromStart("Assets", "Water");
-
-	//CreateGUI(UI_TYPE::BUTTON);
-	//CreateGUI(UI_TYPE::BUTTON, nullptr, 500, 500);
-	//CreateGUI(UI_TYPE::BUTTON, nullptr, 750, 750);
-
-	//CreateGUI(UI_TYPE::SLIDER);
-
-	//CreateGUI(UI_TYPE::SLIDER, nullptr, 100, 100);
-	//CreateGUI(UI_TYPE::CHECKBOX, nullptr, 500, 500);
-	//CreateGUI(UI_TYPE::INPUTBOX, nullptr, 500, 500);
-	//CreateGUI(UI_TYPE::TEXT);
-
 	return false;
 }
 
@@ -116,7 +105,11 @@ update_status ModuleScene::PreUpdate(float dt)
 {
 	OPTICK_EVENT();
 
-
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN)
+	{
+		swapList.insert(std::pair<GameObject*, GameObject*>(mRootNode->mChildren[1], mRootNode->mChildren[3]));
+		//mRootNode->mChildren[1]->SwapChildren(mRootNode->mChildren[3]);
+	}
 
 	return UPDATE_CONTINUE;
 }
@@ -235,8 +228,15 @@ update_status ModuleScene::PostUpdate(float dt)
 		destroyList.clear();
 	}
 
-
-
+	/*swap gameobjects inside the swap queue*/
+	if (swapList.size() > 0)
+	{
+		for (std::map<GameObject*, GameObject*>::iterator it = swapList.begin(); it != swapList.end(); ++it)
+		{
+			it->first->SwapChildren(it->second);
+		}
+		swapList.clear();
+	}
 	return UPDATE_CONTINUE;
 }
 
@@ -504,17 +504,18 @@ void ModuleScene::Destroy(GameObject* gm)
 {
 	for (std::vector<GameObject*>::iterator i = gm->mParent->mChildren.begin(); i != gm->mParent->mChildren.end(); ++i)
 	{
+		(*i._Ptr)->ClearReferences();
+
 		if (*i._Ptr == gm)
 		{
 			gm->mParent->mChildren.erase(i);
 			break;
 		}
 	}
+
 	gm->mParent->mChildren.shrink_to_fit();
 
-
-	delete gm;
-	gm = nullptr;
+	RELEASE(gm);
 }
 
 //
@@ -551,7 +552,7 @@ void ModuleScene::SetSelected(GameObject* go)
 
 				// Set selected go children to the same state as the clicked item
 				SetSelectedState(go, go->selected);
-			}	
+			}
 			else if (!vSelectedGOs.empty())
 			{
 				SetSelectedState(go, false);
@@ -559,7 +560,7 @@ void ModuleScene::SetSelected(GameObject* go)
 			}
 		}
 		else
-		{	
+		{
 			selectedGO = nullptr;
 
 			for (auto i = 0; i < vSelectedGOs.size(); i++)
@@ -837,13 +838,14 @@ void ModuleScene::LoadScriptsData(GameObject* rootObject)
 	referenceMap.clear();
 }
 
-void ModuleScene::GetUINaviagte(GameObject* go, std::vector<C_UI*>& listgo)
+void ModuleScene::GetUINavigate(GameObject* go, std::vector<C_UI*>& listgo)
 {
 	if (go->active)
 	{
 		for (auto i = 0; i < static_cast<G_UI*>(go)->mComponents.size(); i++)
 		{
-			if (static_cast<G_UI*>(go)->mComponents[i]->ctype == ComponentType::UI && static_cast<C_UI*>(static_cast<G_UI*>(go)->mComponents[i])->tabNav_)
+			if (static_cast<G_UI*>(go)->mComponents[i]->ctype == ComponentType::UI && static_cast<C_UI*>(static_cast<G_UI*>(go)->mComponents[i])->tabNav_ &&
+				static_cast<C_UI*>(static_cast<G_UI*>(go)->mComponents[i])->state != UI_STATE::DISABLED)
 			{
 				listgo.push_back((C_UI*)static_cast<G_UI*>(go)->mComponents[i]);
 			}
@@ -854,78 +856,150 @@ void ModuleScene::GetUINaviagte(GameObject* go, std::vector<C_UI*>& listgo)
 	{
 		for (auto i = 0; i < go->mChildren.size(); i++)
 		{
-			GetUINaviagte(go->mChildren[i], listgo);
+			GetUINavigate(go->mChildren[i], listgo);
 		}
 	}
 }
 
-bool ModuleScene::TabNavigate(bool isForward)
+GameObject* ModuleScene::GetUISelected(GameObject* go)
+{
+	if (go->active)
+	{
+		if (!go->mChildren.empty())
+		{
+			for (auto i = 0; i < go->mChildren.size(); i++)
+			{
+				for (auto i = 0; i < static_cast<G_UI*>(go->mChildren[i])->mComponents.size(); i++)
+				{
+					if (static_cast<C_UI*>(static_cast<G_UI*>(go->mChildren[i])->mComponents[i])->state == UI_STATE::SELECTED)
+					{
+						return go;
+					}
+				}
+			}
+		}
+	}
+
+	return nullptr;
+}
+
+void ModuleScene::ResetSelected()
 {
 	// Get UI elements to navigate
 	std::vector<C_UI*> listUI;
 
 	for (int i = 0; i < vCanvas.size(); ++i)
 	{
-		GetUINaviagte(vCanvas[i], listUI);
+		GetUINavigate(vCanvas[i], listUI);
 	}
 
 	for (auto i = 0; i < listUI.size(); i++)
 	{
-
-		if (isForward)
+		if (listUI[i]->state == UI_STATE::SELECTED)
 		{
-			if (selectedUI == listUI.size() - 1)
-			{
-				App->scene->SetSelected(listUI[0]->mOwner);
-
-				listUI[selectedUI]->SetState(UI_STATE::NORMAL);
-				listUI[0]->SetState(UI_STATE::SELECTED);
-
-				selectedUI = 0;
-			}
-
-			else
-			{
-				App->scene->SetSelected(listUI[selectedUI + 1]->mOwner);
-
-				listUI[selectedUI]->SetState(UI_STATE::NORMAL);
-				listUI[selectedUI + 1]->SetState(UI_STATE::SELECTED);
-
-				selectedUI += 1;
-			}
+			listUI[i]->state = UI_STATE::NORMAL;
 		}
 
-		else
+	}
+}
+
+
+void ModuleScene::TabNavigate(bool isForward)
+{
+	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING)
+	{
+		// Get UI elements to navigate
+		std::vector<C_UI*> listUI;
+
+		for (int i = 0; i < vCanvas.size(); ++i)
 		{
-			for (auto i = 0; i < listUI.size(); i++)
+			GetUINavigate(vCanvas[i], listUI);
+		}
+
+		if (!listUI.empty())
+		{
+			if (isForward)
 			{
-				if (selectedUI == 0)
+				if (onHoverUI == listUI.size() - 1)
 				{
-					App->scene->SetSelected(listUI[listUI.size() - 1]->mOwner);
+					SetSelected(listUI[0]->mOwner);
 
-					listUI[selectedUI]->SetState(UI_STATE::NORMAL);
-					listUI[listUI.size() - 1]->SetState(UI_STATE::SELECTED);
+					focusedUIGO = listUI[0]->mOwner;
 
-					selectedUI = listUI.size() - 1;
+					if (listUI[onHoverUI]->state != UI_STATE::SELECTED)
+					{
+						listUI[onHoverUI]->SetState(UI_STATE::NORMAL);
+					}
+
+					if (listUI[0]->state != UI_STATE::SELECTED)
+					{
+						listUI[0]->SetState(UI_STATE::FOCUSED);
+					}
+
+					onHoverUI = 0;
 				}
 
 				else
 				{
-					App->scene->SetSelected(listUI[selectedUI - 1]->mOwner);
+					SetSelected(listUI[onHoverUI + 1]->mOwner);
 
-					listUI[selectedUI]->SetState(UI_STATE::NORMAL);
-					listUI[selectedUI - 1]->SetState(UI_STATE::SELECTED);
+					focusedUIGO = listUI[onHoverUI + 1]->mOwner;
 
-					selectedUI -= 1;
+					if (listUI[onHoverUI]->state != UI_STATE::SELECTED)
+					{
+						listUI[onHoverUI]->SetState(UI_STATE::NORMAL);
+					}
+
+					if (listUI[onHoverUI + 1]->state != UI_STATE::SELECTED)
+					{
+						listUI[onHoverUI + 1]->SetState(UI_STATE::FOCUSED);
+					}
+
+					onHoverUI += 1;
 				}
-				return true;
+			}
+
+			else
+			{
+
+				if (onHoverUI == 0)
+				{
+					SetSelected(listUI[listUI.size() - 1]->mOwner);
+					focusedUIGO = listUI[listUI.size() - 1]->mOwner;
+
+					if (listUI[onHoverUI]->state != UI_STATE::SELECTED)
+					{
+						listUI[onHoverUI]->SetState(UI_STATE::NORMAL);
+					}
+
+					if (listUI[listUI.size() - 1]->state != UI_STATE::SELECTED)
+					{
+						listUI[listUI.size() - 1]->SetState(UI_STATE::FOCUSED);
+					}
+
+					onHoverUI = listUI.size() - 1;
+				}
+
+				else
+				{
+					SetSelected(listUI[onHoverUI - 1]->mOwner);
+					focusedUIGO = listUI[onHoverUI - 1]->mOwner;
+
+					if (listUI[onHoverUI]->state != UI_STATE::SELECTED)
+					{
+						listUI[onHoverUI]->SetState(UI_STATE::NORMAL);
+					}
+
+					if (listUI[onHoverUI - 1]->state != UI_STATE::SELECTED)
+					{
+						listUI[onHoverUI - 1]->SetState(UI_STATE::FOCUSED);
+					}
+
+					onHoverUI -= 1;
+				}
 			}
 		}
-
-		return true;
 	}
-
-	return true;
 }
 
 void ModuleScene::HandleUINavigation()

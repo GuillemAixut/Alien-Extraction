@@ -52,6 +52,13 @@ namespace YmirEngine
         public static extern GameObject GetGameObjectByName(string name);
 
         /// <summary>
+        /// Retrieves a game object by its name.
+        /// </summary>
+        /// <param name="go">Parent from which we search for the game object.</param>
+        /// <param name="name">Name of the game object being searched for.</param>
+        /// <returns>The children as game object if found, otherwise null.</returns>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject GetChildrenByName(object parentGO, string name);
         /// Retrieves a game object by its UID.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -83,7 +90,33 @@ namespace YmirEngine
         /// <param name="prefabPath">The path to the prefab folder (in this format: "Assets/Prefabs").</param>
         /// <param name="prefabName">The name of the prefab inside of the prefabPath (in this format: "Player").</param>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void CreateGOFromPrefab(string prefabPath, string prefabName);
+        public static extern void CreateGOFromPrefab(string prefabPath, string prefabName);          
+        
+        // TODO: PONER EN GAMEOBJECT.CS
+        /// <summary>
+        /// Get parent from go.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject CS_GetParent(object parentGO);
+
+        // TODO: PONER EN GAMEOBJECT.CS
+        /// <summary>
+        /// Get child in numberChild position in mchildren.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject CS_GetChild(object go, int numberChild);
+
+        /// <summary>
+        /// Compare GameObjects by UID.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool CompareGameObjectsByUID(object go1, object go2);          
+        
+        /// <summary>
+        /// Compare string to go name.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool CompareStringToName(object go, string name);        
 
     }
 
@@ -92,6 +125,18 @@ namespace YmirEngine
     /// </summary>
     public class UI
     {
+        /// <summary>
+        /// Change UI state.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int GetUIState(object go);
+
+        /// <summary>
+        /// Change UI state.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetUIState(object go, int uiState);
+
         /// <summary>
         /// Creates an image UI element.
         /// </summary>
@@ -102,7 +147,35 @@ namespace YmirEngine
         /// Changes an image UI element.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject ChangeImageUI(object go, string name, string findGo, int x, int y);
+        public static extern GameObject ChangeImageUI(object go, string name, int state);
+
+        /// <summary>
+        /// Get sprite sheet rows.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int GetImageRows(object go);
+        /// <summary>
+        /// Get sprite sheet columns.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int GetImageColumns(object go);
+
+        /// <summary>
+        /// Get current sprite X.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int GetImageCurrentFrameX(object go);
+        /// <summary>
+        /// Get current sprite Y.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int GetImageCurrentFrameY(object go);
+
+        /// <summary>
+        /// Set image current frame.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetImageCurrentFrame(object go, int x = 0, int y = 0);
 
         /// <summary>
         /// Edits a text UI element.
@@ -133,8 +206,38 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern GameObject SliderSetMax(object go, double value);
-    }
 
+        /// <summary>
+        /// Get UI go that is in selected state.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject GetSelected();
+
+        /// <summary>
+        /// Get UI go that is in focused state.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject GetFocused();
+
+        /// <summary>
+        /// Switch position of two game objects.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject SwitchPosition(object selectedgo, object targetobject);
+
+        /// <summary>
+        /// Switch position of two game objects.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject NavigateGrid(object go, int rows, int columns, bool isRight, bool navigate, object gridLeft, object gridRight);
+        
+        /// <summary>
+        /// Switch position of two game objects.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject UpgradeToUnlock(object go);
+    }
+    
     /// <summary>
     /// Provides methods for handling input.
     /// </summary>

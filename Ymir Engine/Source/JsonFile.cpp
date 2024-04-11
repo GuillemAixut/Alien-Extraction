@@ -1412,6 +1412,12 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 			json_object_set_string(componentObject, "Path", (static_cast<const UI_Image&>(component).mat->diffuse_path == "" ? "" : static_cast<const UI_Image&>(component).mat->diffuse_path).c_str());
 			json_object_set_string(componentObject, "Shader Path", (static_cast<const UI_Image&>(component).mat->shaderPath == "" ? "" : static_cast<const UI_Image&>(component).mat->shaderPath).c_str());
 
+			json_object_set_number(componentObject, "Current Frame X", static_cast<const UI_Image&>(component).ssCoordsY);
+			json_object_set_number(componentObject, "Current Frame Y", static_cast<const UI_Image&>(component).ssCoordsX);
+
+			json_object_set_number(componentObject, "Rows", static_cast<const UI_Image&>(component).ssRows);
+			json_object_set_number(componentObject, "Columns", static_cast<const UI_Image&>(component).ssColumns);
+
 			// Colors
 			JSON_Value* colorArrayValue = json_value_init_array();
 			JSON_Array* colorArray = json_value_get_array(colorArrayValue);
@@ -1467,6 +1473,9 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 			json_object_set_string(componentObject, "Release", static_cast<UI_Image*>(static_cast<const UI_Button&>(component).
 				image)->mapTextures[UI_STATE::RELEASE]->GetAssetsFilePath().c_str());
+
+			json_object_set_string(componentObject, "Disabled", static_cast<UI_Image*>(static_cast<const UI_Button&>(component).
+				image)->mapTextures[UI_STATE::DISABLED]->GetAssetsFilePath().c_str());
 
 			// Colors
 			SetColor(componentObject, component);
@@ -2581,8 +2590,6 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		}
 		case UI_TYPE::IMAGE:
 		{
-			//UI_Image* ui_comp = gameObject->AddImage(json_object_get_string(componentObject, "Path"));
-
 			UI_Image* ui_comp = new UI_Image(gameObject);
 			ui_comp->width = json_object_get_number(componentObject, "Width");
 			ui_comp->height = json_object_get_number(componentObject, "Height");
@@ -2603,6 +2610,15 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 			ui_comp->SetImg(ui_comp->mat->diffuse_path, UI_STATE::NORMAL); 
 			ui_comp->selectedTexture = ui_comp->mapTextures.find(ui_comp->state)->second;
+
+			//
+			ui_comp->ssCoordsY = json_object_get_number(componentObject, "Current Frame X");
+			ui_comp->ssCoordsX = json_object_get_number(componentObject, "Current Frame Y");
+
+			ui_comp->ssRows = json_object_get_number(componentObject, "Rows");
+			ui_comp->ssColumns = json_object_get_number(componentObject, "Columns");
+
+			ui_comp->SetSpriteSize();
 
 			// Colors
 			JSON_Value* jsonUIValue = json_object_get_value(componentObject, "Color");
@@ -2685,6 +2701,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			ui_comp->mPaths.insert(std::pair<UI_STATE, std::string>(UI_STATE::PRESSED, json_object_get_string(componentObject, "Pressed")));
 			ui_comp->mPaths.insert(std::pair<UI_STATE, std::string>(UI_STATE::SELECTED, json_object_get_string(componentObject, "Selected")));
 			ui_comp->mPaths.insert(std::pair<UI_STATE, std::string>(UI_STATE::RELEASE, json_object_get_string(componentObject, "Release")));
+			ui_comp->mPaths.insert(std::pair<UI_STATE, std::string>(UI_STATE::DISABLED, json_object_get_string(componentObject, "Disabled")));
 
 			// Colors
 			JSON_Value* focusedColorArrayValue = json_object_get_value(componentObject, "Focused color");

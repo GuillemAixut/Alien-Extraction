@@ -113,6 +113,7 @@ public:
 
 	//font
 	Font* defaultFont;
+	std::vector<Font*> mFonts;
 
 	// Outline Shader
 	Shader* outlineShader;

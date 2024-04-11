@@ -139,6 +139,7 @@ bool ModuleEditor::Init()
 	sceneIcon.LoadEngineIconTexture("Assets/Editor/scene2.dds");
 	prefabIcon.LoadEngineIconTexture("Assets/Editor/prefab.dds");
 	animIcon.LoadEngineIconTexture("Assets/Editor/animation.dds");
+	fontIcon.LoadEngineIconTexture("Assets/Editor/font.dds");
 
 	scriptEditor = new ScriptEditor();
 	scriptEditor->LoadScriptTXT("../Game/Assets/Scripts/Core.cs");
@@ -1386,7 +1387,20 @@ void ModuleEditor::DrawEditor()
 
 			if (ImGui::BeginDragDropTarget())
 			{
-				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
+				{
+					std::string assetsFilePathDrop = (const char*)payload->Data;
+					if (assetsFilePathDrop.find(".png") != std::string::npos) {
+
+						assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+
+						LOG("File path: %s", assetsFilePathDrop.c_str());
+
+						App->resourceManager->ImportFile(assetsFilePathDrop);
+					}
+				}
+
+				else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
 				{
 					std::string assetsFilePathDrop = (const char*)payload->Data;
 
@@ -1400,7 +1414,7 @@ void ModuleEditor::DrawEditor()
 
 					}
 
-					if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
+					else if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
 
 						assetsFilePathDrop.erase(assetsFilePathDrop.find(".yscene") + 7);
 
@@ -1413,7 +1427,7 @@ void ModuleEditor::DrawEditor()
 
 					}
 
-					if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
+					else if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
 
 						assetsFilePathDrop.erase(assetsFilePathDrop.find(".yfab") + 5);
 
@@ -1423,16 +1437,6 @@ void ModuleEditor::DrawEditor()
 						PhysfsEncapsule::SplitFilePath(assetsFilePathDrop.c_str(), &path, &name);
 
 						App->scene->LoadPrefab(path, name);
-
-					}
-
-					if (assetsFilePathDrop.find(".png") != std::string::npos) {
-
-						assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
-
-						LOG("File path: %s", assetsFilePathDrop.c_str());
-
-						App->resourceManager->ImportFile(assetsFilePathDrop);
 
 					}
 
@@ -2804,7 +2808,7 @@ void ModuleEditor::CreateHierarchyTree(GameObject* node)
 
 		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_DefaultOpen | (node->selected ? ImGuiTreeNodeFlags_Selected : 0) | (node->mChildren.size() ? 0 : ImGuiTreeNodeFlags_Leaf);
 
-		if (!node->active) ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 0.4f));
+		if (!node->active) ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.421f, 0.421f, 0.421f, 1.0f));
 
 		bool isNodeOpen = ImGui::TreeNodeEx((node->name + "##" + std::to_string(node->UID)).c_str(), flags);
 
@@ -3064,105 +3068,122 @@ void ModuleEditor::DrawInspector()
 			// Set the cursor position to center the button within the menu
 			ImGui::SetCursorPosX(xPos);
 
+			static bool click = false;
 
 			if (ImGui::Button("Add Component", ImVec2(110, 30)))
 			{
 				ImGui::OpenPopup("AddComponents");
-				ImGui::SameLine();
+				click = false;
 			}
 
-			if (ImGui::BeginPopup("AddComponents"))
+			if (!click)
 			{
-				ImGui::SeparatorText("Components");
-
-				// Skip transform
-				// --- Add component Mesh ---
-
-				/*if (mesh == nullptr)
+				if (ImGui::BeginPopup("AddComponents"))
 				{
-					if (ImGui::BeginMenu("Mesh"))
+					ImGui::SeparatorText("Components");
+
+					// Skip transform
+					// --- Add component Mesh ---
+
+					/*if (mesh == nullptr)
 					{
-						App->editor->PrimitivesMenu();
-						ImGui::EndMenu();
-					}
-				}*/
+						if (ImGui::BeginMenu("Mesh"))
+						{
+							App->editor->PrimitivesMenu();
+							ImGui::EndMenu();
+						}
+					}*/
 
-				// --- Add component Material ---
-				if ((CMaterial*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
-				{
-					if (ImGui::MenuItem("Material"))
+					// --- Add component Material ---
+					if ((CMaterial*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
 					{
-						App->scene->selectedGO->AddComponent(ComponentType::MATERIAL);
-					}
-				}
-
-				//// --- Add component Camera ---
-
-				if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
-				{
-					if (ImGui::MenuItem("Camera"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
-					}
-				}
-
-				//// --- Add component Physics ---
-
-				if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
-				{
-					if (ImGui::MenuItem("Physics"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
-					}
-				}
-
-				if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
-				{
-					if (ImGui::MenuItem("Audio_Source"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
-					}
-				}
-
-				if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
-				{
-					if (ImGui::MenuItem("Audio_Listener"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
-					}
-				}
-
-				if (ImGui::BeginMenu("Script"))
-				{
-					if (ImGui::MenuItem("Add New Script")) {
-
-						//Todo: Add NewScript
-						showNewScriptPopUp = true;
-
-					}
-
-					ImGui::Separator();
-
-					for (const auto& entry : std::filesystem::directory_iterator("Assets/Scripts")) {
-
-						if (!entry.is_directory()) {
-
-							std::string entryName = entry.path().filename().string();
-							if (ImGui::MenuItem(entryName.c_str()))
-							{
-								script_name = entryName.c_str();
-								App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
-							}
-
+						if (ImGui::MenuItem("Material"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::MATERIAL);
 						}
 					}
 
-					ImGui::EndMenu();
-				}
+					//// --- Add component Camera ---
 
-				//delete physics;
-				ImGui::EndPopup();
+					if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
+					{
+						if (ImGui::MenuItem("Camera"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
+						}
+					}
+
+					//// --- Add component Physics ---
+
+					if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
+					{
+						if (ImGui::MenuItem("Physics"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
+						}
+					}
+
+					if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
+					{
+						if (ImGui::MenuItem("Audio_Source"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
+						}
+					}
+
+					if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
+					{
+						if (ImGui::MenuItem("Audio_Listener"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
+						}
+					}
+
+					if (ImGui::BeginMenu("Script"))
+					{
+						if (ImGui::MenuItem("Add New Script")) {
+
+							//Todo: Add NewScript
+							showNewScriptPopUp = true;
+
+						}
+
+						static ImGuiTextFilter scriptFilter;
+
+						scriptFilter.Draw("Search", ImGui::GetFontSize() * 15);
+
+						ImGui::Separator();
+
+						for (const auto& entry : std::filesystem::directory_iterator("Assets/Scripts")) {
+
+							std::string entryName = entry.path().filename().string();
+
+							if (!entry.is_directory() && scriptFilter.PassFilter(entryName.c_str())) {
+
+								if (ImGui::BeginChild("##ScriptsAddComponent", ImVec2(0, 300), true))
+								{
+									if (ImGui::MenuItem(entryName.c_str()))
+									{
+										script_name = entryName.c_str();
+										App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
+
+										click = true;
+									}
+								}
+
+								ImGui::EndChild();
+
+							}
+						}
+
+						ImGui::EndMenu();
+					}
+
+					//delete physics;
+					ImGui::EndPopup();
+				}
 			}
+
 			if (!App->scene->selectedGO->active) { ImGui::EndDisabled(); }
 		}
 	}
@@ -3442,7 +3463,22 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 		if (ImGui::BeginDragDropTarget())
 		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
+			{
+				std::string assetsFilePathDrop = (const char*)payload->Data;
+				if (assetsFilePathDrop.find(".png") != std::string::npos) {
+
+					assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+
+					LOG("File path: %s", assetsFilePathDrop.c_str());
+
+				}
+
+				MoveAsset(assetsFilePathDrop);
+
+			}
+
+			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
 			{
 				std::string assetsFilePathDrop = (const char*)payload->Data;
 
@@ -3454,7 +3490,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 
-				if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
+				else if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
 
 					assetsFilePathDrop.erase(assetsFilePathDrop.find(".yscene") + 7);
 
@@ -3462,7 +3498,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 
-				if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
+				else if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
 
 					assetsFilePathDrop.erase(assetsFilePathDrop.find(".yfab") + 5);
 
@@ -3470,37 +3506,24 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 
-				if (assetsFilePathDrop.find(".png") != std::string::npos) {
+				else if (assetsFilePathDrop.find(".ttf") != std::string::npos) {
 
-					assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+					assetsFilePathDrop.erase(assetsFilePathDrop.find(".ttf") + 4);
 
 					LOG("File path: %s", assetsFilePathDrop.c_str());
 
 				}
 
-				// Extract the file name from the path
-				std::filesystem::path assetFilePath(assetsFilePathDrop);
-				std::string fileName = assetFilePath.filename().string();
+				else if (assetsFilePathDrop.find(".otf") != std::string::npos) {
 
-				// Calculate parent directory from current directory
-				std::filesystem::path parentDirPath(currentDir);
-				parentDirPath = parentDirPath.parent_path();
-				std::string parentDir = parentDirPath.string();
+					assetsFilePathDrop.erase(assetsFilePathDrop.find(".otf") + 4);
 
-				// Construct the new path by appending the file name to the parent directory
-				std::filesystem::path newFilePath = std::filesystem::path(parentDir) / fileName;
+					LOG("File path: %s", assetsFilePathDrop.c_str());
 
-				// Perform the move operation
-				std::error_code ec;
-				std::filesystem::rename(assetFilePath, newFilePath, ec);
-
-				if (!ec) {
-					LOG("Moved asset '%s' to directory '%s'", fileName.c_str(), currentDir.c_str());
-				}
-				else {
-					LOG("Error moving asset: %s", ec.message().c_str());
 				}
 
+
+				MoveAsset(assetsFilePathDrop);
 			}
 
 			ImGui::EndDragDropTarget();
@@ -3543,7 +3566,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 			std::string entryName = entry.path().filename().string();
 
 			if (entry.is_directory() && (entryName != "." && entryName != "..") && filter.PassFilter(entryName.c_str())) {
-				
+
 				ImGui::TableNextColumn();
 				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.8f, 0.3f, 1.0f));
 				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.14f, 0.14f, 0.14f, 1.0f)); // Default button color
@@ -3573,7 +3596,22 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 					if (ImGui::BeginDragDropTarget())
 					{
-						if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
+						if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
+						{
+							std::string assetsFilePathDrop = (const char*)payload->Data;
+							if (assetsFilePathDrop.find(".png") != std::string::npos) {
+
+								assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+
+								LOG("File path: %s", assetsFilePathDrop.c_str());
+
+							}
+
+							MoveAsset(assetsFilePathDrop);
+
+						}
+
+						else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
 						{
 							std::string assetsFilePathDrop = (const char*)payload->Data;
 
@@ -3585,15 +3623,15 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 							}
 
-							if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
+							else if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
 
 								assetsFilePathDrop.erase(assetsFilePathDrop.find(".yscene") + 7);
 
 								LOG("File path: %s", assetsFilePathDrop.c_str());
-							
+
 							}
 
-							if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
+							else if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
 
 								assetsFilePathDrop.erase(assetsFilePathDrop.find(".yfab") + 5);
 
@@ -3601,31 +3639,23 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 							}
 
-							if (assetsFilePathDrop.find(".png") != std::string::npos) {
+							else if (assetsFilePathDrop.find(".ttf") != std::string::npos) {
 
-								assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+								assetsFilePathDrop.erase(assetsFilePathDrop.find(".ttf") + 4);
 
 								LOG("File path: %s", assetsFilePathDrop.c_str());
 
 							}
 
-							// Extract the file name from the path
-							std::filesystem::path assetFilePath(assetsFilePathDrop);
-							std::string fileName = assetFilePath.filename().string();
+							else if (assetsFilePathDrop.find(".otf") != std::string::npos) {
 
-							// Construct the new path by appending the file name to the current directory
-							std::filesystem::path newFilePath = entry.path() / fileName;
+								assetsFilePathDrop.erase(assetsFilePathDrop.find(".otf") + 4);
 
-							// Perform the move operation
-							std::error_code ec;
-							std::filesystem::rename(assetFilePath, newFilePath, ec);
+								LOG("File path: %s", assetsFilePathDrop.c_str());
 
-							if (!ec) {
-								LOG("Moved asset '%s' to directory '%s'", fileName.c_str(), entryName.c_str());
 							}
-							else {
-								LOG("Error moving asset: %s", ec.message().c_str());
-							}
+
+							MoveAsset(assetsFilePathDrop);
 
 						}
 
@@ -3670,7 +3700,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 			std::string entryName = entry.path().filename().string();
 
 			if (!entry.is_directory() && (entryName != "." && entryName != ".." && (shouldIgnoreMeta ? entryName.find(".meta") == std::string::npos : true)) && filter.PassFilter(entryName.c_str())) {
-				
+
 				ImGui::TableNextColumn();
 				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 1.0f)); // Default text color for files
 				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.14f, 0.14f, 0.14f, 1.0f)); // Default button color for files
@@ -3691,7 +3721,6 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 					if (ImGui::BeginDragDropSource())
 					{
 						ImGui::SetDragDropPayload("tex", entry.path().string().data(), entry.path().string().length());
-						ImGui::SetDragDropPayload("asset", entry.path().string().data(), entry.path().string().length());
 
 						ImGui::Text("Import Texture: %s", entry.path().string().c_str());
 
@@ -3777,10 +3806,26 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 				break;
-				case ResourceType::MATERIAL: {
+				case ResourceType::FONT:
+				{
+					ImGui::ImageButton(entryName.c_str(), reinterpret_cast<void*>(static_cast<intptr_t>(fontIcon.ID)), ImVec2(64, 64));
+
+					if (ImGui::BeginDragDropSource())
+					{
+						ImGui::SetDragDropPayload("font", entry.path().string().data(), entry.path().string().length());
+
+						ImGui::Text("Load Font: %s", entry.path().string().c_str());
+
+						ImGui::EndDragDropSource();
+					}
 
 				}
-					break;
+				break;
+				case ResourceType::MATERIAL:
+				{
+
+				}
+				break;
 				case ResourceType::ALL_TYPES:
 					break;
 				default:
@@ -3854,6 +3899,32 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 	}
 
+}
+
+void ModuleEditor::MoveAsset(const std::string& assetsFilePathDrop)
+{
+	// Extract the file name from the path
+	std::filesystem::path assetFilePath(assetsFilePathDrop);
+	std::string fileName = assetFilePath.filename().string();
+
+	// Calculate parent directory from current directory
+	std::filesystem::path parentDirPath(currentDir);
+	parentDirPath = parentDirPath.parent_path();
+	std::string parentDir = parentDirPath.string();
+
+	// Construct the new path by appending the file name to the parent directory
+	std::filesystem::path newFilePath = std::filesystem::path(parentDir) / fileName;
+
+	// Perform the move operation
+	std::error_code ec;
+	std::filesystem::rename(assetFilePath, newFilePath, ec);
+
+	if (!ec) {
+		LOG("Moved asset '%s' to directory '%s'", fileName.c_str(), currentDir.c_str());
+	}
+	else {
+		LOG("[ERROR] moving asset: %s", ec.message().c_str());
+	}
 }
 
 static bool showDeleteAssetPopup = false;

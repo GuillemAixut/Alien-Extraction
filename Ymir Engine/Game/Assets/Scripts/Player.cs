@@ -157,6 +157,12 @@ public class Player : YmirComponent
     //--------------------- External Scripts ---------------------\\
     private UI_Bullets csBullets;
     private Health csHealth;
+
+    private UI_Animation csUI_AnimationDash;
+    private UI_Animation csUI_AnimationPredatory;
+    private UI_Animation csUI_AnimationSwipe;
+    private UI_Animation csUI_AnimationAcid;
+
     #endregion
 
     //Hay que dar valor a las variables en el start
@@ -215,12 +221,15 @@ public class Player : YmirComponent
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
 
+        //--------------------- Get Skills Scripts ---------------------\\
+        GetSkillsScripts();
+
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
 
         //--------------------- Set Animation Parameters ---------------------\\
         SetAnimParameters();
-        
+
         currentState = STATE.IDLE;
 
         //Debug.Log("START!");
@@ -228,6 +237,7 @@ public class Player : YmirComponent
 
     public void Update()
     {
+        Debug.Log(currentState.ToString());
         // New Things WIP
         UpdateControllerInputs();
 
@@ -265,6 +275,16 @@ public class Player : YmirComponent
             if (dashCDTimer <= 0)
             {
                 hasDashed = false;
+
+                // SARA: vuelve ui normal
+                // Without ping-pong
+                //csUI_AnimationDash.SetAnimationState(false);
+                //csUI_AnimationDash.SetCurrentFrame(0, 0);
+
+                // With ping-pong
+                csUI_AnimationDash.Reset();
+                //csUI_AnimationDash.backwards = true;
+                csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
             }
         }
 
@@ -340,6 +360,15 @@ public class Player : YmirComponent
             if (predatoryCDTimer <= 0)
             {
                 hasPred = false;
+                // SARA: vuelve ui normal
+                // Without ping-pong
+                //csUI_AnimationPredatory.SetAnimationState(false);
+                //csUI_AnimationPredatory.SetCurrentFrame(0, 0);
+
+                // With ping-pong
+                csUI_AnimationPredatory.Reset();
+                //csUI_AnimationPredatory.backwards = true;
+                csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
             }
         }
 
@@ -361,6 +390,15 @@ public class Player : YmirComponent
             if (swipeCDTimer <= 0)
             {
                 hasSwipe = false;
+                // SARA: vuelve ui normal
+                // Without ping-pong
+                //csUI_AnimationSwipe.SetAnimationState(false);
+                //csUI_AnimationSwipe.SetCurrentFrame(0, 0);
+
+                // With ping-pong
+                csUI_AnimationSwipe.Reset();
+                //csUI_AnimationSwipe.backwards = true;
+                csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
             }
         }
 
@@ -416,6 +454,11 @@ public class Player : YmirComponent
         {
             hasDashed = true;
             inputsList.Add(INPUT.I_DASH);
+
+            // SARA: start dash cooldown
+            csUI_AnimationDash.Reset();
+            csUI_AnimationDash.backwards = false;
+            csUI_AnimationDash.SetAnimationState(true);
         }
 
         //----------------- Acidic Spit (Skill 1) -----------------\\
@@ -430,13 +473,23 @@ public class Player : YmirComponent
         {
             hasPred = true;
             inputsList.Add(INPUT.I_PRED);
+
+            // SARA: start predatory cooldown
+            csUI_AnimationPredatory.Reset();
+            csUI_AnimationPredatory.backwards = false;
+            csUI_AnimationPredatory.SetAnimationState(true);
         }
 
-        //----------------- Predatory Rush (Skill 3) -----------------\\
+        //----------------- Swipe (Skill 3) -----------------\\
         if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && hasSwipe == false && swipeCDTimer <= 0)
         {
             hasSwipe = true;
             inputsList.Add(INPUT.I_SWIPE);
+
+            // SARA: start swipe cooldown
+            csUI_AnimationSwipe.Reset();
+            csUI_AnimationSwipe.backwards = false;
+            csUI_AnimationSwipe.SetAnimationState(true);
         }
 
         //----------------- Reload -----------------\\
@@ -546,7 +599,6 @@ public class Player : YmirComponent
                             break;
                     }
                     break;
-
 
                 case STATE.MOVE:
                     //Debug.Log("MOVE");
@@ -880,7 +932,6 @@ public class Player : YmirComponent
     }
     private void StartShoot()
     {
-
         //TO DO
         //Logica del disparo depende del arma equipada
         //switch (weaponType)
@@ -1177,7 +1228,6 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Die");
     }
 
-    // TODO: use the generic functions
     private void GetPlayerScripts()
     {
         GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
@@ -1185,6 +1235,36 @@ public class Player : YmirComponent
         {
             csBullets = gameObject.GetComponent<UI_Bullets>();
             csHealth = gameObject.GetComponent<Health>();
+        }
+    }
+
+    private void GetSkillsScripts()
+    {
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Frame (1)");
+
+        Debug.Log(gameObject.name);
+        ;
+        if (gameObject != null)
+        {
+            csUI_AnimationSwipe = gameObject.GetComponent<UI_Animation>();
+        }
+
+        gameObject = InternalCalls.GetGameObjectByName("Frame (2)");
+        if (gameObject != null)
+        {
+            csUI_AnimationPredatory = gameObject.GetComponent<UI_Animation>();
+        }
+
+        gameObject = InternalCalls.GetGameObjectByName("Frame (3)");
+        if (gameObject != null)
+        {
+            csUI_AnimationAcid = gameObject.GetComponent<UI_Animation>();
+        }
+
+        gameObject = InternalCalls.GetGameObjectByName("Frame (4)");
+        if (gameObject != null)
+        {
+            csUI_AnimationDash = gameObject.GetComponent<UI_Animation>();
         }
     }
 
@@ -1270,7 +1350,7 @@ public class Player : YmirComponent
 
     private void UpdateTailSwipe()
     {
-        if(angle < 360 && has360 == false)
+        if (angle < 360 && has360 == false)
         {
             angle += 1;
         }
@@ -1279,7 +1359,7 @@ public class Player : YmirComponent
             has360 = true;
             angle = 0;
         }
-       
+
         //angle += 3 * Time.deltaTime;
         Quaternion targetRotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.up);
 

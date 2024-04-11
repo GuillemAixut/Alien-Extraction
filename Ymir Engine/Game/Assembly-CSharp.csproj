@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Animation.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Audio.cs" />
+    <Compile Include="Assembly-CSharp\Ymir Engine Utility\Item.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Mathf.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Transform.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\YmirComponent.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Quaternion.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Time.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Vector3.cs" />
+    <Compile Include="Assembly-CSharp\Ymir Engine Utility\Vector2.cs" />
     <Compile Include="Assets\Scripts\AcidicSpit.cs" />
     <Compile Include="Assets\Scripts\BH_Bullet.cs" />
     <Compile Include="Assets\Scripts\BH_Plane.cs" />
@@ -65,7 +67,6 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Prueba.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
-    <Compile Include="Assets\Scripts\Ui.cs" />
     <Compile Include="Assets\Scripts\UI_Bullets.cs" />
     <Compile Include="Assets\Scripts\Button_Navigation.cs" />
     <Compile Include="Assets\Scripts\Button_Exit.cs" />
@@ -77,6 +78,16 @@
     <Compile Include="Assets\Scripts\Inventory_chest.cs" />
     <Compile Include="Assets\Scripts\Beacon.cs" />
     <Compile Include="Assets\Scripts\AcidicPuddle.cs" />
+    <Compile Include="Assets\Scripts\UI_Animation.cs" />
+    <Compile Include="Assets\Scripts\UI_Inventory.cs" />
+    <Compile Include="Assets\Scripts\UI_Inventory_Grid.cs" />
+    <Compile Include="Assets\Scripts\UI_Item_Button.cs" />
+    <Compile Include="Assets\Scripts\BaseTeleporter.cs" />
+    <Compile Include="Assets\Scripts\SelectLvl.cs" />
+    <Compile Include="Assets\Scripts\SelectWeapon.cs" />
+    <Compile Include="Assets\Scripts\UI_Upgrade_Station.cs" />
+    <Compile Include="Assets\Scripts\UI_Upgrade_Button.cs" />
+    <Compile Include="Assets\Scripts\UI_Upgrade_Navigation.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
