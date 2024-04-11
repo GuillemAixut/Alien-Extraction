@@ -95,9 +95,9 @@ namespace YmirEngine
             return a > b ? a : b;
         }
 
-        public static float Round(float value)
+        public static int Round(float value)
         {
-            int intValue = (int)((value*100)/100.00000f); // Sumamos 0.5 para asegurar el redondeo adecuado
+            int intValue = (int)((value*100)/100.00000000f); 
             return intValue;    
         }
 

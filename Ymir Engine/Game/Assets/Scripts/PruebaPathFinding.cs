@@ -28,7 +28,7 @@ using YmirEngine;
     public float idleTime = 5.0f;
     protected Vector3 targetPosition = null;
     protected float stoppingDistance = 1.0f;
-    public float wanderRange = 5.0f;
+    public float wanderRange = 20f;
     public float runningRange = 15.0f;
 
     public float slerpSpeed = 1000.5f;
@@ -126,8 +126,8 @@ using YmirEngine;
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     wanderTimer = wanderDuration;
                     Debug.Log("[ERROR] Current State: REACHED");
-                    targetPosition = agent.GetPointAt(agent.GetPathSize() -1);
-                    Debug.Log("[ERROR] TargetPosition: " + targetPosition); 
+                    //targetPosition = agent.GetPointAt(agent.GetPathSize() -1);
+                    //Debug.Log("[ERROR] TargetPosition: " + targetPosition); 
                     wanderState = WanderState.GOING;
 
                     break;
@@ -140,7 +140,7 @@ using YmirEngine;
                     Debug.Log("[ERROR] Current State: GOING");
                     
 
-                    IsReached(gameObject.transform.globalPosition,targetPosition);
+                   // IsReached(gameObject.transform.globalPosition,targetPosition);
                     break;
 
 
@@ -351,21 +351,24 @@ using YmirEngine;
 
     public void IsReached(Vector3 position, Vector3 destintion)
     {
-        //Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
-        //                              Mathf.Round(position.y),
-        //                              Mathf.Round(position.z));
+        Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
+                                      0,
+                                      Mathf.Round(position.z));
 
-        //Vector3 roundedDestination = new Vector3(Mathf.Round(destintion.x),
-        //                                         Mathf.Round(destintion.y),
-        //                                         Mathf.Round(destintion.z));
-
-
+        Vector3 roundedDestination = new Vector3(Mathf.Round(destintion.x),
+                                                 0,
+                                                 Mathf.Round(destintion.z));
 
 
-        if (position == destintion)
+        Debug.Log("Position: " + roundedPosition);
+        Debug.Log("Destination: " + roundedDestination);
+
+
+        if (roundedPosition == roundedDestination)
         {
             wanderState = WanderState.REACHED;
-            
+            Debug.Log("Reached!!!!");
+
         }
     }
 }
