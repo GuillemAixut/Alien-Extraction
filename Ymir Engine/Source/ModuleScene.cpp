@@ -72,6 +72,7 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
+	LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
 	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
 	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
 
@@ -104,12 +105,6 @@ bool ModuleScene::Start()
 update_status ModuleScene::PreUpdate(float dt)
 {
 	OPTICK_EVENT();
-
-	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN)
-	{
-		swapList.insert(std::pair<GameObject*, GameObject*>(mRootNode->mChildren[1], mRootNode->mChildren[3]));
-		//mRootNode->mChildren[1]->SwapChildren(mRootNode->mChildren[3]);
-	}
 
 	return UPDATE_CONTINUE;
 }
