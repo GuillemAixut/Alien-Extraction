@@ -1035,9 +1035,9 @@ void EmitterSize::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 void EmitterSize::Update(float dt, ParticleEmitter* emitter)
 {
+	float3 base = originalSize;
 	if (progresive)
 	{
-		float3 base = originalSize;
 		float timeForLerp = stopChange - startChange;
 		for (int i = 0; i < emitter->listParticles.size(); i++)
 		{
@@ -1046,8 +1046,14 @@ void EmitterSize::Update(float dt, ParticleEmitter* emitter)
 			if (startChange <= actualLT && actualLT <= stopChange)
 			{
 				emitter->listParticles.at(i)->size = base * (sizeMultiplier1 + ((sizeMultiplier2 - sizeMultiplier1) * ((actualLT - startChange) / timeForLerp))); //Lerp size multiplication
-
 			}
+		}
+	}
+	else
+	{
+		for (int i = 0; i < emitter->listParticles.size(); i++)
+		{
+			emitter->listParticles.at(i)->size = base * sizeMultiplier1;
 		}
 	}
 }
