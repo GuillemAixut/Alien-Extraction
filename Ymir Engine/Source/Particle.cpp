@@ -15,6 +15,9 @@ Particle::Particle()
 	distanceLimit = 0.0f;
 	
 	color = { 255,255,255,255 };
+
+	//Debugging
+	bool showVecToCamara;
 }
 
 Particle::~Particle()

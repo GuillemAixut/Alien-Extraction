@@ -171,7 +171,7 @@ private:
 	void EditorCameraAlign();
 	void GameCameraAlign();
 	void WorldAlign();
-	void AxisAlign();
+	void AxisAlign(ParticleEmitter* emitter); //Necesitamos una fucking referencia porque esto reqquiere de hacer vectores y mierdas
 };
 
 struct EmitterSize : EmitterSetting

@@ -700,29 +700,33 @@ void EmitterRotation::Update(float dt, ParticleEmitter* emitter)
 {
 	switch (currentAlignmentMode)
 	{
-	case PAR_LOOK_EDITOR_CAMERA:
+	case BillboardType::PAR_LOOK_EDITOR_CAMERA:
 		EditorCameraAlign();
 		break;
-	case PAR_LOOK_GAME_CAMERA:
+	case BillboardType::PAR_LOOK_GAME_CAMERA:
 		GameCameraAlign();
 		break;
-	case PAR_WORLD_ALIGNED:
+	case BillboardType::PAR_WORLD_ALIGNED:
 		WorldAlign();
 		break;
-	case PAR_AXIS_ALIGNED:
-		AxisAlign();
+	case BillboardType::PAR_AXIS_ALIGNED:
+		AxisAlign(emitter); //Este calculo requiere de tantas cosas que necesita propio acceso a emitter y recorrer cada particula
 		break;
-	case PAR_BILLBOARDING_MODE_END:
+	case BillboardType::PAR_BILLBOARDING_MODE_END:
 		break;
 	default:
 		break;
 	}
 
-	for (int i = 0; i < emitter->listParticles.size(); i++)
+	if(currentAlignmentMode!= BillboardType::PAR_AXIS_ALIGNED)
 	{
-		//emitter->listParticles.at(i)->worldRotation = tempRot;
-		emitter->listParticles.at(i)->worldRotation = rotation;
+		for (int i = 0; i < emitter->listParticles.size(); i++)
+		{
+			//emitter->listParticles.at(i)->worldRotation = tempRot;
+			emitter->listParticles.at(i)->worldRotation = rotation;
+		}
 	}
+	
 }
 
 void EmitterRotation::OnInspector()
@@ -958,7 +962,7 @@ void EmitterRotation::WorldAlign()
 	}
 }
 
-void EmitterRotation::AxisAlign()
+void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 {
 	float4x4* camaraMatrix;
 	#ifdef _STANDALONE
@@ -971,6 +975,19 @@ void EmitterRotation::AxisAlign()
 	Quat tempRot;
 	float3 tempSca;
 	camaraMatrix->Decompose(tempPos, tempRot, tempSca);
+
+	//Try
+	/*for (size_t i = 0; i < emitter->listParticles.size(); i++)
+	{
+		float3 posPart = emitter->listParticles.at(i)->position;
+		float3 dirToCamera = tempPos - posPart;
+		dirToCamera.Normalize();
+
+		float3 dirToLook;
+		dirToLook = math::Cross(dirToCamera, { 0,1,0 });
+
+		tempRot = emitter->listParticles.at(i)->worldRotation.AxisFromTo(tempRot);
+	}*/
 	
 	float3 newRot = tempRot.ToEulerXYZ();
 	switch (orientationOfAxis)
@@ -980,6 +997,8 @@ void EmitterRotation::AxisAlign()
 		newRot.y = 0;
 		newRot.z = 0;
 		tempRot = tempRot.FromEulerXYZ(newRot.x,newRot.y,newRot.z);
+
+		//tempRot = Quat(math::Cross(tempRot.ToEulerXYZ(), {0,1,0}));
 	}
 	break;
 	case OrientationDirection::PAR_Y_AXIS:
