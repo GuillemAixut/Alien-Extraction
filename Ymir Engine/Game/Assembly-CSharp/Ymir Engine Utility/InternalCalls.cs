@@ -22,6 +22,24 @@ namespace YmirEngine
         public static extern void CreateBullet(object position, object rotation, object scale);
 
         /// <summary>
+        /// Creates Tail Sensor
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateTailSensor(object position, object rotation);
+
+        /// <summary>
+        /// Creates a bullet.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateAcidicSpit(object name, object position);
+
+        /// <summary>
+        /// Creates a bullet.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateAcidPuddle(object name, object position);
+
+        /// <summary>
         /// Destroys a game object.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -50,6 +68,23 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern GameObject ExitGame();
+
+        /// <summary>
+        /// Retrieves a string with the values of the fields of the CSV, every field end with "," and every item with ";"
+        /// </summary>
+        /// <param name="filePath">The path to the CSV file (in this format: "Assets/Loot Tables/loot_table.csv").</param>
+        /// <param name="csFields">The CSV field names with their corresponding delimiters (in this format: "Nombre:,Probabilidad:") every field end with a comma ",".</param>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern string CSVToString(string filePath, string csFields);
+
+        /// <summary>
+        /// Creates a GameObject in the Engine as the prefab indicated
+        /// </summary>
+        /// <param name="prefabPath">The path to the prefab folder (in this format: "Assets/Prefabs").</param>
+        /// <param name="prefabName">The name of the prefab inside of the prefabPath (in this format: "Player").</param>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateGOFromPrefab(string prefabPath, string prefabName);
+
     }
 
     /// <summary>
@@ -181,8 +216,9 @@ namespace YmirEngine
         /// Controls the rumble of the gamepad for a specific time.
         /// </summary>
         /// <param name="time">The duration of the rumble in milliseconds.</param>
+        /// /// <param name="intesity">The intensity of the rumble min 1, max 10.</param>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void Rumble_Controller(int time);
+        public static extern void Rumble_Controller(int time, int intesity);
     }
 
     /// <summary>

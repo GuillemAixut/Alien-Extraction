@@ -1294,14 +1294,6 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 		json_object_set_value(componentObject, "Size", sizeArrayValue);
 
-		// Radius
-
-		json_object_set_number(componentObject, "Radius", ccollider->radius);
-
-		//Height
-
-		json_object_set_number(componentObject, "Height", ccollider->height);
-
 		// Physics type
 
 		json_object_set_number(componentObject, "Physics Type", (int)static_cast<const CCollider&>(component).physType);
@@ -1309,6 +1301,14 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		// Mass
 
 		json_object_set_number(componentObject, "Mass", ccollider->mass);
+
+		//Friction
+
+		json_object_set_number(componentObject, "Friction", ccollider->friction);
+
+		//Angular Friction
+
+		json_object_set_number(componentObject, "Angular Friction", ccollider->angularFriction);
 
 		// Gravity
 
@@ -1324,7 +1324,16 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		json_object_set_boolean(componentObject, "LockY", ccollider->lockY);
 		json_object_set_boolean(componentObject, "LockZ", ccollider->lockZ);
 
+		// Offset
 
+		JSON_Value* offsetArrayValue = json_value_init_array();
+		JSON_Array* offsetArray = json_value_get_array(offsetArrayValue);
+
+		json_array_append_number(offsetArray, ccollider->offset.x);
+		json_array_append_number(offsetArray, ccollider->offset.y);
+		json_array_append_number(offsetArray, ccollider->offset.z);
+
+		json_object_set_value(componentObject, "Offset", offsetArrayValue);
 
 		break;
 	}
@@ -2401,15 +2410,15 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		JSON_Array* jsonSizeArray = json_value_get_array(jsonSizeValue);
 		JSON_Array* jsonSizeAssetsArray = json_value_get_array(jsonSizeAssetsValue);
 		for (int i = 0; i < json_object_get_number(componentObject, "NumPaths"); i++) {
-			if (json_array_get_string(jsonSizeArray, i) != "") {
+			if (json_array_get_string(jsonSizeArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeArray, i))) {
 				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeArray, i), ResourceType::ANIMATION, gameObject->UID);
 				cAnim->AddAnimation(*rAnim);
-				LOG("Loaded animation from Library");
+				LOG("Loaded animation '%s' from Library", rAnim->name.c_str());
 			}
-			else if(json_array_get_string(jsonSizeAssetsArray, i) != "") {
-				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromAssets(json_array_get_string(jsonSizeAssetsArray, i), ResourceType::ANIMATION, gameObject->UID);
+			else if(json_array_get_string(jsonSizeAssetsArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeAssetsArray, i))) {
+				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeAssetsArray, i), ResourceType::ANIMATION, gameObject->UID);
 				cAnim->AddAnimation(*rAnim);
-				LOG("Loaded animation from Assets");
+				LOG("Loaded animation '%s' from Assets", rAnim->name.c_str());
 			}
 			else {
 				LOG("[ERROR]Couldn't load animation");
@@ -2474,19 +2483,36 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		ccollider->size = size;
 
-		ccollider->shape->setLocalScaling(btVector3(size.x, size.y, size.z));
+		// Offset
+		
+		JSON_Value* jsonOffsetValue = json_object_get_value(componentObject, "Offset");
 
-		// Radius
+		if (jsonOffsetValue == nullptr || json_value_get_type(jsonOffsetValue) != JSONArray) {
 
-		ccollider->radius = json_object_get_number(componentObject, "Radius");
+			return;
+		}
 
-		// Height
+		JSON_Array* jsonOffsetArray = json_value_get_array(jsonOffsetValue);
 
-		ccollider->height = json_object_get_number(componentObject, "Height");
+		float3 _offset;
+
+		_offset.x = static_cast<float>(json_array_get_number(jsonOffsetArray, 0));
+		_offset.y = static_cast<float>(json_array_get_number(jsonOffsetArray, 1));
+		_offset.z = static_cast<float>(json_array_get_number(jsonOffsetArray, 2));
+
+		ccollider->offset = _offset;
 
 		// Mass
 
 		ccollider->mass = static_cast<float>(json_object_get_number(componentObject, "Mass"));
+
+		// Friction
+		
+		ccollider->friction = static_cast<float>(json_object_get_number(componentObject, "Friction"));
+
+		// Angular Friction
+
+		ccollider->angularFriction = static_cast<float>(json_object_get_number(componentObject, "Angular Friction"));
 
 		// Gravity
 
