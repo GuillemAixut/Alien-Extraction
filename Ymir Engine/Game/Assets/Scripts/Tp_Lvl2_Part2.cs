@@ -6,13 +6,14 @@ using System.Runtime.InteropServices;
 
 using YmirEngine;
 
-public class Tp_Beacon : YmirComponent
+public class Tp_Lvl2_Part2 : YmirComponent
 {
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")
+        if(other.Tag == "Player")
         {
-            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_FINAL.yscene");
+            InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2.yscene");
         }
     }
+    
 }
