@@ -184,7 +184,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 				emitter->SpawnParticle(remainingParticlesToSpawn);
 				if (countParticles)
 				{
-					numParticlesSpawned++;
+					numParticlesSpawned += remainingParticlesToSpawn;
 				}
 			}
 		}
