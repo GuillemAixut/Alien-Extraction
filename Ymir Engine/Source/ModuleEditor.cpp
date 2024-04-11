@@ -3166,6 +3166,42 @@ void ModuleEditor::DrawInspector()
 						}
 					}*/
 
+					//// --- Add component Camera ---
+
+					if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
+					{
+						if (ImGui::MenuItem("Camera"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
+						}
+					}
+
+					//// --- Add component Physics ---
+
+					if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
+					{
+						if (ImGui::MenuItem("Physics"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
+						}
+					}
+
+					if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
+					{
+						if (ImGui::MenuItem("Audio_Source"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
+						}
+					}
+
+					if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
+					{
+						if (ImGui::MenuItem("Audio_Listener"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
+						}
+					}
+
 					if (ImGui::BeginMenu("Script"))
 					{
 						if (ImGui::MenuItem("Add New Script")) {
@@ -3175,101 +3211,39 @@ void ModuleEditor::DrawInspector()
 
 						}
 
+						static ImGuiTextFilter scriptFilter;
+
+						scriptFilter.Draw("Search", ImGui::GetFontSize() * 15);
+
 						ImGui::Separator();
 
 						for (const auto& entry : std::filesystem::directory_iterator("Assets/Scripts")) {
 
-							if (!entry.is_directory()) {
+							std::string entryName = entry.path().filename().string();
 
-								std::string entryName = entry.path().filename().string();
-								if (ImGui::MenuItem(entryName.c_str()))
+							if (!entry.is_directory() && scriptFilter.PassFilter(entryName.c_str())) {
+
+								if (ImGui::BeginChild("##ScriptsAddComponent", ImVec2(0, 300), true))
 								{
-									script_name = entryName.c_str();
-									App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
-								}
-
-							}
-						}
-
-						//// --- Add component Camera ---
-
-						if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
-						{
-							if (ImGui::MenuItem("Camera"))
-							{
-								App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
-							}
-						}
-
-						//// --- Add component Physics ---
-
-						if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
-						{
-							if (ImGui::MenuItem("Physics"))
-							{
-								App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
-							}
-						}
-
-						if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
-						{
-							if (ImGui::MenuItem("Audio_Source"))
-							{
-								App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
-							}
-						}
-
-						if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
-						{
-							if (ImGui::MenuItem("Audio_Listener"))
-							{
-								App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
-							}
-						}
-
-						if (ImGui::BeginMenu("Script"))
-						{
-							if (ImGui::MenuItem("Add New Script")) {
-
-								//Todo: Add NewScript
-								showNewScriptPopUp = true;
-
-							}
-
-							static ImGuiTextFilter scriptFilter;
-
-							scriptFilter.Draw("Search", ImGui::GetFontSize() * 15);
-
-							ImGui::Separator();
-
-							for (const auto& entry : std::filesystem::directory_iterator("Assets/Scripts")) {
-
-								std::string entryName = entry.path().filename().string();
-
-								if (!entry.is_directory() && scriptFilter.PassFilter(entryName.c_str())) {
-
-									if (ImGui::BeginChild("##ScriptsAddComponent", ImVec2(0, 300), true))
+									if (ImGui::MenuItem(entryName.c_str()))
 									{
-										if (ImGui::MenuItem(entryName.c_str()))
-										{
-											script_name = entryName.c_str();
-											App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
+										script_name = entryName.c_str();
+										App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
 
-											click = true;
-										}
+										click = true;
 									}
-
-									ImGui::EndChild();
-
 								}
-							}
 
-							ImGui::EndMenu();
+								ImGui::EndChild();
+
+							}
 						}
 
-						//delete physics;
-						ImGui::EndPopup();
+						ImGui::EndMenu();
 					}
+
+					//delete physics;
+					ImGui::EndPopup();
 				}
 			}
 
