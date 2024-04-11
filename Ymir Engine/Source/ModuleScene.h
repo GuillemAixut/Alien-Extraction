@@ -130,6 +130,7 @@ public:
 	GameObject* selectedGO;
 	std::vector<G_UI*> vCanvas;
 	int onHoverUI;
+	bool canNav;
 
 	std::multimap<uint, SerializedField*> referenceMap;
 
