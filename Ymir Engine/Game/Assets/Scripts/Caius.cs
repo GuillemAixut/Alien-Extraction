@@ -35,7 +35,7 @@ public class Caius : YmirComponent
 		//TODO: Show the dialogue UI when the bool is true
 		if (dialogue_ui)
 		{
-			UI.TextEdit(name_gameObject, "Lorem ipsum");
+			//UI.TextEdit(name_gameObject, "Lorem ipsum");
 			ui_gameObject.SetActive(true);
 
 
@@ -70,19 +70,6 @@ public class Caius : YmirComponent
 
         Debug.Log("Vente Pedrito");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
