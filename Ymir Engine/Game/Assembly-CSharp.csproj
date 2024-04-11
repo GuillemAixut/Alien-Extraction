@@ -87,7 +87,6 @@
     <Compile Include="Assets\Scripts\Level_Selection_Canvas.cs" />
     <Compile Include="Assets\Scripts\Enemy_Test.cs" />
     <Compile Include="Assets\Scripts\Inventory_chest.cs" />
-    <Compile Include="Assets\Scripts\Beacon.cs" />
     <Compile Include="Assets\Scripts\AcidicPuddle.cs" />
     <Compile Include="Assets\Scripts\UI_Animation.cs" />
     <Compile Include="Assets\Scripts\UI_Inventory.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="Assets\Scripts\UI_Upgrade_Station.cs" />
     <Compile Include="Assets\Scripts\UI_Upgrade_Button.cs" />
     <Compile Include="Assets\Scripts\UI_Upgrade_Navigation.cs" />
+    <Compile Include="Assets\Scripts\Tp_Beacon.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
