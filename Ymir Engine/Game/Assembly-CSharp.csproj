@@ -46,6 +46,7 @@
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Audio.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Item.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Mathf.cs" />
+    <Compile Include="Assembly-CSharp\Ymir Engine Utility\PathFinding.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Transform.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\YmirComponent.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\GameObject.cs" />
@@ -66,7 +67,8 @@
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\DraggingPrueba.cs" />
     <Compile Include="Assets\Scripts\Electric_trap.cs" />
-    <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\FaceHuggerAttack.cs" />
+    <Compile Include="Assets\Scripts\FaceHuggerBaseScript.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Key.cs" />
     <Compile Include="Assets\Scripts\Loot_Chest.cs" />
@@ -75,9 +77,11 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Prueba.cs" />
+    <Compile Include="Assets\Scripts\PruebaPathFinding.cs" />
+    <Compile Include="Assets\Scripts\QueenXenomorphAttack.cs" />
+    <Compile Include="Assets\Scripts\QueenXenomorphBaseScript.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\TP_Maps_Test.cs" />
-    <Compile Include="Assets\Scripts\Tp_Player.cs" />
     <Compile Include="Assets\Scripts\UI_Bullets.cs" />
     <Compile Include="Assets\Scripts\Button_Navigation.cs" />
     <Compile Include="Assets\Scripts\Button_Exit.cs" />

@@ -35,6 +35,8 @@ using YmirEngine;
     //private float timeCount = 0.0f;
     public bool turretMode = false;
 
+    
+
 
 
     protected PathFinding agent;
@@ -110,7 +112,7 @@ using YmirEngine;
         
 
         }
-
+    
         public void Update()
         {
 
@@ -124,6 +126,8 @@ using YmirEngine;
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     wanderTimer = wanderDuration;
                     Debug.Log("[ERROR] Current State: REACHED");
+                    targetPosition = agent.GetPointAt(agent.GetPathSize() -1);
+                    Debug.Log("[ERROR] TargetPosition: " + targetPosition); 
                     wanderState = WanderState.GOING;
 
                     break;
@@ -134,8 +138,9 @@ using YmirEngine;
                     LookAt(agent.GetDestination());
                     MoveToCalculatedPos(agent.speed);
                     Debug.Log("[ERROR] Current State: GOING");
+                    
 
-                    //  IsReached(gameObject.transform.globalPosition,agent.GetDestination());
+                    IsReached(gameObject.transform.globalPosition,targetPosition);
                     break;
 
 
@@ -346,19 +351,18 @@ using YmirEngine;
 
     public void IsReached(Vector3 position, Vector3 destintion)
     {
-        Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
-                                      Mathf.Round(position.y),
-                                      Mathf.Round(position.z));
+        //Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
+        //                              Mathf.Round(position.y),
+        //                              Mathf.Round(position.z));
 
-        Vector3 roundedDestination = new Vector3(Mathf.Round(destintion.x),
-                                                 Mathf.Round(destintion.y),
-                                                 Mathf.Round(destintion.z));
+        //Vector3 roundedDestination = new Vector3(Mathf.Round(destintion.x),
+        //                                         Mathf.Round(destintion.y),
+        //                                         Mathf.Round(destintion.z));
 
 
-        Debug.Log(roundedPosition);
-        Debug.Log(roundedDestination);
 
-        if (roundedPosition == roundedDestination)
+
+        if (position == destintion)
         {
             wanderState = WanderState.REACHED;
             

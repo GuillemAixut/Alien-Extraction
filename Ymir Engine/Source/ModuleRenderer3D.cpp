@@ -918,16 +918,16 @@ void ModuleRenderer3D::DrawGameObjects(bool isGame)
 					materialComponent->shader.SetShaderUniforms(&transformComponent->mGlobalMatrix, (*it)->selected);
 				}
 
-				if ((*it)->selected && !isGame) {
+				//if ((*it)->selected && !isGame) {
 
-					DrawOutline(meshComponent, transformComponent->mGlobalMatrix);
+				//	DrawOutline(meshComponent, transformComponent->mGlobalMatrix);
 
-				}
-				else {
+				//}
+				//else {
 
 					meshComponent->rMeshReference->Render();
 
-				}
+				//}
 
 				if (materialComponent != nullptr && materialComponent->active) {
 
