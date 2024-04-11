@@ -65,6 +65,7 @@ bool ModuleScene::Init()
 	selectedUIGO = nullptr;
 	focusedUIGO = nullptr;
 	canTab = true;
+	canNav = true;
 
 	return ret;
 }
@@ -999,21 +1000,24 @@ void ModuleScene::TabNavigate(bool isForward)
 
 void ModuleScene::HandleUINavigation()
 {
-	if (!canTab && App->input->GetGamepadLeftJoystickPositionValueY() == 0)
+	if (canNav)
 	{
-		canTab = true;
-	}
+		if (!canTab && App->input->GetGamepadLeftJoystickPositionValueY() == 0)
+		{
+			canTab = true;
+		}
 
-	if ((App->input->GetGamepadLeftJoystickPositionValueY() < 0 && canTab) || App->input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN)
-	{
-		canTab = false;
-		TabNavigate(false);
-	}
+		if ((App->input->GetGamepadLeftJoystickPositionValueY() < 0 && canTab) || App->input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN)
+		{
+			canTab = false;
+			TabNavigate(false);
+		}
 
-	else if ((App->input->GetGamepadLeftJoystickPositionValueY() > 0 && canTab) || App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
-	{
-		canTab = false;
-		TabNavigate(true);
+		else if ((App->input->GetGamepadLeftJoystickPositionValueY() > 0 && canTab) || App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
+		{
+			canTab = false;
+			TabNavigate(true);
+		}
 	}
 }
 
