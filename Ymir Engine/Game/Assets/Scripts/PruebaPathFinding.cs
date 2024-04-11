@@ -87,7 +87,7 @@ using YmirEngine;
             wanderState = WanderState.REACHED;
             wanderDuration = 5f;
             wanderTimer = wanderDuration;
-            wanderRange = 20f;
+            wanderRange = 50f;
             movementSpeed = 10f;
             stopedDuration = 1f;
             DetectionRadius = 5f;
@@ -107,11 +107,12 @@ using YmirEngine;
         
         Debug.Log("gola2");
 
-        agent.stoppingDistance = 1f;
+        agent.stoppingDistance = 2f;
+        agent.speed = 15f;
 
-        
 
-        }
+
+    }
     
         public void Update()
         {
@@ -126,21 +127,22 @@ using YmirEngine;
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     wanderTimer = wanderDuration;
                     Debug.Log("[ERROR] Current State: REACHED");
-                    //targetPosition = agent.GetPointAt(agent.GetPathSize() -1);
+                    targetPosition = agent.GetPointAt(agent.GetPathSize() -1);
                     //Debug.Log("[ERROR] TargetPosition: " + targetPosition); 
                     wanderState = WanderState.GOING;
 
                     break;
 
                 case WanderState.GOING:
-                    agent.speed = 30f;
+                    
 
                     LookAt(agent.GetDestination());
+                    Debug.Log("[ERROR] Speed" + agent.speed);
                     MoveToCalculatedPos(agent.speed);
                     Debug.Log("[ERROR] Current State: GOING");
                     
 
-                   // IsReached(gameObject.transform.globalPosition,targetPosition);
+                   IsReached(gameObject.transform.globalPosition,targetPosition);
                     break;
 
 
@@ -148,9 +150,10 @@ using YmirEngine;
 
                     //Debug.Log("[ERROR] Current State: CHASING");
                     agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
+
                     
                     MoveToCalculatedPos(agent.speed);
-                   // Debug.Log("[ERROR] Current State: CHASING");
+                   Debug.Log("[ERROR] Current State: CHASING");
                     break;
 
                 case WanderState.STOPED:
@@ -345,7 +348,7 @@ using YmirEngine;
         Vector3 destination = agent.GetDestination();
         Vector3 direction = destination - pos;
         
-        gameObject.SetVelocity(direction.normalized * 5f );
+        gameObject.SetVelocity(direction.normalized * speed );
     }
 
 
@@ -364,7 +367,7 @@ using YmirEngine;
         Debug.Log("Destination: " + roundedDestination);
 
 
-        if (roundedPosition == roundedDestination)
+        if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
         {
             wanderState = WanderState.REACHED;
             Debug.Log("Reached!!!!");

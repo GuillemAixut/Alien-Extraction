@@ -152,7 +152,11 @@ MonoObject* CS_GetDestination(MonoObject* go)
 	if (comp->path.size() <= 0)
 		return External->moduleMono->Float3ToCS(trans->GetGlobalPosition());
 
-	float3 distance = comp->path.front() - trans->GetGlobalPosition();
+
+	float3 distance;
+	 distance.x = comp->path[0].x - trans->GetGlobalPosition().x;
+	 distance.y = comp->path[0].y - trans->GetGlobalPosition().y;
+	 distance.z = comp->path[0].z - trans->GetGlobalPosition().z;
 	if (Sqrt(distance.x * distance.x + distance.y * distance.y + distance.z * distance.z) < comp->properties.stoppingDistance)
 	{
 		if (comp->path.size() > 1)
@@ -160,7 +164,7 @@ MonoObject* CS_GetDestination(MonoObject* go)
 
 		assert(!comp->path.empty());
 	}
-	return External->moduleMono->Float3ToCS(comp->path.front());
+	return External->moduleMono->Float3ToCS(comp->path[0]);
 }
 
 MonoObject* CS_GetLastVector(MonoObject* go)

@@ -1,24 +1,24 @@
 {
-    "NavMesh": "1579062259",
+    "NavMesh": "1232279637",
     "Editor Camera Position": [
-        -109.37057495117188,
-        19.581819534301758,
-        -57.52142333984375
+        -92.65997314453125,
+        80.623138427734375,
+        -137.960693359375
     ],
     "Editor Camera Right (X)": [
-        0.87501847743988037,
-        4.8428773880004883e-07,
-        -0.48408842086791992
+        -0.65193790197372437,
+        2.9802322387695312e-07,
+        -0.75827276706695557
     ],
     "Editor Camera Up (Y)": [
-        -0.072332903742790222,
-        0.98877400159835815,
-        -0.13074502348899841
+        -0.6295238733291626,
+        0.55745482444763184,
+        0.54124408960342407
     ],
     "Editor Camera Front (Z)": [
-        -0.47865387797355652,
-        -0.14941889047622681,
-        -0.86519539356231689
+        -0.42270249128341675,
+        -0.83020710945129395,
+        0.36342534422874451
     ],
     "Hierarchy": [
         {
@@ -56,6 +56,7 @@
                 1349128443,
                 1836208307,
                 1079439365,
+                562272270,
                 1484304711
             ]
         },
@@ -77,9 +78,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -104,17 +105,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        -1.4361705780174816e-07,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361705780174816e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -787,23 +788,20 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                2,
+                                4.9000000953674316,
+                                4.5
                             ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
+                            "color": [
+                                5.5,
+                                3.7000000476837158,
+                                3.2999999523162842
                             ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "light": true
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -1470,7 +1468,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        14.605810165405273,
+                        14.605808258056641,
                         -0
                     ],
                     "Scale": [
@@ -2198,7 +2196,7 @@
                     "Active": 1,
                     "Speed": 5,
                     "Angular Speed": 10,
-                    "Stopping Distance": 1
+                    "Stopping Distance": 2
                 },
                 {
                     "World gravity": [
@@ -2285,9 +2283,9 @@
                         0
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         0,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -2350,7 +2348,7 @@
                     ],
                     "Rotation": [
                         94.46905517578125,
-                        -0.57068657875061035,
+                        -0.57068794965744019,
                         -179.32949829101562
                     ],
                     "Scale": [
@@ -3943,7 +3941,7 @@
             "Name": "Player",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1484304711,
+            "UID": 562272270,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1968864687,
@@ -3954,7 +3952,7 @@
                     "Translation": [
                         -119.6461181640625,
                         4.1989097595214844,
-                        -60.348442077636719
+                        0.82761192321777344
                     ],
                     "Rotation": [
                         -0,
@@ -3969,18 +3967,18 @@
                 }
             ],
             "Children UID": [
-                1981179967
+                1631683175
             ]
         },
         {
             "Name": "Cube (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1981179967,
+            "UID": 1631683175,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Cube.fbx",
-            "Parent UID": 1484304711,
+            "Parent UID": 562272270,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3989,6 +3987,103 @@
                         0,
                         0,
                         0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1728623793,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Cube",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1484304711,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -105.25926971435547,
+                        14.360359191894531,
+                        -63.976722717285156
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        13.199984550476074,
+                        13.199984550476074,
+                        13.199984550476074
+                    ]
+                }
+            ],
+            "Children UID": [
+                1981179967
+            ]
+        },
+        {
+            "Name": "1981179967",
+            "Static": true,
+            "Tag": "Untagged",
+            "UID": 1981179967,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "",
+            "Parent UID": 1484304711,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        -0.32538765668869019,
+                        -3.7511999607086182
                     ],
                     "Rotation": [
                         -0,
