@@ -235,7 +235,13 @@ namespace YmirEngine
         /// Switch position of two game objects.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject SwitchPosition(object selectedgo, object targetobject);
+        public static extern GameObject SwitchPosition(object selectedgo, object targetobject);        
+        
+        /// <summary>
+        /// Set active all children of the go's canvas.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetActiveAllUI(object selectedgo, bool isActive);
 
         /// <summary>
         /// Switch position of two game objects.

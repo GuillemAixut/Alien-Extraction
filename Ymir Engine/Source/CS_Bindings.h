@@ -1285,4 +1285,18 @@ void CreateGOFromPrefabCS(MonoString* _prefabPath, MonoString* _prefabName)
 	External->scene->pendingToAddPrefab.emplace_back(prefabPath, prefabName);
 }
 
+void SetActiveAllUI(MonoObject* go, bool isActive)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+
+	// Get UI elements to navigate
+	std::vector<C_UI*> listUI;
+	External->scene->GetUINavigate(gameObject, listUI); 
+
+	for (auto i = 0; i < listUI.size(); i++)
+	{
+		listUI[i]->mOwner->mChildren[0]->active = isActive;
+	}
+}
+
 #pragma endregion

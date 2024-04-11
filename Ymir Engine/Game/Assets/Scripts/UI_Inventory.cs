@@ -67,8 +67,8 @@ public class UI_Inventory : YmirComponent
                 UI.TextEdit(InternalCalls.GetChildrenByName(_focusedGO, "Text"), " ");
             }
 
-            Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
-            Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+            //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
+            //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
         }
 
         if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
@@ -76,7 +76,13 @@ public class UI_Inventory : YmirComponent
             gameObject.SetActive(false);
         }
 
-        return;
+        //if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN)
+        //{
+        //    Deactivate();
+        //}
+
+
+            return;
     }
 
     private void SwitchItems()
@@ -126,5 +132,33 @@ public class UI_Inventory : YmirComponent
         {
             UI.SetUIState(InternalCalls.CS_GetChild(inventoryGO, 0), (int)UI_STATE.FOCUSED);
         }
+    }
+
+    public void Deactivate()
+    {
+        // TODO: CANVIAR ESTA BASURA
+
+        GameObject inventoryGO = InternalCalls.GetGameObjectByName("Inventory");
+        UI.SetActiveAllUI(inventoryGO, false);
+
+        GameObject armor = InternalCalls.GetGameObjectByName("Armor");
+        armor.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject chip1 = InternalCalls.GetGameObjectByName("Chip1");
+        chip1.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject chip2 = InternalCalls.GetGameObjectByName("Chip2");
+        chip2.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject consumable1 = InternalCalls.GetGameObjectByName("Consumable1");
+        consumable1.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject consumable2 = InternalCalls.GetGameObjectByName("Consumable2");
+        consumable2.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject save = InternalCalls.GetGameObjectByName("Save Item");
+        save.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+
     }
 }

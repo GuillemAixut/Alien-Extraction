@@ -158,6 +158,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.UI::SwitchPosition", SwitchPosition);
 	mono_add_internal_call("YmirEngine.UI::NavigateGrid", NavigateGrid);
 	mono_add_internal_call("YmirEngine.UI::CompareStringToName", CompareStringToName);
+	mono_add_internal_call("YmirEngine.UI::SetActiveAllUI", SetActiveAllUI);
 
 
 
