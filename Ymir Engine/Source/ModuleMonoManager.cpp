@@ -54,7 +54,11 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.YmirComponent::get_gameObject", CS_Component_Get_GO);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateGameObject", CSCreateGameObject);
 	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByName", FindObjectWithName);
-	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByUID", FindObjectWithUID);
+	mono_add_internal_call("YmirEngine.InternalCalls::GetChildrenByName", FindChildrenWithName);
+	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByUID", FindObjectWithUID);	
+	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetParent", CS_GetParent);
+	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetChild", CS_GetChild);
+	mono_add_internal_call("YmirEngine.InternalCalls::CompareGameObjectsByUID", CompareGameObjectsByUID);
 	mono_add_internal_call("YmirEngine.GameObject::TryGetComponent", CS_GetComponent);
 	mono_add_internal_call("YmirEngine.GameObject::get_Name", Get_GO_Name);
 
@@ -66,13 +70,14 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma region GameObject
 
 	mono_add_internal_call("YmirEngine.GameObject::SetActive", SetActive);
-	
+
 #pragma endregion
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);	//TODO: Descomentar cuando est� el CreateBullet()
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateTailSensor", CreateTailSensor);
 
 #pragma region Transform
+
 	mono_add_internal_call("YmirEngine.Transform::GetForward", GetForward);
 	mono_add_internal_call("YmirEngine.Transform::GetRight", GetRight);
 	mono_add_internal_call("YmirEngine.Transform::GetUp", GetUp);
@@ -84,13 +89,14 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Transform::get_localPosition", SendPosition);
 	mono_add_internal_call("YmirEngine.Transform::get_globalPosition", SendGlobalPosition);
 	mono_add_internal_call("YmirEngine.Transform::set_localPosition", RecievePosition);
-	mono_add_internal_call("YmirEngine.Transform::get_localRotation", SendRotation); 
+	mono_add_internal_call("YmirEngine.Transform::get_localRotation", SendRotation);
 	mono_add_internal_call("YmirEngine.Transform::get_globalRotation", SendGlobalRotation);
 	mono_add_internal_call("YmirEngine.Transform::set_localRotation", RecieveRotation);
 
 	mono_add_internal_call("YmirEngine.Transform::get_localScale", SendScale);
 	mono_add_internal_call("YmirEngine.Transform::get_globalScale", SendGlobalScale);
 	mono_add_internal_call("YmirEngine.Transform::set_localScale", RecieveScale);
+
 #pragma endregion
 
 #pragma region Physics
@@ -109,9 +115,20 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma region UI
 
+	mono_add_internal_call("YmirEngine.UI::GetUIState", GetUIState);
+	mono_add_internal_call("YmirEngine.UI::SetUIState", SetUIState);
+
 	// Image
 	mono_add_internal_call("YmirEngine.UI::CreateImageUI", CreateImageUI);
 	mono_add_internal_call("YmirEngine.UI::ChangeImageUI", ChangeImageUI);
+	//// Animations
+	mono_add_internal_call("YmirEngine.UI::GetImageRows", GetImageRows);
+	mono_add_internal_call("YmirEngine.UI::GetImageColumns", GetImageColumns);
+	mono_add_internal_call("YmirEngine.UI::GetImageCurrentFrameX", GetImageCurrentFrameX);
+	mono_add_internal_call("YmirEngine.UI::GetImageCurrentFrameY", GetImageCurrentFrameY);
+	mono_add_internal_call("YmirEngine.UI::SetImageCurrentFrame", SetImageCurrentFrame);
+
+	// Button
 
 	// Text
 	mono_add_internal_call("YmirEngine.UI::TextEdit", TextEdit);
@@ -122,9 +139,19 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.UI::SliderSetMin", SliderSetMin);
 	mono_add_internal_call("YmirEngine.UI::SliderSetMax", SliderSetMax);
 
+	// Inventory
+	mono_add_internal_call("YmirEngine.UI::GetSelected", GetSelected);
+	mono_add_internal_call("YmirEngine.UI::GetFocused", GetFocused);
+	mono_add_internal_call("YmirEngine.UI::SwitchPosition", SwitchPosition);
+	mono_add_internal_call("YmirEngine.UI::NavigateGrid", NavigateGrid);
+	mono_add_internal_call("YmirEngine.UI::CompareStringToName", CompareStringToName);
+
+
+
 #pragma endregion
 
 #pragma region Audio
+
 	mono_add_internal_call("YmirEngine.Audio::PlayAudio", PlayAudio);
 	mono_add_internal_call("YmirEngine.Audio::StopAudio", StopAudio);
 	mono_add_internal_call("YmirEngine.Audio::StopOneAudio", StopOneAudio);
@@ -141,6 +168,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Audio::PauseAllAudios", PauseAllAudios);
 	mono_add_internal_call("YmirEngine.Audio::ResumeAllAudios", ResumeAllAudios);
 	mono_add_internal_call("YmirEngine.Audio::StopAllAudios", StopAllAudios);
+
 #pragma endregion
 
 
@@ -164,15 +192,17 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma endregion
 
 #pragma region Animation
+
 	mono_add_internal_call("YmirEngine.Animation::PlayAnimation", PlayAnimation);
 	mono_add_internal_call("YmirEngine.Animation::PauseAnimation", PauseAnimation);
 	mono_add_internal_call("YmirEngine.Animation::ResumeAnimation", ResumeAnimation);
 	mono_add_internal_call("YmirEngine.Animation::StopAnimation", StopAnimation);
 	mono_add_internal_call("YmirEngine.Animation::SetLoop", SetLoop);
 	mono_add_internal_call("YmirEngine.Animation::SetBackward", SetBackward);
-	mono_add_internal_call("YmirEngine.Animation::SetSpeed", SetSpeed);		
+	mono_add_internal_call("YmirEngine.Animation::SetSpeed", SetSpeed);
 	mono_add_internal_call("YmirEngine.Animation::SetPingPong", SetPingPong);
 	mono_add_internal_call("YmirEngine.Animation::AddBlendOption", AddBlendOption);
+
 #pragma endregion
 
 	mono_add_internal_call("YmirEngine.Time::get_deltaTime", GetDT);
@@ -237,25 +267,21 @@ void ModuleMonoManager::ReCompileCS()
 
 	//TODO: No hay nada de esto creado en Ymir
 	//App->scene->LoadScene("Library/Scenes/tmp.des");	//El Miquel lo tiene q marca la ruta de salida
-	
+
 	//App->scene->LoadScene();
 	//App->fileSystem->DeleteAssetFile("Library/Scenes/tmp.des"); //TODO: Esta funci�n no existe
 
 
-	
+
 	External->editor->scriptEditor->LoadScriptTXT(("Assets/Scripts/" + External->editor->scriptEditor->txtName + ".cs").c_str());
 
 	for (auto it = App->scene->gameObjects.begin(); it != App->scene->gameObjects.end(); ++it) {
 
 		if ((*it) != nullptr) {
 
-
 			CScript* script = (CScript*)(*it)->GetComponent(ComponentType::SCRIPT);
 			if (script != nullptr) script->ReloadComponent();
-
 		}
-
-
 	}
 }
 
@@ -270,6 +296,7 @@ float3 ModuleMonoManager::UnboxVector(MonoObject* _obj)
 	mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "z"), &ret.z);
 	return static_cast<float3>(ret);
 }
+
 //ASK: Is this the worst idea ever? TOO SLOW
 Quat ModuleMonoManager::UnboxQuat(MonoObject* _obj)
 {
@@ -288,7 +315,7 @@ void ModuleMonoManager::DebugAllFields(const char* className, std::vector<Serial
 	void* iter = NULL;
 	MonoClassField* field;
 	MonoClass* klass = mono_class_from_name(mono_assembly_get_image(External->moduleMono->assembly), namespace_name, className);
-	while (field = mono_class_get_fields(klass, &iter)){
+	while (field = mono_class_get_fields(klass, &iter)) {
 
 		if (mono_field_get_flags(field) != 1) // Private = 1, public = 6, static = 22
 		{
@@ -298,7 +325,6 @@ void ModuleMonoManager::DebugAllFields(const char* className, std::vector<Serial
 				_data.push_back(pushField);
 			//LOG(LogType::L_NORMAL, mono_field_full_name(method2));
 		}
-	
 	}
 }
 
@@ -316,7 +342,6 @@ void ModuleMonoManager::DebugAllMethods(const char* nsName, const char* classNam
 
 MonoObject* ModuleMonoManager::GoToCSGO(GameObject* inGo) const
 {
-
 	if (inGo == nullptr) {
 		LOG("[WARNING] GoTOCSGO inGo doesn't exist");
 		return nullptr;
@@ -467,19 +492,18 @@ void ModuleMonoManager::CreateAssetsScript(const char* localPath)
 		<< std::endl << ""
 		<< std::endl << "using YmirEngine;"
 		<< std::endl << ""
-		<< std::endl <<	"public class " << className.c_str() << " : YmirComponent" 
-		<< std::endl <<	"{" 
-		<< std::endl << "bool start = true;"
+		<< std::endl << "public class " << className.c_str() << " : YmirComponent"
+		<< std::endl << "{"
 		<< std::endl << ""
 		<< std::endl << "	public void Start()"
 		<< std::endl << "	{"
-		<< std::endl << "			Debug.Log(\"" + startScript + "\"); "
+		<< std::endl << "		Debug.Log(\"" + startScript + "\"); "
 		<< std::endl << "	}"
 		<< std::endl << ""
-		<< std::endl <<	"	public void Update()"
-		<< std::endl << "	{" 
+		<< std::endl << "	public void Update()"
+		<< std::endl << "	{"
 		<< std::endl << "		return;"
-		<< std::endl << "	}" 
+		<< std::endl << "	}"
 		<< std::endl << "}";
 
 	outfile.close();

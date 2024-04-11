@@ -134,6 +134,22 @@ GameObject* GameObject::FindChild(uint UID_ToFind, GameObject* go)
 	return go;
 }
 
+GameObject* GameObject::GetChildByUID(const uint& UID)
+{
+	GameObject* gameObjectWithUID = nullptr;
+
+	for (auto it = mChildren.begin(); it != mChildren.end(); ++it) {
+
+		if ((*it)->UID == UID) {
+
+			gameObjectWithUID = (*it);
+
+		}
+
+	}
+
+	return gameObjectWithUID;
+}
 
 void GameObject::SetParent(GameObject* newParent)
 {
@@ -170,23 +186,6 @@ void GameObject::ReParent(GameObject* newParent)
 
 }
 
-GameObject* GameObject::GetChildByUID(const uint& UID)
-{
-	GameObject* gameObjectWithUID = nullptr;
-
-	for (auto it = mChildren.begin(); it != mChildren.end(); ++it) {
-
-		if ((*it)->UID == UID) {
-
-			gameObjectWithUID = (*it);
-
-		}
-
-	}
-
-	return gameObjectWithUID;
-}
-
 void GameObject::AddChild(GameObject* child)
 {
 	mChildren.push_back(child);
@@ -204,6 +203,28 @@ void GameObject::RemoveChild(GameObject* go)
 {
 	mChildren.erase(std::find(mChildren.begin(), mChildren.end(), go));
 	mChildren.shrink_to_fit();
+}
+
+void GameObject::SwapChildren(GameObject* go)
+{
+	int index = std::find(mParent->mChildren.begin(), mParent->mChildren.end(), this) - mParent->mChildren.begin();
+	int index2 = std::find(go->mParent->mChildren.begin(), go->mParent->mChildren.end(), go) - go->mParent->mChildren.begin();
+
+	GameObject* aux = go->mParent;
+	go->ReParent(mParent);
+	this->ReParent(aux);
+
+	if (index < index2)
+	{
+		Swap(go->mParent->mChildren, std::find(go->mParent->mChildren.begin(), go->mParent->mChildren.end(), go) - go->mParent->mChildren.begin(), index);
+		Swap(mParent->mChildren, std::find(mParent->mChildren.begin(), mParent->mChildren.end(), this) - mParent->mChildren.begin(), index2);
+	}
+	else
+	{
+		Swap(mParent->mChildren, std::find(mParent->mChildren.begin(), mParent->mChildren.end(), this) - mParent->mChildren.begin(), index2);
+		Swap(go->mParent->mChildren, std::find(go->mParent->mChildren.begin(), go->mParent->mChildren.end(), go) - go->mParent->mChildren.begin(), index);
+	}
+
 }
 
 void GameObject::AddComponent(Component* component)
@@ -429,5 +450,6 @@ void GameObject::ClearReferences()
 	{
 		(*it)->OnReferenceDestroyed(this);
 	}
+
 	ClearVec(vReferences);
 }

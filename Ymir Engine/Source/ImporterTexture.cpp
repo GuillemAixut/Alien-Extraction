@@ -18,6 +18,8 @@ void ImporterTexture::Import(std::string path, ResourceTexture* ourTexture)
 	std::string textureName;
 	PhysfsEncapsule::SplitFilePath(path.c_str(), nullptr, &textureName);
 
+	ourTexture->SetAssetsFilePath(path);
+
 	char typeChar = textureName.back();
 
 	switch (typeChar) {

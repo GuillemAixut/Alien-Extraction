@@ -95,12 +95,13 @@ public:
 	void LoadScriptsData(GameObject* rootObject = nullptr);
 
 	// UI navigation
-	void GetUINaviagte(GameObject* go, std::vector<C_UI*>& listgo);
-	bool TabNavigate(bool isForward);
+	void GetUINavigate(GameObject* go, std::vector<C_UI*>& listgo);
+	GameObject* GetUISelected(GameObject* go);
+	void ResetSelected();
+	void TabNavigate(bool isForward);
 
 	// Handle both keyboard and gamepad control of all UI game objects
 	void HandleUINavigation();
-
 
 public:
 
@@ -110,6 +111,7 @@ public:
 	CCamera* gameCameraComponent;
 
 	std::vector<GameObject*> destroyList;
+	std::map<GameObject*, GameObject*> swapList;
 	std::vector<GameObject*> gameObjects;
 	std::vector<GameObject*> pendingToAdd;
 
@@ -127,15 +129,17 @@ public:
 	bool isLocked;
 	GameObject* selectedGO;
 	std::vector<G_UI*> vCanvas;
+	int onHoverUI;
 
 	std::multimap<uint, SerializedField*> referenceMap;
 
 	// God mode
 	bool godMode;
+	GameObject* selectedUIGO;
+	GameObject* focusedUIGO;
 
 private:
 	G_UI* canvas;
-	int selectedUI;
 
 	std::vector<GameObject*> vSelectedGOs;
 
@@ -143,6 +147,7 @@ private:
 	bool canTab;
 	
 	GameObject* audiosource;	
+
 public:
 	// DO NOT USE, Save/Load purposes only
     std::vector<Component*> vTempComponents;

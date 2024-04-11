@@ -49,22 +49,15 @@ void UI_Button::OnInspector()
 		ImGui::Checkbox("Draggeable", &isDraggeable);
 
 		// Image reference
-		ImGui::Text(("Image: " + (image == nullptr ? "<null>" : image->mat->diffuse_path)).c_str());	ImGui::SameLine();
+		ImGui::Text(("Image: " + (image == nullptr ? "<null>" : image->mat->diffuse_path)).c_str());	//ImGui::SameLine();
 
-		ImGui::Dummy(ImVec2(0, 10));
+		ImGui::Text(("State: " + std::to_string((int)state)).c_str());
 
 		// Text reference
 		ImGui::Text("Text: ");	ImGui::SameLine();
 		displayText = static_cast<G_UI*>(ImGui_GameObjectReference(displayText));
 
 		ImGui::Dummy(ImVec2(0, 10));
-
-		ImGui::SeparatorText("States");
-		SetStateImg("Normal", UI_STATE::NORMAL); ImGui::SameLine();
-		SetStateImg("Focused", UI_STATE::FOCUSED); ImGui::SameLine();
-		SetStateImg("Pressed", UI_STATE::PRESSED); 
-		SetStateImg("Selected", UI_STATE::SELECTED); ImGui::SameLine();
-		SetStateImg("Disabled", UI_STATE::DISABLED); ImGui::SameLine();
 
 		// Colors
 		//ImGui::SeparatorText("Colors");
@@ -96,17 +89,26 @@ void UI_Button::SetReference()
 	{
 		if (it->first == "Text")
 		{
-			displayText = (G_UI*)External->scene->mRootNode->FindChild(it->second);
+			displayText = (G_UI*)mOwner->FindChild(it->second);
+			if (displayText != nullptr)
+			{
+				displayText->vReferences.push_back(this);
+			}
 		}
 		else if (it->first == "Image")
 		{
-			image = (UI_Image*)static_cast<G_UI*>(External->scene->mRootNode->FindChild(it->second))->GetComponentUI(UI_TYPE::IMAGE);
+			image = (UI_Image*)static_cast<G_UI*>(mOwner)->GetComponentUI(UI_TYPE::IMAGE);
+			if (image != nullptr)
+			{
+				image->mOwner->vReferences.push_back(this);
+			}
 
 			image->SetImg(mPaths[UI_STATE::NORMAL], UI_STATE::NORMAL);
 			image->SetImg(mPaths[UI_STATE::FOCUSED], UI_STATE::FOCUSED);
 			image->SetImg(mPaths[UI_STATE::PRESSED], UI_STATE::PRESSED);
 			image->SetImg(mPaths[UI_STATE::SELECTED], UI_STATE::SELECTED);
 			image->SetImg(mPaths[UI_STATE::RELEASE], UI_STATE::RELEASE);
+			image->SetImg(mPaths[UI_STATE::DISABLED], UI_STATE::DISABLED);
 		}
 
 		++it;
@@ -143,52 +145,43 @@ void UI_Button::OnFocused()
 	image->color = focusedColor;
 	image->selectedTexture = image->mapTextures.find(state)->second;
 
+	if (mOwner != nullptr)
+	{
+		CScript* aux = dynamic_cast<CScript*>(mOwner->GetComponent(ComponentType::SCRIPT));
+
+		if (aux != nullptr) {
+			aux->OnHoverButton();
+		}
+	}
 }
 
 void UI_Button::OnPressed()
 {
 	image->color = pressedColor;
 	image->selectedTexture = image->mapTextures.find(state)->second;
-
 }
 
 void UI_Button::OnSelected()
 {
 	image->color = selectedColor;
 	image->selectedTexture = image->mapTextures.find(state)->second;
-
 }
 
 void UI_Button::OnRelease()
 {
 	image->selectedTexture = image->mapTextures.find(state)->second;
 
-	if (mOwner != nullptr) {
+	if (mOwner != nullptr) 
+	{
 		CScript* aux = dynamic_cast<CScript*>(mOwner->GetComponent(ComponentType::SCRIPT));
 
 		if (aux != nullptr) {
-			aux->ExecuteButton();
+			aux->OnClickButton();
 		}
 	}
-
 }
 
-void UI_Button::SetStateImg(const char* label, UI_STATE s)
+void UI_Button::OnDisabled()
 {
-	ImGui::Button(label, ImVec2(70, 30));
-
-	if (ImGui::BeginDragDropTarget())
-	{
-		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
-		{
-			std::string path = (const char*)payload->Data;
-
-			// Fix ImGui problems with big sized strings. Modify if enine supports other type of imgs.
-			path.erase(path.find(".png") + 4);
-
-			image->SetImg(path, s);
-		}
-
-		ImGui::EndDragDropTarget();
-	}
+	image->selectedTexture = image->mapTextures.find(state)->second;
 }

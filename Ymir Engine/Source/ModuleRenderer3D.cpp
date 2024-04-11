@@ -246,7 +246,7 @@ bool ModuleRenderer3D::Init()
 	
 	//App->scene->gameCameraComponent->framebuffer.Load();
 
-	defaultFont = new Font("de-valencia-beta.otf", "Assets\\Fonts");
+	defaultFont = new Font("arial.ttf", "Assets\\Fonts");
 
 	uint UID = 1553236809; // UID of Cube.fbx mesh in meta (lo siento)
 
@@ -377,13 +377,6 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 			}
 
 			DrawGameObjects(true);
-
-			glMatrixMode(GL_PROJECTION);
-			glLoadIdentity();
-			glOrtho(0.0, App->editor->gameViewSize.x, App->editor->gameViewSize.y, 0.0, 1.0, -1.0);
-
-			glMatrixMode(GL_MODELVIEW);
-			glLoadIdentity();
 
 			DrawUIElements(true,false);
 
@@ -779,7 +772,7 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_ALPHA_TEST);
-		glAlphaFunc(GL_GREATER, 0.0f);
+		glAlphaFunc(GL_GREATER, 0.5f);
 	}
 
 	//Get UI elements to draw
@@ -793,7 +786,7 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 
 	if (!listUI.empty())
 	{
-		for (auto i = listUI.size() - 1; i > 0; --i)
+		for (auto i = listUI.size() - 1; i >= 0; --i)
 		{
 			if (listUI[i]->mOwner->active && listUI[i]->active)
 			{
@@ -801,9 +794,11 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 				//listUI[i]->DebugDraw();
 
 			}
+			
+			if (i == 0) { break; }
 		}
 	}
-
+	glAlphaFunc(GL_GREATER, 0.0f);
 }
 
 void ModuleRenderer3D::DrawLightsDebug()

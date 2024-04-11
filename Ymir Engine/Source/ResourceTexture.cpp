@@ -80,6 +80,8 @@ bool ResourceTexture::LoadInMemory()
 	ilGenImages(1, &imageID);
 	ilBindImage(imageID);
 
+	SetAssetsFilePath(libraryFilePath);
+
 	if (ilLoadImage(libraryFilePath.c_str())) {
 		// Image loaded successfully
 		LOG("Image loaded successfully at %s", libraryFilePath.c_str());

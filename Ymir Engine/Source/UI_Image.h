@@ -18,13 +18,24 @@ public:
 	void Draw(bool game) override;
 	update_status Update(float dt);
 
+	void OnNormal();
+	void OnFocused();
+	void OnPressed();
+	void OnSelected();
+	void OnRelease();
+	void OnDisabled();
+
 	void SetImg(std::string imgPath, UI_STATE state);
+	void SetStateImg(const char* label, UI_STATE s = UI_STATE::NONE);
 	void SetNativeSize();
+	void SetSpriteSize();
 
 public:
 	CMaterial* mat;
 	ResourceTexture* selectedTexture;
 	std::map<UI_STATE, ResourceTexture*> mapTextures;
 
+	int ssCoordsY, ssCoordsX;
+	int ssRows, ssColumns;
 };
 #endif // __UI_IMAGE_H__
