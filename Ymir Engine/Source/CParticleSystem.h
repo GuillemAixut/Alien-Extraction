@@ -56,6 +56,8 @@ public:
 
 private:
 
+	bool looping = false;
+
 	//Timer for local play
 	Timer timer;
 

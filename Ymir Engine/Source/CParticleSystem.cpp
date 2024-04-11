@@ -53,30 +53,21 @@ bool CParticleSystem::Update(float dt)
 {
 	bool ret = true;
 
-	//if (localPlay)
+
+	if (dt > 0.00f && (localPlay || TimeManager::gameTimer.GetState() != TimerState::STOPPED)) //Si no esta parado sino que esta paused tambien ha de hacer cosas
 	{
-		if (dt > 0.00f && (localPlay || TimeManager::gameTimer.GetState() != TimerState::STOPPED)) //Si no esta parado sino que esta paused tambien ha de hacer cosas
+		for (uint i = 0; i < allEmitters.size(); ++i)
 		{
-			for (uint i = 0; i < allEmitters.size(); ++i)
-			{
-				allEmitters.at(i)->Update(dt);
-			}
-		}
-		else
-		{
-			for (uint i = 0; i < allEmitters.size(); ++i)
-			{
-				allEmitters.at(i)->Reset();
-			}
+			allEmitters.at(i)->Update(dt);
 		}
 	}
-	/*else
+	else
 	{
-		for (unsigned int i = 0; i < allEmitters.size(); ++i)
+		for (uint i = 0; i < allEmitters.size(); ++i)
 		{
 			allEmitters.at(i)->Reset();
 		}
-	}*/
+	}
 
 	return ret;
 }
@@ -138,6 +129,8 @@ void CParticleSystem::OnInspector()
 
 		ImGui::Text("Playback time: %.2f", timer.ReadSec());
 
+		ImGui::Checkbox("Looping", &looping);
+
 		ImGui::Separator();
 
 		//Crear emitter
@@ -164,7 +157,7 @@ void CParticleSystem::OnInspector()
 				////ImGui::Text("ParticleEmmiter %i", i);
 				//nameEmitter.append("Particle Emitter ");
 				//nameEmitter.append(std::to_string(i+1));
-				
+
 				//Delete emmiter
 				if (ImGui::Button("Delete"))
 				{
@@ -194,7 +187,7 @@ void CParticleSystem::OnInspector()
 						case EmitterType::PAR_SPAWN:
 						{
 							ImGui::SeparatorText("SPAWN");
-							
+
 							EmitterSpawner* eSpawner = (EmitterSpawner*)listModule.at(j);
 							eSpawner->OnInspector();
 							break;
@@ -350,7 +343,7 @@ void CParticleSystem::OnInspector()
 								allEmitters.at(i)->CreateEmitterSettingByType((EmitterType)k);
 							}
 						}
-						
+
 					}
 					//ImGui::End();
 					//ImGui::TreePop();
@@ -362,8 +355,8 @@ void CParticleSystem::OnInspector()
 					allEmitters.at(i)->name.assign(textInfo);
 				}*/
 			}
-			
-			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.7,0.3,0,1));
+
+			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.7, 0.3, 0, 1));
 			if (ImGui::Button("Create Particle Emitter"))
 			{
 				CreateEmitter();
@@ -372,7 +365,7 @@ void CParticleSystem::OnInspector()
 
 			ImGui::TreePop();
 		}
-		
+
 	}
 
 	if (!exists) { mOwner->RemoveComponent(this); }
@@ -477,7 +470,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				ePosition->direction1;
 				//SecondDirection
-				
+
 				//Position
 				JSON_Value* jValueDir2 = json_value_init_array();
 				JSON_Array* arrInitialDir2 = json_value_get_array(jValueDir2);
@@ -516,9 +509,9 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				EmitterRotation* eRotation = (EmitterRotation*)emitter->modules.at(i);
 
 				//Enums de options
-				json_object_set_number(child_object,"AligmentMode",eRotation->currentAlignmentMode); 
-				json_object_set_number(child_object,"WorldOrientation",eRotation->orientationFromWorld); 
-				json_object_set_number(child_object,"AxisOrientation",eRotation->orientationOfAxis); 
+				json_object_set_number(child_object, "AligmentMode", eRotation->currentAlignmentMode);
+				json_object_set_number(child_object, "WorldOrientation", eRotation->orientationFromWorld);
+				json_object_set_number(child_object, "AxisOrientation", eRotation->orientationOfAxis);
 
 				JSON_Value* jValueFreeOrient = json_value_init_array();
 				JSON_Array* arrFreeWorldRotation = json_value_get_array(jValueFreeOrient);
@@ -759,6 +752,7 @@ void CParticleSystem::Play()
 	localPlay = true;
 
 	int emittersCount = allEmitters.size();
+
 	for (int i = 0; i < emittersCount; ++i)
 	{
 		allEmitters[i]->Reset();

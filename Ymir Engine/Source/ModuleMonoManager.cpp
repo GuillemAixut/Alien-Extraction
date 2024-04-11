@@ -18,6 +18,7 @@
 #include "CS_Input_Bindings.h"
 #include "CS_Audio_Bindings.h"
 #include "CS_Animation_Bindings.h"
+#include "CS_Particle_Bindings.h"
 
 #include "PhysfsEncapsule.h"
 #include "ModuleEditor.h"
@@ -177,6 +178,11 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Animation::AddBlendOption", AddBlendOption);
 	mono_add_internal_call("YmirEngine.Animation::SetResetToZero", SetResetToZero);
 	mono_add_internal_call("YmirEngine.Animation::AnimationHasFinished", HasFinished);
+#pragma endregion
+
+#pragma region Particles
+	mono_add_internal_call("YmirEngine.Particles::PlayEmitter", PlayEmitter);
+
 #pragma endregion
 
 	mono_add_internal_call("YmirEngine.Time::get_deltaTime", GetDT);

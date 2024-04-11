@@ -547,6 +547,19 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	physBody->physBody->SetPosition(posVector);
 	go->AddComponent(physBody);
 
+	CParticleSystem* partSys = new CParticleSystem(go);
+	ParticleEmitter* emitter = new ParticleEmitter(partSys);
+
+	emitter->Init(partSys);
+	EmitterPosition* ePos = (EmitterPosition*)emitter->CreateEmitterSettingByType(EmitterType::PAR_POSITION);
+
+	ePos->particleSpeed1 = 5;
+	ePos->particleSpeed2 = 10;
+	ePos->direction1 = float3(0, 0, 0);
+	ePos->direction2 = float3(0, 5, 0);
+
+	go->AddComponent(partSys);
+
 	//Añade el script Bullet al gameObject Bullet
 	const char* t = "BH_Bullet";
 	Component* c = nullptr;
@@ -679,7 +692,6 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 	go->AddComponent(c);
 
 }
-
 
 //---------- GLOBAL GETTERS ----------//
 MonoObject* SendGlobalPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
