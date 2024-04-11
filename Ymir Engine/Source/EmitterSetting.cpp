@@ -768,17 +768,6 @@ void EmitterRotation::OnInspector()
 		//Yo aqui pondria un float 3 o algo, idk, revisare como lo hace unity
 		//Unity hace algo raro, vertical es que si rota pero solo en el eje Y, horizontal no rota solo mira arriba. La idea seria mas despues que una opcion sea mirar solo dirrecion y otra con el vertical rotar pero en un solo eje
 		//Lo unico que no es lo mas util del mundo, se puede dejar para lo ultimo o quiza ni hacerlo, porque con vertical axis fijo tenemos de sobra
-		
-		std::string tempName = (horAlign ? "Horizontal" : "Vertical");
-		ImGui::Text("Current Aligned Axis: %s", tempName.c_str());
-
-		if (ImGui::BeginMenu("Change aligned axis"))
-		{
-			if (ImGui::MenuItem("Horizontal")) horAlign = true;
-			if (ImGui::MenuItem("Vertical")) horAlign = false;
-
-			ImGui::EndMenu();
-		}
 
 		ImGui::Text("Actual Axis Orientation");
 		std::string actualAxisOrient;
@@ -983,12 +972,11 @@ void EmitterRotation::AxisAlign()
 	float3 tempSca;
 	camaraMatrix->Decompose(tempPos, tempRot, tempSca);
 	
-	float3 newRot;
+	float3 newRot = tempRot.ToEulerXYZ();
 	switch (orientationOfAxis)
 	{
 	case OrientationDirection::PAR_X_AXIS:
 	{
-		newRot = tempRot.ToEulerXYZ();
 		newRot.y = 0;
 		newRot.z = 0;
 		tempRot = tempRot.FromEulerXYZ(newRot.x,newRot.y,newRot.z);
@@ -996,7 +984,6 @@ void EmitterRotation::AxisAlign()
 	break;
 	case OrientationDirection::PAR_Y_AXIS:
 	{
-		newRot = tempRot.ToEulerXYZ();
 		newRot.x = 0;
 		newRot.z = 0;
 		tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
@@ -1004,7 +991,6 @@ void EmitterRotation::AxisAlign()
 	break;
 	case OrientationDirection::PAR_Z_AXIS:
 	{
-		newRot = tempRot.ToEulerXYZ();
 		newRot.x = 0;
 		newRot.y = 0;
 		tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
@@ -1072,11 +1058,6 @@ void EmitterSize::OnInspector()
 	ImGui::Separator();
 }
 
-void EmitterColor::Spawn(ParticleEmitter* emitter, Particle* particle)
-{
-	particle->color = color1;
-}
-
 EmitterColor::EmitterColor()
 {
 	progresive = false;
@@ -1084,6 +1065,11 @@ EmitterColor::EmitterColor()
 	stopChange = 1.0f; //Range from 0 to 1 as lifetime
 	color1 = { 1,1,1,1 };
 	color2 = { 0,0,0,0 };
+}
+
+void EmitterColor::Spawn(ParticleEmitter* emitter, Particle* particle)
+{
+	particle->color = color1;
 }
 
 void EmitterColor::Update(float dt, ParticleEmitter* emitter)
