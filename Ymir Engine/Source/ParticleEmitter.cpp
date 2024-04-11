@@ -208,6 +208,16 @@ void ParticleEmitter::Reset()
 {
 	emitterTime = 0;
 
+	for (int i = 0; i < modules.size(); i++)
+	{
+		if(modules.at(i)->type == EmitterType::PAR_SPAWN)
+		{
+			EmitterSpawner* temp = (EmitterSpawner*)modules.at(i);
+			temp->PlayTrigger(false);
+			temp = nullptr;
+		}
+	}
+
 	KillAllParticles();
 }
 

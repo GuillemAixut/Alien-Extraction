@@ -762,6 +762,7 @@ void CParticleSystem::Play()
 	for (int i = 0; i < emittersCount; ++i)
 	{
 		allEmitters[i]->Reset();
+
 	}
 }
 
