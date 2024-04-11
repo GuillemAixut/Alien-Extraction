@@ -169,7 +169,7 @@ public class Player : YmirComponent
         //
         weaponType = WEAPON.SMG;
 
-        movementSpeed = 7000.0f;    //Antes 35
+        movementSpeed = 35.0f;    //Antes 35
 
         //--------------------- Dash ---------------------\\
         dashDistance = 200.0f;     //Antes 2 
@@ -1105,6 +1105,8 @@ public class Player : YmirComponent
         StopPlayer();
         dashCDTimer = dashCD;
         //gameObject.transform.localPosition.y = dashStartYPos;
+        Animation.PlayAnimation(gameObject, "Raisen_Idle"); // Chuekada para la entrega, si ves esto ponlo bien porfa no lo ignores
+
     }
 
     private void StartJump()
@@ -1164,7 +1166,7 @@ public class Player : YmirComponent
 
         HandleRotation();
 
-        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
+        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed);
 
         //if (gamepadInput.x > 0)
         //{
@@ -1270,6 +1272,7 @@ public class Player : YmirComponent
 
         Animation.SetResetToZero(gameObject, "Raisen_Die", false);
 
+        Animation.SetPingPong(gameObject, "Raisen_Die", true);
 
         Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Walk", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Run", 5.0f);
