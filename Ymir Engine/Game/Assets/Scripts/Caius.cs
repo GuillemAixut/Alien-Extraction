@@ -44,18 +44,45 @@ public class Caius : YmirComponent
         }
     }
 
+   // public void OnCollisionStay(GameObject other)
+   // {
+   //     if (other.Tag == "Player" && talked == false && Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN)
+   //     {
+			////TODO: Descomentar Don't let the player move
+			////csPlayer.inputsList.Add(Player.INPUT.I_STOP);
+
+			////Show the dialogue UI
+			//dialogue_ui = true;
+
+			////Don't let repeat the dialogue
+			//talked = true;
+   //     }
+   // }
+
+	public void OnCollisionEnter(GameObject other)
+	{
+
+		Debug.Log("Vente Pedrito");
+	}
+
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player" && talked == false && Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN)
-        {
-			//TODO: Descomentar Don't let the player move
-			//csPlayer.inputsList.Add(Player.INPUT.I_STOP);
 
-			//Show the dialogue UI
-			dialogue_ui = true;
-
-			//Don't let repeat the dialogue
-			talked = true;
-        }
+        Debug.Log("Vente Pedrito");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
