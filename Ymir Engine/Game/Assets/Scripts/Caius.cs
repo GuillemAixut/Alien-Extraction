@@ -15,7 +15,7 @@ public class Caius : YmirComponent
 	public GameObject line3_gameObject;
 	public GameObject ui_gameObject;
 
-	private bool talked = false;
+	//private bool talked = false;
 	private bool dialogue_ui = false;
 
 	private Player csPlayer;
