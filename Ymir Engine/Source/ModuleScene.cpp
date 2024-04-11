@@ -73,7 +73,7 @@ bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
 	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
-	LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
+	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
 
 #ifdef _RELEASE
 

@@ -118,7 +118,4 @@ public:
 	// Outline Shader
 	Shader* outlineShader;
 
-	// Outline Shader
-	Shader* outlineShader;
-
 };

@@ -30,7 +30,7 @@ public class SelectWeapon : YmirComponent
         GameObject gameObject = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
         GameObject gameObject1 = InternalCalls.GetGameObjectByName("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
 
-        Debug.Log("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
+        //Debug.Log("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
 
         LEVELS selectedLvlPrev = levelSelector.selectedLvl;
         WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;

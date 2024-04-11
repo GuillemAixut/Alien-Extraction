@@ -148,14 +148,13 @@ public class Player : YmirComponent
     //--------------------- External Scripts ---------------------\\
     private UI_Bullets csBullets;
     private Health csHealth;
-    #endregion
 
     private UI_Animation csUI_AnimationDash;
     private UI_Animation csUI_AnimationPredatory;
     private UI_Animation csUI_AnimationSwipe;
     private UI_Animation csUI_AnimationAcid;
 
-#endregion
+    #endregion
 
     //Hay que dar valor a las variables en el start
 
@@ -562,11 +561,6 @@ public class Player : YmirComponent
                             StopPlayer();
                             break;
 
-                        case INPUT.I_STOP:
-                            currentState = STATE.STOP;
-                            StopPlayer();
-                            break;
-
                         case INPUT.I_DASH:
                             currentState = STATE.DASH;
                             StartDash();
@@ -810,46 +804,6 @@ public class Player : YmirComponent
                         case INPUT.I_DEAD:
                             currentState = STATE.DEAD;
                             StartDeath();
-                            break;
-                    }
-                    break;
-
-                case STATE.STOP:
-                    //Debug.Log("Stop");
-                    switch (input)
-                    {
-                        case INPUT.I_STOP:
-                            currentState = STATE.STOP;
-                            StopPlayer();
-                            break;
-
-                        case INPUT.I_IDLE:
-                            currentState = STATE.IDLE;
-                            //StartIdle(); //Trigger de la animacion //Arreglar esto
-                            break;
-                    }
-                    break;
-
-                case STATE.TAILSWIPE:
-                    //Debug.Log("Tail Swipe");
-                    switch (input)
-                    {
-                        case INPUT.I_STOP:
-                            currentState = STATE.STOP;
-                            StopPlayer();
-                            break;
-
-                        case INPUT.I_PRED_END:
-                            EndPredRush();
-                            break;
-
-                        case INPUT.I_SWIPE_END:
-                            currentState = STATE.IDLE;
-                            EndTailSwipe();
-                            break;
-
-                        case INPUT.I_DEAD:
-                            currentState = STATE.DEAD;
                             break;
                     }
                     break;
