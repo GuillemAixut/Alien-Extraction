@@ -88,7 +88,7 @@ using YmirEngine;
             wanderRange = 20f;
             movementSpeed = 10f;
             stopedDuration = 1f;
-            DetectionRadius = 10f;
+            DetectionRadius = 5f;
             
             cumDuration = 2f;
             cumDuration2 = 5f;
@@ -133,6 +133,7 @@ using YmirEngine;
 
                     LookAt(agent.GetDestination());
                     MoveToCalculatedPos(agent.speed);
+                    Debug.Log("[ERROR] Current State: GOING");
 
                     //  IsReached(gameObject.transform.globalPosition,agent.GetDestination());
                     break;
@@ -144,7 +145,7 @@ using YmirEngine;
                     agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
                     
                     MoveToCalculatedPos(agent.speed);
-                    Debug.Log("[ERROR] Current State: CHASING");
+                   // Debug.Log("[ERROR] Current State: CHASING");
                     break;
 
                 case WanderState.STOPED:
@@ -254,29 +255,7 @@ using YmirEngine;
 
         }
 
-        private void RotateEnemy()
-        {
-            Vector3 direction = player.transform.globalPosition - gameObject.transform.globalPosition;
-            direction = direction.normalized;
-            float angle = (float)Math.Atan2(direction.x, direction.z);
 
-            //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
-
-            if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-                return;
-
-            Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
-
-            float rotationSpeed = Time.deltaTime * movementSpeed;
-            //Debug.Log("CS: Rotation speed: " + rotationSpeed.ToString());
-            //Debug.Log("CS: Time: " + Time.deltaTime);
-
-            Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
-
-            gameObject.transform.localRotation = desiredRotation;
-
-            //Debug.Log("[ERROR] rotation:  " + gameObject.transform.localRotation);
-        }
 
         public void OnCollisionStay(GameObject other)
         {
@@ -308,8 +287,33 @@ using YmirEngine;
         return InternalCalls.GetWalkablePointAround(gameObject.transform.globalPosition, maxPos);
     }
 
+    private void RotateEnemy()
+    {
+        Vector3 direction = player.transform.globalPosition - gameObject.transform.globalPosition;
+        direction = direction.normalized;
+        float angle = (float)Math.Atan2(direction.x, direction.z);
+
+        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
+
+        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
+            return;
+
+        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
+
+        float rotationSpeed = Time.deltaTime * movementSpeed;
+        //Debug.Log("CS: Rotation speed: " + rotationSpeed.ToString());
+        //Debug.Log("CS: Time: " + Time.deltaTime);
+
+        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
+
+        gameObject.transform.localRotation = desiredRotation;
+
+        //Debug.Log("[ERROR] rotation:  " + gameObject.transform.localRotation);
+    }
+
     public void LookAt(Vector3 pointToLook)
     {
+
         Vector3 direction = pointToLook - gameObject.transform.globalPosition;
         direction = direction.normalized;
         float angle = (float)Math.Atan2(direction.x, direction.z);
@@ -321,13 +325,12 @@ using YmirEngine;
 
         Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
 
-        float rotationSpeed = Time.deltaTime * agent.angularSpeed * 100;
+        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
 
 
         Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
 
-        gameObject.transform.localRotation = desiredRotation;
-
+        gameObject.SetRotation(desiredRotation);
     }
 
 

@@ -161,7 +161,7 @@ public class FaceHuggerBaseScript : YmirComponent
                 case WanderState.GOING:
                     agent.speed = 30f;
 
-                    LookAt(agent.GetDestination());
+                    
                     LookAt(agent.GetDestination());
                     MoveToCalculatedPos(agent.speed);
                     Debug.Log("[ERROR] Current State: GOING");
@@ -360,7 +360,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
         Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
 
-        float rotationSpeed = Time.deltaTime * agent.angularSpeed * 100;
+        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
 
 
         Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);

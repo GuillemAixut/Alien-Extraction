@@ -71,7 +71,7 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
-	LoadSceneFromStart("Assets", "NavigationTest");
+	
 
 #ifdef _RELEASE
 
