@@ -77,7 +77,6 @@
     <Compile Include="Assets\Scripts\Prueba.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\TP_Maps_Test.cs" />
-    <Compile Include="Assets\Scripts\Tp_Player.cs" />
     <Compile Include="Assets\Scripts\UI_Bullets.cs" />
     <Compile Include="Assets\Scripts\Button_Navigation.cs" />
     <Compile Include="Assets\Scripts\Button_Exit.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="Assets\Scripts\UI_Upgrade_Button.cs" />
     <Compile Include="Assets\Scripts\UI_Upgrade_Navigation.cs" />
     <Compile Include="Assets\Scripts\Tp_Beacon.cs" />
+    <Compile Include="Assets\Scripts\Teleport_OnCollision.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

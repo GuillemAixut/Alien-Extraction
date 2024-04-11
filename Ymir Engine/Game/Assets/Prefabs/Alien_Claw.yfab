@@ -1,9 +1,9 @@
 {
     "Prefab": [
         {
-            "Name": "Cube",
+            "Name": "BakerHouse",
             "Tag": "Untagged",
-            "UID": 1484304711,
+            "UID": 1650915083,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1406306264,
@@ -26,6 +26,12 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "PickUp.cs",
+                    "Active": 1,
+                    "UID": 0
                 },
                 {
                     "World gravity": [
@@ -55,26 +61,21 @@
                         0,
                         0
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "PickUp.cs",
-                    "Active": 1,
-                    "UID": 0
                 }
             ],
             "Children UID": [
-                1981179967
+                108945139,
+                215124175
             ]
         },
         {
-            "Name": "Cube (1)",
+            "Name": "Chimney",
             "Tag": "Untagged",
-            "UID": 1981179967,
+            "UID": 108945139,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Primitives\/Cube.fbx",
-            "Parent UID": 1484304711,
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Pick Up WIP\/BakerHouse.fbx",
+            "Parent UID": 1650915083,
             "Components": [
                 {
                     "Type": "Transform",
@@ -98,9 +99,9 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 1728623793,
-                    "Vertex Count": 24,
-                    "Index Count": 36
+                    "UID": 1534554927,
+                    "Vertex Count": 160,
+                    "Index Count": 324
                 },
                 {
                     "Type": "Material",
@@ -125,8 +126,71 @@
                         }
                     ],
                     "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
+                    "Diffuse_Path": ".\/Library\/Textures\/1955580875.dds",
+                    "Diffuse_UID": 1955580875
+                }
+            ]
+        },
+        {
+            "Name": "Baker_house",
+            "Tag": "Untagged",
+            "UID": 215124175,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Pick Up WIP\/BakerHouse.fbx",
+            "Parent UID": 1650915083,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 694593550,
+                    "Vertex Count": 1641,
+                    "Index Count": 2751
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": ".\/Library\/Textures\/1955580875.dds",
+                    "Diffuse_UID": 1955580875
                 }
             ]
         }

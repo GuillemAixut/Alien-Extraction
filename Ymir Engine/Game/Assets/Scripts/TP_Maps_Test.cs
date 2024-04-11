@@ -23,8 +23,6 @@ public class TP_Maps_Test : YmirComponent
     {
         if (other.Tag == "Player")
         {
-
-            other.GetComponent<Basic_Movment>().SetCoordinates(100f, 0f, 0f);//no va por ahora
             //other.SetPosition(new Vector3(10, 10, 0));
             InternalCalls.LoadScene("Assets/Door.yscene");
             other.GetComponent<Basic_Movment>().SetTeleport(true);
@@ -36,24 +34,4 @@ public class TP_Maps_Test : YmirComponent
         }
 
     }
-    //public void OnCollisionStay(GameObject other)
-    //{
-    //    if (other.Tag == "Player")
-    //    {
-
-
-    //        other.SetPosition(new Vector3(10, 10, 0));
-    //        InternalCalls.LoadScene("Assets/NPC_Base.yscene");
-    //        //other.SetPosition(new Vector3(10, 10, 0));
-
-
-    //        return;
-
-    //    }
-
-    //}
-
-
-
-
 }
