@@ -53,7 +53,6 @@ void PhysBody::SetPosition(const float3& pos) const
 	body->setWorldTransform(t);
 }
 
-// �ngulos en radianes!!!
 void PhysBody::SetRotation(const Quat& q) const
 {
 	btTransform t = body->getWorldTransform();
