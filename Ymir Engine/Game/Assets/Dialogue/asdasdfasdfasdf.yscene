@@ -1,23 +1,23 @@
 {
     "Editor Camera Position": [
-        -23.514402389526367,
-        206.41831970214844,
-        34.531116485595703
+        146.26750183105469,
+        189.33180236816406,
+        -131.93586730957031
     ],
     "Editor Camera Right (X)": [
-        -0.28187155723571777,
-        6.7055225372314453e-07,
-        0.9594724178314209
+        0.37524640560150146,
+        -2.6822090148925781e-07,
+        0.69620728492736816
     ],
     "Editor Camera Up (Y)": [
-        0.62705123424530029,
-        0.75689786672592163,
-        0.18421311676502228
+        0.40754872560501099,
+        0.64123082160949707,
+        -0.21966305375099182
     ],
     "Editor Camera Front (Z)": [
-        0.72620987892150879,
-        -0.65354418754577637,
-        0.21334469318389893
+        0.71368783712387085,
+        -0.58537459373474121,
+        -0.38466840982437134
     ],
     "Hierarchy": [
         {
@@ -26,7 +26,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 961335187,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52,9 +52,10 @@
                 1281640994,
                 1676754095,
                 1398847280,
-                864928087,
+                548886985,
+                1342846247,
                 366680627,
-                428495706
+                850066417
             ]
         },
         {
@@ -86,7 +87,8 @@
                 }
             ],
             "Children UID": [
-                1668133227
+                1668133227,
+                1237068732
             ]
         },
         {
@@ -203,7 +205,7 @@
                     "Active": 1,
                     "Translation": [
                         0,
-                        0,
+                        34.4071044921875,
                         0
                     ],
                     "Rotation": [
@@ -28539,6 +28541,646 @@
             ]
         },
         {
+            "Name": "PROP_Beacon",
+            "Tag": "Untagged",
+            "UID": 1237068732,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1281640994,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        336.60317993164062,
+                        97.745208740234375,
+                        -148.91989135742188
+                    ],
+                    "Rotation": [
+                        180,
+                        -18.257898330688477,
+                        180
+                    ],
+                    "Scale": [
+                        1.2600536346435547,
+                        1.2599997520446777,
+                        1.2600536346435547
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        6.3000001907348633,
+                        12.199999809265137,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -3.9000000953674316,
+                        6.1999998092651367,
+                        0.10000000149011612
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Tp_Beacon.cs",
+                    "Active": 1,
+                    "UID": 0
+                }
+            ],
+            "Children UID": [
+                1106680737,
+                1151028632,
+                138278572,
+                97119042,
+                680972477,
+                1336640618,
+                881752622
+            ]
+        },
+        {
+            "Name": "Base",
+            "Tag": "Untagged",
+            "UID": 1106680737,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
+            "Parent UID": 1237068732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        3.6585483551025391,
+                        1.1858386993408203,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        2.9388458728790283,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 699821505,
+                    "Vertex Count": 64,
+                    "Index Count": 96
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                7.3372573852539062,
+                                246.86851501464844,
+                                132.84886169433594
+                            ],
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                }
+            ]
+        },
+        {
+            "Name": "Cable",
+            "Tag": "Untagged",
+            "UID": 1151028632,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
+            "Parent UID": 1237068732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        3.6526322364807129,
+                        10.09384822845459,
+                        0.58987617492675781
+                    ],
+                    "Rotation": [
+                        1.7248693704605103,
+                        1.6008256409349997e-07,
+                        90.000015258789062
+                    ],
+                    "Scale": [
+                        0.47099640965461731,
+                        0.46608829498291016,
+                        0.46568658947944641
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1264671032,
+                    "Vertex Count": 256,
+                    "Index Count": 564
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                7.3372573852539062,
+                                246.86851501464844,
+                                132.84886169433594
+                            ],
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                }
+            ]
+        },
+        {
+            "Name": "Antenna1",
+            "Tag": "Untagged",
+            "UID": 138278572,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
+            "Parent UID": 1237068732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0.11711259186267853,
+                        10.822545051574707,
+                        0.40343952178955078
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.23127695918083191,
+                        0.23127695918083191,
+                        0.23127695918083191
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 403313945,
+                    "Vertex Count": 121,
+                    "Index Count": 168
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                7.3372573852539062,
+                                246.86851501464844,
+                                132.84886169433594
+                            ],
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                }
+            ]
+        },
+        {
+            "Name": "Antenna2",
+            "Tag": "Untagged",
+            "UID": 97119042,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
+            "Parent UID": 1237068732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0.61200278997421265,
+                        10.822545051574707,
+                        0.72272908687591553
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.23127695918083191,
+                        0.23127695918083191,
+                        0.23127695918083191
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 69159357,
+                    "Vertex Count": 121,
+                    "Index Count": 168
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                7.3372573852539062,
+                                246.86851501464844,
+                                132.84886169433594
+                            ],
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                }
+            ]
+        },
+        {
+            "Name": "Antenna3",
+            "Tag": "Untagged",
+            "UID": 680972477,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
+            "Parent UID": 1237068732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        2.8647372722625732,
+                        10.896060943603516,
+                        0.55656743049621582
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.29104030132293701,
+                        0.37436074018478394,
+                        0.29104030132293701
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1298430685,
+                    "Vertex Count": 121,
+                    "Index Count": 168
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                7.3372573852539062,
+                                246.86851501464844,
+                                132.84886169433594
+                            ],
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                }
+            ]
+        },
+        {
+            "Name": "Light",
+            "Tag": "Untagged",
+            "UID": 1336640618,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
+            "Parent UID": 1237068732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        2.1163473129272461,
+                        10.885356903076172,
+                        1.5984547138214111
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.71104037761688232,
+                        0.34464555978775024,
+                        0.71104037761688232
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 523117597,
+                    "Vertex Count": 9,
+                    "Index Count": 32
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                7.3372573852539062,
+                                246.86851501464844,
+                                132.84886169433594
+                            ],
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 523117597,
+                    "Vertex Count": 112,
+                    "Index Count": 246
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                }
+            ]
+        },
+        {
+            "Name": "Top",
+            "Tag": "Untagged",
+            "UID": 881752622,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
+            "Parent UID": 1237068732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        20.770042419433594,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1400397375,
+                    "Vertex Count": 86,
+                    "Index Count": 162
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                7.3372573852539062,
+                                246.86851501464844,
+                                132.84886169433594
+                            ],
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 362,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_D.png",
+                    "Diffuse_UID": 851074632,
+                    "Normal_ID": 366,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_N.png",
+                    "Normal_UID": 1395049236,
+                    "Ambient_ID": 360,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_A.png",
+                    "Ambient_UID": 1682956853,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
+                    "Emissive_UID": 1200225566
+                }
+            ]
+        },
+        {
             "Name": "Death Canvas",
             "Tag": "Untagged",
             "UID": 1676754095,
@@ -30571,7 +31213,7 @@
         {
             "Name": "Win Canvas",
             "Tag": "Untagged",
-            "UID": 864928087,
+            "UID": 548886985,
             "Active": false,
             "Element_Type": "None",
             "Parent UID": 379278140,
@@ -30614,17 +31256,17 @@
                 }
             ],
             "Children UID": [
-                1307538846,
+                1463970508,
                 1984199107
             ]
         },
         {
             "Name": "Background (3)",
             "Tag": "Untagged",
-            "UID": 1307538846,
+            "UID": 1463970508,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 864928087,
+            "Parent UID": 548886985,
             "Components": [
                 {
                     "Type": "Transform",
@@ -30686,7 +31328,7 @@
             "UID": 1984199107,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 864928087,
+            "Parent UID": 548886985,
             "Components": [
                 {
                     "Type": "Transform",
@@ -30864,6 +31506,64 @@
             ]
         },
         {
+            "Name": "Empty (1)",
+            "Tag": "Untagged",
+            "UID": 1342846247,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        236.23530578613281,
+                        83.482131958007812,
+                        -193.90959167480469
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        405.26953125,
+                        1,
+                        391.60781860351562
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        5,
+                        5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
             "Name": "Player_With_Camera",
             "Tag": "Untagged",
             "UID": 366680627,
@@ -30875,9 +31575,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        63.294353485107422,
-                        117.317138671875,
-                        37.34832763671875
+                        73.337257385253906,
+                        107.86851501464844,
+                        60.848865509033203
                     ],
                     "Rotation": [
                         -0,
@@ -30956,7 +31656,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 1,
+                    "Frustum Culling": 0,
                     "Draw Bounding Boxes": 1,
                     "Game Camera": true
                 },
@@ -30970,7 +31670,7 @@
         },
         {
             "Name": "Player",
-            "Tag": "Untagged",
+            "Tag": "Player",
             "UID": 402787232,
             "Active": true,
             "Element_Type": "Model",
@@ -31310,9 +32010,9 @@
             ]
         },
         {
-            "Name": "Empty (1)",
+            "Name": "Empty (2)",
             "Tag": "Untagged",
-            "UID": 428495706,
+            "UID": 850066417,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 379278140,
@@ -31321,9 +32021,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        70.001083374023438,
-                        101.51027679443359,
-                        47.412330627441406
+                        234.95884704589844,
+                        112.641845703125,
+                        -195.83067321777344
                     ],
                     "Rotation": [
                         -0,
@@ -31331,9 +32031,9 @@
                         -0
                     ],
                     "Scale": [
-                        155.67498779296875,
                         1,
-                        157.43228149414062
+                        1,
+                        1
                     ]
                 },
                 {
@@ -31346,9 +32046,9 @@
                     "Active": 1,
                     "Collider Type": 0,
                     "Size": [
-                        5,
-                        5,
-                        5
+                        38.400001525878906,
+                        45.700000762939453,
+                        30.600000381469727
                     ],
                     "Physics Type": 2,
                     "Mass": 0,
@@ -31364,6 +32064,12 @@
                         0,
                         0
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Tp_Lvl2_Part2.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ]
         }
