@@ -7,67 +7,64 @@ using System.Text;
 using System.Threading.Tasks;
 using YmirEngine;
 
+
+public enum STATE : int
+{
+    NONE = -1,
+
+    IDLE,
+    MOVE,
+    STOP,
+    DASH,
+    SHOOTING,
+    RELOANDING,
+    SHOOT,
+    DEAD,
+    JUMP,
+    TAILSWIPE,
+
+    All_TYPES
+}
+
+public enum INPUT : int
+{
+    I_IDLE,
+    I_MOVE,
+    I_STOP,
+    I_DASH,
+    I_DASH_END,
+    I_SHOOTING,
+    I_SHOOTING_END,
+    I_SHOOT,
+    I_SHOOT_END,
+    I_RELOAD,
+    I_DEAD,
+    I_JUMP,
+    I_JUMP_END,
+    I_ACID,
+    I_ACID_END,
+    I_PRED,
+    I_PRED_END,
+    I_SWIPE,
+    I_SWIPE_END,
+}
+
+public enum WEAPON : int
+{
+    NONE = -1,
+
+    SMG,
+    SHOTGUN,
+    TRACE,
+
+    All_TYPES
+}
+
 public class Player : YmirComponent
 {
-    #region ENUMS
-
-    enum STATE : int
-    {
-        NONE = -1,
-
-        IDLE,
-        MOVE,
-        STOP,
-        DASH,
-        SHOOTING,
-        RELOANDING,
-        SHOOT,
-        DEAD,
-        JUMP,
-        TAILSWIPE,
-
-        All_TYPES
-    }
-    enum INPUT : int
-    {
-        I_IDLE,
-        I_MOVE,
-        I_STOP,
-        I_DASH,
-        I_DASH_END,
-        I_SHOOTING,
-        I_SHOOTING_END,
-        I_SHOOT,
-        I_SHOOT_END,
-        I_RELOAD,
-        I_DEAD,
-        I_JUMP,
-        I_JUMP_END,
-        I_ACID,
-        I_ACID_END,
-        I_PRED,
-        I_PRED_END,
-        I_SWIPE,
-        I_SWIPE_END,
-    }
-
-    enum WEAPON : int
-    {
-        NONE = -1,
-
-        SMG,
-        SHOTGUN,
-        TRACE,
-
-        All_TYPES
-    }
-    #endregion
-
-    #region DEFINE BASE VARS
-
     //--------------------- State ---------------------\\
-    private STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
-    private List<INPUT> inputsList = new List<INPUT>();
+    public STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
+    public List<INPUT> inputsList = new List<INPUT>();
 
     //--------------------- Movement ---------------------\\
     //public float rotationSpeed = 2.0f;
@@ -83,8 +80,6 @@ public class Player : YmirComponent
 
     //--------------------- GOD mode ---------------------\\
     public bool godMode = false;
-
-    #endregion
 
     #region DEFINE SHOOT VARS
 
@@ -918,7 +913,7 @@ public class Player : YmirComponent
     #region IDLE
     private void StartIdle()
     {
-        Animation.PlayAnimation(gameObject, "Idle");
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
     #endregion
 
@@ -1094,7 +1089,7 @@ public class Player : YmirComponent
     #region DASH
     private void StartDash()
     {
-        //Animation.PlayAnimation(gameObject, "Lift2");
+        Animation.PlayAnimation(gameObject, "Raisen_Dash");
         Audio.PlayAudio(gameObject, "P_Dash");
         Input.Rumble_Controller(100, 7);
         StopPlayer();
@@ -1114,8 +1109,6 @@ public class Player : YmirComponent
 
     private void StartJump()
     {
-        //Animation.PlayAnimation(gameObject, "Random");
-        //Animation.SetLoop(gameObject, "Random", true);
         jumpTimer = dashDuration;
     }
     private void UpdateJump()
@@ -1158,7 +1151,7 @@ public class Player : YmirComponent
     private void StartMove()
     {
         //Trigger de la animacion
-        Animation.PlayAnimation(gameObject, "Run");
+        Animation.PlayAnimation(gameObject, "Raisen_Run");
         //Trigger del SFX de caminar
         //Vector3 impulse = new Vector3(0.0f,0.0f,0.01f);
         //gameObject.SetImpulse(gameObject.transform.GetForward() * 0.5f);
@@ -1225,7 +1218,7 @@ public class Player : YmirComponent
 
     private void StartDeath()
     {
-        Animation.PlayAnimation(gameObject, "Die");
+        Animation.PlayAnimation(gameObject, "Raisen_Die");
     }
 
     private void GetPlayerScripts()
@@ -1270,25 +1263,38 @@ public class Player : YmirComponent
 
     private void SetAnimParameters()
     {
-        Animation.SetLoop(gameObject, "Idle", true);
-        Animation.SetLoop(gameObject, "Walk", true);
-        Animation.SetLoop(gameObject, "Run", true);
+        Animation.SetLoop(gameObject, "Raisen_Idle", true);
+        Animation.SetLoop(gameObject, "Raisen_Walk", true);
+        Animation.SetLoop(gameObject, "Raisen_Run", true);
+        Animation.SetLoop(gameObject, "Raisen_Dash", true);
 
-        Animation.AddBlendOption(gameObject, "Idle", "Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Idle", "Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Idle", "Die", 5.0f);
-
-
-        Animation.AddBlendOption(gameObject, "Walk", "Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Walk", "Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Walk", "Die", 5.0f);
-
-        Animation.AddBlendOption(gameObject, "Run", "Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Run", "Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Run", "Die", 5.0f);
+        Animation.SetResetToZero(gameObject, "Raisen_Die", false);
 
 
-        Animation.PlayAnimation(gameObject, "Idle");
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Run", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Dash", 5.0f);
+
+
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Run", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Dash", 5.0f);
+
+
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
+
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Run", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Walk", 5.0f);
+
+
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
 
     #endregion

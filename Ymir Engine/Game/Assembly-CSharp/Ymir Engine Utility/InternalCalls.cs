@@ -126,6 +126,18 @@ namespace YmirEngine
     public class UI
     {
         /// <summary>
+        /// Get navigation bool.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool GetCanNav();
+
+        /// <summary>
+        /// Set navigation bool.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetCanNav();
+        
+        /// <summary>
         /// Change UI state.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]

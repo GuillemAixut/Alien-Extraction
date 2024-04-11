@@ -872,6 +872,16 @@ void Rumble_Controller(int time, int intenisty)
 	}
 }
 
+bool GetCanNav()
+{
+	return External->scene->canNav;
+}
+
+void SetCanNav(bool set)
+{
+	External->scene->canNav = set;
+}
+
 void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
 {
 	//Falta meter automaticamente que haga el change de Image
