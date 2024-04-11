@@ -26,7 +26,7 @@
             "UID": 1406306264,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1406306264,
+            "Parent UID": 1662374791,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70,9 +70,9 @@
                         54
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         40.000007629394531,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -97,17 +97,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        1.4361705780174816e-07,
+                        -1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         1,
-                        -1.4361705780174816e-07
+                        1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -152,8 +152,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 878,
-                    "Height": 883,
+                    "Width": 1132,
+                    "Height": 553,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -1200,7 +1200,7 @@
                         447,
                         114
                     ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/UI\/Teleport Buttons\/SmgHover.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1236,10 +1236,10 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 1489064132,
-                    "Normal": ".\/Library\/Textures\/220049077.dds",
-                    "Focused": ".\/Library\/Textures\/211421801.dds",
-                    "Pressed": ".\/Library\/Textures\/441920843.dds",
-                    "Selected": ".\/Library\/Textures\/211421801.dds",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/SmgUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/SmgHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/SmgPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/SmgHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -1319,7 +1319,7 @@
                         447,
                         114
                     ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/UI\/Teleport Buttons\/ShotgunUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1355,10 +1355,10 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 314406228,
-                    "Normal": ".\/Library\/Textures\/1777938100.dds",
-                    "Focused": ".\/Library\/Textures\/935449884.dds",
-                    "Pressed": ".\/Library\/Textures\/1103739565.dds",
-                    "Selected": ".\/Library\/Textures\/935449884.dds",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/ShotgunUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/ShotgunHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/ShotgunPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/ShotgunHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -1438,7 +1438,7 @@
                         447,
                         114
                     ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/UI\/Teleport Buttons\/LaserUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1474,10 +1474,10 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 1271137560,
-                    "Normal": ".\/Library\/Textures\/411989516.dds",
-                    "Focused": ".\/Library\/Textures\/2117528096.dds",
-                    "Pressed": ".\/Library\/Textures\/32624021.dds",
-                    "Selected": ".\/Library\/Textures\/2117528096.dds",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/LaserUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/LaserHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/LaserPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/LaserHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -1679,7 +1679,7 @@
                         324,
                         102
                     ],
-                    "Path": "Assets\/UI\/Teleport Buttons\/GoToRaidBlocked.png",
+                    "Path": "Assets\/UI\/Teleport Buttons\/GoToRaidUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1715,10 +1715,10 @@
                     "Is interactable": true,
                     "Text": 1445646835,
                     "Image": 576447595,
-                    "Normal": ".\/Library\/Textures\/1139229489.dds",
-                    "Focused": ".\/Library\/Textures\/296312090.dds",
-                    "Pressed": ".\/Library\/Textures\/1960010394.dds",
-                    "Selected": ".\/Library\/Textures\/296312090.dds",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/GoToRaidUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/GoToRaidHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/GoToRaidPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/GoToRaidHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/UI\/Teleport Buttons\/GoToRaidBlocked.png",
                     "Focused color": [
