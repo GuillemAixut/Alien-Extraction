@@ -214,9 +214,7 @@ MonoString* Get_GO_Name(MonoObject* go)
 	if (External == nullptr)
 		return nullptr;
 
-	return mono_string_new(
-		External->moduleMono->domain,
-		External->moduleMono->GameObject_From_CSGO(go)->name.c_str());
+	return mono_string_new(External->moduleMono->domain, External->moduleMono->GameObject_From_CSGO(go)->name.c_str());
 }
 
 MonoObject* FindObjectWithUID(int id)
