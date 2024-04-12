@@ -87,7 +87,7 @@ using YmirEngine;
             wanderState = WanderState.REACHED;
             wanderDuration = 5f;
             wanderTimer = wanderDuration;
-            wanderRange = 50f;
+            wanderRange = 100f;
             movementSpeed = 10f;
             stopedDuration = 1f;
             DetectionRadius = 5f;

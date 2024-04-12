@@ -70,6 +70,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
     private GameObject player;
     protected PathFinding agent;
+    protected Vector3 targetPosition = null;
 
     public bool PlayerDetected = false;
 
@@ -110,8 +111,6 @@ public class FaceHuggerBaseScript : YmirComponent
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         agent = gameObject.GetComponent<PathFinding>();
-        agent.stoppingDistance = 1f;
-        agent.speed = 10f;
         movementSpeed = 20f;
         stopedDuration = 1f;
         DetectionRadius = 60f;
@@ -120,7 +119,7 @@ public class FaceHuggerBaseScript : YmirComponent
         cumDuration2 = 5f;
 
         attackTimer = attackDuration;
-        agent.stoppingDistance = 1f;
+        
 
         cumTimer = cumDuration2;
 
@@ -139,7 +138,9 @@ public class FaceHuggerBaseScript : YmirComponent
 
         }
 
-        //gameObject.SetPosition(new Vector3(-181,4,230));
+        agent.stoppingDistance = 2f;
+        agent.speed = 15f;
+
 
     }
 
@@ -155,21 +156,18 @@ public class FaceHuggerBaseScript : YmirComponent
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     wanderTimer = wanderDuration;
                     Debug.Log("[ERROR] Current State: REACHED");
+                    targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
+                    //Debug.Log("[ERROR] TargetPosition: " + targetPosition); 
                     wanderState = WanderState.GOING;
                     break;
 
                 case WanderState.GOING:
-                    agent.speed = 30f;
-
-                    
                     LookAt(agent.GetDestination());
+                    Debug.Log("[ERROR] Speed" + agent.speed);
                     MoveToCalculatedPos(agent.speed);
                     Debug.Log("[ERROR] Current State: GOING");
 
-                    //if(Mathf.Distance(gameObject.transform.globalPosition,agent.GetPointAt(agent.GetPathSize())) < 1)
-                    //{
-                    //    wanderState = WanderState.REACHED; break;
-                    //}
+                    IsReached(gameObject.transform.globalPosition, targetPosition);
                     break;
 
 
@@ -400,6 +398,29 @@ public class FaceHuggerBaseScript : YmirComponent
         gameObject.transform.localRotation = desiredRotation;
 
         //Debug.Log("[ERROR] rotation:  " + gameObject.transform.localRotation);
+    }
+
+    public void IsReached(Vector3 position, Vector3 destintion)
+    {
+        Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
+                                      0,
+                                      Mathf.Round(position.z));
+
+        Vector3 roundedDestination = new Vector3(Mathf.Round(destintion.x),
+                                                 0,
+                                                 Mathf.Round(destintion.z));
+
+
+        Debug.Log("Position: " + roundedPosition);
+        Debug.Log("Destination: " + roundedDestination);
+
+
+        if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
+        {
+            wanderState = WanderState.REACHED;
+            Debug.Log("Reached!!!!");
+
+        }
     }
 
     public void OnCollisionStay(GameObject other)
