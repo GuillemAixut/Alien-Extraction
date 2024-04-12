@@ -26,6 +26,7 @@
             "UID": 916391465,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 1393099486,
             "Components": [
                 {
                     "Type": "Transform",
@@ -69,9 +70,9 @@
                         54
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         40.000007629394531,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -96,17 +97,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        1.4361705780174816e-07,
+                        -1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         1,
-                        -1.4361705780174816e-07
+                        1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -151,7 +152,7 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 814,
+                    "Width": 421,
                     "Height": 440,
                     "UI Type": 0,
                     "UI State": 5,
@@ -380,7 +381,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/VS2 Release.yscene"
+                    "sceneName": "Assets\/BASE_FINAL\/LVL_BASE_COLLIDERS"
                 }
             ],
             "Children UID": [
