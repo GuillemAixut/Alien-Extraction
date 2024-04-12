@@ -23,10 +23,9 @@
         {
             "Name": "Scene",
             "Tag": "Untagged",
-            "UID": 34134468,
+            "UID": 916391465,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1469060079,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49,17 +48,17 @@
                 }
             ],
             "Children UID": [
-                2022611333,
+                1749409377,
                 2047246996
             ]
         },
         {
             "Name": "Main Camera",
             "Tag": "Untagged",
-            "UID": 2022611333,
+            "UID": 1749409377,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 34134468,
+            "Parent UID": 916391465,
             "Components": [
                 {
                     "Type": "Transform",
@@ -125,7 +124,7 @@
             "UID": 2047246996,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 34134468,
+            "Parent UID": 916391465,
             "Components": [
                 {
                     "Type": "Transform",
@@ -152,8 +151,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 635,
-                    "Height": 351,
+                    "Width": 814,
+                    "Height": 440,
                     "UI Type": 0,
                     "UI State": 5,
                     "Drag Limits": [
@@ -165,14 +164,14 @@
                 }
             ],
             "Children UID": [
-                1031026276,
+                902621313,
                 147158853
             ]
         },
         {
             "Name": "Image",
             "Tag": "Untagged",
-            "UID": 1031026276,
+            "UID": 902621313,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 2047246996,
@@ -205,7 +204,7 @@
                     "Width": 1920,
                     "Height": 1080,
                     "UI Type": 1,
-                    "UI State": 5,
+                    "UI State": 1,
                     "Drag Limits": [
                         0,
                         0,
@@ -309,7 +308,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button_pressed.png",
+                    "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -381,7 +380,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/BASE_FINAL\/LVL_BASE_COLLIDERS"
+                    "sceneName": "Assets\/VS2 Release.yscene"
                 }
             ],
             "Children UID": [
@@ -492,7 +491,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
+                    "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -668,7 +667,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button_pressed.png",
+                    "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -844,7 +843,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button.png",
+                    "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
