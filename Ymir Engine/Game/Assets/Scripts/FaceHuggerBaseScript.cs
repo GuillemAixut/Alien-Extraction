@@ -113,7 +113,7 @@ public class FaceHuggerBaseScript : YmirComponent
         agent = gameObject.GetComponent<PathFinding>();
         movementSpeed = 20f;
         stopedDuration = 1f;
-        DetectionRadius = 60f;
+        DetectionRadius = 50f;
         wanderRange = 100f;
         cumDuration = 2f;
         cumDuration2 = 5f;
@@ -173,6 +173,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
                 case WanderState.CHASING:
 
+                    LookAt(agent.GetDestination());
                     //Debug.Log("[ERROR] Current State: CHASING");
                     agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
 
@@ -217,7 +218,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
                         if (wanderState == WanderState.CHASING && wanderState != WanderState.ATTACK)
                         {
-                            //Debug.Log("[ERROR] ATTACKING");
+                            Debug.Log("[ERROR] ATTACKING");
                             attackTimer = attackDuration;
                             gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
                             wanderState = WanderState.ATTACK;
@@ -373,7 +374,7 @@ public class FaceHuggerBaseScript : YmirComponent
         Vector3 destination = agent.GetDestination();
         Vector3 direction = destination - pos;
 
-        gameObject.SetVelocity(direction.normalized * 5f);
+        gameObject.SetVelocity(direction.normalized * speed);
     }
 
     private void RotateEnemy()
