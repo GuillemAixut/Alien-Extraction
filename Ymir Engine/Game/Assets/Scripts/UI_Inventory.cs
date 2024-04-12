@@ -11,6 +11,7 @@ public class UI_Inventory : YmirComponent
     private GameObject _selectedGO;
     public GameObject _focusedGO;
     private bool _show;
+
     public void Start()
     {
         _focusedGO = UI.GetFocused();
@@ -45,8 +46,8 @@ public class UI_Inventory : YmirComponent
             if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
             {
                 SwitchItems();
-            } 
-            
+            }
+
             if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
             {
                 SwitchMenu();
@@ -81,8 +82,7 @@ public class UI_Inventory : YmirComponent
         //    Deactivate();
         //}
 
-
-            return;
+        return;
     }
 
     private void SwitchItems()
@@ -138,6 +138,8 @@ public class UI_Inventory : YmirComponent
     {
         // TODO: CANVIAR ESTA BASURA
 
+        Debug.Log("aaaaaaaaaaaaa");
+
         GameObject inventoryGO = InternalCalls.GetGameObjectByName("Inventory");
         UI.SetActiveAllUI(inventoryGO, false);
 
@@ -158,7 +160,5 @@ public class UI_Inventory : YmirComponent
 
         GameObject save = InternalCalls.GetGameObjectByName("Save Item");
         save.GetComponent<UI_Item_Button>().ShowInfo(false);
-
-
     }
 }

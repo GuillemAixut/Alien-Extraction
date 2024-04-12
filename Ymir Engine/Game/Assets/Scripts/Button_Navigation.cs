@@ -8,7 +8,7 @@ using YmirEngine;
 
 public class Button_Navigation : YmirComponent
 {
-    public string sceneName = "Assets/Scenes/GameUI";
+    public string sceneName = "Assets/BASE_FINAL/LVL_BASE_COLLIDERS";
 
     public void OnClickButton()
     {

@@ -5,8 +5,8 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using YmirEngine;
 
+using YmirEngine;
 
 public enum STATE : int
 {
@@ -17,7 +17,7 @@ public enum STATE : int
     STOP,
     DASH,
     SHOOTING,
-    RELOANDING,
+    RELOADING,
     SHOOT,
     DEAD,
     JUMP,
@@ -144,6 +144,12 @@ public class Player : YmirComponent
 
     #endregion
 
+    #region DEFINE MENUS
+
+    private bool _openInventory = false;
+
+    #endregion
+
     #region DEFINE EXTERNAL THINGS
 
     //--------------------- External GameObjects ---------------------\\
@@ -212,6 +218,9 @@ public class Player : YmirComponent
         GetWeaponVars();
         ammo = magsize;
         reloadTimer = reloadDuration;
+
+        //--------------------- Menus ---------------------\\
+        _openInventory = false;
 
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
@@ -440,7 +449,7 @@ public class Player : YmirComponent
         }
         else
         {
-            inputsList.Add(INPUT.I_SHOOTING_END);
+            //inputsList.Add(INPUT.I_SHOOTING_END);
             shootBefore = false;
         }
 
@@ -461,6 +470,11 @@ public class Player : YmirComponent
         {
             hasAcidic = true;
             inputsList.Add(INPUT.I_ACID);
+
+            // SARA: start acidic cooldown
+            csUI_AnimationAcid.Reset();
+            csUI_AnimationAcid.backwards = false;
+            csUI_AnimationAcid.SetAnimationState(true);
         }
 
         //----------------- Predatory Rush (Skill 2) -----------------\\
@@ -491,6 +505,22 @@ public class Player : YmirComponent
         if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
         {
             inputsList.Add(INPUT.I_RELOAD);
+        }
+
+        //----------------- Inventory -----------------\\
+        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
+        {
+            _openInventory = !_openInventory;
+            ToggleMenu("Inventory Menu", _openInventory);
+
+            if (_openInventory)
+            {
+                GameObject canvas = InternalCalls.GetGameObjectByName("Inventory Menu");
+                Debug.Log("" + canvas.Name);
+                canvas.GetComponent<UI_Inventory>().Deactivate();
+            }
+
+            Debug.Log("" + _openInventory);
         }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
@@ -584,7 +614,7 @@ public class Player : YmirComponent
                             StartShooting();
                             break;
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -646,7 +676,7 @@ public class Player : YmirComponent
                             break;
 
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -744,7 +774,7 @@ public class Player : YmirComponent
                             break;
 
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -780,7 +810,7 @@ public class Player : YmirComponent
                     }
                     break;
 
-                case STATE.RELOANDING:
+                case STATE.RELOADING:
                     switch (input)
                     {
                         case INPUT.I_MOVE:
@@ -812,7 +842,7 @@ public class Player : YmirComponent
                             StartShooting();
                             break;
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -871,6 +901,7 @@ public class Player : YmirComponent
             inputsList.RemoveAt(0);
         }
     }
+
     private void UpdateState()
     {
         switch (currentState)
@@ -897,7 +928,7 @@ public class Player : YmirComponent
             case STATE.SHOOTING:
                 UpdateShooting();
                 break;
-            case STATE.RELOANDING:
+            case STATE.RELOADING:
                 break;
             case STATE.SHOOT:
                 break;
@@ -1176,9 +1207,8 @@ public class Player : YmirComponent
         //{
         //    gameObject.SetVelocity(cameraObject.transform.GetRight() * movementSpeed);
         //}
-
-
     }
+
     private void StopPlayer()
     {
         Debug.Log("Stopping");
@@ -1223,21 +1253,28 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Die");
     }
 
+    //
+    public void ToggleMenu(string goName, bool open)
+    {
+        GameObject canvas = InternalCalls.GetGameObjectByName(goName);
+
+        canvas.SetActive(open);
+        inputsList.Add((open) ? INPUT.I_STOP : INPUT.I_IDLE);
+    }
+
+    // External scripts
     private void GetPlayerScripts()
     {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-        if (gameObject != null)
-        {
-            csBullets = gameObject.GetComponent<UI_Bullets>();
-            csHealth = gameObject.GetComponent<Health>();
-        }
+        Debug.Log("" + gameObject.Name);
+        csBullets = gameObject.GetComponent<UI_Bullets>();
+        csHealth = gameObject.GetComponent<Health>();
     }
 
     private void GetSkillsScripts()
     {
         GameObject gameObject = InternalCalls.GetGameObjectByName("Frame (1)");
 
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
         ;
         if (gameObject != null)
         {
