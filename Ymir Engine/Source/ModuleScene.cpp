@@ -66,14 +66,15 @@ bool ModuleScene::Init()
 	selectedUIGO = nullptr;
 	focusedUIGO = nullptr;
 	canTab = true;
-	
+	canNav = true;
+
 	return ret;
 }
 
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
-	LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
+	//LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
 	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
 	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
 
@@ -92,7 +93,7 @@ bool ModuleScene::Start()
 
 #ifdef _STANDALONE
 
-	//LoadSceneFromStart("Assets", "VS2 Release");
+	LoadSceneFromStart("Assets", "Alpha1_Level");
 	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
@@ -206,6 +207,15 @@ update_status ModuleScene::PostUpdate(float dt)
 		LoadScene(path, name);
 
 		pendingToAddScene.clear();
+	}
+
+	if (!pendingToAddPrefab.empty())
+	{
+		for (const auto& tuple : pendingToAddPrefab)
+		{
+			LoadPrefab(std::get<0>(tuple), std::get<1>(tuple));
+		}
+		pendingToAddPrefab.clear();
 	}
 
 	gameObjects.insert(gameObjects.end(), pendingToAdd.begin(), pendingToAdd.end());
@@ -1025,21 +1035,24 @@ void ModuleScene::TabNavigate(bool isForward)
 
 void ModuleScene::HandleUINavigation()
 {
-	if (!canTab && App->input->GetGamepadLeftJoystickPositionValueY() == 0)
+	if (canNav)
 	{
-		canTab = true;
-	}
+		if (!canTab && App->input->GetGamepadLeftJoystickPositionValueY() == 0)
+		{
+			canTab = true;
+		}
 
-	if ((App->input->GetGamepadLeftJoystickPositionValueY() < 0 && canTab) || App->input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN)
-	{
-		canTab = false;
-		TabNavigate(false);
-	}
+		if ((App->input->GetGamepadLeftJoystickPositionValueY() < 0 && canTab) || App->input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN)
+		{
+			canTab = false;
+			TabNavigate(false);
+		}
 
-	else if ((App->input->GetGamepadLeftJoystickPositionValueY() > 0 && canTab) || App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
-	{
-		canTab = false;
-		TabNavigate(true);
+		else if ((App->input->GetGamepadLeftJoystickPositionValueY() > 0 && canTab) || App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
+		{
+			canTab = false;
+			TabNavigate(true);
+		}
 	}
 }
 

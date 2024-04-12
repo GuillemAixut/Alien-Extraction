@@ -5,69 +5,66 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+
 using YmirEngine;
+
+public enum STATE : int
+{
+    NONE = -1,
+
+    IDLE,
+    MOVE,
+    STOP,
+    DASH,
+    SHOOTING,
+    RELOADING,
+    SHOOT,
+    DEAD,
+    JUMP,
+    TAILSWIPE,
+
+    All_TYPES
+}
+
+public enum INPUT : int
+{
+    I_IDLE,
+    I_MOVE,
+    I_STOP,
+    I_DASH,
+    I_DASH_END,
+    I_SHOOTING,
+    I_SHOOTING_END,
+    I_SHOOT,
+    I_SHOOT_END,
+    I_RELOAD,
+    I_DEAD,
+    I_JUMP,
+    I_JUMP_END,
+    I_ACID,
+    I_ACID_END,
+    I_PRED,
+    I_PRED_END,
+    I_SWIPE,
+    I_SWIPE_END,
+}
+
+public enum WEAPON : int
+{
+    NONE = -1,
+
+    SMG,
+    SHOTGUN,
+    TRACE,
+
+    All_TYPES
+}
 
 public class Player : YmirComponent
 {
-    #region ENUMS
-
-    enum STATE : int
-    {
-        NONE = -1,
-
-        IDLE,
-        MOVE,
-        STOP,
-        DASH,
-        SHOOTING,
-        RELOANDING,
-        SHOOT,
-        DEAD,
-        JUMP,
-        TAILSWIPE,
-
-        All_TYPES
-    }
-    enum INPUT : int
-    {
-        I_IDLE,
-        I_MOVE,
-        I_STOP,
-        I_DASH,
-        I_DASH_END,
-        I_SHOOTING,
-        I_SHOOTING_END,
-        I_SHOOT,
-        I_SHOOT_END,
-        I_RELOAD,
-        I_DEAD,
-        I_JUMP,
-        I_JUMP_END,
-        I_ACID,
-        I_ACID_END,
-        I_PRED,
-        I_PRED_END,
-        I_SWIPE,
-        I_SWIPE_END,
-    }
-
-    enum WEAPON : int
-    {
-        NONE = -1,
-
-        SMG,
-        SHOTGUN,
-        TRACE,
-
-        All_TYPES
-    }
-    #endregion
-
-    #region DEFINE BASE VARS
-
     //--------------------- State ---------------------\\
-    private STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
-    private List<INPUT> inputsList = new List<INPUT>();
+    public STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
+    public List<INPUT> inputsList = new List<INPUT>();
 
     //--------------------- Movement ---------------------\\
     //public float rotationSpeed = 2.0f;
@@ -83,8 +80,6 @@ public class Player : YmirComponent
 
     //--------------------- GOD mode ---------------------\\
     public bool godMode = false;
-
-    #endregion
 
     #region DEFINE SHOOT VARS
 
@@ -149,6 +144,12 @@ public class Player : YmirComponent
 
     #endregion
 
+    #region DEFINE MENUS
+
+    private bool _openInventory = false;
+
+    #endregion
+
     #region DEFINE EXTERNAL THINGS
 
     //--------------------- External GameObjects ---------------------\\
@@ -174,7 +175,7 @@ public class Player : YmirComponent
         //
         weaponType = WEAPON.SMG;
 
-        movementSpeed = 7000.0f;    //Antes 35
+        movementSpeed = 35.0f;    //Antes 35
 
         //--------------------- Dash ---------------------\\
         dashDistance = 200.0f;     //Antes 2 
@@ -217,6 +218,9 @@ public class Player : YmirComponent
         GetWeaponVars();
         ammo = magsize;
         reloadTimer = reloadDuration;
+
+        //--------------------- Menus ---------------------\\
+        _openInventory = false;
 
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
@@ -445,7 +449,7 @@ public class Player : YmirComponent
         }
         else
         {
-            inputsList.Add(INPUT.I_SHOOTING_END);
+            //inputsList.Add(INPUT.I_SHOOTING_END);
             shootBefore = false;
         }
 
@@ -466,6 +470,11 @@ public class Player : YmirComponent
         {
             hasAcidic = true;
             inputsList.Add(INPUT.I_ACID);
+
+            // SARA: start acidic cooldown
+            csUI_AnimationAcid.Reset();
+            csUI_AnimationAcid.backwards = false;
+            csUI_AnimationAcid.SetAnimationState(true);
         }
 
         //----------------- Predatory Rush (Skill 2) -----------------\\
@@ -496,6 +505,22 @@ public class Player : YmirComponent
         if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
         {
             inputsList.Add(INPUT.I_RELOAD);
+        }
+
+        //----------------- Inventory -----------------\\
+        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
+        {
+            _openInventory = !_openInventory;
+            ToggleMenu("Inventory Menu", _openInventory);
+
+            if (_openInventory)
+            {
+                GameObject canvas = InternalCalls.GetGameObjectByName("Inventory Menu");
+                Debug.Log("" + canvas.Name);
+                canvas.GetComponent<UI_Inventory>().Deactivate();
+            }
+
+            Debug.Log("" + _openInventory);
         }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
@@ -589,7 +614,7 @@ public class Player : YmirComponent
                             StartShooting();
                             break;
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -651,7 +676,7 @@ public class Player : YmirComponent
                             break;
 
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -749,7 +774,7 @@ public class Player : YmirComponent
                             break;
 
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -785,7 +810,7 @@ public class Player : YmirComponent
                     }
                     break;
 
-                case STATE.RELOANDING:
+                case STATE.RELOADING:
                     switch (input)
                     {
                         case INPUT.I_MOVE:
@@ -817,7 +842,7 @@ public class Player : YmirComponent
                             StartShooting();
                             break;
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -876,6 +901,7 @@ public class Player : YmirComponent
             inputsList.RemoveAt(0);
         }
     }
+
     private void UpdateState()
     {
         switch (currentState)
@@ -902,7 +928,7 @@ public class Player : YmirComponent
             case STATE.SHOOTING:
                 UpdateShooting();
                 break;
-            case STATE.RELOANDING:
+            case STATE.RELOADING:
                 break;
             case STATE.SHOOT:
                 break;
@@ -918,7 +944,7 @@ public class Player : YmirComponent
     #region IDLE
     private void StartIdle()
     {
-        Animation.PlayAnimation(gameObject, "Idle");
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
     #endregion
 
@@ -1094,7 +1120,7 @@ public class Player : YmirComponent
     #region DASH
     private void StartDash()
     {
-        //Animation.PlayAnimation(gameObject, "Lift2");
+        Animation.PlayAnimation(gameObject, "Raisen_Dash");
         Audio.PlayAudio(gameObject, "P_Dash");
         Input.Rumble_Controller(100, 7);
         StopPlayer();
@@ -1110,12 +1136,12 @@ public class Player : YmirComponent
         StopPlayer();
         dashCDTimer = dashCD;
         //gameObject.transform.localPosition.y = dashStartYPos;
+        Animation.PlayAnimation(gameObject, "Raisen_Idle"); // Chuekada para la entrega, si ves esto ponlo bien porfa no lo ignores
+
     }
 
     private void StartJump()
     {
-        //Animation.PlayAnimation(gameObject, "Random");
-        //Animation.SetLoop(gameObject, "Random", true);
         jumpTimer = dashDuration;
     }
     private void UpdateJump()
@@ -1158,7 +1184,7 @@ public class Player : YmirComponent
     private void StartMove()
     {
         //Trigger de la animacion
-        Animation.PlayAnimation(gameObject, "Run");
+        Animation.PlayAnimation(gameObject, "Raisen_Run");
         //Trigger del SFX de caminar
         //Vector3 impulse = new Vector3(0.0f,0.0f,0.01f);
         //gameObject.SetImpulse(gameObject.transform.GetForward() * 0.5f);
@@ -1171,7 +1197,7 @@ public class Player : YmirComponent
 
         HandleRotation();
 
-        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
+        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed);
 
         //if (gamepadInput.x > 0)
         //{
@@ -1181,9 +1207,8 @@ public class Player : YmirComponent
         //{
         //    gameObject.SetVelocity(cameraObject.transform.GetRight() * movementSpeed);
         //}
-
-
     }
+
     private void StopPlayer()
     {
         Debug.Log("Stopping");
@@ -1225,24 +1250,31 @@ public class Player : YmirComponent
 
     private void StartDeath()
     {
-        Animation.PlayAnimation(gameObject, "Die");
+        Animation.PlayAnimation(gameObject, "Raisen_Die");
     }
 
+    //
+    public void ToggleMenu(string goName, bool open)
+    {
+        GameObject canvas = InternalCalls.GetGameObjectByName(goName);
+
+        canvas.SetActive(open);
+        inputsList.Add((open) ? INPUT.I_STOP : INPUT.I_IDLE);
+    }
+
+    // External scripts
     private void GetPlayerScripts()
     {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-        if (gameObject != null)
-        {
-            csBullets = gameObject.GetComponent<UI_Bullets>();
-            csHealth = gameObject.GetComponent<Health>();
-        }
+        Debug.Log("" + gameObject.Name);
+        csBullets = gameObject.GetComponent<UI_Bullets>();
+        csHealth = gameObject.GetComponent<Health>();
     }
 
     private void GetSkillsScripts()
     {
         GameObject gameObject = InternalCalls.GetGameObjectByName("Frame (1)");
 
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
         ;
         if (gameObject != null)
         {
@@ -1270,25 +1302,39 @@ public class Player : YmirComponent
 
     private void SetAnimParameters()
     {
-        Animation.SetLoop(gameObject, "Idle", true);
-        Animation.SetLoop(gameObject, "Walk", true);
-        Animation.SetLoop(gameObject, "Run", true);
+        Animation.SetLoop(gameObject, "Raisen_Idle", true);
+        Animation.SetLoop(gameObject, "Raisen_Walk", true);
+        Animation.SetLoop(gameObject, "Raisen_Run", true);
+        Animation.SetLoop(gameObject, "Raisen_Dash", true);
 
-        Animation.AddBlendOption(gameObject, "Idle", "Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Idle", "Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Idle", "Die", 5.0f);
+        Animation.SetResetToZero(gameObject, "Raisen_Die", false);
 
+        Animation.SetPingPong(gameObject, "Raisen_Die", true);
 
-        Animation.AddBlendOption(gameObject, "Walk", "Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Walk", "Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Walk", "Die", 5.0f);
-
-        Animation.AddBlendOption(gameObject, "Run", "Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Run", "Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Run", "Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Run", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Dash", 5.0f);
 
 
-        Animation.PlayAnimation(gameObject, "Idle");
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Run", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Dash", 5.0f);
+
+
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
+
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Run", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Walk", 5.0f);
+
+
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
 
     #endregion

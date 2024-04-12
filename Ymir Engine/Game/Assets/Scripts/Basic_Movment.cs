@@ -32,7 +32,6 @@ public class Basic_Movment : YmirComponent
 
     public void Update()
 	{
-
         if (teleport)
         {
             gameObject.SetPosition(new Vector3(x, y, z));

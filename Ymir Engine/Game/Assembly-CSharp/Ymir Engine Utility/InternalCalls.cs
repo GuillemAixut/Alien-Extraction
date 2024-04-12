@@ -132,6 +132,18 @@ namespace YmirEngine
     public class UI
     {
         /// <summary>
+        /// Get navigation bool.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool GetCanNav();
+
+        /// <summary>
+        /// Set navigation bool.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetCanNav();
+        
+        /// <summary>
         /// Change UI state.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -229,7 +241,13 @@ namespace YmirEngine
         /// Switch position of two game objects.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject SwitchPosition(object selectedgo, object targetobject);
+        public static extern GameObject SwitchPosition(object selectedgo, object targetobject);        
+        
+        /// <summary>
+        /// Set active all children of the go's canvas.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetActiveAllUI(object selectedgo, bool isActive);
 
         /// <summary>
         /// Switch position of two game objects.

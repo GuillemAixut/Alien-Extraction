@@ -26,7 +26,7 @@
             "UID": 521471341,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 585413406,
+            "Parent UID": 521471341,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50,11 +50,7 @@
             ],
             "Children UID": [
                 1938493676,
-                869362369,
-                1989425319,
-                1725371872,
-                1180365917,
-                1044667071
+                869362369
             ]
         },
         {
@@ -74,9 +70,9 @@
                         54
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         40.000007629394531,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -101,17 +97,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        1.4361705780174816e-07,
+                        -1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         1,
-                        -1.4361705780174816e-07
+                        1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -156,8 +152,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1223,
-                    "Height": 643,
+                    "Width": 1878,
+                    "Height": 1102,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -179,9 +175,10 @@
                 633310999,
                 439685750,
                 669063827,
+                2032028395,
                 1841483514,
-                369905588,
-                81102519
+                81102519,
+                369905588
             ]
         },
         {
@@ -217,8 +214,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1223,
-                    "Height": 643,
+                    "Width": 1878,
+                    "Height": 1102,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -242,7 +239,8 @@
                 1776631007,
                 570139881,
                 1508460498,
-                726324725
+                726324725,
+                634465263
             ]
         },
         {
@@ -276,19 +274,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 246,
-                    "Position Y": 115,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 290,
+                    "Position Y": 344,
+                    "Width": 197,
+                    "Height": 77,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        246,
-                        115,
-                        300,
-                        50
+                        290,
+                        344,
+                        197,
+                        77
                     ],
-                    "Path": "Assets\/Lava.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -324,12 +322,12 @@
                     "Is interactable": true,
                     "Text": 1231346999,
                     "Image": 1369398907,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Smg.png",
+                    "Focused": ".\/Library\/Textures\/1788839166.dds",
+                    "Pressed": ".\/Library\/Textures\/1788839166.dds",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Smg.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Lava.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -361,7 +359,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 0",
-                    "description": "Start",
+                    "description": "S.T.A.P.L.E.R",
                     "cost": 0,
                     "isUnlocked": true,
                     "stationName": "Sub Upgrade"
@@ -402,19 +400,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 266,
-                    "Position Y": 131,
+                    "Position X": 310,
+                    "Position Y": -131,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        266,
-                        131,
+                        310,
+                        -131,
                         300,
                         50
                     ],
-                    "Text": "Start",
+                    "Text": "The S.T.A.P.L.E.R. boasts an enhanced recoil mechanism",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -463,19 +461,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 246,
-                    "Position Y": 231,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 290,
+                    "Position Y": 484,
+                    "Width": 197,
+                    "Height": 77,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        246,
-                        231,
-                        300,
-                        50
+                        290,
+                        484,
+                        197,
+                        77
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -511,12 +509,12 @@
                     "Is interactable": true,
                     "Text": 1496391655,
                     "Image": 1776631007,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Smg.png",
+                    "Focused": ".\/Library\/Textures\/1788839166.dds",
+                    "Pressed": ".\/Library\/Textures\/1788839166.dds",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Smg.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -548,7 +546,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 1",
-                    "description": "Upgrade 1",
+                    "description": "Double Shot",
                     "cost": 1,
                     "isUnlocked": false,
                     "stationName": "Sub Upgrade"
@@ -589,19 +587,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 266,
-                    "Position Y": 247,
+                    "Position X": 310,
+                    "Position Y": -61,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        266,
-                        247,
+                        310,
+                        -61,
                         300,
                         50
                     ],
-                    "Text": "Upgrade1",
+                    "Text": "Double Shot",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -650,19 +648,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 251,
-                    "Position Y": 367,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 290,
+                    "Position Y": 621,
+                    "Width": 197,
+                    "Height": 77,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        251,
-                        367,
-                        300,
-                        50
+                        290,
+                        621,
+                        197,
+                        77
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -698,12 +696,12 @@
                     "Is interactable": true,
                     "Text": 1481559395,
                     "Image": 570139881,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Smg.png",
+                    "Focused": ".\/Library\/Textures\/1788839166.dds",
+                    "Pressed": ".\/Library\/Textures\/1788839166.dds",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Smg.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -735,7 +733,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 2",
-                    "description": "Upgrade2",
+                    "description": "Instant Reload by dash",
                     "cost": 2,
                     "isUnlocked": false,
                     "stationName": "Sub Upgrade"
@@ -776,19 +774,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 271,
-                    "Position Y": 383,
+                    "Position X": 310,
+                    "Position Y": -264,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        271,
-                        383,
+                        310,
+                        -264,
                         300,
                         50
                     ],
-                    "Text": "Upgrade2",
+                    "Text": "Instant Reload by dash\n",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -837,19 +835,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 81,
-                    "Position Y": 495,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 157,
+                    "Position Y": 758,
+                    "Width": 197,
+                    "Height": 77,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        81,
-                        495,
-                        300,
-                        50
+                        157,
+                        758,
+                        197,
+                        77
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -885,12 +883,12 @@
                     "Is interactable": true,
                     "Text": 1458761499,
                     "Image": 1508460498,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Smg.png",
+                    "Focused": ".\/Library\/Textures\/1788839166.dds",
+                    "Pressed": ".\/Library\/Textures\/1788839166.dds",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Smg.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -922,7 +920,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 3",
-                    "description": "Upgrade 3",
+                    "description": "Alpha Boost",
                     "cost": 4,
                     "isUnlocked": false,
                     "stationName": "Sub Upgrade"
@@ -963,19 +961,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 101,
-                    "Position Y": 511,
+                    "Position X": 177,
+                    "Position Y": -232,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        101,
-                        511,
+                        177,
+                        -232,
                         300,
                         50
                     ],
-                    "Text": "Upgrade3",
+                    "Text": "Alpha Boost",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -1024,19 +1022,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 492,
-                    "Position Y": 504,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 426,
+                    "Position Y": 758,
+                    "Width": 197,
+                    "Height": 77,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        492,
-                        504,
-                        300,
-                        50
+                        426,
+                        758,
+                        197,
+                        77
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1072,12 +1070,12 @@
                     "Is interactable": true,
                     "Text": 572668614,
                     "Image": 726324725,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Smg.png",
+                    "Focused": ".\/Library\/Textures\/1788839166.dds",
+                    "Pressed": ".\/Library\/Textures\/1788839166.dds",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Smg.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -1109,7 +1107,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 4",
-                    "description": "Upgrade 4",
+                    "description": "Beta Boost",
                     "cost": 4,
                     "isUnlocked": false,
                     "stationName": "Sub Upgrade"
@@ -1150,22 +1148,83 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 512,
-                    "Position Y": 520,
+                    "Position X": 446,
+                    "Position Y": -445,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        512,
-                        520,
+                        446,
+                        -445,
                         300,
                         50
                     ],
-                    "Text": "Upgrade4",
+                    "Text": "Beta Boost",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "name (1)",
+            "Tag": "Untagged",
+            "UID": 634465263,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 633310999,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 209,
+                    "Position Y": 244,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        209,
+                        244,
+                        200,
+                        50
+                    ],
+                    "Text": "S.T.A.P.L.E.R\n",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 30.899999618530273,
                     "Line Spacing": 0.5,
                     "Color": [
                         1,
@@ -1192,7 +1251,7 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        750,
+                        0,
                         0,
                         0
                     ],
@@ -1245,8 +1304,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1223,
-                    "Height": 643,
+                    "Width": 1878,
+                    "Height": 1102,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -1270,7 +1329,8 @@
                 1524045569,
                 1210495609,
                 584746059,
-                1182897050
+                1182897050,
+                22630197
             ]
         },
         {
@@ -1304,19 +1364,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 246,
-                    "Position Y": 115,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 855,
+                    "Position Y": 363,
+                    "Width": 213,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        996,
-                        115,
-                        300,
-                        50
+                        855,
+                        363,
+                        213,
+                        58
                     ],
-                    "Path": "Assets\/Lava.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1352,12 +1412,12 @@
                     "Is interactable": true,
                     "Text": 448828685,
                     "Image": 591818415,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Focused": ".\/Library\/Textures\/1519528600.dds",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Lava.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -1389,7 +1449,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 0",
-                    "description": "Start",
+                    "description": "SPAR-X ",
                     "cost": 0,
                     "isUnlocked": true,
                     "stationName": "Shotgun Upgrade"
@@ -1430,19 +1490,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 266,
-                    "Position Y": 131,
+                    "Position X": 875,
+                    "Position Y": -435,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1016,
-                        131,
+                        875,
+                        -435,
                         300,
                         50
                     ],
-                    "Text": "Start",
+                    "Text": "SPAR-X deploys a wide range of bullet spread",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -1491,19 +1551,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 246,
-                    "Position Y": 231,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 855,
+                    "Position Y": 495,
+                    "Width": 213,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        996,
-                        231,
-                        300,
-                        50
+                        855,
+                        495,
+                        213,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1539,12 +1599,12 @@
                     "Is interactable": true,
                     "Text": 1893079825,
                     "Image": 1524045569,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Focused": ".\/Library\/Textures\/1519528600.dds",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -1576,7 +1636,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 1",
-                    "description": "Upgrade 1",
+                    "description": "Extended Magazine",
                     "cost": 1,
                     "isUnlocked": false,
                     "stationName": "Shotgun Upgrade"
@@ -1617,19 +1677,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 266,
-                    "Position Y": 247,
+                    "Position X": 875,
+                    "Position Y": -195,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1016,
-                        247,
+                        875,
+                        -195,
                         300,
                         50
                     ],
-                    "Text": "Upgrade1",
+                    "Text": "Extended Magazine",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -1678,19 +1738,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 251,
-                    "Position Y": 367,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 855,
+                    "Position Y": 631,
+                    "Width": 213,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1001,
-                        367,
-                        300,
-                        50
+                        855,
+                        631,
+                        213,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1726,12 +1786,12 @@
                     "Is interactable": true,
                     "Text": 987327593,
                     "Image": 1210495609,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Focused": ".\/Library\/Textures\/1519528600.dds",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -1763,7 +1823,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 2",
-                    "description": "Upgrade 2",
+                    "description": "Long Barrel",
                     "cost": 2,
                     "isUnlocked": false,
                     "stationName": "Shotgun Upgrade"
@@ -1804,19 +1864,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 271,
-                    "Position Y": 383,
+                    "Position X": 875,
+                    "Position Y": -159,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1021,
-                        383,
+                        875,
+                        -159,
                         300,
                         50
                     ],
-                    "Text": "Upgrade2",
+                    "Text": "Long Barrel",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -1865,19 +1925,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 81,
-                    "Position Y": 495,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 719,
+                    "Position Y": 768,
+                    "Width": 213,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        831,
-                        495,
-                        300,
-                        50
+                        719,
+                        768,
+                        213,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1913,12 +1973,12 @@
                     "Is interactable": true,
                     "Text": 2081167457,
                     "Image": 584746059,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Focused": ".\/Library\/Textures\/1519528600.dds",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -1950,7 +2010,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 3",
-                    "description": "Upgrade 3",
+                    "description": "Alpha Boost",
                     "cost": 4,
                     "isUnlocked": false,
                     "stationName": "Shotgun  Upgrade"
@@ -1991,19 +2051,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 101,
-                    "Position Y": 511,
+                    "Position X": 739,
+                    "Position Y": -24,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        851,
-                        511,
+                        739,
+                        -24,
                         300,
                         50
                     ],
-                    "Text": "Upgrade3",
+                    "Text": "Alpha Boost",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -2052,19 +2112,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 492,
-                    "Position Y": 504,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 988,
+                    "Position Y": 768,
+                    "Width": 213,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1242,
-                        504,
-                        300,
-                        50
+                        988,
+                        768,
+                        213,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2100,12 +2160,12 @@
                     "Is interactable": true,
                     "Text": 1099191182,
                     "Image": 1182897050,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Focused": ".\/Library\/Textures\/1519528600.dds",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -2137,7 +2197,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 4",
-                    "description": "Upgrade 4",
+                    "description": "Beta Boost",
                     "cost": 4,
                     "isUnlocked": false,
                     "stationName": "Shotgun  Upgrade   "
@@ -2178,22 +2238,83 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 512,
-                    "Position Y": 520,
+                    "Position X": 1008,
+                    "Position Y": -303,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1262,
-                        520,
+                        1008,
+                        -303,
                         300,
                         50
                     ],
-                    "Text": "Upgrade4",
+                    "Text": "Beta Boost",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "name (2)",
+            "Tag": "Untagged",
+            "UID": 22630197,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 973145517,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 837,
+                    "Position Y": 244,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        837,
+                        244,
+                        200,
+                        50
+                    ],
+                    "Text": "SPAR-X",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 30.899999618530273,
                     "Line Spacing": 0.5,
                     "Color": [
                         1,
@@ -2220,8 +2341,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        302.60000610351562,
-                        350.79998779296875,
+                        0,
+                        0,
                         0
                     ],
                     "Rotation": [
@@ -2273,8 +2394,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1223,
-                    "Height": 643,
+                    "Width": 1878,
+                    "Height": 1102,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -2298,7 +2419,8 @@
                 94371946,
                 1015103931,
                 717679600,
-                1417957922
+                1417957922,
+                1639033827
             ]
         },
         {
@@ -2332,19 +2454,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 246,
-                    "Position Y": 115,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 1428,
+                    "Position Y": 356,
+                    "Width": 209,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        548.5999755859375,
-                        465.79998779296875,
-                        300,
-                        50
+                        1428,
+                        356,
+                        209,
+                        58
                     ],
-                    "Path": "Assets\/Lava.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2380,12 +2502,12 @@
                     "Is interactable": true,
                     "Text": 1233384702,
                     "Image": 210269694,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Focused": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Laser.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Lava.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -2417,7 +2539,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 0",
-                    "description": "Start",
+                    "description": "EM-MK2 ",
                     "cost": 0,
                     "isUnlocked": true,
                     "stationName": "Plasma Upgrade"
@@ -2458,19 +2580,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 266,
-                    "Position Y": 131,
+                    "Position X": 1448,
+                    "Position Y": -398,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        568.5999755859375,
-                        481.79998779296875,
+                        1448,
+                        -398,
                         300,
                         50
                     ],
-                    "Text": "Start",
+                    "Text": "EM-MK2 is a continuous plasma weapon",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -2519,19 +2641,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 246,
-                    "Position Y": 231,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 1428,
+                    "Position Y": 491,
+                    "Width": 209,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        548.5999755859375,
-                        581.79998779296875,
-                        300,
-                        50
+                        1428,
+                        491,
+                        209,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2567,12 +2689,12 @@
                     "Is interactable": true,
                     "Text": 166467195,
                     "Image": 94371946,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Focused": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Laser.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -2604,7 +2726,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 1",
-                    "description": "Upgrade 1",
+                    "description": "Fast Loader",
                     "cost": 1,
                     "isUnlocked": false,
                     "stationName": "Plasma Upgrade"
@@ -2645,19 +2767,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 266,
-                    "Position Y": 247,
+                    "Position X": 1448,
+                    "Position Y": -226,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        568.5999755859375,
-                        597.79998779296875,
+                        1448,
+                        -226,
                         300,
                         50
                     ],
-                    "Text": "Upgrade1",
+                    "Text": "Fast Loader",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -2706,19 +2828,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 251,
-                    "Position Y": 367,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 1428,
+                    "Position Y": 628,
+                    "Width": 209,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        553.5999755859375,
-                        717.79998779296875,
-                        300,
-                        50
+                        1428,
+                        628,
+                        209,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2754,12 +2876,12 @@
                     "Is interactable": true,
                     "Text": 1013838875,
                     "Image": 1015103931,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Focused": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Laser.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -2791,7 +2913,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 2",
-                    "description": "Upgrade2",
+                    "description": "Extended Magazine",
                     "cost": 2,
                     "isUnlocked": false,
                     "stationName": "Plasma Upgrade"
@@ -2832,19 +2954,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 271,
-                    "Position Y": 383,
+                    "Position X": 1448,
+                    "Position Y": -344,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        573.5999755859375,
-                        733.79998779296875,
+                        1448,
+                        -344,
                         300,
                         50
                     ],
-                    "Text": "Upgrade2",
+                    "Text": "Extended Magazine",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -2893,19 +3015,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 81,
-                    "Position Y": 495,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 1293,
+                    "Position Y": 767,
+                    "Width": 209,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        383.60000610351562,
-                        845.79998779296875,
-                        300,
-                        50
+                        1293,
+                        767,
+                        209,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2941,12 +3063,12 @@
                     "Is interactable": true,
                     "Text": 1925425038,
                     "Image": 717679600,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Focused": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Laser.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -2978,7 +3100,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 3",
-                    "description": "Upgrade 3",
+                    "description": "Alpha Boost",
                     "cost": 4,
                     "isUnlocked": false,
                     "stationName": "Plasma Upgrade"
@@ -3019,19 +3141,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 101,
-                    "Position Y": 511,
+                    "Position X": 1313,
+                    "Position Y": -329,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        403.60000610351562,
-                        861.79998779296875,
+                        1313,
+                        -329,
                         300,
                         50
                     ],
-                    "Text": "Upgrade3",
+                    "Text": "Alpha Boost",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -3080,19 +3202,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 492,
-                    "Position Y": 504,
-                    "Width": 300,
-                    "Height": 50,
+                    "Position X": 1561,
+                    "Position Y": 767,
+                    "Width": 209,
+                    "Height": 58,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        794.5999755859375,
-                        854.79998779296875,
-                        300,
-                        50
+                        1561,
+                        767,
+                        209,
+                        58
                     ],
-                    "Path": "Assets\/juan.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3128,12 +3250,12 @@
                     "Is interactable": true,
                     "Text": 237752832,
                     "Image": 1417957922,
-                    "Normal": "Assets\/InGameConeptPng.png",
-                    "Focused": "Assets\/juan.png",
-                    "Pressed": "Assets\/pato.png",
-                    "Selected": "Assets\/Lava.png",
+                    "Normal": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Focused": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Pressed": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Selected": "Assets\/UI\/Upgrade Buttons\/Laser.png",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/juan.png",
+                    "Disabled": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Focused color": [
                         0,
                         1,
@@ -3165,7 +3287,7 @@
                     "Active": 1,
                     "UID": 0,
                     "name": "Level 4",
-                    "description": "Upgrade 4",
+                    "description": "Beta Boost",
                     "cost": 4,
                     "isUnlocked": false,
                     "stationName": "Plasma Upgrade"
@@ -3206,19 +3328,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 512,
-                    "Position Y": 520,
+                    "Position X": 1581,
+                    "Position Y": -450,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        814.5999755859375,
-                        870.79998779296875,
+                        1581,
+                        -450,
                         300,
                         50
                     ],
-                    "Text": "Upgrade4",
+                    "Text": "Beta Boost",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -3233,6 +3355,129 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "name",
+            "Tag": "Untagged",
+            "UID": 1639033827,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 807582257,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1423,
+                    "Position Y": 244,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1423,
+                        244,
+                        200,
+                        50
+                    ],
+                    "Text": "EM-MK2",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 30.899999618530273,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Image",
+            "Tag": "Untagged",
+            "UID": 2032028395,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 869362369,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1920,
+                    "Height": 1080,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        1920,
+                        1080
+                    ],
+                    "Path": "Assets\/UI\/WeaponTreeFondo.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
                 }
             ]
         },
@@ -3267,82 +3512,21 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 245,
-                    "Position Y": 58,
+                    "Position X": 719,
+                    "Position Y": 936,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        245,
-                        58,
+                        719,
+                        936,
                         200,
                         50
                     ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Cost",
-            "Tag": "Untagged",
-            "UID": 369905588,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 869362369,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 509,
-                    "Position Y": 33,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        509,
-                        33,
-                        200,
-                        50
-                    ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
+                    "Text": "Description\n",
+                    "Font name": "de-valencia-beta.otf",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -3389,22 +3573,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 103,
+                    "Position X": 111,
+                    "Position Y": 117,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        103,
+                        111,
+                        117,
                         200,
                         50
                     ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
+                    "Text": "4",
+                    "Font name": "de-valencia-beta.otf",
+                    "Font path": "Assets\/Fonts",
+                    "Font size": 23.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
                         1,
@@ -3420,134 +3604,12 @@
             ]
         },
         {
-            "Name": "Cost (1)",
+            "Name": "Cost",
             "Tag": "Untagged",
-            "UID": 1989425319,
-            "Active": false,
+            "UID": 369905588,
+            "Active": true,
             "Element_Type": "None",
-            "Parent UID": 521471341,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        750,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 509,
-                    "Position Y": 33,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1259,
-                        33,
-                        200,
-                        50
-                    ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Description (1)",
-            "Tag": "Untagged",
-            "UID": 1725371872,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 521471341,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        750,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 245,
-                    "Position Y": 58,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        995,
-                        58,
-                        200,
-                        50
-                    ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Description (2)",
-            "Tag": "Untagged",
-            "UID": 1180365917,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 521471341,
+            "Parent UID": 869362369,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3572,83 +3634,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 245,
-                    "Position Y": 58,
+                    "Position X": 1308,
+                    "Position Y": 982,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        245,
-                        58,
+                        1308,
+                        982,
                         200,
                         50
                     ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Cost (2)",
-            "Tag": "Untagged",
-            "UID": 1044667071,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 521471341,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 509,
-                    "Position Y": 33,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        509,
-                        33,
-                        200,
-                        50
-                    ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
+                    "Text": "4",
+                    "Font name": "de-valencia-beta.otf",
+                    "Font path": "Assets\/Fonts",
+                    "Font size": 48.799999237060547,
                     "Line Spacing": 0.5,
                     "Color": [
                         1,

@@ -925,7 +925,7 @@ void ModuleRenderer3D::DrawGameObjects(bool isGame)
 				//}
 				//else {
 
-					meshComponent->rMeshReference->Render();
+				meshComponent->rMeshReference->Render();
 
 				//}
 

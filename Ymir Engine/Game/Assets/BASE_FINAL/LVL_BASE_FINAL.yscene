@@ -1,23 +1,23 @@
 {
     "Editor Camera Position": [
-        37.016025543212891,
-        86.917282104492188,
-        -6.8931975364685059
+        -88.454566955566406,
+        178.90745544433594,
+        -56.080020904541016
     ],
     "Editor Camera Right (X)": [
-        -0.19248038530349731,
-        1.3932585716247559e-06,
-        0.98132264614105225
+        -0.067785888910293579,
+        -8.8475644588470459e-07,
+        -0.99612146615982056
     ],
     "Editor Camera Up (Y)": [
-        0.75802576541900635,
-        0.63507115840911865,
-        0.14868119359016418
+        -0.97356235980987549,
+        0.21161216497421265,
+        0.06625056266784668
     ],
     "Editor Camera Front (Z)": [
-        0.6231958270072937,
-        -0.77246570587158203,
-        0.12223712354898453
+        -0.21145863831043243,
+        -0.97720932960510254,
+        0.014390592463314533
     ],
     "Hierarchy": [
         {
@@ -26,7 +26,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 555803876,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -115,7 +115,7 @@
                     "Near Plane": 1,
                     "Far Plane": 1000,
                     "Frustum Culling": 0,
-                    "Draw Bounding Boxes": 1,
+                    "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 }
             ]
@@ -560,6 +560,35 @@
                     "Diffuse_ID": 429,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Niebla.png",
                     "Diffuse_UID": 1204100406
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        453.3800048828125,
+                        0.10000000149011612,
+                        241.45001220703125
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        48.299999237060547,
+                        0,
+                        -26.700000762939453
+                    ]
                 }
             ]
         },
@@ -4880,8 +4909,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 682,
-                    "Height": 467,
+                    "Width": 131,
+                    "Height": 678,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [

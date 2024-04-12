@@ -57,7 +57,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByName", FindObjectWithName);
 	mono_add_internal_call("YmirEngine.InternalCalls::GetChildrenByName", FindChildrenWithName);
 	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByUID", FindObjectWithUID);	
-	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetParent", CS_GetParent);
+	mono_add_internal_call("YmirEngine.GameObject::get_parent", CS_GetParent);
 	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetChild", CS_GetChild);
 	mono_add_internal_call("YmirEngine.InternalCalls::CompareGameObjectsByUID", CompareGameObjectsByUID);
 	mono_add_internal_call("YmirEngine.GameObject::TryGetComponent", CS_GetComponent);
@@ -67,6 +67,12 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::ExitGame", ExitGame);
 	mono_add_internal_call("YmirEngine.InternalCalls::LoadScene", LoadSceneCS);
 	mono_add_internal_call("YmirEngine.InternalCalls::Destroy", Destroy);
+
+		mono_add_internal_call("YmirEngine.InternalCalls::CSVToString", CSVToString);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateGOFromPrefab", CreateGOFromPrefabCS);
+
+	mono_add_internal_call("YmirEngine.InternalCalls::CSVToString", CSVToString);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateGOFromPrefab", CreateGOFromPrefabCS);
 
 #pragma region GameObject
 
@@ -118,6 +124,11 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma region UI
 
+	//
+	mono_add_internal_call("YmirEngine.UI::GetCanNav", GetCanNav);
+	mono_add_internal_call("YmirEngine.UI::SetCanNav", SetCanNav);
+
+	//
 	mono_add_internal_call("YmirEngine.UI::GetUIState", GetUIState);
 	mono_add_internal_call("YmirEngine.UI::SetUIState", SetUIState);
 
@@ -148,6 +159,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.UI::SwitchPosition", SwitchPosition);
 	mono_add_internal_call("YmirEngine.UI::NavigateGrid", NavigateGrid);
 	mono_add_internal_call("YmirEngine.UI::CompareStringToName", CompareStringToName);
+	mono_add_internal_call("YmirEngine.UI::SetActiveAllUI", SetActiveAllUI);
 
 
 

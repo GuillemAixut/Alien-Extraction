@@ -214,9 +214,7 @@ MonoString* Get_GO_Name(MonoObject* go)
 	if (External == nullptr)
 		return nullptr;
 
-	return mono_string_new(
-		External->moduleMono->domain,
-		External->moduleMono->GameObject_From_CSGO(go)->name.c_str());
+	return mono_string_new(External->moduleMono->domain, External->moduleMono->GameObject_From_CSGO(go)->name.c_str());
 }
 
 MonoObject* FindObjectWithUID(int id)
@@ -872,6 +870,16 @@ void Rumble_Controller(int time, int intenisty)
 	}
 }
 
+bool GetCanNav()
+{
+	return External->scene->canNav;
+}
+
+void SetCanNav(bool set)
+{
+	External->scene->canNav = set;
+}
+
 void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
 {
 	//Falta meter automaticamente que haga el change de Image
@@ -1234,6 +1242,59 @@ bool CompareStringToName(MonoObject* go, MonoString* name)
 	std::string nameCompare = mono_string_to_utf8(name);
 
 	return nameCompare.compare(gameObject->name) == 0;
+}
+
+MonoString* CSVToString(MonoString* _filePath, MonoString* _csFields) {
+
+	std::string filename = mono_string_to_utf8(_filePath); // File name to process
+	std::string csFields = mono_string_to_utf8(_csFields); // CSV fields to extract
+	std::vector<std::string> fields;
+
+	// Process csFields to extract elements separated by commas
+	std::string field;
+	for (char c : csFields) {
+		if (c == ',') {
+			// When encountering a comma, add the current field to the vector
+			fields.push_back(field);
+			field.clear();
+		}
+		else {
+			// Append the character to the current field
+			field += c;
+		}
+	}
+
+	// Add the last field after the last comma (or the only field if no commas are present)
+	if (!field.empty()) {
+		fields.push_back(field);
+	}
+
+	std::string output = PhysfsEncapsule::ExtractStringFromCSV(filename, fields);
+
+	// Convert the resulting output string back to MonoString
+	return mono_string_new(External->moduleMono->domain, output.c_str());
+}
+
+void CreateGOFromPrefabCS(MonoString* _prefabPath, MonoString* _prefabName)
+{
+	std::string prefabName = mono_string_to_utf8(_prefabName);
+	std::string prefabPath = mono_string_to_utf8(_prefabPath);
+
+	External->scene->pendingToAddPrefab.emplace_back(prefabPath, prefabName);
+}
+
+void SetActiveAllUI(MonoObject* go, bool isActive)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+
+	// Get UI elements to navigate
+	std::vector<C_UI*> listUI;
+	External->scene->GetUINavigate(gameObject, listUI); 
+
+	for (auto i = 0; i < listUI.size(); i++)
+	{
+		listUI[i]->mOwner->mChildren[0]->active = isActive;
+	}
 }
 
 #pragma endregion

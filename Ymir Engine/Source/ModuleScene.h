@@ -114,6 +114,7 @@ public:
 	std::map<GameObject*, GameObject*> swapList;
 	std::vector<GameObject*> gameObjects;
 	std::vector<GameObject*> pendingToAdd;
+	std::vector<std::tuple<std::string, std::string>> pendingToAddPrefab;
 
 	std::vector<std::string> tags;
 
@@ -130,6 +131,7 @@ public:
 	GameObject* selectedGO;
 	std::vector<G_UI*> vCanvas;
 	int onHoverUI;
+	bool canNav;
 
 	std::multimap<uint, SerializedField*> referenceMap;
 

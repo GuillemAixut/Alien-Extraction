@@ -11,6 +11,7 @@ public class UI_Inventory : YmirComponent
     private GameObject _selectedGO;
     public GameObject _focusedGO;
     private bool _show;
+
     public void Start()
     {
         _focusedGO = UI.GetFocused();
@@ -45,8 +46,8 @@ public class UI_Inventory : YmirComponent
             if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
             {
                 SwitchItems();
-            } 
-            
+            }
+
             if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
             {
                 SwitchMenu();
@@ -61,20 +62,25 @@ public class UI_Inventory : YmirComponent
                 _focusedGO.GetComponent<UI_Item_Button>().item.itemType = ITEM_SLOT.NONE;
 
                 // Add real art and other stuff
-                UI.ChangeImageUI(_focusedGO, "Assets/juan.png", (int)UI_STATE.NORMAL);
+                UI.ChangeImageUI(_focusedGO, "Assets/UI/Inventory Buttons/InventorySlotUnselected.png", (int)UI_STATE.NORMAL);
 
                 //GameObject text = InternalCalls.GetChildrenByName(_focusedGO, "Text");
                 UI.TextEdit(InternalCalls.GetChildrenByName(_focusedGO, "Text"), " ");
             }
 
-            Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
-            Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+            //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
+            //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
         }
 
         if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
         {
             gameObject.SetActive(false);
         }
+
+        //if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN)
+        //{
+        //    Deactivate();
+        //}
 
         return;
     }
@@ -126,5 +132,33 @@ public class UI_Inventory : YmirComponent
         {
             UI.SetUIState(InternalCalls.CS_GetChild(inventoryGO, 0), (int)UI_STATE.FOCUSED);
         }
+    }
+
+    public void Deactivate()
+    {
+        // TODO: CANVIAR ESTA BASURA
+
+        Debug.Log("aaaaaaaaaaaaa");
+
+        GameObject inventoryGO = InternalCalls.GetGameObjectByName("Inventory");
+        UI.SetActiveAllUI(inventoryGO, false);
+
+        GameObject armor = InternalCalls.GetGameObjectByName("Armor");
+        armor.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject chip1 = InternalCalls.GetGameObjectByName("Chip1");
+        chip1.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject chip2 = InternalCalls.GetGameObjectByName("Chip2");
+        chip2.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject consumable1 = InternalCalls.GetGameObjectByName("Consumable1");
+        consumable1.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject consumable2 = InternalCalls.GetGameObjectByName("Consumable2");
+        consumable2.GetComponent<UI_Item_Button>().ShowInfo(false);
+
+        GameObject save = InternalCalls.GetGameObjectByName("Save Item");
+        save.GetComponent<UI_Item_Button>().ShowInfo(false);
     }
 }

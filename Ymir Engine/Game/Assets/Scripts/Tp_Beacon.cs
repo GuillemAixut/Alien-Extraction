@@ -8,12 +8,10 @@ using YmirEngine;
 
 public class Tp_Beacon : YmirComponent
 {
-
     public void OnCollisionStay(GameObject other)
     {
         if (other.Tag == "Player")
         {
-
             InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_FINAL.yscene");
         }
     }
