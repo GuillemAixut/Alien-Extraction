@@ -102,6 +102,7 @@ CCollider::CCollider(GameObject* owner, ColliderType collider, PhysicsType physi
 		shape->setLocalScaling(btSize);
 	}
 	
+	isFirstTick = true;
 }
 
 CCollider::~CCollider()
@@ -126,6 +127,52 @@ void CCollider::Update()
 		if (angularFriction != 0)
 			physBody->body->setRollingFriction(angularFriction);
 	}
+
+	if (size.x == 0) size.x = 0.1;
+	if (size.y == 0) size.y = 0.1;
+	if (size.z == 0) size.z = 0.1;
+
+	// --------------------------- Physics Simulation Stopped ---------------------------
+
+	if (isFirstTick || (TimeManager::gameTimer.GetState() == TimerState::STOPPED && active))
+	{
+		if (physBody != nullptr)
+		{
+			// Get ctransform global matrix
+			transform = mOwner->mTransform;
+			trans = transform->GetGlobalTransform();
+
+			// Fix offset
+			trans.SetTranslatePart(trans.TranslatePart() + offset);
+
+			//CMesh* componentMesh = (CMesh*)mOwner->GetComponent(ComponentType::MESH);
+
+			//if (componentMesh != nullptr) physBody->SetPosition(trans.TranslatePart() + componentMesh->rMeshReference->obb.CenterPoint());
+			//else physBody->SetPosition(trans.TranslatePart());
+
+			physBody->SetPosition(trans.TranslatePart());
+			physBody->SetRotation(Quat(trans.RotatePart()));
+
+			if (collType != ColliderType::MESH_COLLIDER)
+			{
+				btSize = float3_to_btVector3(
+					{
+						size.x * trans.GetScale().x,
+						size.y * trans.GetScale().y,
+						size.z * trans.GetScale().z,
+					});
+			}
+			else
+			{
+				btSize = float3_to_btVector3(trans.GetScale());
+			}
+
+			shape->setLocalScaling(btSize);
+		}
+
+		isFirstTick = false;
+	}
+
 	// --------------------------- Physics Simulation Started --------------------------- 
 	
 	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING && physBody != nullptr)
@@ -188,45 +235,6 @@ void CCollider::Update()
 		}
 
 	}
-
-	// --------------------------- Physics Simulation Stopped ---------------------------
-
-	if (TimeManager::gameTimer.GetState() == TimerState::STOPPED && active && physBody != nullptr)
-	{
-		// Get ctransform global matrix
-		transform = mOwner->mTransform;
-		trans = transform->GetGlobalTransform();
-
-		// Fix offset
-		trans.SetTranslatePart(trans.TranslatePart() + offset);
-
-		//CMesh* componentMesh = (CMesh*)mOwner->GetComponent(ComponentType::MESH);
-
-		//if (componentMesh != nullptr) physBody->SetPosition(trans.TranslatePart() + componentMesh->rMeshReference->obb.CenterPoint());
-		//else physBody->SetPosition(trans.TranslatePart());
-
-		physBody->SetPosition(trans.TranslatePart());
-		physBody->SetRotation(Quat(trans.RotatePart()));
-
-		if (collType != ColliderType::MESH_COLLIDER)
-		{
-			btSize = float3_to_btVector3(
-				{
-					size.x * trans.GetScale().x,
-					size.y * trans.GetScale().y,
-					size.z * trans.GetScale().z,
-				});
-		}
-		else
-		{
-			btSize = float3_to_btVector3(trans.GetScale());
-		}
-
-		shape->setLocalScaling(btSize);
-	}
-	if (size.x == 0) size.x = 0.1;
-	if (size.y == 0) size.y = 0.1;
-	if (size.z == 0) size.z = 0.1;
 }
 
 void CCollider::OnInspector()
