@@ -99,7 +99,7 @@ public class FaceHuggerBaseScript : YmirComponent
     public float cumDuration2 = 5f;
 
     public float attackTimer;
-    private float attackDuration = 1.5f;
+    private float attackDuration = 0.8f;
     public bool attackSensor = false;
 
     public void Start()
@@ -111,7 +111,7 @@ public class FaceHuggerBaseScript : YmirComponent
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         agent = gameObject.GetComponent<PathFinding>();
-        movementSpeed = 20f;
+        movementSpeed = 25f;
         stopedDuration = 1f;
         DetectionRadius = 50f;
         wanderRange = 100f;

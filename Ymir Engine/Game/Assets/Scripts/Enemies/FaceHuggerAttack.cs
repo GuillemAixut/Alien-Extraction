@@ -63,7 +63,7 @@ public class FaceHuggerAttack : YmirComponent
         if (other.Name == "Player" && damageTimer <= 0)
         {
             //Debug.Log("[ERROR] HIT");
-            damageTimer = 1.5f;
+            damageTimer = 0.8f;
             healthScript.TakeDmg(attackDamage);
         }
     }
