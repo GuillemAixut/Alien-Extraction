@@ -89,7 +89,7 @@ public:
 	uint Save(const char* scene_path);
 	void Load(uint navMeshResourceUID);
 
-#ifndef STANDALONE
+#ifndef _STANDALONE
 	void DebugDraw();
 	void CheckNavMeshIntersection(LineSegment raycast, int clickedMouseButton);
 	void CreateWalkabilityTestPoint();

@@ -3,10 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YmirEngine;
 
-namespace Assembly_CSharp.Assets.Scripts
+public class Spawner: YmirComponent
 {
-    internal class Spawner
+    private bool spawn;
+
+    public int maxEnemies;
+
+
+    public void Start()
     {
+
     }
+
+    public void Update()
+    {
+
+
+
+    }
+
+
 }

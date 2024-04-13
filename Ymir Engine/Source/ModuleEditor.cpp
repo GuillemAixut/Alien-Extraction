@@ -1400,6 +1400,7 @@ void ModuleEditor::DrawEditor()
 
 			// Mouse Picking Management
 
+#ifndef _STANDALONE
 			if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT && !ImGuizmo::IsUsing())
 			{
 				if (ImGui::IsWindowHovered())
@@ -1433,6 +1434,8 @@ void ModuleEditor::DrawEditor()
 					}
 				}
 			}
+
+#endif // !STANDALONE
 
 
 
@@ -3071,11 +3074,14 @@ void ModuleEditor::DrawBakingTab()
 	ImGui::Text("Current NavMesh");
 	*/
 
+#ifndef _STANDALONE
 	NavMeshBuilder* navMeshBuilder = External->pathFinding->GetNavMeshBuilder();
 	if (navMeshBuilder != nullptr)
 	{
 		navMeshBuilder->OnEditor();
 	}
+
+#endif // !STANDALONE
 
 	/*if(ImGui::Button("Create Walkability Test"))
 	{

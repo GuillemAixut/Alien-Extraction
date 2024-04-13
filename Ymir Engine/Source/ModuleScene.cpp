@@ -93,11 +93,13 @@ bool ModuleScene::Start()
 
 #ifdef _STANDALONE
 
-	LoadSceneFromStart("Assets", "Alpha1_Level");
+	//LoadSceneFromStart("Assets", "Alpha1_Level");
 	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
+
+	LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 
 #endif // _STANDALONE
 
@@ -476,7 +478,10 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 	LOG("Prefab '%s' saved to %s", fileName.c_str(), dir.c_str());
 }
 
-void ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
+
+
+
+GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
 {
 	ClearVec(vTempComponents);
 
@@ -490,10 +495,55 @@ void ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName
 
 	LoadScriptsData();
 
+	GameObject* rootObject = nullptr;
+
+	for (GameObject* obj : gameObjects) {
+		if (obj == prefab[0]) {
+			// Se encontró el GameObject raíz del prefab
+			rootObject = obj;
+		}
+	}
+
+
 	LOG("Prefab '%s' loaded", fileName.c_str());
 
 	ClearVec(prefab);
 	RELEASE(prefabToLoad);
+		
+	return rootObject;
+}
+
+
+GameObject* ModuleScene::LoadPrefab( char* path)
+{
+	ClearVec(vTempComponents);
+
+	JsonFile* prefabToLoad = JsonFile::GetJSON( path);
+
+	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
+	std::vector<GameObject*> prefab = prefabToLoad->GetHierarchy("Prefab");
+
+	// Add the loaded prefab objects to the existing gameObjects vector
+	gameObjects.insert(gameObjects.begin(), prefab.begin(), prefab.end());
+
+	LoadScriptsData();
+
+	GameObject* rootObject = nullptr;
+
+	for (GameObject* obj : gameObjects) {
+		if (obj == prefab[0]) {
+			// Se encontró el GameObject raíz del prefab
+			rootObject = obj;
+		}
+	}
+
+
+	LOG("Prefab '%s' loaded", path);
+
+	ClearVec(prefab);
+	RELEASE(prefabToLoad);
+
+	return rootObject;
 }
 
 void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& fileName)

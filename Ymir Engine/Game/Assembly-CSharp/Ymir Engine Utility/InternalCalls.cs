@@ -16,6 +16,12 @@ namespace YmirEngine
         public static extern void CreateGameObject(object name, object position);
 
         /// <summary>
+        /// Creates a game object with Prefab.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject CreatePrefab(object prefab_path, object position, object rotation, object scale);
+
+        /// <summary>
         /// Creates a bullet.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]

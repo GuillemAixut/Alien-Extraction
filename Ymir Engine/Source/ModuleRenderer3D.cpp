@@ -1063,8 +1063,9 @@ void ModuleRenderer3D::DrawDebugLines()
 	glPointSize(1.0f);
 
 	points.clear();
-
+#ifndef _STANDALONE
 	External->pathFinding->DebugDraw();
+#endif
 }
 void ModuleRenderer3D::AddDebugLines(float3& a, float3& b, float3& color)
 {
