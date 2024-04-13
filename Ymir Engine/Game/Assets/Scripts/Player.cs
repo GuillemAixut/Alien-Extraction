@@ -319,7 +319,7 @@ public class Player : YmirComponent
                 if (reloadTimer <= 0)
                 {
                     ammo = magsize;
-                    csBullets.UseBullets();
+                    if (csBullets!= null){ csBullets.UseBullets(); }
                     isReloading = false;
                 }
             }
@@ -407,7 +407,7 @@ public class Player : YmirComponent
         }
 
         //--------------------- HP Detector ---------------------\\
-        if (!csHealth.isAlive)
+        if (csHealth != null && !csHealth.isAlive)
         {
             inputsList.Add(INPUT.I_DEAD);
         }
@@ -983,7 +983,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            csBullets.UseBullets();
+            if (csBullets != null) { csBullets.UseBullets(); }
         }
 
         //Debug.Log("Ammo:" + ammo);
@@ -1035,7 +1035,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            csBullets.UseBullets();
+            if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
         StopPlayer();

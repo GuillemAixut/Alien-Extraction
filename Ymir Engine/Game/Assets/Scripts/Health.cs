@@ -31,8 +31,12 @@ public class Health : YmirComponent
         deathCanvas = InternalCalls.GetGameObjectByName("Death Canvas");
         winCanvas = InternalCalls.GetGameObjectByName("Win Canvas");
 
-        UI.SliderSetMax(healthBar, maxHealth);
-        UI.SliderEdit(healthBar, maxHealth);
+        if (healthBar != null) 
+        { 
+            UI.SliderSetMax(healthBar, maxHealth); 
+            UI.SliderEdit(healthBar, maxHealth); 
+        }
+        
         currentHealth = maxHealth;
 
         isAlive = true;
@@ -40,7 +44,7 @@ public class Health : YmirComponent
 
     public void Update()
     {
-        if (player.godMode)
+        if (player != null && player.godMode)
         {
             if (Input.GetKey(YmirKeyCode.F3) == KeyState.KEY_DOWN)
             {
@@ -79,7 +83,7 @@ public class Health : YmirComponent
 
     public void TakeDmg(float dmg)
     {
-        if (!player.godMode)
+        if (player != null && !player.godMode)
         {
             currentHealth -= dmg;
 
@@ -93,15 +97,18 @@ public class Health : YmirComponent
                 currentHealth = 0;
                 DeathScreen();
             }
+            if (healthBar != null)
+            {
+                UI.SliderEdit(healthBar, currentHealth);
+            }
 
-            UI.SliderEdit(healthBar, currentHealth);
         }
     }
 
     public bool DeathScreen()
     {
-        deathCanvas.SetActive(true);
-        player.gameObject.SetActive(false);
+        if (deathCanvas != null) { deathCanvas.SetActive(true); }
+        if (player != null) { player.gameObject.SetActive(false); }
         isAlive = false;
         Audio.StopAllAudios();
 
@@ -110,8 +117,8 @@ public class Health : YmirComponent
 
     public bool WinScreen()
     {
-        winCanvas.SetActive(true);
-        player.gameObject.SetActive(false);
+        if (winCanvas != null) { winCanvas.SetActive(true); }
+        if (player != null) { player.gameObject.SetActive(false); }
 
         return true;
     }
@@ -126,16 +133,16 @@ public class Health : YmirComponent
         }
     }
 
-    private void GetAnotherScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+    //private void GetAnotherScript()
+    //{
+    //    GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
 
-        if (gameObject != null)
-        {
-            PlayerMovement p = gameObject.GetComponent<PlayerMovement>();
+    //    if (gameObject != null)
+    //    {
+    //        PlayerMovement p = gameObject.GetComponent<PlayerMovement>();
 
-            //Debug.Log("MovmentSpeed= " + movementSpeed);
+    //        //Debug.Log("MovmentSpeed= " + movementSpeed);
 
-        }
-    }
+    //    }
+    //}
 }
