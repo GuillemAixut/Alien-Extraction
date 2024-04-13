@@ -215,7 +215,7 @@ public class FaceHuggerBaseScript : YmirComponent
                         actualMovementSpeed = movementSpeed;
                         if (CryTimer >= 10)
                         {
-                            Audio.PlayAudio(gameObject, "FH_Cry");
+                            //Audio.PlayAudio(gameObject, "FH_Cry");
                             CryTimer = 0;
                         }
                         wanderState = WanderState.CHASING;
@@ -229,7 +229,7 @@ public class FaceHuggerBaseScript : YmirComponent
                             Debug.Log("[ERROR] ATTACKING");
                             attackTimer = attackDuration;
                             gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-                            Audio.PlayAudio(gameObject, "FH_Tail");
+                            //Audio.PlayAudio(gameObject, "FH_Tail");
                             wanderState = WanderState.ATTACK;
                         }
                     }
@@ -412,7 +412,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
     public void DestroyEnemy()
     {
-        Audio.PlayAudio(gameObject, "FH_Death");
+        //Audio.PlayAudio(gameObject, "FH_Death");
         InternalCalls.Destroy(gameObject);
     }
 
