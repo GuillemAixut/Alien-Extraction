@@ -102,6 +102,9 @@ public class FaceHuggerBaseScript : YmirComponent
     private float attackDuration = 0.8f;
     public bool attackSensor = false;
 
+    //Audio
+    private float CryTimer = 10f;
+
     public void Start()
     {
         pointGenerator = new RandomPointGenerator();
@@ -146,7 +149,8 @@ public class FaceHuggerBaseScript : YmirComponent
 
     public void Update()
     {
-   
+
+        CryTimer += Time.deltaTime;
         cumTimer2 -= Time.deltaTime;
         if(cumTimer2 <= 0)
         {
@@ -209,9 +213,13 @@ public class FaceHuggerBaseScript : YmirComponent
                     if (wanderState != WanderState.HIT)
                     {
                         actualMovementSpeed = movementSpeed;
+                        if (CryTimer >= 10)
+                        {
+                            Audio.PlayAudio(gameObject, "FH_Cry");
+                            CryTimer = 0;
+                        }
                         wanderState = WanderState.CHASING;
                     }
-
                     //Attack if in range
                     if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, AttackDistance))
                     {
@@ -221,6 +229,7 @@ public class FaceHuggerBaseScript : YmirComponent
                             Debug.Log("[ERROR] ATTACKING");
                             attackTimer = attackDuration;
                             gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+                            Audio.PlayAudio(gameObject, "FH_Tail");
                             wanderState = WanderState.ATTACK;
                         }
                     }
@@ -399,6 +408,12 @@ public class FaceHuggerBaseScript : YmirComponent
         gameObject.transform.localRotation = desiredRotation;
 
         //Debug.Log("[ERROR] rotation:  " + gameObject.transform.localRotation);
+    }
+
+    public void DestroyEnemy()
+    {
+        Audio.PlayAudio(gameObject, "FH_Death");
+        InternalCalls.Destroy(gameObject);
     }
 
     public void IsReached(Vector3 position, Vector3 destintion)

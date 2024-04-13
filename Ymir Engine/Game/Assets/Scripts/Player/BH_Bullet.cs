@@ -60,13 +60,13 @@ public class BH_Bullet : YmirComponent
         {
             FaceHuggerBaseScript script;
             //Do damage AND take into account armor
-           script = other.GetComponent<FaceHuggerBaseScript>();
+            script = other.GetComponent<FaceHuggerBaseScript>();
             script.life -= (5 * (1 - script.armor));
             
             //If health 0 then destroy enemy
             if (script.life <= 0)
             {
-                InternalCalls.Destroy(other);
+                script.DestroyEnemy();
             }
             Debug.Log("[ERROR] Life: " + script.life);
             hit = true;
