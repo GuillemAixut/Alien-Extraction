@@ -194,7 +194,7 @@ public class FaceHuggerBaseScript : YmirComponent
                 break;
 
                 case WanderState.ATTACK:
-
+                    LookAt(player.transform.globalPosition);
                     Attack();
                 break;
             }
@@ -364,7 +364,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
         Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
 
-        gameObject.transform.localRotation = desiredRotation;
+        gameObject.SetRotation(desiredRotation);
 
     }
 
