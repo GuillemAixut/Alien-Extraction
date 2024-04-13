@@ -14,11 +14,10 @@ public class QueenXenomorphAttack : YmirComponent
 
     private float damageTimer;
 
-
-    private float clawDamage = 0.1f;
-    private float axeDamage = 0.1f;
-    private float dashDamage = 0.1f;
-    private float acidDamage = 0.1f;
+    private float acidDamage = 600f;
+    private float clawDamage = 600f;
+    private float axeDamage = 1200f;
+    private float dashDamage = 800f;
 
     private GameObject player;
 

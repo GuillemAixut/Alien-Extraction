@@ -23,7 +23,7 @@ public class FaceHuggerAttack : YmirComponent
     public void Start()
 	{
         damageTimer = 0f;
-        attackDamage = 1f;
+        attackDamage = 80f;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
 
