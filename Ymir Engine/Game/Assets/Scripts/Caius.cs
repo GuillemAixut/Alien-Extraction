@@ -27,36 +27,48 @@ public class Caius : YmirComponent
 	public GameObject ui_gameObject;
 
 	//private bool talked = false;
-	private bool dialogue_ui = false;
+	//private bool dialogue_ui = false;
 
-	private Player csPlayer;
+	//private Player csPlayer;
 
     private string str = "ID;Type;Name;Text;Code;Endmark<end>1;Text;Caius;Oh, good, I see they've woken you up. Just in time;;<end>;Answer;Raisen;In time for what?;goTo:2;<end>;Answer;Raisen;Woken me up? What do you mean?;goTo:2;<end>;Answer;Raisen;Up and ready for the mission.;goTo:2;<end>;Answer;Raisen;;;<end>2;Text;Caius;We've just arrived at Gliese 667. You'll have to clean up the planet. I don't have much information about the mission, it's labeled Confidential level: EXTREME, I'm not allowed to access beyond the summary annex. I hope you have been briefed on better Raisen.;;<end>;Answer;Raisen;Clear your hopes Caius.;goTo:;<end>;Answer;Raisen;I wish they did.;goTo:;<end>;Answer;Raisen;;;<end>;Answer;Raisen;;;<end>";
 
     public void Start()
 	{
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-        if (gameObject != null)
-        {
-            csPlayer = gameObject.GetComponent<Player>();
-        }
+        //GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+        //if (gameObject != null)
+        //{
+        //    csPlayer = gameObject.GetComponent<Player>();
+        //}
 
-        LoadDialogues(str);
+        //LoadDialogues(str);
+        Debug.Log("START Caius.cs");
     }
 
 	public void Update()
 	{
-		//TODO: Show the dialogue UI when the bool is true
-		if (dialogue_ui)
+        if (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN)
+        {
+            //TODO: Lógica del diálogo
+            //dialogue_ui = true;
+
+            LoadDialogues(str);
+            DisplayDialogueByID(1);
+
+            Debug.Log("[WARNING] Mostrar UI del dialogo");
+        }
+
+        //TODO: Show the dialogue UI when the bool is true
+        /*if (dialogue_ui)
 		{
 			//UI.TextEdit(name_gameObject, "Lorem ipsum");
 			
 			ui_gameObject.SetActive(true);
 
-
+            
             //TODO: Set de dialogue_ui = false; y csPlayer.inputsList.Add(Player.INPUT.I_IDLE); cuando acabe el dialogo
 
-        }
+        }*/
     }
 
    // public void OnCollisionStay(GameObject other)
@@ -77,10 +89,10 @@ public class Caius : YmirComponent
     public void OnCollisionStay(GameObject other)
     {
         //TODO: Mostrat UI de que puede interactuar si pulsa el botón asignado
-        if (/*other.Tag == "Player" &&*/ (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
+        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
         {
             //TODO: Lógica del diálogo
-            dialogue_ui = true;
+            //dialogue_ui = true;
 
             DisplayDialogueByID(1);
 
@@ -113,6 +125,8 @@ public class Caius : YmirComponent
                 Debug.Log("[ERROR] Invalid dialogue data.");
             }
         }
+
+        Debug.Log("[WARNING] GG Loading dialogue data");
     }
 
     public void DisplayDialogueByID(int id)
