@@ -94,5 +94,12 @@ namespace YmirEngine
         {
             return a > b ? a : b;
         }
+
+        public static int Round(float value)
+        {
+            int intValue = (int)((value*100)/100.00000000f); 
+            return intValue;    
+        }
+
     }
 }

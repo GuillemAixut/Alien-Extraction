@@ -20,7 +20,7 @@ GameObject::GameObject()
 	selected = false;
 	pendingToDelete = false;
 	hidden = false;
-
+	isStatic = false;
 	mTransform = nullptr;
 
 	UID = Random::Generate();
@@ -35,7 +35,7 @@ GameObject::GameObject(std::string name, GameObject* parent)
 	selected = false;
 	pendingToDelete = false;
 	hidden = false;
-
+	isStatic = false;
 	mTransform = nullptr;
 	UID = Random::Generate();
 
@@ -306,6 +306,11 @@ bool GameObject::AddComponent(ComponentType ctype, void* var)
 		}
 		else { ret = false; }
 		break;
+	case ComponentType::NAVMESHAGENT:
+		if (GetComponent(ComponentType::NAVMESHAGENT) == nullptr) {
+			temp = new CNavMeshAgent(this);
+			mComponents.push_back(temp);
+		}
 	default:
 		break;
 	}

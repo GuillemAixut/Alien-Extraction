@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleScene.h"
 #include "ModuleResourceManager.h"
+#include "ModulePathfinding.h"
 
 #include "Globals.h"
 #include "Log.h"
@@ -354,6 +355,9 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 		DrawGameObjects(false);
 
 		DrawLightsDebug();
+
+		DebugLine(pickingDebug);
+		DrawDebugLines();
 
 		DrawUIElements(false,false);
 
@@ -949,6 +953,57 @@ void ModuleRenderer3D::DrawGameObjects(bool isGame)
 
 }
 
+bool ModuleRenderer3D::IsWalkable(float3 pointToCheck)
+{
+	//LineSegment walkablePoint = LineSegment(float3(pointToCheck.x, -20.0, pointToCheck.z), float3(pointToCheck.x, 20.0, pointToCheck.z));
+
+	//float nHit = 0;
+	//float fHit = 0;
+
+	//for (std::vector<CMesh*>::iterator i = renderQueue.begin(); i != renderQueue.end(); ++i)
+	//{
+	//	if (walkablePoint.Intersects((*i)->globalAABB, nHit, fHit))
+	//	{
+	//		//walkablePoints.push_back(walkablePoint);
+	//		return true;
+	//	}
+	//}
+
+	//for (std::vector<CMesh*>::iterator i = renderQueuePostStencil.begin(); i != renderQueuePostStencil.end(); ++i)
+	//{
+	//	if (walkablePoint.Intersects((*i)->globalAABB, nHit, fHit))
+	//	{
+	//		//walkablePoints.push_back(walkablePoint);
+	//		return true;
+	//	}
+	//}
+
+	///*if (walkable)
+	//{
+	//	glColor3f(0.f, 1.f, 0.f);
+	//	glLineWidth(2.f);
+	//	glBegin(GL_LINES);
+	//	glVertex3fv(&walkablePoint.a.x);
+	//	glVertex3fv(&walkablePoint.b.x);
+	//	glEnd();
+	//	glLineWidth(1.f);
+	//	glColor3f(1.f, 1.f, 1.f);
+	//}
+	//else
+	//{
+	//	glColor3f(1.f, 0.f, 0.f);
+	//	glLineWidth(2.f);
+	//	glBegin(GL_LINES);
+	//	glVertex3fv(&walkablePoint.a.x);
+	//	glVertex3fv(&walkablePoint.b.x);
+	//	glEnd();
+	//	glLineWidth(1.f);
+	//	glColor3f(1.f, 1.f, 1.f);
+	//}*/
+
+	return false;
+}
+
 void ModuleRenderer3D::ClearModels()
 {
 	models.clear();
@@ -964,4 +1019,94 @@ void ModuleRenderer3D::EnableAssimpDebugger()
 void ModuleRenderer3D::CleanUpAssimpDebugger()
 {
 	aiDetachAllLogStreams();
+}
+
+void ModuleRenderer3D::DrawDebugLines()
+{
+	glBegin(GL_LINES);
+	for (size_t i = 0; i < lines.size(); i++)
+	{
+		glColor3fv(lines[i].color.ptr());
+		glVertex3fv(lines[i].a.ptr());
+		glVertex3fv(lines[i].b.ptr());
+
+		glColor3f(255.f, 255.f, 255.f);
+	}
+	glEnd();
+
+	lines.clear();
+
+	glBegin(GL_TRIANGLES);
+	for (size_t i = 0; i < triangles.size(); i++)
+	{
+		glColor3fv(triangles[i].color.ptr());
+
+		glVertex3fv(triangles[i].a.ptr());
+		glVertex3fv(triangles[i].b.ptr());
+		glVertex3fv(triangles[i].c.ptr());
+	}
+
+	glColor3f(255.f, 255.f, 255.f);
+	glEnd();
+
+	triangles.clear();
+
+	glPointSize(20.0f);
+	glBegin(GL_POINTS);
+	for (size_t i = 0; i < points.size(); i++)
+	{
+		glColor3fv(points[i].color.ptr());
+		glVertex3fv(points[i].position.ptr());
+		glColor3f(255.f, 255.f, 255.f);
+	}
+	glEnd();
+	glPointSize(1.0f);
+
+	points.clear();
+#ifndef _STANDALONE
+	External->pathFinding->DebugDraw();
+#endif
+}
+void ModuleRenderer3D::AddDebugLines(float3& a, float3& b, float3& color)
+{
+	lines.push_back(LineRender(a, b, color));
+}
+
+void ModuleRenderer3D::AddDebugTriangles(float3& a, float3& b, float3& c, float3& color)
+{
+	triangles.push_back(DebugTriangle(a, b, c, color));
+}
+void ModuleRenderer3D::AddDebugPoints(float3& position, float3& color)
+{
+	points.push_back(DebugPoint(position, color));
+}
+
+void ModuleRenderer3D::DebugLine(LineSegment& line)
+{
+	glLineWidth(2.f);
+	this->AddDebugLines(pickingDebug.a, pickingDebug.b, float3(1.f, 0.f, 0.f));
+	glLineWidth(1.f);
+}
+
+
+void ModuleRenderer3D::AddRay(float3& a, float3& b, float3& color, float& rayWidth)
+{
+	rays.push_back(LineRender(a, b, color, rayWidth));
+}
+
+void ModuleRenderer3D::DrawRays()
+{
+	for (size_t i = 0; i < rays.size(); i++)
+	{
+		glLineWidth(rays[i].width);
+		glBegin(GL_LINES);
+		glColor3fv(rays[i].color.ptr());
+		glVertex3fv(rays[i].a.ptr());
+		glVertex3fv(rays[i].b.ptr());
+
+		glColor3f(255.f, 255.f, 255.f);
+		glEnd();
+	}
+	//rays.clear();
+	glLineWidth(1.0f);
 }

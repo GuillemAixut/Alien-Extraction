@@ -16,6 +16,7 @@
 #include "CCollider.h"
 #include "CAnimation.h"
 #include "CScript.h"
+#include "CNavMeshAgent.h"
 #include "Component.h"
 
 #include "Random.h"
@@ -88,6 +89,7 @@ public:
 	bool active;
 	bool selected;
 	bool hidden;
+	bool isStatic;
 
 	std::string tag = "Untagged";
 

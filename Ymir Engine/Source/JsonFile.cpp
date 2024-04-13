@@ -29,6 +29,7 @@
 
 #include "External/mmgr/mmgr.h"
 #include "CScript.h"
+#include "CNavMeshAgent.h"
 #include "ImporterTexture.h"
 
 JsonFile::JsonFile()
@@ -676,6 +677,9 @@ void JsonFile::SetGameObject(const char* key, const GameObject& gameObject)
 
 	json_object_set_string(gameObjectObject, "Name", gameObject.name.c_str());
 
+
+	json_object_set_boolean(gameObjectObject, "Static", gameObject.isStatic);
+
 	// Set Position
 
 	//JSON_Value* positionValue = json_value_init_array();
@@ -780,6 +784,16 @@ GameObject* JsonFile::GetGameObject(const char* key) const
 		const char* name = json_object_get_string(gameObjectObject, "Name");
 		gameObject->name = (name != nullptr) ? name : "";
 
+		//Get isStatic
+		bool _isStatic;
+		if (json_object_has_value(gameObjectObject, "Static") == 1) {
+			_isStatic = json_object_get_boolean(gameObjectObject, "Static");
+		}
+		else {
+			_isStatic = false;
+		}
+		gameObject->isStatic = _isStatic;
+
 		// Get UID
 		gameObject->UID = static_cast<int>(json_object_get_number(gameObjectObject, "UID"));
 
@@ -867,6 +881,7 @@ void JsonFile::SetGameObject(JSON_Array* hArray, const GameObject& gameObject)
 	// Set Name
 	json_object_set_string(gameObjectObject, "Name", gameObject.name.c_str());
 
+	json_object_set_boolean(gameObjectObject, "Static", gameObject.isStatic);
 	// Set Tag
 	json_object_set_string(gameObjectObject, "Tag", gameObject.tag.c_str());
 
@@ -1643,6 +1658,20 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		}
 
 	}
+	case NAVMESHAGENT:
+	{
+		json_object_set_string(componentObject, "Type", "NavMesh");
+
+		CNavMeshAgent* cNavMesh = (CNavMeshAgent*)&component;
+
+		json_object_set_number(componentObject, "Active", cNavMesh->active);
+		json_object_set_number(componentObject, "Speed", cNavMesh->properties.speed);
+		json_object_set_number(componentObject, "Angular Speed", cNavMesh->properties.angularSpeed);
+		json_object_set_number(componentObject, "Stopping Distance", cNavMesh->properties.stoppingDistance);
+
+		break;
+	}
+
 	break;
 	default:
 		break;
@@ -1753,6 +1782,16 @@ std::vector<GameObject*> JsonFile::GetHierarchy(const char* key) const
 	return gameObjects;
 }
 
+uint JsonFile::GetNavMeshID(const char* key) const 
+{
+	const char* str = json_object_get_string(rootObject, key);
+	if (str != nullptr) {
+		uint navMeshId = (uint)strtoul(str, NULL, 10);
+		return navMeshId;
+	}
+	return -1;
+}
+
 void JsonFile::GetGameObject(const std::vector<GameObject*>& gameObjects, const JSON_Object* gameObjectObject, G_UI& gameObject) const
 {
 	// Get Name
@@ -1772,6 +1811,15 @@ void JsonFile::GetGameObject(const std::vector<GameObject*>& gameObjects, const 
 	}
 
 	// Get Tag
+
+	bool _isStatic;
+	if (json_object_has_value(gameObjectObject, "Static") == 1) {
+		_isStatic = json_object_get_boolean(gameObjectObject, "Static");
+	}
+	else {
+		_isStatic = false;
+	}
+	gameObject.isStatic = _isStatic;
 
 	if (json_object_has_value_of_type(gameObjectObject, "Tag", JSONString)) {
 
@@ -3288,6 +3336,19 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		}
 
+	}
+	else if (type == "NavMesh") {
+
+		CNavMeshAgent* comp = new CNavMeshAgent(gameObject);
+
+		comp->active = json_object_get_boolean(componentObject, "Active");
+		comp->properties.speed = json_object_get_number(componentObject,"Speed");
+		comp->properties.angularSpeed = json_object_get_number(componentObject, "Angular Speed");
+		comp->properties.stoppingDistance = json_object_get_number(componentObject, "Stopping Distance");
+
+
+		gameObject->AddComponent(comp);
+		
 	}
 
 }
