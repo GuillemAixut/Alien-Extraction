@@ -914,7 +914,7 @@ public class Player : YmirComponent
                 UpdateMove();
                 break;
             case STATE.STOP:
-                StopPlayer();
+                //StopPlayer();
                 break;
             case STATE.DASH:
                 UpdateDash();
@@ -1213,6 +1213,7 @@ public class Player : YmirComponent
     {
         Debug.Log("Stopping");
         gameObject.SetVelocity(new Vector3(0, 0, 0));
+        gameObject.ClearForces();
     }
 
     private void HandleRotation()
