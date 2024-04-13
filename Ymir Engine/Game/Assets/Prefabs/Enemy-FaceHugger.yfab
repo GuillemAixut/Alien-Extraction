@@ -7,15 +7,15 @@
             "UID": 1079439365,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2038909439,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
                         0,
-                        0,
-                        0
+                        1.8185663223266602,
+                        78.047660827636719
                     ],
                     "Rotation": [
                         -0,
@@ -68,16 +68,6 @@
                     "NumPaths": 8,
                     "Paths": [
                         ".\/Library\/Animations\/1339668438.yanim",
-                        ".\/Library\/Animations\/2022838152.yanim",
-                        ".\/Library\/Animations\/128588824.yanim",
-                        ".\/Library\/Animations\/962003502.yanim",
-                        ".\/Library\/Animations\/762667508.yanim",
-                        ".\/Library\/Animations\/1977662097.yanim",
-                        ".\/Library\/Animations\/8684731.yanim",
-                        ".\/Library\/Animations\/642659576.yanim"
-                    ],
-                    "AssetsPath": [
-                        ".\/Assets\/T-Pose.yanim",
                         ".\/Assets\/Idle_Facehugger.yanim",
                         ".\/Assets\/Walk_Facehugger.yanim",
                         ".\/Assets\/TailAttack_Facehugger.yanim",
@@ -85,34 +75,24 @@
                         ".\/Assets\/Death_Facehugger.yanim",
                         ".\/Assets\/IdleCombat_Facehugger.yanim",
                         ".\/Assets\/DeathFrame_Facehugger.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "FaceHuggerBaseScript.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "movementSpeed": 20,
-                    "life": 100,
-                    "armor": 0,
-                    "rarity": 0,
-                    "xSpeed": 0,
-                    "ySpeed": 0,
-                    "PlayerDetected": false,
-                    "DetectionRadius": 60,
-                    "wanderDuration": 5,
-                    "stopedDuration": 1,
-                    "cumDuration": 2,
-                    "cumDuration2": 5,
-                    "attackTimer": 0,
-                    "attackSensor": false
                 },
                 {
                     "Type": "NavMesh",
                     "Active": 1,
                     "Speed": 5,
                     "Angular Speed": 10,
-                    "Stopping Distance": 1
+                    "Stopping Distance": 2
                 },
                 {
                     "World gravity": [
@@ -139,9 +119,36 @@
                     "LockZ": true,
                     "Offset": [
                         0,
-                        12.699999809265137,
+                        13.800000190734863,
                         0
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "FaceHuggerBaseScript.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "movementSpeed": 20,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "PlayerDetected": false,
+                    "DetectionRadius": 60,
+                    "wanderDuration": 5,
+                    "stopedDuration": 1,
+                    "cumDuration": 2,
+                    "cumDuration2": 5,
+                    "attackTimer": 0,
+                    "attackSensor": false
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Facehugger",
+                    "Event Name": "",
+                    "Event ID": 0
                 }
             ],
             "Children UID": [
@@ -168,9 +175,9 @@
                         0
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         0,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -233,7 +240,7 @@
                     ],
                     "Rotation": [
                         94.46905517578125,
-                        -0.5706859827041626,
+                        -0.57068723440170288,
                         -179.32949829101562
                     ],
                     "Scale": [
@@ -1864,8 +1871,8 @@
                         21.600000381469727,
                         17.700000762939453
                     ],
-                    "Physics Type": 2,
-                    "Mass": 0,
+                    "Physics Type": 1,
+                    "Mass": 1,
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
