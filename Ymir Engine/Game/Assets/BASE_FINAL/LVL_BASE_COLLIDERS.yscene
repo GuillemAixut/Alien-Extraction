@@ -6,19 +6,19 @@
         41.103500366210938
     ],
     "Editor Camera Right (X)": [
-        0.99192047119140625,
-        7.8976154327392578e-07,
-        -0.12494857609272003
+        0.61718863248825073,
+        6.3516199588775635e-07,
+        0.78650975227355957
     ],
     "Editor Camera Up (Y)": [
-        -0.064721867442131042,
-        0.8551863431930542,
-        -0.51379752159118652
+        0.0245060995221138,
+        0.9992750883102417,
+        -0.019231192767620087
     ],
     "Editor Camera Front (Z)": [
-        -0.1069050207734108,
-        -0.51798361539840698,
-        -0.84868264198303223
+        0.78631609678268433,
+        -0.03116161935031414,
+        -0.61703664064407349
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,6 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51,84 +50,10 @@
                 }
             ],
             "Children UID": [
-                1012976392,
                 124833289,
                 311126591,
                 1211565987,
-                402787232
-            ]
-        },
-        {
-            "Name": "Main Camera",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1012976392,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        393.22409057617188,
-                        29.00006103515625,
-                        -8.1816864013671875
-                    ],
-                    "Rotation": [
-                        -180,
-                        40.000007629394531,
-                        -180
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Audio listener",
-                    "Active": 1,
-                    "Default Listener": 1
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
-                },
-                {
-                    "Type": "Camera",
-                    "Active": 1,
-                    "Right": [
-                        0.76604437828063965,
-                        -1.4361705780174816e-07,
-                        0.64278769493103027
-                    ],
-                    "Up": [
-                        6.696972576492044e-08,
-                        1,
-                        1.4361705780174816e-07
-                    ],
-                    "Front": [
-                        0.64278769493103027,
-                        6.696972576492044e-08,
-                        -0.76604437828063965
-                    ],
-                    "FOV": 60.000003814697266,
-                    "Near Plane": 1,
-                    "Far Plane": 1000,
-                    "Frustum Culling": 0,
-                    "Draw Bounding Boxes": 0,
-                    "Game Camera": true
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SceneManager.cs",
-                    "Active": 1,
-                    "UID": 0
-                }
+                1806365249
             ]
         },
         {
@@ -5295,8 +5220,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 460,
-                    "Height": 657,
+                    "Width": 519,
+                    "Height": 624,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -6781,13 +6706,120 @@
             ]
         },
         {
+            "Name": "Prefab-Player",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1806365249,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                598771385,
+                402787232
+            ]
+        },
+        {
+            "Name": "Main Camera",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 598771385,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -58.784080505371094,
+                        111.64328002929688,
+                        63.155529022216797
+                    ],
+                    "Rotation": [
+                        120.00008392333984,
+                        25.000032424926758,
+                        -141.99998474121094
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1.0000001192092896
+                    ]
+                },
+                {
+                    "Type": "Audio listener",
+                    "Active": 1,
+                    "Default Listener": 1
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "",
+                    "Event Name": "",
+                    "Event ID": 0
+                },
+                {
+                    "Type": "Camera",
+                    "Active": 1,
+                    "Right": [
+                        0.7141801118850708,
+                        -0.01942114531993866,
+                        0.69969272613525391
+                    ],
+                    "Up": [
+                        0.55797886848449707,
+                        0.61933737993240356,
+                        -0.5523412823677063
+                    ],
+                    "Front": [
+                        0.42261877655982971,
+                        -0.7848847508430481,
+                        -0.4531550407409668
+                    ],
+                    "FOV": 60.000003814697266,
+                    "Near Plane": 1,
+                    "Far Plane": 1000,
+                    "Frustum Culling": 0,
+                    "Draw Bounding Boxes": 1,
+                    "Game Camera": true
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0
+                }
+            ]
+        },
+        {
             "Name": "Player",
             "Static": false,
             "Tag": "Player",
             "UID": 402787232,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 1806365249,
             "Components": [
                 {
                     "Type": "Transform",

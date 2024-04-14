@@ -1,12 +1,120 @@
 {
     "Prefab": [
         {
-            "Name": "Player",
+            "Name": "Prefab-Player",
+            "Static": false,
             "Tag": "Untagged",
+            "UID": 1806365249,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1406306264,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                598771385,
+                402787232
+            ]
+        },
+        {
+            "Name": "Main Camera",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 598771385,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -58.784080505371094,
+                        111.64328002929688,
+                        63.155529022216797
+                    ],
+                    "Rotation": [
+                        120.00008392333984,
+                        25.000032424926758,
+                        -141.99998474121094
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1.0000001192092896
+                    ]
+                },
+                {
+                    "Type": "Audio listener",
+                    "Active": 1,
+                    "Default Listener": 1
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "",
+                    "Event Name": "",
+                    "Event ID": 0
+                },
+                {
+                    "Type": "Camera",
+                    "Active": 1,
+                    "Right": [
+                        0.7141801118850708,
+                        -0.01942114531993866,
+                        0.69969272613525391
+                    ],
+                    "Up": [
+                        0.55797886848449707,
+                        0.61933737993240356,
+                        -0.5523412823677063
+                    ],
+                    "Front": [
+                        0.42261877655982971,
+                        -0.7848847508430481,
+                        -0.4531550407409668
+                    ],
+                    "FOV": 60.000003814697266,
+                    "Near Plane": 1,
+                    "Far Plane": 1000,
+                    "Frustum Culling": 0,
+                    "Draw Bounding Boxes": 1,
+                    "Game Camera": true
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Player",
+            "Static": false,
+            "Tag": "Player",
             "UID": 402787232,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1192284687,
+            "Parent UID": 1806365249,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33,17 +141,17 @@
                     "NumPaths": 5,
                     "Paths": [
                         ".\/Library\/Animations\/402787232.yanim",
-                        ".\/Library\/Animations\/1320813188.yanim",
-                        ".\/Library\/Animations\/1118409966.yanim",
-                        ".\/Library\/Animations\/1043050466.yanim",
-                        ".\/Library\/Animations\/1673411392.yanim"
-                    ],
-                    "AssetsPath": [
-                        ".\/Assets\/Raisen_Idle.yanim",
                         ".\/Assets\/Raisen_Walk.yanim",
                         ".\/Assets\/Raisen_Run.yanim",
                         ".\/Assets\/Raisen_Dash.yanim",
                         ".\/Assets\/Raisen_Die.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
                     ]
                 },
                 {
@@ -103,6 +211,8 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
+                    "currentState": 0,
+                    "inputsList": 0,
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,
@@ -122,6 +232,7 @@
         },
         {
             "Name": "Tail",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 674768309,
             "Active": true,
@@ -185,6 +296,7 @@
         },
         {
             "Name": "Eyes",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 680428138,
             "Active": true,
@@ -248,6 +360,7 @@
         },
         {
             "Name": "Body",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2003545222,
             "Active": true,
@@ -311,6 +424,7 @@
         },
         {
             "Name": "Backpack",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2105473488,
             "Active": true,
