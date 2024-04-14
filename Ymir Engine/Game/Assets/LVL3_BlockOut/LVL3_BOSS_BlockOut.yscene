@@ -1,32 +1,34 @@
 {
+    "NavMesh": "4294967295",
     "Editor Camera Position": [
         111.20320129394531,
         149.45672607421875,
         -211.822509765625
     ],
     "Editor Camera Right (X)": [
-        -0.97930741310119629,
-        8.1211328506469727e-07,
-        -0.20229607820510864
+        -0.30313989520072937,
+        8.8661909103393555e-07,
+        -0.95292931795120239
     ],
     "Editor Camera Up (Y)": [
-        -0.13885658979415894,
-        0.72721356153488159,
-        0.67220222949981689
+        -0.41143175959587097,
+        0.90198159217834473,
+        0.13088293373584747
     ],
     "Editor Camera Front (Z)": [
-        -0.14711563289165497,
-        -0.68640315532684326,
-        0.71217828989028931
+        -0.85954201221466064,
+        -0.43175625801086426,
+        0.27343171834945679
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1968864687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -55,6 +57,7 @@
         },
         {
             "Name": "Main Camera",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 187544404,
             "Active": true,
@@ -70,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -97,17 +100,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        -1.4361705780174816e-07,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361705780174816e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -121,6 +124,7 @@
         },
         {
             "Name": "BLOCK_Boss_room",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 172333081,
             "Active": true,
@@ -153,6 +157,7 @@
         },
         {
             "Name": "Boss_Zone",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1243519601,
             "Active": true,
@@ -189,6 +194,7 @@
         },
         {
             "Name": "Boss_Walls",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1554803271,
             "Active": true,
@@ -228,6 +234,7 @@
         },
         {
             "Name": "Wall_Boss_7",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 103411017,
             "Active": true,
@@ -291,6 +298,7 @@
         },
         {
             "Name": "Wall_Boss_6",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 486398413,
             "Active": true,
@@ -354,6 +362,7 @@
         },
         {
             "Name": "Wall_Boss_5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1145501614,
             "Active": true,
@@ -417,6 +426,7 @@
         },
         {
             "Name": "Wall_Boss_4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 628916407,
             "Active": true,
@@ -480,6 +490,7 @@
         },
         {
             "Name": "Wall_Boss_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2046726193,
             "Active": true,
@@ -543,6 +554,7 @@
         },
         {
             "Name": "Wall_Boss_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1222823405,
             "Active": true,
@@ -606,6 +618,7 @@
         },
         {
             "Name": "Wall_Boss_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 341363329,
             "Active": true,
@@ -669,6 +682,7 @@
         },
         {
             "Name": "Platform",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2000788607,
             "Active": true,
@@ -732,6 +746,7 @@
         },
         {
             "Name": "Boss_Floor",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 345648129,
             "Active": true,
@@ -795,6 +810,7 @@
         },
         {
             "Name": "Boss",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 104292745,
             "Active": true,
