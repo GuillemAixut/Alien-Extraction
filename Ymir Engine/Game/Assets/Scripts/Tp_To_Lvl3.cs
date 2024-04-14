@@ -6,15 +6,25 @@ using System.Runtime.InteropServices;
 
 using YmirEngine;
 
-public class Tp_Lvl2_Part2 : YmirComponent
+public class Tp_To_Lvl3 : YmirComponent
 {
+
+	public void Start()
+	{
+		Debug.Log("HelloWorld"); 
+	}
+
+	public void Update()
+	{
+		return;
+	}
+
     public void OnCollisionStay(GameObject other)
     {
-        if(other.Tag == "Player")
+        if (other.Tag == "Player")
         {
             other.SetActive(false);
-            InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene");
+            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene");
         }
     }
-    
 }

@@ -12,7 +12,7 @@ public class Tp_Beacon : YmirComponent
     {
         if (other.Tag == "Player")
         {
-            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_FINAL.yscene");
+            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene");
         }
     }
 }

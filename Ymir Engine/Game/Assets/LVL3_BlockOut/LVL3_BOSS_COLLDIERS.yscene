@@ -1,24 +1,24 @@
 {
-    "NavMesh": "1232279637",
+    "NavMesh": "4294967295",
     "Editor Camera Position": [
-        -92.65997314453125,
-        80.623138427734375,
-        -137.960693359375
+        44.796531677246094,
+        66.514236450195312,
+        -51.652023315429688
     ],
     "Editor Camera Right (X)": [
-        -0.65193790197372437,
-        2.9802322387695312e-07,
-        -0.75827276706695557
+        -0.97548049688339233,
+        1.0579824447631836e-06,
+        -0.22007690370082855
     ],
     "Editor Camera Up (Y)": [
-        -0.6295238733291626,
-        0.55745482444763184,
-        0.54124408960342407
+        -0.15383803844451904,
+        0.715099036693573,
+        0.68188327550888062
     ],
     "Editor Camera Front (Z)": [
-        -0.42270249128341675,
-        -0.83020710945129395,
-        0.36342534422874451
+        -0.15737773478031158,
+        -0.69902241230010986,
+        0.69756603240966797
     ],
     "Hierarchy": [
         {
@@ -56,8 +56,9 @@
                 1349128443,
                 1836208307,
                 1079439365,
-                562272270,
-                1484304711
+                1484304711,
+                402787232,
+                27792721
             ]
         },
         {
@@ -3944,103 +3945,6 @@
             ]
         },
         {
-            "Name": "Player",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 562272270,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 1968864687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -119.6461181640625,
-                        4.1989097595214844,
-                        0.82761192321777344
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        5.0399999618530273,
-                        5.0399999618530273,
-                        5.0399999618530273
-                    ]
-                }
-            ],
-            "Children UID": [
-                1631683175
-            ]
-        },
-        {
-            "Name": "Cube (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1631683175,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Primitives\/Cube.fbx",
-            "Parent UID": 562272270,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1728623793,
-                    "Vertex Count": 24,
-                    "Index Count": 36
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
             "Name": "Cube",
             "Static": false,
             "Tag": "Untagged",
@@ -4134,6 +4038,417 @@
                     "Diffuse_ID": 0,
                     "Diffuse_Path": "Checker Image",
                     "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Player",
+            "Static": false,
+            "Tag": "Player",
+            "UID": 402787232,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0.83073639869689941,
+                        0
+                    ],
+                    "Rotation": [
+                        5.0089561227650847e-06,
+                        -5.0089561227650847e-06,
+                        5.0089561227650847e-06
+                    ],
+                    "Scale": [
+                        0.10000000149011612,
+                        0.10000000149011612,
+                        0.10000000149011612
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 5,
+                    "Paths": [
+                        ".\/Library\/Animations\/402787232.yanim",
+                        ".\/Assets\/Raisen_Walk.yanim",
+                        ".\/Assets\/Raisen_Run.yanim",
+                        ".\/Assets\/Raisen_Dash.yanim",
+                        ".\/Assets\/Raisen_Die.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "P_Shoot",
+                    "Event ID": 1216763735
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        63.700000762939453,
+                        200,
+                        45.400001525878906
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        10.199999809265137,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Health.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "currentHealth": 0,
+                    "maxHealth": 10,
+                    "isAlive": false,
+                    "debugDmg": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Bullets.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Player.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "currentState": 0,
+                    "inputsList": 0,
+                    "movementSpeed": 35,
+                    "godMode": false,
+                    "fireRate": 0,
+                    "ammo": 0,
+                    "magsize": 5,
+                    "dashDuration": 0.25,
+                    "dashDistance": 200,
+                    "swipeTimer": 0
+                }
+            ],
+            "Children UID": [
+                674768309,
+                680428138,
+                2003545222,
+                2105473488
+            ]
+        },
+        {
+            "Name": "Tail",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 674768309,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1003707611,
+                    "Vertex Count": 248,
+                    "Index Count": 660
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 168,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Tail_D.png",
+                    "Diffuse_UID": 481287073
+                }
+            ]
+        },
+        {
+            "Name": "Eyes",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 680428138,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1089882795,
+                    "Vertex Count": 717,
+                    "Index Count": 2592
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 172,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Eyes_D.png",
+                    "Diffuse_UID": 32956622
+                }
+            ]
+        },
+        {
+            "Name": "Body",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2003545222,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 798019010,
+                    "Vertex Count": 10134,
+                    "Index Count": 36885
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 164,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Body_D.png",
+                    "Diffuse_UID": 1203624701
+                }
+            ]
+        },
+        {
+            "Name": "Backpack",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2105473488,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Empty",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 27792721,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        29.294437408447266,
+                        8.5696935653686523,
+                        10.536296844482422
+                    ],
+                    "Rotation": [
+                        -0,
+                        43.679874420166016,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        218.80000305175781,
+                        5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Tp_Beacon.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ]
         }
