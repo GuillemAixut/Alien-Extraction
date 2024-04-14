@@ -66,7 +66,7 @@
     <Compile Include="Assets\Scripts\Ui\AppearUI.cs" />
     <Compile Include="Assets\Scripts\Basic_Movment.cs" />
     <Compile Include="Assets\Scripts\Ui\Button.cs" />
-    <Compile Include="Assets\Scripts\Caius.cs" />
+    <Compile Include="Assets\Scripts\NPC\Caius.cs" />
     <Compile Include="Assets\Scripts\CameraRot.cs" />
     <Compile Include="Assets\Scripts\Core.cs" />
     <Compile Include="Assets\Scripts\World\Door.cs" />
@@ -77,7 +77,7 @@
     <Compile Include="Assets\Scripts\World\Key.cs" />
     <Compile Include="Assets\Scripts\World\Loot_Chest.cs" />
     <Compile Include="Assets\Scripts\main.cs" />
-    <Compile Include="Assets\Scripts\PickUp.cs" />
+    <Compile Include="Assets\Scripts\World\PickUp.cs" />
     <Compile Include="Assets\Scripts\Prueba.cs" />
     <Compile Include="Assets\Scripts\PruebaPathFinding.cs" />
     <Compile Include="Assets\Scripts\QueenXenomorphAttack.cs" />
@@ -108,7 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Scripts\Enemies\" />
-    <Folder Include="Assets\Scripts\NPC\" />
     <Folder Include="Assets\Scripts\Player\" />
     <Folder Include="Assets\Scripts\Tests\" />
   </ItemGroup>
