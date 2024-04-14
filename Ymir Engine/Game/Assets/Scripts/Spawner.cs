@@ -7,7 +7,7 @@ using YmirEngine;
 
 public class Spawner: YmirComponent
 {
-    private bool spawn;
+    //private bool spawn;
 
     public int maxEnemies;
 

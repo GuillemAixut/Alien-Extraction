@@ -5,17 +5,16 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 using YmirEngine;
-using static Caius;
 
 public class Caius : YmirComponent
 {
     public struct Dialogue
     {
-        public int ID;
+        public string ID;
         public string Type;
         public string Name;
         public string Text;
-        public int Code;
+        public string Code;
     }
 
     private List<Dialogue> dialogueList = null;
@@ -52,10 +51,12 @@ public class Caius : YmirComponent
             //TODO: Lógica del diálogo
             //dialogue_ui = true;
 
-            LoadDialogues(str);
-            DisplayDialogueByID(1);
-
             Debug.Log("[WARNING] Mostrar UI del dialogo");
+
+            LoadDialogues(str);
+            DisplayDialogueByID("1");
+
+            
         }
 
         //TODO: Show the dialogue UI when the bool is true
@@ -91,10 +92,11 @@ public class Caius : YmirComponent
         //TODO: Mostrat UI de que puede interactuar si pulsa el botón asignado
         if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
         {
+
             //TODO: Lógica del diálogo
             //dialogue_ui = true;
 
-            DisplayDialogueByID(1);
+            DisplayDialogueByID("1");
 
             Debug.Log("[WARNING] Mostrar UI del dialogo");
         }
@@ -111,14 +113,20 @@ public class Caius : YmirComponent
             if (dialogueParts.Length >= 5)
             {
                 Dialogue dialogue = new Dialogue();
-                dialogue.ID = int.Parse(dialogueParts[0]);
+                Debug.Log("[WARNING] 1");
+                dialogue.ID = dialogueParts[0];
+                Debug.Log("[WARNING] 2");
                 dialogue.Type = dialogueParts[1];
+                Debug.Log("[WARNING] 3");
                 dialogue.Name = dialogueParts[2];
+                Debug.Log("[WARNING] 4");
                 dialogue.Text = dialogueParts[3];
-                dialogue.Code = int.Parse(dialogueParts[4]);
+                Debug.Log("[WARNING] 5");
+                dialogue.Code = dialogueParts[4];
+                Debug.Log("[WARNING] 6");
 
                 dialogueList.Add(dialogue);
-
+                Debug.Log("[WARNING] Ended");
             }
             else
             {
@@ -129,7 +137,7 @@ public class Caius : YmirComponent
         Debug.Log("[WARNING] GG Loading dialogue data");
     }
 
-    public void DisplayDialogueByID(int id)
+    public void DisplayDialogueByID(string id)
     {
         UI.TextEdit(name_gameObject, GetDialogueByID(id).Name);
         UI.TextEdit(line1_gameObject, GetDialogueByID(id).Text);
@@ -137,7 +145,7 @@ public class Caius : YmirComponent
         Debug.Log("[WARNING] Se ha cargado correctamente el Dialogo con id: " + id);
     }
 
-    public Dialogue GetDialogueByID(int id)
+    public Dialogue GetDialogueByID(string id)
     {
         foreach (Dialogue dialogue in dialogueList)
         {

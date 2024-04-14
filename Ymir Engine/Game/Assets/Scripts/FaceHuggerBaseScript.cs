@@ -77,7 +77,7 @@ public class FaceHuggerBaseScript : YmirComponent
     public float DetectionRadius = 60f;
     private float AttackDistance = 20f;
 
-    private EnemyState state = EnemyState.Idle;
+    //private EnemyState state = EnemyState.Idle;
 
     private WanderState wanderState;
 
