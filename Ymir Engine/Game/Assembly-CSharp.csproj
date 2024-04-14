@@ -55,13 +55,18 @@
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Time.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Vector3.cs" />
     <Compile Include="Assembly-CSharp\Ymir Engine Utility\Vector2.cs" />
-    <Compile Include="Assets\Scripts\Player\AcidicSpit.cs" />
+    <Compile Include="Assets\Scripts\AcidicPuddle.cs" />
+    <Compile Include="Assets\Scripts\AcidicSpit.cs" />
+    <Compile Include="Assets\Scripts\BH_Bullet.cs" />
+    <Compile Include="Assets\Scripts\BH_Plane.cs" />
+    <Compile Include="Assets\Scripts\BH_Tail.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Ui\AppearUI.cs" />
     <Compile Include="Assets\Scripts\Basic_Movment.cs" />
-    <Compile Include="Assets\Scripts\Player\BH_Bullet.cs" />
-    <Compile Include="Assets\Scripts\Player\BH_Plane.cs" />
     <Compile Include="Assets\Scripts\Ui\Button.cs" />
-    <Compile Include="Assets\Caius.cs" />
+    <Compile Include="Assets\Scripts\Caius.cs" />
     <Compile Include="Assets\Scripts\CameraRot.cs" />
     <Compile Include="Assets\Scripts\Core.cs" />
     <Compile Include="Assets\Scripts\World\Door.cs" />
@@ -69,13 +74,10 @@
     <Compile Include="Assets\Scripts\World\Electric_trap.cs" />
     <Compile Include="Assets\Scripts\FaceHuggerAttack.cs" />
     <Compile Include="Assets\Scripts\FaceHuggerBaseScript.cs" />
-    <Compile Include="Assets\Scripts\Player\Health.cs" />
     <Compile Include="Assets\Scripts\World\Key.cs" />
     <Compile Include="Assets\Scripts\World\Loot_Chest.cs" />
     <Compile Include="Assets\Scripts\main.cs" />
     <Compile Include="Assets\Scripts\PickUp.cs" />
-    <Compile Include="Assets\Scripts\Player\Player.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Prueba.cs" />
     <Compile Include="Assets\Scripts\PruebaPathFinding.cs" />
     <Compile Include="Assets\Scripts\QueenXenomorphAttack.cs" />
@@ -86,11 +88,9 @@
     <Compile Include="Assets\Scripts\Ui\Button_Navigation.cs" />
     <Compile Include="Assets\Scripts\Ui\Button_Exit.cs" />
     <Compile Include="Assets\Scripts\Test_Anim.cs" />
-    <Compile Include="Assets\Scripts\Player\BH_Tail.cs" />
     <Compile Include="Assets\Scripts\Ui\Level_Selection_Canvas.cs" />
     <Compile Include="Assets\Scripts\Enemy_Test.cs" />
     <Compile Include="Assets\Scripts\World\Inventory_chest.cs" />
-    <Compile Include="Assets\Scripts\Player\AcidicPuddle.cs" />
     <Compile Include="Assets\Scripts\Ui\UI_Animation.cs" />
     <Compile Include="Assets\Scripts\Ui\UI_Inventory.cs" />
     <Compile Include="Assets\Scripts\Ui\UI_Inventory_Grid.cs" />
@@ -109,6 +109,7 @@
   <ItemGroup>
     <Folder Include="Assets\Scripts\Enemies\" />
     <Folder Include="Assets\Scripts\NPC\" />
+    <Folder Include="Assets\Scripts\Player\" />
     <Folder Include="Assets\Scripts\Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

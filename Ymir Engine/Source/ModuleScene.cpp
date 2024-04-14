@@ -88,6 +88,7 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
+	LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 
 #endif // _RELEASE
 

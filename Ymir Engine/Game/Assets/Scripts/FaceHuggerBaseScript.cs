@@ -66,7 +66,7 @@ public class FaceHuggerBaseScript : YmirComponent
     public float xSpeed = 0, ySpeed = 0;
 
 
-    //public float wanderTimer = 5f;
+    
 
     private GameObject player;
     protected PathFinding agent;
@@ -77,14 +77,14 @@ public class FaceHuggerBaseScript : YmirComponent
     public float DetectionRadius = 60f;
     private float AttackDistance = 20f;
 
-    //private EnemyState state = EnemyState.Idle;
+    private EnemyState state = EnemyState.Idle;
 
     private WanderState wanderState;
 
     RandomPointGenerator pointGenerator;
     private Health healthScript;
 
-   
+
 
     private float wanderTimer;
     public float wanderDuration = 5f;
@@ -113,6 +113,7 @@ public class FaceHuggerBaseScript : YmirComponent
         wanderTimer = wanderDuration;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
+        Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
         agent = gameObject.GetComponent<PathFinding>();
         movementSpeed = 25f;
         stopedDuration = 1f;
@@ -122,7 +123,7 @@ public class FaceHuggerBaseScript : YmirComponent
         cumDuration2 = 5f;
 
         attackTimer = attackDuration;
-        
+
 
         cumTimer = cumDuration2;
 
@@ -149,10 +150,10 @@ public class FaceHuggerBaseScript : YmirComponent
 
     public void Update()
     {
-
+        Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
         CryTimer += Time.deltaTime;
         cumTimer2 -= Time.deltaTime;
-        if(cumTimer2 <= 0)
+        if (cumTimer2 <= 0)
         {
             switch (wanderState)
             {
@@ -182,28 +183,28 @@ public class FaceHuggerBaseScript : YmirComponent
                     agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
 
                     MoveToCalculatedPos(agent.speed);
-                    
+
                     Debug.Log("[ERROR] Current State: CHASING");
                     break;
 
                 case WanderState.STOPED:
                     //Debug.Log("[ERROR] Current State: STOPED");
                     ProcessStopped();
-                break;
+                    break;
 
                 case WanderState.HIT:
 
                     Proccescumdown();
 
-                break;
+                    break;
 
                 case WanderState.ATTACK:
                     LookAt(player.transform.globalPosition);
                     Attack();
-                break;
+                    break;
             }
 
-            //Check if player is alive before chasing
+            ////Check if player is alive before chasing
             if (wanderState != WanderState.ATTACK && healthScript.GetCurrentHealth() > 0)
             {
 
@@ -215,7 +216,7 @@ public class FaceHuggerBaseScript : YmirComponent
                         actualMovementSpeed = movementSpeed;
                         if (CryTimer >= 10)
                         {
-                            //Audio.PlayAudio(gameObject, "FH_Cry");
+                            Audio.PlayAudio(gameObject, "FH_Cry");
                             CryTimer = 0;
                         }
                         wanderState = WanderState.CHASING;
@@ -229,7 +230,7 @@ public class FaceHuggerBaseScript : YmirComponent
                             Debug.Log("[ERROR] ATTACKING");
                             attackTimer = attackDuration;
                             gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-                            //Audio.PlayAudio(gameObject, "FH_Tail");
+                            Audio.PlayAudio(gameObject, "FH_Tail");
                             wanderState = WanderState.ATTACK;
                         }
                     }
@@ -255,10 +256,10 @@ public class FaceHuggerBaseScript : YmirComponent
 
     private void Proccescumdown()
     {
-        if(cumTimer > 0)
+        if (cumTimer > 0)
         {
             cumTimer -= Time.deltaTime;
-            if(cumTimer<=0)
+            if (cumTimer <= 0)
             {
                 //Debug.Log("[ERROR] Reached");
                 wanderState = WanderState.REACHED;
@@ -328,8 +329,8 @@ public class FaceHuggerBaseScript : YmirComponent
 
         Quaternion targetRotation = Quaternion.identity;
 
-        Vector3 aY = new Vector3(0,1,0);
-        
+        Vector3 aY = new Vector3(0, 1, 0);
+
 
         if (aX != Vector3.zero)
         {
@@ -412,7 +413,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
     public void DestroyEnemy()
     {
-        //Audio.PlayAudio(gameObject, "FH_Death");
+        Audio.PlayAudio(gameObject, "FH_Death");
         InternalCalls.Destroy(gameObject);
     }
 
@@ -447,7 +448,7 @@ public class FaceHuggerBaseScript : YmirComponent
         //    Debug.Log("[ERROR] Name: " + other.Name);
         //    Debug.Log("[ERROR] HIT!!!");
         //    gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-          
+
         //    gameObject.SetImpulse(gameObject.transform.GetForward() * -10);
         //    healthScript.TakeDmg(3);
         //    wanderState = WanderState.HIT;

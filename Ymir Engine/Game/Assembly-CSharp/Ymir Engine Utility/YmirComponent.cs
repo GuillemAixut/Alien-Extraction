@@ -31,7 +31,7 @@ namespace YmirEngine
         public ComponentType type;
         public static Dictionary<System.Type, ComponentType> componentTable = new Dictionary<Type, ComponentType> {
             { typeof(Transform), ComponentType.TRANSFORM},
-            { typeof(PathFinding), ComponentType.NAVMESHAGENT  },
+            { typeof(PathFinding), ComponentType.NAVMESHAGENT },
         };
 
 

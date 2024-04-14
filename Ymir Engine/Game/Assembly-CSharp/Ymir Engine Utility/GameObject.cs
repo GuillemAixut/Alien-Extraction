@@ -59,10 +59,6 @@ namespace YmirEngine
             {
                 retValue = YmirComponent.componentTable[typeof(T)];
             }
-            else
-            {
-                return default(T);
-            }
 
             return TryGetComponent<T>(typeof(T).ToString(), (int)retValue);
         }
