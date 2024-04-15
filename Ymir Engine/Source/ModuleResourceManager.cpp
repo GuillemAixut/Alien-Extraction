@@ -823,7 +823,7 @@ Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFi
 		}
 
 		// FRANCESC: Disparo arreglado por alg�n motivo si comentas esta l�nea
-		//resources.emplace(UID, tmpResource);
+		resources.emplace(UID, tmpResource);
 
 		tmpResource->SetLibraryFilePath(libraryFilePath);
 
