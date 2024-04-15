@@ -113,7 +113,7 @@ public class FaceHuggerBaseScript : YmirComponent
         wanderTimer = wanderDuration;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
-        Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
+        //Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
         agent = gameObject.GetComponent<PathFinding>();
         movementSpeed = 25f;
         stopedDuration = 1f;
@@ -150,7 +150,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
     public void Update()
     {
-        Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
+        //Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
         CryTimer += Time.deltaTime;
         cumTimer2 -= Time.deltaTime;
         if (cumTimer2 <= 0)
@@ -160,7 +160,7 @@ public class FaceHuggerBaseScript : YmirComponent
                 case WanderState.REACHED:
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     wanderTimer = wanderDuration;
-                    Debug.Log("[ERROR] Current State: REACHED");
+                    //Debug.Log("[ERROR] Current State: REACHED");
                     targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
                     //Debug.Log("[ERROR] TargetPosition: " + targetPosition); 
                     wanderState = WanderState.GOING;
@@ -168,9 +168,9 @@ public class FaceHuggerBaseScript : YmirComponent
 
                 case WanderState.GOING:
                     LookAt(agent.GetDestination());
-                    Debug.Log("[ERROR] Speed" + agent.speed);
+                    //Debug.Log("[ERROR] Speed" + agent.speed);
                     MoveToCalculatedPos(agent.speed);
-                    Debug.Log("[ERROR] Current State: GOING");
+                    //Debug.Log("[ERROR] Current State: GOING");
 
                     IsReached(gameObject.transform.globalPosition, targetPosition);
                     break;
@@ -184,7 +184,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
                     MoveToCalculatedPos(agent.speed);
 
-                    Debug.Log("[ERROR] Current State: CHASING");
+                    //Debug.Log("[ERROR] Current State: CHASING");
                     break;
 
                 case WanderState.STOPED:
@@ -227,7 +227,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
                         if (wanderState == WanderState.CHASING && wanderState != WanderState.ATTACK)
                         {
-                            Debug.Log("[ERROR] ATTACKING");
+                            //Debug.Log("[ERROR] ATTACKING");
                             attackTimer = attackDuration;
                             gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
                             Audio.PlayAudio(gameObject, "FH_Tail");
@@ -427,16 +427,9 @@ public class FaceHuggerBaseScript : YmirComponent
                                                  0,
                                                  Mathf.Round(destintion.z));
 
-
-        Debug.Log("Position: " + roundedPosition);
-        Debug.Log("Destination: " + roundedDestination);
-
-
         if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
         {
             wanderState = WanderState.REACHED;
-            Debug.Log("Reached!!!!");
-
         }
     }
 

@@ -39,12 +39,12 @@ public class FaceHuggerAttack : YmirComponent
         if (facehugger.GetComponent<FaceHuggerBaseScript>().attackTimer > 0.4f)
         {
             gameObject.SetPosition(facehugger.transform.globalPosition);
-            Debug.Log("[ERROR] xxxxx");
+            //Debug.Log("[ERROR] xxxxx");
         }
         else if (facehugger.GetComponent<FaceHuggerBaseScript>().attackTimer < 0.4f)
         {
 
-            Debug.Log("[ERROR] AAAAA");
+            //Debug.Log("[ERROR] AAAAA");
             //gameObject.SetPosition(new Vector3(gameObject.transform.globalPosition.x, gameObject.transform.globalPosition.y, gameObject.transform.GetForward().z + 5));
             if (facehugger.GetComponent<FaceHuggerBaseScript>().CheckDistance(gameObject.transform.globalPosition, facehugger.transform.globalPosition, 10f))
             {

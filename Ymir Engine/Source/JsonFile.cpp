@@ -1658,6 +1658,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		}
 
 	}
+	break;
 	case NAVMESHAGENT:
 	{
 		json_object_set_string(componentObject, "Type", "NavMesh");
