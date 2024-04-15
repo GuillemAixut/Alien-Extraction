@@ -24,7 +24,9 @@ public class Health : YmirComponent
 
     public void Start()
     {
-        Debug.Log("QUE cono pasa" + this.type);
+        //Debug.Log("QUE cono pasa" + this.type);
+
+        maxHealth = 1200;
 
         GetPlayerScript();
         
@@ -41,13 +43,13 @@ public class Health : YmirComponent
         
         currentHealth = maxHealth;
 
-        Debug.Log("QUE cono pasa 2 " + GetCurrentHealth());
+        //Debug.Log("QUE cono pasa 2 " + GetCurrentHealth());
         isAlive = true;
     }
 
     public void Update()
     {
-        Debug.Log("QUE cono pasa 2 " + GetCurrentHealth());
+        //Debug.Log("QUE cono pasa 2 " + GetCurrentHealth());
         if (player != null && player.godMode)
         {
             if (Input.GetKey(YmirKeyCode.F3) == KeyState.KEY_DOWN)
@@ -138,7 +140,7 @@ public class Health : YmirComponent
 
         if (gameObject != null)
         {
-            Debug.Log("[ERROR] HOLAAA");
+            //Debug.Log("[ERROR] HOLAAA");
             player = gameObject.GetComponent<Player>();
         }
     }
