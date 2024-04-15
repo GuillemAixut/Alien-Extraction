@@ -249,13 +249,13 @@ bool ModuleRenderer3D::Init()
 
 	defaultFont = new Font("arial.ttf", "Assets\\Fonts");
 
-	uint UID = 1553236809; // UID of Cube.fbx mesh in meta (lo siento)
+	uint UID = 1728623793; // UID of Cube.fbx mesh in meta (lo siento)
 
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
 
 	if (!PhysfsEncapsule::FileExists(libraryPath)) {
 
-		//External->resourceManager->ImportFile("Assets/Primitives/Cube.fbx", true);
+		External->resourceManager->ImportFile("Assets/Primitives/Cube.fbx", true);
 
 	}
 
