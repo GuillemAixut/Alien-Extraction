@@ -1,24 +1,24 @@
 {
     "NavMesh": "4294967295",
     "Editor Camera Position": [
-        205.71867370605469,
-        437.2095947265625,
-        432.11801147460938
+        -2.3057718276977539,
+        194.12916564941406,
+        344.39712524414062
     ],
     "Editor Camera Right (X)": [
-        0.74976658821105957,
-        -5.2154064178466797e-07,
-        -0.66171741485595703
+        0.97832989692687988,
+        -3.4272670745849609e-07,
+        0.20709404349327087
     ],
     "Editor Camera Up (Y)": [
-        -0.24905124306678772,
-        0.92647284269332886,
-        -0.28219112753868103
+        0.08355124294757843,
+        0.91500860452651978,
+        -0.39470168948173523
     ],
     "Editor Camera Front (Z)": [
-        -0.61305677890777588,
-        -0.37637606263160706,
-        -0.69463080167770386
+        0.18949045240879059,
+        -0.40344876050949097,
+        -0.89516967535018921
     ],
     "Hierarchy": [
         {
@@ -59,7 +59,8 @@
                 1440043577,
                 547851288,
                 128304438,
-                1806365249
+                1806365249,
+                1829172732
             ]
         },
         {
@@ -26347,7 +26348,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.4422941207885742,
+                        9.4422950744628906,
                         -0
                     ],
                     "Scale": [
@@ -28017,6 +28018,722 @@
                         1,
                         1
                     ]
+                }
+            ]
+        },
+        {
+            "Name": "PROP_LVL2_Part1_MetalBoxes",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1829172732,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                904490451
+            ]
+        },
+        {
+            "Name": "LVL2_MAP_Part1:Metal_Boxes",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 904490451,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 1829172732,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                655527929,
+                290658663,
+                120780480,
+                1752455223,
+                22598758,
+                753096947,
+                92599348,
+                871675113,
+                1184618374,
+                1213427185
+            ]
+        },
+        {
+            "Name": "MetalBox1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 655527929,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 2058120423,
+                    "Vertex Count": 969,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 290658663,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1196308061,
+                    "Vertex Count": 972,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 120780480,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1218081905,
+                    "Vertex Count": 970,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1752455223,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1976046871,
+                    "Vertex Count": 968,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox5",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 22598758,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 820315999,
+                    "Vertex Count": 968,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox6",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 753096947,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 795428665,
+                    "Vertex Count": 968,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox7",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 92599348,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 914188862,
+                    "Vertex Count": 968,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox8",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 871675113,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 431577294,
+                    "Vertex Count": 968,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox9",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1184618374,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 29939002,
+                    "Vertex Count": 968,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
+                }
+            ]
+        },
+        {
+            "Name": "MetalBox10",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1213427185,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/PROP_LVL2_Part1_MetalBoxes.fbx",
+            "Parent UID": 904490451,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 582006079,
+                    "Vertex Count": 968,
+                    "Index Count": 1872
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 914,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/Metal Box\/TEX_PROP_MetalBoxV2_D.png",
+                    "Diffuse_UID": 1708630778
                 }
             ]
         }
