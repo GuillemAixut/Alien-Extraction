@@ -182,7 +182,7 @@ void ParticleEmitter::Init(CParticleSystem* component)
 
 void ParticleEmitter::Update(float dt)
 {
-	if (owner->localPlay) //ERIC: TODO Esto tendra que cambiarse a que se mueva cuando timer sea running, que en stop se maten todas y en pause se printen pero estaticas
+	if (TimeManager::gameTimer.GetState() != TimerState::PAUSED) //ERIC: TODO Esto tendra que cambiarse a que se mueva cuando timer sea running, que en stop se maten todas y en pause se printen pero estaticas
 	{
 		emitterTime += dt;
 

@@ -15,7 +15,7 @@ void PlayEmitter(MonoObject* go) {
     if (particleSystem != nullptr)
     {
         EmitterSpawner* spawner = (EmitterSpawner*)particleSystem->allEmitters.at(0)->modules.at(1);
-
+       
         spawner->PlayTrigger();
     }
     else

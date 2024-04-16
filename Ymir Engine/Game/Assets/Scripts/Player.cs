@@ -1091,6 +1091,11 @@ public class Player : YmirComponent
     {
         Animation.PlayAnimation(gameObject, "Raisen_Dash");
         Audio.PlayAudio(gameObject, "P_Dash");
+
+        //LO SIENTO (WARRADA)
+        GameObject particles = GetParticles();
+        Particles.PlayEmitter(particles);
+
         Input.Rumble_Controller(100, 7);
         StopPlayer();
         dashTimer = dashDuration;
@@ -1107,6 +1112,12 @@ public class Player : YmirComponent
         //gameObject.transform.localPosition.y = dashStartYPos;
         Animation.PlayAnimation(gameObject, "Raisen_Idle"); // Chuekada para la entrega, si ves esto ponlo bien porfa no lo ignores
 
+    }
+
+    private GameObject GetParticles()
+    {
+        GameObject particleSystem = InternalCalls.GetGameObjectByName("ParticleSystemDashd");
+        return particleSystem;
     }
 
     private void StartJump()

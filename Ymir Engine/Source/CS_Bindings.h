@@ -566,7 +566,7 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	go->mTransform->rotation = rotVector.Normalized();
 	go->mTransform->SetScale(scaleVector);
 
-	uint UID = 1553236809; // UID of Cube.fbx mesh in meta (lo siento)
+	uint UID = 1981179967; // UID of Cube.fbx mesh in meta (lo siento)
 
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
 
