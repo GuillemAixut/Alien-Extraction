@@ -6,19 +6,19 @@
         148.48483276367188
     ],
     "Editor Camera Right (X)": [
-        -0.023073604330420494,
-        -4.1676685214042664e-07,
-        0.99873179197311401
+        0.4038378894329071,
+        -4.3213367462158203e-07,
+        0.91373556852340698
     ],
     "Editor Camera Up (Y)": [
-        0.18796676397323608,
-        0.98114639520645142,
-        0.0043429872021079063
+        0.50546818971633911,
+        0.8322223424911499,
+        -0.22339816391468048
     ],
     "Editor Camera Front (Z)": [
-        0.98186701536178589,
-        -0.18820604681968689,
-        0.022683899849653244
+        0.7619556188583374,
+        -0.55318832397460938,
+        -0.33675691485404968
     ],
     "Hierarchy": [
         {
@@ -40118,12 +40118,6 @@
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "Tp_To_Lvl2_Part1.cs",
-                    "Active": 1,
-                    "UID": 0
-                },
-                {
-                    "Type": "Script",
                     "ScriptName": "Teleport_OnCollision.cs",
                     "Active": 1,
                     "UID": 0,
@@ -47546,7 +47540,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 0,
+                    "Frustum Culling": 1,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
@@ -47662,8 +47656,6 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
-                    "currentState": 0,
-                    "inputsList": 0,
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,

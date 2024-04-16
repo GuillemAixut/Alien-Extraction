@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1378315167,
+            "Parent UID": 1968864687,
             "Components": [
                 {
                     "Type": "Transform",
@@ -22537,9 +22537,9 @@
                         -148.91989135742188
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -18.257898330688477,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.2600536346435547,
@@ -23192,9 +23192,9 @@
                         171.44375610351562
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         89.980216979980469,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.10556995868682861,
@@ -23430,9 +23430,9 @@
                         404.43289184570312
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -46.409904479980469,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.092000454664230347,
@@ -26261,7 +26261,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.4422941207885742,
+                        9.442296028137207,
                         -0
                     ],
                     "Scale": [
@@ -27551,9 +27551,9 @@
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Bank Name": "LV2Music",
+                    "Event Name": "LV2_Inter",
+                    "Event ID": 3026565220
                 },
                 {
                     "Type": "Camera",
@@ -27576,7 +27576,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 0,
+                    "Frustum Culling": 1,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
@@ -27692,8 +27692,6 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
-                    "currentState": 0,
-                    "inputsList": 0,
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,

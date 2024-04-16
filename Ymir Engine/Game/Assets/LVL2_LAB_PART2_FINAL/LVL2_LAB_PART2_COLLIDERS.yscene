@@ -9716,9 +9716,9 @@
                         619.72198486328125
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -5.0089561227650847e-06,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -9809,9 +9809,9 @@
                         618.6265869140625
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -5.0089561227650847e-06,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -9902,9 +9902,9 @@
                         618.6087646484375
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -5.0089561227650847e-06,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -12492,9 +12492,9 @@
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Bank Name": "LV2Music",
+                    "Event Name": "LV2_Inter",
+                    "Event ID": 3026565220
                 },
                 {
                     "Type": "Camera",
@@ -12517,7 +12517,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 0,
+                    "Frustum Culling": 1,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
@@ -12633,8 +12633,6 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
-                    "currentState": 0,
-                    "inputsList": 0,
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,

@@ -29,7 +29,6 @@ public class Health : YmirComponent
         maxHealth = 1200;
 
         GetPlayerScript();
-        
 
         healthBar = InternalCalls.GetGameObjectByName("Health Bar");
         deathCanvas = InternalCalls.GetGameObjectByName("Death Canvas");
@@ -42,8 +41,7 @@ public class Health : YmirComponent
         }
         
         currentHealth = maxHealth;
-
-        //Debug.Log("QUE cono pasa 2 " + GetCurrentHealth());
+        
         isAlive = true;
     }
 
