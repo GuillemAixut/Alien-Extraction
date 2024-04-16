@@ -17,7 +17,7 @@ UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float
 
 	if (fontName == "")
 	{
-		font = External->renderer3D->defaultFont;
+		SetFont("arial.ttf", "Assets\\Fonts"); // Default Font
 	}
 	else
 	{

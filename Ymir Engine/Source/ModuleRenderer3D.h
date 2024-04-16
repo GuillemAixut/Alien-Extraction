@@ -144,9 +144,6 @@ public:
 
 	bool texturingEnabled = true;
 
-	// Font
-	Font* defaultFont;
-
 private:
 
 	std::vector<LineRender> lines;
