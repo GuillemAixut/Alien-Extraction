@@ -660,10 +660,13 @@ Font::Font(std::string name, std::string fontPath)
 
 Font::~Font()
 {
-	//for (unsigned char c = 0; c < 128; ++c)
-	//{
-	//	RELEASE(mCharacters[c]);
-	//}
+	// After the loop
+
+	for (auto& character : mCharacters) {
+
+		delete character.second.get(); // Deallocate memory for each Character object
+
+	}
 
 	mCharacters.clear();
 }

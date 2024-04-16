@@ -7,6 +7,8 @@
 #include <math.h>
 #include <vector>
 
+#include "External/mmgr/mmgr.h"
+
 bool CS_CalculateRandomPath(MonoObject* go, MonoObject* startPos, float radius)
 {
 	if (External == nullptr || go == nullptr)

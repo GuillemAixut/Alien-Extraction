@@ -6,6 +6,8 @@
 #include <functional>
 #include "log.h"
 
+#include "External/mmgr/mmgr.h"
+
 ResourceAnimation::ResourceAnimation(uint UID) : Resource(UID, ResourceType::ANIMATION) {
 	
 	name = "";

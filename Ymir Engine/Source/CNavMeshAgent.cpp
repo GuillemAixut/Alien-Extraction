@@ -2,6 +2,8 @@
 #include "ImGui/imgui.h"
 #include "Application.h"
 
+#include "External/mmgr/mmgr.h"
+
 CNavMeshAgent::CNavMeshAgent(GameObject* owner) : Component(owner, ComponentType::NAVMESHAGENT)
 {
 

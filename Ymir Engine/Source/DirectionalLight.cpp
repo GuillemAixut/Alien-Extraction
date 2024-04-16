@@ -1,5 +1,7 @@
 #include "DirectionalLight.h"
 
+#include "External/mmgr/mmgr.h"
+
 DirectionalLight::DirectionalLight() : Light(LightType::DIRECTIONAL_LIGHT, float3::one, 1.0f)
 {
 	shape = new CCylinder(0.25, 3);

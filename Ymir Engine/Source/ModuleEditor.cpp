@@ -1,4 +1,4 @@
-			#include <Windows.h>
+#include <Windows.h>
 #include <Psapi.h>
 #include <iostream>
 #include <fstream>
@@ -29,9 +29,9 @@
 
 #include "Texture.h"
 #include "ScriptEditor.h"
+#include "ImGuiCustom.h"
 
 #include "External/mmgr/mmgr.h"
-#include "ImGuiCustom.h"
 
 // Constructor
 ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled)

@@ -6,6 +6,8 @@
 
 #include <string>
 
+#include "External/mmgr/mmgr.h"
+
 CLight::CLight(GameObject* owner, Light* lightReference) : Component(owner, ComponentType::LIGHT)
 {
 	this->lightReference = lightReference;

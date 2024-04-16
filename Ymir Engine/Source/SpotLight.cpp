@@ -1,5 +1,7 @@
 #include "SpotLight.h"
 
+#include "External/mmgr/mmgr.h"
+
 SpotLight::SpotLight() : Light(LightType::SPOT_LIGHT, float3::one, 1.0f), range(1.0f), radius(1.0f)
 {
 	shape = new CCone(radius, 20, range);
