@@ -2,11 +2,12 @@
     "Prefab": [
         {
             "Name": "Inventory Menu",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1904908806,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1657050429,
+            "Parent UID": 719393121,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1875,
-                    "Height": 1010,
+                    "Width": 901,
+                    "Height": 525,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -60,6 +61,7 @@
         },
         {
             "Name": "Background",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 923526943,
             "Active": true,
@@ -122,6 +124,7 @@
         },
         {
             "Name": "Character",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1421884452,
             "Active": true,
@@ -158,6 +161,7 @@
         },
         {
             "Name": "Grid Armor",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 63357937,
             "Active": true,
@@ -200,7 +204,8 @@
             ]
         },
         {
-            "Name": "Armor (1)",
+            "Name": "Armor",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 294962486,
             "Active": true,
@@ -326,9 +331,10 @@
         },
         {
             "Name": "Description (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 146834625,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 294962486,
             "Components": [
@@ -367,7 +373,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -391,9 +397,10 @@
         },
         {
             "Name": "Text (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1001448237,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 146834625,
             "Components": [
@@ -432,7 +439,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -452,6 +459,7 @@
         },
         {
             "Name": "Grid Chips",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 110478800,
             "Active": true,
@@ -496,6 +504,7 @@
         },
         {
             "Name": "Chip1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1671257493,
             "Active": true,
@@ -621,9 +630,10 @@
         },
         {
             "Name": "Description (2)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 667252368,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1671257493,
             "Components": [
@@ -662,7 +672,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -686,9 +696,10 @@
         },
         {
             "Name": "Text",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 428551072,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 667252368,
             "Components": [
@@ -727,7 +738,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
+                    "Text": "\n",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -747,6 +758,7 @@
         },
         {
             "Name": "Chip2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 541837697,
             "Active": true,
@@ -872,9 +884,10 @@
         },
         {
             "Name": "Description (3)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1538892489,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 541837697,
             "Components": [
@@ -913,7 +926,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -937,9 +950,10 @@
         },
         {
             "Name": "Text (20)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 352767713,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1538892489,
             "Components": [
@@ -978,7 +992,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -998,6 +1012,7 @@
         },
         {
             "Name": "Grid Consumable 1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1379424156,
             "Active": true,
@@ -1041,6 +1056,7 @@
         },
         {
             "Name": "Consumable1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1708915839,
             "Active": true,
@@ -1166,9 +1182,10 @@
         },
         {
             "Name": "Description (4)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 558349741,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1708915839,
             "Components": [
@@ -1207,7 +1224,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1231,9 +1248,10 @@
         },
         {
             "Name": "Text (19)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2044207875,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 558349741,
             "Components": [
@@ -1272,7 +1290,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -1292,6 +1310,7 @@
         },
         {
             "Name": "Grid Consumable 2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1645631563,
             "Active": true,
@@ -1335,6 +1354,7 @@
         },
         {
             "Name": "Consumable2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2060313977,
             "Active": true,
@@ -1460,9 +1480,10 @@
         },
         {
             "Name": "Description (5)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1076932744,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 2060313977,
             "Components": [
@@ -1501,7 +1522,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1525,9 +1546,10 @@
         },
         {
             "Name": "Text (18)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 368922602,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1076932744,
             "Components": [
@@ -1566,7 +1588,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -1586,6 +1608,7 @@
         },
         {
             "Name": "Grid Save",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 693555061,
             "Active": true,
@@ -1629,6 +1652,7 @@
         },
         {
             "Name": "Save Item",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1799950518,
             "Active": true,
@@ -1754,9 +1778,10 @@
         },
         {
             "Name": "Description (6)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 865153585,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1799950518,
             "Components": [
@@ -1795,7 +1820,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1819,9 +1844,10 @@
         },
         {
             "Name": "Text (17)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1617470444,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 865153585,
             "Components": [
@@ -1860,7 +1886,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -1880,6 +1906,7 @@
         },
         {
             "Name": "Inventory",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 730604888,
             "Active": true,
@@ -1937,6 +1964,7 @@
         },
         {
             "Name": "Item Armor",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1649563615,
             "Active": true,
@@ -2062,9 +2090,10 @@
         },
         {
             "Name": "Description (7)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 555681420,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1649563615,
             "Components": [
@@ -2103,7 +2132,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2127,9 +2156,10 @@
         },
         {
             "Name": "Text (2)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1131207758,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 555681420,
             "Components": [
@@ -2168,7 +2198,7 @@
                         300,
                         50
                     ],
-                    "Text": "Armor",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -2188,6 +2218,7 @@
         },
         {
             "Name": "Item (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 859937820,
             "Active": true,
@@ -2313,9 +2344,10 @@
         },
         {
             "Name": "Description (8)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 569092409,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 859937820,
             "Components": [
@@ -2354,7 +2386,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2378,9 +2410,10 @@
         },
         {
             "Name": "Text (16)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 218868507,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 569092409,
             "Components": [
@@ -2419,7 +2452,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -2439,6 +2472,7 @@
         },
         {
             "Name": "Item (2)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1263838880,
             "Active": true,
@@ -2564,9 +2598,10 @@
         },
         {
             "Name": "Description (9)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1526782472,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1263838880,
             "Components": [
@@ -2605,7 +2640,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2629,9 +2664,10 @@
         },
         {
             "Name": "Text (15)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1717747725,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1526782472,
             "Components": [
@@ -2670,7 +2706,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -2690,6 +2726,7 @@
         },
         {
             "Name": "Item (3)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1294683051,
             "Active": true,
@@ -2815,9 +2852,10 @@
         },
         {
             "Name": "Description (10)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 273253275,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1294683051,
             "Components": [
@@ -2856,7 +2894,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2880,9 +2918,10 @@
         },
         {
             "Name": "Text (14)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1439520452,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 273253275,
             "Components": [
@@ -2921,7 +2960,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -2941,6 +2980,7 @@
         },
         {
             "Name": "Item (4)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 914218921,
             "Active": true,
@@ -3066,9 +3106,10 @@
         },
         {
             "Name": "Description (11)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1766720529,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 914218921,
             "Components": [
@@ -3107,7 +3148,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3131,9 +3172,10 @@
         },
         {
             "Name": "Text (13)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1297611138,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1766720529,
             "Components": [
@@ -3172,7 +3214,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -3192,6 +3234,7 @@
         },
         {
             "Name": "Item Chip1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1995946548,
             "Active": true,
@@ -3317,9 +3360,10 @@
         },
         {
             "Name": "Description (12)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1512174703,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1995946548,
             "Components": [
@@ -3358,7 +3402,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3382,9 +3426,10 @@
         },
         {
             "Name": "Text (12)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 843042817,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1512174703,
             "Components": [
@@ -3423,7 +3468,7 @@
                         300,
                         50
                     ],
-                    "Text": "Chip1",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -3443,6 +3488,7 @@
         },
         {
             "Name": "Item (5)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 631059356,
             "Active": true,
@@ -3568,9 +3614,10 @@
         },
         {
             "Name": "Description (13)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1592071308,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 631059356,
             "Components": [
@@ -3609,7 +3656,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3633,9 +3680,10 @@
         },
         {
             "Name": "Text (11)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1101949662,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1592071308,
             "Components": [
@@ -3674,7 +3722,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -3694,6 +3742,7 @@
         },
         {
             "Name": "Item (6)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 381666577,
             "Active": true,
@@ -3819,9 +3868,10 @@
         },
         {
             "Name": "Description (14)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1166172480,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 381666577,
             "Components": [
@@ -3860,7 +3910,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3884,9 +3934,10 @@
         },
         {
             "Name": "Text (10)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 644224063,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1166172480,
             "Components": [
@@ -3925,7 +3976,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -3945,6 +3996,7 @@
         },
         {
             "Name": "Item (7)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 981694012,
             "Active": true,
@@ -4070,9 +4122,10 @@
         },
         {
             "Name": "Description (15)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 708266849,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 981694012,
             "Components": [
@@ -4111,7 +4164,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4135,9 +4188,10 @@
         },
         {
             "Name": "Text (9)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 654116996,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 708266849,
             "Components": [
@@ -4176,7 +4230,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -4196,6 +4250,7 @@
         },
         {
             "Name": "Item (8)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 533956899,
             "Active": true,
@@ -4321,9 +4376,10 @@
         },
         {
             "Name": "Description (16)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1587236607,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 533956899,
             "Components": [
@@ -4362,7 +4418,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4386,9 +4442,10 @@
         },
         {
             "Name": "Text (8)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 547711246,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1587236607,
             "Components": [
@@ -4427,7 +4484,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -4447,6 +4504,7 @@
         },
         {
             "Name": "Item Chip2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1023312370,
             "Active": true,
@@ -4572,9 +4630,10 @@
         },
         {
             "Name": "Description (17)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2101603239,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1023312370,
             "Components": [
@@ -4613,7 +4672,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4637,9 +4696,10 @@
         },
         {
             "Name": "Text (7)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 233419383,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 2101603239,
             "Components": [
@@ -4678,7 +4738,7 @@
                         300,
                         50
                     ],
-                    "Text": "Chip 2\n",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -4698,6 +4758,7 @@
         },
         {
             "Name": "Item (9)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1420247647,
             "Active": true,
@@ -4823,9 +4884,10 @@
         },
         {
             "Name": "Description (18)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 437053924,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1420247647,
             "Components": [
@@ -4864,7 +4926,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4888,9 +4950,10 @@
         },
         {
             "Name": "Text (6)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 41022260,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 437053924,
             "Components": [
@@ -4929,7 +4992,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -4949,6 +5012,7 @@
         },
         {
             "Name": "Item (10)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 102710654,
             "Active": true,
@@ -5074,9 +5138,10 @@
         },
         {
             "Name": "Description (19)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1165671783,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 102710654,
             "Components": [
@@ -5115,7 +5180,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5139,9 +5204,10 @@
         },
         {
             "Name": "Text (5)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1759668415,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1165671783,
             "Components": [
@@ -5180,7 +5246,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -5200,6 +5266,7 @@
         },
         {
             "Name": "Item (11)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1249812674,
             "Active": true,
@@ -5325,9 +5392,10 @@
         },
         {
             "Name": "Description (20)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 407680558,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1249812674,
             "Components": [
@@ -5366,7 +5434,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5390,9 +5458,10 @@
         },
         {
             "Name": "Text (4)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1229207877,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 407680558,
             "Components": [
@@ -5431,7 +5500,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -5451,6 +5520,7 @@
         },
         {
             "Name": "Item",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 58850297,
             "Active": true,
@@ -5576,9 +5646,10 @@
         },
         {
             "Name": "Description",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1738432521,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 58850297,
             "Components": [
@@ -5617,7 +5688,7 @@
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/UI\/Death Buttons\/ButtonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5641,9 +5712,10 @@
         },
         {
             "Name": "Text (3)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1216183641,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1738432521,
             "Components": [
@@ -5682,7 +5754,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
                     "Font size": 21,
@@ -5702,6 +5774,7 @@
         },
         {
             "Name": "Image",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 975518885,
             "Active": true,

@@ -88,7 +88,7 @@ public class BaseTeleporter : YmirComponent
                     break;
             }
 
-            button.GetComponent<Button_Navigation>().sceneName = "Assets/Scenes/" + scene + ".yscene";
+            button.GetComponent<Button_Navigation>().sceneName = "Assets/" + scene + ".yscene";
 
             Debug.Log("scene: " + button.GetComponent<Button_Navigation>().sceneName);
         }

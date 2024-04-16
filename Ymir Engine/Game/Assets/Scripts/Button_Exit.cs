@@ -8,6 +8,11 @@ using YmirEngine;
 
 public class Button_Exit : YmirComponent
 {
+    public void Start()
+    {
+
+    }
+
     public void Update()
     {
         if (Input.GetKey(YmirKeyCode.ESCAPE) == KeyState.KEY_DOWN)

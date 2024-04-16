@@ -19,8 +19,11 @@ public class UI_Bullets : YmirComponent
 
         GetAnotherScript();
         bulletsBar = InternalCalls.GetGameObjectByName("Bullets Text");
-
-        UI.TextEdit(bulletsBar, player.magsize.ToString() + "/" + player.magsize.ToString());
+        if (bulletsBar != null )
+        {
+            UI.TextEdit(bulletsBar, player.magsize.ToString() + "/" + player.magsize.ToString());
+        }
+        
     }
     public void Update()
     {

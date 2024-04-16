@@ -5,8 +5,8 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using YmirEngine;
 
+using YmirEngine;
 
 public enum STATE : int
 {
@@ -17,7 +17,7 @@ public enum STATE : int
     STOP,
     DASH,
     SHOOTING,
-    RELOANDING,
+    RELOADING,
     SHOOT,
     DEAD,
     JUMP,
@@ -144,6 +144,12 @@ public class Player : YmirComponent
 
     #endregion
 
+    #region DEFINE MENUS
+
+    private bool _openInventory = false;
+
+    #endregion
+
     #region DEFINE EXTERNAL THINGS
 
     //--------------------- External GameObjects ---------------------\\
@@ -213,6 +219,9 @@ public class Player : YmirComponent
         ammo = magsize;
         reloadTimer = reloadDuration;
 
+        //--------------------- Menus ---------------------\\
+        _openInventory = false;
+
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
 
@@ -277,9 +286,9 @@ public class Player : YmirComponent
                 //csUI_AnimationDash.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                csUI_AnimationDash.Reset();
-                //csUI_AnimationDash.backwards = true;
-                csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
+                //csUI_AnimationDash.Reset();
+                ////csUI_AnimationDash.backwards = true;
+                //csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
             }
         }
 
@@ -310,7 +319,7 @@ public class Player : YmirComponent
                 if (reloadTimer <= 0)
                 {
                     ammo = magsize;
-                    csBullets.UseBullets();
+                    //if (csBullets!= null){ csBullets.UseBullets(); }
                     isReloading = false;
                 }
             }
@@ -361,9 +370,9 @@ public class Player : YmirComponent
                 //csUI_AnimationPredatory.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                csUI_AnimationPredatory.Reset();
-                //csUI_AnimationPredatory.backwards = true;
-                csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
+                //csUI_AnimationPredatory.Reset();
+                ////csUI_AnimationPredatory.backwards = true;
+                //csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
             }
         }
 
@@ -391,17 +400,17 @@ public class Player : YmirComponent
                 //csUI_AnimationSwipe.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                csUI_AnimationSwipe.Reset();
-                //csUI_AnimationSwipe.backwards = true;
-                csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
+                //csUI_AnimationSwipe.Reset();
+                ////csUI_AnimationSwipe.backwards = true;
+                //csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
             }
         }
 
         //--------------------- HP Detector ---------------------\\
-        if (!csHealth.isAlive)
-        {
-            inputsList.Add(INPUT.I_DEAD);
-        }
+        //if (csHealth != null && !csHealth.isAlive)
+        //{
+        //    inputsList.Add(INPUT.I_DEAD);
+        //}
 
         //--------------------- Jump Timer (Useless) ---------------------\\
         if (jumpTimer > 0)
@@ -451,9 +460,9 @@ public class Player : YmirComponent
             inputsList.Add(INPUT.I_DASH);
 
             // SARA: start dash cooldown
-            csUI_AnimationDash.Reset();
-            csUI_AnimationDash.backwards = false;
-            csUI_AnimationDash.SetAnimationState(true);
+            //csUI_AnimationDash.Reset();
+            //csUI_AnimationDash.backwards = false;
+            //csUI_AnimationDash.SetAnimationState(true);
         }
 
         //----------------- Acidic Spit (Skill 1) -----------------\\
@@ -461,6 +470,11 @@ public class Player : YmirComponent
         {
             hasAcidic = true;
             inputsList.Add(INPUT.I_ACID);
+
+            // SARA: start acidic cooldown
+            //csUI_AnimationAcid.Reset();
+            //csUI_AnimationAcid.backwards = false;
+            //csUI_AnimationAcid.SetAnimationState(true);
         }
 
         //----------------- Predatory Rush (Skill 2) -----------------\\
@@ -470,9 +484,9 @@ public class Player : YmirComponent
             inputsList.Add(INPUT.I_PRED);
 
             // SARA: start predatory cooldown
-            csUI_AnimationPredatory.Reset();
-            csUI_AnimationPredatory.backwards = false;
-            csUI_AnimationPredatory.SetAnimationState(true);
+            //csUI_AnimationPredatory.Reset();
+            //csUI_AnimationPredatory.backwards = false;
+            //csUI_AnimationPredatory.SetAnimationState(true);
         }
 
         //----------------- Swipe (Skill 3) -----------------\\
@@ -482,15 +496,34 @@ public class Player : YmirComponent
             inputsList.Add(INPUT.I_SWIPE);
 
             // SARA: start swipe cooldown
-            csUI_AnimationSwipe.Reset();
-            csUI_AnimationSwipe.backwards = false;
-            csUI_AnimationSwipe.SetAnimationState(true);
+            //csUI_AnimationSwipe.Reset();
+            //csUI_AnimationSwipe.backwards = false;
+            //csUI_AnimationSwipe.SetAnimationState(true);
         }
 
         //----------------- Reload -----------------\\
         if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
         {
             inputsList.Add(INPUT.I_RELOAD);
+        }
+
+        //----------------- Inventory -----------------\\
+        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
+        {
+            _openInventory = !_openInventory;
+            ToggleMenu("Inventory Menu", _openInventory);
+
+            if (_openInventory)
+            {
+                GameObject canvas = InternalCalls.GetGameObjectByName("Inventory Menu");
+                Debug.Log("" + canvas.Name);
+                if(canvas != null)
+                {
+                    canvas.GetComponent<UI_Inventory>().Deactivate();
+                }
+            }
+
+            Debug.Log("" + _openInventory);
         }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
@@ -584,7 +617,7 @@ public class Player : YmirComponent
                             StartShooting();
                             break;
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -646,7 +679,7 @@ public class Player : YmirComponent
                             break;
 
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -744,7 +777,7 @@ public class Player : YmirComponent
                             break;
 
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -780,7 +813,7 @@ public class Player : YmirComponent
                     }
                     break;
 
-                case STATE.RELOANDING:
+                case STATE.RELOADING:
                     switch (input)
                     {
                         case INPUT.I_MOVE:
@@ -812,7 +845,7 @@ public class Player : YmirComponent
                             StartShooting();
                             break;
                         case INPUT.I_RELOAD:
-                            currentState = STATE.RELOANDING;
+                            currentState = STATE.RELOADING;
                             StartReload();
                             break;
 
@@ -832,10 +865,10 @@ public class Player : YmirComponent
                             StopPlayer();
                             break;
 
-                        case INPUT.I_IDLE:
-                            currentState = STATE.IDLE;
-                            //StartIdle(); //Trigger de la animacion //Arreglar esto
-                            break;
+                        //case INPUT.I_IDLE:
+                        //    currentState = STATE.IDLE;
+                        //    //StartIdle(); //Trigger de la animacion //Arreglar esto
+                        //    break;
                     }
                     break;
 
@@ -843,10 +876,10 @@ public class Player : YmirComponent
                     //Debug.Log("Tail Swipe");
                     switch (input)
                     {
-                        case INPUT.I_STOP:
-                            currentState = STATE.STOP;
-                            StopPlayer();
-                            break;
+                        //case INPUT.I_STOP:
+                        //    currentState = STATE.STOP;
+                        //    StopPlayer();
+                        //    break;
 
                         case INPUT.I_PRED_END:
                             EndPredRush();
@@ -871,6 +904,7 @@ public class Player : YmirComponent
             inputsList.RemoveAt(0);
         }
     }
+
     private void UpdateState()
     {
         switch (currentState)
@@ -883,7 +917,7 @@ public class Player : YmirComponent
                 UpdateMove();
                 break;
             case STATE.STOP:
-                StopPlayer();
+                //StopPlayer();
                 break;
             case STATE.DASH:
                 UpdateDash();
@@ -897,7 +931,7 @@ public class Player : YmirComponent
             case STATE.SHOOTING:
                 UpdateShooting();
                 break;
-            case STATE.RELOANDING:
+            case STATE.RELOADING:
                 break;
             case STATE.SHOOT:
                 break;
@@ -952,7 +986,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            csBullets.UseBullets();
+            if (csBullets != null) { csBullets.UseBullets(); }
         }
 
         //Debug.Log("Ammo:" + ammo);
@@ -961,8 +995,7 @@ public class Player : YmirComponent
 
         Vector3 offset = new Vector3(0, 15, 0);
         //Posicion desde la que se crea la bala (la misma que el game object que le dispara)
-        //Vector3 pos = gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * 2);
-        Vector3 pos = gameObject.transform.globalPosition + (gameObject.transform.GetForward() * 2);
+        Vector3 pos = gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * 2);
 
         //Debug.Log("ParentPos: " + gameObject.transform.globalPosition.x + gameObject.transform.globalPosition.y + gameObject.transform.globalPosition.z);
         //Debug.Log("Spawn pos: " + pos);
@@ -1004,7 +1037,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            csBullets.UseBullets();
+            if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
         StopPlayer();
@@ -1187,13 +1220,13 @@ public class Player : YmirComponent
         //{
         //    gameObject.SetVelocity(cameraObject.transform.GetRight() * movementSpeed);
         //}
-
-
     }
+
     private void StopPlayer()
     {
         Debug.Log("Stopping");
         gameObject.SetVelocity(new Vector3(0, 0, 0));
+        gameObject.ClearForces();
     }
 
     private void HandleRotation()
@@ -1234,43 +1267,49 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Die");
     }
 
+
+    public void ToggleMenu(string goName, bool open)
+    {
+        GameObject canvas = InternalCalls.GetGameObjectByName(goName);
+
+        canvas.SetActive(open);
+        inputsList.Add((open) ? INPUT.I_STOP : INPUT.I_IDLE);
+    }
+
+    // External scripts
     private void GetPlayerScripts()
     {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-        if (gameObject != null)
-        {
-            csBullets = gameObject.GetComponent<UI_Bullets>();
-            csHealth = gameObject.GetComponent<Health>();
-        }
+        Debug.Log("" + gameObject.Name);
+        csBullets = gameObject.GetComponent<UI_Bullets>();
+        csHealth = gameObject.GetComponent<Health>();
     }
 
     private void GetSkillsScripts()
     {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Frame (1)");
+        GameObject gameObject1 = InternalCalls.GetGameObjectByName("Frame (1)");
 
-        Debug.Log(gameObject.name);
-        ;
-        if (gameObject != null)
+        //Debug.Log(gameObject.name);
+        if (gameObject1 != null)
         {
-            csUI_AnimationSwipe = gameObject.GetComponent<UI_Animation>();
+            csUI_AnimationSwipe = gameObject1.GetComponent<UI_Animation>();
         }
 
-        gameObject = InternalCalls.GetGameObjectByName("Frame (2)");
-        if (gameObject != null)
+        GameObject gameObject2 = InternalCalls.GetGameObjectByName("Frame (2)");
+        if (gameObject2 != null)
         {
-            csUI_AnimationPredatory = gameObject.GetComponent<UI_Animation>();
+            csUI_AnimationPredatory = gameObject2.GetComponent<UI_Animation>();
         }
 
-        gameObject = InternalCalls.GetGameObjectByName("Frame (3)");
-        if (gameObject != null)
+        GameObject gameObject3 = InternalCalls.GetGameObjectByName("Frame (3)");
+        if (gameObject3 != null)
         {
-            csUI_AnimationAcid = gameObject.GetComponent<UI_Animation>();
+            csUI_AnimationAcid = gameObject3.GetComponent<UI_Animation>();
         }
 
-        gameObject = InternalCalls.GetGameObjectByName("Frame (4)");
-        if (gameObject != null)
+        GameObject gameObject4 = InternalCalls.GetGameObjectByName("Frame (4)");
+        if (gameObject4 != null)
         {
-            csUI_AnimationDash = gameObject.GetComponent<UI_Animation>();
+            csUI_AnimationDash = gameObject4.GetComponent<UI_Animation>();
         }
     }
 

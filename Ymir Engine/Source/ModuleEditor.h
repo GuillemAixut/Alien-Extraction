@@ -42,6 +42,7 @@ public:
 
 	// Draws the editor on the window
 	void DrawEditor();
+	ImVec2 NormalizeOnSceneWindow(float x, float y, float z, float h, float w, ImVec2 point);
 	void PrimitivesMenu();
 	void CreateCameraMenu();
 	void UIMenu();
@@ -126,6 +127,8 @@ public:
 	void CreateHierarchyTree(GameObject* node);
 	//void DestroyHierarchyTree(GameObject* node);
 
+	void DrawBakingTab();
+
 	// Function to encapsulate GameObjects inspector
 	void DrawInspector();
 
@@ -172,6 +175,7 @@ public:
 	bool showAssimpLog = false;
 	bool showHierarchy = true;
 	bool showInspector = true;
+	bool showNavMesh = true;
 
 	bool showScene = true;
 	bool showGame = true;

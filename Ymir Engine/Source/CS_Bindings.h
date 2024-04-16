@@ -150,6 +150,38 @@ int MouseY()
 	return 0;
 }
 
+
+//MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
+//{
+//	if (prefabPath == nullptr)
+//		return nullptr;
+//
+//	 char* library_path = mono_string_to_utf8(prefabPath);
+//	GameObject* prefab_object =  ModuleScene::LoadPrefab(library_path);
+//	mono_free(library_path);
+//
+//	if (prefab_object != nullptr)
+//	{
+//		CTransform* object_transform = dynamic_cast<CTransform*>(prefab_object->GetComponent(ComponentType::TRANSFORM));
+//
+//		float3 posVector = ModuleMonoManager::UnboxVector(position);
+//		Quat rotQuat = ModuleMonoManager::UnboxQuat(rotation);
+//
+//		float3 scaleVector;
+//		if (scale != nullptr)
+//			scaleVector = ModuleMonoManager::UnboxVector(scale);
+//		else
+//			scaleVector = prefab_object->mTransform->scale;
+//
+//		prefab_object->mTransform->SetPosition(posVector);
+//
+//		prefab_object->mTransform->SetRotation(rotQuat);
+//		
+//	}
+//
+//	return External->moduleMono->GoToCSGO(prefab_object);
+//}
+
 void CSCreateGameObject(MonoObject* name, MonoObject* position)
 {
 	if (External == nullptr)
@@ -214,9 +246,7 @@ MonoString* Get_GO_Name(MonoObject* go)
 	if (External == nullptr)
 		return nullptr;
 
-	return mono_string_new(
-		External->moduleMono->domain,
-		External->moduleMono->GameObject_From_CSGO(go)->name.c_str());
+	return mono_string_new(External->moduleMono->domain, External->moduleMono->GameObject_From_CSGO(go)->name.c_str());
 }
 
 MonoObject* FindObjectWithUID(int id)
@@ -366,6 +396,58 @@ void SetPosition(MonoObject* obj, MonoObject* pos) {
 	{
 		rigidbody->physBody->SetPosition(omgItWorks);
 	}
+}
+
+void SetColliderSize(MonoObject* obj, MonoObject* scale) {
+	if (External == nullptr)
+		return;
+
+	float3 hopeItWorks = External->moduleMono->UnboxVector(scale);
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+	CCollider* rigidbody = dynamic_cast<CCollider*>(cpp_gameObject->GetComponent(ComponentType::PHYSICS));
+
+	if (rigidbody)
+	{
+		// ** Descomentar para escalar todo el game object
+		//rigidbody->mOwner->mTransform->SetScale(hopeItWorks);
+		rigidbody->GetShape()->setLocalScaling(btVector3(hopeItWorks.x, hopeItWorks.y, hopeItWorks.z));
+	}
+}
+
+float3 GetColliderSize(MonoObject* obj) {
+
+	float3 size = float3(0, 0, 0);
+
+	if (External == nullptr)
+		return size;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+	CCollider* rigidbody = dynamic_cast<CCollider*>(cpp_gameObject->GetComponent(ComponentType::PHYSICS));
+	
+	if (rigidbody)
+		size = float3(rigidbody->shape->getLocalScaling());
+
+	return size;
+}
+
+
+void ClearForces(MonoObject* obj) {
+
+	if (External == nullptr)
+		return;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+	CCollider* rigidbody = dynamic_cast<CCollider*>(cpp_gameObject->GetComponent(ComponentType::PHYSICS));
+
+	if (rigidbody)
+	{
+		rigidbody->physBody->body->clearForces();
+		rigidbody->physBody->body->getTotalTorque();
+		rigidbody->physBody->body->setLinearVelocity(btVector3(0, 0, 0));
+		rigidbody->physBody->body->setAngularVelocity(btVector3(0, 0, 0));
+	}
+	
+
 }
 
 MonoObject* SendPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
@@ -566,7 +648,7 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	go->mTransform->rotation = rotVector.Normalized();
 	go->mTransform->SetScale(scaleVector);
 
-	uint UID = 1981179967; // UID of Cube.fbx mesh in meta (lo siento)
+	uint UID = 1728623793; // UID of Cube.fbx mesh in meta (lo siento)
 
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
 
@@ -1295,6 +1377,20 @@ void CreateGOFromPrefabCS(MonoString* _prefabPath, MonoString* _prefabName)
 	std::string prefabPath = mono_string_to_utf8(_prefabPath);
 
 	External->scene->pendingToAddPrefab.emplace_back(prefabPath, prefabName);
+}
+
+void SetActiveAllUI(MonoObject* go, bool isActive)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+
+	// Get UI elements to navigate
+	std::vector<C_UI*> listUI;
+	External->scene->GetUINavigate(gameObject, listUI); 
+
+	for (auto i = 0; i < listUI.size(); i++)
+	{
+		listUI[i]->mOwner->mChildren[0]->active = isActive;
+	}
 }
 
 #pragma endregion

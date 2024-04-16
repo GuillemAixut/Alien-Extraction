@@ -16,6 +16,12 @@ namespace YmirEngine
         public static extern void CreateGameObject(object name, object position);
 
         /// <summary>
+        /// Creates a game object with Prefab.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject CreatePrefab(object prefab_path, object position, object rotation, object scale);
+
+        /// <summary>
         /// Creates a bullet.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -69,6 +75,12 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern GameObject LoadScene(string name);
+
+
+
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern Vector3 GetWalkablePointAround(object position, float radius);
 
         /// <summary>
         /// Exits the game.
@@ -235,7 +247,13 @@ namespace YmirEngine
         /// Switch position of two game objects.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject SwitchPosition(object selectedgo, object targetobject);
+        public static extern GameObject SwitchPosition(object selectedgo, object targetobject);        
+        
+        /// <summary>
+        /// Set active all children of the go's canvas.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetActiveAllUI(object selectedgo, bool isActive);
 
         /// <summary>
         /// Switch position of two game objects.

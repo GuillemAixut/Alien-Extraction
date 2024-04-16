@@ -12,7 +12,8 @@ public class Tp_Lvl2_Part2 : YmirComponent
     {
         if(other.Tag == "Player")
         {
-            InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2.yscene");
+            other.SetActive(false);
+            InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene");
         }
     }
     

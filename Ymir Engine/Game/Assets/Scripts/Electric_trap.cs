@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -11,10 +12,15 @@ public class Electric_trap : YmirComponent
 
     private float time = 0f;
     private bool activate = true;
+    private bool hitPlayer = false;
+    private Vector3 originalPosition;
+    public float damage = 1;
+    //int aux = 0;
 
     public void Start()
     {
         Debug.Log("HelloWorld");
+        originalPosition = gameObject.transform.globalPosition;
     }
 
     public void Update()
@@ -23,24 +29,28 @@ public class Electric_trap : YmirComponent
 
         if (activate)
         {
-
             if (time < 3f)
             {
-                gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                gameObject.SetPosition(Vector3.negativeInfinity * Time.deltaTime * 1f);
             }
             else
             {
-
                 activate = false;
                 time = 0f;
             }
         }
-        else 
+        else
         {
-           
             if (time < 3f)
             {
-                gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                gameObject.SetPosition(originalPosition);
+                if (hitPlayer)
+                {
+                    activate = true;
+                    hitPlayer = false;
+                    time = 0f;
+                    //Debug.Log("Hit Player");
+                }
             }
             else
             {
@@ -50,7 +60,6 @@ public class Electric_trap : YmirComponent
         }
 
         time += Time.deltaTime;
-       
         return;
     }
 
@@ -58,9 +67,17 @@ public class Electric_trap : YmirComponent
     {
         if (other.Tag == "Player")
         {
-            
-            //danoplayer
+            if (!activate)
+            {
+                other.GetComponent<Health>().TakeDmg(damage);
+                hitPlayer = true;
+                // Debug.Log("" + other.GetComponent<Health>().currentHealth);
+                // Debug.Log("" + aux);
+                // aux++;
+            }
+
 
         }
     }
+
 }

@@ -1,0 +1,1892 @@
+{
+    "Prefab": [
+        {
+            "Name": "Enemy-FaceHugger",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 501963785,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        8.4153757095336914,
+                        48.901538848876953
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                447242286,
+                665101395
+            ]
+        },
+        {
+            "Name": "FaceHugger",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 447242286,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 501963785,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 8,
+                    "Paths": [
+                        ".\/Assets\/T-Pose.yanim",
+                        ".\/Assets\/Idle_Facehugger.yanim",
+                        ".\/Assets\/Walk_Facehugger.yanim",
+                        ".\/Assets\/TailAttack_Facehugger.yanim",
+                        ".\/Assets\/Cry_Facehugger.yanim",
+                        ".\/Assets\/Death_Facehugger.yanim",
+                        ".\/Assets\/IdleCombat_Facehugger.yanim",
+                        ".\/Assets\/DeathFrame_Facehugger.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "FaceHuggerBaseScript.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "movementSpeed": 20,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "PlayerDetected": false,
+                    "DetectionRadius": 60,
+                    "wanderDuration": 5,
+                    "stopedDuration": 1,
+                    "cumDuration": 2,
+                    "cumDuration2": 5,
+                    "attackTimer": 0,
+                    "attackSensor": false
+                },
+                {
+                    "Type": "NavMesh",
+                    "Active": 1,
+                    "Speed": 5,
+                    "Angular Speed": 10,
+                    "Stopping Distance": 2
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        7.5,
+                        16.799999237060547,
+                        6.8000001907348633
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        7.4000000953674316,
+                        0
+                    ]
+                }
+            ],
+            "Children UID": [
+                439495254,
+                1198134128
+            ]
+        },
+        {
+            "Name": "Repo (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 439495254,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 447242286,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -180,
+                        0,
+                        -180
+                    ],
+                    "Scale": [
+                        1.0000032186508179,
+                        1,
+                        1.0000032186508179
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 979520683,
+                    "Vertex Count": 5688,
+                    "Index Count": 8340
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Central (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1198134128,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 447242286,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -0.043607015162706375,
+                        6.7818083763122559,
+                        2.5907444953918457
+                    ],
+                    "Rotation": [
+                        94.46905517578125,
+                        -0.57068634033203125,
+                        -179.32949829101562
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        0.99999994039535522
+                    ]
+                }
+            ],
+            "Children UID": [
+                1966119973,
+                2082341440,
+                582165254,
+                614103391,
+                165374382
+            ]
+        },
+        {
+            "Name": "Leg_R (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1966119973,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1198134128,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                725958481,
+                1300400935,
+                763582558,
+                1134583118
+            ]
+        },
+        {
+            "Name": "Leg_R_1_Botom (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 725958481,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1966119973,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                20280696
+            ]
+        },
+        {
+            "Name": "Leg_R_1_Midle (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 20280696,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 725958481,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1154049585
+            ]
+        },
+        {
+            "Name": "Leg_R_1_Top (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1154049585,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 20280696,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                972104180
+            ]
+        },
+        {
+            "Name": "Leg_R_1_Tip (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 972104180,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1154049585,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Leg_R_2_Botom (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1300400935,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1966119973,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1776870020
+            ]
+        },
+        {
+            "Name": "Leg_R_2_Midle (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1776870020,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1300400935,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                446026541
+            ]
+        },
+        {
+            "Name": "Leg_R_2_Top (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 446026541,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1776870020,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1099886147
+            ]
+        },
+        {
+            "Name": "Leg_R_2_Tip (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1099886147,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 446026541,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Leg_R_4_Botom (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 763582558,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1966119973,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1281473322
+            ]
+        },
+        {
+            "Name": "Leg_R_4_Midle (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1281473322,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 763582558,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                276431520
+            ]
+        },
+        {
+            "Name": "Leg_R_4_Top (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 276431520,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1281473322,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1133386462
+            ]
+        },
+        {
+            "Name": "Leg_R_4_Tip (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1133386462,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 276431520,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Leg_R_3_Botom (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1134583118,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1966119973,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1004881663
+            ]
+        },
+        {
+            "Name": "Leg_R_3_Midle (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1004881663,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1134583118,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1343640232
+            ]
+        },
+        {
+            "Name": "Leg_R_3_Top (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1343640232,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1004881663,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                482707138
+            ]
+        },
+        {
+            "Name": "Leg_R_3_Tip (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 482707138,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1343640232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Ala_R_1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2082341440,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1198134128,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1922554859
+            ]
+        },
+        {
+            "Name": "Ala_R_2 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1922554859,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 2082341440,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                2053775672
+            ]
+        },
+        {
+            "Name": "Ala_R_3 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2053775672,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1922554859,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Leg_L (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 582165254,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1198134128,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1675917747,
+                457171888,
+                334121677,
+                326916712
+            ]
+        },
+        {
+            "Name": "Leg_L_1_Botom1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1675917747,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 582165254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                911674215
+            ]
+        },
+        {
+            "Name": "Leg_L_1_Midle1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 911674215,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1675917747,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1485450965
+            ]
+        },
+        {
+            "Name": "Leg_L_1_Top1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1485450965,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 911674215,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                598318350
+            ]
+        },
+        {
+            "Name": "Leg_L_1_Tip1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 598318350,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1485450965,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Leg_L_2_Botom1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 457171888,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 582165254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                103789587
+            ]
+        },
+        {
+            "Name": "Leg_L_2_Midle1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 103789587,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 457171888,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1490388033
+            ]
+        },
+        {
+            "Name": "Leg_L_2_Top1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1490388033,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 103789587,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1565407934
+            ]
+        },
+        {
+            "Name": "Leg_L_2_Tip1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1565407934,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1490388033,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Leg_L_3_Botom1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 334121677,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 582165254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1688064223
+            ]
+        },
+        {
+            "Name": "Leg_L_3_Midle1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1688064223,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 334121677,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1319192187
+            ]
+        },
+        {
+            "Name": "Leg_L_3_Top1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1319192187,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1688064223,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                541348290
+            ]
+        },
+        {
+            "Name": "Leg_L_3_Tip1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 541348290,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1319192187,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Leg_L_4_Botom1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 326916712,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 582165254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                168759178
+            ]
+        },
+        {
+            "Name": "Leg_L_4_Midle1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 168759178,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 326916712,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1414792400
+            ]
+        },
+        {
+            "Name": "Leg_L_4_Top1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1414792400,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 168759178,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1127467843
+            ]
+        },
+        {
+            "Name": "Leg_L_4_Tip1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1127467843,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1414792400,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Tail_1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 614103391,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1198134128,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1549448944
+            ]
+        },
+        {
+            "Name": "Tail_2 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1549448944,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 614103391,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                644607132
+            ]
+        },
+        {
+            "Name": "Tail_3 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 644607132,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1549448944,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1793382643
+            ]
+        },
+        {
+            "Name": "Tail_4 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1793382643,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 644607132,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1511810007
+            ]
+        },
+        {
+            "Name": "Tail_5 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1511810007,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1793382643,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1267023793
+            ]
+        },
+        {
+            "Name": "Tail_6 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1267023793,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1511810007,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                444845489
+            ]
+        },
+        {
+            "Name": "Tail_7 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 444845489,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1267023793,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Ala_L_1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 165374382,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1198134128,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1481009812
+            ]
+        },
+        {
+            "Name": "Ala_L_2 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1481009812,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 165374382,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1993618266
+            ]
+        },
+        {
+            "Name": "Ala_L_3 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1993618266,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger.fbx",
+            "Parent UID": 1481009812,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Sensor",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 665101395,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 501963785,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "FaceHuggerAttack.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "facehugger": 447242286
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        5,
+                        5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+}

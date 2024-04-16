@@ -12,8 +12,8 @@ public class CameraRot : YmirComponent
     //--------------------- Controller var ---------------------\\
 
     //position difference between camera and player
-    //public Vector3 difPos = new Vector3(-15, 20, -15);
-    public Vector3 difPos = new Vector3(-120, 0, 0);
+    public Vector3 difPos = new Vector3(-58, 111, 63);
+    //public Vector3 difPos = new Vector3(-120, 0, 0);
 
     //camera velocity
     private float followStrenght;
@@ -30,16 +30,20 @@ public class CameraRot : YmirComponent
             followStrenght = target.GetComponent<Player>().movementSpeed;
         }
 
+        
+
         Audio.PlayAudio(gameObject, "LV2_Inter");
     }
 
     public void Update()
     {
-        Vector3 newpos = target.transform.globalPosition + difPos;
+        //gameObject.transform.localRotation = Quaternion.Euler(120, 25, -142);
 
-        float dis = Vector3.Distance(gameObject.transform.globalPosition, newpos);
+        Vector3 newpos = target.transform.localPosition + difPos;
 
-        gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * followStrenght * dis);
+        float dis = Vector3.Distance(gameObject.transform.localPosition, newpos);
+
+        gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition, newpos, Time.deltaTime * followStrenght * dis);
     }
 }
 

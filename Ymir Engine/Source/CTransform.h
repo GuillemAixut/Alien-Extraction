@@ -30,6 +30,7 @@ public:
 	void CalculateMatrix();
 	void SetPosition(float3 vec = float3(0, 0, 0));
 	void SetRotation(float3 vec = float3(0, 0, 0));
+	void SetRotation(Quat vec);
 	void SetOrientation(btQuaternion bulletQuat);
 	void SetScale(float3 vec = float3(0, 0, 0));
 

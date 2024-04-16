@@ -1736,7 +1736,7 @@ float4x4 float4x4::operator *(const float4x4 &rhs) const
 
 	r[2][0] = DOT4STRIDED(v[2], c0, 4);
 	r[2][1] = DOT4STRIDED(v[2], c1, 4);
-	r[2][2] = DOT4STRIDED(v[2], c2, 4);
+		r[2][2] = DOT4STRIDED(v[2], c2, 4);
 	r[2][3] = DOT4STRIDED(v[2], c3, 4);
 
 	r[3][0] = DOT4STRIDED(v[3], c0, 4);

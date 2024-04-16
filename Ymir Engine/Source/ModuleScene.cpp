@@ -15,6 +15,7 @@
 #include "ModuleFileSystem.h"
 #include "PhysfsEncapsule.h"
 #include "ModuleMonoManager.h"
+#include "ModulePathfinding.h"
 #include "CScript.h"
 
 #include "External/Optick/include/optick.h"
@@ -87,16 +88,19 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
+	LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 
 #endif // _RELEASE
 
 #ifdef _STANDALONE
 
-	LoadSceneFromStart("Assets", "Alpha1_Level");
+	//LoadSceneFromStart("Assets", "Alpha1_Level");
 	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
 	LoadSceneFromStart("Assets", "Particletest2");
+
+	LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 
 #endif // _STANDALONE
 
@@ -390,10 +394,15 @@ void ModuleScene::ClearScene()
 
 	ClearVec(vTempComponents);
 	ClearVec(vCanvas);
+
+	External->pathFinding->ClearNavMeshes();
 }
 
 void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 {
+	char str[20];
+	sprintf(str, "%u", App->pathFinding->Save(fileName.c_str()));
+	ysceneFile.SetString("NavMesh", str);
 	ysceneFile.SetFloat3("Editor Camera Position", App->camera->editorCamera->GetPos());
 	ysceneFile.SetFloat3("Editor Camera Right (X)", App->camera->editorCamera->GetRight());
 	ysceneFile.SetFloat3("Editor Camera Up (Y)", App->camera->editorCamera->GetUp());
@@ -419,6 +428,7 @@ void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 
 void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 {
+	JSON_Value* scene = json_parse_file(fileName.c_str());
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
 		App->scene->currentSceneDir = dir;
@@ -442,8 +452,18 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
+	
+	for (int i = 0; i < gameObjects.size(); i++) {
+		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
+		ctrans->UpdateGlobalMatrix();
+	}
 
 	LoadScriptsData();
+
+
+	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
+	if (navMeshId != -1)
+		External->pathFinding->Load(navMeshId);
 
 	RELEASE(sceneToLoad);
 }
@@ -459,7 +479,10 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 	LOG("Prefab '%s' saved to %s", fileName.c_str(), dir.c_str());
 }
 
-void ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
+
+
+
+GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
 {
 	ClearVec(vTempComponents);
 
@@ -473,10 +496,55 @@ void ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName
 
 	LoadScriptsData();
 
+	GameObject* rootObject = nullptr;
+
+	for (GameObject* obj : gameObjects) {
+		if (obj == prefab[0]) {
+			// Se encontró el GameObject raíz del prefab
+			rootObject = obj;
+		}
+	}
+
+
 	LOG("Prefab '%s' loaded", fileName.c_str());
 
 	ClearVec(prefab);
 	RELEASE(prefabToLoad);
+		
+	return rootObject;
+}
+
+
+GameObject* ModuleScene::LoadPrefab( char* path)
+{
+	ClearVec(vTempComponents);
+
+	JsonFile* prefabToLoad = JsonFile::GetJSON( path);
+
+	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
+	std::vector<GameObject*> prefab = prefabToLoad->GetHierarchy("Prefab");
+
+	// Add the loaded prefab objects to the existing gameObjects vector
+	gameObjects.insert(gameObjects.begin(), prefab.begin(), prefab.end());
+
+	LoadScriptsData();
+
+	GameObject* rootObject = nullptr;
+
+	for (GameObject* obj : gameObjects) {
+		if (obj == prefab[0]) {
+			// Se encontró el GameObject raíz del prefab
+			rootObject = obj;
+		}
+	}
+
+
+	LOG("Prefab '%s' loaded", path);
+
+	ClearVec(prefab);
+	RELEASE(prefabToLoad);
+
+	return rootObject;
 }
 
 void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& fileName)
@@ -500,7 +568,16 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
 
+	for (int i = 0; i < gameObjects.size(); i++) {
+		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
+		ctrans->UpdateGlobalMatrix();
+	}
+
 	LoadScriptsData();
+
+	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
+	if (navMeshId != -1)
+		External->pathFinding->Load(navMeshId);
 
 	RELEASE(sceneToLoad);
 }

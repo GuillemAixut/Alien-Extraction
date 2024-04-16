@@ -422,6 +422,8 @@ void Shader::SetShaderUniforms(float4x4* matrix, bool isSelected)
 
 	// ----------------- Multiple Light Management ----------------- 
 
+	this->SetInt("numLights", External->lightManager->lights.size());
+
 	// Point Lights
 
 	std::vector<Light*> pointLights;
@@ -434,7 +436,7 @@ void Shader::SetShaderUniforms(float4x4* matrix, bool isSelected)
 		}
 	}
 
-	this->SetInt("numLights", pointLights.size());
+	this->SetInt("numPointLights", pointLights.size());
 
 	for (size_t i = 0; i < pointLights.size(); ++i)
 	{
@@ -451,17 +453,38 @@ void Shader::SetShaderUniforms(float4x4* matrix, bool isSelected)
 		this->SetUniformValue("lightColor", pointLights[i]->GetColor().ptr());
 	}
 
-	// Directional Lights (TODO: FRANCESC)
+	// Directional Lights
 
+	std::vector<Light*> directionalLights;
 
+	for (auto& it = External->lightManager->lights.begin(); it != External->lightManager->lights.end(); ++it)
+	{
+		if ((*it)->GetType() == LightType::DIRECTIONAL_LIGHT)
+		{
+			directionalLights.push_back((*it));
+		}
+	}
+
+	this->SetInt("numDirectionalLights", directionalLights.size());
+
+	for (size_t i = 0; i < directionalLights.size(); ++i)
+	{
+		std::string lightDir = std::string("directionalLights[") + std::to_string(i) + std::string("].lightDir");
+		this->SetFloat3(lightDir, directionalLights[i]->lightGO->mTransform->GetGlobalPosition());
+		this->SetUniformValue("lightDir", directionalLights[i]->lightGO->mTransform->GetGlobalPosition().ptr());
+
+		std::string lightInt = std::string("directionalLights[") + std::to_string(i) + std::string("].lightInt");
+		this->SetFloat(lightInt, directionalLights[i]->GetIntensity());
+		this->SetFloat("lightInt", directionalLights[i]->GetIntensity());
+
+		std::string lightColor = std::string("directionalLights[") + std::to_string(i) + std::string("].lightColor");
+		this->SetFloat3(lightColor, directionalLights[i]->GetColor());
+		this->SetUniformValue("lightColor", directionalLights[i]->GetColor().ptr());
+	}
 
 	// Spot Lights (TODO: FRANCESC)
 
-
-
 	// Area Lights (TODO: FRANCESC)
-
-
 	
 }
 

@@ -1,27 +1,29 @@
 {
+    "NavMesh": "4294967295",
     "Editor Camera Position": [
-        -115.14533996582031,
-        238.36741638183594,
-        -48.397930145263672
+        -348.33602905273438,
+        246.69819641113281,
+        499.12576293945312
     ],
     "Editor Camera Right (X)": [
-        -0.77798140048980713,
-        1.5497207641601562e-06,
-        0.62827545404434204
+        0.25124785304069519,
+        8.1956386566162109e-08,
+        0.96748477220535278
     ],
     "Editor Camera Up (Y)": [
-        0.32087978720664978,
-        0.85974091291427612,
-        0.39733713865280151
+        0.33411458134651184,
+        0.93808436393737793,
+        -0.086766891181468964
     ],
     "Editor Camera Front (Z)": [
-        0.54015582799911499,
-        -0.51072525978088379,
-        0.66886579990386963
+        0.90834462642669678,
+        -0.34533321857452393,
+        -0.23588961362838745
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1968864687,
             "Active": true,
@@ -48,79 +50,15 @@
                 }
             ],
             "Children UID": [
-                187544404,
                 1599323902,
-                215325978
-            ]
-        },
-        {
-            "Name": "Main Camera",
-            "Tag": "Untagged",
-            "UID": 187544404,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1968864687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -40,
-                        29,
-                        54
-                    ],
-                    "Rotation": [
-                        -180,
-                        40.000007629394531,
-                        -180
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Audio listener",
-                    "Active": 1,
-                    "Default Listener": 1
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
-                },
-                {
-                    "Type": "Camera",
-                    "Active": 1,
-                    "Right": [
-                        0.76604437828063965,
-                        -1.4361705780174816e-07,
-                        0.64278769493103027
-                    ],
-                    "Up": [
-                        6.696972576492044e-08,
-                        1,
-                        1.4361705780174816e-07
-                    ],
-                    "Front": [
-                        0.64278769493103027,
-                        6.696972576492044e-08,
-                        -0.76604437828063965
-                    ],
-                    "FOV": 60.000003814697266,
-                    "Near Plane": 1,
-                    "Far Plane": 1000,
-                    "Frustum Culling": 0,
-                    "Draw Bounding Boxes": 0,
-                    "Game Camera": true
-                }
+                215325978,
+                148987747,
+                1806365249
             ]
         },
         {
             "Name": "BLOCK_Lvl3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1599323902,
             "Active": true,
@@ -158,6 +96,7 @@
         },
         {
             "Name": "Zone_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1445921625,
             "Active": true,
@@ -192,6 +131,7 @@
         },
         {
             "Name": "Walls_Zone1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1062802680,
             "Active": true,
@@ -238,6 +178,7 @@
         },
         {
             "Name": "Wall_Zone1_14",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 809307624,
             "Active": true,
@@ -301,6 +242,7 @@
         },
         {
             "Name": "Wall_Zone1_13",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1403883218,
             "Active": true,
@@ -364,6 +306,7 @@
         },
         {
             "Name": "Wall_Zone1_12",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1679978695,
             "Active": true,
@@ -427,6 +370,7 @@
         },
         {
             "Name": "Wall_Zone1_11",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1942261144,
             "Active": true,
@@ -490,6 +434,7 @@
         },
         {
             "Name": "Wall_Zone1_10",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 99594566,
             "Active": true,
@@ -553,6 +498,7 @@
         },
         {
             "Name": "Wall_Zone1_9",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1856454433,
             "Active": true,
@@ -616,6 +562,7 @@
         },
         {
             "Name": "Wall_Zone1_7",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 95078084,
             "Active": true,
@@ -679,6 +626,7 @@
         },
         {
             "Name": "Wall_Zone1_6",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1375933410,
             "Active": true,
@@ -742,6 +690,7 @@
         },
         {
             "Name": "Wall_Zone1_5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2010226431,
             "Active": true,
@@ -805,6 +754,7 @@
         },
         {
             "Name": "Wall_Zone1_4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 172896923,
             "Active": true,
@@ -868,6 +818,7 @@
         },
         {
             "Name": "Wall_Zone1_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 962608169,
             "Active": true,
@@ -931,6 +882,7 @@
         },
         {
             "Name": "Wall_Zone1_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 768521816,
             "Active": true,
@@ -994,6 +946,7 @@
         },
         {
             "Name": "Wall_Zone1_8",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 561305460,
             "Active": true,
@@ -1057,6 +1010,7 @@
         },
         {
             "Name": "Wall_Zone1_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 214131321,
             "Active": true,
@@ -1120,6 +1074,7 @@
         },
         {
             "Name": "Door",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1589504096,
             "Active": true,
@@ -1183,6 +1138,7 @@
         },
         {
             "Name": "Zone_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 82045135,
             "Active": true,
@@ -1224,6 +1180,7 @@
         },
         {
             "Name": "Walls_Zone2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 49496899,
             "Active": true,
@@ -1281,6 +1238,7 @@
         },
         {
             "Name": "Wall_Zone2_17",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 102136031,
             "Active": true,
@@ -1344,6 +1302,7 @@
         },
         {
             "Name": "Wall_Zone2_16",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2066260008,
             "Active": true,
@@ -1361,7 +1320,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        -0.63951712846755981,
+                        -0.63951724767684937,
                         -180
                     ],
                     "Scale": [
@@ -1407,6 +1366,7 @@
         },
         {
             "Name": "Wall_Zone2_15",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1155915436,
             "Active": true,
@@ -1470,6 +1430,7 @@
         },
         {
             "Name": "Wall_Zone2_14",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 461720931,
             "Active": true,
@@ -1487,7 +1448,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        -0.63951718807220459,
+                        -0.63951730728149414,
                         -180
                     ],
                     "Scale": [
@@ -1533,6 +1494,7 @@
         },
         {
             "Name": "Wall_Zone2_13",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 205775511,
             "Active": true,
@@ -1596,6 +1558,7 @@
         },
         {
             "Name": "Wall_Zone2_12",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 201420820,
             "Active": true,
@@ -1613,7 +1576,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        -0.63951718807220459,
+                        -0.63951730728149414,
                         -180
                     ],
                     "Scale": [
@@ -1659,6 +1622,7 @@
         },
         {
             "Name": "Wall_Zone2_11",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 927954936,
             "Active": true,
@@ -1722,6 +1686,7 @@
         },
         {
             "Name": "Wall_Zone2_10",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1135101095,
             "Active": true,
@@ -1785,6 +1750,7 @@
         },
         {
             "Name": "Wall_Zone2_9",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1912102150,
             "Active": true,
@@ -1848,6 +1814,7 @@
         },
         {
             "Name": "Wall_Zone2_8",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1492744479,
             "Active": true,
@@ -1911,6 +1878,7 @@
         },
         {
             "Name": "Wall_Zone2_7",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 432472256,
             "Active": true,
@@ -1974,6 +1942,7 @@
         },
         {
             "Name": "Wall_Zone2_6",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1824479849,
             "Active": true,
@@ -1991,7 +1960,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        -0.63951718807220459,
+                        -0.63951730728149414,
                         -180
                     ],
                     "Scale": [
@@ -2037,6 +2006,7 @@
         },
         {
             "Name": "Wall_Zone2_5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 415880415,
             "Active": true,
@@ -2054,7 +2024,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        -0.63951712846755981,
+                        -0.63951724767684937,
                         -180
                     ],
                     "Scale": [
@@ -2100,6 +2070,7 @@
         },
         {
             "Name": "Wall_Zone2_4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 394273644,
             "Active": true,
@@ -2163,6 +2134,7 @@
         },
         {
             "Name": "Wall_Zone2_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2040179933,
             "Active": true,
@@ -2226,6 +2198,7 @@
         },
         {
             "Name": "Wall_Zone2_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1106805808,
             "Active": true,
@@ -2289,6 +2262,7 @@
         },
         {
             "Name": "Wall_Zone2_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1087743404,
             "Active": true,
@@ -2352,6 +2326,7 @@
         },
         {
             "Name": "Wall_Zone2_18",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 804331234,
             "Active": true,
@@ -2415,6 +2390,7 @@
         },
         {
             "Name": "Wall_Zone2_19",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1232225847,
             "Active": true,
@@ -2478,6 +2454,7 @@
         },
         {
             "Name": "Wall_Zone2_20",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1978098252,
             "Active": true,
@@ -2541,6 +2518,7 @@
         },
         {
             "Name": "Wall_Zone2_21",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 348601898,
             "Active": true,
@@ -2604,6 +2582,7 @@
         },
         {
             "Name": "Wall_Zone2_22",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 46892964,
             "Active": true,
@@ -2667,6 +2646,7 @@
         },
         {
             "Name": "Wall_Zone2_23",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 145671404,
             "Active": true,
@@ -2730,6 +2710,7 @@
         },
         {
             "Name": "Wall_Zone2_24",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1231081029,
             "Active": true,
@@ -2747,7 +2728,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        -0.63951718807220459,
+                        -0.63951730728149414,
                         -180
                     ],
                     "Scale": [
@@ -2793,6 +2774,7 @@
         },
         {
             "Name": "Wall_Zone2_25",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1208154446,
             "Active": true,
@@ -2810,7 +2792,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        -0.63951712846755981,
+                        -0.63951724767684937,
                         -180
                     ],
                     "Scale": [
@@ -2856,6 +2838,7 @@
         },
         {
             "Name": "Loot_Chest_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 664335043,
             "Active": true,
@@ -2919,6 +2902,7 @@
         },
         {
             "Name": "Loot_Chest_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2088405566,
             "Active": true,
@@ -2982,6 +2966,7 @@
         },
         {
             "Name": "Enemy_Spawn_Zone2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1715206819,
             "Active": true,
@@ -3022,6 +3007,7 @@
         },
         {
             "Name": "Spawn_Enemy1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1816242661,
             "Active": true,
@@ -3085,6 +3071,7 @@
         },
         {
             "Name": "Spawn_Enemy2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 38643597,
             "Active": true,
@@ -3148,6 +3135,7 @@
         },
         {
             "Name": "Spawn_Enemy3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1721425541,
             "Active": true,
@@ -3211,6 +3199,7 @@
         },
         {
             "Name": "Spawn_Enemy5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 275205479,
             "Active": true,
@@ -3274,6 +3263,7 @@
         },
         {
             "Name": "Spawn_Enemy4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 410198441,
             "Active": true,
@@ -3337,6 +3327,7 @@
         },
         {
             "Name": "Spawn_Enemy6",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1266611643,
             "Active": true,
@@ -3400,6 +3391,7 @@
         },
         {
             "Name": "Spawn_Enemy7",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1320758289,
             "Active": true,
@@ -3463,6 +3455,7 @@
         },
         {
             "Name": "Spawn_Enemy8",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 750367644,
             "Active": true,
@@ -3526,6 +3519,7 @@
         },
         {
             "Name": "Key_Red",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1684741596,
             "Active": true,
@@ -3589,6 +3583,7 @@
         },
         {
             "Name": "Altar_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1027658910,
             "Active": true,
@@ -3652,6 +3647,7 @@
         },
         {
             "Name": "Trap_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 365857829,
             "Active": true,
@@ -3715,6 +3711,7 @@
         },
         {
             "Name": "Door_Closed",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 282792171,
             "Active": true,
@@ -3778,6 +3775,7 @@
         },
         {
             "Name": "Door_Closed1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 926133093,
             "Active": true,
@@ -3841,6 +3839,7 @@
         },
         {
             "Name": "Zone_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1314173721,
             "Active": true,
@@ -3877,6 +3876,7 @@
         },
         {
             "Name": "Walls_Zone3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 575829295,
             "Active": true,
@@ -3941,6 +3941,7 @@
         },
         {
             "Name": "Wall_Zone3_32",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1078616367,
             "Active": true,
@@ -4004,6 +4005,7 @@
         },
         {
             "Name": "Wall_Zone3_31",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 181734717,
             "Active": true,
@@ -4067,6 +4069,7 @@
         },
         {
             "Name": "Wall_Zone3_30",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1960992893,
             "Active": true,
@@ -4130,6 +4133,7 @@
         },
         {
             "Name": "Wall_Zone3_29",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 211032598,
             "Active": true,
@@ -4193,6 +4197,7 @@
         },
         {
             "Name": "Wall_Zone3_28",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2132901176,
             "Active": true,
@@ -4256,6 +4261,7 @@
         },
         {
             "Name": "Wall_Zone3_27",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2083030635,
             "Active": true,
@@ -4319,6 +4325,7 @@
         },
         {
             "Name": "Wall_Zone3_26",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1785652548,
             "Active": true,
@@ -4382,6 +4389,7 @@
         },
         {
             "Name": "Wall_Zone3_25",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 35052698,
             "Active": true,
@@ -4445,6 +4453,7 @@
         },
         {
             "Name": "Wall_Zone3_24",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 230031033,
             "Active": true,
@@ -4508,6 +4517,7 @@
         },
         {
             "Name": "Wall_Zone3_23",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1862562307,
             "Active": true,
@@ -4571,6 +4581,7 @@
         },
         {
             "Name": "Wall_Zone3_22",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1282035566,
             "Active": true,
@@ -4634,6 +4645,7 @@
         },
         {
             "Name": "Wall_Zone3_21",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1593856520,
             "Active": true,
@@ -4697,6 +4709,7 @@
         },
         {
             "Name": "Wall_Zone3_20",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1239746352,
             "Active": true,
@@ -4760,6 +4773,7 @@
         },
         {
             "Name": "Wall_Zone3_19",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1876435934,
             "Active": true,
@@ -4823,6 +4837,7 @@
         },
         {
             "Name": "Wall_Zone3_18",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 588156603,
             "Active": true,
@@ -4886,6 +4901,7 @@
         },
         {
             "Name": "Wall_Zone3_17",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1343618788,
             "Active": true,
@@ -4949,6 +4965,7 @@
         },
         {
             "Name": "Wall_Zone3_16",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1300487338,
             "Active": true,
@@ -5012,6 +5029,7 @@
         },
         {
             "Name": "Wall_Zone3_15",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1847712327,
             "Active": true,
@@ -5075,6 +5093,7 @@
         },
         {
             "Name": "Wall_Zone3_14",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1727830055,
             "Active": true,
@@ -5138,6 +5157,7 @@
         },
         {
             "Name": "Wall_Zone3_13",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 297389110,
             "Active": true,
@@ -5201,6 +5221,7 @@
         },
         {
             "Name": "Wall_Zone3_12",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1145453792,
             "Active": true,
@@ -5264,6 +5285,7 @@
         },
         {
             "Name": "Wall_Zone3_11",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1174385989,
             "Active": true,
@@ -5327,6 +5349,7 @@
         },
         {
             "Name": "Wall_Zone3_10",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 206005260,
             "Active": true,
@@ -5390,6 +5413,7 @@
         },
         {
             "Name": "Wall_Zone3_9",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1361232549,
             "Active": true,
@@ -5453,6 +5477,7 @@
         },
         {
             "Name": "Wall_Zone3_8",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1932218833,
             "Active": true,
@@ -5516,6 +5541,7 @@
         },
         {
             "Name": "Wall_Zone3_7",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1286885826,
             "Active": true,
@@ -5579,6 +5605,7 @@
         },
         {
             "Name": "Wall_Zone3_6",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 557193699,
             "Active": true,
@@ -5642,6 +5669,7 @@
         },
         {
             "Name": "Wall_Zone3_5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 649609893,
             "Active": true,
@@ -5705,6 +5733,7 @@
         },
         {
             "Name": "Wall_Zone3_4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 99189437,
             "Active": true,
@@ -5768,6 +5797,7 @@
         },
         {
             "Name": "Wall_Zone3_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 630171777,
             "Active": true,
@@ -5831,6 +5861,7 @@
         },
         {
             "Name": "Wall_Zone3_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 542228029,
             "Active": true,
@@ -5894,6 +5925,7 @@
         },
         {
             "Name": "Wall_Zone3_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1081057736,
             "Active": true,
@@ -5957,6 +5989,7 @@
         },
         {
             "Name": "Loot_Chest_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1237034340,
             "Active": true,
@@ -6020,6 +6053,7 @@
         },
         {
             "Name": "Spawn_Enemy_Zone3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2078924687,
             "Active": true,
@@ -6059,6 +6093,7 @@
         },
         {
             "Name": "Spawn_Enemy9",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 166962100,
             "Active": true,
@@ -6122,6 +6157,7 @@
         },
         {
             "Name": "Spawn_Enemy10",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1560908234,
             "Active": true,
@@ -6185,6 +6221,7 @@
         },
         {
             "Name": "Spawn_Enemy11",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1455777093,
             "Active": true,
@@ -6248,6 +6285,7 @@
         },
         {
             "Name": "Spawn_Enemy12",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1543381628,
             "Active": true,
@@ -6311,6 +6349,7 @@
         },
         {
             "Name": "Spawn_Enemy13",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2132074423,
             "Active": true,
@@ -6374,6 +6413,7 @@
         },
         {
             "Name": "Spawn_Enemy14",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 758653812,
             "Active": true,
@@ -6437,6 +6477,7 @@
         },
         {
             "Name": "Spawn_Enemy15",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 211072656,
             "Active": true,
@@ -6500,6 +6541,7 @@
         },
         {
             "Name": "Beacon_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 120390017,
             "Active": true,
@@ -6563,6 +6605,7 @@
         },
         {
             "Name": "Zone_4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 696119146,
             "Active": true,
@@ -6601,6 +6644,7 @@
         },
         {
             "Name": "Walls_Zone4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1822295362,
             "Active": true,
@@ -6641,6 +6685,7 @@
         },
         {
             "Name": "Wall_Zone4_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 381934948,
             "Active": true,
@@ -6704,6 +6749,7 @@
         },
         {
             "Name": "Wall_Zone4_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 640585160,
             "Active": true,
@@ -6767,6 +6813,7 @@
         },
         {
             "Name": "Wall_Zone4_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 532658991,
             "Active": true,
@@ -6830,6 +6877,7 @@
         },
         {
             "Name": "Wall_Zone4_4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2061426468,
             "Active": true,
@@ -6893,6 +6941,7 @@
         },
         {
             "Name": "Wall_Zone4_5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2044890767,
             "Active": true,
@@ -6956,6 +7005,7 @@
         },
         {
             "Name": "Wall_Zone4_6",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 192813520,
             "Active": true,
@@ -7019,6 +7069,7 @@
         },
         {
             "Name": "Wall_Zone4_7",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1604911755,
             "Active": true,
@@ -7082,6 +7133,7 @@
         },
         {
             "Name": "Wall_Zone4_8",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 279126785,
             "Active": true,
@@ -7145,6 +7197,7 @@
         },
         {
             "Name": "Spawn_Enemy_Zone4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1958343023,
             "Active": true,
@@ -7184,6 +7237,7 @@
         },
         {
             "Name": "Spawn_Enemy16",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1890014021,
             "Active": true,
@@ -7247,6 +7301,7 @@
         },
         {
             "Name": "Spawn_Enemy17",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2071759949,
             "Active": true,
@@ -7310,6 +7365,7 @@
         },
         {
             "Name": "Spawn_Enemy18",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 616575883,
             "Active": true,
@@ -7373,6 +7429,7 @@
         },
         {
             "Name": "Spawn_Enemy19",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1360693873,
             "Active": true,
@@ -7436,6 +7493,7 @@
         },
         {
             "Name": "Spawn_Enemy20",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 995857337,
             "Active": true,
@@ -7499,6 +7557,7 @@
         },
         {
             "Name": "Spawn_Enemy21",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 491122244,
             "Active": true,
@@ -7562,6 +7621,7 @@
         },
         {
             "Name": "Spawn_Enemy22",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 585343788,
             "Active": true,
@@ -7625,6 +7685,7 @@
         },
         {
             "Name": "Key_Green",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2116009062,
             "Active": true,
@@ -7688,6 +7749,7 @@
         },
         {
             "Name": "Trap_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 31926386,
             "Active": true,
@@ -7751,6 +7813,7 @@
         },
         {
             "Name": "Columna_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1481774626,
             "Active": true,
@@ -7814,6 +7877,7 @@
         },
         {
             "Name": "Columna_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 869782007,
             "Active": true,
@@ -7877,6 +7941,7 @@
         },
         {
             "Name": "Zone_5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1227449714,
             "Active": true,
@@ -7912,6 +7977,7 @@
         },
         {
             "Name": "Walls_Zone5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1020827492,
             "Active": true,
@@ -7977,6 +8043,7 @@
         },
         {
             "Name": "Wall_Zone5_1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1715363815,
             "Active": true,
@@ -8040,6 +8107,7 @@
         },
         {
             "Name": "Wall_Zone5_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1643505065,
             "Active": true,
@@ -8103,6 +8171,7 @@
         },
         {
             "Name": "Wall_Zone5_3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1782918222,
             "Active": true,
@@ -8166,6 +8235,7 @@
         },
         {
             "Name": "Wall_Zone5_4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1117017812,
             "Active": true,
@@ -8229,6 +8299,7 @@
         },
         {
             "Name": "Wall_Zone5_9",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 568382947,
             "Active": true,
@@ -8292,6 +8363,7 @@
         },
         {
             "Name": "Wall_Zone5_10",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1604040263,
             "Active": true,
@@ -8355,6 +8427,7 @@
         },
         {
             "Name": "Wall_Zone5_11",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 697887561,
             "Active": true,
@@ -8418,6 +8491,7 @@
         },
         {
             "Name": "Wall_Zone5_12",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1993339490,
             "Active": true,
@@ -8481,6 +8555,7 @@
         },
         {
             "Name": "Wall_Zone5_13",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2138962,
             "Active": true,
@@ -8544,6 +8619,7 @@
         },
         {
             "Name": "Wall_Zone5_14",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1981083041,
             "Active": true,
@@ -8607,6 +8683,7 @@
         },
         {
             "Name": "Wall_Zone5_15",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 203840036,
             "Active": true,
@@ -8670,6 +8747,7 @@
         },
         {
             "Name": "Wall_Zone5_16",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1428769538,
             "Active": true,
@@ -8733,6 +8811,7 @@
         },
         {
             "Name": "Wall_Zone5_17",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1837323875,
             "Active": true,
@@ -8796,6 +8875,7 @@
         },
         {
             "Name": "Wall_Zone5_18",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1071607717,
             "Active": true,
@@ -8859,6 +8939,7 @@
         },
         {
             "Name": "Wall_Zone5_19",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 505726016,
             "Active": true,
@@ -8922,6 +9003,7 @@
         },
         {
             "Name": "Wall_Zone5_20",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 646167856,
             "Active": true,
@@ -8985,6 +9067,7 @@
         },
         {
             "Name": "Wall_Zone5_21",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1684035383,
             "Active": true,
@@ -9048,6 +9131,7 @@
         },
         {
             "Name": "Wall_Zone5_22",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 763409103,
             "Active": true,
@@ -9111,6 +9195,7 @@
         },
         {
             "Name": "Wall_Zone5_23",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 998128653,
             "Active": true,
@@ -9174,6 +9259,7 @@
         },
         {
             "Name": "Wall_Zone5_24",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 557276989,
             "Active": true,
@@ -9237,6 +9323,7 @@
         },
         {
             "Name": "Wall_Zone5_25",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1462922180,
             "Active": true,
@@ -9300,6 +9387,7 @@
         },
         {
             "Name": "Wall_Zone5_26",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1259090478,
             "Active": true,
@@ -9363,6 +9451,7 @@
         },
         {
             "Name": "Wall_Zone5_27",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1644409751,
             "Active": true,
@@ -9426,6 +9515,7 @@
         },
         {
             "Name": "Wall_Zone5_28",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 675781251,
             "Active": true,
@@ -9489,6 +9579,7 @@
         },
         {
             "Name": "Wall_Zone5_29",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1114970230,
             "Active": true,
@@ -9552,6 +9643,7 @@
         },
         {
             "Name": "Wall_Zone5_30",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 411564,
             "Active": true,
@@ -9615,6 +9707,7 @@
         },
         {
             "Name": "Wall_Zone5_31",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1991355643,
             "Active": true,
@@ -9678,6 +9771,7 @@
         },
         {
             "Name": "Wall_Zone5_32",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2121497036,
             "Active": true,
@@ -9741,6 +9835,7 @@
         },
         {
             "Name": "Wall_Zone5_33",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 574817360,
             "Active": true,
@@ -9804,6 +9899,7 @@
         },
         {
             "Name": "Wall_Zone5_34",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 223412084,
             "Active": true,
@@ -9867,6 +9963,7 @@
         },
         {
             "Name": "Wall_Zone5_35",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 863370296,
             "Active": true,
@@ -9930,6 +10027,7 @@
         },
         {
             "Name": "Wall_Zone5_36",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 696201196,
             "Active": true,
@@ -9993,6 +10091,7 @@
         },
         {
             "Name": "Wall_Zone5_37",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 188694782,
             "Active": true,
@@ -10056,6 +10155,7 @@
         },
         {
             "Name": "Spawn_Enemy_Zone5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1764055020,
             "Active": true,
@@ -10091,6 +10191,7 @@
         },
         {
             "Name": "Spawn_Enemy23",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 451773242,
             "Active": true,
@@ -10154,6 +10255,7 @@
         },
         {
             "Name": "Spawn_Enemy24",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 948450762,
             "Active": true,
@@ -10217,6 +10319,7 @@
         },
         {
             "Name": "Spawn_Enemy25",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1314142448,
             "Active": true,
@@ -10280,6 +10383,7 @@
         },
         {
             "Name": "Altar_2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1661510139,
             "Active": true,
@@ -10343,6 +10447,7 @@
         },
         {
             "Name": "Floor1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1912248863,
             "Active": true,
@@ -10406,6 +10511,7 @@
         },
         {
             "Name": "Colliders",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 215325978,
             "Active": true,
@@ -10443,6 +10549,7 @@
         },
         {
             "Name": "Zone-1",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1813605005,
             "Active": true,
@@ -10488,6 +10595,7 @@
         },
         {
             "Name": "Col_1 (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 964241217,
             "Active": true,
@@ -10546,6 +10654,7 @@
         },
         {
             "Name": "Col_2 (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 893970827,
             "Active": true,
@@ -10604,6 +10713,7 @@
         },
         {
             "Name": "Col_3 (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1854770136,
             "Active": true,
@@ -10662,6 +10772,7 @@
         },
         {
             "Name": "Col_4 (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1137543272,
             "Active": true,
@@ -10720,6 +10831,7 @@
         },
         {
             "Name": "Col_5 (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 278125920,
             "Active": true,
@@ -10778,6 +10890,7 @@
         },
         {
             "Name": "Col_6 (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 858033003,
             "Active": true,
@@ -10836,6 +10949,7 @@
         },
         {
             "Name": "Col_7 (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 296489040,
             "Active": true,
@@ -10894,6 +11008,7 @@
         },
         {
             "Name": "Col_8",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 645344896,
             "Active": true,
@@ -10952,6 +11067,7 @@
         },
         {
             "Name": "Col_9",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 858340442,
             "Active": true,
@@ -11010,6 +11126,7 @@
         },
         {
             "Name": "Col_10",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 855983384,
             "Active": true,
@@ -11068,6 +11185,7 @@
         },
         {
             "Name": "Col_11",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1949033666,
             "Active": true,
@@ -11126,6 +11244,7 @@
         },
         {
             "Name": "Col_12",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 300101403,
             "Active": true,
@@ -11184,6 +11303,7 @@
         },
         {
             "Name": "Col_13",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 689834086,
             "Active": true,
@@ -11242,6 +11362,7 @@
         },
         {
             "Name": "Col_14",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 973079206,
             "Active": true,
@@ -11300,6 +11421,7 @@
         },
         {
             "Name": "Zone-2",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 335757693,
             "Active": true,
@@ -11349,6 +11471,7 @@
         },
         {
             "Name": "Col_15",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 866672024,
             "Active": true,
@@ -11407,6 +11530,7 @@
         },
         {
             "Name": "Col_16",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2134771385,
             "Active": true,
@@ -11465,6 +11589,7 @@
         },
         {
             "Name": "Col_17",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1012302721,
             "Active": true,
@@ -11523,6 +11648,7 @@
         },
         {
             "Name": "Col_18",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1254174681,
             "Active": true,
@@ -11581,6 +11707,7 @@
         },
         {
             "Name": "Col_19",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 781159880,
             "Active": true,
@@ -11639,6 +11766,7 @@
         },
         {
             "Name": "Col_20",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 399465015,
             "Active": true,
@@ -11697,6 +11825,7 @@
         },
         {
             "Name": "Col_21",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1677923433,
             "Active": true,
@@ -11755,6 +11884,7 @@
         },
         {
             "Name": "Col_22",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1486654460,
             "Active": true,
@@ -11813,6 +11943,7 @@
         },
         {
             "Name": "Col_23",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1609725601,
             "Active": true,
@@ -11871,6 +12002,7 @@
         },
         {
             "Name": "Col_24",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1814209212,
             "Active": true,
@@ -11929,6 +12061,7 @@
         },
         {
             "Name": "Col_25",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1496620115,
             "Active": true,
@@ -11987,6 +12120,7 @@
         },
         {
             "Name": "Col_26",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 726633334,
             "Active": true,
@@ -12045,6 +12179,7 @@
         },
         {
             "Name": "Col_27",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 806217481,
             "Active": true,
@@ -12103,6 +12238,7 @@
         },
         {
             "Name": "Col_28 ",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1982485591,
             "Active": true,
@@ -12161,6 +12297,7 @@
         },
         {
             "Name": "Col_29",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 571386794,
             "Active": true,
@@ -12219,6 +12356,7 @@
         },
         {
             "Name": "Col_30",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 231824424,
             "Active": true,
@@ -12277,6 +12415,7 @@
         },
         {
             "Name": "Col_31",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 176711318,
             "Active": true,
@@ -12335,6 +12474,7 @@
         },
         {
             "Name": "Col_32",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1673024647,
             "Active": true,
@@ -12393,6 +12533,7 @@
         },
         {
             "Name": "Zone-3",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1433471904,
             "Active": true,
@@ -12443,6 +12584,7 @@
         },
         {
             "Name": "Col_33",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1877493906,
             "Active": true,
@@ -12501,6 +12643,7 @@
         },
         {
             "Name": "Col_34",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1330299674,
             "Active": true,
@@ -12559,6 +12702,7 @@
         },
         {
             "Name": "Col_35",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1566774801,
             "Active": true,
@@ -12617,6 +12761,7 @@
         },
         {
             "Name": "Col_36",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 796540867,
             "Active": true,
@@ -12675,6 +12820,7 @@
         },
         {
             "Name": "Col_37",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1846012661,
             "Active": true,
@@ -12733,6 +12879,7 @@
         },
         {
             "Name": "Col_38",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1102386788,
             "Active": true,
@@ -12791,6 +12938,7 @@
         },
         {
             "Name": "Col_39",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 828500461,
             "Active": true,
@@ -12849,6 +12997,7 @@
         },
         {
             "Name": "Col_40",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 760823949,
             "Active": true,
@@ -12907,6 +13056,7 @@
         },
         {
             "Name": "Col_41",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 71097362,
             "Active": true,
@@ -12965,6 +13115,7 @@
         },
         {
             "Name": "Col_42",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 585231176,
             "Active": true,
@@ -13023,6 +13174,7 @@
         },
         {
             "Name": "Col_43",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 912080089,
             "Active": true,
@@ -13081,6 +13233,7 @@
         },
         {
             "Name": "Col_44",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 528578896,
             "Active": true,
@@ -13097,7 +13250,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.55461430549621582,
+                        0.55461442470550537,
                         -0
                     ],
                     "Scale": [
@@ -13139,6 +13292,7 @@
         },
         {
             "Name": "Col_45",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1562569230,
             "Active": true,
@@ -13197,6 +13351,7 @@
         },
         {
             "Name": "Col_46",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 515839298,
             "Active": true,
@@ -13255,6 +13410,7 @@
         },
         {
             "Name": "Col_47",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1718417125,
             "Active": true,
@@ -13313,6 +13469,7 @@
         },
         {
             "Name": "Col_48",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 134725887,
             "Active": true,
@@ -13371,6 +13528,7 @@
         },
         {
             "Name": "Col_49",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 896392775,
             "Active": true,
@@ -13429,6 +13587,7 @@
         },
         {
             "Name": "Col_50",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 283866206,
             "Active": true,
@@ -13487,6 +13646,7 @@
         },
         {
             "Name": "Col_51",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 169599838,
             "Active": true,
@@ -13545,6 +13705,7 @@
         },
         {
             "Name": "Zone-4",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 751389558,
             "Active": true,
@@ -13581,6 +13742,7 @@
         },
         {
             "Name": "Col_52",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1728611637,
             "Active": true,
@@ -13639,6 +13801,7 @@
         },
         {
             "Name": "Col_53",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 137822584,
             "Active": true,
@@ -13697,6 +13860,7 @@
         },
         {
             "Name": "Col_54",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 119449466,
             "Active": true,
@@ -13755,6 +13919,7 @@
         },
         {
             "Name": "Col_55",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1952021561,
             "Active": true,
@@ -13813,6 +13978,7 @@
         },
         {
             "Name": "Col_56",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1523609299,
             "Active": true,
@@ -13871,6 +14037,7 @@
         },
         {
             "Name": "Zone-5",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 455310513,
             "Active": true,
@@ -13924,6 +14091,7 @@
         },
         {
             "Name": "Col_57",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1165171619,
             "Active": true,
@@ -13982,6 +14150,7 @@
         },
         {
             "Name": "Col_58",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 559645339,
             "Active": true,
@@ -14040,6 +14209,7 @@
         },
         {
             "Name": "Col_59",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2127292911,
             "Active": true,
@@ -14098,6 +14268,7 @@
         },
         {
             "Name": "Col_60",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 972984809,
             "Active": true,
@@ -14156,6 +14327,7 @@
         },
         {
             "Name": "Col_61",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 269387010,
             "Active": true,
@@ -14214,6 +14386,7 @@
         },
         {
             "Name": "Col_62",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1566252426,
             "Active": true,
@@ -14272,6 +14445,7 @@
         },
         {
             "Name": "Col_63",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1645543403,
             "Active": true,
@@ -14330,6 +14504,7 @@
         },
         {
             "Name": "Col_64",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1126517910,
             "Active": true,
@@ -14388,6 +14563,7 @@
         },
         {
             "Name": "Col_65",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1265699528,
             "Active": true,
@@ -14446,6 +14622,7 @@
         },
         {
             "Name": "Col_66",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 83418352,
             "Active": true,
@@ -14504,6 +14681,7 @@
         },
         {
             "Name": "Col_67",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 134856855,
             "Active": true,
@@ -14562,6 +14740,7 @@
         },
         {
             "Name": "Col_68",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 2006179662,
             "Active": true,
@@ -14620,6 +14799,7 @@
         },
         {
             "Name": "Col_69",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 207259041,
             "Active": true,
@@ -14678,6 +14858,7 @@
         },
         {
             "Name": "Col_70",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1883994435,
             "Active": true,
@@ -14736,6 +14917,7 @@
         },
         {
             "Name": "Col_71",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1448811085,
             "Active": true,
@@ -14794,6 +14976,7 @@
         },
         {
             "Name": "Col_72",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1135350598,
             "Active": true,
@@ -14852,6 +15035,7 @@
         },
         {
             "Name": "Col_73",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 764013137,
             "Active": true,
@@ -14910,6 +15094,7 @@
         },
         {
             "Name": "Col_74",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 202062775,
             "Active": true,
@@ -14968,6 +15153,7 @@
         },
         {
             "Name": "Col_75",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1735371100,
             "Active": true,
@@ -15026,6 +15212,7 @@
         },
         {
             "Name": "Col_76",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 185287300,
             "Active": true,
@@ -15084,6 +15271,7 @@
         },
         {
             "Name": "Col_77",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 19525631,
             "Active": true,
@@ -15142,6 +15330,7 @@
         },
         {
             "Name": "Col_78",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1694125050,
             "Active": true,
@@ -15200,6 +15389,7 @@
         },
         {
             "Name": "floor",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1807831227,
             "Active": true,
@@ -15252,6 +15442,524 @@
                         0,
                         0,
                         0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Empty",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 148987747,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -298.20953369140625,
+                        9.648040771484375,
+                        469.62799072265625
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        25.399999618530273,
+                        5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Tp_To_Lvl3.cs",
+                    "Active": 1,
+                    "UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Prefab-Player",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1806365249,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -326.67889404296875,
+                        0,
+                        387.15090942382812
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                598771385,
+                402787232
+            ]
+        },
+        {
+            "Name": "Main Camera",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 598771385,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -58.784080505371094,
+                        111.64328002929688,
+                        63.155529022216797
+                    ],
+                    "Rotation": [
+                        120.00008392333984,
+                        25.000032424926758,
+                        -141.99998474121094
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1.0000001192092896
+                    ]
+                },
+                {
+                    "Type": "Audio listener",
+                    "Active": 1,
+                    "Default Listener": 1
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "",
+                    "Event Name": "",
+                    "Event ID": 0
+                },
+                {
+                    "Type": "Camera",
+                    "Active": 1,
+                    "Right": [
+                        0.7141801118850708,
+                        -0.01942114531993866,
+                        0.69969272613525391
+                    ],
+                    "Up": [
+                        0.55797886848449707,
+                        0.61933737993240356,
+                        -0.5523412823677063
+                    ],
+                    "Front": [
+                        0.42261877655982971,
+                        -0.7848847508430481,
+                        -0.4531550407409668
+                    ],
+                    "FOV": 60.000003814697266,
+                    "Near Plane": 1,
+                    "Far Plane": 1000,
+                    "Frustum Culling": 0,
+                    "Draw Bounding Boxes": 0,
+                    "Game Camera": true
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Player",
+            "Static": false,
+            "Tag": "Player",
+            "UID": 402787232,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0.83073639869689941,
+                        0
+                    ],
+                    "Rotation": [
+                        5.0089561227650847e-06,
+                        -5.0089561227650847e-06,
+                        5.0089561227650847e-06
+                    ],
+                    "Scale": [
+                        0.10000000149011612,
+                        0.10000000149011612,
+                        0.10000000149011612
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 5,
+                    "Paths": [
+                        ".\/Library\/Animations\/402787232.yanim",
+                        ".\/Assets\/Raisen_Walk.yanim",
+                        ".\/Assets\/Raisen_Run.yanim",
+                        ".\/Assets\/Raisen_Dash.yanim",
+                        ".\/Assets\/Raisen_Die.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "P_Shoot",
+                    "Event ID": 1216763735
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        63.700000762939453,
+                        200,
+                        45.400001525878906
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        10.199999809265137,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Health.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "currentHealth": 0,
+                    "maxHealth": 10,
+                    "isAlive": false,
+                    "debugDmg": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Bullets.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Player.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "currentState": 0,
+                    "inputsList": 0,
+                    "movementSpeed": 35,
+                    "godMode": false,
+                    "fireRate": 0,
+                    "ammo": 0,
+                    "magsize": 5,
+                    "dashDuration": 0.25,
+                    "dashDistance": 200,
+                    "swipeTimer": 0
+                }
+            ],
+            "Children UID": [
+                674768309,
+                680428138,
+                2003545222,
+                2105473488
+            ]
+        },
+        {
+            "Name": "Tail",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 674768309,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1003707611,
+                    "Vertex Count": 248,
+                    "Index Count": 660
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 168,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Tail_D.png",
+                    "Diffuse_UID": 481287073
+                }
+            ]
+        },
+        {
+            "Name": "Eyes",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 680428138,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1089882795,
+                    "Vertex Count": 717,
+                    "Index Count": 2592
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 172,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Eyes_D.png",
+                    "Diffuse_UID": 32956622
+                }
+            ]
+        },
+        {
+            "Name": "Body",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2003545222,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 798019010,
+                    "Vertex Count": 10134,
+                    "Index Count": 36885
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 164,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Body_D.png",
+                    "Diffuse_UID": 1203624701
+                }
+            ]
+        },
+        {
+            "Name": "Backpack",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2105473488,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
                     ]
                 }
             ]

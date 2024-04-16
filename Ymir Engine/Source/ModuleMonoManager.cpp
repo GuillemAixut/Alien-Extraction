@@ -19,6 +19,7 @@
 #include "CS_Audio_Bindings.h"
 #include "CS_Animation_Bindings.h"
 #include "CS_Particle_Bindings.h"
+#include "CS_NavMesh_Bindings.h"
 
 #include "PhysfsEncapsule.h"
 #include "ModuleEditor.h"
@@ -57,7 +58,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByName", FindObjectWithName);
 	mono_add_internal_call("YmirEngine.InternalCalls::GetChildrenByName", FindChildrenWithName);
 	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByUID", FindObjectWithUID);	
-	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetParent", CS_GetParent);
+	mono_add_internal_call("YmirEngine.GameObject::get_parent", CS_GetParent);
 	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetChild", CS_GetChild);
 	mono_add_internal_call("YmirEngine.InternalCalls::CompareGameObjectsByUID", CompareGameObjectsByUID);
 	mono_add_internal_call("YmirEngine.GameObject::TryGetComponent", CS_GetComponent);
@@ -67,9 +68,6 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::ExitGame", ExitGame);
 	mono_add_internal_call("YmirEngine.InternalCalls::LoadScene", LoadSceneCS);
 	mono_add_internal_call("YmirEngine.InternalCalls::Destroy", Destroy);
-
-		mono_add_internal_call("YmirEngine.InternalCalls::CSVToString", CSVToString);
-	mono_add_internal_call("YmirEngine.InternalCalls::CreateGOFromPrefab", CreateGOFromPrefabCS);
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CSVToString", CSVToString);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateGOFromPrefab", CreateGOFromPrefabCS);
@@ -114,6 +112,9 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::SetImpulse", SetImpulse);
 	mono_add_internal_call("YmirEngine.GameObject::SetRotation", SetRotation);
 	mono_add_internal_call("YmirEngine.GameObject::SetPosition", SetPosition);
+	mono_add_internal_call("YmirEngine.GameObject::SetColliderSize", SetColliderSize);
+	mono_add_internal_call("YmirEngine.GameObject::GetColliderSize", GetColliderSize);
+	mono_add_internal_call("YmirEngine.GameObject::ClearForces", ClearForces);
 
 #pragma endregion
 
@@ -159,6 +160,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.UI::SwitchPosition", SwitchPosition);
 	mono_add_internal_call("YmirEngine.UI::NavigateGrid", NavigateGrid);
 	mono_add_internal_call("YmirEngine.UI::CompareStringToName", CompareStringToName);
+	mono_add_internal_call("YmirEngine.UI::SetActiveAllUI", SetActiveAllUI);
 
 
 
@@ -224,6 +226,29 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Particles::PlayEmitter", PlayEmitter);
 
 #pragma endregion
+
+
+#pragma region Pathfinder
+	mono_add_internal_call("YmirEngine.PathFinding::CalculateRandomPath", CS_CalculateRandomPath);
+	mono_add_internal_call("YmirEngine.PathFinding::CalculatePath", CS_CalculatePath);
+	mono_add_internal_call("YmirEngine.PathFinding::GetDestination", CS_GetDestination);
+	mono_add_internal_call("YmirEngine.PathFinding::GetPointAt", CS_GetPointAt);
+	mono_add_internal_call("YmirEngine.PathFinding::GetPathSize", CS_GetPathSize);
+	mono_add_internal_call("YmirEngine.PathFinding::ClearPath", CS_ClearPath);
+	mono_add_internal_call("YmirEngine.PathFinding::GetLastVector", CS_GetLastVector);
+	mono_add_internal_call("YmirEngine.PathFinding::get_speed", CS_GetSpeed);
+	mono_add_internal_call("YmirEngine.PathFinding::set_speed", CS_SetSpeed);
+	mono_add_internal_call("YmirEngine.PathFinding::get_angularSpeed", CS_GetAngularSpeed);
+	mono_add_internal_call("YmirEngine.PathFinding::set_angularSpeed", CS_SetAngularSpeed);
+	mono_add_internal_call("YmirEngine.PathFinding::get_stoppingDistance", CS_GetStoppingDistance);
+	mono_add_internal_call("YmirEngine.PathFinding::set_stoppingDistance", CS_SetStoppingDistance);
+	mono_add_internal_call("YmirEngine.PathFinding::IsPathPossible", CS_PathIsPossible);
+	mono_add_internal_call("YmirEngine.PathFinding::GetPathIndex", CS_GetPathIndex);
+
+
+	mono_add_internal_call("YmirEngine.InternalCalls::GetWalkablePointAround", GetWalkablePointAround);
+#pragma endregion
+
 
 	mono_add_internal_call("YmirEngine.Time::get_deltaTime", GetDT);
 	mono_add_internal_call("YmirEngine.Time::get_time", GetTimeCS);

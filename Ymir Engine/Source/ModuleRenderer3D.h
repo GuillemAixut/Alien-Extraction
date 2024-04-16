@@ -48,6 +48,25 @@ class GameObject;
 class CCamera;
 class ParticleEmitter;
 
+struct LineRender
+{
+	LineRender(float3& _a, float3& _b, float3& _color, float _width = 10.f) : a(_a), b(_b), color(_color), width(_width) {}
+	float3 a, b, color;
+	float width;
+};
+
+struct DebugTriangle
+{
+	DebugTriangle(float3& _a, float3& _b, float3& _c, float3& _color) : a(_a), b(_b), c(_c), color(_color) {}
+	float3 a, b, c, color;
+};
+
+struct DebugPoint
+{
+	DebugPoint(float3& _position, float3& _color) : position(_position), color(_color) {}
+	float3 position, color;
+};
+
 class ModuleRenderer3D : public Module
 {
 public:
@@ -62,12 +81,26 @@ public:
 
 	void OnResize(int width, int height);
 	void SetGameCamera(CCamera* cam = nullptr);
-
+	bool IsWalkable(float3 pointToCheck);
 	void DrawGameObjects(bool isGame);
 	void ClearModels();
 
 	void EnableAssimpDebugger();
 	void CleanUpAssimpDebugger();
+
+	void DrawDebugLines();
+
+	void AddDebugLines(float3& a, float3& b, float3& color);
+
+	void AddDebugTriangles(float3& a, float3& b, float3& c, float3& color);
+
+	void AddDebugPoints(float3& position, float3& color);
+
+	void DebugLine(LineSegment& line);
+
+	void AddRay(float3& a, float3& b, float3& color, float& rayWidth);
+
+	void DrawRays();
 
 	void HandleDragAndDrop();
 	bool IsFileExtension(const char* directory, const char* extension);
@@ -121,6 +154,14 @@ public:
 
 	std::vector<ParticleEmitter*> particleEmitters;
 	bool initParticles = false;
+private:
+
+	std::vector<LineRender> lines;
+	std::vector<DebugTriangle> triangles;
+	std::vector<DebugPoint> points;
+	std::vector<LineRender> rays;
+
+	LineSegment pickingDebug;
 	// Outline Shader
 	Shader* outlineShader;
 
