@@ -74,7 +74,7 @@ void CScript::Update()
 		}
 		else
 		{
-			LOG("[ERROR] Something went wrong");
+			LOG("[ERROR] Something went wrong with: %s", mono_class_get_name(mono_object_get_class(exec)));
 		}
 	}
 }
