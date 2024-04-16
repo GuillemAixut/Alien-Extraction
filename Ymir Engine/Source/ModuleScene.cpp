@@ -89,7 +89,8 @@ bool ModuleScene::Start()
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
 
 #endif // _RELEASE
