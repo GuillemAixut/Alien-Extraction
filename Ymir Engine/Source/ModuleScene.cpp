@@ -104,7 +104,8 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
 
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	LoadSceneFromStart("Assets", "Pollo Loco");
+	//LoadSceneFromStart("Assets", "Pollo Loco");
+	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #endif // _STANDALONE
 

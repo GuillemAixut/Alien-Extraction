@@ -1401,7 +1401,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        14.605810165405273,
+                        14.605808258056641,
                         -0
                     ],
                     "Scale": [
@@ -2205,9 +2205,9 @@
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Bank Name": "LV2Music",
+                    "Event Name": "LV2_Inter",
+                    "Event ID": 3026565220
                 },
                 {
                     "Type": "Camera",
@@ -2237,6 +2237,12 @@
                 {
                     "Type": "Script",
                     "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SceneManager.cs",
                     "Active": 1,
                     "UID": 0
                 }
