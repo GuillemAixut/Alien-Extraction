@@ -23,7 +23,7 @@ public class Teleport_OnCollision : YmirComponent
     {
         if (other.Tag == "Player")
         {
-            InternalCalls.LoadScene(scene + ".yscene");
+            InternalCalls.LoadScene(scene);
         }
     }
 }
