@@ -146,7 +146,7 @@ public class Player : YmirComponent
 
     #region DEFINE MENUS
 
-    private bool _openInventory = false;
+    //private bool _openInventory = false;
 
     #endregion
 
@@ -156,8 +156,8 @@ public class Player : YmirComponent
     private GameObject cameraObject;
 
     //--------------------- External Scripts ---------------------\\
-    private UI_Bullets csBullets;
-    private Health csHealth;
+    //private UI_Bullets csBullets;
+    //private Health csHealth;
 
     private UI_Animation csUI_AnimationDash;
     private UI_Animation csUI_AnimationPredatory;
@@ -220,7 +220,7 @@ public class Player : YmirComponent
         reloadTimer = reloadDuration;
 
         //--------------------- Menus ---------------------\\
-        _openInventory = false;
+        //_openInventory = false;
 
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
