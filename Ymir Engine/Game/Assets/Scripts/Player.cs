@@ -616,6 +616,7 @@ public class Player : YmirComponent
                             currentState = STATE.SHOOTING;
                             StartShooting();
                             break;
+
                         case INPUT.I_RELOAD:
                             currentState = STATE.RELOADING;
                             StartReload();
@@ -799,7 +800,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOT_END:
                             currentState = STATE.SHOOTING;
-                            StartShooting();
+                            EndShooting();
                             break;
 
                         case INPUT.I_PRED_END:
@@ -844,6 +845,7 @@ public class Player : YmirComponent
                             currentState = STATE.SHOOTING;
                             StartShooting();
                             break;
+
                         case INPUT.I_RELOAD:
                             currentState = STATE.RELOADING;
                             StartReload();
@@ -995,7 +997,13 @@ public class Player : YmirComponent
 
         Vector3 offset = new Vector3(0, 15, 0);
         //Posicion desde la que se crea la bala (la misma que el game object que le dispara)
-        Vector3 pos = gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * 2);
+        //Vector3 pos = gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * 2);
+
+        //Distancias y posicion para que la bala salga desde delante del player
+        Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
+        float distance = 10.0f;
+        Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
+
 
         //Debug.Log("ParentPos: " + gameObject.transform.globalPosition.x + gameObject.transform.globalPosition.y + gameObject.transform.globalPosition.z);
         //Debug.Log("Spawn pos: " + pos);
@@ -1004,7 +1012,7 @@ public class Player : YmirComponent
         Quaternion rot = gameObject.transform.globalRotation;
 
         //Tamaño de la bala
-        Vector3 scale = new Vector3(2.0f, 2.0f, 4.0f);
+        Vector3 scale = new Vector3(2.0f, 2.0f, 2.0f);
 
         //Crea la bala
         //Debug.Log("rot: " + gameObject.transform.localRotation.x + gameObject.transform.localRotation.y + gameObject.transform.localRotation.z + gameObject.transform.localRotation.w);
@@ -1044,14 +1052,16 @@ public class Player : YmirComponent
 
         Vector3 offset = new Vector3(0, 15, 0);
 
-        //Posicion desde la que se crea la bala (la misma que el game object que le dispara)
-        Vector3 pos = gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * 2);
+        //Distancias y posicion para que la bala salga desde delante del player
+        Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
+        float distance = 20.0f; 
+        Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
 
         //Rotacion desde la que se crea la bala (la misma que el game object que le dispara)
         Quaternion rot = gameObject.transform.globalRotation;
 
         //Tamaño de la bala
-        Vector3 scale = new Vector3(2.0f, 2.0f, 4.0f);
+        Vector3 scale = new Vector3(2.0f, 2.0f, 2.0f);
 
         //Crea la bala
         InternalCalls.CreateBullet(pos, rot, scale);

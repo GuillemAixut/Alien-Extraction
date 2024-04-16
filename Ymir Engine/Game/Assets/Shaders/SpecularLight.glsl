@@ -254,7 +254,7 @@
 
         vec4 finalColor;
 		
-		if (numLights > 0) // Light Management
+		if (numPointLights > 0) // Light Management (we only handle Point Lights for the moment)
         {
             // Directional Light Management
 
@@ -279,6 +279,11 @@
     }
 
 #endif
+
+
+
+
+
 
 
 
