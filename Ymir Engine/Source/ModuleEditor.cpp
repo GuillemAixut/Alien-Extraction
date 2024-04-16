@@ -3337,53 +3337,6 @@ void ModuleEditor::DrawInspector()
 						}
 					}
 
-					// --- Add component Particles ---
-
-					//ERIC: Por necesitar un Material lo quito de poder crearlo directamente desde aqui
-					/*if ((CParticleSystem*)App->scene->selectedGO->GetComponent(ComponentType::PARTICLE) == nullptr)
-					{
-						if (ImGui::MenuItem("Particle"))
-						{
-							App->scene->selectedGO->AddComponent(ComponentType::PARTICLE);
-						}
-					}*/
-
-					//// --- Add component Camera ---
-
-					if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
-					{
-						if (ImGui::MenuItem("Camera"))
-						{
-							App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
-						}
-					}
-
-					//// --- Add component Physics ---
-
-					if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
-					{
-						if (ImGui::MenuItem("Physics"))
-						{
-							App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
-						}
-					}
-
-					if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
-					{
-						if (ImGui::MenuItem("Audio_Source"))
-						{
-							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
-						}
-					}
-
-					if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
-					{
-						if (ImGui::MenuItem("Audio_Listener"))
-						{
-							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
-						}
-					}
-
 					if (ImGui::BeginMenu("Script"))
 					{
 						if (ImGui::MenuItem("Add New Script")) {

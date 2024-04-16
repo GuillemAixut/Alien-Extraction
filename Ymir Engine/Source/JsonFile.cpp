@@ -1693,7 +1693,9 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		}
 
 		json_object_set_value(componentObject, "Emitters", emmitersArrayValue);
+		break;
 	}
+	break;
 	case NAVMESHAGENT:
 	{
 		json_object_set_string(componentObject, "Type", "NavMesh");
@@ -3556,7 +3558,6 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		}
 		gameObject->AddComponent(cparticleSystem);
 	}
-
 	else if (type == "NavMesh") {
 
 		CNavMeshAgent* comp = new CNavMeshAgent(gameObject);
