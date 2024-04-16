@@ -19,11 +19,10 @@ public class Tp_To_Lvl3 : YmirComponent
 		return;
 	}
 
-    public void OnCollisionStay(GameObject other)
+    public void OnCollisionEnter(GameObject other)
     {
         if (other.Tag == "Player")
         {
-            other.SetActive(false);
             InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene");
         }
     }

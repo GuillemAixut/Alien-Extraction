@@ -8,11 +8,10 @@ using YmirEngine;
 
 public class Tp_Lvl2_Part2 : YmirComponent
 {
-    public void OnCollisionStay(GameObject other)
+    public void OnCollisionEnter(GameObject other)
     {
         if(other.Tag == "Player")
         {
-            other.SetActive(false);
             InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene");
         }
     }
