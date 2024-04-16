@@ -27,6 +27,7 @@ ModuleFileSystem::ModuleFileSystem(Application* app, bool start_enabled) : Modul
 	libraryScriptsPath = libraryPath + "Scripts/";
 	libraryPrefabsPath = libraryPath + "Prefabs/";
 	libraryAnimationsPath = libraryPath + "Animations/";
+	libraryNavMeshPath = libraryPath + "NavMeshes/";
 
 	regenerateLibrary = false;
 
@@ -142,6 +143,7 @@ void ModuleFileSystem::CreateLibraryFolder()
 	PhysfsEncapsule::CreateFolder(libraryPath, "Scripts"); // Scripts
 	PhysfsEncapsule::CreateFolder(libraryPath, "Prefabs"); // Prefabs
 	PhysfsEncapsule::CreateFolder(libraryPath, "Animations"); // Animations
+	PhysfsEncapsule::CreateFolder(libraryPath, "NavMeshes"); // NavMeshes
 }
 
 bool ModuleFileSystem::SaveMeshToFile(std::vector<Vertex>& vertices, std::vector<GLuint>& indices, const std::string& filename) {
@@ -176,11 +178,11 @@ bool ModuleFileSystem::SaveAnimationToFile(ResourceAnimation* anim, const std::s
 
 	std::string name = filename;
 
-	for (name; PhysfsEncapsule::FileExists(name); name) {
+	/*for (name; PhysfsEncapsule::FileExists(name); name) {
 		int pos = name.length() - 6;
 		name.insert(pos, "_Copy");
 		LOG("File with name '%s'; changed to '%s'", filename.c_str(), name.c_str());
-	}
+	}*/
 
 	std::ofstream outFile(name, std::ios::binary);
 

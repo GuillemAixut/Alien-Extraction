@@ -23,7 +23,6 @@
 #include "External/FreeType/include/freetype/ftglyph.h"
 #pragma comment(lib, "Source/External/FreeType/libx86/freetype.lib")
 
-
 #ifdef _DEBUG
 #pragma comment (lib, "Source/External/MathGeoLib/libx86/lib_Debug/MathGeoLib.lib") /* link Microsoft OpenGL lib   */
 #else
@@ -41,11 +40,31 @@
 #include "Texture.h"
 #include "Shader.h"
 #include "UI_Text.h"
+#include "CMesh.h"
 
 #define MAX_GL_LIGHTS 8
 
 class GameObject;
 class CCamera;
+
+struct LineRender
+{
+	LineRender(float3& _a, float3& _b, float3& _color, float _width = 10.f) : a(_a), b(_b), color(_color), width(_width) {}
+	float3 a, b, color;
+	float width;
+};
+
+struct DebugTriangle
+{
+	DebugTriangle(float3& _a, float3& _b, float3& _c, float3& _color) : a(_a), b(_b), c(_c), color(_color) {}
+	float3 a, b, c, color;
+};
+
+struct DebugPoint
+{
+	DebugPoint(float3& _position, float3& _color) : position(_position), color(_color) {}
+	float3 position, color;
+};
 
 class ModuleRenderer3D : public Module
 {
@@ -61,12 +80,26 @@ public:
 
 	void OnResize(int width, int height);
 	void SetGameCamera(CCamera* cam = nullptr);
-
-	void DrawGameObjects();
+	bool IsWalkable(float3 pointToCheck);
+	void DrawGameObjects(bool isGame);
 	void ClearModels();
 
 	void EnableAssimpDebugger();
 	void CleanUpAssimpDebugger();
+
+	void DrawDebugLines();
+
+	void AddDebugLines(float3& a, float3& b, float3& color);
+
+	void AddDebugTriangles(float3& a, float3& b, float3& c, float3& color);
+
+	void AddDebugPoints(float3& position, float3& color);
+
+	void DebugLine(LineSegment& line);
+
+	void AddRay(float3& a, float3& b, float3& color, float& rayWidth);
+
+	void DrawRays();
 
 	void HandleDragAndDrop();
 	bool IsFileExtension(const char* directory, const char* extension);
@@ -86,11 +119,14 @@ public:
 
 	// Draw Physics Colliders
 	void DrawPhysicsColliders();
+
 	// Draw UI
 	void GetUIGOs(GameObject* go, std::vector<C_UI*>& listgo);
 	void DrawUIElements(bool isGame, bool isBuild);
 
 	void DrawLightsDebug();
+
+	void DrawOutline(CMesh* cMeshReference, float4x4 transform);
 
 public:
 
@@ -108,7 +144,15 @@ public:
 
 	bool texturingEnabled = true;
 
-	//font
-	Font* defaultFont;
+private:
+
+	std::vector<LineRender> lines;
+	std::vector<DebugTriangle> triangles;
+	std::vector<DebugPoint> points;
+	std::vector<LineRender> rays;
+
+	LineSegment pickingDebug;
+	// Outline Shader
+	Shader* outlineShader;
 
 };

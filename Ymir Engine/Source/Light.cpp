@@ -1,5 +1,7 @@
 #include "Light.h"
 
+#include "External/mmgr/mmgr.h"
+
 Light::Light() : type(LightType::UNKNOWN), color(float3::one), intensity(1.0f)
 {
 	lightGO = nullptr;

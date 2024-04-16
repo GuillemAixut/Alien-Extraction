@@ -209,90 +209,113 @@ void C_UI::DebugDraw()
 
 void C_UI::StateLogic()
 {
-	//if (External->editor->g->HoveredWindow != nullptr)
-	//{
-		//std::string name = External->editor->g->HoveredWindow->Name;
-		//if (name == "Game" && !static_cast<G_UI*>(mOwner)->canvas->fade)
-		//{
-			float2 mousePos = float2(External->editor->mouse.x, External->editor->mouse.y);
+	switch (state)
+	{
+	case UI_STATE::DISABLED:
+	{
+		OnDisabled();
+	}
+	break;
+	case UI_STATE::NORMAL:
+	{
+		//LOG("NORMAL");
+		OnNormal();
+	}
+	break;
+	case UI_STATE::FOCUSED:	// On hover
+	{
+		//LOG("FOCUSED");
 
-			switch (state)
-			{
-			case UI_STATE::DISABLED:
-				break;
-			case UI_STATE::NORMAL:
-			{
-				//LOG("NORMAL");
-				OnNormal();
-				if (MouseCheck(mousePos))
-				{
-					state = UI_STATE::FOCUSED;
-				}
-			}
-			break;
-			case UI_STATE::FOCUSED:	// On hover
-			{
-				//LOG("FOCUSED");
+		OnFocused();
+		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_DOWN))
+		{
+			state = UI_STATE::PRESSED;
+		}
+	}
+	break;
+	case UI_STATE::PRESSED: // On hold
+	{
+		//LOG("PRESSED");
 
-				OnFocused();
-				if ((External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN) ||
-					(External->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && !ImGui::GetIO().WantTextInput && !External->input->GetInputActive()))
-				{
-					state = UI_STATE::PRESSED;
-				}
-				if (!MouseCheck(mousePos))
-				{
-					state = UI_STATE::NORMAL;
-				}
-			}
-			break;
-			case UI_STATE::PRESSED: // On hold
-			{
-				//LOG("PRESSED");
+		OnPressed();
 
-				OnPressed();
-				if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_UP) || (External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_UP && MouseCheck(mousePos)) ||
-					(External->input->GetKey(SDL_SCANCODE_SPACE) == KEY_UP && !ImGui::GetIO().WantTextInput && !External->input->GetInputActive()))
-				{
-					state = UI_STATE::RELEASE;
-				}
-				else if (External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_UP && !MouseCheck(mousePos))
-				{
-					state = UI_STATE::NORMAL;
-				}
-			}
-			break;
-			case UI_STATE::RELEASE:
+		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_UP))
+		{
+			if (External->scene->focusedUIGO != nullptr && External->scene->focusedUIGO->UID != mOwner->UID)
 			{
-				//LOG("RELEASE");
-
-				OnRelease();
-				state = UI_STATE::SELECTED;
+				state = UI_STATE::NORMAL;
 			}
-			break;
-			case UI_STATE::SELECTED:
+			else
 			{
-				//LOG("SELECTED");
+				if (External->scene->selectedUIGO != nullptr && External->scene->selectedUIGO->UID != mOwner->UID)
+				{
+					for (int i = 0; i < External->scene->selectedUIGO->mComponents.size(); i++)
+					{
+						if (External->scene->selectedUIGO->mComponents[i]->ctype == ComponentType::UI)
+						{
+							if (static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state == UI_STATE::SELECTED)
+							{
+								static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state = UI_STATE::NORMAL;
+							}
+						}
+					}
+				}
+				External->scene->selectedUIGO = mOwner;
+				state = UI_STATE::RELEASE;
+			}
+		}
 
-				OnSelected();
-				if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_DOWN) || External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && MouseCheck(mousePos) ||
-					(External->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && !ImGui::GetIO().WantTextInput && !External->input->GetInputActive()))
-				{
-					state = UI_STATE::PRESSED;
-				}
-				else if (External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && !MouseCheck(mousePos))
-				{
-					state = UI_STATE::NORMAL;
-				}
+	}
+	break;
+	case UI_STATE::RELEASE:
+	{
+		//LOG("RELEASE");
+
+		OnRelease();
+		state = UI_STATE::SELECTED;
+	}
+	break;
+	case UI_STATE::SELECTED:
+	{
+		//LOG("SELECTED");
+
+		OnSelected();
+		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_DOWN))
+		{
+			if (External->scene->focusedUIGO != nullptr && External->scene->focusedUIGO->UID != mOwner->UID)
+			{
+				state = UI_STATE::NORMAL;
 			}
-			break;
-			case UI_STATE::NONE:
-				break;
-			default:
-				break;
+
+			else
+			{
+				if (External->scene->selectedUIGO != nullptr && External->scene->selectedUIGO->UID != mOwner->UID)
+				{
+					for (int i = 0; i < External->scene->selectedUIGO->mComponents.size(); i++)
+					{
+						if (External->scene->selectedUIGO->mComponents[i]->ctype == ComponentType::UI)
+						{
+							if (static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state == UI_STATE::SELECTED)
+							{
+								static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state = UI_STATE::NORMAL;
+							}
+						}
+					}
+				}
+				External->scene->selectedUIGO = mOwner;
+				state = UI_STATE::PRESSED;
 			}
-		//}
-	//}
+
+		}
+
+	}
+	break;
+	case UI_STATE::NONE:
+		break;
+	default:
+		break;
+	}
+
 }
 
 void C_UI::OnNormal()
@@ -317,6 +340,10 @@ void C_UI::OnRelease()
 }
 
 void C_UI::OnSelected()
+{
+}
+
+void C_UI::OnDisabled()
 {
 }
 
@@ -575,7 +602,6 @@ void UI_Bounds::RegenerateVBO()
 
 void UI_Bounds::DeleteBuffers()
 {
-
 	if (VBO != 0) {
 		glDeleteBuffers(1, &VBO);
 		VBO = 0;
@@ -590,7 +616,6 @@ void UI_Bounds::DeleteBuffers()
 		glDeleteBuffers(1, &VAO);
 		VAO = 0;
 	}
-
 
 	//glDeleteBuffers(1, &id_tex_uvs);
 	//id_tex_uvs = 0;

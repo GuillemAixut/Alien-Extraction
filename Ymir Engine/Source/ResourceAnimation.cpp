@@ -6,6 +6,8 @@
 #include <functional>
 #include "log.h"
 
+#include "External/mmgr/mmgr.h"
+
 ResourceAnimation::ResourceAnimation(uint UID) : Resource(UID, ResourceType::ANIMATION) {
 	
 	name = "";
@@ -19,6 +21,8 @@ ResourceAnimation::ResourceAnimation(uint UID) : Resource(UID, ResourceType::ANI
 	speed = 1;
 
 	currentTime = 0.0f;
+
+	resetToZero = true;
 
 	backwardsAux = true;
 	pingPongAux = true;

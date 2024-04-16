@@ -10,10 +10,10 @@
 #include "External/ImGui/backends/imgui_impl_sdl2.h"
 #include "External/ImGui/backends/imgui_impl_opengl3.h"
 
-#include "External/mmgr/mmgr.h"
-
 #include "ModuleFileSystem.h"
 #include "ModuleResourceManager.h"
+
+#include "External/mmgr/mmgr.h"
 
 CAnimation::CAnimation(GameObject* owner) : Component(owner, ComponentType::ANIMATION)
 {
@@ -185,6 +185,31 @@ void CAnimation::AddBlendOption(std::string animationName, std::string blendName
             animator->animations[i].blendMap.insert(std::make_pair(blendName, frames));;
         }
     }
+}
+
+void CAnimation::SetResetToZero(std::string animationName, bool resetToZero) {
+
+    if (animationName != "") {
+        for (int i = 0; i < animator->animations.size(); i++) {
+            if (animator->animations[i].name == animationName) {
+                animator->animations[i].resetToZero = resetToZero;
+                return;
+            }
+        }
+    }
+    else {
+        for (int i = 0; i < animator->animations.size(); i++) {
+            animator->animations[i].resetToZero = resetToZero;
+        }
+    }
+}
+
+bool CAnimation::HasFinished(std::string animationName) {
+
+    if (animator->previousAnimation == nullptr) return false;
+
+    return (animationName == animator->previousAnimation->name &&
+        animationName != animator->currentAnimation->name) ? true : false;
 }
 
 void CAnimation::YAnimDragDropTarget() {

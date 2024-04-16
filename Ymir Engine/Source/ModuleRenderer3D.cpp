@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleScene.h"
 #include "ModuleResourceManager.h"
+#include "ModulePathfinding.h"
 
 #include "Globals.h"
 #include "Log.h"
@@ -22,6 +23,7 @@
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	context = nullptr;
+	outlineShader = nullptr;
 
 	LOG("Creating ModuleRenderer3D");
 
@@ -142,7 +144,11 @@ bool ModuleRenderer3D::Init()
 
 		// Enable OpenGL initial configurations
 
+		// Stencil Buffer (outline)
 		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_STENCIL_TEST);
+		glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
 		glEnable(GL_CULL_FACE);
 		gl_lights[0].Active(true);
 		glEnable(GL_LIGHTING);
@@ -150,12 +156,13 @@ bool ModuleRenderer3D::Init()
 		glEnable(GL_TEXTURE_2D);
 		glEnable(GL_BLEND);
 		glEnable(GL_ALPHA_TEST);
+		
+
 		// Additional OpenGL configurations (starting disabled)
 
 		glDisable(GL_TEXTURE_3D);
 
 		glDisable(GL_MULTISAMPLE);
-		glDisable(GL_STENCIL_TEST);
 		glDisable(GL_SCISSOR_TEST);
 		glDisable(GL_POINT_SPRITE);
 		glDisable(GL_FOG);
@@ -219,6 +226,9 @@ bool ModuleRenderer3D::Init()
 	lightingShader->LoadShader("Assets/Shaders/Lighting Shader.glsl");
 	delete lightingShader;
 
+	outlineShader = new Shader;
+	outlineShader->LoadShader("Assets/Shaders/OutlineShader.glsl");
+
 	// Load Editor and Game FrameBuffers
 
 	App->camera->editorCamera->framebuffer.Load();
@@ -238,9 +248,7 @@ bool ModuleRenderer3D::Init()
 	
 	//App->scene->gameCameraComponent->framebuffer.Load();
 
-	defaultFont = new Font("de-valencia-beta.otf", "Assets\\Fonts");
-
-	uint UID = 1553236809; // UID of Cube.fbx mesh in meta (lo siento)
+	uint UID = 1728623793; // UID of Cube.fbx mesh in meta (lo siento)
 
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
 
@@ -258,7 +266,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 {
 	OPTICK_EVENT();
 
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
@@ -298,7 +306,7 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 #endif // _STANDALONE
 
 	// Clear color buffer and depth buffer before each PostUpdate call
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	// Your rendering code here
@@ -329,10 +337,6 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 
 		}
 
-		DrawGameObjects();
-
-		DrawUIElements(false, false);
-
 		// Render Bounding Boxes
 
 		if (External->scene->gameCameraComponent->drawBoundingBoxes)
@@ -347,9 +351,12 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 			DrawPhysicsColliders();
 		}
 
-		DrawGameObjects();
+		DrawGameObjects(false);
 
 		DrawLightsDebug();
+
+		DebugLine(pickingDebug);
+		DrawDebugLines();
 
 		DrawUIElements(false,false);
 
@@ -367,19 +374,12 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 
 		if (App->scene->gameCameraObject->active) {
 
-			if (App->scene->godMode)
+			if (App->scene->godMode || App->physics->debugGame)
 			{
 				DrawPhysicsColliders();
 			}
 
-			DrawGameObjects();
-
-			glMatrixMode(GL_PROJECTION);
-			glLoadIdentity();
-			glOrtho(0.0, App->editor->gameViewSize.x, App->editor->gameViewSize.y, 0.0, 1.0, -1.0);
-
-			glMatrixMode(GL_MODELVIEW);
-			glLoadIdentity();
+			DrawGameObjects(true);
 
 			DrawUIElements(true,false);
 
@@ -403,12 +403,12 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 
 		if (App->scene->gameCameraObject->active) {
 
-			if (App->scene->godMode)
+			if (App->scene->godMode || App->physics->debugGame)
 			{
 				DrawPhysicsColliders();
 			}
 
-			DrawGameObjects();
+			DrawGameObjects(true);
 
 			DrawUIElements(true, true);
 
@@ -433,6 +433,10 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 bool ModuleRenderer3D::CleanUp()
 {
 	LOG("Destroying 3D Renderer");
+
+	// Delete things from Init
+
+	delete outlineShader;
 
 	// Clean Framebuffers
 	App->camera->editorCamera->framebuffer.Delete();
@@ -638,10 +642,9 @@ void ModuleRenderer3D::DrawBoundingBoxes()
 
 		if (meshComponent != nullptr) {
 
-			if (IsInsideFrustum(External->scene->gameCameraComponent, meshComponent->rMeshReference->globalAABB))
+			if (IsInsideFrustum(External->scene->gameCameraComponent, meshComponent->globalAABB))
 			{
-				//meshComponent->rMeshReference->UpdateBoundingBoxes();
-				meshComponent->rMeshReference->RenderBoundingBoxes();
+				meshComponent->RenderBoundingBoxes();
 			}
 		}
 
@@ -680,6 +683,12 @@ void ModuleRenderer3D::DrawPhysicsColliders()
 				break;
 			case BroadphaseNativeTypes::CAPSULE_SHAPE_PROXYTYPE: // RENDER CAPSULE ==================
 				App->physics->RenderCapsuleCollider(colliderComponent->physBody);
+				break;			
+			case BroadphaseNativeTypes::CONE_SHAPE_PROXYTYPE: // RENDER CONE ========================
+				App->physics->RenderConeCollider(colliderComponent->physBody);
+				break;
+			case BroadphaseNativeTypes::CYLINDER_SHAPE_PROXYTYPE: // RENDER CYLINDER ==================
+				App->physics->RenderCylinderCollider(colliderComponent->physBody);
 				break;
 			case BroadphaseNativeTypes::CONVEX_TRIANGLEMESH_SHAPE_PROXYTYPE: // RENDER MESH =========
 				App->physics->RenderMeshCollider(colliderComponent->physBody);
@@ -770,7 +779,7 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_ALPHA_TEST);
-		glAlphaFunc(GL_GREATER, 0.0f);
+		glAlphaFunc(GL_GREATER, 0.5f);
 	}
 
 	//Get UI elements to draw
@@ -784,7 +793,7 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 
 	if (!listUI.empty())
 	{
-		for (auto i = listUI.size() - 1; i > 0; --i)
+		for (auto i = listUI.size() - 1; i >= 0; --i)
 		{
 			if (listUI[i]->mOwner->active && listUI[i]->active)
 			{
@@ -792,9 +801,11 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 				//listUI[i]->DebugDraw();
 
 			}
+			
+			if (i == 0) { break; }
 		}
 	}
-
+	glAlphaFunc(GL_GREATER, 0.0f);
 }
 
 void ModuleRenderer3D::DrawLightsDebug()
@@ -818,7 +829,45 @@ void ModuleRenderer3D::DrawLightsDebug()
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
-void ModuleRenderer3D::DrawGameObjects()
+void ModuleRenderer3D::DrawOutline(CMesh* cmesh, float4x4 transform)
+{
+	glEnable(GL_DEPTH_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+	glClear(GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+	glStencilMask(0x00);
+
+	// Stencil Testing (outline)
+	glStencilFunc(GL_ALWAYS, 1, 0xFF);
+	glStencilMask(0xFF);
+
+	cmesh->rMeshReference->Render();
+
+	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+	glStencilMask(0x00);
+	glDisable(GL_DEPTH_TEST);
+	App->editor->gl_DepthTesting = false;
+
+	outlineShader->UseShader(true);
+
+	// Scale the transformation matrix slightly (this should be done scaling smoothed normals)
+
+	float scaleFactor = 1.05f;
+	float3 scaleVector(scaleFactor, scaleFactor, scaleFactor);
+	float4x4 scaledMatrix = transform * float4x4::Scale(scaleVector, cmesh->aabb.CenterPoint());
+
+	outlineShader->SetShaderUniforms(&scaledMatrix, false);
+
+	cmesh->rMeshReference->Render();
+
+	glStencilMask(0xFF);
+	glStencilFunc(GL_ALWAYS, 1, 0xFF);
+	glEnable(GL_DEPTH_TEST);
+	App->editor->gl_DepthTesting = true;
+
+	outlineShader->UseShader(false);
+}
+
+void ModuleRenderer3D::DrawGameObjects(bool isGame)
 {
 	for (auto it = App->scene->gameObjects.begin(); it != App->scene->gameObjects.end(); ++it)
 	{
@@ -844,18 +893,24 @@ void ModuleRenderer3D::DrawGameObjects()
 
 		if ((*it)->active && meshComponent != nullptr && meshComponent->active)
 		{
-			if (IsInsideFrustum(External->scene->gameCameraComponent, meshComponent->rMeshReference->globalAABB))
+			if (IsInsideFrustum(External->scene->gameCameraComponent, meshComponent->globalAABB))
 			{
-
 				if (materialComponent != nullptr && materialComponent->active) {
 
-					for (auto& textures : materialComponent->rTextures) {
-
-						textures->BindTexture(true);
-
-					}
-
 					materialComponent->shader.UseShader(true);
+
+					for (size_t i = 0; i < materialComponent->rTextures.size(); ++i) {
+
+						if (materialComponent->rTextures[i]) {
+
+							std::string samplerName = materialComponent->rTextures[i]->GetSamplerName();
+
+							materialComponent->shader.SetSampler2D(samplerName, i);
+							materialComponent->rTextures[i]->BindTexture(true, i);
+
+						}
+						
+					}
 
 					if (animationComponent != nullptr && animationComponent->active) {
 						std::vector<float4x4> transforms = animationComponent->animator->GetFinalBoneMatrices();
@@ -866,17 +921,30 @@ void ModuleRenderer3D::DrawGameObjects()
 					materialComponent->shader.SetShaderUniforms(&transformComponent->mGlobalMatrix, (*it)->selected);
 				}
 
+				//if ((*it)->selected && !isGame) {
+
+				//	DrawOutline(meshComponent, transformComponent->mGlobalMatrix);
+
+				//}
+				//else {
+
 				meshComponent->rMeshReference->Render();
+
+				//}
 
 				if (materialComponent != nullptr && materialComponent->active) {
 
-					materialComponent->shader.UseShader(false);
+					for (size_t i = 0; i < materialComponent->rTextures.size(); ++i) {
 
-					for (auto& textures : materialComponent->rTextures) {
-							
-						textures->BindTexture(false);
+						if (materialComponent->rTextures[i]) {
+
+							materialComponent->rTextures[i]->BindTexture(false, i);
+
+						}
 
 					}
+
+					materialComponent->shader.UseShader(false);
 
 				}
 
@@ -886,6 +954,57 @@ void ModuleRenderer3D::DrawGameObjects()
 
 	}
 
+}
+
+bool ModuleRenderer3D::IsWalkable(float3 pointToCheck)
+{
+	//LineSegment walkablePoint = LineSegment(float3(pointToCheck.x, -20.0, pointToCheck.z), float3(pointToCheck.x, 20.0, pointToCheck.z));
+
+	//float nHit = 0;
+	//float fHit = 0;
+
+	//for (std::vector<CMesh*>::iterator i = renderQueue.begin(); i != renderQueue.end(); ++i)
+	//{
+	//	if (walkablePoint.Intersects((*i)->globalAABB, nHit, fHit))
+	//	{
+	//		//walkablePoints.push_back(walkablePoint);
+	//		return true;
+	//	}
+	//}
+
+	//for (std::vector<CMesh*>::iterator i = renderQueuePostStencil.begin(); i != renderQueuePostStencil.end(); ++i)
+	//{
+	//	if (walkablePoint.Intersects((*i)->globalAABB, nHit, fHit))
+	//	{
+	//		//walkablePoints.push_back(walkablePoint);
+	//		return true;
+	//	}
+	//}
+
+	///*if (walkable)
+	//{
+	//	glColor3f(0.f, 1.f, 0.f);
+	//	glLineWidth(2.f);
+	//	glBegin(GL_LINES);
+	//	glVertex3fv(&walkablePoint.a.x);
+	//	glVertex3fv(&walkablePoint.b.x);
+	//	glEnd();
+	//	glLineWidth(1.f);
+	//	glColor3f(1.f, 1.f, 1.f);
+	//}
+	//else
+	//{
+	//	glColor3f(1.f, 0.f, 0.f);
+	//	glLineWidth(2.f);
+	//	glBegin(GL_LINES);
+	//	glVertex3fv(&walkablePoint.a.x);
+	//	glVertex3fv(&walkablePoint.b.x);
+	//	glEnd();
+	//	glLineWidth(1.f);
+	//	glColor3f(1.f, 1.f, 1.f);
+	//}*/
+
+	return false;
 }
 
 void ModuleRenderer3D::ClearModels()
@@ -903,4 +1022,94 @@ void ModuleRenderer3D::EnableAssimpDebugger()
 void ModuleRenderer3D::CleanUpAssimpDebugger()
 {
 	aiDetachAllLogStreams();
+}
+
+void ModuleRenderer3D::DrawDebugLines()
+{
+	glBegin(GL_LINES);
+	for (size_t i = 0; i < lines.size(); i++)
+	{
+		glColor3fv(lines[i].color.ptr());
+		glVertex3fv(lines[i].a.ptr());
+		glVertex3fv(lines[i].b.ptr());
+
+		glColor3f(255.f, 255.f, 255.f);
+	}
+	glEnd();
+
+	lines.clear();
+
+	glBegin(GL_TRIANGLES);
+	for (size_t i = 0; i < triangles.size(); i++)
+	{
+		glColor3fv(triangles[i].color.ptr());
+
+		glVertex3fv(triangles[i].a.ptr());
+		glVertex3fv(triangles[i].b.ptr());
+		glVertex3fv(triangles[i].c.ptr());
+	}
+
+	glColor3f(255.f, 255.f, 255.f);
+	glEnd();
+
+	triangles.clear();
+
+	glPointSize(20.0f);
+	glBegin(GL_POINTS);
+	for (size_t i = 0; i < points.size(); i++)
+	{
+		glColor3fv(points[i].color.ptr());
+		glVertex3fv(points[i].position.ptr());
+		glColor3f(255.f, 255.f, 255.f);
+	}
+	glEnd();
+	glPointSize(1.0f);
+
+	points.clear();
+#ifndef _STANDALONE
+	External->pathFinding->DebugDraw();
+#endif
+}
+void ModuleRenderer3D::AddDebugLines(float3& a, float3& b, float3& color)
+{
+	lines.push_back(LineRender(a, b, color));
+}
+
+void ModuleRenderer3D::AddDebugTriangles(float3& a, float3& b, float3& c, float3& color)
+{
+	triangles.push_back(DebugTriangle(a, b, c, color));
+}
+void ModuleRenderer3D::AddDebugPoints(float3& position, float3& color)
+{
+	points.push_back(DebugPoint(position, color));
+}
+
+void ModuleRenderer3D::DebugLine(LineSegment& line)
+{
+	glLineWidth(2.f);
+	this->AddDebugLines(pickingDebug.a, pickingDebug.b, float3(1.f, 0.f, 0.f));
+	glLineWidth(1.f);
+}
+
+
+void ModuleRenderer3D::AddRay(float3& a, float3& b, float3& color, float& rayWidth)
+{
+	rays.push_back(LineRender(a, b, color, rayWidth));
+}
+
+void ModuleRenderer3D::DrawRays()
+{
+	for (size_t i = 0; i < rays.size(); i++)
+	{
+		glLineWidth(rays[i].width);
+		glBegin(GL_LINES);
+		glColor3fv(rays[i].color.ptr());
+		glVertex3fv(rays[i].a.ptr());
+		glVertex3fv(rays[i].b.ptr());
+
+		glColor3f(255.f, 255.f, 255.f);
+		glEnd();
+	}
+	//rays.clear();
+	glLineWidth(1.0f);
 }

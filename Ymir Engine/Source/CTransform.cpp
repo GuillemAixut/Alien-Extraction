@@ -145,6 +145,12 @@ void CTransform::SetRotation(float3 vec)
 	dirty_ = true;
 }
 
+void CTransform::SetRotation(Quat vec)
+{
+	rotation = vec;
+	dirty_ = true;
+}
+
 void CTransform::SetOrientation(btQuaternion bulletQuat)
 {
 	rotation = math::Quat(bulletQuat.x(), bulletQuat.y(), bulletQuat.z(), bulletQuat.w());
@@ -211,7 +217,7 @@ void CTransform::UpdateGlobalMatrix()
 	if (mOwner->mParent != nullptr && mOwner->mParent->mTransform != nullptr)
 	{
 		float4x4 Global_parent = mOwner->mParent->mTransform->mGlobalMatrix;
-		mGlobalMatrix = Global_parent * mLocalMatrix;// Your global matrix = your parent’s global matrix * your local Matrix
+		mGlobalMatrix = Global_parent * mLocalMatrix;// Your global matrix = your parentï¿½s global matrix * your local Matrix
 	}
 
 	else
@@ -220,20 +226,6 @@ void CTransform::UpdateGlobalMatrix()
 	}
 
 	UpdateBoundingBoxes();
-
-	// Update collider scale and rotation
-	CCollider* col = (CCollider*)mOwner->GetComponent(PHYSICS); 
-	CMesh* mesh = (CMesh*)mOwner->GetComponent(MESH); 
-
-	if (col != nullptr)
-	{
-		if (col->collType == ColliderType::MESH_COLLIDER || mesh == nullptr) col->size = { scale.x, scale.y, scale.z };
-		else col->size = mesh->rMeshReference->obb.Size();
-
-		col->physBody->SetRotation(rotation);
-	}
-
-
 }
 
 void CTransform::UpdateLocalMatrix()
@@ -257,10 +249,10 @@ void CTransform::UpdateBoundingBoxes()
 
 	if (meshComponent != nullptr)
 	{
-		meshComponent->rMeshReference->obb = meshComponent->rMeshReference->aabb;
-		meshComponent->rMeshReference->obb.Transform(mOwner->mTransform->GetGlobalTransform());
-		meshComponent->rMeshReference->globalAABB.SetNegativeInfinity();
-		meshComponent->rMeshReference->globalAABB.Enclose(meshComponent->rMeshReference->obb);
+		meshComponent->obb = meshComponent->aabb;
+		meshComponent->obb.Transform(mOwner->mTransform->GetGlobalTransform());
+		meshComponent->globalAABB.SetNegativeInfinity();
+		meshComponent->globalAABB.Enclose(meshComponent->obb);
 	}
 }
 

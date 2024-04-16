@@ -42,6 +42,7 @@ public:
 
 	// Draws the editor on the window
 	void DrawEditor();
+	ImVec2 NormalizeOnSceneWindow(float x, float y, float z, float h, float w, ImVec2 point);
 	void PrimitivesMenu();
 	void CreateCameraMenu();
 	void UIMenu();
@@ -125,6 +126,8 @@ public:
 	void CreateHierarchyTree(GameObject* node);
 	//void DestroyHierarchyTree(GameObject* node);
 
+	void DrawBakingTab();
+
 	// Function to encapsulate GameObjects inspector
 	void DrawInspector();
 
@@ -139,6 +142,7 @@ public:
 	// Function to draw Assets Window
 	void CreateNewFolder();
 	void DrawAssetsWindow(const std::string& assetsFolder);
+	void MoveAsset(const std::string& assetsFilePathDrop);
 
 	// Function to draw Delete Asset Popup
 	void DeleteAssetConfirmationPopup(const char* filePath);
@@ -170,6 +174,7 @@ public:
 	bool showAssimpLog = false;
 	bool showHierarchy = true;
 	bool showInspector = true;
+	bool showNavMesh = true;
 
 	bool showScene = true;
 	bool showGame = true;
@@ -182,7 +187,7 @@ public:
 	bool showNodeEditor = false;
 
 	bool showScriptingEditor = true;
-	bool showShaderEditor = false;
+	bool showShaderEditor = true;
 
 	// OpenGL settings checkbox toggle booleans
 	bool gl_DepthTesting = true;
@@ -193,7 +198,7 @@ public:
 	bool gl_TextureMapping3D = false;
 	bool gl_Blending = false;
 	bool gl_MSAA = false;
-	bool gl_StencilTesting = false;
+	bool gl_StencilTesting = true;
 	bool gl_ScissorTesting = false;
 	bool gl_AlphaTesting = false;
 	bool gl_PointSprites = false;
@@ -282,6 +287,7 @@ public:
 	Texture sceneIcon;
 	Texture prefabIcon;
 	Texture animIcon;
+	Texture fontIcon;
 
 	//New Component
 	int newComponent = 0; // 0 = default, 1 = RigidBody, 2 = Collider

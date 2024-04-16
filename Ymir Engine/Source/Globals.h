@@ -64,6 +64,9 @@ enum update_status
 #define ENGINE_COLOR ImVec4(1, 0.5, 0.5, 1)
 #define WARNING_COLOR ImVec4(0.9882, 0.7294, 0.0118, 1)
 
+// UI
+#define DEFAULT_FONT "arial.ttf"
+
 // Physics
 #define GRAVITY btVector3(0.0f, -10.0f, 0.0f) 
 
@@ -110,6 +113,16 @@ void ClearVecPtr(std::vector<T*>& x)
 	x.shrink_to_fit();
 
 }
+
+// Swap positions of vector elements
+template <typename t> void Swap(std::vector<t>& v, size_t oldIndex, size_t newIndex)
+{
+	if (oldIndex > newIndex)
+		std::rotate(v.rend() - oldIndex - 1, v.rend() - oldIndex, v.rend() - newIndex);
+	else
+		std::rotate(v.begin() + oldIndex, v.begin() + oldIndex + 1, v.begin() + newIndex + 1);
+}
+
 //Scripting fuction: Va a buscar un proyecto .sln y lo compila -> El proyecto Assembly-CSharp.sln
 static void CMDCompileCS()
 {

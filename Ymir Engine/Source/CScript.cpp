@@ -17,7 +17,7 @@
 #include "External/mmgr/mmgr.h"
 
 CScript* CScript::runningScript = nullptr;
-CScript::CScript(GameObject* _gm, const char* scriptName) : Component(_gm,  ComponentType::SCRIPT), noGCobject(0), updateMethod(nullptr),startMethod(nullptr), onExecuteButtonMethod(nullptr), isStarting(true)
+CScript::CScript(GameObject* _gm, const char* scriptName) : Component(_gm, ComponentType::SCRIPT), noGCobject(0), updateMethod(nullptr), startMethod(nullptr), onClickButtonMethod(nullptr), onHoverButtonMethod(nullptr), isStarting(true)
 {
 	name = scriptName;
 	//strcpy(name, scriptName);
@@ -46,7 +46,7 @@ CScript::~CScript()
 
 	methods.clear();
 	fields.clear();
-	//name.clear();
+	name.clear();
 
 }
 
@@ -59,7 +59,7 @@ void CScript::Update()
 	MonoObject* exec2 = nullptr;
 
 	if (startMethod && isStarting) {
-			mono_runtime_invoke(startMethod, mono_gchandle_get_target(noGCobject), NULL, &exec2);
+		mono_runtime_invoke(startMethod, mono_gchandle_get_target(noGCobject), NULL, &exec2);
 		isStarting = false;
 	}
 	MonoObject* exec = nullptr;
@@ -74,7 +74,7 @@ void CScript::Update()
 		}
 		else
 		{
-			LOG("[ERROR] Something went wrong");
+			LOG("[ERROR] Something went wrong with: %s", mono_class_get_name(mono_object_get_class(exec)));
 		}
 	}
 }
@@ -83,7 +83,7 @@ void CScript::ReloadComponent() {
 
 	LoadScriptData(name);
 
-}	
+}
 
 void CScript::OnRecursiveUIDChange(std::map<uint, GameObject*> gameObjects)
 {
@@ -269,7 +269,7 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 
 		ImGui::TextColored(ImVec4(1.f, 1.f, 0.f, 1.f), (field.fiValue.goValue != nullptr) ? field.fiValue.goValue->name.c_str() : "this");
 
-				
+
 		if (ImGui::BeginDragDropTarget())
 		{
 			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload(dropType))
@@ -287,7 +287,7 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 		}
 
 		//Hardcodeado para que asigne el GO del objeto del script a todos los campos
-		
+
 		//field.fiValue.goValue = mOwner;
 		//SetField(field.field, field.fiValue.goValue);
 
@@ -312,7 +312,6 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 
 	case MonoTypeEnum::MONO_TYPE_STRING:
 	{
-
 		MonoString* str = nullptr;
 		mono_field_get_value(mono_gchandle_get_target(noGCobject), field.field, &str);
 
@@ -320,7 +319,7 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 		strcpy(field.fiValue.strValue, value);
 		mono_free(value);
 
-		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 50))
+		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 200))
 		{
 			str = mono_string_new(External->moduleMono->domain, field.fiValue.strValue);
 			mono_field_set_value(mono_gchandle_get_target(noGCobject), field.field, str);
@@ -342,7 +341,7 @@ void CScript::LoadScriptData(std::string scriptName)
 {
 	methods.clear();
 	fields.clear();
-	
+
 	scriptName.find_first_of('.');
 	size_t pos = scriptName.find_last_of('.');
 
@@ -375,7 +374,7 @@ void CScript::LoadScriptData(std::string scriptName)
 	MonoMethodDesc* oncDesc = mono_method_desc_new(":OnCollisionStay", false);
 	onCollisionStayMethod = mono_method_desc_search_in_class(oncDesc, klass);
 	mono_method_desc_free(oncDesc);
-	
+
 	oncDesc = mono_method_desc_new(":OnCollisionEnter", false);
 	onCollisionEnterMethod = mono_method_desc_search_in_class(oncDesc, klass);
 	mono_method_desc_free(oncDesc);
@@ -384,14 +383,22 @@ void CScript::LoadScriptData(std::string scriptName)
 	onCollisionExitMethod = mono_method_desc_search_in_class(oncDesc, klass);
 	mono_method_desc_free(oncDesc);
 
-	MonoMethodDesc* oncBut = mono_method_desc_new(":OnExecuteButton", false);
-	onExecuteButtonMethod = mono_method_desc_search_in_class(oncBut, klass);
+	MonoMethodDesc* oncBut = mono_method_desc_new(":OnClickButton", false);
+	onClickButtonMethod = mono_method_desc_search_in_class(oncBut, klass);
 	mono_method_desc_free(oncBut);
 
 	oncDesc = mono_method_desc_new(":Start", false);
 	startMethod = mono_method_desc_search_in_class(oncDesc, klass);
 	mono_method_desc_free(oncDesc);
 
+	
+	MonoMethodDesc* onhBut = mono_method_desc_new(":OnHoverButton", false);
+	onHoverButtonMethod = mono_method_desc_search_in_class(onhBut, klass);
+	mono_method_desc_free(onhBut);
+
+	oncDesc = mono_method_desc_new(":Start", false);
+	startMethod = mono_method_desc_search_in_class(oncDesc, klass);
+	mono_method_desc_free(oncDesc);
 
 
 	MonoClass* baseClass = mono_class_get_parent(klass);
@@ -441,17 +448,40 @@ void CScript::CollisionEnterCallback(bool isTrigger, GameObject* collidedGameObj
 void CScript::CollisionExitCallback(bool isTrigger, GameObject* collidedGameObject)
 {
 	void* params[1];
-	params[0] = collidedGameObject;
+	if (collidedGameObject != nullptr)
+	{
+		params[0] = External->moduleMono->GoToCSGO(collidedGameObject);
 
-	if (onCollisionExitMethod != nullptr) {
-		mono_runtime_invoke(onCollisionExitMethod, mono_gchandle_get_target(noGCobject), params, NULL);
+		if (onCollisionExitMethod != nullptr)
+		{
+			mono_runtime_invoke(onCollisionExitMethod, mono_gchandle_get_target(noGCobject), params, NULL);
+			External->physics->firstCollision = true; // Restablecer firstCollision aqui despues de salir de la colision
+			External->physics->onExitCollision = false;
+		}
+			
+			
+
+		if (isTrigger)
+		{
+			if (onCollisionExitMethod != nullptr)
+				mono_runtime_invoke(onCollisionExitMethod, mono_gchandle_get_target(noGCobject), params, NULL);
+		}
 	}
 }
-void CScript::ExecuteButton() {
 
-	if (onExecuteButtonMethod != nullptr) {
+void CScript::OnClickButton() {
 
-		mono_runtime_invoke(onExecuteButtonMethod, mono_gchandle_get_target(noGCobject), NULL, NULL);
+	if (onClickButtonMethod != nullptr) {
+
+		mono_runtime_invoke(onClickButtonMethod, mono_gchandle_get_target(noGCobject), NULL, NULL);
+	}
+}
+
+void CScript::OnHoverButton() {
+
+	if (onHoverButtonMethod != nullptr) {
+
+		mono_runtime_invoke(onHoverButtonMethod, mono_gchandle_get_target(noGCobject), NULL, NULL);
 	}
 }
 

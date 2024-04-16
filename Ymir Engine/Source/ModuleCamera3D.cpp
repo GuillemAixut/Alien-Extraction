@@ -18,6 +18,9 @@
 
 ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
+	hoveringEditor = false;
+	speed = 0;
+
 	editorCamera = new CCamera(nullptr, false);
 
 	editorCamera->SetPos(-36.0f, 48.00f, 100.0f);
@@ -76,7 +79,7 @@ update_status ModuleCamera3D::Update(float dt)
 
 	float speed = 20.0f * dt;
 
-	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT) speed *= 2;
+	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT) speed *= 6;
 
 	// Mouse wheel Zoom In and Zoom Out handling
 	if (hoveringEditor)
@@ -143,10 +146,10 @@ void ModuleCamera3D::Focus()
 			if ((*meshComponent).mOwner->selected)
 			{
 				//Reference = selectedList[i]->mesh->global_aabb.CenterPoint();
-				float3 size = meshComponent->rMeshReference->globalAABB.Size();
-				center = meshComponent->rMeshReference->globalAABB.CenterPoint();
+				float3 size = meshComponent->globalAABB.Size();
+				center = meshComponent->globalAABB.CenterPoint();
 				editorCamera->frustum.pos.Set(center.x + size.x, center.y + size.y, center.z + size.z);
-				editorCamera->LookAt(meshComponent->rMeshReference->globalAABB.CenterPoint());
+				editorCamera->LookAt(meshComponent->globalAABB.CenterPoint());
 			}
 		}
 	}

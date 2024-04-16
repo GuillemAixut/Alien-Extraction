@@ -19,6 +19,7 @@
 #include "GameObject.h"
 #include "G_UI.h"
 #include "PhysfsEncapsule.h"
+#include "External/RecastNavigation/NavMeshBuilder.h"
 
 #include "External/SDL/include/SDL_opengl.h"
 
@@ -28,9 +29,9 @@
 
 #include "Texture.h"
 #include "ScriptEditor.h"
+#include "ImGuiCustom.h"
 
 #include "External/mmgr/mmgr.h"
-#include "ImGuiCustom.h"
 
 // Constructor
 ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled)
@@ -139,6 +140,7 @@ bool ModuleEditor::Init()
 	sceneIcon.LoadEngineIconTexture("Assets/Editor/scene2.dds");
 	prefabIcon.LoadEngineIconTexture("Assets/Editor/prefab.dds");
 	animIcon.LoadEngineIconTexture("Assets/Editor/animation.dds");
+	fontIcon.LoadEngineIconTexture("Assets/Editor/font.dds");
 
 	scriptEditor = new ScriptEditor();
 	scriptEditor->LoadScriptTXT("../Game/Assets/Scripts/Core.cs");
@@ -357,6 +359,12 @@ void ModuleEditor::DrawEditor()
 			if (ImGui::MenuItem("Inspector")) {
 
 				showInspector = true;
+
+			}
+
+			if (ImGui::MenuItem("Navigation")) {
+
+				showNavMesh = true;
 
 			}
 
@@ -1022,6 +1030,19 @@ void ModuleEditor::DrawEditor()
 
 	}
 
+	if (showNavMesh) {
+
+
+		if (ImGui::Begin("Navigation", &showNavMesh), true)
+		{
+			
+			DrawBakingTab();;
+		}
+		ImGui::End();
+
+
+	}
+
 	// END OF APPLICATION MENU
 
 	if (showImGuiDemo) {
@@ -1379,6 +1400,45 @@ void ModuleEditor::DrawEditor()
 
 			// Mouse Picking Management
 
+#ifndef _STANDALONE
+			if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT && !ImGuizmo::IsUsing())
+			{
+				if (ImGui::IsWindowHovered())
+				{
+					if (!ImGuizmo::IsUsing() && !App->input->GetKey(SDL_SCANCODE_LALT) == KEY_DOWN)	
+					{
+
+
+						App->camera->mousePickingRay.Transform(App->pathFinding->matrizglobal.Inverted());
+
+						if (External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN)
+								External->pathFinding->CheckNavMeshIntersection(App->camera->mousePickingRay, SDL_BUTTON_LEFT);
+	
+					}
+				}
+			}
+
+			if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT && !ImGuizmo::IsUsing())
+			{
+				if (ImGui::IsWindowHovered())
+				{
+					if (!ImGuizmo::IsUsing() && !App->input->GetKey(SDL_SCANCODE_LALT) == KEY_DOWN)
+					{
+
+						App->camera->mousePickingRay.Transform(App->pathFinding->matrizglobal.Inverted());
+
+
+						if (External->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_DOWN)
+							External->pathFinding->CheckNavMeshIntersection(App->camera->mousePickingRay, SDL_BUTTON_RIGHT);
+
+					}
+				}
+			}
+
+#endif // !STANDALONE
+
+
+
 			if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT && !ImGuizmo::IsUsing())
 			{
 				MousePickingManagement(mousePosition, sceneWindowPos, sceneWindowSize, sceneFrameHeightOffset);
@@ -1386,7 +1446,20 @@ void ModuleEditor::DrawEditor()
 
 			if (ImGui::BeginDragDropTarget())
 			{
-				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
+				{
+					std::string assetsFilePathDrop = (const char*)payload->Data;
+					if (assetsFilePathDrop.find(".png") != std::string::npos) {
+
+						assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+
+						LOG("File path: %s", assetsFilePathDrop.c_str());
+
+						App->resourceManager->ImportFile(assetsFilePathDrop);
+					}
+				}
+
+				else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
 				{
 					std::string assetsFilePathDrop = (const char*)payload->Data;
 
@@ -1400,7 +1473,7 @@ void ModuleEditor::DrawEditor()
 
 					}
 
-					if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
+					else if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
 
 						assetsFilePathDrop.erase(assetsFilePathDrop.find(".yscene") + 7);
 
@@ -1413,7 +1486,7 @@ void ModuleEditor::DrawEditor()
 
 					}
 
-					if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
+					else if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
 
 						assetsFilePathDrop.erase(assetsFilePathDrop.find(".yfab") + 5);
 
@@ -1423,16 +1496,6 @@ void ModuleEditor::DrawEditor()
 						PhysfsEncapsule::SplitFilePath(assetsFilePathDrop.c_str(), &path, &name);
 
 						App->scene->LoadPrefab(path, name);
-
-					}
-
-					if (assetsFilePathDrop.find(".png") != std::string::npos) {
-
-						assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
-
-						LOG("File path: %s", assetsFilePathDrop.c_str());
-
-						App->resourceManager->ImportFile(assetsFilePathDrop);
 
 					}
 
@@ -1497,15 +1560,24 @@ void ModuleEditor::DrawEditor()
 
 }
 
+ImVec2 ModuleEditor::NormalizeOnSceneWindow(float x, float y, float z, float h, float w, ImVec2 point) {
+
+	ImVec2 normalizePoint;
+
+	normalizePoint.x = (point.x - x) / ((x + w) - x);
+	normalizePoint.y = (point.y - y) / ((y + h) - y);
+
+	return normalizePoint;
+
+}
+
 void ModuleEditor::PrimitivesMenu()
 {
 	if (ImGui::BeginMenu("3D Primitives")) {
 
 		if (ImGui::MenuItem("Plane")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Plane.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Plane.fbx");
 
 			LOG("Plane created successfully");
 
@@ -1513,9 +1585,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Cube")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Cube.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Cube.fbx");
 
 			LOG("Cube created successfully");
 
@@ -1523,9 +1593,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Pyramid")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Pyramid.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Pyramid.fbx");
 
 			LOG("Pyramid created successfully");
 
@@ -1533,9 +1601,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Cylinder")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Cylinder.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Cylinder.fbx");
 
 			LOG("Cylinder created successfully");
 
@@ -1543,9 +1609,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Cone")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Cone.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Cone.fbx");
 
 			LOG("Cone created successfully");
 
@@ -1553,9 +1617,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Sphere")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Sphere.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Sphere.fbx");
 
 			LOG("Sphere created successfully");
 
@@ -1563,9 +1625,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Torus")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Torus.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Torus.fbx");
 
 			LOG("Torus created successfully");
 
@@ -1573,9 +1633,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Capsule")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Capsule.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Capsule.fbx");
 
 			LOG("Capsule created successfully");
 
@@ -1583,9 +1641,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Disc")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Disc.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Disc.fbx");
 
 			LOG("Disc created successfully");
 
@@ -1593,9 +1649,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Platonic Solid")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/PlatonicSolid.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/PlatonicSolid.fbx");
 
 			LOG("Platonic Solid created successfully");
 
@@ -1603,9 +1657,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Prism")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Prism.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Prism.fbx");
 
 			LOG("Prism created successfully");
 
@@ -1613,9 +1665,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Pipe")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Pipe.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Pipe.fbx");
 
 			LOG("Pipe created successfully");
 
@@ -1623,9 +1673,7 @@ void ModuleEditor::PrimitivesMenu()
 
 		if (ImGui::MenuItem("Helix")) {
 
-			App->renderer3D->models.push_back(Model("Assets/Primitives/Helix.fbx"));
-
-			App->renderer3D->ReloadTextures();
+			App->resourceManager->ImportFile("Assets/Primitives/Helix.fbx");
 
 			LOG("Helix created successfully");
 
@@ -1634,6 +1682,7 @@ void ModuleEditor::PrimitivesMenu()
 		ImGui::EndMenu();
 
 	}
+
 }
 
 void ModuleEditor::CreateCameraMenu()
@@ -2165,6 +2214,8 @@ bool ModuleEditor::CleanUp()
 	bool ret = true;
 
 	LOG("Deleting editor...");
+
+	delete scriptEditor;
 
 	nodeEditor.Destroy();
 
@@ -2829,7 +2880,7 @@ void ModuleEditor::CreateHierarchyTree(GameObject* node)
 
 		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_DefaultOpen | (node->selected ? ImGuiTreeNodeFlags_Selected : 0) | (node->mChildren.size() ? 0 : ImGuiTreeNodeFlags_Leaf);
 
-		if (!node->active) ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 0.4f));
+		if (!node->active) ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.421f, 0.421f, 0.421f, 1.0f));
 
 		bool isNodeOpen = ImGui::TreeNodeEx((node->name + "##" + std::to_string(node->UID)).c_str(), flags);
 
@@ -2940,6 +2991,116 @@ void ModuleEditor::CreateHierarchyTree(GameObject* node)
 //
 //}
 
+void ModuleEditor::DrawBakingTab()
+{
+	char buffer[50];
+
+	ImGui::Text("Agent Properties");
+
+	ImGui::Spacing();
+	ImGui::Separator();
+	ImGui::Spacing();
+
+	ImGui::Columns(2, NULL, FALSE);
+	ImGui::Spacing();
+	ImGui::Text("Radius");
+	ImGui::Spacing();
+	ImGui::Text("Height");
+	ImGui::Spacing();
+	ImGui::Text("Step Height");
+	ImGui::Spacing();
+	ImGui::Text("Max Slope");
+	ImGui::Spacing();
+	ImGui::NextColumn();
+
+	sprintf_s(buffer, 50, "%.2f", External->pathFinding->bakedNav.radius);
+	if (ImGui::InputText("##Radius", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.radius = strtod(buffer, NULL);
+		}
+	}
+	sprintf_s(buffer, 50, "%.2f", External->pathFinding->bakedNav.height);
+	if (ImGui::InputText("##Height", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.height = strtod(buffer, NULL);
+		}
+	}
+	sprintf_s(buffer, 50, "%.2f", External->pathFinding->bakedNav.stopHeight);
+	if (ImGui::InputText("##StopHeight", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.stopHeight = strtod(buffer, NULL);
+		}
+	}
+	sprintf_s(buffer, 50, "%d", External->pathFinding->bakedNav.maxSlope);
+	if (ImGui::InputText("##Slope", &buffer[0], sizeof(buffer)))
+	{
+		if (buffer[0] != '\0') {
+			External->pathFinding->bakedNav.maxSlope = strtod(buffer, NULL);
+		}
+	}
+
+	ImGui::Columns(1);
+
+	ImGui::Dummy({ 0,10 });
+
+	if (ImGui::Button("Calculate"))
+	{
+		External->pathFinding->BakeNavMesh();
+	}
+
+	ImGui::SameLine();
+	if (ImGui::Button("Clear"))
+	{
+		External->pathFinding->ClearNavMeshes();
+	}
+
+	ImGui::Checkbox("Debug Draw", &External->pathFinding->debugDraw);
+
+	/*ImGui::Text("Input Mesh");
+	ImGui::Button("Drop mesh here");
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("_GAMEOBJECT"))
+		{
+			int uid = *(int*)payload->Data;
+
+			GameObject* droppedGO = External->moduleScene->GetGOFromUID(External->moduleScene->root, uid);
+			External->pathFinding->AddGameObjectToNavMesh(droppedGO);
+		}
+		ImGui::EndDragDropTarget();
+	}
+
+	ImGui::Text("Current NavMesh");
+	*/
+
+#ifndef _STANDALONE
+	NavMeshBuilder* navMeshBuilder = External->pathFinding->GetNavMeshBuilder();
+	if (navMeshBuilder != nullptr)
+	{
+		navMeshBuilder->OnEditor();
+	}
+
+#endif // !STANDALONE
+
+	/*if(ImGui::Button("Create Walkability Test"))
+	{
+		External->pathFinding->CreateWalkabilityTestPoint();
+	}*/
+
+	ImGui::Text("Path Type");
+
+	if (ImGui::RadioButton("Smooth Path", External->pathFinding->pathfinder.pathType == PathType::SMOOTH))
+		External->pathFinding->pathfinder.pathType = PathType::SMOOTH;
+
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Straight Path", External->pathFinding->pathfinder.pathType == PathType::STRAIGHT))
+		External->pathFinding->pathfinder.pathType = PathType::STRAIGHT;
+
+}
+
 void ModuleEditor::DrawInspector()
 {
 	//for (auto it = App->scene->gameObjects.begin(); it != App->scene->gameObjects.end(); ++it) {
@@ -2969,6 +3130,8 @@ void ModuleEditor::DrawInspector()
 
 			ImGui::Spacing();
 
+			ImGui::Checkbox("Static", &App->scene->selectedGO->isStatic);
+
 			ImGui::Text("Tag"); ImGui::SameLine();
 
 			ImGuiStyle& style = ImGui::GetStyle();
@@ -2980,13 +3143,27 @@ void ModuleEditor::DrawInspector()
 
 			std::vector<std::string> tags = External->scene->tags;
 
-			if (ImGui::BeginCombo("##tags", App->scene->selectedGO->tag))
+			for (std::vector<std::string>::iterator it = External->scene->tags.begin(); it != External->scene->tags.end(); ++it)
+			{
+				for (auto to = it + 1; to != External->scene->tags.end();)
+				{
+					if ((*it) == (*to))
+					{
+						to = External->scene->tags.erase(to);
+					}
+					else
+					{
+						++to;
+					}
+				}
+			}
+			if (ImGui::BeginCombo("##tags", App->scene->selectedGO->tag.c_str()))
 			{
 				for (int t = 0; t < tags.size(); t++)
 				{
-					bool is_selected = strcmp(App->scene->selectedGO->tag, tags[t].c_str()) == 0;
+					bool is_selected = strcmp(App->scene->selectedGO->tag.c_str(), tags[t].c_str()) == 0;
 					if (ImGui::Selectable(tags[t].c_str(), is_selected)) {
-						strcpy(App->scene->selectedGO->tag, tags[t].c_str());
+						App->scene->selectedGO->tag = tags[t];
 					}
 
 					if (is_selected)
@@ -2996,13 +3173,18 @@ void ModuleEditor::DrawInspector()
 				{
 					static char newTag[32];
 					ImGui::InputText("##Juan", newTag, IM_ARRAYSIZE(newTag));
-
-					if (ImGui::Button("Save Tag")) {
-						char* tagToAdd = new char[IM_ARRAYSIZE(newTag)];
-						strcpy(tagToAdd, newTag);
-						External->scene->tags.push_back(tagToAdd);
-						newTag[0] = '\0';
-						delete[] tagToAdd;
+					bool estaVacio = (std::strlen(newTag) == 0);
+					
+					if(ImGui::Button("Save Tag")) 
+					{
+						if (!estaVacio)
+						{
+							char* tagToAdd = new char[IM_ARRAYSIZE(newTag)];
+							strcpy(tagToAdd, newTag);
+							External->scene->tags.push_back(tagToAdd);
+							newTag[0] = '\0';
+							delete[] tagToAdd;
+						}
 					}
 					ImGui::EndMenu();
 				}
@@ -3070,105 +3252,133 @@ void ModuleEditor::DrawInspector()
 			// Set the cursor position to center the button within the menu
 			ImGui::SetCursorPosX(xPos);
 
+			static bool click = false;
 
 			if (ImGui::Button("Add Component", ImVec2(110, 30)))
 			{
 				ImGui::OpenPopup("AddComponents");
-				ImGui::SameLine();
+				click = false;
 			}
 
-			if (ImGui::BeginPopup("AddComponents"))
+			if (!click)
 			{
-				ImGui::SeparatorText("Components");
-
-				// Skip transform
-				// --- Add component Mesh ---
-
-				/*if (mesh == nullptr)
+				if (ImGui::BeginPopup("AddComponents"))
 				{
-					if (ImGui::BeginMenu("Mesh"))
+					ImGui::SeparatorText("Components");
+
+					// Skip transform
+					// --- Add component Mesh ---
+
+					/*if (mesh == nullptr)
 					{
-						App->editor->PrimitivesMenu();
-						ImGui::EndMenu();
-					}
-				}*/
+						if (ImGui::BeginMenu("Mesh"))
+						{
+							App->editor->PrimitivesMenu();
+							ImGui::EndMenu();
+						}
+					}*/
 
-				// --- Add component Material ---
-				if ((CMaterial*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
-				{
-					if (ImGui::MenuItem("Material"))
+					// --- Add component Material ---
+					if ((CMaterial*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
 					{
-						App->scene->selectedGO->AddComponent(ComponentType::MATERIAL);
-					}
-				}
-
-				//// --- Add component Camera ---
-
-				if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
-				{
-					if (ImGui::MenuItem("Camera"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
-					}
-				}
-
-				//// --- Add component Physics ---
-
-				if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
-				{
-					if (ImGui::MenuItem("Physics"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
-					}
-				}
-
-				if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
-				{
-					if (ImGui::MenuItem("Audio_Source"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
-					}
-				}
-
-				if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
-				{
-					if (ImGui::MenuItem("Audio_Listener"))
-					{
-						App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
-					}
-				}
-
-				if (ImGui::BeginMenu("Script"))
-				{
-					if (ImGui::MenuItem("Add New Script")) {
-
-						//Todo: Add NewScript
-						showNewScriptPopUp = true;
-
-					}
-
-					ImGui::Separator();
-
-					for (const auto& entry : std::filesystem::directory_iterator("Assets/Scripts")) {
-
-						if (!entry.is_directory()) {
-
-							std::string entryName = entry.path().filename().string();
-							if (ImGui::MenuItem(entryName.c_str()))
-							{
-								script_name = entryName.c_str();
-								App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
-							}
-
+						if (ImGui::MenuItem("Material"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::MATERIAL);
 						}
 					}
 
-					ImGui::EndMenu();
+					//// --- Add component Camera ---
+
+					if ((CCamera*)App->scene->selectedGO->GetComponent(ComponentType::CAMERA) == nullptr)
+					{
+						if (ImGui::MenuItem("Camera"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::CAMERA);
+						}
+					}
+
+					//// --- Add component Physics ---
+
+					if ((CCollider*)App->scene->selectedGO->GetComponent(ComponentType::PHYSICS) == nullptr)
+					{
+						if (ImGui::MenuItem("Physics"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::PHYSICS);
+						}
+					}
+
+					if ((CAudioSource*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_SOURCE) == nullptr)
+					{
+						if (ImGui::MenuItem("Audio_Source"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_SOURCE);
+						}
+					}
+
+					if ((CAudioListener*)App->scene->selectedGO->GetComponent(ComponentType::AUDIO_LISTENER) == nullptr)
+					{
+						if (ImGui::MenuItem("Audio_Listener"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::AUDIO_LISTENER);
+						}
+					}
+
+					if (ImGui::BeginMenu("Script"))
+					{
+						if (ImGui::MenuItem("Add New Script")) {
+
+							//Todo: Add NewScript
+							showNewScriptPopUp = true;
+
+						}
+
+						static ImGuiTextFilter scriptFilter;
+
+						scriptFilter.Draw("Search", ImGui::GetFontSize() * 15);
+
+						ImGui::Separator();
+
+						for (const auto& entry : std::filesystem::directory_iterator("Assets/Scripts")) {
+
+							std::string entryName = entry.path().filename().string();
+
+							if (!entry.is_directory() && scriptFilter.PassFilter(entryName.c_str())) {
+
+								if (ImGui::BeginChild("##ScriptsAddComponent", ImVec2(0, 300), true))
+								{
+									if (ImGui::MenuItem(entryName.c_str()))
+									{
+										script_name = entryName.c_str();
+										App->scene->selectedGO->AddComponent(ComponentType::SCRIPT);
+
+										click = true;
+									}
+								}
+
+								ImGui::EndChild();
+
+							}
+						}
+
+						ImGui::EndMenu();
+					}
+
+					if ((CNavMeshAgent*)App->scene->selectedGO->GetComponent(ComponentType::NAVMESHAGENT) == nullptr)
+					{
+						if (ImGui::MenuItem("NavMesh_Agent"))
+						{
+							App->scene->selectedGO->AddComponent(ComponentType::NAVMESHAGENT);
+						}
+					}
+
+					//delete physics;
+					ImGui::EndPopup();
 				}
 
-				//delete physics;
-				ImGui::EndPopup();
+
+
 			}
+
 			if (!App->scene->selectedGO->active) { ImGui::EndDisabled(); }
 		}
 	}
@@ -3448,7 +3658,22 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 		if (ImGui::BeginDragDropTarget())
 		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
+			{
+				std::string assetsFilePathDrop = (const char*)payload->Data;
+				if (assetsFilePathDrop.find(".png") != std::string::npos) {
+
+					assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+
+					LOG("File path: %s", assetsFilePathDrop.c_str());
+
+				}
+
+				MoveAsset(assetsFilePathDrop);
+
+			}
+
+			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
 			{
 				std::string assetsFilePathDrop = (const char*)payload->Data;
 
@@ -3460,7 +3685,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 
-				if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
+				else if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
 
 					assetsFilePathDrop.erase(assetsFilePathDrop.find(".yscene") + 7);
 
@@ -3468,7 +3693,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 
-				if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
+				else if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
 
 					assetsFilePathDrop.erase(assetsFilePathDrop.find(".yfab") + 5);
 
@@ -3476,37 +3701,24 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 
-				if (assetsFilePathDrop.find(".png") != std::string::npos) {
+				else if (assetsFilePathDrop.find(".ttf") != std::string::npos) {
 
-					assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+					assetsFilePathDrop.erase(assetsFilePathDrop.find(".ttf") + 4);
 
 					LOG("File path: %s", assetsFilePathDrop.c_str());
 
 				}
 
-				// Extract the file name from the path
-				std::filesystem::path assetFilePath(assetsFilePathDrop);
-				std::string fileName = assetFilePath.filename().string();
+				else if (assetsFilePathDrop.find(".otf") != std::string::npos) {
 
-				// Calculate parent directory from current directory
-				std::filesystem::path parentDirPath(currentDir);
-				parentDirPath = parentDirPath.parent_path();
-				std::string parentDir = parentDirPath.string();
+					assetsFilePathDrop.erase(assetsFilePathDrop.find(".otf") + 4);
 
-				// Construct the new path by appending the file name to the parent directory
-				std::filesystem::path newFilePath = std::filesystem::path(parentDir) / fileName;
+					LOG("File path: %s", assetsFilePathDrop.c_str());
 
-				// Perform the move operation
-				std::error_code ec;
-				std::filesystem::rename(assetFilePath, newFilePath, ec);
-
-				if (!ec) {
-					LOG("Moved asset '%s' to directory '%s'", fileName.c_str(), currentDir.c_str());
-				}
-				else {
-					LOG("Error moving asset: %s", ec.message().c_str());
 				}
 
+
+				MoveAsset(assetsFilePathDrop);
 			}
 
 			ImGui::EndDragDropTarget();
@@ -3549,7 +3761,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 			std::string entryName = entry.path().filename().string();
 
 			if (entry.is_directory() && (entryName != "." && entryName != "..") && filter.PassFilter(entryName.c_str())) {
-				
+
 				ImGui::TableNextColumn();
 				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.8f, 0.3f, 1.0f));
 				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.14f, 0.14f, 0.14f, 1.0f)); // Default button color
@@ -3579,7 +3791,22 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 					if (ImGui::BeginDragDropTarget())
 					{
-						if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
+						if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
+						{
+							std::string assetsFilePathDrop = (const char*)payload->Data;
+							if (assetsFilePathDrop.find(".png") != std::string::npos) {
+
+								assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+
+								LOG("File path: %s", assetsFilePathDrop.c_str());
+
+							}
+
+							MoveAsset(assetsFilePathDrop);
+
+						}
+
+						else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("asset"))
 						{
 							std::string assetsFilePathDrop = (const char*)payload->Data;
 
@@ -3591,15 +3818,15 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 							}
 
-							if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
+							else if (assetsFilePathDrop.find(".yscene") != std::string::npos) {
 
 								assetsFilePathDrop.erase(assetsFilePathDrop.find(".yscene") + 7);
 
 								LOG("File path: %s", assetsFilePathDrop.c_str());
-							
+
 							}
 
-							if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
+							else if (assetsFilePathDrop.find(".yfab") != std::string::npos) {
 
 								assetsFilePathDrop.erase(assetsFilePathDrop.find(".yfab") + 5);
 
@@ -3607,31 +3834,23 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 							}
 
-							if (assetsFilePathDrop.find(".png") != std::string::npos) {
+							else if (assetsFilePathDrop.find(".ttf") != std::string::npos) {
 
-								assetsFilePathDrop.erase(assetsFilePathDrop.find(".png") + 4);
+								assetsFilePathDrop.erase(assetsFilePathDrop.find(".ttf") + 4);
 
 								LOG("File path: %s", assetsFilePathDrop.c_str());
 
 							}
 
-							// Extract the file name from the path
-							std::filesystem::path assetFilePath(assetsFilePathDrop);
-							std::string fileName = assetFilePath.filename().string();
+							else if (assetsFilePathDrop.find(".otf") != std::string::npos) {
 
-							// Construct the new path by appending the file name to the current directory
-							std::filesystem::path newFilePath = entry.path() / fileName;
+								assetsFilePathDrop.erase(assetsFilePathDrop.find(".otf") + 4);
 
-							// Perform the move operation
-							std::error_code ec;
-							std::filesystem::rename(assetFilePath, newFilePath, ec);
+								LOG("File path: %s", assetsFilePathDrop.c_str());
 
-							if (!ec) {
-								LOG("Moved asset '%s' to directory '%s'", fileName.c_str(), entryName.c_str());
 							}
-							else {
-								LOG("Error moving asset: %s", ec.message().c_str());
-							}
+
+							MoveAsset(assetsFilePathDrop);
 
 						}
 
@@ -3676,7 +3895,7 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 			std::string entryName = entry.path().filename().string();
 
 			if (!entry.is_directory() && (entryName != "." && entryName != ".." && (shouldIgnoreMeta ? entryName.find(".meta") == std::string::npos : true)) && filter.PassFilter(entryName.c_str())) {
-				
+
 				ImGui::TableNextColumn();
 				ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 1.0f)); // Default text color for files
 				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.14f, 0.14f, 0.14f, 1.0f)); // Default button color for files
@@ -3697,7 +3916,6 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 					if (ImGui::BeginDragDropSource())
 					{
 						ImGui::SetDragDropPayload("tex", entry.path().string().data(), entry.path().string().length());
-						ImGui::SetDragDropPayload("asset", entry.path().string().data(), entry.path().string().length());
 
 						ImGui::Text("Import Texture: %s", entry.path().string().c_str());
 
@@ -3783,10 +4001,26 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 				}
 				break;
-				case ResourceType::MATERIAL: {
+				case ResourceType::FONT:
+				{
+					ImGui::ImageButton(entryName.c_str(), reinterpret_cast<void*>(static_cast<intptr_t>(fontIcon.ID)), ImVec2(64, 64));
+
+					if (ImGui::BeginDragDropSource())
+					{
+						ImGui::SetDragDropPayload("font", entry.path().string().data(), entry.path().string().length());
+
+						ImGui::Text("Load Font: %s", entry.path().string().c_str());
+
+						ImGui::EndDragDropSource();
+					}
 
 				}
-					break;
+				break;
+				case ResourceType::MATERIAL:
+				{
+
+				}
+				break;
 				case ResourceType::ALL_TYPES:
 					break;
 				default:
@@ -3860,6 +4094,32 @@ void ModuleEditor::DrawAssetsWindow(const std::string& assetsFolder)
 
 	}
 
+}
+
+void ModuleEditor::MoveAsset(const std::string& assetsFilePathDrop)
+{
+	// Extract the file name from the path
+	std::filesystem::path assetFilePath(assetsFilePathDrop);
+	std::string fileName = assetFilePath.filename().string();
+
+	// Calculate parent directory from current directory
+	std::filesystem::path parentDirPath(currentDir);
+	parentDirPath = parentDirPath.parent_path();
+	std::string parentDir = parentDirPath.string();
+
+	// Construct the new path by appending the file name to the parent directory
+	std::filesystem::path newFilePath = std::filesystem::path(parentDir) / fileName;
+
+	// Perform the move operation
+	std::error_code ec;
+	std::filesystem::rename(assetFilePath, newFilePath, ec);
+
+	if (!ec) {
+		LOG("Moved asset '%s' to directory '%s'", fileName.c_str(), currentDir.c_str());
+	}
+	else {
+		LOG("[ERROR] moving asset: %s", ec.message().c_str());
+	}
 }
 
 static bool showDeleteAssetPopup = false;

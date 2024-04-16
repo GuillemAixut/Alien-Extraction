@@ -1,12 +1,13 @@
 #pragma once
 
-
 #include "Globals.h"
 #include "Application.h"
 #include "GameObject.h"
 #include "CAudioSource.h"
 #include "Component.h"
 #include "ModuleAudio.h"
+
+#include "External/mmgr/mmgr.h"
 
 void PlayAudio(MonoObject* go, MonoString* eventAudio)
 {
@@ -26,6 +27,26 @@ void PlayAudio(MonoObject* go, MonoString* eventAudio)
 	else
 	{
 		LOG("[WARNING] Couldn't play the audio %s. Component was null pointer", ev.c_str());
+	}
+}
+
+void PlayEmbedAudio(MonoObject* go)
+{
+	if (External == nullptr)
+		return;
+
+	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
+
+	CAudioSource* audSource = dynamic_cast<CAudioSource*>(GO->GetComponent(ComponentType::AUDIO_SOURCE));
+	
+	if (audSource != nullptr)
+	{
+		audSource->SetEventName(audSource->evName);
+		audSource->PlayEvent();
+	}
+	else
+	{
+		LOG("[WARNING] Couldn't play the audio %s. Component was null pointer", audSource->evName);
 	}
 }
 

@@ -1,0 +1,2969 @@
+{
+    "NavMesh": "4294967295",
+    "Editor Camera Position": [
+        -126.26889801025391,
+        122.02540588378906,
+        77.579185485839844
+    ],
+    "Editor Camera Right (X)": [
+        0.80597943067550659,
+        9.9837779998779297e-07,
+        0.59198367595672607
+    ],
+    "Editor Camera Up (Y)": [
+        0.33069565892219543,
+        0.82942366600036621,
+        -0.45023998618125916
+    ],
+    "Editor Camera Front (Z)": [
+        0.49099686741828918,
+        -0.55863827466964722,
+        -0.66848605871200562
+    ],
+    "Hierarchy": [
+        {
+            "Name": "Scene",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1968864687,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                172333081,
+                1349128443,
+                1836208307,
+                1484304711,
+                27792721,
+                1806365249,
+                42472947
+            ]
+        },
+        {
+            "Name": "BLOCK_Boss_room",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 172333081,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1243519601
+            ]
+        },
+        {
+            "Name": "Boss_Zone",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1243519601,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 172333081,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1554803271,
+                2000788607,
+                345648129,
+                104292745
+            ]
+        },
+        {
+            "Name": "Boss_Walls",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1554803271,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1243519601,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                103411017,
+                486398413,
+                1145501614,
+                628916407,
+                2046726193,
+                1222823405,
+                341363329
+            ]
+        },
+        {
+            "Name": "Wall_Boss_7",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 103411017,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1554803271,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 173253800,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Wall_Boss_6",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 486398413,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1554803271,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 568023517,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Wall_Boss_5",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1145501614,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1554803271,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1023669797,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Wall_Boss_4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 628916407,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1554803271,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 204576212,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Wall_Boss_3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2046726193,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1554803271,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 713456430,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Wall_Boss_2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1222823405,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1554803271,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 443826537,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Wall_Boss_1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 341363329,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1554803271,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1361369199,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Platform",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2000788607,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1243519601,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1681424808,
+                    "Vertex Count": 61,
+                    "Index Count": 108
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Boss_Floor",
+            "Static": true,
+            "Tag": "Untagged",
+            "UID": 345648129,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1243519601,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        1.9133243560791016,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1765196420,
+                    "Vertex Count": 36,
+                    "Index Count": 150
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                2,
+                                4.9000000953674316,
+                                4.5
+                            ],
+                            "color": [
+                                5.5,
+                                3.7000000476837158,
+                                3.2999999523162842
+                            ],
+                            "light": true
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Boss",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 104292745,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL3_BlockOut\/BLOCK_Boss_room.fbx",
+            "Parent UID": 1243519601,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 131502125,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Colliders",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1349128443,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1214856151,
+                1245570633,
+                1502129064,
+                546804241,
+                734004389,
+                1074511134,
+                1856299005,
+                1267733006,
+                1989560417,
+                831742887,
+                1267186983,
+                2016797692
+            ]
+        },
+        {
+            "Name": "Col_1 (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1214856151,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -1.2673740386962891,
+                        0,
+                        -1.0115137100219727
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        204.39999389648438,
+                        8.1999998092651367,
+                        51.599998474121094
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1245570633,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -27.598461151123047,
+                        0,
+                        -28.689037322998047
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        158.69999694824219,
+                        8.1999998092651367,
+                        22.299999237060547
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1502129064,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -83.045059204101562,
+                        0,
+                        36.39703369140625
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        17,
+                        8.1999998092651367,
+                        33.299999237060547
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 546804241,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        36.825233459472656,
+                        0,
+                        -84.521263122558594
+                    ],
+                    "Rotation": [
+                        0,
+                        -2.1908576488494873,
+                        0
+                    ],
+                    "Scale": [
+                        0.99998116493225098,
+                        1,
+                        0.99998116493225098
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        32.099998474121094,
+                        8.1999998092651367,
+                        15.199999809265137
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_5",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 734004389,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -84.7587890625,
+                        35.729465484619141,
+                        125.02803802490234
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        90.599998474121094,
+                        79.199996948242188,
+                        22.299999237060547
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_6",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1074511134,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        121.92635345458984,
+                        36.817539215087891,
+                        -87.732551574707031
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        91.5,
+                        72.599998474121094,
+                        17.700000762939453
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_7",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1856299005,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        33.656055450439453,
+                        34.537567138671875,
+                        -242.29563903808594
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        10,
+                        82,
+                        350
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_8",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1267733006,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -100.12580108642578,
+                        33.622432708740234,
+                        -360.1151123046875
+                    ],
+                    "Rotation": [
+                        0,
+                        -12.436717987060547,
+                        0
+                    ],
+                    "Scale": [
+                        0.99999809265136719,
+                        1,
+                        0.99999809265136719
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        79.099998474121094,
+                        82.599998474121094,
+                        15.399999618530273
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_9",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1989560417,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -255.22499084472656,
+                        36.262992858886719,
+                        -254.75028991699219
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        350,
+                        81.900001525878906,
+                        18.5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_10",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 831742887,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -362.46261596679688,
+                        34.172714233398438,
+                        -102.41085815429688
+                    ],
+                    "Rotation": [
+                        -0,
+                        14.605808258056641,
+                        -0
+                    ],
+                    "Scale": [
+                        0.99999916553497314,
+                        1,
+                        0.99999916553497314
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        19.700000762939453,
+                        89.900001525878906,
+                        79.599998474121094
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Col_11",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1267186983,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -243.0238037109375,
+                        32.602775573730469,
+                        46.665733337402344
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        28.5,
+                        89.5,
+                        350
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "floor",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2016797692,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1349128443,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -37.735336303710938,
+                        0,
+                        -39.402072906494141
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.000003814697266,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        500,
+                        5,
+                        500
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Queen",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1836208307,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -134.92332458496094,
+                        4.1242961883544922,
+                        -105.54747009277344
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1.5899999141693115,
+                        1.5899999141693115,
+                        1.5899999141693115
+                    ]
+                }
+            ],
+            "Children UID": [
+                98060433,
+                1776195202
+            ]
+        },
+        {
+            "Name": "Sensor (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 98060433,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1836208307,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -8.1661462783813477,
+                        13.163763046264648,
+                        -26.471099853515625
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        8.3999996185302734,
+                        28.899999618530273,
+                        18.600000381469727
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "QueenXenomorphAttack.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "queen": 1776195202
+                }
+            ]
+        },
+        {
+            "Name": "Boss (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1776195202,
+            "Active": false,
+            "Element_Type": "Model",
+            "Parent UID": 1836208307,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -6.889739990234375,
+                        -2.8112764358520508,
+                        -26.427114486694336
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.030379999428987503,
+                        0.030379999428987503,
+                        0.030379999428987503
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "QueenXenomorphBaseScript.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "life": 0,
+                    "speed": 0,
+                    "armor": 0,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "DetectionRadius": 200
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        500,
+                        800,
+                        500
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        20.200000762939453,
+                        0
+                    ]
+                }
+            ],
+            "Children UID": [
+                259869820,
+                2120793358,
+                367852894,
+                1479385975
+            ]
+        },
+        {
+            "Name": "RETOPO_BODY",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 259869820,
+            "Active": false,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 1776195202,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1674659718,
+                    "Vertex Count": 12487,
+                    "Index Count": 41208
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_ChestHands",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2120793358,
+            "Active": false,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 1776195202,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 84054802,
+                    "Vertex Count": 513,
+                    "Index Count": 2016
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_Shoulders",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 367852894,
+            "Active": false,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 1776195202,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 781687786,
+                    "Vertex Count": 537,
+                    "Index Count": 2340
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_Diadem",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1479385975,
+            "Active": false,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 1776195202,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 907233258,
+                    "Vertex Count": 708,
+                    "Index Count": 3306
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "Cube",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1484304711,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -105.25926971435547,
+                        14.360359191894531,
+                        -63.976722717285156
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        13.199984550476074,
+                        13.199984550476074,
+                        13.199984550476074
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Empty",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 27792721,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        29.294437408447266,
+                        8.5696935653686523,
+                        10.536296844482422
+                    ],
+                    "Rotation": [
+                        -0,
+                        43.679874420166016,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        218.80000305175781,
+                        5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Tp_Beacon.cs",
+                    "Active": 1,
+                    "UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Prefab-Player",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1806365249,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                598771385,
+                402787232
+            ]
+        },
+        {
+            "Name": "Main Camera",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 598771385,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -58.784080505371094,
+                        111.64328002929688,
+                        63.155529022216797
+                    ],
+                    "Rotation": [
+                        120.00008392333984,
+                        25.000032424926758,
+                        -141.99998474121094
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1.0000001192092896
+                    ]
+                },
+                {
+                    "Type": "Audio listener",
+                    "Active": 1,
+                    "Default Listener": 1
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "LV2Music",
+                    "Event Name": "LV2_Inter",
+                    "Event ID": 3026565220
+                },
+                {
+                    "Type": "Camera",
+                    "Active": 1,
+                    "Right": [
+                        0.7141801118850708,
+                        -0.01942114531993866,
+                        0.69969272613525391
+                    ],
+                    "Up": [
+                        0.55797886848449707,
+                        0.61933737993240356,
+                        -0.5523412823677063
+                    ],
+                    "Front": [
+                        0.42261877655982971,
+                        -0.7848847508430481,
+                        -0.4531550407409668
+                    ],
+                    "FOV": 60.000003814697266,
+                    "Near Plane": 1,
+                    "Far Plane": 1000,
+                    "Frustum Culling": 0,
+                    "Draw Bounding Boxes": 0,
+                    "Game Camera": true
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SceneManager.cs",
+                    "Active": 1,
+                    "UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Player",
+            "Static": false,
+            "Tag": "Player",
+            "UID": 402787232,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0.83073639869689941,
+                        0
+                    ],
+                    "Rotation": [
+                        5.0089561227650847e-06,
+                        -5.0089561227650847e-06,
+                        5.0089561227650847e-06
+                    ],
+                    "Scale": [
+                        0.10000000149011612,
+                        0.10000000149011612,
+                        0.10000000149011612
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 5,
+                    "Paths": [
+                        ".\/Library\/Animations\/402787232.yanim",
+                        ".\/Assets\/Raisen_Walk.yanim",
+                        ".\/Assets\/Raisen_Run.yanim",
+                        ".\/Assets\/Raisen_Dash.yanim",
+                        ".\/Assets\/Raisen_Die.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "P_Shoot",
+                    "Event ID": 1216763735
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        63.700000762939453,
+                        200,
+                        45.400001525878906
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        10.199999809265137,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Health.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "currentHealth": 0,
+                    "maxHealth": 10,
+                    "isAlive": false,
+                    "debugDmg": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Bullets.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Player.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "movementSpeed": 35,
+                    "godMode": false,
+                    "fireRate": 0,
+                    "ammo": 0,
+                    "magsize": 5,
+                    "dashDuration": 0.25,
+                    "dashDistance": 200,
+                    "swipeTimer": 0
+                }
+            ],
+            "Children UID": [
+                674768309,
+                680428138,
+                2003545222,
+                2105473488
+            ]
+        },
+        {
+            "Name": "Tail",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 674768309,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1003707611,
+                    "Vertex Count": 248,
+                    "Index Count": 660
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 168,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Tail_D.png",
+                    "Diffuse_UID": 481287073
+                }
+            ]
+        },
+        {
+            "Name": "Eyes",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 680428138,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1089882795,
+                    "Vertex Count": 717,
+                    "Index Count": 2592
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 172,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Eyes_D.png",
+                    "Diffuse_UID": 32956622
+                }
+            ]
+        },
+        {
+            "Name": "Body",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2003545222,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 798019010,
+                    "Vertex Count": 10134,
+                    "Index Count": 36885
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 164,
+                    "Diffuse_Path": "Assets\/TEX_CHAR_Body_D.png",
+                    "Diffuse_UID": 1203624701
+                }
+            ]
+        },
+        {
+            "Name": "Backpack",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2105473488,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Queen (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 42472947,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                418998905
+            ]
+        },
+        {
+            "Name": "Boss (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 418998905,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 42472947,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -97.091682434082031,
+                        2.0704469680786133,
+                        -102.96136474609375
+                    ],
+                    "Rotation": [
+                        -0,
+                        45.830604553222656,
+                        -0
+                    ],
+                    "Scale": [
+                        0.076727934181690216,
+                        0.076727718114852905,
+                        0.076727934181690216
+                    ]
+                }
+            ],
+            "Children UID": [
+                1669559910,
+                515645180,
+                679798186,
+                642211797
+            ]
+        },
+        {
+            "Name": "RETOPO_BODY (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1669559910,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 418998905,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1674659718,
+                    "Vertex Count": 12487,
+                    "Index Count": 41208
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_ChestHands (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 515645180,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 418998905,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 84054802,
+                    "Vertex Count": 513,
+                    "Index Count": 2016
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_Shoulders (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 679798186,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 418998905,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 781687786,
+                    "Vertex Count": 537,
+                    "Index Count": 2340
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_Diadem (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 642211797,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/CHAR_Boss_Lowpoly.fbx",
+            "Parent UID": 418998905,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 907233258,
+                    "Vertex Count": 708,
+                    "Index Count": 3306
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 201,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 203,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 209,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 207,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 205,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        }
+    ]
+}

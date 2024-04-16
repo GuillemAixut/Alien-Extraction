@@ -14,9 +14,12 @@ UI_Transform::UI_Transform(C_UI* owner) : Component(owner->mOwner, ComponentType
 
 	auxPosX = componentReference->posX;
 	auxPosY = componentReference->posY;
+	anchorX = 0;
+	anchorY = 0;
 
 	mMatrixUI = float4x4::identity;
 
+	anchorType = UI_ANCHOR::TOP_LEFT;
 }
 
 UI_Transform::~UI_Transform()
@@ -67,6 +70,9 @@ void UI_Transform::OnInspector()
 			componentReference->dirty_ = true;
 		}
 
+		const char* anchor[]{ "TOP LEFT", "TOP", "TOP RIGHT", "LEFT", "CENTER", "RIGHT", "BOTTOM LEFT", "BOTTOM", "BOTTOM RIGHT"};
+		ImGui::Combo("Direction", (int*)&anchorType, anchor, IM_ARRAYSIZE(anchor));
+
 		ImGui::Unindent();
 	}
 
@@ -87,7 +93,47 @@ void UI_Transform::UpdateUITransformChilds()
 
 }
 
+void UI_Transform::RecalculateAnchor()
+{
+		float sceneX = External->editor->gameViewSize.x - componentReference->posX;
+		float sceneY = External->editor->gameViewSize.y - componentReference->posY;
 
+		switch (anchorType)
+		{
+		case UI_ANCHOR::TOP_LEFT:
+			anchorX = 0;
+			anchorY = 0;
+			break;
+		case UI_ANCHOR::TOP:
+			anchorY = componentReference->posY;
+			break;
+		case UI_ANCHOR::TOP_RIGHT:
+			anchorX = sceneX;
+			anchorY = componentReference->posY;
+			break;
+		case UI_ANCHOR::LEFT:
+			anchorX = componentReference->posX;
+			break;
+		case UI_ANCHOR::RIGHT:
+			anchorX = sceneX;
+			break;
+		case UI_ANCHOR::BOTTOM_LEFT:
+			anchorX = componentReference->posX;
+			anchorY = sceneY;
+			break;
+		case UI_ANCHOR::BOTTOM:
+			anchorY = sceneY;
+			break;
+		case UI_ANCHOR::BOTTOM_RIGHT:
+			anchorX = sceneX;
+			anchorY = sceneY;
+			break;
+		default:
+			break;
+		}
+		
+		//float2 final_pos = { componentReference->posX / External->editor->gameViewSize.x, componentReference->posY / External->editor->gameViewSize.y };
+}
 
 update_status UI_Transform::Update(float dt)
 {

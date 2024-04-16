@@ -13,10 +13,10 @@
 #include "CCamera.h"
 #include "CAudioListener.h"
 #include "CAudioSource.h"
-#include "CRigidBody.h"
 #include "CCollider.h"
 #include "CAnimation.h"
 #include "CScript.h"
+#include "CNavMeshAgent.h"
 #include "Component.h"
 
 #include "Random.h"
@@ -47,6 +47,7 @@ public:
 	void DeleteChild(GameObject* go);
 	//Remove from children vector (do not use)
 	void RemoveChild(GameObject* go);
+	void SwapChildren(GameObject* go);
 
 	void AddComponent(Component* component);
 	bool AddComponent(ComponentType ctype, void* var = NULL);
@@ -62,7 +63,7 @@ public:
 
 	static GameObject* GetGameObjectFromUID(const std::vector<GameObject*>& gameObjects, const uint& UID);
 
-	bool CompareTag(const char* _tag);
+	bool CompareTag(std::string _tag);
 
 	// Clear references
 	void ClearReferences();
@@ -88,8 +89,9 @@ public:
 	bool active;
 	bool selected;
 	bool hidden;
+	bool isStatic;
 
-	char tag[32] = "Untagged";
+	std::string tag = "Untagged";
 
 	std::vector<Component*> vReferences;
 };

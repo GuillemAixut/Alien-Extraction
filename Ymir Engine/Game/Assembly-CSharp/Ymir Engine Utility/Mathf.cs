@@ -12,7 +12,6 @@ namespace YmirEngine
             return distance.magnitude;
         }
 
-
         public static float Lerp(float from, float to, float t)
         {
             return (1.0f - t) * from + to * t;
@@ -55,6 +54,7 @@ namespace YmirEngine
         {
             return Clamp(t - Mathf.Floor(t / length) * length, 0.0f, length);
         }
+
         public static float Floor(float f) { return (float)Math.Floor(f); }
 
         public const float Rad2Deg = 57.29578f;
@@ -89,6 +89,16 @@ namespace YmirEngine
         public static float Epsilon()
         {
             return 0.000001f; // A very small float value
+        }
+        public static float Max(float a, float b)
+        {
+            return a > b ? a : b;
+        }
+
+        public static int Round(float value)
+        {
+            int intValue = (int)((value*100)/100.00000000f); 
+            return intValue;    
         }
 
     }

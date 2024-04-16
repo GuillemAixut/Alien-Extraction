@@ -53,7 +53,6 @@ void PhysBody::SetPosition(const float3& pos) const
 	body->setWorldTransform(t);
 }
 
-// �ngulos en radianes!!!
 void PhysBody::SetRotation(const Quat& q) const
 {
 	btTransform t = body->getWorldTransform();
@@ -73,22 +72,4 @@ void PhysBody::SetRotation(const Quat& q) const
 void PhysBody::SetGameObject(GameObject* owner)
 {
 	this->owner = owner;
-}
-
-// ---------------------------------------------------------
-void PhysBody::SetAsSensor(bool isSensor)
-{
-	this->isSensor = isSensor;
-
-	if (this->isSensor) {
-
-		body->setCollisionFlags(body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
-
-	}	
-	else {
-
-		body->setCollisionFlags(body->getCollisionFlags() & ~btCollisionObject::CF_NO_CONTACT_RESPONSE);
-
-	}
-
 }

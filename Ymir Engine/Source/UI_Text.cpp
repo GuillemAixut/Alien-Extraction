@@ -9,17 +9,19 @@
 
 #include "External/mmgr/mmgr.h"
 
+std::vector<Font*> Font::mFonts;
+
 UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float ls, std::string fontName, std::string fontPath, float w, float h, std::string shaderPath) : C_UI(UI_TYPE::TEXT, ComponentType::UI, g, "Text", x, y, w, h)
 {
 	text = t;
 
 	if (fontName == "")
 	{
-		font = External->renderer3D->defaultFont;
+		SetFont(DEFAULT_FONT, "Assets\\Fonts"); // Default Font
 	}
 	else
 	{
-		font = new Font(fontName, fontPath);
+		SetFont(fontName, fontPath);
 	}
 
 	boundsEditor = new UI_Bounds;
@@ -137,45 +139,45 @@ void UI_Text::OnInspector()
 		//ImGui::InputText(name.c_str(), &text, ImGuiInputTextFlags_EnterReturnsTrue);
 		ImGui::Dummy(ImVec2(0, 10));
 
-		if (ImGui::Button("change font1"))
+		if (ImGui::BeginCombo("Font", font->name.c_str()))
 		{
-			//RELEASE(font);
-			font = new Font("Arial.ttf");
+			for (std::vector<Font*>::const_iterator it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
+			{
+				bool isSelected = (font->name == (*it)->name);
+				if (ImGui::Selectable((*it)->name.c_str()))
+				{
+					font = (*it);
+				}
+				if (isSelected)
+				{
+					ImGui::SetItemDefaultFocus();
+				}
+			}
+			ImGui::EndCombo();
 		}
-		//if (ImGui::Button("change eglantineVar2"))
-		//{
-		//	//RELEASE(font);
-		//	font = new Font("eglantineVar2.ttf");
-		//}
-		if (ImGui::Button("change comic"))
+
+		if (ImGui::BeginDragDropTarget())
 		{
-			//RELEASE(font);
-			font = new Font("comic.ttf");
-		}
-		if (ImGui::Button("change times"))
-		{
-			//RELEASE(font);
-			font = new Font("times.ttf");
-		}
-		if (ImGui::Button("change consola"))
-		{
-			//RELEASE(font);
-			font = new Font("default_consola.ttf");
-		}
-		if (ImGui::Button("change Drawing with markers"))
-		{
-			//RELEASE(font);
-			font = new Font("Drawing with markers.ttf");
-		}
-		//if (ImGui::Button("change Cat Paw"))
-		//{
-		//	//RELEASE(font);
-		//	font = new Font("Cat Paw.otf");
-		//}
-		if (ImGui::Button("change valencia"))
-		{
-			//RELEASE(font);
-			font = new Font("de-valencia-beta.otf");
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("font"))
+			{
+				std::string path = (const char*)payload->Data;
+				std::string p, n, e;
+
+				std::size_t it = path.find(".ttf");
+
+				if (it == std::string::npos)
+				{
+					it = path.find(".otf");
+				}
+				path.erase(it + 4);
+
+				PhysfsEncapsule::SplitFilePath(path.c_str(), &p, &n, &e);
+
+				p.erase(p.find_last_of("/"));
+				SetFont(n + "." + e, p);
+			}
+
+			ImGui::EndDragDropTarget();
 		}
 
 		ImGui::Text("Font Size");
@@ -183,7 +185,7 @@ void UI_Text::OnInspector()
 
 		ImGui::Text("Line Spacing");
 		ImGui::DragFloat("##LineSpacing", &lineSpacing, 0.1f);
-		
+
 		//ImGui::ColorEdit4("Color", (float*)&color, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_AlphaBar);
 
 		if (!active) { ImGui::EndDisabled(); }
@@ -382,12 +384,12 @@ void UI_Text::OnInspector()
 
 		ImVec2 textureMapSize(20, 20);
 
-		ImGui::Image(reinterpret_cast<void*>(static_cast<intptr_t>(mat->ID)), textureMapSize);
+		ImGui::Image(reinterpret_cast<void*>(static_cast<intptr_t>(mat->diffuse_ID)), textureMapSize);
 		mat->DdsDragDropTarget();
 		ImGui::SameLine();
 		ImGui::Text("Diffuse");
 		ImGui::SameLine();
-		ImGui::Text("(%s)", mat->path.c_str());
+		ImGui::Text("(%s)", mat->diffuse_path.c_str());
 
 		ImGui::Spacing();
 
@@ -561,6 +563,24 @@ void UI_Text::SetText(const char* t)
 	text = t;
 }
 
+void UI_Text::SetFont(std::string name, std::string fontPath)
+{
+	bool isImported = false;
+	for (auto it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
+	{
+		if ((*it)->name == name)
+		{
+			isImported = true;
+			font = (*it);
+		}
+	}
+
+	if (!isImported)
+	{
+		font = new Font(name, fontPath);
+	}
+}
+
 void UI_Text::ChangeFontSize(float size)
 {
 	fontSize = size;
@@ -635,16 +655,9 @@ Font::Font(std::string name, std::string fontPath)
 	// destroy FreeType once we're finished
 	FT_Done_Face(face);
 	FT_Done_FreeType(ft);
-}
 
-Font::~Font()
-{
-	//for (unsigned char c = 0; c < 128; ++c)
-	//{
-	//	RELEASE(mCharacters[c]);
-	//}
-
-	mCharacters.clear();
+	LOG("Font loaded: %s", name.c_str());
+	Font::mFonts.push_back(this);
 }
 
 bool Font::InitFont(std::string n, std::string fontPath)

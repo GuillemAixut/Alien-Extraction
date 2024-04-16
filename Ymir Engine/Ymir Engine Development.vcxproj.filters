@@ -130,6 +130,9 @@
     <Filter Include="Sources\Features\Lighting System">
       <UniqueIdentifier>{5306c3a7-4d09-4e89-88dd-224d560e9d5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Externals\RecastNavigation">
+      <UniqueIdentifier>{599c487e-a52f-4d31-a5b6-241e2f1a801a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -717,9 +720,6 @@
     <ClInclude Include="Source\ImporterTexture.h">
       <Filter>Sources\Features\Custom File Format</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ImporterScene.h">
-      <Filter>Sources\Features\Custom File Format</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ImporterMaterial.h">
       <Filter>Sources\Features\Custom File Format</Filter>
     </ClInclude>
@@ -770,9 +770,6 @@
     </ClInclude>
     <ClInclude Include="Source\Globals.h">
       <Filter>Sources\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene.h">
-      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClInclude>
     <ClInclude Include="Source\Settings.h">
       <Filter>Sources\Features\Serialization</Filter>
@@ -1071,9 +1068,6 @@
     <ClInclude Include="Source\CCollider.h">
       <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CRigidBody.h">
-      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
-    </ClInclude>
     <ClInclude Include="Source\PhysBody.h">
       <Filter>Sources\Utils\Physics</Filter>
     </ClInclude>
@@ -1136,6 +1130,84 @@
     </ClInclude>
     <ClInclude Include="Source\ImGuiCustom.h">
       <Filter>Sources\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\ChunkyTriMesh.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\DebugUtils\DebugDraw.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\DebugUtils\DetourDebugDraw.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\DebugUtils\RecastDebugDraw.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\DebugUtils\RecastDump.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\DebugUtils\SampleInterfaces.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourAlloc.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourAssert.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourCommon.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourMath.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourNavMesh.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourNavMeshBuilder.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourNavMeshQuery.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourNode.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Detour\DetourStatus.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\DetourTileCache\DetourTileCache.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\DetourTileCache\DetourTileCacheBuilder.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\InputGeom.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\NavMeshBuilder.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Recast\Recast.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Recast\RecastAlloc.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\RecastNavigation\Recast\RecastAssert.h">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ModulePathfinding.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImporterNavMesh.h">
+      <Filter>Sources\Features\Custom File Format</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CNavMeshAgent.h">
+      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CS_NavMesh_Bindings.h">
+      <Filter>Sources\Utils\Bindings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1331,9 +1403,6 @@
     <ClCompile Include="Source\CCamera.cpp">
       <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ModuleResourceManager.cpp">
-      <Filter>Sources\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="Source\ResourceTexture.cpp">
       <Filter>Sources\Features\Resource Management</Filter>
     </ClCompile>
@@ -1371,9 +1440,6 @@
       <Filter>Sources\Features\Custom File Format</Filter>
     </ClCompile>
     <ClCompile Include="Source\ImporterTexture.cpp">
-      <Filter>Sources\Features\Custom File Format</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\ImporterScene.cpp">
       <Filter>Sources\Features\Custom File Format</Filter>
     </ClCompile>
     <ClCompile Include="Source\ImporterSettings.cpp">
@@ -1414,9 +1480,6 @@
     </ClCompile>
     <ClCompile Include="Source\Main.cpp">
       <Filter>Sources\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene.cpp">
-      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClCompile>
     <ClCompile Include="Source\Settings.cpp">
       <Filter>Sources\Features\Serialization</Filter>
@@ -1526,9 +1589,6 @@
     <ClCompile Include="Source\CCollider.cpp">
       <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CRigidBody.cpp">
-      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
-    </ClCompile>
     <ClCompile Include="Source\PhysBody.cpp">
       <Filter>Sources\Utils\Physics</Filter>
     </ClCompile>
@@ -1579,6 +1639,96 @@
     </ClCompile>
     <ClCompile Include="Source\ImGuiCustom.cpp">
       <Filter>Sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleResourceManager.cpp">
+      <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\ChunkyTriMesh.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\DebugUtils\DebugDraw.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\DebugUtils\DetourDebugDraw.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\DebugUtils\RecastDebugDraw.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\DebugUtils\RecastDump.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\DebugUtils\SampleInterfaces.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Detour\DetourAlloc.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Detour\DetourCommon.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Detour\DetourNavMesh.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Detour\DetourNavMeshBuilder.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Detour\DetourNavMeshQuery.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Detour\DetourNode.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\DetourTileCache\DetourTileCache.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\DetourTileCache\DetourTileCacheBuilder.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\InputGeom.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\NavMeshBuilder.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\Recast.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastAlloc.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastArea.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastContour.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastFilter.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastLayers.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastMesh.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastMeshDetail.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastRasterization.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\RecastNavigation\Recast\RecastRegion.cpp">
+      <Filter>Externals\RecastNavigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModulePathfinding.cpp">
+      <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImporterNavMesh.cpp">
+      <Filter>Sources\Features\Custom File Format</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CNavMeshAgent.cpp">
+      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

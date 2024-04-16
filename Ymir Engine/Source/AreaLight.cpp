@@ -1,5 +1,7 @@
 #include "AreaLight.h"
 
+#include "External/mmgr/mmgr.h"
+
 AreaLight::AreaLight() : Light(LightType::AREA_LIGHT, float3::one, 1.0f), range(1.0f), width(1.0f), height(1.0f)
 {
 	shape = new CCube(height, range, width);

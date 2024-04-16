@@ -28,8 +28,6 @@ ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app,
 {
 	LOG("Creating ModulePhysics");
 
-	onExitCollision = false;
-
 	// Physics simulation (world)
 	constraintSolver = new btSequentialImpulseConstraintSolver();
 	broadphase = new btDbvtBroadphase();
@@ -73,9 +71,11 @@ bool ModulePhysics::Start()
 // PRE-UPDATE ----------------------------------------------------------------
 update_status ModulePhysics::PreUpdate(float dt)
 {
+	float fixedTimeStep = 1 / App->GetFPS();
+
 	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING) 
 	{
-		world->stepSimulation(dt);
+		world->stepSimulation(dt, 1, fixedTimeStep);
 	}
 	else
 	{
@@ -90,8 +90,6 @@ update_status ModulePhysics::Update(float dt)
 {
 	//LOG("Bodies in list: %d", bodiesList.size());
 	//LOG("Bodies in world: %d", world->getNumCollisionObjects());
-
-
 
 	return UPDATE_CONTINUE;
 }
@@ -133,7 +131,7 @@ update_status ModulePhysics::PostUpdate(float dt)
 		//		}
 		//	}
 		//}
-
+		
 		int numManifolds = world->getDispatcher()->getNumManifolds();
 		for (int i = 0; i < numManifolds; i++)
 		{
@@ -149,38 +147,20 @@ update_status ModulePhysics::PostUpdate(float dt)
 				PhysBody* pbodyB = (PhysBody*)obB->getUserPointer();
 
 				// Pendiente de revisar de momento wuaaaaarrrraaaaaaaaaada!!!!
-				if (pbodyA->owner != nullptr) {
-					CScript* aux = dynamic_cast<CScript*>(pbodyA->owner->GetComponent(ComponentType::SCRIPT));
+				if (pbodyA->owner != nullptr && pbodyB->owner != nullptr) {
+					CScript* auxA = dynamic_cast<CScript*>(pbodyA->owner->GetComponent(ComponentType::SCRIPT));
+					CScript* auxB = dynamic_cast<CScript*>(pbodyB->owner->GetComponent(ComponentType::SCRIPT));
 
-					if (aux != nullptr) {
-						if (firstCollision)
-						{
-							aux->CollisionEnterCallback(false, pbodyB->owner);
+					if (auxA != nullptr && auxB != nullptr) {
+						if (firstCollision) {
+							auxA->CollisionEnterCallback(false, pbodyB->owner);
+							auxB->CollisionEnterCallback(false, pbodyA->owner);
 							firstCollision = false;
+							inCollision = true;
 						}
-						else
-						{
-							aux->CollisionStayCallback(false, pbodyB->owner);
-							firstCollision = false;
-							onExitCollision = true;
-						}
-
-					}
-				}
-
-				if (pbodyB->owner != nullptr) {
-					CScript* aux = dynamic_cast<CScript*>(pbodyB->owner->GetComponent(ComponentType::SCRIPT));
-
-					if (aux != nullptr) {
-						if (firstCollision)
-						{
-							aux->CollisionEnterCallback(false, pbodyA->owner);
-							firstCollision = false;
-						}
-						else
-						{
-							aux->CollisionStayCallback(false, pbodyA->owner);
-							firstCollision = false;
+						else if (inCollision) {
+							auxA->CollisionStayCallback(false, pbodyB->owner);
+							auxB->CollisionStayCallback(false, pbodyA->owner);
 							onExitCollision = true;
 						}
 					}
@@ -203,32 +183,27 @@ update_status ModulePhysics::PostUpdate(float dt)
 					}
 				}
 			}
-			else if (numContacts == 0 && onExitCollision == true)
+			else if (numContacts == 0 && onExitCollision)
 			{
-				// Manejar salida de colisiones
 				PhysBody* pbodyA = (PhysBody*)obA->getUserPointer();
 				PhysBody* pbodyB = (PhysBody*)obB->getUserPointer();
 
-				// Verificar que los objetos de colisi�n sean v�lidos
 				if (pbodyA && pbodyB)
 				{
-					// Obtener los scripts asociados a los objetos
 					CScript* scriptA = dynamic_cast<CScript*>(pbodyA->owner->GetComponent(ComponentType::SCRIPT));
 					CScript* scriptB = dynamic_cast<CScript*>(pbodyB->owner->GetComponent(ComponentType::SCRIPT));
 
-					// Llamar a la funci�n adecuada para manejar la salida de la colisi�n
-					if (scriptA)
+					if (scriptA && scriptB)
 					{
 						scriptA->CollisionExitCallback(false, pbodyB->owner);
-					}
-					if (scriptB)
-					{
 						scriptB->CollisionExitCallback(false, pbodyA->owner);
 					}
-					onExitCollision = false;
-					firstCollision = true;
+
+					
 				}
+
 			}
+		
 		}
 		
 
@@ -332,6 +307,60 @@ PhysBody* ModulePhysics::AddBody(CCapsule capsule, PhysicsType physType, float m
 
 	btTransform startTransform;
 	startTransform.setFromOpenGLMatrix(capsule.transform.ptr());
+
+	btVector3 localInertia(0, 0, 0);
+
+	if (mass != 0.f)
+		shape->calculateLocalInertia(mass, localInertia);
+
+	btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
+	motions.push_back(myMotionState);
+	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, shape, localInertia);
+
+	btRigidBody* body = new btRigidBody(rbInfo);
+	PhysBody* pbody = new PhysBody(body);
+
+	body->setUserPointer(pbody);
+	world->addRigidBody(body);
+	bodiesList.push_back(pbody);
+
+	return pbody;
+}
+
+// Capsule --------------------------------------------------------------------------------------------------------------
+PhysBody* ModulePhysics::AddBody(CCone cone, PhysicsType physType, float mass, bool useGravity, btCollisionShape*& shape)
+{
+	shape = new btConeShape(cone.height, cone.radius);
+
+	btTransform startTransform;
+	startTransform.setFromOpenGLMatrix(cone.transform.ptr());
+
+	btVector3 localInertia(0, 0, 0);
+
+	if (mass != 0.f)
+		shape->calculateLocalInertia(mass, localInertia);
+
+	btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
+	motions.push_back(myMotionState);
+	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, shape, localInertia);
+
+	btRigidBody* body = new btRigidBody(rbInfo);
+	PhysBody* pbody = new PhysBody(body);
+
+	body->setUserPointer(pbody);
+	world->addRigidBody(body);
+	bodiesList.push_back(pbody);
+
+	return pbody;
+}
+
+// Cylinder --------------------------------------------------------------------------------------------------------------
+PhysBody* ModulePhysics::AddBody(CCylinder cylinder, PhysicsType physType, float mass, bool useGravity, btCollisionShape*& shape)
+{
+	btVector3 vec = btVector3(cylinder.radius * 2, cylinder.height, cylinder.radius * 2);
+	shape = new btCylinderShape(vec);
+	btTransform startTransform;
+	startTransform.setFromOpenGLMatrix(cylinder.transform.ptr());
 
 	btVector3 localInertia(0, 0, 0);
 
@@ -739,6 +768,91 @@ void ModulePhysics::RenderCapsuleCollider(PhysBody* pbody)
 
 	glPopMatrix();
 }
+
+void ModulePhysics::RenderConeCollider(PhysBody* pbody)
+{
+	float4x4 mat;
+	pbody->GetTransform(mat);
+
+	float radius = ((btConeShape*)pbody->body->getCollisionShape())->getRadius();
+	float halfHeight = ((btConeShape*)pbody->body->getCollisionShape())->getHeight() / 2;
+
+	glPushMatrix();
+	glMultMatrixf(mat.ptr()); // translation and rotation
+
+	// Columnas
+	glBegin(GL_LINES);
+
+	glVertex3f(0, halfHeight, 0);
+	glVertex3f(radius, -halfHeight, 0);
+
+	glVertex3f(0, halfHeight, 0);
+	glVertex3f(-radius, -halfHeight, 0);
+
+	glVertex3f(0, halfHeight, 0);
+	glVertex3f(0, -halfHeight, radius);
+
+	glVertex3f(0, halfHeight, 0);
+	glVertex3f(0, -halfHeight, -radius);
+
+	glEnd();
+
+	glBegin(GL_LINE_STRIP);
+	for (int i = 0; i <= 360; i += 10) {
+		float phi = i * DEGTORAD;
+		glVertex3f(radius * cos(phi), -halfHeight, radius * sin(phi));
+	}
+	glEnd();
+
+	glPopMatrix();
+}
+
+void ModulePhysics::RenderCylinderCollider(PhysBody* pbody)
+{
+	float4x4 mat;
+	pbody->GetTransform(mat);
+
+	float radius = ((btCapsuleShape*)pbody->body->getCollisionShape())->getRadius();
+	float halfHeight = ((btCapsuleShape*)pbody->body->getCollisionShape())->getHalfHeight();
+
+	glPushMatrix();
+	glMultMatrixf(mat.ptr()); // translation and rotation
+
+	// Columnas
+	glBegin(GL_LINES);
+
+	glVertex3f(radius, halfHeight, 0);
+	glVertex3f(radius, -halfHeight, 0);
+
+	glVertex3f(-radius, halfHeight, 0);
+	glVertex3f(-radius, -halfHeight, 0);
+
+	glVertex3f(0, halfHeight, radius);
+	glVertex3f(0, -halfHeight, radius);
+
+	glVertex3f(0, halfHeight, -radius);
+	glVertex3f(0, -halfHeight, -radius);
+
+	glEnd();
+
+	// Dibujar la meridiana en el plano XZ (circulos completos)
+	glBegin(GL_LINE_STRIP);
+	for (int i = 0; i <= 360; i += 10) {
+		float phi = i * DEGTORAD;
+		glVertex3f(radius * cos(phi), -halfHeight, radius * sin(phi));
+	}
+	glEnd();
+
+	glBegin(GL_LINE_STRIP);
+	for (int i = 0; i <= 360; i += 10) {
+		float phi = i * DEGTORAD;
+		glVertex3f(radius * cos(phi), halfHeight, radius * sin(phi));
+	}
+	glEnd();
+
+	glPopMatrix();
+}
+
 void ModulePhysics::RenderMeshCollider(PhysBody* pbody)
 {
 	float4x4 mat;

@@ -20,7 +20,7 @@ GameObject::GameObject()
 	selected = false;
 	pendingToDelete = false;
 	hidden = false;
-
+	isStatic = false;
 	mTransform = nullptr;
 
 	UID = Random::Generate();
@@ -35,7 +35,7 @@ GameObject::GameObject(std::string name, GameObject* parent)
 	selected = false;
 	pendingToDelete = false;
 	hidden = false;
-
+	isStatic = false;
 	mTransform = nullptr;
 	UID = Random::Generate();
 
@@ -79,15 +79,21 @@ update_status GameObject::Update(float dt)
 	// FRANCESC: This shouldn't be commented, but it would need a rework in the future 
 	// (separate gameobject and resourcemesh UID)
 
-	//for (auto it = External->scene->gameObjects.begin(); it != External->scene->gameObjects.end(); ++it) {
+	for (auto it = External->scene->gameObjects.begin(); it != External->scene->gameObjects.end(); ++it) {
 
-	//	if ((*it)->UID == this->UID && (*it) != this) { // If it is repeated, regenerate
+		if ((*it)->UID == this->UID && (*it) != this) { // If it is repeated, regenerate
 
-	//		this->UID = Random::Generate();
+			this->UID = Random::Generate();
 
-	//	}
+		}
 
-	//}
+		if ((*it)->name == this->name && (*it) != this) { // If it is repeated, regenerate
+
+			this->name = External->scene->GetUniqueName(this->name);
+
+		}
+
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -128,6 +134,22 @@ GameObject* GameObject::FindChild(uint UID_ToFind, GameObject* go)
 	return go;
 }
 
+GameObject* GameObject::GetChildByUID(const uint& UID)
+{
+	GameObject* gameObjectWithUID = nullptr;
+
+	for (auto it = mChildren.begin(); it != mChildren.end(); ++it) {
+
+		if ((*it)->UID == UID) {
+
+			gameObjectWithUID = (*it);
+
+		}
+
+	}
+
+	return gameObjectWithUID;
+}
 
 void GameObject::SetParent(GameObject* newParent)
 {
@@ -164,23 +186,6 @@ void GameObject::ReParent(GameObject* newParent)
 
 }
 
-GameObject* GameObject::GetChildByUID(const uint& UID)
-{
-	GameObject* gameObjectWithUID = nullptr;
-
-	for (auto it = mChildren.begin(); it != mChildren.end(); ++it) {
-
-		if ((*it)->UID == UID) {
-
-			gameObjectWithUID = (*it);
-
-		}
-
-	}
-
-	return gameObjectWithUID;
-}
-
 void GameObject::AddChild(GameObject* child)
 {
 	mChildren.push_back(child);
@@ -198,6 +203,28 @@ void GameObject::RemoveChild(GameObject* go)
 {
 	mChildren.erase(std::find(mChildren.begin(), mChildren.end(), go));
 	mChildren.shrink_to_fit();
+}
+
+void GameObject::SwapChildren(GameObject* go)
+{
+	int index = std::find(mParent->mChildren.begin(), mParent->mChildren.end(), this) - mParent->mChildren.begin();
+	int index2 = std::find(go->mParent->mChildren.begin(), go->mParent->mChildren.end(), go) - go->mParent->mChildren.begin();
+
+	GameObject* aux = go->mParent;
+	go->ReParent(mParent);
+	this->ReParent(aux);
+
+	if (index < index2)
+	{
+		Swap(go->mParent->mChildren, std::find(go->mParent->mChildren.begin(), go->mParent->mChildren.end(), go) - go->mParent->mChildren.begin(), index);
+		Swap(mParent->mChildren, std::find(mParent->mChildren.begin(), mParent->mChildren.end(), this) - mParent->mChildren.begin(), index2);
+	}
+	else
+	{
+		Swap(mParent->mChildren, std::find(mParent->mChildren.begin(), mParent->mChildren.end(), this) - mParent->mChildren.begin(), index2);
+		Swap(go->mParent->mChildren, std::find(go->mParent->mChildren.begin(), go->mParent->mChildren.end(), go) - go->mParent->mChildren.begin(), index);
+	}
+
 }
 
 void GameObject::AddComponent(Component* component)
@@ -279,6 +306,11 @@ bool GameObject::AddComponent(ComponentType ctype, void* var)
 		}
 		else { ret = false; }
 		break;
+	case ComponentType::NAVMESHAGENT:
+		if (GetComponent(ComponentType::NAVMESHAGENT) == nullptr) {
+			temp = new CNavMeshAgent(this);
+			mComponents.push_back(temp);
+		}
 	default:
 		break;
 	}
@@ -393,9 +425,17 @@ GameObject* GameObject::GetGameObjectFromUID(const std::vector<GameObject*>& gam
 	return gameObjectWithUID;
 }
 
-bool GameObject::CompareTag(const char* _tag)
+bool GameObject::CompareTag(std::string _tag)
 {
-	return strcmp(tag, _tag) == 0;
+	if (tag == _tag)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
 }
 
 //
@@ -415,5 +455,6 @@ void GameObject::ClearReferences()
 	{
 		(*it)->OnReferenceDestroyed(this);
 	}
+
 	ClearVec(vReferences);
 }

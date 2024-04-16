@@ -4,6 +4,7 @@
 
 #include "Application.h"
 #include "ModuleEditor.h"
+#include "ModuleResourceManager.h"
 #include "ImporterTexture.h"
 
 //#include "External/ImGui/imgui_custom.h"
@@ -20,14 +21,34 @@ UI_Image::UI_Image(GameObject* g, float x, float y, float w, float h, std::strin
 
 	selectedTexture = mapTextures.find(state)->second;
 
+	ssRows = 1;
+	ssColumns = 1;
+
+	ssCoordsY = 0;
+	ssCoordsX = 0;
+
+	SetSpriteSize();
+
 	tabNav_ = false;
 }
 
 UI_Image::~UI_Image()
 {
+	/*if (mapTextures.size() > 0)
+	{
+		for (std::map<UI_STATE, ResourceTexture*>::iterator it = mapTextures.begin(); it != mapTextures.end(); ++it)
+		{
+			External->resourceManager->UnloadResource(it->second->UID);
+		}
+		mapTextures.clear();
+	}*/
+
 	RELEASE(mat);
-	RELEASE(selectedTexture);
-	//RELEASE(mapTextures);
+
+	//External->resourceManager->UnloadResource(selectedTexture->UID);
+
+	selectedTexture = nullptr;
+	mapTextures.clear();
 }
 
 void UI_Image::OnInspector()
@@ -90,10 +111,45 @@ void UI_Image::OnInspector()
 			}
 			ImGui::EndCombo();
 		}
-	
+
+		ImGui::SeparatorText("States");
+		SetStateImg("Normal", UI_STATE::NORMAL); ImGui::SameLine();
+		SetStateImg("Focused", UI_STATE::FOCUSED); ImGui::SameLine();
+		SetStateImg("Pressed", UI_STATE::PRESSED);
+		SetStateImg("Selected", UI_STATE::SELECTED); ImGui::SameLine();
+		SetStateImg("Disabled", UI_STATE::DISABLED);
+
+		ImGui::SeparatorText("Parameters");
 		if (ImGui::Button("Set Native Size", ImVec2(110, 30)))
 		{
 			SetNativeSize();
+		}
+
+		// Current frame
+		ImGui::SeparatorText("Current frame");
+		ImGui::SetNextItemWidth(70.0f);
+		if (ImGui::DragInt("X", &ssCoordsX, 0.05f, 1, 0, "%d", ImGuiSliderFlags_AlwaysClamp))
+		{
+			SetSpriteSize();
+		} ImGui::SameLine();
+
+		ImGui::SetNextItemWidth(70.0f);
+		if (ImGui::DragInt("Y", &ssCoordsY, 0.05f, 1, 0, "%d", ImGuiSliderFlags_AlwaysClamp))
+		{
+			SetSpriteSize();
+		}
+
+		// Rows and columns
+		ImGui::SetNextItemWidth(70.0f);
+		if (ImGui::DragInt("Rows", &ssRows, 0.05f, 1, 0, "%d", ImGuiSliderFlags_AlwaysClamp))
+		{
+			SetSpriteSize();
+		} ImGui::SameLine();
+
+		ImGui::SetNextItemWidth(70.0f);
+		if (ImGui::DragInt("Columns", &ssColumns, 0.05f, 1, 0, "%d", ImGuiSliderFlags_AlwaysClamp))
+		{
+			SetSpriteSize();
 		}
 
 		ImGui::Spacing();
@@ -262,12 +318,12 @@ void UI_Image::OnInspector()
 
 		ImVec2 textureMapSize(20, 20);
 
-		ImGui::Image(reinterpret_cast<void*>(static_cast<intptr_t>(mat->ID)), textureMapSize);
+		ImGui::Image(reinterpret_cast<void*>(static_cast<intptr_t>(mat->diffuse_ID)), textureMapSize);
 		mat->DdsDragDropTarget();
 		ImGui::SameLine();
 		ImGui::Text("Diffuse");
 		ImGui::SameLine();
-		ImGui::Text("(%s)", mat->path.c_str());
+		ImGui::Text("(%s)", mat->diffuse_path.c_str());
 
 		ImGui::Spacing();
 
@@ -336,12 +392,10 @@ void UI_Image::Draw(bool game)
 {
 	UI_Bounds* boundsDrawn = nullptr;
 
-
-	selectedTexture->BindTexture(true);
+	selectedTexture->BindTexture(true, 0);
 
 	mat->shader.UseShader(true);
 	mat->shader.SetShaderUniforms(&transformUI->mMatrixUI, mOwner->selected);
-
 
 	if (game)
 	{
@@ -371,7 +425,7 @@ void UI_Image::Draw(bool game)
 	boundsDrawn = nullptr;
 
 	mat->shader.UseShader(false);
-	selectedTexture->BindTexture(false);
+	selectedTexture->BindTexture(false, 0);
 
 }
 
@@ -380,26 +434,134 @@ update_status UI_Image::Update(float dt)
 	return update_status();
 }
 
+void UI_Image::OnNormal()
+{
+	color = color;
+	selectedTexture = mapTextures.find(state)->second;
+}
+
+void UI_Image::OnFocused()
+{
+	color = color;
+	selectedTexture = mapTextures.find(state)->second;
+}
+
+void UI_Image::OnPressed()
+{
+	color = color;
+	selectedTexture = mapTextures.find(state)->second;
+}
+
+void UI_Image::OnSelected()
+{
+	color = color;
+	selectedTexture = mapTextures.find(state)->second;
+}
+
+void UI_Image::OnRelease()
+{
+	color = color;
+	selectedTexture = mapTextures.find(state)->second;
+}
+
+void UI_Image::OnDisabled()
+{
+	color = color;
+	selectedTexture = mapTextures.find(state)->second;
+}
+
 void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 {
+	std::string metaFilePath = imgPath + ".meta"; // Assuming the meta file exists.
+
 	ResourceTexture* rTexTemp = new ResourceTexture();
-	ImporterTexture::Import(imgPath, rTexTemp);
-	rTexTemp->type = TextureType::DIFFUSE;
-	rTexTemp->UID = Random::Generate();
+
+	JsonFile* metaFile = JsonFile::GetJSON(metaFilePath);
+
+	if (metaFile == nullptr) {
+
+		ImporterTexture::Import(imgPath, rTexTemp);
+
+		// Get meta
+
+		JsonFile* metaFile = JsonFile::GetJSON(imgPath + ".meta");
+
+		std::string libraryPath = metaFile->GetString("Library Path");
+		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+		uint UID = metaFile->GetInt("UID");
+		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
+
+		rTexTemp = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::TEXTURE, UID, type);
+
+	}
+	else {
+
+		std::string libraryPath = metaFile->GetString("Library Path");
+		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+		uint UID = metaFile->GetInt("UID");
+		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
+
+		auto itr = External->resourceManager->resources.find(UID);
+
+		if (itr == External->resourceManager->resources.end())
+		{
+			// We are maintaining to Assets for now
+
+			//rTexTemp = static_cast<ResourceTexture*>
+				//(CreateResourceFromLibrary(libraryPath.c_str(), ResourceType::TEXTURE, UID, type));
+			rTexTemp = static_cast<ResourceTexture*>
+				(External->resourceManager->CreateResourceFromLibrary(imgPath.c_str(), ResourceType::TEXTURE, UID, type));
+		}
+		else
+		{
+			rTexTemp = static_cast<ResourceTexture*>(itr->second);
+			rTexTemp->type = type;
+			itr->second->IncreaseReferenceCount();
+		}
+
+	}
 
 	auto itr = mapTextures.find(state);
 	if (itr != mapTextures.end())
 	{
+		External->resourceManager->UnloadResource(itr->second->GetUID());
 		mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
 		mat->rTextures.shrink_to_fit();
 
 		mapTextures.erase(state);
 	}
 
-	mat->path = imgPath;
+	mat->diffuse_path = imgPath;
 	mat->rTextures.push_back(rTexTemp);
 
 	mapTextures.insert({ state, rTexTemp });
+}
+
+void UI_Image::SetStateImg(const char* label, UI_STATE s)
+{
+	ImGui::Button(label, ImVec2(70, 30));
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("tex"))
+		{
+			std::string path = (const char*)payload->Data;
+
+			// Fix ImGui problems with big sized strings. Modify if enine supports other type of imgs.
+			path.erase(path.find(".png") + 4);
+
+			SetImg(path, s);
+		}
+
+		ImGui::EndDragDropTarget();
+	}
+
+	if (state == s)
+	{
+		selectedTexture = mapTextures.find(state)->second;
+	}
 }
 
 void UI_Image::SetNativeSize()
@@ -408,4 +570,26 @@ void UI_Image::SetNativeSize()
 	height = selectedTexture->GetHeight();
 
 	dirty_ = true;
+}
+
+void UI_Image::SetSpriteSize()
+{
+	if (selectedTexture != nullptr)
+	{
+		// Calculate the size of each sprite cell in the sprite sheet
+		float spriteWidth = selectedTexture->GetWidth() / ssColumns;
+		float spriteHeight = selectedTexture->GetHeight() / ssRows;
+
+		// Calculate the texture coordinates of the sprite within the sprite sheet
+		float minX = ssCoordsX * spriteHeight / selectedTexture->GetHeight();
+		float minY = ssCoordsY * spriteWidth / selectedTexture->GetWidth();
+		float maxX = (ssCoordsX + 1) * spriteHeight / selectedTexture->GetHeight();
+		float maxY = (ssCoordsY + 1) * spriteWidth / selectedTexture->GetWidth();
+
+		// Set the texture coordinates for each vertex of the quad
+		boundsGame->vertices[0].textureCoordinates = float2(minY, maxX); // Bottom-left
+		boundsGame->vertices[1].textureCoordinates = float2(maxY, maxX); // Bottom-right
+		boundsGame->vertices[2].textureCoordinates = float2(minY, minX); // Top-left
+		boundsGame->vertices[3].textureCoordinates = float2(maxY, minX); // Top-right
+	}
 }
