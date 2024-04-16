@@ -6,19 +6,19 @@
         85.450035095214844
     ],
     "Editor Camera Right (X)": [
-        0.74819165468215942,
-        5.9604644775390625e-07,
-        0.66312068700790405
+        0.98978286981582642,
+        5.5879354476928711e-07,
+        0.14088869094848633
     ],
     "Editor Camera Up (Y)": [
-        0.38533520698547363,
-        0.81364178657531738,
-        -0.4347701370716095
+        0.097029104828834534,
+        0.72487694025039673,
+        -0.6816597580909729
     ],
     "Editor Camera Front (Z)": [
-        0.53980022668838501,
-        -0.58109581470489502,
-        -0.60905003547668457
+        0.10217595845460892,
+        -0.68869733810424805,
+        -0.71781229972839355
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1968864687,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5181,9 +5181,10 @@
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "Tp_To_Lvl1.cs",
+                    "ScriptName": "Teleport_OnCollision.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "scene": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.yscene"
                 }
             ]
         },
@@ -5221,8 +5222,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 620,
-                    "Height": 531,
+                    "Width": 651,
+                    "Height": 525,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [

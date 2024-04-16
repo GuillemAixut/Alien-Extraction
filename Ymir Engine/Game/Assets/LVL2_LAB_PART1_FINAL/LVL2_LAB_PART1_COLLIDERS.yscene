@@ -1,24 +1,24 @@
 {
     "NavMesh": "4294967295",
     "Editor Camera Position": [
-        -56.645206451416016,
-        241.14987182617188,
-        206.864013671875
+        175.69264221191406,
+        172.82943725585938,
+        -112.16918182373047
     ],
     "Editor Camera Right (X)": [
-        0.97699856758117676,
-        6.3329935073852539e-08,
-        -0.21324777603149414
+        0.77445924282073975,
+        4.1723251342773438e-07,
+        0.63262474536895752
     ],
     "Editor Camera Up (Y)": [
-        -0.018599154427647591,
-        0.99618923664093018,
-        -0.085212066769599915
+        0.33444768190383911,
+        0.84882938861846924,
+        -0.40943142771720886
     ],
     "Editor Camera Front (Z)": [
-        -0.21243511140346527,
-        -0.087218828499317169,
-        -0.97327536344528198
+        0.53699028491973877,
+        -0.52866750955581665,
+        -0.65738320350646973
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -21544,9 +21545,10 @@
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "Tp_Lvl2_Part2.cs",
+                    "ScriptName": "Teleport_OnCollision.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "scene": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_COLLIDERS.yscene"
                 }
             ]
         },
@@ -22247,9 +22249,9 @@
                         -148.91989135742188
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -18.257898330688477,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1.2600536346435547,
@@ -22352,6 +22354,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -22428,6 +22431,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -22504,6 +22508,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -22580,6 +22585,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -22656,6 +22662,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -22732,6 +22739,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -22850,6 +22858,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -22895,9 +22904,9 @@
                         171.44375610351562
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.10556995868682861,
@@ -22998,6 +23007,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -23080,6 +23090,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -23131,9 +23142,9 @@
                         404.43289184570312
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -46.409904479980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.092000454664230347,
@@ -23234,6 +23245,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -23316,6 +23328,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -23470,6 +23483,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -23552,6 +23566,7 @@
                                 211.15060424804688,
                                 100.78591918945312
                             ],
+                            "numPointLights": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -26045,7 +26060,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.442296028137207,
+                        9.4422950744628906,
                         -0
                     ],
                     "Scale": [
@@ -26221,9 +26236,9 @@
                         -330.6292724609375
                     ],
                     "Rotation": [
-                        -5.4228959101010332e-08,
+                        -5.4228955548296653e-08,
                         23.700002670288086,
-                        -6.0786260668520796e-15
+                        -6.9470017032783465e-15
                     ],
                     "Scale": [
                         13.260845184326172,

@@ -36,6 +36,12 @@ public class SceneManager : YmirComponent
 
         if (Input.GetKey(YmirKeyCode.KP_5) == KeyState.KEY_DOWN)
         {
+            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene");
+            return;
+        }
+
+        if (Input.GetKey(YmirKeyCode.KP_6) == KeyState.KEY_DOWN)
+        {
             InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene");
             return;
         }
