@@ -14,8 +14,6 @@
 #include "ModuleResourceManager.h"
 #include "Random.h"
 
-
-
 #include "RecastNavigation/DebugUtils/DetourDebugDraw.h"
 #include "RecastNavigation/InputGeom.h"
 #include "RecastNavigation/Detour/DetourNavMesh.h"
@@ -24,12 +22,13 @@
 #include "RecastNavigation/Detour/DetourCommon.h"
 
 #include "Log.h"
-#include "mmgr/mmgr.h"
 #include "RecastNavigation/DebugUtils/SampleInterfaces.h"
 
 #include "PhysfsEncapsule.h"
 
 #include "Random.h"
+
+#include "External/mmgr/mmgr.h"
 
 ModulePathFinding::ModulePathFinding(Application* app, bool start_enabled) : Module(app, start_enabled),
 geometry(nullptr), navMeshBuilder(nullptr), walkabilityPoint(nullptr), debugDraw(false),

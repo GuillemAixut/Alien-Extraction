@@ -4,6 +4,8 @@
 #include "External/Assimp/include/scene.h"
 #include "External/Assimp/include/Importer.hpp"
 
+#include "External/mmgr/mmgr.h"
+
 void ImporterAnimation::Import(const std::string& animationPath, ResourceAnimation* ourAnimation, Model* model, int index)
 {
 	Assimp::Importer importer;

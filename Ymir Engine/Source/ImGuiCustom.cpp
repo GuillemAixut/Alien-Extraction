@@ -1,5 +1,7 @@
 #include "ImGuiCustom.h"
 
+#include "External/mmgr/mmgr.h"
+
 void ImGuiCustom::Theme_OrangeFont()
 {
     // Red Font style by aiekick from ImThemes

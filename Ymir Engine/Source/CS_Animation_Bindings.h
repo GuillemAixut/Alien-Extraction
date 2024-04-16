@@ -5,6 +5,7 @@
 #include "CAnimation.h"
 #include "Component.h"
 
+#include "External/mmgr/mmgr.h"
 
 void PlayAnimation(MonoObject*go, MonoString* nameAnim) {
 

@@ -27,10 +27,11 @@
 #include "ImporterMesh.h"
 #include "ModuleResourceManager.h"
 
-#include "External/mmgr/mmgr.h"
 #include "CScript.h"
 #include "CNavMeshAgent.h"
 #include "ImporterTexture.h"
+
+#include "External/mmgr/mmgr.h"
 
 JsonFile::JsonFile()
 {

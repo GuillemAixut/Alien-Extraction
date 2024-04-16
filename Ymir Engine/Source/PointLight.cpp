@@ -1,5 +1,7 @@
 #include "PointLight.h"
 
+#include "External/mmgr/mmgr.h"
+
 PointLight::PointLight() : Light(LightType::POINT_LIGHT, float3::one, 1.0f), radius(1.0f)
 {
 	shape = new CSphere(radius, 10);

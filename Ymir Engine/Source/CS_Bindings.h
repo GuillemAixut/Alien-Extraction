@@ -29,6 +29,8 @@
 
 #include "MathGeoLib/include/Math/float3.h"
 
+#include "External/mmgr/mmgr.h"
+
 template<typename T>
 T CS_CompToComp(MonoObject* obj)
 {

@@ -1,5 +1,6 @@
 #include "Animator.h"
 #include "Log.h"
+
 #include "External/mmgr/mmgr.h"
 
 Animator::Animator()

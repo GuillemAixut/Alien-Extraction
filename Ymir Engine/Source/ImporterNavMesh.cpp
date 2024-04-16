@@ -6,6 +6,8 @@
 
 #include <vcruntime_string.h>
 
+#include "External/mmgr/mmgr.h"
+
 uint ImporterNavMesh::Save(const char* assets_path, dtNavMesh* navMesh, BuildSettings& buildSettings, uint UID)
 {
 	if (!navMesh)

@@ -10,10 +10,10 @@
 #include "External/ImGui/backends/imgui_impl_sdl2.h"
 #include "External/ImGui/backends/imgui_impl_opengl3.h"
 
-#include "External/mmgr/mmgr.h"
-
 #include "ModuleFileSystem.h"
 #include "ModuleResourceManager.h"
+
+#include "External/mmgr/mmgr.h"
 
 CAnimation::CAnimation(GameObject* owner) : Component(owner, ComponentType::ANIMATION)
 {

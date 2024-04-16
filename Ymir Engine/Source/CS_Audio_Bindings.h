@@ -7,6 +7,8 @@
 #include "Component.h"
 #include "ModuleAudio.h"
 
+#include "External/mmgr/mmgr.h"
+
 void PlayAudio(MonoObject* go, MonoString* eventAudio)
 {
 	if (External == nullptr)
