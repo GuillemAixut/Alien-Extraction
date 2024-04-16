@@ -1,24 +1,24 @@
 {
     "NavMesh": "4294967295",
     "Editor Camera Position": [
-        -117.32685089111328,
-        243.10572814941406,
-        297.9189453125
+        -310.39129638671875,
+        144.079833984375,
+        284.61172485351562
     ],
     "Editor Camera Right (X)": [
-        0.68188905715942383,
-        1.4901161193847656e-08,
-        0.73139023780822754
+        -0.9918704628944397,
+        -1.1175870895385742e-07,
+        0.12703588604927063
     ],
     "Editor Camera Up (Y)": [
-        0.56204336881637573,
-        0.63986825942993164,
-        -0.52400380373001099
+        0.041722983121871948,
+        0.94449037313461304,
+        0.325765460729599
     ],
     "Editor Camera Front (Z)": [
-        0.46803835034370422,
-        -0.76845908164978027,
-        -0.43636110424995422
+        0.11999320238828659,
+        -0.32843890786170959,
+        0.93688243627548218
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -100,7 +101,6 @@
                 1924623205,
                 1683452266,
                 705092123,
-                1102595052,
                 1105755793
             ]
         },
@@ -1305,9 +1305,10 @@
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "Tp_To_Lvl3_Part1.cs",
+                    "ScriptName": "Teleport_OnCollision.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "scene": "Assets\/LVL3_BlockOut\/LVL3_PART1_COLLIDERS.yscene"
                 }
             ]
         },
@@ -9273,6 +9274,35 @@
                     "Diffuse_ID": 919,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Column\/TEX_PROP_Column_D.png",
                     "Diffuse_UID": 90613340
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.3735122680664062,
+                        35.420516967773438,
+                        6.3735122680664062
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -58.171226501464844,
+                        35.098487854003906,
+                        423.98187255859375
+                    ]
                 }
             ]
         },
@@ -9337,6 +9367,35 @@
                     "Diffuse_ID": 919,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Column\/TEX_PROP_Column_D.png",
                     "Diffuse_UID": 90613340
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.3735122680664062,
+                        35.420516967773438,
+                        6.3735122680664062
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -57.728000640869141,
+                        35.098487854003906,
+                        518.23101806640625
+                    ]
                 }
             ]
         },
@@ -9401,6 +9460,35 @@
                     "Diffuse_ID": 919,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Column\/TEX_PROP_Column_D.png",
                     "Diffuse_UID": 90613340
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.3735122680664062,
+                        35.420516967773438,
+                        6.3735122680664062
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -58.228000640869141,
+                        35.098487854003906,
+                        612.6356201171875
+                    ]
                 }
             ]
         },
@@ -9465,4068 +9553,6 @@
                     "Diffuse_ID": 921,
                     "Diffuse_Path": "Assets\/Textures\/General_Props\/Altar\/TEX_PROP_Altar_D.png",
                     "Diffuse_UID": 1053309711
-                }
-            ]
-        },
-        {
-            "Name": "Metal_Boxes",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1102595052,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 456674892,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1094214215,
-                1643006846,
-                463287599,
-                620688499,
-                1877290294
-            ]
-        },
-        {
-            "Name": "MetalBox",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1094214215,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1102595052,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                93308315,
-                1839141909
-            ]
-        },
-        {
-            "Name": "Faces",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 93308315,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1094214215,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1012629134,
-                191628652,
-                1700451754,
-                1659279024,
-                309604822
-            ]
-        },
-        {
-            "Name": "Face1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1012629134,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 93308315,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 404073862,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 404073862,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 191628652,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 93308315,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1081608913,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1081608913,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face3",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1700451754,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 93308315,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 402242549,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 402242549,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face4",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1659279024,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 93308315,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 951812393,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 951812393,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face5",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 309604822,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 93308315,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1284450076,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1284450076,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Sticks",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1839141909,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1094214215,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1671971549,
-                1480142406,
-                1266778176,
-                621340513
-            ]
-        },
-        {
-            "Name": "Stick",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1671971549,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1839141909,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 922354380,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1480142406,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1839141909,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 2011996740,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1266778176,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1839141909,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1935322392,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick3",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 621340513,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1839141909,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 2091100272,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "MetalBox1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1643006846,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1102595052,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1788897818,
-                1484602840
-            ]
-        },
-        {
-            "Name": "Faces (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1788897818,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1643006846,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                688097179,
-                1303445795,
-                324814729,
-                593269867,
-                1595857465
-            ]
-        },
-        {
-            "Name": "Face1 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 688097179,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1788897818,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1046439958,
-                    "Vertex Count": 193,
-                    "Index Count": 399
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face2 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1303445795,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1788897818,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 817525829,
-                    "Vertex Count": 193,
-                    "Index Count": 399
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face3 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 324814729,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1788897818,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1157537048,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1157537048,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face4 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 593269867,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1788897818,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1826571903,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1826571903,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face5 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1595857465,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1788897818,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1625043331,
-                    "Vertex Count": 193,
-                    "Index Count": 399
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Sticks (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1484602840,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1643006846,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1566651307,
-                436702316,
-                1306238160,
-                1690157901
-            ]
-        },
-        {
-            "Name": "Stick (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1566651307,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1484602840,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1705975434,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick1 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 436702316,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1484602840,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 251627840,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick2 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1306238160,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1484602840,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1424175901,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick3 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1690157901,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1484602840,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 272668292,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "MetalBox2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 463287599,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1102595052,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                904672906,
-                1657911180
-            ]
-        },
-        {
-            "Name": "Faces (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 904672906,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 463287599,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                2048329301,
-                2041947432,
-                483190781,
-                2091494534,
-                203472165
-            ]
-        },
-        {
-            "Name": "Face1 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2048329301,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 904672906,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 589818317,
-                    "Vertex Count": 193,
-                    "Index Count": 399
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face2 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2041947432,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 904672906,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 639360957,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 639360957,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face3 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 483190781,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 904672906,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 428086437,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 428086437,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face4 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2091494534,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 904672906,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 721832223,
-                    "Vertex Count": 193,
-                    "Index Count": 399
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face5 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 203472165,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 904672906,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1087361304,
-                    "Vertex Count": 193,
-                    "Index Count": 399
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Sticks (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1657911180,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 463287599,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                7457014,
-                1479271972,
-                1330288291,
-                1007855537
-            ]
-        },
-        {
-            "Name": "Stick (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 7457014,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1657911180,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 2078474466,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick1 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1479271972,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1657911180,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1043561663,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick2 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1330288291,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1657911180,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1760276588,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick3 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1007855537,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1657911180,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1446677851,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "MetalBox3",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 620688499,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1102595052,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1231195647,
-                545028541
-            ]
-        },
-        {
-            "Name": "Faces (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1231195647,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 620688499,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                258567037,
-                1275377786,
-                927043171,
-                1232667807,
-                1451902302
-            ]
-        },
-        {
-            "Name": "Face1 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 258567037,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1231195647,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 614697103,
-                    "Vertex Count": 193,
-                    "Index Count": 399
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face2 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1275377786,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1231195647,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 271611278,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 271611278,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face3 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 927043171,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1231195647,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 162013680,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 162013680,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face4 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1232667807,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1231195647,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 494182803,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 494182803,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face5 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1451902302,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1231195647,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1414127111,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1414127111,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Sticks (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 545028541,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 620688499,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                515172395,
-                638732270,
-                1290314137,
-                638346503
-            ]
-        },
-        {
-            "Name": "Stick (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 515172395,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 545028541,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 239738145,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick1 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 638732270,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 545028541,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1481914830,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick2 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1290314137,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 545028541,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1368465389,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick3 (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 638346503,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 545028541,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1027755082,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "MetalBox4",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1877290294,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1102595052,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1388168519,
-                818250789
-            ]
-        },
-        {
-            "Name": "Faces (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1388168519,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1877290294,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                799012167,
-                884184665,
-                1242146296,
-                1014404771,
-                414025907
-            ]
-        },
-        {
-            "Name": "Face1 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 799012167,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1388168519,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 226275089,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 226275089,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face2 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 884184665,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1388168519,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 277720710,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 277720710,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face3 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1242146296,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1388168519,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 2138677080,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 2138677080,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face4 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1014404771,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1388168519,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 287475173,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 287475173,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Face5 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 414025907,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1388168519,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 730545543,
-                    "Vertex Count": 2,
-                    "Index Count": 2
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 730545543,
-                    "Vertex Count": 190,
-                    "Index Count": 396
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Sticks (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 818250789,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 1877290294,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1253004653,
-                137996286,
-                28183693,
-                1824467118
-            ]
-        },
-        {
-            "Name": "Stick (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1253004653,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 818250789,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 480668237,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick1 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 137996286,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 818250789,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1414051517,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick2 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 28183693,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 818250789,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1600675210,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
-                }
-            ]
-        },
-        {
-            "Name": "Stick3 (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1824467118,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_FINAL.fbx",
-            "Parent UID": 818250789,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 32682402,
-                    "Vertex Count": 12,
-                    "Index Count": 18
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 923,
-                    "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/MetalBox\/TEX_PROP_MetalBox__D.png",
-                    "Diffuse_UID": 41190034
                 }
             ]
         },
@@ -13731,6 +9757,35 @@
                     "Diffuse_ID": 209,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414236068725586,
+                        17.627662658691406,
+                        6.7414236068725586
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -0.0080000003799796104,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -13795,6 +9850,35 @@
                     "Diffuse_ID": 213,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414236068725586,
+                        17.627662658691406,
+                        6.7414236068725586
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -0.075999997556209564,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -13859,6 +9943,35 @@
                     "Diffuse_ID": 217,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414236068725586,
+                        17.627662658691406,
+                        6.7414236068725586
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -0.10700000077486038,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -13923,6 +10036,35 @@
                     "Diffuse_ID": 221,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414231300354004,
+                        17.627662658691406,
+                        6.7414231300354004
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -1.3259999752044678,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -13987,6 +10129,35 @@
                     "Diffuse_ID": 225,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414231300354004,
+                        17.627662658691406,
+                        6.7414231300354004
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -2.7320001125335693,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -14115,6 +10286,35 @@
                     "Diffuse_ID": 233,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414231300354004,
+                        17.627662658691406,
+                        6.7414231300354004
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -14179,6 +10379,35 @@
                     "Diffuse_ID": 237,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414231300354004,
+                        17.627662658691406,
+                        6.7414231300354004
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -0.37700000405311584,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -14243,6 +10472,35 @@
                     "Diffuse_ID": 241,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414231300354004,
+                        17.627662658691406,
+                        6.7414231300354004
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0.49000000953674316,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -14307,6 +10565,35 @@
                     "Diffuse_ID": 245,
                     "Diffuse_Path": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_PART1_Texturas\/Props\/Biotic Liquid Tank\/TEX_PROP_LiquidTank_D.png",
                     "Diffuse_UID": 861718311
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        6.7414231300354004,
+                        17.627662658691406,
+                        6.7414231300354004
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        17.627662658691406,
+                        0
+                    ]
                 }
             ]
         },
@@ -14642,9 +10929,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -122.62315368652344,
-                        -2.5,
-                        362.4495849609375
+                        -89.7725830078125,
+                        -3.8294162750244141,
+                        308.79550170898438
                     ],
                     "Rotation": [
                         -0,

@@ -30,7 +30,7 @@ public class Caius : YmirComponent
 
 	//private Player csPlayer;
 
-    private string str = "ID;Type;Name;Text;Code;Endmark<end>1;Text;Caius;Oh, good, I see they've woken you up. Just in time;;<end>;Answer;Raisen;In time for what?;goTo:2;<end>;Answer;Raisen;Woken me up? What do you mean?;goTo:2;<end>;Answer;Raisen;Up and ready for the mission.;goTo:2;<end>;Answer;Raisen;;;<end>2;Text;Caius;We've just arrived at Gliese 667. You'll have to clean up the planet. I don't have much information about the mission, it's labeled Confidential level: EXTREME, I'm not allowed to access beyond the summary annex. I hope you have been briefed on better Raisen.;;<end>;Answer;Raisen;Clear your hopes Caius.;goTo:;<end>;Answer;Raisen;I wish they did.;goTo:;<end>;Answer;Raisen;;;<end>;Answer;Raisen;;;<end>";
+    private readonly string str = "ID;Type;Name;Text;Code;Endmark<end>1;Text;Caius;Oh, good, I see they've woken you up. Just in time;;<end>;Answer;Raisen;In time for what?;goTo:2;<end>;Answer;Raisen;Woken me up? What do you mean?;goTo:2;<end>;Answer;Raisen;Up and ready for the mission.;goTo:2;<end>;Answer;Raisen;;;<end>2;Text;Caius;We've just arrived at Gliese 667. You'll have to clean up the planet. I don't have much information about the mission, it's labeled Confidential level: EXTREME, I'm not allowed to access beyond the summary annex. I hope you have been briefed on better Raisen.;;<end>;Answer;Raisen;Clear your hopes Caius.;goTo:;<end>;Answer;Raisen;I wish they did.;goTo:;<end>;Answer;Raisen;;;<end>;Answer;Raisen;;;<end>";
 
     public void Start()
 	{
