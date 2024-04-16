@@ -144,9 +144,8 @@ public:
 
 	bool texturingEnabled = true;
 
-	//font
+	// Font
 	Font* defaultFont;
-	std::vector<Font*> mFonts;
 
 private:
 

@@ -23,6 +23,8 @@
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	context = nullptr;
+	defaultFont = nullptr;
+	outlineShader = nullptr;
 
 	LOG("Creating ModuleRenderer3D");
 
@@ -434,6 +436,16 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 bool ModuleRenderer3D::CleanUp()
 {
 	LOG("Destroying 3D Renderer");
+
+	// Delete things from Init
+
+	delete outlineShader;
+	
+	for (auto& character : defaultFont->mCharacters) {
+
+		delete character.second.get(); 
+
+	}
 
 	// Clean Framebuffers
 	App->camera->editorCamera->framebuffer.Delete();

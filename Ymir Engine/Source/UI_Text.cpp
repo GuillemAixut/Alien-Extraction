@@ -9,6 +9,8 @@
 
 #include "External/mmgr/mmgr.h"
 
+std::vector<Font*> Font::mFonts;
+
 UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float ls, std::string fontName, std::string fontPath, float w, float h, std::string shaderPath) : C_UI(UI_TYPE::TEXT, ComponentType::UI, g, "Text", x, y, w, h)
 {
 	text = t;
@@ -139,7 +141,7 @@ void UI_Text::OnInspector()
 
 		if (ImGui::BeginCombo("Font", font->name.c_str()))
 		{
-			for (std::vector<Font*>::const_iterator it = External->renderer3D->mFonts.begin(); it != External->renderer3D->mFonts.end(); ++it)
+			for (std::vector<Font*>::const_iterator it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
 			{
 				bool isSelected = (font->name == (*it)->name);
 				if (ImGui::Selectable((*it)->name.c_str()))
@@ -564,7 +566,7 @@ void UI_Text::SetText(const char* t)
 void UI_Text::SetFont(std::string name, std::string fontPath)
 {
 	bool isImported = false;
-	for (auto it = External->renderer3D->mFonts.begin(); it != External->renderer3D->mFonts.end(); ++it)
+	for (auto it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
 	{
 		if ((*it)->name == name)
 		{
@@ -655,20 +657,7 @@ Font::Font(std::string name, std::string fontPath)
 	FT_Done_FreeType(ft);
 
 	LOG("Font loaded: %s", name.c_str());
-	External->renderer3D->mFonts.push_back(this);
-}
-
-Font::~Font()
-{
-	// After the loop
-
-	for (auto& character : mCharacters) {
-
-		delete character.second.get(); // Deallocate memory for each Character object
-
-	}
-
-	mCharacters.clear();
+	Font::mFonts.push_back(this);
 }
 
 bool Font::InitFont(std::string n, std::string fontPath)
