@@ -21,6 +21,8 @@ ModuleAudio::ModuleAudio(Application* app, bool start_enabled) : Module(app, sta
 {
 #ifdef STANDALONE
 	firstFrame = true;
+#else
+	firstFrame = false;
 #endif STANDALONE
 }
 

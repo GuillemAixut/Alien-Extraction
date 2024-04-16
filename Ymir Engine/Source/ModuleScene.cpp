@@ -480,6 +480,8 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 	prefabFile->CreateJSON(dir + "/", fileName + ".yfab");
 
 	LOG("Prefab '%s' saved to %s", fileName.c_str(), dir.c_str());
+
+	delete prefabFile;
 }
 
 
