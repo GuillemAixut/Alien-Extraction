@@ -178,9 +178,9 @@ public class FaceHuggerBaseScript : YmirComponent
 
                 case WanderState.CHASING:
 
-                    LookAt(player.transform.globalPosition);
+                    LookAt(agent.GetDestination());
                     //Debug.Log("[ERROR] Current State: CHASING");
-
+                    agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
 
                     MoveToCalculatedPos(agent.speed);
 
@@ -219,7 +219,6 @@ public class FaceHuggerBaseScript : YmirComponent
                             Audio.PlayAudio(gameObject, "FH_Cry");
                             CryTimer = 0;
                         }
-                        agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
                         wanderState = WanderState.CHASING;
                     }
                     //Attack if in range
@@ -427,11 +426,6 @@ public class FaceHuggerBaseScript : YmirComponent
         Vector3 roundedDestination = new Vector3(Mathf.Round(destintion.x),
                                                  0,
                                                  Mathf.Round(destintion.z));
-
-
-        //Debug.Log("Position: " + roundedPosition);
-        //Debug.Log("Destination: " + roundedDestination);
-
 
         if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
         {
