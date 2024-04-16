@@ -36,7 +36,7 @@
 	
 	uniform vec3 camPos;
 
-    uniform int numLights;
+    uniform int numPointLights;
     uniform PointLight pointLights[MAX_POINT_LIGHTS];
 
 	void main()
@@ -56,7 +56,7 @@
         TangentViewPos = TBN * camPos;
     	TangentFragPos = TBN * Position;
 
-        for (int i = 0; i < numLights; i++) {
+        for (int i = 0; i < numPointLights; i++) {
 
             tPointLights[i].TangentLightPos = TBN * pointLights[i].lightDir;
             tPointLights[i].lightInt = pointLights[i].lightInt;
@@ -70,6 +70,8 @@
 
 #ifdef FRAGMENT_SHADER
 	
+    // Point Lights
+
     struct TangentPointLight {    
         vec3 TangentLightPos;
         vec3 lightColor;
@@ -78,8 +80,10 @@
     
     #define MAX_POINT_LIGHTS 9
     in TangentPointLight tPointLights[MAX_POINT_LIGHTS];
-    uniform int numLights;
+    uniform int numPointLights;
 
+    uniform int numLights;
+    
 	in vec3 Normal;
 	in vec2 TexCoords;
 	
@@ -250,12 +254,20 @@
 
         vec4 finalColor;
 		
-		if (numLights > 0) // Point Light Management
+		if (numLights > 0) // Light Management
         {
-	        for (int i = 0; i < numLights; i++) 
+            // Directional Light Management
+
+            // Point Light Management
+            
+	        for (int i = 0; i < numPointLights; i++) 
             {
 	            finalColor += CalculatePointLight(tPointLights[i], normal, TangentFragPos, viewDirection);
 	        }    
+
+            // Spot Light Management
+
+            // Area Light Management
         }
         else 
         { 
@@ -267,4 +279,6 @@
     }
 
 #endif
+
+
 
