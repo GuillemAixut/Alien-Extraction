@@ -375,7 +375,7 @@ void ModuleMonoManager::DebugAllMethods(const char* nsName, const char* classNam
 	while (method2 = mono_class_get_methods(klass, &iter))
 	{
 		_data.push_back(mono_method_full_name(method2, 1));
-		//LOG(LogType::L_NORMAL, mono_method_full_name(method2, 1));
+		LOG("[ERROR] Error debuging method: %s", mono_method_full_name(method2, 1));
 	}
 }
 
