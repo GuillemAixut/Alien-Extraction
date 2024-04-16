@@ -675,7 +675,8 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	CCollider* physBody;
 	physBody = new CCollider(go);
 	physBody->useGravity = false;
-	physBody->size = scaleVector;
+	//physBody->size = scaleVector;
+	physBody->size = float3(1, 1, 1);
 	physBody->physBody->SetPosition(posVector);
 	go->AddComponent(physBody);
 

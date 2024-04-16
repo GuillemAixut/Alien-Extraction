@@ -90,7 +90,11 @@ public class BH_Bullet : YmirComponent
             //Destroy bullet when hit, REMOVE THIS IF THE BULLET SHOULD PIERCE
             currentLifeTime = maxLifeTime;
         }
-
+        else
+        {
+            InternalCalls.Destroy(gameObject);
+            destroyed = true;
+        }
     }
 }
 
