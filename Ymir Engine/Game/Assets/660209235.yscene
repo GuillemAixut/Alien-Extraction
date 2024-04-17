@@ -28,7 +28,28 @@
             "UID": 660209235,
             "Active": true,
             "Element_Type": "None",
-            "Components": [],
+            "Parent UID": 1081275770,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
             "Children UID": [
                 444116264,
                 2137498582
@@ -52,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -78,19 +99,19 @@
                     "Type": "Camera",
                     "Active": 1,
                     "Right": [
-                        0.76604485511779785,
-                        -1.4361712885602174e-07,
+                        0.76604437828063965,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.6969747081202513e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361708622345759e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.6969747081202513e-08,
-                        -0.76604485511779785
+                        -6.696972576492044e-08,
+                        -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
@@ -136,7 +157,7 @@
                     "Position X": 0,
                     "Position Y": 0,
                     "Width": 660,
-                    "Height": 525,
+                    "Height": 309,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -184,14 +205,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 101,
+                    "Position Y": 0,
                     "Width": 225,
                     "Height": 180,
                     "UI Type": 6,
                     "UI State": 1,
                     "Drag Limits": [
                         0,
-                        101,
+                        0,
                         225,
                         180
                     ],
@@ -202,24 +223,24 @@
                     "Value": 0,
                     "Value min": 0,
                     "Value max": 10,
-                    "Direction": 0,
+                    "Direction": 2,
                     "Focused color": [
                         0,
                         0,
+                        0,
+                        1
+                    ],
+                    "Pressed color": [
+                        0,
+                        1,
                         1,
                         0
                     ],
-                    "Pressed color": [
-                        1,
-                        1,
-                        0,
-                        1
-                    ],
                     "Selected color": [
                         1,
+                        1,
                         0,
-                        0,
-                        1
+                        0
                     ],
                     "Disabled color": [
                         1,
@@ -243,7 +264,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 795977770,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 50190072,
             "Components": [
@@ -271,14 +292,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 101,
+                    "Position Y": 0,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         0,
-                        101,
+                        0,
                         300,
                         50
                     ],
@@ -334,16 +355,16 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 101,
-                    "Width": 0,
-                    "Height": 50,
+                    "Position Y": 181,
+                    "Width": 225,
+                    "Height": 180,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         0,
-                        101,
-                        0,
-                        50
+                        181,
+                        225,
+                        180
                     ],
                     "Path": "Assets\/InGameConeptPng.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",

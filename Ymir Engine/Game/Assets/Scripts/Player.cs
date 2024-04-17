@@ -978,7 +978,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            //if (csBullets != null) { csBullets.UseBullets(); }
+            if (csBullets != null) { csBullets.UseBullets(); }
         }
 
         //Debug.Log("Ammo:" + ammo);
