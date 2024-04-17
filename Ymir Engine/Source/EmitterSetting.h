@@ -40,6 +40,15 @@ private:
 
 };
 
+//Enum of the modes of effect the orentation has over the game object.
+enum RotationInheritanceParticles
+{
+	PAR_WORLD_MATRIX, //None, 1,0,0 is the X of the world,etc
+	PAR_GAMEOBJECT_MATRIX, //The particle system matrix affects the position (if is rotated 90 degrees in Y 1,0,0 would be +Z dir)
+	PAR_PARENT_MATRIX, //Similar to GAMEOBJECT_MATRIX but is the parent of the Particle System)
+	PAR_INITIAL_ROTATION_END,
+};
+
 enum SpawnAreaShape 
 {
 	PAR_POINT,
@@ -63,6 +72,9 @@ struct EmitterBase : EmitterSetting
 
 	bool hasDistanceLimit;
 	float distanceLimit;
+
+	//Orientacion
+	RotationInheritanceParticles rotacionBase;
 
 	//Area donde spawnean las particulas
 	SpawnAreaShape currentShape;

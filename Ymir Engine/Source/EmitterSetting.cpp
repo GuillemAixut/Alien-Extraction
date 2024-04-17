@@ -52,7 +52,8 @@ EmitterBase::EmitterBase()
 	hasDistanceLimit = false;
 	distanceLimit = 0.0f;
 
-	
+	//World rotation
+	rotacionBase = RotationInheritanceParticles::PAR_WORLD_MATRIX;
 }
 
 void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
@@ -87,10 +88,34 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	particle->diesByDistance = hasDistanceLimit;
 	particle->distanceLimit = distanceLimit;
 	
+	//World rotation
+	//World rotation
+	switch (rotacionBase)
+	{
+	case PAR_WORLD_MATRIX:
+		particle->directionRotation = Quat::identity;
+		break;
+	case PAR_GAMEOBJECT_MATRIX:
+		particle->directionRotation = emitter->owner->mOwner->mTransform->GetLocalRotation();
+		break;
+	case PAR_PARENT_MATRIX:
+		particle->directionRotation = emitter->owner->mOwner->mParent->mTransform->GetGlobalRotation();
+		break;
+	case PAR_INITIAL_ROTATION_END:
+		break;
+	default:
+		break;
+	}
+
+	
+
 	switch (currentShape)
 	{
 	case PAR_POINT:
 	{
+		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
+		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
 		if (cTra != nullptr) 
 		{
@@ -111,7 +136,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	case PAR_BOX:
 
-		
+		//Random values
 
 		break;
 	case PAR_SPHERE:
@@ -153,6 +178,38 @@ void EmitterBase::OnInspector()
 	{
 		ImGui::SliderFloat("Max Distance ##BASE", &(this->distanceLimit), 0.1f, 100.0f);
 
+	}
+
+	//Init types (when plays and when it stops)
+	std::string modeRotInheritance;
+	switch (rotacionBase)
+	{
+	case PAR_WORLD_MATRIX: modeRotInheritance = "No Rotation"; break;
+	case PAR_GAMEOBJECT_MATRIX: modeRotInheritance = "Own Rotation"; break;
+	case PAR_PARENT_MATRIX: modeRotInheritance = "Parent Rotation"; break;
+	case PAR_INITIAL_ROTATION_END:break;
+	default: break;
+	}
+
+	if (ImGui::BeginCombo("##RotationMode", modeRotInheritance.c_str()))
+	{
+		for (int i = 0; i < RotationInheritanceParticles::PAR_INITIAL_ROTATION_END; i++)
+		{
+			switch (RotationInheritanceParticles(i))
+			{
+			case PAR_WORLD_MATRIX: modeRotInheritance = "No Rotation"; break;
+			case PAR_GAMEOBJECT_MATRIX: modeRotInheritance = "Own Rotation"; break;
+			case PAR_PARENT_MATRIX: modeRotInheritance = "Parent Rotation"; break;
+			case PAR_INITIAL_ROTATION_END:break;
+			default: break;
+			}
+			if (ImGui::Selectable(modeRotInheritance.c_str()))
+			{
+				rotacionBase = (RotationInheritanceParticles)i;
+			}
+		}
+
+		ImGui::EndCombo();
 	}
 
 	//ImGui::Separator();
@@ -562,28 +619,32 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 		{
 			emitter->listParticles.at(i)->velocity.w = particleSpeed1;
 		}
+
+		Quat nuwDirQuat = emitter->listParticles.at(i)->directionRotation.Mul(Quat(emitter->listParticles.at(i)->velocity.x, emitter->listParticles.at(i)->velocity.y, emitter->listParticles.at(i)->velocity.z, 0));
+		float3 directionParticle = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+
 		switch (actualSpeedChange)
 		{
 		case SpeedChangeMode::PAR_NO_SPEED_CHANGE:
 		{
-			emitter->listParticles.at(i)->position.x += emitter->listParticles.at(i)->velocity.x * emitter->listParticles.at(i)->velocity.w * dt;
-			emitter->listParticles.at(i)->position.y += emitter->listParticles.at(i)->velocity.y * emitter->listParticles.at(i)->velocity.w * dt;
-			emitter->listParticles.at(i)->position.z += emitter->listParticles.at(i)->velocity.z * emitter->listParticles.at(i)->velocity.w * dt; 
+			emitter->listParticles.at(i)->position.x += directionParticle.x * emitter->listParticles.at(i)->velocity.w * dt;
+			emitter->listParticles.at(i)->position.y += directionParticle.y * emitter->listParticles.at(i)->velocity.w * dt;
+			emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt; 
 		}
 			break;
 		case SpeedChangeMode::PAR_IF_TIME_ADD:
 		{
 			if (changeSpeed1<=actualLT && changeSpeed2 >= actualLT)
 			{
-				emitter->listParticles.at(i)->position.x += (emitter->listParticles.at(i)->velocity.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (emitter->listParticles.at(i)->velocity.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (emitter->listParticles.at(i)->velocity.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
-				emitter->listParticles.at(i)->position.x += emitter->listParticles.at(i)->velocity.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += emitter->listParticles.at(i)->velocity.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += emitter->listParticles.at(i)->velocity.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionParticle.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionParticle.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
 			break;
@@ -592,21 +653,21 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 
 			if (changeSpeed1 <= actualLT && actualLT <= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (emitter->listParticles.at(i)->velocity.x + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (emitter->listParticles.at(i)->velocity.y + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (emitter->listParticles.at(i)->velocity.z + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else if(actualLT >= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (emitter->listParticles.at(i)->velocity.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (emitter->listParticles.at(i)->velocity.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (emitter->listParticles.at(i)->velocity.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
-				emitter->listParticles.at(i)->position.x += emitter->listParticles.at(i)->velocity.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += emitter->listParticles.at(i)->velocity.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += emitter->listParticles.at(i)->velocity.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionParticle.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionParticle.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
 			break;
@@ -620,9 +681,9 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 			}
 			else
 			{
-				emitter->listParticles.at(i)->position.x += emitter->listParticles.at(i)->velocity.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += emitter->listParticles.at(i)->velocity.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += emitter->listParticles.at(i)->velocity.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionParticle.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionParticle.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
 			break;
@@ -630,9 +691,9 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 		{
 			if (changeSpeed1 <= actualLT && actualLT <= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (emitter->listParticles.at(i)->velocity.x * (1- ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (emitter->listParticles.at(i)->velocity.y * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (emitter->listParticles.at(i)->velocity.z * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x * (1- ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else if (actualLT >= changeSpeed2)
 			{
@@ -642,9 +703,9 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 			}
 			else
 			{
-				emitter->listParticles.at(i)->position.x += emitter->listParticles.at(i)->velocity.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += emitter->listParticles.at(i)->velocity.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += emitter->listParticles.at(i)->velocity.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionParticle.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionParticle.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
 			break;

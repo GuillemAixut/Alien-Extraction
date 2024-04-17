@@ -4,6 +4,7 @@ Particle::Particle()
 {
 	position = { 0,0,0 };
 	worldRotation = { 0,0,0,0 };
+	directionRotation = Quat::identity;
 	size = { 1,1,1 };
 	velocity = { 0,0,0,0 };
 

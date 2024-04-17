@@ -3430,6 +3430,12 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eBase->distanceLimit = (float)json_object_get_number(modulo, "DistanceLimit");
 					eBase->hasDistanceLimit = json_object_get_boolean(modulo, "HasDistanceLimit");
 
+					//Rotacion particle position (is not billboarding)
+					eBase->rotacionBase = (RotationInheritanceParticles)json_object_get_number(modulo, "BaseRotation");
+
+					//Shape
+					eBase->currentShape = (SpawnAreaShape)json_object_get_number(modulo, "BaseShape");
+
 					break;
 				}
 				case PAR_SPAWN:

@@ -430,6 +430,12 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "DistanceLimit", eBase->distanceLimit);
 				json_object_set_boolean(child_object, "HasDistanceLimit", eBase->hasDistanceLimit);
 
+				//Rotacion particle position (is not billboarding)
+				json_object_set_number(child_object, "BaseRotation", eBase->rotacionBase);
+
+				//Shape
+				json_object_set_number(child_object, "BaseShape", eBase->currentShape);
+
 				break;
 			}
 			case EmitterType::PAR_SPAWN:
