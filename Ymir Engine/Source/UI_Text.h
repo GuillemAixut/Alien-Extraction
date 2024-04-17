@@ -24,7 +24,7 @@ struct Font
 {
 public:
 
-	static std::vector<Font*> mFonts;
+	//static std::vector<Font*> mFonts;
 
 	Font(std::string name, std::string fontPath = "Assets\\Fonts");
 
@@ -69,7 +69,7 @@ public:
 	void Draw(bool game) override;
 
 	void SetText(const char* t);
-	void SetFont(std::string name, std::string fontPath);
+	void SetFont(std::string name, std::string fontPath = "Assets\\Fonts");
 	void ChangeFontSize(float size);
 
 public:

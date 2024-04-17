@@ -185,5 +185,12 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern void ClearForces();
+
+
+        /// <summary>
+        /// Find the taged children inside a specific GO
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject GetChildrenByTag(object go, string tag);
     }
 }
