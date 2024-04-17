@@ -241,7 +241,7 @@ public class Player : YmirComponent
 
     public void Update()
     {
-        Debug.Log(currentState.ToString());
+        //Debug.Log(currentState.ToString());
         // New Things WIP
         UpdateControllerInputs();
 

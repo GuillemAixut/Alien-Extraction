@@ -12,6 +12,7 @@ public class Tp_Beacon : YmirComponent
     {
         if (other.Tag == "Player")
         {
+            Audio.StopAllAudios();
             InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene");
         }
     }
