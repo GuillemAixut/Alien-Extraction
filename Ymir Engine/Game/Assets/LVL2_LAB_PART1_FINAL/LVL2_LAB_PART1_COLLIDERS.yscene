@@ -1,24 +1,24 @@
 {
     "NavMesh": "4294967295",
     "Editor Camera Position": [
-        32.148246765136719,
-        144.12911987304688,
-        2.0391888618469238
+        253.26502990722656,
+        159.69094848632812,
+        362.3028564453125
     ],
     "Editor Camera Right (X)": [
-        -0.94901204109191895,
-        -7.4505805969238281e-09,
-        0.30410194396972656
+        0.03813556581735611,
+        2.9616057872772217e-07,
+        0.99927139282226562
     ],
     "Editor Camera Up (Y)": [
-        0.1304929107427597,
-        0.90013664960861206,
-        0.40722969174385071
+        0.64120775461196899,
+        0.76697677373886108,
+        -0.024470876902341843
     ],
     "Editor Camera Front (Z)": [
-        0.27563229203224182,
-        -0.42910543084144592,
-        0.86016666889190674
+        0.76641792058944702,
+        -0.6416744589805603,
+        -0.029248900711536407
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -65,7 +66,7 @@
                 753960160,
                 1904908806,
                 2063663470,
-                1162393201
+                1396784529
             ]
         },
         {
@@ -26266,7 +26267,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.4422941207885742,
+                        9.4422950744628906,
                         -0
                     ],
                     "Scale": [
@@ -37050,5 +37051,265 @@
                 }
             ]
         },
+        {
+            "Name": "Electric_Trap",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2063663470,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        325,
+                        98.599998474121094,
+                        361.60000610351562
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        10,
+                        10,
+                        10
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        0.55000001192092896,
+                        2.5,
+                        1.25
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Electric_trap.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "damage": 1
+                }
+            ],
+            "Children UID": [
+                1899531165
+            ]
+        },
+        {
+            "Name": "Cylinder (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1899531165,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Primitives\/Cylinder.fbx",
+            "Parent UID": 2063663470,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1690959163,
+                    "Vertex Count": 90,
+                    "Index Count": 240
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0.5,
+                                0.60000002384185791,
+                                0.30000001192092896
+                            ],
+                            "color": [
+                                1,
+                                0,
+                                0
+                            ],
+                            "light": true
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "Electric_Trap (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1396784529,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        42.996311187744141,
+                        98.600021362304688,
+                        50.712074279785156
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        10,
+                        10,
+                        10
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 4,
+                    "Size": [
+                        0.55000001192092896,
+                        2.5,
+                        1.25
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Electric_trap.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "damage": 1
+                }
+            ],
+            "Children UID": [
+                574129586
+            ]
+        },
+        {
+            "Name": "Cylinder (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 574129586,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Primitives\/Cylinder.fbx",
+            "Parent UID": 1396784529,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1690959163,
+                    "Vertex Count": 90,
+                    "Index Count": 240
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0.5,
+                                0.60000002384185791,
+                                0.30000001192092896
+                            ],
+                            "color": [
+                                1,
+                                0,
+                                0
+                            ],
+                            "light": true
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        }
     ]
 }
