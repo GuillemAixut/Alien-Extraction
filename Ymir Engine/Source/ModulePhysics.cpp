@@ -230,9 +230,10 @@ void ModulePhysics::CreateWorld()
 
 void ModulePhysics::DeleteWorld()
 {
-	External->physics->ClearBodiesList();
-	External->physics->motions.clear();
-	External->physics->world->clearForces();
+	ClearBodiesList();
+	ClearMotions();
+
+	world->clearForces();
 
 	delete world;
 }
@@ -411,21 +412,37 @@ PhysBody* ModulePhysics::AddBody(CMesh* mesh, PhysicsType, float mass, bool useG
 // Destroy things (yey)
 void ModulePhysics::RemoveBody(PhysBody* b)
 {
-	if (b->body != nullptr)
+	if (b->body != nullptr) 
+	{
 		world->removeCollisionObject(b->body);
+	}
 
 	bodiesList.erase(std::find(bodiesList.begin(), bodiesList.end(), b));
 	bodiesList.shrink_to_fit();
+
+	delete b;
 }
 
 void ModulePhysics::ClearBodiesList()
 {
-	for (int i = 0; i < bodiesList.size(); i++)
+	for (int i = 0; i < bodiesList.size(); ++i)
 	{
 		RemoveBody(bodiesList[i]);
 	}
 
 	bodiesList.clear();
+	bodiesList.shrink_to_fit();
+}
+
+void ModulePhysics::ClearMotions()
+{
+	for (std::vector<btDefaultMotionState*>::iterator itr = motions.begin(); itr != motions.end(); ++itr)
+	{
+		delete (*itr);
+	}
+
+	motions.clear();
+	motions.shrink_to_fit();
 }
 
 void ModulePhysics::RecalculateInertia(PhysBody* pbody, float mass, bool useGravity)

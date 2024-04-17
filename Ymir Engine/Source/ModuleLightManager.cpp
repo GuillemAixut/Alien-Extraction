@@ -131,4 +131,5 @@ void ModuleLightManager::ClearLights()
     }
 
     lights.clear();
+    lights.shrink_to_fit();
 }

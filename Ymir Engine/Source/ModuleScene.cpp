@@ -42,8 +42,7 @@ ModuleScene::ModuleScene(Application* app, bool start_enabled) : Module(app, sta
 
 ModuleScene::~ModuleScene()
 {
-	tags.clear();
-	delete mRootNode;
+
 }
 
 bool ModuleScene::Init()
@@ -266,6 +265,8 @@ bool ModuleScene::CleanUp()
 	}
 
 	RELEASE(mRootNode);
+	
+	ClearScene();
 
 	return ret;
 }
@@ -383,24 +384,24 @@ G_UI* ModuleScene::CreateGUI(UI_TYPE t, GameObject* pParent, int x, int y)
 
 void ModuleScene::ClearScene()
 {
-	//JsonFile::DeleteJSON(External->fileSystem->libraryScenesPath + std::to_string(mRootNode->UID) + ".yscene");
-
 	isLocked = false;
 	SetSelected();
 
 	// FRANCESC: Doing this RELEASE here makes the meshes disappear
-	//RELEASE(mRootNode);
+	//RELEASE(mRootNode); // Bugged
 
 	External->resourceManager->ClearResources(); // Done Correctly
 	External->lightManager->ClearLights(); // Done Correctly
 
 	// Recreate Physics World
-	External->physics->DeleteWorld(); 
-	External->physics->CreateWorld();
+	External->physics->DeleteWorld(); // Done Correctly
+	External->physics->CreateWorld(); // Done Correctly
 
+	ClearVec(App->renderer3D->models); // Done Correctly
+
+	ClearVec(tags); // Done Correctly
 	ClearVec(gameObjects);
 	ClearVec(destroyList);
-	App->renderer3D->models.clear();
 
 	ClearVec(vTempComponents);
 	ClearVec(vCanvas);
