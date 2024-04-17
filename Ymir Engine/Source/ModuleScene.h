@@ -130,10 +130,13 @@ public:
 	std::string pendingToAddScene;
 
 	bool isLocked;
+	
+	// UI
 	GameObject* selectedGO;
 	std::vector<G_UI*> vCanvas;
 	int onHoverUI;
-	bool canNav;
+	bool canNav; 
+	std::vector<Font*> mFonts;
 
 	std::multimap<uint, SerializedField*> referenceMap;
 
