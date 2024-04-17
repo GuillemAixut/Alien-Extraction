@@ -146,6 +146,7 @@ public class Player : YmirComponent
 
     #region DEFINE MENUS
 
+    private string currentMenu = "";
     private bool _openInventory = false;
 
     #endregion
@@ -433,87 +434,99 @@ public class Player : YmirComponent
         //    inputsList.Add(INPUT.I_DEAD);
         //}
 
-        //----------------- Joystic -----------------\\
-        if (JoystickMoving() == true)
-        {
-            inputsList.Add(INPUT.I_MOVE);
-        }
-        else if (currentState == STATE.MOVE && JoystickMoving() == false)
-        {
-            inputsList.Add(INPUT.I_IDLE);
-            StopPlayer();
+        if (currentState != STATE.STOP)
+        {        //----------------- Joystic -----------------\\
+            if (JoystickMoving() == true)
+            {
+                inputsList.Add(INPUT.I_MOVE);
+            }
+            else if (currentState == STATE.MOVE && JoystickMoving() == false)
+            {
+                inputsList.Add(INPUT.I_IDLE);
+                StopPlayer();
+            }
+
+            //----------------- Shoot -----------------\\
+            if (Input.GetGamepadRightTrigger() > 0 && !isReloading && ammo > 0)
+            {
+                inputsList.Add(INPUT.I_SHOOTING);
+            }
+            else
+            {
+                inputsList.Add(INPUT.I_SHOOTING_END);
+                shootBefore = false;
+            }
+
+            //----------------- Dash -----------------\\
+            if (Input.GetGamepadLeftTrigger() > 0 && hasDashed == false && dashCDTimer <= 0)
+            {
+                hasDashed = true;
+                inputsList.Add(INPUT.I_DASH);
+
+                // SARA: start dash cooldown
+                csUI_AnimationDash.Reset();
+                csUI_AnimationDash.backwards = false;
+                csUI_AnimationDash.SetAnimationState(true);
+            }
+
+            //----------------- Acidic Spit (Skill 1) -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN && hasAcidic == false && acidicCDTimer <= 0)
+            {
+                hasAcidic = true;
+                inputsList.Add(INPUT.I_ACID);
+
+                // SARA: start acidic cooldown
+                csUI_AnimationAcid.Reset();
+                csUI_AnimationAcid.backwards = false;
+                csUI_AnimationAcid.SetAnimationState(true);
+            }
+
+            //----------------- Predatory Rush (Skill 2) -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && hasPred == false && predatoryCDTimer <= 0)
+            {
+                hasPred = true;
+                inputsList.Add(INPUT.I_PRED);
+
+                // SARA: start predatory cooldown
+                csUI_AnimationPredatory.Reset();
+                csUI_AnimationPredatory.backwards = false;
+                csUI_AnimationPredatory.SetAnimationState(true);
+            }
+
+            //----------------- Swipe (Skill 3) -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && hasSwipe == false && swipeCDTimer <= 0)
+            {
+                hasSwipe = true;
+                inputsList.Add(INPUT.I_SWIPE);
+
+                // SARA: start swipe cooldown
+                csUI_AnimationSwipe.Reset();
+                csUI_AnimationSwipe.backwards = false;
+                csUI_AnimationSwipe.SetAnimationState(true);
+            }
+
+            //----------------- Reload -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
+            {
+                inputsList.Add(INPUT.I_RELOAD);
+            }
         }
 
-        //----------------- Shoot -----------------\\
-        if (Input.GetGamepadRightTrigger() > 0 && !isReloading && ammo > 0)
-        {
-            inputsList.Add(INPUT.I_SHOOTING);
-        }
         else
         {
-            inputsList.Add(INPUT.I_SHOOTING_END);
-            shootBefore = false;
-        }
-
-        //----------------- Dash -----------------\\
-        if (Input.GetGamepadLeftTrigger() > 0 && hasDashed == false && dashCDTimer <= 0)
-        {
-            hasDashed = true;
-            inputsList.Add(INPUT.I_DASH);
-
-            // SARA: start dash cooldown
-            csUI_AnimationDash.Reset();
-            csUI_AnimationDash.backwards = false;
-            csUI_AnimationDash.SetAnimationState(true);
-        }
-
-        //----------------- Acidic Spit (Skill 1) -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN && hasAcidic == false && acidicCDTimer <= 0)
-        {
-            hasAcidic = true;
-            inputsList.Add(INPUT.I_ACID);
-
-            // SARA: start acidic cooldown
-            csUI_AnimationAcid.Reset();
-            csUI_AnimationAcid.backwards = false;
-            csUI_AnimationAcid.SetAnimationState(true);
-        }
-
-        //----------------- Predatory Rush (Skill 2) -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && hasPred == false && predatoryCDTimer <= 0)
-        {
-            hasPred = true;
-            inputsList.Add(INPUT.I_PRED);
-
-            // SARA: start predatory cooldown
-            csUI_AnimationPredatory.Reset();
-            csUI_AnimationPredatory.backwards = false;
-            csUI_AnimationPredatory.SetAnimationState(true);
-        }
-
-        //----------------- Swipe (Skill 3) -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && hasSwipe == false && swipeCDTimer <= 0)
-        {
-            hasSwipe = true;
-            inputsList.Add(INPUT.I_SWIPE);
-
-            // SARA: start swipe cooldown
-            csUI_AnimationSwipe.Reset();
-            csUI_AnimationSwipe.backwards = false;
-            csUI_AnimationSwipe.SetAnimationState(true);
-        }
-
-        //----------------- Reload -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
-        {
-            inputsList.Add(INPUT.I_RELOAD);
+            // If player is on menu and presses B, quit menu
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && currentMenu != "")
+            {
+                ToggleMenu(false);
+            }
         }
 
         //----------------- Inventory -----------------\\
         if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
         {
             _openInventory = !_openInventory;
-            ToggleMenu("Inventory Menu", _openInventory);
+            currentMenu = "Inventory Menu";
+            ToggleMenu(_openInventory);
 
             Debug.Log("" + _openInventory);
         }
@@ -1267,12 +1280,18 @@ public class Player : YmirComponent
         currentState = (stop) ? STATE.STOP : STATE.IDLE;
     }
 
-    public void ToggleMenu(string goName, bool open)
+    public void ToggleMenu(bool open)
     {
-        GameObject canvas = InternalCalls.GetGameObjectByName(goName);
+        GameObject canvas = InternalCalls.GetGameObjectByName(currentMenu);
+        Debug.Log("" + currentMenu);
 
         canvas.SetActive(open);
         PlayerStopState(open);
+
+        if (!open)
+        {
+            currentMenu = "";
+        }
     }
 
     // External scripts

@@ -28,6 +28,7 @@ public class SelectLvl : YmirComponent
 
     public void Update()
     {
+        locked.SetActive(isLocked);
         return;
     }
 

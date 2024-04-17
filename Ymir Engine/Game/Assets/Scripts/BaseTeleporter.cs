@@ -25,7 +25,8 @@ public class BaseTeleporter : YmirComponent
     public LEVELS selectedLvl = LEVELS.NONE;
     public WEAPON_TYPE selectedWeapon = WEAPON_TYPE.NONE;
 
-    public GameObject button, lvlText, weaponText;
+    public GameObject canvas, button, lvlText, weaponText;
+    Player csPlayer;
 
     private bool _setNormal = false;
 
@@ -40,6 +41,15 @@ public class BaseTeleporter : YmirComponent
         button = InternalCalls.GetGameObjectByName("Go to raid");
         lvlText = InternalCalls.GetGameObjectByName("Lvl description");
         weaponText = InternalCalls.GetGameObjectByName("Weapon description");
+
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            csPlayer = gameObject.GetComponent<Player>();
+        }
+
+        canvas = InternalCalls.GetGameObjectByName("Level Selection Canvas");
 
         selectedLvl = LEVELS.NONE;
         selectedWeapon = WEAPON_TYPE.NONE;
@@ -58,6 +68,12 @@ public class BaseTeleporter : YmirComponent
 
     public void Update()
     {
+        if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
+        {
+            csPlayer.PlayerStopState(false);
+            canvas.SetActive(false);
+        }
+
         if (!_setNormal && selectedLvl != LEVELS.NONE && selectedWeapon != WEAPON_TYPE.NONE)
         {
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());

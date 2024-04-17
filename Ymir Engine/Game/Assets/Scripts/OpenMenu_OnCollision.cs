@@ -42,7 +42,14 @@ public class OpenMenu_OnCollision : YmirComponent
             player.PlayerStopState(true);
         }
     }
-
+    public void OnCollisionExit(GameObject other)
+    {
+        if (other.Tag == "Player" || other.Name == "Player")
+        {
+            canvas.SetActive(false);
+            player.PlayerStopState(false);
+        }
+    }
     //public void OnCollisionStay(GameObject other)
     //{
     //    //Debug.Log("other.name");
