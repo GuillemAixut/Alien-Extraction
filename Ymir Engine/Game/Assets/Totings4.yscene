@@ -7201,7 +7201,7 @@
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 1,
+                                    "Lifetime": 0.5,
                                     "Lifetime2": 2,
                                     "Position": [
                                         0,
@@ -7223,17 +7223,17 @@
                                     "Type": 2,
                                     "Random": true,
                                     "Direction1": [
-                                        -3,
-                                        -3,
-                                        -3
+                                        -1,
+                                        -1,
+                                        -1
                                     ],
                                     "Direction2": [
-                                        3,
-                                        3,
-                                        3
+                                        1,
+                                        0.5,
+                                        1
                                     ],
                                     "Accelerates": false,
-                                    "Speed1": 5.1999998092651367,
+                                    "Speed1": 20.600000381469727,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
