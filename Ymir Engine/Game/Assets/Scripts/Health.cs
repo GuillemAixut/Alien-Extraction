@@ -137,7 +137,6 @@ public class Health : YmirComponent
 
         if (gameObject != null)
         {
-            //Debug.Log("[ERROR] HOLAAA");
             player = gameObject.GetComponent<Player>();
         }
     }
