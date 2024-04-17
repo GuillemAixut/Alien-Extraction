@@ -176,7 +176,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 	{
 		switch (spawnMode)
 		{
-		case PAR_NUM_PARTICLES_BURST:
+		case ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST:
 		{
 			int remainingParticlesToSpawn = numParticlesToSpawn - emitter->listParticles.size();
 			if (remainingParticlesToSpawn > 0)
@@ -190,7 +190,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 		}
 		
 			break;
-		case PAR_ONE_PARTICLE_OVER_DELAY:
+		case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
 		{
 			currentTimer += dt;
 				int numToSpawn = 0;
@@ -206,6 +206,22 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 				currentTimer -= (spawnRatio * numToSpawn);
 		}
 			break;
+		case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+		{
+			currentTimer += dt;
+			int numToSpawn = numParticlesToSpawn;
+			if (currentTimer > spawnRatio)
+			{
+				numToSpawn = currentTimer / spawnRatio;
+				emitter->SpawnParticle(numToSpawn);
+				if (countParticles)
+				{
+					numParticlesSpawned+= numParticlesToSpawn;
+				}
+			}
+			currentTimer -= (spawnRatio * numToSpawn);
+		}
+		break;
 		case PAR_SPAWN_MODE_END:
 			break;
 		default:
@@ -241,6 +257,9 @@ void EmitterSpawner::OnInspector()
 	case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
 		modeName = "Spawn after delay";
 		break;
+	case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+		modeName = "Burst after delay";
+		break;
 	case ParticlesSpawnMode::PAR_SPAWN_MODE_END:
 		modeName = "";
 		break;
@@ -261,6 +280,9 @@ void EmitterSpawner::OnInspector()
 				break;
 			case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
 				modeName = "Spawn after delay";
+				break;
+			case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+				modeName = "Burst after delay";
 				break;
 			case ParticlesSpawnMode::PAR_SPAWN_MODE_END:
 				modeName = "";
@@ -288,6 +310,13 @@ void EmitterSpawner::OnInspector()
 		}
 		break;
 	case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
+		ImGui::SliderFloat("Delay ##SPAWN", &(this->spawnRatio), 0.02f, 1.0f);
+		break;
+	case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+		if (ImGui::SliderInt("Number Particles ## SPAWN", &numParticles, 0, MAXPARTICLES))
+		{
+			this->numParticlesToSpawn = numParticles; //I thing this was made because it exploded in the original engine if using nPRS directly (Eric)
+		}
 		ImGui::SliderFloat("Delay ##SPAWN", &(this->spawnRatio), 0.02f, 1.0f);
 		break;
 	case ParticlesSpawnMode::PAR_SPAWN_MODE_END:

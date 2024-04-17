@@ -62,6 +62,7 @@ enum ParticlesSpawnMode
 {
 	PAR_NUM_PARTICLES_BURST, //Spawn X particles at a time and doesn't spawn again until that number decreases due to the particles dying
 	PAR_ONE_PARTICLE_OVER_DELAY, //Spawn one particle every X seconds (works using delta time).
+	PAR_NUM_PARTICLES_OVER_DELAY, // Spawn X particles every Y seconds (also works using delta time)
 	PAR_SPAWN_MODE_END
 };
 
