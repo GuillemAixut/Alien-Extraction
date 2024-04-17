@@ -182,8 +182,9 @@ void ParticleEmitter::Init(CParticleSystem* component)
 
 void ParticleEmitter::Update(float dt)
 {
-	if (TimeManager::gameTimer.GetState() != TimerState::PAUSED) //ERIC: Asi esta bien, no se ha de tocar nada
-	{	emitterTime += dt;
+	if (TimeManager::gameTimer.GetState() != TimerState::PAUSED) //ERIC: TODO Esto tendra que cambiarse a que se mueva cuando timer sea running, que en stop se maten todas y en pause se printen pero estaticas
+	{
+		emitterTime += dt;
 
 		//Eliminar las particulas de la lista que ya acabaron su tiempo de vida
 		KillDeadParticles();

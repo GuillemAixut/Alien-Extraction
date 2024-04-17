@@ -1255,48 +1255,48 @@ void EmitterShape::Update(float dt, ParticleEmitter* emitter)
 
 }
 
-void EmitterShape::OnInspector()
-{
-	ImGui::Text("Select shape");
-
-	ImGui::Spacing();
-
-	if (ImGui::Button("AREA"))
-	{
-		CreateSpawnShape(typeShape::AREA);
-	}
-
-	if (ImGui::BeginCombo("NONE", "Select Shape", ImGuiComboFlags_PopupAlignLeft))
-	{
-
-
-		ImGui::EndCombo();
-	}
-
-	ImGui::Separator();
-}
-
-void EmitterShape::CreateSpawnShape(typeShape shape)
-{
-	EmitterShapeArea* newShape = nullptr;
-
-	switch (shape)
-	{
-	case typeShape::AREA:
-		newShape = new EmitterShapeArea();
-		shapeParent->modules.push_back(newShape);
-		break;
-	case typeShape::CONE:
-		//newShape = new EmitterShapeCone();
-		break;
-	case typeShape::CIRCUMFERENCE:
-		//newShape = new EmmiterShapeCircumference();
-		break;
-	case typeShape::SPHERE:
-		//newShape = new EmitterShapeSphere();
-		break;
-	}
-}
+//void EmitterShape::OnInspector()
+//{
+//	ImGui::Text("Select shape");
+//
+//	ImGui::Spacing();
+//
+//	if (ImGui::Button("AREA"))
+//	{
+//		CreateSpawnShape(typeShape::AREA);
+//	}
+//
+//	if (ImGui::BeginCombo("NONE", "Select Shape", ImGuiComboFlags_PopupAlignLeft))
+//	{
+//
+//
+//		ImGui::EndCombo();
+//	}
+//
+//	ImGui::Separator();
+//}
+//
+//void EmitterShape::CreateSpawnShape(typeShape shape)
+//{
+//	EmitterShapeArea* newShape = nullptr;
+//
+//	switch (shape)
+//	{
+//	case typeShape::AREA:
+//		newShape = new EmitterShapeArea();
+//		shapeParent->modules.push_back(newShape);
+//		break;
+//	case typeShape::CONE:
+//		//newShape = new EmitterShapeCone();
+//		break;
+//	case typeShape::CIRCUMFERENCE:
+//		//newShape = new EmmiterShapeCircumference();
+//		break;
+//	case typeShape::SPHERE:
+//		//newShape = new EmitterShapeSphere();
+//		break;
+//	}
+//}
 
 EmitterShapeArea::EmitterShapeArea()
 {

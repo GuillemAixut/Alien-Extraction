@@ -40,6 +40,14 @@ private:
 
 };
 
+enum SpawnAreaShape 
+{
+	PAR_CONE, //Two circunferences
+	PAR_BOX,
+	PAR_SPHERE,
+	NO_SHAPE,
+};
+
 struct EmitterBase : EmitterSetting
 {
 	EmitterBase();
@@ -222,24 +230,15 @@ struct EmitterImage : EmitterSetting
 	CMaterial* mat;
 };
 
-enum class typeShape : int
-{
-	CIRCUMFERENCE,
-	AREA,
-	CONE,
-	SPHERE,
-	NO_SHAPE,
-};
-
 struct EmitterShape : EmitterSetting
 {
 	EmitterShape(ParticleEmitter* parent);
 
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
-	void OnInspector();
+	//void OnInspector();
 
-	void CreateSpawnShape(typeShape shape);
+	//void CreateSpawnShape(typeShape shape);
 
 	EmitterShape* myShape;
 	CTransform* eTransform;
