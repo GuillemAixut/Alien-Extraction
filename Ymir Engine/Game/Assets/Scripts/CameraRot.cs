@@ -30,9 +30,7 @@ public class CameraRot : YmirComponent
             followStrenght = target.GetComponent<Player>().movementSpeed;
         }
 
-        
-
-        Audio.PlayAudio(gameObject, "LV2_Inter");
+        Audio.PlayEmbedAudio(gameObject);
     }
 
     public void Update()

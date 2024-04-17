@@ -8,63 +8,63 @@ using System.Threading.Tasks;
 
 using YmirEngine;
 
-public enum STATE : int
-{
-    NONE = -1,
-
-    IDLE,
-    MOVE,
-    STOP,
-    DASH,
-    SHOOTING,
-    RELOADING,
-    SHOOT,
-    DEAD,
-    JUMP,
-    TAILSWIPE,
-
-    All_TYPES
-}
-
-public enum INPUT : int
-{
-    I_IDLE,
-    I_MOVE,
-    I_STOP,
-    I_DASH,
-    I_DASH_END,
-    I_SHOOTING,
-    I_SHOOTING_END,
-    I_SHOOT,
-    I_SHOOT_END,
-    I_RELOAD,
-    I_DEAD,
-    I_JUMP,
-    I_JUMP_END,
-    I_ACID,
-    I_ACID_END,
-    I_PRED,
-    I_PRED_END,
-    I_SWIPE,
-    I_SWIPE_END,
-}
-
-public enum WEAPON : int
-{
-    NONE = -1,
-
-    SMG,
-    SHOTGUN,
-    TRACE,
-
-    All_TYPES
-}
-
 public class Player : YmirComponent
 {
+    enum STATE : int
+    {
+        NONE = -1,
+
+        IDLE,
+        MOVE,
+        STOP,
+        DASH,
+        SHOOTING,
+        RELOADING,
+        SHOOT,
+        DEAD,
+        JUMP,
+        TAILSWIPE,
+
+        All_TYPES
+    }
+
+    enum INPUT : int
+    {
+        I_IDLE,
+        I_MOVE,
+        I_STOP,
+        I_DASH,
+        I_DASH_END,
+        I_SHOOTING,
+        I_SHOOTING_END,
+        I_SHOOT,
+        I_SHOOT_END,
+        I_RELOAD,
+        I_DEAD,
+        I_JUMP,
+        I_JUMP_END,
+        I_ACID,
+        I_ACID_END,
+        I_PRED,
+        I_PRED_END,
+        I_SWIPE,
+        I_SWIPE_END,
+    }
+
+    enum WEAPON : int
+    {
+        NONE = -1,
+
+        SMG,
+        SHOTGUN,
+        TRACE,
+
+        All_TYPES
+    }
+
     //--------------------- State ---------------------\\
-    public STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
-    public List<INPUT> inputsList = new List<INPUT>();
+    private STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
+    private List<INPUT> inputsList = new List<INPUT>();
 
     //--------------------- Movement ---------------------\\
     //public float rotationSpeed = 2.0f;
@@ -146,7 +146,7 @@ public class Player : YmirComponent
 
     #region DEFINE MENUS
 
-    private bool _openInventory = false;
+    //private bool _openInventory = false;
 
     #endregion
 
@@ -156,8 +156,8 @@ public class Player : YmirComponent
     private GameObject cameraObject;
 
     //--------------------- External Scripts ---------------------\\
-    private UI_Bullets csBullets;
-    private Health csHealth;
+    //private UI_Bullets csBullets;
+    //private Health csHealth;
 
     private UI_Animation csUI_AnimationDash;
     private UI_Animation csUI_AnimationPredatory;
@@ -220,7 +220,7 @@ public class Player : YmirComponent
         reloadTimer = reloadDuration;
 
         //--------------------- Menus ---------------------\\
-        _openInventory = false;
+        //_openInventory = false;
 
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
@@ -508,23 +508,23 @@ public class Player : YmirComponent
         }
 
         //----------------- Inventory -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
-        {
-            _openInventory = !_openInventory;
-            ToggleMenu("Inventory Menu", _openInventory);
+        //if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
+        //{
+        //    _openInventory = !_openInventory;
+        //    ToggleMenu("Inventory Menu", _openInventory);
 
-            if (_openInventory)
-            {
-                GameObject canvas = InternalCalls.GetGameObjectByName("Inventory Menu");
-                Debug.Log("" + canvas.Name);
-                if(canvas != null)
-                {
-                    canvas.GetComponent<UI_Inventory>().Deactivate();
-                }
-            }
+        //    if (_openInventory)
+        //    {
+        //        GameObject canvas = InternalCalls.GetGameObjectByName("Inventory Menu");
+        //        Debug.Log("" + canvas.Name);
+        //        if(canvas != null)
+        //        {
+        //            canvas.GetComponent<UI_Inventory>().Deactivate();
+        //        }
+        //    }
 
-            Debug.Log("" + _openInventory);
-        }
+        //    Debug.Log("" + _openInventory);
+        //}
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
@@ -988,7 +988,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            if (csBullets != null) { csBullets.UseBullets(); }
+            //if (csBullets != null) { csBullets.UseBullets(); }
         }
 
         //Debug.Log("Ammo:" + ammo);
@@ -1045,7 +1045,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            if (csBullets!= null){ csBullets.UseBullets(); }
+            //if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
         StopPlayer();
@@ -1290,8 +1290,8 @@ public class Player : YmirComponent
     private void GetPlayerScripts()
     {
         Debug.Log("" + gameObject.Name);
-        csBullets = gameObject.GetComponent<UI_Bullets>();
-        csHealth = gameObject.GetComponent<Health>();
+        //csBullets = gameObject.GetComponent<UI_Bullets>();
+        //csHealth = gameObject.GetComponent<Health>();
     }
 
     private void GetSkillsScripts()

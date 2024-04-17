@@ -661,10 +661,10 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	//}
 
 	//Añade la mesh a la bullet
-	ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
-	CMesh* cmesh = new CMesh(go);
-	cmesh->rMeshReference = rMesh;
-	go->AddComponent(cmesh);
+	//ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
+	//CMesh* cmesh = new CMesh(go);
+	//cmesh->rMeshReference = rMesh;
+	//go->AddComponent(cmesh);
 
 	//Añade el material a la Bullet
 	CMaterial* cmaterial = new CMaterial(go);

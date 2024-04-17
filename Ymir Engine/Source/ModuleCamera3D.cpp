@@ -18,6 +18,9 @@
 
 ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
+	hoveringEditor = false;
+	speed = 0;
+
 	editorCamera = new CCamera(nullptr, false);
 
 	editorCamera->SetPos(-36.0f, 48.00f, 100.0f);

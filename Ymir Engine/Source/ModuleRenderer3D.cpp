@@ -23,6 +23,7 @@
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	context = nullptr;
+	outlineShader = nullptr;
 
 	LOG("Creating ModuleRenderer3D");
 
@@ -247,8 +248,6 @@ bool ModuleRenderer3D::Init()
 	
 	//App->scene->gameCameraComponent->framebuffer.Load();
 
-	defaultFont = new Font("arial.ttf", "Assets\\Fonts");
-
 	uint UID = 1728623793; // UID of Cube.fbx mesh in meta (lo siento)
 
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
@@ -434,6 +433,10 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 bool ModuleRenderer3D::CleanUp()
 {
 	LOG("Destroying 3D Renderer");
+
+	// Delete things from Init
+
+	delete outlineShader;
 
 	// Clean Framebuffers
 	App->camera->editorCamera->framebuffer.Delete();

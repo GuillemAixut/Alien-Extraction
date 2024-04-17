@@ -169,6 +169,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma region Audio
 
 	mono_add_internal_call("YmirEngine.Audio::PlayAudio", PlayAudio);
+	mono_add_internal_call("YmirEngine.Audio::PlayEmbedAudio", PlayEmbedAudio);
 	mono_add_internal_call("YmirEngine.Audio::StopAudio", StopAudio);
 	mono_add_internal_call("YmirEngine.Audio::StopOneAudio", StopOneAudio);
 	mono_add_internal_call("YmirEngine.Audio::ResumeAudio", ResumeAudio);

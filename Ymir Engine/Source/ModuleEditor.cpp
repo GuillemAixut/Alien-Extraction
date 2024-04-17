@@ -2230,6 +2230,8 @@ bool ModuleEditor::CleanUp()
 
 	LOG("Deleting editor...");
 
+	delete scriptEditor;
+
 	nodeEditor.Destroy();
 
 	// ImGui CleanUp

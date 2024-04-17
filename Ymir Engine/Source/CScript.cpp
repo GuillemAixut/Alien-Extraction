@@ -46,7 +46,7 @@ CScript::~CScript()
 
 	methods.clear();
 	fields.clear();
-	//name.clear();
+	name.clear();
 
 }
 

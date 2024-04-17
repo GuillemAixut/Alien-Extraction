@@ -28,7 +28,6 @@
             "UID": 1406306264,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52,7 +51,7 @@
             ],
             "Children UID": [
                 598771385,
-                1904908806
+                1385067794
             ]
         },
         {
@@ -123,10 +122,10 @@
             ]
         },
         {
-            "Name": "Inventory Menu",
+            "Name": "Stash Canvas",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1904908806,
+            "UID": 1385067794,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 1406306264,
@@ -156,39 +155,64 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 923,
-                    "Height": 623,
+                    "Width": 660,
+                    "Height": 309,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
                         0,
                         0,
-                        1213,
-                        618
+                        651,
+                        217
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory.cs",
-                    "Active": 1,
-                    "UID": 0
                 }
             ],
             "Children UID": [
-                923526943,
-                1421884452,
-                730604888,
-                975518885
+                358435401,
+                730604888
             ]
         },
         {
-            "Name": "Background",
+            "Name": "Stash",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 923526943,
+            "UID": 358435401,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1904908806,
+            "Parent UID": 1385067794,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                577892327
+            ]
+        },
+        {
+            "Name": "Item (12)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 577892327,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 358435401,
             "Components": [
                 {
                     "Type": "Transform",
@@ -215,161 +239,17 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1920,
-                    "Height": 1080,
+                    "Width": 169,
+                    "Height": 112,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         0,
                         0,
-                        1920,
-                        1080
+                        169,
+                        112
                     ],
-                    "Path": "Assets\/UI\/FondoInevntory.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Character",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1421884452,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1904908806,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                63357937,
-                110478800,
-                1379424156,
-                1645631563,
-                693555061
-            ]
-        },
-        {
-            "Name": "Grid Armor",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 63357937,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1421884452,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory_Grid.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "rows": 1,
-                    "cols": 1,
-                    "leftGridName": "Grid Chips",
-                    "rightGridName": "Inventory",
-                    "naviagteGrids": true
-                }
-            ],
-            "Children UID": [
-                294962486
-            ]
-        },
-        {
-            "Name": "Armor",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 294962486,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 63357937,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 775,
-                    "Position Y": 312,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        775,
-                        312,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/juan.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -403,14 +283,14 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1001448237,
-                    "Image": 294962486,
-                    "Normal": "Assets\/juan.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
+                    "Text": 1131207758,
+                    "Image": 577892327,
+                    "Normal": "Assets\/InGameConeptPng.png",
+                    "Focused": "Assets\/Lava.png",
+                    "Pressed": "Assets\/pato.png",
+                    "Selected": ".\/Library\/Textures\/175665083.dds",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Baker_house.png",
+                    "Disabled": "Assets\/juan.png",
                     "Focused color": [
                         0,
                         1,
@@ -435,30 +315,20 @@
                         1,
                         1
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "NONE",
-                    "enumSlot": "ARMOR"
                 }
             ],
             "Children UID": [
-                146834625
+                1467275747
             ]
         },
         {
             "Name": "Description (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 146834625,
-            "Active": true,
+            "UID": 1467275747,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 294962486,
+            "Parent UID": 577892327,
             "Components": [
                 {
                     "Type": "Transform",
@@ -483,19 +353,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 440,
-                    "Position Y": 300,
+                    "Position X": -321,
+                    "Position Y": -9,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        440,
-                        300,
+                        415,
+                        353,
                         336,
                         277
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Path": "Assets\/InGameConeptPng.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -514,316 +384,17 @@
                 }
             ],
             "Children UID": [
-                1001448237
-            ]
-        },
-        {
-            "Name": "Text (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1001448237,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 146834625,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 553,
-                    "Position Y": 347,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        553,
-                        347,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty\n",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Grid Chips",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 110478800,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1421884452,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory_Grid.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "rows": 1,
-                    "cols": 2,
-                    "leftGridName": "Grid Armor",
-                    "rightGridName": "Inventory",
-                    "naviagteGrids": true
-                }
-            ],
-            "Children UID": [
-                1671257493,
-                541837697
-            ]
-        },
-        {
-            "Name": "Chip1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1671257493,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 110478800,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 663,
-                    "Position Y": 457,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        663,
-                        457,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/Baker_house.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 3,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        300,
-                        50
-                    ],
-                    "Is interactable": true,
-                    "Text": 428551072,
-                    "Image": 1671257493,
-                    "Normal": "Assets\/juan.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Baker_house.png",
-                    "Focused color": [
-                        0,
-                        1,
-                        0,
-                        1
-                    ],
-                    "Pressed color": [
-                        1,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Selected color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "NONE",
-                    "enumSlot": "CHIP1"
-                }
-            ],
-            "Children UID": [
-                667252368
-            ]
-        },
-        {
-            "Name": "Description (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 667252368,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1671257493,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 325,
-                    "Position Y": 449,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        325,
-                        449,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                428551072
+                1131207758
             ]
         },
         {
             "Name": "Text",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 428551072,
-            "Active": true,
+            "UID": 1131207758,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 667252368,
+            "Parent UID": 1467275747,
             "Components": [
                 {
                     "Type": "Transform",
@@ -848,1167 +419,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 452,
-                    "Position Y": 497,
+                    "Position X": -313,
+                    "Position Y": 56,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        452,
-                        497,
+                        423,
+                        418,
                         300,
                         50
                     ],
-                    "Text": "Empty\n",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Chip2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 541837697,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 110478800,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 885,
-                    "Position Y": 457,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        885,
-                        457,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/Baker_house.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 3,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        300,
-                        50
-                    ],
-                    "Is interactable": true,
-                    "Text": 352767713,
-                    "Image": 541837697,
-                    "Normal": "Assets\/juan.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Baker_house.png",
-                    "Focused color": [
-                        0,
-                        1,
-                        0,
-                        1
-                    ],
-                    "Pressed color": [
-                        1,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Selected color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "NONE",
-                    "enumSlot": "CHIP2"
-                }
-            ],
-            "Children UID": [
-                1538892489
-            ]
-        },
-        {
-            "Name": "Description (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1538892489,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 541837697,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 545,
-                    "Position Y": 448,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        545,
-                        448,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                352767713
-            ]
-        },
-        {
-            "Name": "Text (20)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 352767713,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1538892489,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 633,
-                    "Position Y": 488,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        633,
-                        488,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Grid Consumable 1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1379424156,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1421884452,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory_Grid.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "rows": 1,
-                    "cols": 1,
-                    "leftGridName": "Grid Chips",
-                    "rightGridName": "Inventory",
-                    "naviagteGrids": true
-                }
-            ],
-            "Children UID": [
-                1708915839
-            ]
-        },
-        {
-            "Name": "Consumable1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1708915839,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1379424156,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 528,
-                    "Position Y": 614,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        528,
-                        614,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/Baker_house.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 3,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        300,
-                        50
-                    ],
-                    "Is interactable": true,
-                    "Text": 2044207875,
-                    "Image": 1708915839,
-                    "Normal": "Assets\/juan.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Baker_house.png",
-                    "Focused color": [
-                        0,
-                        1,
-                        0,
-                        1
-                    ],
-                    "Pressed color": [
-                        1,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Selected color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE1"
-                }
-            ],
-            "Children UID": [
-                558349741
-            ]
-        },
-        {
-            "Name": "Description (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 558349741,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1708915839,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 187,
-                    "Position Y": 607,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        187,
-                        607,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                2044207875
-            ]
-        },
-        {
-            "Name": "Text (19)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2044207875,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 558349741,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 312,
-                    "Position Y": 640,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        312,
-                        640,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty\n",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Grid Consumable 2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1645631563,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1421884452,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory_Grid.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "rows": 1,
-                    "cols": 1,
-                    "leftGridName": "Grid Consumable 1",
-                    "rightGridName": "Inventory",
-                    "naviagteGrids": true
-                }
-            ],
-            "Children UID": [
-                2060313977
-            ]
-        },
-        {
-            "Name": "Consumable2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2060313977,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1645631563,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 528,
-                    "Position Y": 734,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        528,
-                        734,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/Baker_house.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 3,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        300,
-                        50
-                    ],
-                    "Is interactable": true,
-                    "Text": 368922602,
-                    "Image": 2060313977,
-                    "Normal": "Assets\/juan.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Baker_house.png",
-                    "Focused color": [
-                        0,
-                        1,
-                        0,
-                        1
-                    ],
-                    "Pressed color": [
-                        1,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Selected color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE2"
-                }
-            ],
-            "Children UID": [
-                1076932744
-            ]
-        },
-        {
-            "Name": "Description (5)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1076932744,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 2060313977,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 188,
-                    "Position Y": 722,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        188,
-                        722,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                368922602
-            ]
-        },
-        {
-            "Name": "Text (18)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 368922602,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1076932744,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 291,
-                    "Position Y": 783,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        291,
-                        783,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty\n",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Grid Save",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 693555061,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1421884452,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory_Grid.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "rows": 1,
-                    "cols": 1,
-                    "leftGridName": "Grid Consumable 2",
-                    "rightGridName": "Inventory",
-                    "naviagteGrids": true
-                }
-            ],
-            "Children UID": [
-                1799950518
-            ]
-        },
-        {
-            "Name": "Save Item",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1799950518,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 693555061,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 527,
-                    "Position Y": 860,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        527,
-                        860,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/Baker_house.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 3,
-                    "UI State": 5,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        300,
-                        50
-                    ],
-                    "Is interactable": true,
-                    "Text": 1617470444,
-                    "Image": 1799950518,
-                    "Normal": "Assets\/UI\/Inventory Buttons\/SpecialSlotUnselected.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/SpecialSlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/Baker_house.png",
-                    "Focused color": [
-                        0,
-                        1,
-                        0,
-                        1
-                    ],
-                    "Pressed color": [
-                        1,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Selected color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "NONE",
-                    "enumSlot": "SAVE"
-                }
-            ],
-            "Children UID": [
-                865153585
-            ]
-        },
-        {
-            "Name": "Description (6)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 865153585,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1799950518,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 186,
-                    "Position Y": 859,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        186,
-                        859,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1617470444
-            ]
-        },
-        {
-            "Name": "Text (17)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1617470444,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 865153585,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 253,
-                    "Position Y": 897,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        253,
-                        897,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
+                    "Text": "Item Description",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -2033,7 +456,7 @@
             "UID": 730604888,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1904908806,
+            "Parent UID": 1385067794,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2162,7 +585,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1131207758,
+                    "Text": 1510176612,
                     "Image": 1649563615,
                     "Normal": "Assets\/juan.png",
                     "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
@@ -2273,14 +696,14 @@
                 }
             ],
             "Children UID": [
-                1131207758
+                1510176612
             ]
         },
         {
             "Name": "Text (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1131207758,
+            "UID": 1510176612,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 555681420,
@@ -5891,69 +4314,6 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Image",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 975518885,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1904908806,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 730,
-                    "Position Y": 872,
-                    "Width": 209,
-                    "Height": 58,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        730,
-                        872,
-                        209,
-                        58
-                    ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/Laser.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
                 }
             ]
         }

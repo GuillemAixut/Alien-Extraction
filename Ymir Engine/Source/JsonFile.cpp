@@ -3567,7 +3567,6 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		comp->properties.angularSpeed = json_object_get_number(componentObject, "Angular Speed");
 		comp->properties.stoppingDistance = json_object_get_number(componentObject, "Stopping Distance");
 
-
 		gameObject->AddComponent(comp);
 
 	}

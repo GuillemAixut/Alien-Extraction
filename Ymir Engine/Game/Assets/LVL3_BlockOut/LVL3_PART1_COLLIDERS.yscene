@@ -28,7 +28,7 @@
             "UID": 1968864687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13251,7 +13251,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.55461454391479492,
+                        0.55461466312408447,
                         -0
                     ],
                     "Scale": [
@@ -15583,9 +15583,9 @@
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Bank Name": "LV2Music",
+                    "Event Name": "LV2_Inter",
+                    "Event ID": 3026565220
                 },
                 {
                     "Type": "Camera",
@@ -15608,13 +15608,19 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 0,
+                    "Frustum Culling": 1,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
                 {
                     "Type": "Script",
                     "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SceneManager.cs",
                     "Active": 1,
                     "UID": 0
                 }
@@ -15724,8 +15730,6 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
-                    "currentState": 0,
-                    "inputsList": 0,
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,

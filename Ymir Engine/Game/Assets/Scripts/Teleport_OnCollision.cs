@@ -19,11 +19,12 @@ public class Teleport_OnCollision : YmirComponent
         return;
     }
 
-    public void OnCollisionStay(GameObject other)
+    public void OnCollisionExit(GameObject other)
     {
         if (other.Tag == "Player")
         {
-            InternalCalls.LoadScene(scene + ".yscene");
+            Audio.StopAllAudios();
+            InternalCalls.LoadScene(scene);
         }
     }
 }

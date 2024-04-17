@@ -148,12 +148,6 @@ public:
 
 	bool texturingEnabled = true;
 
-	//font
-	Font* defaultFont;
-	std::vector<Font*> mFonts;
-
-	std::vector<ParticleEmitter*> particleEmitters;
-	bool initParticles = false;
 private:
 
 	std::vector<LineRender> lines;
