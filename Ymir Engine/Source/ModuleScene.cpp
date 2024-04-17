@@ -260,6 +260,11 @@ bool ModuleScene::CleanUp()
 
 	LOG("Deleting scene");
 
+	for (auto it = mFonts.rbegin(); it != mFonts.rend(); ++it)
+	{
+		RELEASE((*it));
+	}
+
 	RELEASE(mRootNode);
 
 	return ret;
