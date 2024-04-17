@@ -210,16 +210,17 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 		{
 			currentTimer += dt;
 			int numToSpawn = numParticlesToSpawn;
+			int substractTime = 0;
 			if (currentTimer > spawnRatio)
 			{
-				numToSpawn = currentTimer / spawnRatio;
+				substractTime = currentTimer / spawnRatio;
 				emitter->SpawnParticle(numToSpawn);
 				if (countParticles)
 				{
 					numParticlesSpawned+= numParticlesToSpawn;
 				}
 			}
-			currentTimer -= (spawnRatio * numToSpawn);
+			currentTimer -= (spawnRatio * substractTime);
 		}
 		break;
 		case PAR_SPAWN_MODE_END:
