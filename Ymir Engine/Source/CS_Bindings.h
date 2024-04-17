@@ -1383,5 +1383,21 @@ void SetActiveAllUI(MonoObject* go, bool isActive)
 		listUI[i]->mOwner->mChildren[0]->active = isActive;
 	}
 }
+MonoObject* GetChildrenByTag(MonoObject* go, MonoString* tag)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	std::string nameCompare = mono_string_to_utf8(tag);
+	
+	std::vector<GameObject*> gameObejectchilds;
+	gameObejectchilds = gameObject->mChildren;
+
+	for (auto i = 0; i < gameObejectchilds.size(); i++)
+	{
+		if (gameObejectchilds[i]->tag == nameCompare)
+		{
+			return External->moduleMono->GoToCSGO(gameObejectchilds[i]);
+		}
+	}
+}
 
 #pragma endregion

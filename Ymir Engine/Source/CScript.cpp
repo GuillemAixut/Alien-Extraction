@@ -455,8 +455,8 @@ void CScript::CollisionExitCallback(bool isTrigger, GameObject* collidedGameObje
 		if (onCollisionExitMethod != nullptr)
 		{
 			mono_runtime_invoke(onCollisionExitMethod, mono_gchandle_get_target(noGCobject), params, NULL);
-			External->physics->firstCollision = true; // Restablecer firstCollision aqui despues de salir de la colision
-			External->physics->onExitCollision = false;
+			 // Restablecer firstCollision aqui despues de salir de la colision
+			
 		}
 			
 			
@@ -466,6 +466,11 @@ void CScript::CollisionExitCallback(bool isTrigger, GameObject* collidedGameObje
 			if (onCollisionExitMethod != nullptr)
 				mono_runtime_invoke(onCollisionExitMethod, mono_gchandle_get_target(noGCobject), params, NULL);
 		}
+		else
+		{
+			External->physics->firstCollision = true;
+		}
+		
 	}
 }
 

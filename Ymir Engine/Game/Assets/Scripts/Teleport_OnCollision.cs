@@ -19,7 +19,7 @@ public class Teleport_OnCollision : YmirComponent
         return;
     }
 
-    public void OnCollisionExit(GameObject other)
+    public void OnCollisionEnter(GameObject other)
     {
         if (other.Tag == "Player")
         {
