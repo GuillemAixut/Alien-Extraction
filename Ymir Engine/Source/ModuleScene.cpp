@@ -75,7 +75,7 @@ bool ModuleScene::Start()
 	currentSceneDir = "Assets";
 	//LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
 	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
-	LoadSceneFromStart("Assets/UI/Scenes", "BaseUI");
+	//LoadSceneFromStart("Assets/UI/Scenes", "BaseUI");
 	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #ifdef _RELEASE
