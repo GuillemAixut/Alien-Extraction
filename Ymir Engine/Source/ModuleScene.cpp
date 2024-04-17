@@ -389,15 +389,15 @@ void ModuleScene::ClearScene()
 	SetSelected();
 
 	// FRANCESC: Doing this RELEASE here makes the meshes disappear
-	// RELEASE(mRootNode);
+	//RELEASE(mRootNode);
 
-	External->resourceManager->resources.clear();
+	External->resourceManager->ClearResources(); // Done Correctly
+	External->lightManager->ClearLights(); // Done Correctly
 
-	External->lightManager->lights.clear();
-
-	External->physics->DeleteWorld(); // It was this or nothing :(
-
+	// Recreate Physics World
+	External->physics->DeleteWorld(); 
 	External->physics->CreateWorld();
+
 	ClearVec(gameObjects);
 	ClearVec(destroyList);
 	App->renderer3D->models.clear();

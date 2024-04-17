@@ -73,6 +73,8 @@ bool ModuleResourceManager::CleanUp()
 
 	LOG("Deleting Resource Manager");
 
+	ClearResources();
+
 	return ret;
 }
 
@@ -531,6 +533,16 @@ void ModuleResourceManager::ReleaseResource(Resource* resource)
 	resources.erase(resource->GetUID());
 
 	delete resource;
+}
+
+void ModuleResourceManager::ClearResources()
+{
+	for (std::map<uint, Resource*>::iterator itr = resources.begin(); itr != resources.end(); ++itr)
+	{
+		delete (itr->second);
+	}
+
+	resources.clear();
 }
 
 void ModuleResourceManager::ReImportModel(const std::string& modelPath, bool onlyReimport)
