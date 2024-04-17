@@ -241,7 +241,7 @@ public class Player : YmirComponent
 
     public void Update()
     {
-        Debug.Log(currentState.ToString());
+        //Debug.Log(currentState.ToString());
         // New Things WIP
         UpdateControllerInputs();
 
@@ -1136,8 +1136,14 @@ public class Player : YmirComponent
         Audio.PlayAudio(gameObject, "P_Dash");
 
         //LO SIENTO (WARRADA)
-        GameObject particles = GetParticles();
-        Particles.PlayEmitter(particles);
+        GameObject particles;
+        particles = GetParticles();
+
+        if (particles != null)
+        {
+            Particles.PlayEmitter(particles);
+        }
+        else Debug.Log("QUe cono pasa");
 
         Input.Rumble_Controller(100, 7);
         StopPlayer();
@@ -1159,8 +1165,8 @@ public class Player : YmirComponent
 
     private GameObject GetParticles()
     {
-        GameObject particleSystem = InternalCalls.GetGameObjectByName("ParticleSystemDashd");
-        return particleSystem;
+        string tag = "Particle";
+        return gameObject.GetChildrenByTag(gameObject, tag);
     }
 
     private void StartJump()

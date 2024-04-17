@@ -191,6 +191,6 @@ namespace YmirEngine
         /// Find the taged children inside a specific GO
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject GetChildrenByTag(object go, string tag);
+        public extern GameObject GetChildrenByTag(object go, string tag);
     }
 }
