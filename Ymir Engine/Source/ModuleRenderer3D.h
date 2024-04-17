@@ -148,6 +148,9 @@ public:
 
 	bool texturingEnabled = true;
 
+	std::vector<ParticleEmitter*> particleEmitters;
+	bool initParticles = false;
+
 private:
 
 	std::vector<LineRender> lines;

@@ -1131,12 +1131,6 @@
     <ClInclude Include="Source\ImGuiCustom.h">
       <Filter>Sources\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CParticleSystem.h" />
-    <ClInclude Include="Source\EmitterSetting.h" />
-    <ClInclude Include="Source\Particle.h" />
-    <ClInclude Include="Source\ParticleEmitter.h" />
-    <ClInclude Include="CS_Particle_Bindings.h" />
-    <ClInclude Include="Source\CS_Particle_Bindings.h">
     <ClInclude Include="Source\External\RecastNavigation\ChunkyTriMesh.h">
       <Filter>Externals\RecastNavigation</Filter>
     </ClInclude>
@@ -1646,10 +1640,6 @@
     <ClCompile Include="Source\ImGuiCustom.cpp">
       <Filter>Sources\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CParticleSystem.cpp" />
-    <ClCompile Include="Source\EmitterSetting.cpp" />
-    <ClCompile Include="Source\Particle.cpp" />
-    <ClCompile Include="Source\ParticleEmitter.cpp" />
     <ClCompile Include="Source\ModuleResourceManager.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
