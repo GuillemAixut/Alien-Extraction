@@ -1262,15 +1262,17 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Die");
     }
 
+    public void PlayerStopState(bool stop)
+    {
+        currentState = (stop) ? STATE.STOP : STATE.IDLE;
+    }
 
     public void ToggleMenu(string goName, bool open)
     {
         GameObject canvas = InternalCalls.GetGameObjectByName(goName);
 
         canvas.SetActive(open);
-        //inputsList.Add((open) ? INPUT.I_STOP : INPUT.I_IDLE);
-
-        currentState = (open) ? STATE.STOP : STATE.IDLE;
+        PlayerStopState(open);
     }
 
     // External scripts

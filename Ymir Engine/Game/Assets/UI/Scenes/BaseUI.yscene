@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1599545224,
+            "Parent UID": 893426927,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5185,10 +5185,10 @@
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "Teleport_OnCollision.cs",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
                     "Active": 1,
                     "UID": 0,
-                    "scene": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.yscene"
+                    "goName": "Level Selection Canvas"
                 }
             ]
         },
@@ -7122,7 +7122,7 @@
             ]
         },
         {
-            "Name": "Game Canva",
+            "Name": "Game Canvas",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1398847280,
@@ -7155,7 +7155,7 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 660,
+                    "Width": 770,
                     "Height": 525,
                     "UI Type": 0,
                     "UI State": 1,
@@ -9450,7 +9450,7 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 660,
+                    "Width": 770,
                     "Height": 525,
                     "UI Type": 0,
                     "UI State": 1,
@@ -11068,7 +11068,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/Scenes\/GameUI"
+                    "sceneName": ""
                 }
             ],
             "Children UID": [

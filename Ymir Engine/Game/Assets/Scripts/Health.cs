@@ -24,8 +24,7 @@ public class Health : YmirComponent
 
     public void Start()
     {
-        //Debug.Log("QUE cono pasa" + this.type);
-
+        debugDmg = 100;
         maxHealth = 1200;
 
         GetPlayerScript();
