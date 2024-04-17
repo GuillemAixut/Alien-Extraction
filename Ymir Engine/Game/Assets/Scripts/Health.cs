@@ -18,7 +18,7 @@ public class Health : YmirComponent
     public float maxHealth = 1200;
     public bool isAlive;
 
-    public float debugDmg = 1;
+    public float debugDmg = 100;
 
     private Player player = null;
 

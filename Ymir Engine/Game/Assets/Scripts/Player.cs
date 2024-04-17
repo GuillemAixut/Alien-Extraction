@@ -146,7 +146,7 @@ public class Player : YmirComponent
 
     #region DEFINE MENUS
 
-    //private bool _openInventory = false;
+    private bool _openInventory = false;
 
     #endregion
 
@@ -156,8 +156,8 @@ public class Player : YmirComponent
     private GameObject cameraObject;
 
     //--------------------- External Scripts ---------------------\\
-    //private UI_Bullets csBullets;
-    //private Health csHealth;
+    private UI_Bullets csBullets;
+    private Health csHealth;
 
     private UI_Animation csUI_AnimationDash;
     private UI_Animation csUI_AnimationPredatory;
@@ -286,9 +286,9 @@ public class Player : YmirComponent
                 //csUI_AnimationDash.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                //csUI_AnimationDash.Reset();
-                ////csUI_AnimationDash.backwards = true;
-                //csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
+                csUI_AnimationDash.Reset();
+                //csUI_AnimationDash.backwards = true;
+                csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
             }
         }
 
@@ -370,9 +370,9 @@ public class Player : YmirComponent
                 //csUI_AnimationPredatory.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                //csUI_AnimationPredatory.Reset();
-                ////csUI_AnimationPredatory.backwards = true;
-                //csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
+                csUI_AnimationPredatory.Reset();
+                //csUI_AnimationPredatory.backwards = true;
+                csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
             }
         }
 
@@ -400,9 +400,9 @@ public class Player : YmirComponent
                 //csUI_AnimationSwipe.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                //csUI_AnimationSwipe.Reset();
-                ////csUI_AnimationSwipe.backwards = true;
-                //csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
+                csUI_AnimationSwipe.Reset();
+                //csUI_AnimationSwipe.backwards = true;
+                csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
             }
         }
 
@@ -460,9 +460,9 @@ public class Player : YmirComponent
             inputsList.Add(INPUT.I_DASH);
 
             // SARA: start dash cooldown
-            //csUI_AnimationDash.Reset();
-            //csUI_AnimationDash.backwards = false;
-            //csUI_AnimationDash.SetAnimationState(true);
+            csUI_AnimationDash.Reset();
+            csUI_AnimationDash.backwards = false;
+            csUI_AnimationDash.SetAnimationState(true);
         }
 
         //----------------- Acidic Spit (Skill 1) -----------------\\
@@ -472,9 +472,9 @@ public class Player : YmirComponent
             inputsList.Add(INPUT.I_ACID);
 
             // SARA: start acidic cooldown
-            //csUI_AnimationAcid.Reset();
-            //csUI_AnimationAcid.backwards = false;
-            //csUI_AnimationAcid.SetAnimationState(true);
+            csUI_AnimationAcid.Reset();
+            csUI_AnimationAcid.backwards = false;
+            csUI_AnimationAcid.SetAnimationState(true);
         }
 
         //----------------- Predatory Rush (Skill 2) -----------------\\
@@ -484,9 +484,9 @@ public class Player : YmirComponent
             inputsList.Add(INPUT.I_PRED);
 
             // SARA: start predatory cooldown
-            //csUI_AnimationPredatory.Reset();
-            //csUI_AnimationPredatory.backwards = false;
-            //csUI_AnimationPredatory.SetAnimationState(true);
+            csUI_AnimationPredatory.Reset();
+            csUI_AnimationPredatory.backwards = false;
+            csUI_AnimationPredatory.SetAnimationState(true);
         }
 
         //----------------- Swipe (Skill 3) -----------------\\
@@ -496,9 +496,9 @@ public class Player : YmirComponent
             inputsList.Add(INPUT.I_SWIPE);
 
             // SARA: start swipe cooldown
-            //csUI_AnimationSwipe.Reset();
-            //csUI_AnimationSwipe.backwards = false;
-            //csUI_AnimationSwipe.SetAnimationState(true);
+            csUI_AnimationSwipe.Reset();
+            csUI_AnimationSwipe.backwards = false;
+            csUI_AnimationSwipe.SetAnimationState(true);
         }
 
         //----------------- Reload -----------------\\
@@ -508,23 +508,13 @@ public class Player : YmirComponent
         }
 
         //----------------- Inventory -----------------\\
-        //if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
-        //{
-        //    _openInventory = !_openInventory;
-        //    ToggleMenu("Inventory Menu", _openInventory);
+        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
+        {
+            _openInventory = !_openInventory;
+            ToggleMenu("Inventory Menu", _openInventory);
 
-        //    if (_openInventory)
-        //    {
-        //        GameObject canvas = InternalCalls.GetGameObjectByName("Inventory Menu");
-        //        Debug.Log("" + canvas.Name);
-        //        if(canvas != null)
-        //        {
-        //            canvas.GetComponent<UI_Inventory>().Deactivate();
-        //        }
-        //    }
-
-        //    Debug.Log("" + _openInventory);
-        //}
+            Debug.Log("" + _openInventory);
+        }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
@@ -1272,7 +1262,9 @@ public class Player : YmirComponent
         GameObject canvas = InternalCalls.GetGameObjectByName(goName);
 
         canvas.SetActive(open);
-        inputsList.Add((open) ? INPUT.I_STOP : INPUT.I_IDLE);
+        //inputsList.Add((open) ? INPUT.I_STOP : INPUT.I_IDLE);
+
+        currentState = (open) ? STATE.STOP : STATE.IDLE;
     }
 
     // External scripts
