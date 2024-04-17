@@ -76,8 +76,8 @@ struct EmitterBase : EmitterSetting
 	float heigth; //Heigth of the cone.
 
 	//Box Parameters
-	float3 pointsPositives;
-	float3 pointsNegative;
+	float3 boxPointsPositives;
+	float3 boxPointsNegative;
 
 };
 
