@@ -49,14 +49,25 @@ public class UI_Inventory_Grid : YmirComponent
         if (Input.GetLeftAxisX() > 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGrid(gameObject, rows, cols, true, naviagteGrids, leftGrid, rightGrid);
-
+            UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteGrids, leftGrid, rightGrid);
         }
 
         else if (Input.GetLeftAxisX() < 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGrid(gameObject, rows, cols, false, naviagteGrids, leftGrid, rightGrid);
+            UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteGrids, leftGrid, rightGrid);
+        }
+        
+        else if (Input.GetLeftAxisY() > 0 && _canTab)
+        {
+            _canTab = false;
+            //UI.NavigateGridVertical(gameObject, rows, cols, true, false, leftGrid, rightGrid);
+        }
+
+        else if (Input.GetLeftAxisY() < 0 && _canTab)
+        {
+            _canTab = false;
+            //UI.NavigateGridVertical(gameObject, rows, cols, false, false, leftGrid, rightGrid);
         }
 
         return;
