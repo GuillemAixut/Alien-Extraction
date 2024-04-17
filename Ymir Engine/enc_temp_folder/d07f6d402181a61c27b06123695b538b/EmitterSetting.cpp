@@ -29,30 +29,12 @@ void EmitterSetting::OnInspector()
 
 EmitterBase::EmitterBase()
 {
-	currentShape = SpawnAreaShape::PAR_POINT;
-
-	//Point
 	emitterOrigin = float3::zero;
-
-	//Cone
-	baseRadius = 2.0f;
-	topRadius = 4.0f;
-	heigth = 3.0f;
-
-	//Box
-	boxPointsPositives = { 1,1,1 };
-	boxPointsNegative = { -1,-1,-1 };
-
-	//Life time
 	randomLT = false;
 	particlesLifeTime1 = 1.0f;
 	particlesLifeTime2 = 2.0f;
-
-	//Die by distance
 	hasDistanceLimit = false;
 	distanceLimit = 0.0f;
-
-	
 }
 
 void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
@@ -87,41 +69,20 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	particle->diesByDistance = hasDistanceLimit;
 	particle->distanceLimit = distanceLimit;
 	
-	switch (currentShape)
-	{
-	case PAR_POINT:
-	{
-		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
-		if (cTra != nullptr) 
-		{
-			float4x4 matrix = cTra->GetGlobalTransform();
-			float3 position;
-			Quat rotation;
-			float3 escale;
-			matrix.Decompose(position, rotation, escale);
-			particle->position += position + emitterOrigin; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
-			particle->worldRotation = rotation;
-			particle->size = escale;
 
-			particle->initialPosition = particle->position;
-		}
+	CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
+	if (cTra != nullptr) {
+		float4x4 matrix = cTra->GetGlobalTransform();
+		float3 position;
+		Quat rotation;
+		float3 escale;
+		matrix.Decompose(position, rotation, escale);
+		particle->position += position + emitterOrigin; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+		particle->worldRotation = rotation;
+		particle->size = escale;
+
+		particle->initialPosition = particle->position;
 	}
-		break;
-	case PAR_CONE:
-		break;
-	case PAR_BOX:
-
-		
-
-		break;
-	case PAR_SPHERE:
-		break;
-	case PAR_SHAPE_ENUM_END:
-		break;
-	default:
-		break;
-	}
-	
 }
 
 void EmitterBase::Update(float dt, ParticleEmitter* emitter)

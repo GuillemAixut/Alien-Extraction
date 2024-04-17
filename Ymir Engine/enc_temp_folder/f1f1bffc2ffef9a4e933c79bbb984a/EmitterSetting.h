@@ -42,11 +42,10 @@ private:
 
 enum SpawnAreaShape 
 {
-	PAR_POINT,
 	PAR_CONE, //Two circunferences
 	PAR_BOX,
 	PAR_SPHERE,
-	PAR_SHAPE_ENUM_END,
+	NO_SHAPE,
 };
 
 struct EmitterBase : EmitterSetting
@@ -56,29 +55,14 @@ struct EmitterBase : EmitterSetting
 	void Update(float dt, ParticleEmitter* emitter);
 	void OnInspector();
 
-	//Lifetime
+	//Variable unica, posicion donde spawnean
+	float3 emitterOrigin;
 	float particlesLifeTime1;
 	bool randomLT;
 	float particlesLifeTime2;
 
 	bool hasDistanceLimit;
 	float distanceLimit;
-
-	//Area donde spawnean las particulas
-	SpawnAreaShape currentShape;
-
-	//Variable unica, posicion donde spawnean (centro de las figuras)
-	float3 emitterOrigin;
-
-	//Cylinder Parameters
-	float baseRadius; //Radius/face positioned on 0,0,0
-	float topRadius; // Radius/face projected after the length
-	float heigth; //Heigth of the cone.
-
-	//Box Parameters
-	float3 pointsPositives;
-	float3 pointsNegative;
-
 };
 
 //EnumS of types of spawn of the spawn setting
