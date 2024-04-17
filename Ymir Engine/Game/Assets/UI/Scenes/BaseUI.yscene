@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 1599545224,
             "Components": [
                 {
                     "Type": "Transform",
@@ -6867,7 +6868,7 @@
                     "currentHealth": 0,
                     "maxHealth": 10,
                     "isAlive": false,
-                    "debugDmg": 1
+                    "debugDmg": 100
                 },
                 {
                     "Type": "Script",
@@ -7154,7 +7155,7 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 500,
+                    "Width": 660,
                     "Height": 525,
                     "UI Type": 0,
                     "UI State": 1,
@@ -7733,7 +7734,7 @@
                     ],
                     "Is interactable": true,
                     "Fill image": 1746115142,
-                    "Handle image": 256935145,
+                    "Handle image": 4294967295,
                     "Use Floats": false,
                     "Value": 10,
                     "Value min": 0,
@@ -7771,8 +7772,7 @@
             ],
             "Children UID": [
                 995673855,
-                1746115142,
-                256935145
+                1746115142
             ]
         },
         {
@@ -7883,69 +7883,6 @@
                         78
                     ],
                     "Path": "Assets\/UI\/HUD Buttons\/Slider\/Slider_Fill.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Handle",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 256935145,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 664762359,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 672,
-                    "Position Y": 966,
-                    "Width": 70,
-                    "Height": 70,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        660,
-                        984,
-                        70,
-                        70
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Slider\/Marco_Vida.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -8926,7 +8863,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/VS2 Release.yscene"
+                    "sceneName": "UI\/Scenes\/BaseUI"
                 }
             ],
             "Children UID": [
@@ -9111,7 +9048,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/Scenes\/Start_scene.yscene"
+                    "sceneName": "UI\/Scenes\/StartScene"
                 }
             ],
             "Children UID": [
@@ -9410,7 +9347,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/Scenes\/Start_scene.yscene"
+                    "sceneName": "UI\/Scenes\/StartScene"
                 }
             ],
             "Children UID": [

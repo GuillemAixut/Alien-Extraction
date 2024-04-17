@@ -8,11 +8,11 @@ using YmirEngine;
 
 public class Button_Navigation : YmirComponent
 {
-    public string sceneName = "Assets/BASE_FINAL/LVL_BASE_COLLIDERS";
+    public string sceneName = "BASE_FINAL/LVL_BASE_COLLIDERS";
 
     public void OnClickButton()
     {
         Debug.Log("Go to scene" + sceneName + ".yscene");
-        InternalCalls.LoadScene(sceneName + ".yscene");
+        InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
     }
 }

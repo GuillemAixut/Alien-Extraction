@@ -75,7 +75,8 @@ bool ModuleScene::Start()
 	currentSceneDir = "Assets";
 	//LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
 	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
-	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
+	LoadSceneFromStart("Assets/UI/Scenes", "BaseUI");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #ifdef _RELEASE
 
@@ -88,7 +89,7 @@ bool ModuleScene::Start()
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
 
@@ -104,7 +105,7 @@ bool ModuleScene::Start()
 
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #endif // _STANDALONE
 

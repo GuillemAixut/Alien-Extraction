@@ -190,6 +190,21 @@ public class Player : YmirComponent
 
         dashSpeed = dashDistance / dashDuration;
 
+        //--------------------- Swipe ---------------------\\
+        swipeTimer = 0;
+        swipeDuration = 3.0f;
+        swipeCDTimer = 0;
+        swipeCD = 2.0f; //Es 13.0f
+        hasSwipe = false;
+
+        //--------------------- Predatory Rush ---------------------\\
+
+        predatoryTimer = 0;
+        predatoryDuration = 6.0f;
+        predatoryCDTimer = 0;
+        predatoryCD = 22.0f;
+        hasPred = false;
+
         //--------------------- Acidic Spit ------------------------\\
 
         acidicTimer = 0;
@@ -198,35 +213,17 @@ public class Player : YmirComponent
         acidicCD = 7.0f;
         hasAcidic = false;
 
-        //--------------------- Predatory Rush ---------------------\\
-
-        predatoryTimer = 0;
-        predatoryDuration = 6.0f;
-        predatoryCDTimer = 0;
-        predatoryCD = 22.0f;
-
-        hasPred = false;
-
-        //--------------------- Predatory Rush ---------------------\\
-        swipeTimer = 0;
-        swipeDuration = 3.0f;
-        swipeCDTimer = 0;
-        swipeCD = 2.0f; //Es 13.0f
-        hasSwipe = false;
-
-        //--------------------- Shoot ---------------------\\
-        GetWeaponVars();
-        ammo = magsize;
-        reloadTimer = reloadDuration;
-
-        //--------------------- Menus ---------------------\\
-        //_openInventory = false;
-
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
 
         //--------------------- Get Skills Scripts ---------------------\\
         GetSkillsScripts();
+
+        //--------------------- Shoot ---------------------\\
+        GetWeaponVars();
+
+        //--------------------- Menus ---------------------\\
+        _openInventory = false;
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -287,7 +284,6 @@ public class Player : YmirComponent
 
                 // With ping-pong
                 csUI_AnimationDash.Reset();
-                //csUI_AnimationDash.backwards = true;
                 csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
             }
         }
@@ -319,7 +315,7 @@ public class Player : YmirComponent
                 if (reloadTimer <= 0)
                 {
                     ammo = magsize;
-                    //if (csBullets!= null){ csBullets.UseBullets(); }
+                    if (csBullets != null) { csBullets.UseBullets(); }
                     isReloading = false;
                 }
             }
@@ -343,6 +339,14 @@ public class Player : YmirComponent
             if (acidicCDTimer <= 0)
             {
                 hasAcidic = false;
+                // SARA: vuelve ui normal
+                // Without ping-pong
+                //csUI_AnimationAcid.SetAnimationState(false);
+                //csUI_AnimationAcid.SetCurrentFrame(0, 0);
+
+                // With ping-pong
+                csUI_AnimationAcid.Reset();
+                csUI_AnimationAcid.backwards = !csUI_AnimationAcid.backwards;
             }
         }
 
@@ -371,7 +375,6 @@ public class Player : YmirComponent
 
                 // With ping-pong
                 csUI_AnimationPredatory.Reset();
-                //csUI_AnimationPredatory.backwards = true;
                 csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
             }
         }
@@ -401,7 +404,6 @@ public class Player : YmirComponent
 
                 // With ping-pong
                 csUI_AnimationSwipe.Reset();
-                //csUI_AnimationSwipe.backwards = true;
                 csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
             }
         }
@@ -857,10 +859,10 @@ public class Player : YmirComponent
                             StopPlayer();
                             break;
 
-                        //case INPUT.I_IDLE:
-                        //    currentState = STATE.IDLE;
-                        //    //StartIdle(); //Trigger de la animacion //Arreglar esto
-                        //    break;
+                            //case INPUT.I_IDLE:
+                            //    currentState = STATE.IDLE;
+                            //    //StartIdle(); //Trigger de la animacion //Arreglar esto
+                            //    break;
                     }
                     break;
 
@@ -1044,7 +1046,7 @@ public class Player : YmirComponent
 
         //Distancias y posicion para que la bala salga desde delante del player
         Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-        float distance = 20.0f; 
+        float distance = 20.0f;
         Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
 
         //Rotacion desde la que se crea la bala (la misma que el game object que le dispara)
@@ -1068,7 +1070,6 @@ public class Player : YmirComponent
     {
 
     }
-
 
     private void GetWeaponVars()
     {
@@ -1110,6 +1111,11 @@ public class Player : YmirComponent
                 //range = ?
                 break;
         }
+
+        ammo = magsize;
+        reloadTimer = reloadDuration;
+
+        csBullets.UseBullets();
     }
 
     private void SwapWeapon(WEAPON type)
@@ -1271,8 +1277,8 @@ public class Player : YmirComponent
     private void GetPlayerScripts()
     {
         Debug.Log("" + gameObject.Name);
-        //csBullets = gameObject.GetComponent<UI_Bullets>();
-        //csHealth = gameObject.GetComponent<Health>();
+        csHealth = gameObject.GetComponent<Health>();
+        csBullets = gameObject.GetComponent<UI_Bullets>();
     }
 
     private void GetSkillsScripts()
