@@ -448,7 +448,7 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
 	}
 
-	JsonFile* sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
+	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
 
 	App->camera->editorCamera->SetPos(sceneToLoad->GetFloat3("Editor Camera Position"));
 	App->camera->editorCamera->SetUp(sceneToLoad->GetFloat3("Editor Camera Up (Y)"));
@@ -474,8 +474,6 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
 	if (navMeshId != -1)
 		External->pathFinding->Load(navMeshId);
-
-	RELEASE(sceneToLoad);
 }
 
 void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName)
@@ -498,7 +496,7 @@ GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& f
 {
 	ClearVec(vTempComponents);
 
-	JsonFile* prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
+	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
 
 	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
 	std::vector<GameObject*> prefab = prefabToLoad->GetHierarchy("Prefab");
@@ -521,7 +519,6 @@ GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& f
 	LOG("Prefab '%s' loaded", fileName.c_str());
 
 	ClearVec(prefab);
-	RELEASE(prefabToLoad);
 		
 	return rootObject;
 }
@@ -531,7 +528,7 @@ GameObject* ModuleScene::LoadPrefab( char* path)
 {
 	ClearVec(vTempComponents);
 
-	JsonFile* prefabToLoad = JsonFile::GetJSON( path);
+	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON( path);
 
 	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
 	std::vector<GameObject*> prefab = prefabToLoad->GetHierarchy("Prefab");
@@ -554,7 +551,6 @@ GameObject* ModuleScene::LoadPrefab( char* path)
 	LOG("Prefab '%s' loaded", path);
 
 	ClearVec(prefab);
-	RELEASE(prefabToLoad);
 
 	return rootObject;
 }
@@ -569,7 +565,7 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
 	}
 
-	JsonFile* sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
+	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
 
 	App->camera->editorCamera->SetPos(sceneToLoad->GetFloat3("Editor Camera Position"));
 	App->camera->editorCamera->SetUp(sceneToLoad->GetFloat3("Editor Camera Up (Y)"));
@@ -595,8 +591,6 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
 	if (navMeshId != -1)
 		External->pathFinding->Load(navMeshId);
-
-	RELEASE(sceneToLoad);
 }
 
 void ModuleScene::Destroy(GameObject* gm)

@@ -110,10 +110,9 @@ void JsonFile::DeleteJSON(const std::string& route)
 	}
 }
 
-JsonFile* JsonFile::GetJSON(const std::string& route) {
+std::unique_ptr<JsonFile> JsonFile::GetJSON(const std::string& route) {
 
-	// TODO FRANCESC: Need a smart pointer to solve this memory leak std::unique_ptr<JsonFile> jsonFile;
-	JsonFile* jsonFile = new JsonFile();
+	std::unique_ptr<JsonFile> jsonFile = std::make_unique<JsonFile>();
 
 	// Load the existing JSON file
 
@@ -123,8 +122,6 @@ JsonFile* JsonFile::GetJSON(const std::string& route) {
 	if (!jsonFile->rootValue) {
 
 		LOG("[ERROR] Unable to load JSON file from %s", route.c_str());
-
-		delete jsonFile;
 
 		return nullptr;
 	}

@@ -3527,7 +3527,7 @@ void ModuleEditor::DeleteFileAndRefs(const char* filePath)
 
 		if (PhysfsEncapsule::FileExists((path + ".meta").c_str()))
 		{
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile)
 			{
@@ -3542,7 +3542,7 @@ void ModuleEditor::DeleteFileAndRefs(const char* filePath)
 
 		if (PhysfsEncapsule::FileExists((path + ".meta").c_str()))
 		{
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile)
 			{
