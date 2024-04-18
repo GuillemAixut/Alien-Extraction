@@ -113,11 +113,12 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	{
 	case PAR_POINT:
 	{
+		//Get rotated point from the world
 		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
 		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
 
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
-		if (cTra != nullptr) 
+		if (cTra != nullptr)
 		{
 			float4x4 matrix = cTra->GetGlobalTransform();
 			float3 position;
@@ -127,21 +128,47 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			particle->position += position + emitterOrigin; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
 			particle->worldRotation = rotation;
 			particle->size = escale;
-
-			particle->initialPosition = particle->position;
 		}
+
+		particle->initialPosition = particle->position;
 	}
 		break;
 	case PAR_CONE:
 		break;
 	case PAR_BOX:
-
+	{
 		//Random values
 
+		float3 randPos;
+		randPos.x = Random::GenerateRandomFloat(boxPointsNegative.x, boxPointsPositives.x);
+		randPos.y = Random::GenerateRandomFloat(boxPointsNegative.y, boxPointsPositives.y);
+		randPos.z = Random::GenerateRandomFloat(boxPointsNegative.z, boxPointsPositives.z);
+
+		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
+		if (cTra != nullptr)
+		{
+			float4x4 matrix = cTra->GetGlobalTransform();
+			float3 position;
+			Quat rotation;
+			float3 escale;
+			matrix.Decompose(position, rotation, escale);
+			particle->position += position + emitterOrigin + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->worldRotation = rotation;
+			particle->size = escale;
+		}
+
+		particle->initialPosition = particle->position;
+	}
 		break;
 	case PAR_SPHERE:
+	{
+	
+	}
 		break;
 	case PAR_SHAPE_ENUM_END:
+	{
+	
+	}
 		break;
 	default:
 		break;
@@ -160,7 +187,72 @@ void EmitterBase::Update(float dt, ParticleEmitter* emitter)
 
 void EmitterBase::OnInspector()
 {
-	ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
+
+	//Init types (when plays and when it stops)
+	std::string modeShape;
+	switch (currentShape)
+	{
+	case SpawnAreaShape::PAR_POINT: modeShape = "Point";break;
+	case SpawnAreaShape::PAR_CONE: modeShape = "Cone";break;
+	case SpawnAreaShape::PAR_BOX: modeShape = "Box";break;
+	case SpawnAreaShape::PAR_SPHERE: modeShape = "Sphere";break;
+	case SpawnAreaShape::PAR_SHAPE_ENUM_END:break;
+	default:break;
+	}
+
+	if (ImGui::BeginCombo("##SpawnShape", modeShape.c_str()))
+	{
+		for (int i = 0; i < SpawnAreaShape::PAR_SHAPE_ENUM_END; i++)
+		{
+			switch (SpawnAreaShape(i))
+			{
+			case SpawnAreaShape::PAR_POINT: modeShape = "Point"; break;
+			case SpawnAreaShape::PAR_CONE: modeShape = "Cone"; break;
+			case SpawnAreaShape::PAR_BOX: modeShape = "Box"; break;
+			case SpawnAreaShape::PAR_SPHERE: modeShape = "Sphere"; break;
+			case SpawnAreaShape::PAR_SHAPE_ENUM_END:break;
+			default: break;
+			}
+			if (ImGui::Selectable(modeShape.c_str()))
+			{
+				currentShape = (SpawnAreaShape)i;
+			}
+		}
+
+		ImGui::EndCombo();
+	}
+	ImGui::SameLine;
+	ImGui::Text("Shape");
+
+	switch (currentShape)
+	{
+		case SpawnAreaShape::PAR_POINT:
+		{
+			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
+		}
+			break;
+		case SpawnAreaShape::PAR_CONE:
+		{
+
+		};
+			break;
+		case SpawnAreaShape::PAR_BOX:
+		{
+			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
+			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f,0.001f);
+			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegative[0]), 0.1f,-200.0f,-0.0f);
+		}
+			break;
+		case SpawnAreaShape::PAR_SPHERE: 
+		{
+		
+		} 
+			break;
+		case SpawnAreaShape::PAR_SHAPE_ENUM_END:
+			break;
+		default:
+			break;
+	}
 	
 	ImGui::Checkbox("Random Lifetime ##BASE", &this->randomLT);
 	if (this->randomLT)
@@ -184,10 +276,10 @@ void EmitterBase::OnInspector()
 	std::string modeRotInheritance;
 	switch (rotacionBase)
 	{
-	case PAR_WORLD_MATRIX: modeRotInheritance = "No Rotation"; break;
-	case PAR_GAMEOBJECT_MATRIX: modeRotInheritance = "Own Rotation"; break;
-	case PAR_PARENT_MATRIX: modeRotInheritance = "Parent Rotation"; break;
-	case PAR_INITIAL_ROTATION_END:break;
+	case RotationInheritanceParticles::PAR_WORLD_MATRIX: modeRotInheritance = "No Rotation"; break;
+	case RotationInheritanceParticles::PAR_GAMEOBJECT_MATRIX: modeRotInheritance = "Own Rotation"; break;
+	case RotationInheritanceParticles::PAR_PARENT_MATRIX: modeRotInheritance = "Parent Rotation"; break;
+	case RotationInheritanceParticles::PAR_INITIAL_ROTATION_END:break;
 	default: break;
 	}
 
