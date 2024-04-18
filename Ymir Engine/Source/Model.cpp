@@ -161,13 +161,12 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 			currentNodeGO = External->scene->CreateGameObject(name, External->scene->mRootNode);
 			modelGO = currentNodeGO;
 
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile) {
 
 				// The meta file exists; it's not the first time we load the model.
 				modelGO->UID = tmpMetaFile->GetInt("UID");
-				delete tmpMetaFile;
 
 			}
 			else {
@@ -189,7 +188,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 			currentNodeGO->originPath = path;
 
 			// Model Meta File and Library File Creation
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile) {
 
@@ -210,8 +209,6 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 			
 			embeddedMeshesUID.push_back(currentNodeGO->UID);
 			resourcesUID.push_back(currentResourceUID);
-
-			delete tmpMetaFile;
 
 		}
 
@@ -458,7 +455,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 			std::string path = directory + aiPath.C_Str();
 
-			JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 			ResourceTexture* rTexTemp = new ResourceTexture();
 
@@ -468,7 +465,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 				// Get meta
 
-				JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
+				std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 				std::string libraryPath = metaFile->GetString("Library Path");
 				uint UID = metaFile->GetInt("UID");
@@ -523,8 +520,6 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 				}
 
 				cmaterial->rTextures.push_back(rTex);
-
-				delete metaFile;
 
 			}
 			else {
@@ -599,8 +594,6 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 				cmaterial->rTextures.push_back(rTexTemp);
 
 			}
-
-			delete metaFile;
 			
 		}
 		else {

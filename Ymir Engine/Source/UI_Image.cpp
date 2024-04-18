@@ -476,7 +476,7 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 
 	ResourceTexture* rTexTemp = new ResourceTexture();
 
-	JsonFile* metaFile = JsonFile::GetJSON(metaFilePath);
+	std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 
 	if (metaFile == nullptr) {
 
@@ -484,7 +484,7 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 
 		// Get meta
 
-		JsonFile* metaFile = JsonFile::GetJSON(imgPath + ".meta");
+		std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(imgPath + ".meta");
 
 		std::string libraryPath = metaFile->GetString("Library Path");
 		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));

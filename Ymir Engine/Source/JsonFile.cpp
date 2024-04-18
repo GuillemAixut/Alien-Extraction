@@ -110,10 +110,9 @@ void JsonFile::DeleteJSON(const std::string& route)
 	}
 }
 
-JsonFile* JsonFile::GetJSON(const std::string& route) {
+std::unique_ptr<JsonFile> JsonFile::GetJSON(const std::string& route) {
 
-	// TODO FRANCESC: Need a smart pointer to solve this memory leak std::unique_ptr<JsonFile> jsonFile;
-	JsonFile* jsonFile = new JsonFile();
+	std::unique_ptr<JsonFile> jsonFile = std::make_unique<JsonFile>();
 
 	// Load the existing JSON file
 
@@ -123,8 +122,6 @@ JsonFile* JsonFile::GetJSON(const std::string& route) {
 	if (!jsonFile->rootValue) {
 
 		LOG("[ERROR] Unable to load JSON file from %s", route.c_str());
-
-		delete jsonFile;
 
 		return nullptr;
 	}
@@ -2444,6 +2441,12 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		// Game Camera
 		ccamera->isGameCam = json_object_get_boolean(componentObject, "Game Camera");
+
+		if (ccamera->isGameCam) {
+
+			External->scene->gameCameraObject = gameObject;
+			External->scene->gameCameraComponent = ccamera;
+		}
 
 		ccamera->active = json_object_get_number(componentObject, "Active");
 

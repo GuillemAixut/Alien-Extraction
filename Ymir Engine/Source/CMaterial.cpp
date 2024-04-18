@@ -48,11 +48,13 @@ CMaterial::~CMaterial()
 {
     shader.ClearShader();
 
-    for (auto it = rTextures.rbegin(); it != rTextures.rend(); ++it)
+    for (auto& it = rTextures.begin(); it != rTextures.end(); ++it)
     {
         External->resourceManager->UnloadResource((*it)->GetUID());
         (*it) = nullptr;
     }
+
+    ClearVec(rTextures);
 }
 
 void CMaterial::Update()

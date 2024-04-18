@@ -31,7 +31,7 @@ public:
     void CreateJSON(std::string route, std::string fileName);
     void ModifyJSON(std::string route, std::string fileName);
 
-    static JsonFile* GetJSON(const std::string& route);
+    static std::unique_ptr<JsonFile> GetJSON(const std::string& route);
     static void DeleteJSON(const std::string& route);
 
     // -------------------------- Support functions --------------------------------

@@ -315,8 +315,13 @@ void ModuleEditor::DrawEditor()
 
 			if (ImGui::MenuItem("Clear Scene")) {
 
+				uint deletedSceneUID = App->scene->mRootNode->UID;
+
 				App->scene->ClearScene();
 
+				App->scene->mRootNode = App->scene->CreateGameObject("Scene", nullptr); // Recreate scene
+				App->scene->mRootNode->UID = deletedSceneUID;
+				
 				LOG("Scene cleared successfully");
 
 			}
@@ -3522,7 +3527,7 @@ void ModuleEditor::DeleteFileAndRefs(const char* filePath)
 
 		if (PhysfsEncapsule::FileExists((path + ".meta").c_str()))
 		{
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile)
 			{
@@ -3537,7 +3542,7 @@ void ModuleEditor::DeleteFileAndRefs(const char* filePath)
 
 		if (PhysfsEncapsule::FileExists((path + ".meta").c_str()))
 		{
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile)
 			{

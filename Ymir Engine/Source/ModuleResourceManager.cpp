@@ -93,7 +93,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 
 	// Retrieve info from Meta
 
-	JsonFile* metaFile = JsonFile::GetJSON(metaFilePath);
+	std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 
 	if (CheckExtensionType(assetsFilePath.c_str()) == ResourceType::TEXTURE)
 	{
@@ -111,7 +111,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 
 						// Get meta
 
-						JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
+						std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 						std::string libraryPath = metaFile->GetString("Library Path");
 						uint UID = metaFile->GetInt("UID");
@@ -222,7 +222,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 
 						// Get meta
 
-						JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
+						std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 						std::string libraryPath = metaFile->GetString("Library Path");
 						uint UID = metaFile->GetInt("UID");
@@ -497,7 +497,7 @@ uint ModuleResourceManager::ExistsInLibrary(const std::string& assetsFilePath) c
 
 	if (PhysfsEncapsule::FileExists(metaFilePath))
 	{
-		JsonFile* metaFile = JsonFile::GetJSON(metaFilePath);
+		std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 
 		std::string libraryFilePath = metaFile->GetString("Library Path");
 
@@ -539,7 +539,13 @@ void ModuleResourceManager::ClearResources()
 {
 	for (std::map<uint, Resource*>::iterator itr = resources.begin(); itr != resources.end(); ++itr)
 	{
-		delete (itr->second);
+		if ((*itr).second->GetType() != ResourceType::TEXTURE) {
+
+			delete (itr->second);
+			(itr->second) = nullptr;
+
+		}
+		
 	}
 
 	resources.clear();

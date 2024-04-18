@@ -97,11 +97,11 @@ namespace AK
         static const AkUniqueID QX_ACID = 2475171950U;
         static const AkUniqueID QX_CLAW = 3729983792U;
         static const AkUniqueID QX_CRY = 4211173799U;
-        static const AkUniqueID QX_DASH = 3131630765U;
         static const AkUniqueID QX_DEATH = 3895141477U;
         static const AkUniqueID QX_MOVE = 3788417510U;
         static const AkUniqueID QX_PUDDLE = 2449904509U;
-        static const AkUniqueID QX_TAIL = 2111218363U;
+        static const AkUniqueID QX_TAILHIT = 1976728978U;
+        static const AkUniqueID QX_TAILMOVE = 1375369856U;
         static const AkUniqueID UI_BACK = 2024222415U;
         static const AkUniqueID UI_CLOSEMAP = 3152746076U;
         static const AkUniqueID UI_CRAFT = 3368728976U;
@@ -152,7 +152,6 @@ namespace AK
         static const AkUniqueID W_THROW = 1353162901U;
         static const AkUniqueID XS_CRY = 545905731U;
         static const AkUniqueID XS_DEATH = 1795442505U;
-        static const AkUniqueID XS_JUMP = 1167915841U;
         static const AkUniqueID XS_MOVE = 79690026U;
         static const AkUniqueID XS_REBOUND = 319049970U;
         static const AkUniqueID XS_SPIT = 1073288803U;
@@ -184,7 +183,7 @@ namespace AK
         static const AkUniqueID BASEMUSIC = 643931339U;
         static const AkUniqueID CAIUS = 209385238U;
         static const AkUniqueID CONSUMABLES = 3213291899U;
-        static const AkUniqueID DRONXENOMORPH = 1161361818U;
+        static const AkUniqueID DRONEXENOMORPH = 978134277U;
         static const AkUniqueID FACEHUGGER = 4095621880U;
         static const AkUniqueID FIREARM = 542436681U;
         static const AkUniqueID FSAD = 3063191711U;
