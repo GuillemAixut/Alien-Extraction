@@ -222,7 +222,8 @@ update_status ModuleScene::PostUpdate(float dt)
 	{
 		for (const auto& tuple : pendingToAddPrefab)
 		{
-			LoadPrefab(std::get<0>(tuple), std::get<1>(tuple));
+			GameObject* go = LoadPrefab(std::get<0>(tuple), std::get<1>(tuple));
+			go->mTransform->SetPosition(std::get<2>(tuple));
 		}
 		pendingToAddPrefab.clear();
 	}

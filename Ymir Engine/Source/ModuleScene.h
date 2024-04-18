@@ -116,7 +116,7 @@ public:
 	std::map<GameObject*, GameObject*> swapList;
 	std::vector<GameObject*> gameObjects;
 	std::vector<GameObject*> pendingToAdd;
-	std::vector<std::tuple<std::string, std::string>> pendingToAddPrefab;
+	std::vector<std::tuple<std::string, std::string, float3>> pendingToAddPrefab;
 
 	std::vector<std::string> tags;
 

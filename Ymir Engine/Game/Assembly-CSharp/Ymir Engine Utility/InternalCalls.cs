@@ -102,7 +102,7 @@ namespace YmirEngine
         /// <param name="prefabPath">The path to the prefab folder (in this format: "Assets/Prefabs").</param>
         /// <param name="prefabName">The name of the prefab inside of the prefabPath (in this format: "Player").</param>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void CreateGOFromPrefab(string prefabPath, string prefabName);          
+        public static extern void CreateGOFromPrefab(string prefabPath, string prefabName, Vector3 pos);          
         
         // TODO: PONER EN GAMEOBJECT.CS
         /// <summary>

@@ -31,27 +31,27 @@ public class DroneXenomorphBaseScript : YmirComponent
     private DroneState droneState;
 
 	//If aggressive or not
-	private bool aggro;
+	//private bool aggro;
 
 	//Attacks variables
 
 	//Claw
-	private float clawDamage;
-	private float clawDuration;
-	private float clawTimer;
-	private float clawCooldown;
+	//private float clawDamage;
+	//private float clawDuration;
+	//private float clawTimer;
+	//private float clawCooldown;
 
 	//Tail
-	private float tailDamage;
-	private float tailDuration;
-	private float tailTimer;
-	private float tailCooldown;
+	//private float tailDamage;
+	//private float tailDuration;
+	//private float tailTimer;
+	//private float tailCooldown;
 
 	//FOR GENERAL TIME MANAGEMENT
-	private float timeCounter;
-	private float timeLimit;
+	//private float timeCounter;
+	//private float timeLimit;
 
-    public void Start()
+	public void Start()
 	{
 		//MAIN STUFF
 		droneState = DroneState.IDLE_NO_AGGRO;
@@ -60,27 +60,27 @@ public class DroneXenomorphBaseScript : YmirComponent
         agent = gameObject.GetComponent<PathFinding>();
 
 		//AGENT
-		aggro = false;
+		//aggro = false;
         agent.stoppingDistance = 2f;
         agent.speed = 15f;
 
 		//ATTACKS
-		//Claw
-		clawDamage = 150f;
-		clawDuration = 1f;
-		clawTimer = 0.0f;
-		clawCooldown = 2f;
+		////Claw
+		//clawDamage = 150f;
+		//clawDuration = 1f;
+		//clawTimer = 0.0f;
+		//clawCooldown = 2f;
 
-		//Tail
-		tailDamage = 200f;
-		tailDuration = 0.8f;
-		tailTimer = 0.0f;
-		tailCooldown = 6f;
+		////Tail
+		//tailDamage = 200f;
+		//tailDuration = 0.8f;
+		//tailTimer = 0.0f;
+		//tailCooldown = 6f;
 
-		//Time
-		timeCounter = 0.0f;
-		//CHANGE THIS LIMIT AND REMOVE THE COMMENT WHEN NEEDED!
-		timeLimit = 0.0f;
+		////Time
+		//timeCounter = 0.0f;
+		////CHANGE THIS LIMIT AND REMOVE THE COMMENT WHEN NEEDED!
+		//timeLimit = 0.0f;
     }
 
     public void Update()

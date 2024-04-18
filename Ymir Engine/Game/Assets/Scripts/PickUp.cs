@@ -25,6 +25,7 @@ public class PickUp : YmirComponent
 		{
 			//TODO: Hacer que el item se destruya/elimine
 			gameObject.SetActive(false);
+			InternalCalls.Destroy(gameObject);
 
 			//TODO: Hacer que se sumen al inventario o algo para mantener la cuenta
 		}
