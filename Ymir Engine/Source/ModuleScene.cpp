@@ -42,8 +42,7 @@ ModuleScene::ModuleScene(Application* app, bool start_enabled) : Module(app, sta
 
 ModuleScene::~ModuleScene()
 {
-	tags.clear();
-	delete mRootNode;
+
 }
 
 bool ModuleScene::Init()
@@ -76,7 +75,8 @@ bool ModuleScene::Start()
 	currentSceneDir = "Assets";
 	//LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
 	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
-	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
+	//LoadSceneFromStart("Assets/UI/Scenes", "BaseUI");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #ifdef _RELEASE
 
@@ -89,7 +89,7 @@ bool ModuleScene::Start()
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
 
@@ -105,7 +105,7 @@ bool ModuleScene::Start()
 
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #endif // _STANDALONE
 
@@ -266,6 +266,8 @@ bool ModuleScene::CleanUp()
 	}
 
 	RELEASE(mRootNode);
+	
+	ClearScene();
 
 	return ret;
 }
@@ -383,24 +385,24 @@ G_UI* ModuleScene::CreateGUI(UI_TYPE t, GameObject* pParent, int x, int y)
 
 void ModuleScene::ClearScene()
 {
-	//JsonFile::DeleteJSON(External->fileSystem->libraryScenesPath + std::to_string(mRootNode->UID) + ".yscene");
-
 	isLocked = false;
 	SetSelected();
 
 	// FRANCESC: Doing this RELEASE here makes the meshes disappear
-	// RELEASE(mRootNode);
+	//RELEASE(mRootNode); // Bugged
 
-	External->resourceManager->resources.clear();
+	External->resourceManager->ClearResources(); // Done Correctly
+	External->lightManager->ClearLights(); // Done Correctly
 
-	External->lightManager->lights.clear();
+	// Recreate Physics World
+	External->physics->DeleteWorld(); // Done Correctly
+	External->physics->CreateWorld(); // Done Correctly
 
-	External->physics->DeleteWorld(); // It was this or nothing :(
+	ClearVec(App->renderer3D->models); // Done Correctly
 
-	External->physics->CreateWorld();
+	ClearVec(tags); // Done Correctly
 	ClearVec(gameObjects);
 	ClearVec(destroyList);
-	App->renderer3D->models.clear();
 
 	ClearVec(vTempComponents);
 	ClearVec(vCanvas);

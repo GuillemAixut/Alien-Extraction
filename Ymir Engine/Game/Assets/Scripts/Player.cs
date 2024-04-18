@@ -146,7 +146,8 @@ public class Player : YmirComponent
 
     #region DEFINE MENUS
 
-    //private bool _openInventory = false;
+    private string currentMenu = "";
+    private bool _openInventory = false;
 
     #endregion
 
@@ -156,8 +157,8 @@ public class Player : YmirComponent
     private GameObject cameraObject;
 
     //--------------------- External Scripts ---------------------\\
-    //private UI_Bullets csBullets;
-    //private Health csHealth;
+    private UI_Bullets csBullets;
+    private Health csHealth;
 
     private UI_Animation csUI_AnimationDash;
     private UI_Animation csUI_AnimationPredatory;
@@ -190,6 +191,21 @@ public class Player : YmirComponent
 
         dashSpeed = dashDistance / dashDuration;
 
+        //--------------------- Swipe ---------------------\\
+        swipeTimer = 0;
+        swipeDuration = 3.0f;
+        swipeCDTimer = 0;
+        swipeCD = 2.0f; //Es 13.0f
+        hasSwipe = false;
+
+        //--------------------- Predatory Rush ---------------------\\
+
+        predatoryTimer = 0;
+        predatoryDuration = 6.0f;
+        predatoryCDTimer = 0;
+        predatoryCD = 22.0f;
+        hasPred = false;
+
         //--------------------- Acidic Spit ------------------------\\
 
         acidicTimer = 0;
@@ -198,35 +214,17 @@ public class Player : YmirComponent
         acidicCD = 7.0f;
         hasAcidic = false;
 
-        //--------------------- Predatory Rush ---------------------\\
-
-        predatoryTimer = 0;
-        predatoryDuration = 6.0f;
-        predatoryCDTimer = 0;
-        predatoryCD = 22.0f;
-
-        hasPred = false;
-
-        //--------------------- Predatory Rush ---------------------\\
-        swipeTimer = 0;
-        swipeDuration = 3.0f;
-        swipeCDTimer = 0;
-        swipeCD = 2.0f; //Es 13.0f
-        hasSwipe = false;
-
-        //--------------------- Shoot ---------------------\\
-        GetWeaponVars();
-        ammo = magsize;
-        reloadTimer = reloadDuration;
-
-        //--------------------- Menus ---------------------\\
-        //_openInventory = false;
-
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
 
         //--------------------- Get Skills Scripts ---------------------\\
         GetSkillsScripts();
+
+        //--------------------- Shoot ---------------------\\
+        GetWeaponVars();
+
+        //--------------------- Menus ---------------------\\
+        _openInventory = false;
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -286,9 +284,8 @@ public class Player : YmirComponent
                 //csUI_AnimationDash.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                //csUI_AnimationDash.Reset();
-                ////csUI_AnimationDash.backwards = true;
-                //csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
+                csUI_AnimationDash.Reset();
+                csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
             }
         }
 
@@ -319,7 +316,7 @@ public class Player : YmirComponent
                 if (reloadTimer <= 0)
                 {
                     ammo = magsize;
-                    //if (csBullets!= null){ csBullets.UseBullets(); }
+                    if (csBullets != null) { csBullets.UseBullets(); }
                     isReloading = false;
                 }
             }
@@ -343,6 +340,14 @@ public class Player : YmirComponent
             if (acidicCDTimer <= 0)
             {
                 hasAcidic = false;
+                // SARA: vuelve ui normal
+                // Without ping-pong
+                //csUI_AnimationAcid.SetAnimationState(false);
+                //csUI_AnimationAcid.SetCurrentFrame(0, 0);
+
+                // With ping-pong
+                csUI_AnimationAcid.Reset();
+                csUI_AnimationAcid.backwards = !csUI_AnimationAcid.backwards;
             }
         }
 
@@ -370,9 +375,8 @@ public class Player : YmirComponent
                 //csUI_AnimationPredatory.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                //csUI_AnimationPredatory.Reset();
-                ////csUI_AnimationPredatory.backwards = true;
-                //csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
+                csUI_AnimationPredatory.Reset();
+                csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
             }
         }
 
@@ -400,9 +404,8 @@ public class Player : YmirComponent
                 //csUI_AnimationSwipe.SetCurrentFrame(0, 0);
 
                 // With ping-pong
-                //csUI_AnimationSwipe.Reset();
-                ////csUI_AnimationSwipe.backwards = true;
-                //csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
+                csUI_AnimationSwipe.Reset();
+                csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
             }
         }
 
@@ -431,100 +434,102 @@ public class Player : YmirComponent
         //    inputsList.Add(INPUT.I_DEAD);
         //}
 
-        //----------------- Joystic -----------------\\
-        if (JoystickMoving() == true)
-        {
-            inputsList.Add(INPUT.I_MOVE);
-        }
-        else if (currentState == STATE.MOVE && JoystickMoving() == false)
-        {
-            inputsList.Add(INPUT.I_IDLE);
-            StopPlayer();
+        if (currentState != STATE.STOP)
+        {        //----------------- Joystic -----------------\\
+            if (JoystickMoving() == true)
+            {
+                inputsList.Add(INPUT.I_MOVE);
+            }
+            else if (currentState == STATE.MOVE && JoystickMoving() == false)
+            {
+                inputsList.Add(INPUT.I_IDLE);
+                StopPlayer();
+            }
+
+            //----------------- Shoot -----------------\\
+            if (Input.GetGamepadRightTrigger() > 0 && !isReloading && ammo > 0)
+            {
+                inputsList.Add(INPUT.I_SHOOTING);
+            }
+            else
+            {
+                inputsList.Add(INPUT.I_SHOOTING_END);
+                shootBefore = false;
+            }
+
+            //----------------- Dash -----------------\\
+            if (Input.GetGamepadLeftTrigger() > 0 && hasDashed == false && dashCDTimer <= 0)
+            {
+                hasDashed = true;
+                inputsList.Add(INPUT.I_DASH);
+
+                // SARA: start dash cooldown
+                csUI_AnimationDash.Reset();
+                csUI_AnimationDash.backwards = false;
+                csUI_AnimationDash.SetAnimationState(true);
+            }
+
+            //----------------- Acidic Spit (Skill 1) -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN && hasAcidic == false && acidicCDTimer <= 0)
+            {
+                hasAcidic = true;
+                inputsList.Add(INPUT.I_ACID);
+
+                // SARA: start acidic cooldown
+                csUI_AnimationAcid.Reset();
+                csUI_AnimationAcid.backwards = false;
+                csUI_AnimationAcid.SetAnimationState(true);
+            }
+
+            //----------------- Predatory Rush (Skill 2) -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && hasPred == false && predatoryCDTimer <= 0)
+            {
+                hasPred = true;
+                inputsList.Add(INPUT.I_PRED);
+
+                // SARA: start predatory cooldown
+                csUI_AnimationPredatory.Reset();
+                csUI_AnimationPredatory.backwards = false;
+                csUI_AnimationPredatory.SetAnimationState(true);
+            }
+
+            //----------------- Swipe (Skill 3) -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && hasSwipe == false && swipeCDTimer <= 0)
+            {
+                hasSwipe = true;
+                inputsList.Add(INPUT.I_SWIPE);
+
+                // SARA: start swipe cooldown
+                csUI_AnimationSwipe.Reset();
+                csUI_AnimationSwipe.backwards = false;
+                csUI_AnimationSwipe.SetAnimationState(true);
+            }
+
+            //----------------- Reload -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
+            {
+                inputsList.Add(INPUT.I_RELOAD);
+            }
         }
 
-        //----------------- Shoot -----------------\\
-        if (Input.GetGamepadRightTrigger() > 0 && !isReloading && ammo > 0)
-        {
-            inputsList.Add(INPUT.I_SHOOTING);
-        }
         else
         {
-            inputsList.Add(INPUT.I_SHOOTING_END);
-            shootBefore = false;
-        }
-
-        //----------------- Dash -----------------\\
-        if (Input.GetGamepadLeftTrigger() > 0 && hasDashed == false && dashCDTimer <= 0)
-        {
-            hasDashed = true;
-            inputsList.Add(INPUT.I_DASH);
-
-            // SARA: start dash cooldown
-            //csUI_AnimationDash.Reset();
-            //csUI_AnimationDash.backwards = false;
-            //csUI_AnimationDash.SetAnimationState(true);
-        }
-
-        //----------------- Acidic Spit (Skill 1) -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN && hasAcidic == false && acidicCDTimer <= 0)
-        {
-            hasAcidic = true;
-            inputsList.Add(INPUT.I_ACID);
-
-            // SARA: start acidic cooldown
-            //csUI_AnimationAcid.Reset();
-            //csUI_AnimationAcid.backwards = false;
-            //csUI_AnimationAcid.SetAnimationState(true);
-        }
-
-        //----------------- Predatory Rush (Skill 2) -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && hasPred == false && predatoryCDTimer <= 0)
-        {
-            hasPred = true;
-            inputsList.Add(INPUT.I_PRED);
-
-            // SARA: start predatory cooldown
-            //csUI_AnimationPredatory.Reset();
-            //csUI_AnimationPredatory.backwards = false;
-            //csUI_AnimationPredatory.SetAnimationState(true);
-        }
-
-        //----------------- Swipe (Skill 3) -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && hasSwipe == false && swipeCDTimer <= 0)
-        {
-            hasSwipe = true;
-            inputsList.Add(INPUT.I_SWIPE);
-
-            // SARA: start swipe cooldown
-            //csUI_AnimationSwipe.Reset();
-            //csUI_AnimationSwipe.backwards = false;
-            //csUI_AnimationSwipe.SetAnimationState(true);
-        }
-
-        //----------------- Reload -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
-        {
-            inputsList.Add(INPUT.I_RELOAD);
+            // If player is on menu and presses B, quit menu
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && currentMenu != "")
+            {
+                ToggleMenu(false);
+            }
         }
 
         //----------------- Inventory -----------------\\
-        //if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
-        //{
-        //    _openInventory = !_openInventory;
-        //    ToggleMenu("Inventory Menu", _openInventory);
+        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
+        {
+            _openInventory = !_openInventory;
+            currentMenu = "Inventory Menu";
+            ToggleMenu(_openInventory);
 
-        //    if (_openInventory)
-        //    {
-        //        GameObject canvas = InternalCalls.GetGameObjectByName("Inventory Menu");
-        //        Debug.Log("" + canvas.Name);
-        //        if(canvas != null)
-        //        {
-        //            canvas.GetComponent<UI_Inventory>().Deactivate();
-        //        }
-        //    }
-
-        //    Debug.Log("" + _openInventory);
-        //}
+            Debug.Log("" + _openInventory);
+        }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
@@ -867,10 +872,10 @@ public class Player : YmirComponent
                             StopPlayer();
                             break;
 
-                        //case INPUT.I_IDLE:
-                        //    currentState = STATE.IDLE;
-                        //    //StartIdle(); //Trigger de la animacion //Arreglar esto
-                        //    break;
+                            //case INPUT.I_IDLE:
+                            //    currentState = STATE.IDLE;
+                            //    //StartIdle(); //Trigger de la animacion //Arreglar esto
+                            //    break;
                     }
                     break;
 
@@ -988,7 +993,7 @@ public class Player : YmirComponent
         if (!godMode)
         {
             --ammo;
-            //if (csBullets != null) { csBullets.UseBullets(); }
+            if (csBullets != null) { csBullets.UseBullets(); }
         }
 
         //Debug.Log("Ammo:" + ammo);
@@ -1054,7 +1059,7 @@ public class Player : YmirComponent
 
         //Distancias y posicion para que la bala salga desde delante del player
         Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-        float distance = 20.0f; 
+        float distance = 20.0f;
         Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
 
         //Rotacion desde la que se crea la bala (la misma que el game object que le dispara)
@@ -1078,7 +1083,6 @@ public class Player : YmirComponent
     {
 
     }
-
 
     private void GetWeaponVars()
     {
@@ -1120,6 +1124,11 @@ public class Player : YmirComponent
                 //range = ?
                 break;
         }
+
+        ammo = magsize;
+        reloadTimer = reloadDuration;
+
+        csBullets.UseBullets();
     }
 
     private void SwapWeapon(WEAPON type)
@@ -1282,21 +1291,31 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Die");
     }
 
-
-    public void ToggleMenu(string goName, bool open)
+    public void PlayerStopState(bool stop)
     {
-        GameObject canvas = InternalCalls.GetGameObjectByName(goName);
+        currentState = (stop) ? STATE.STOP : STATE.IDLE;
+    }
+
+    public void ToggleMenu(bool open)
+    {
+        GameObject canvas = InternalCalls.GetGameObjectByName(currentMenu);
+        Debug.Log("" + currentMenu);
 
         canvas.SetActive(open);
-        inputsList.Add((open) ? INPUT.I_STOP : INPUT.I_IDLE);
+        PlayerStopState(open);
+
+        if (!open)
+        {
+            currentMenu = "";
+        }
     }
 
     // External scripts
     private void GetPlayerScripts()
     {
         Debug.Log("" + gameObject.Name);
-        //csBullets = gameObject.GetComponent<UI_Bullets>();
-        //csHealth = gameObject.GetComponent<Health>();
+        csHealth = gameObject.GetComponent<Health>();
+        csBullets = gameObject.GetComponent<UI_Bullets>();
     }
 
     private void GetSkillsScripts()

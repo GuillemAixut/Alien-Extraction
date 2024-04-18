@@ -4,13 +4,12 @@
 #include "GameObject.h"
 
 #include "ModuleEditor.h"
-#include "ModuleScene.h"
 
 //#include "External/ImGui/imgui_custom.h"
 
 #include "External/mmgr/mmgr.h"
 
-//std::vector<Font*> Font::mFonts;
+std::vector<Font*> Font::mFonts;
 
 UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float ls, std::string fontName, std::string fontPath, float w, float h, std::string shaderPath) : C_UI(UI_TYPE::TEXT, ComponentType::UI, g, "Text", x, y, w, h)
 {
@@ -18,7 +17,7 @@ UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float
 
 	if (fontName == "")
 	{
-		SetFont(DEFAULT_FONT); // Default Font
+		SetFont(DEFAULT_FONT, "Assets\\Fonts"); // Default Font
 	}
 	else
 	{
@@ -119,7 +118,6 @@ UI_Text::~UI_Text()
 
 	//RELEASE_ARRAY(boundsEditor->index);
 	//RELEASE_ARRAY(boundsGame->index);
-	RELEASE(mat);
 	RELEASE(boundsEditor);
 	RELEASE(boundsGame);
 }
@@ -143,7 +141,7 @@ void UI_Text::OnInspector()
 
 		if (ImGui::BeginCombo("Font", font->name.c_str()))
 		{
-			for (std::vector<Font*>::const_iterator it = External->scene->mFonts.begin(); it != External->scene->mFonts.end(); ++it)
+			for (std::vector<Font*>::const_iterator it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
 			{
 				bool isSelected = (font->name == (*it)->name);
 				if (ImGui::Selectable((*it)->name.c_str()))
@@ -568,7 +566,7 @@ void UI_Text::SetText(const char* t)
 void UI_Text::SetFont(std::string name, std::string fontPath)
 {
 	bool isImported = false;
-	for (auto it = External->scene->mFonts.begin(); it != External->scene->mFonts.end(); ++it)
+	for (auto it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
 	{
 		if ((*it)->name == name)
 		{
@@ -659,7 +657,18 @@ Font::Font(std::string name, std::string fontPath)
 	FT_Done_FreeType(ft);
 
 	LOG("Font loaded: %s", name.c_str());
-	External->scene->mFonts.push_back(this);
+	Font::mFonts.push_back(this);
+}
+
+Font::~Font()
+{
+	// After the loop
+	for (auto& character : mCharacters) 
+	{
+		delete character.second.get(); // Deallocate memory for each Character object
+	}
+
+	mCharacters.clear();
 }
 
 bool Font::InitFont(std::string n, std::string fontPath)

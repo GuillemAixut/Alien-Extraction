@@ -30,7 +30,7 @@ public class OpenMenu_OnCollision : YmirComponent
         return;
     }
 
-    public void OnCollisionStay(GameObject other)
+    public void OnCollisionEnter(GameObject other)
     {
         //Debug.Log("other.name");
         //Debug.Log("" + other.name);
@@ -39,7 +39,27 @@ public class OpenMenu_OnCollision : YmirComponent
         if (other.Tag == "Player" || other.Name == "Player")
         {
             canvas.SetActive(true);
-            //player.inputsList.Add(INPUT.I_STOP);
+            player.PlayerStopState(true);
         }
     }
+    public void OnCollisionExit(GameObject other)
+    {
+        if (other.Tag == "Player" || other.Name == "Player")
+        {
+            canvas.SetActive(false);
+            player.PlayerStopState(false);
+        }
+    }
+    //public void OnCollisionStay(GameObject other)
+    //{
+    //    //Debug.Log("other.name");
+    //    //Debug.Log("" + other.name);
+    //    //Debug.Log("" + other.Name);
+
+    //    if (other.Tag == "Player" || other.Name == "Player")
+    //    {
+    //        canvas.SetActive(true);
+    //        //player.inputsList.Add(INPUT.I_STOP);
+    //    }
+    //}
 }

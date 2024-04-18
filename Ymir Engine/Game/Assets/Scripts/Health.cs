@@ -18,14 +18,13 @@ public class Health : YmirComponent
     public float maxHealth = 1200;
     public bool isAlive;
 
-    public float debugDmg = 1;
+    public float debugDmg = 100;
 
     private Player player = null;
 
     public void Start()
     {
-        //Debug.Log("QUE cono pasa" + this.type);
-
+        debugDmg = 100;
         maxHealth = 1200;
 
         GetPlayerScript();
@@ -138,7 +137,6 @@ public class Health : YmirComponent
 
         if (gameObject != null)
         {
-            //Debug.Log("[ERROR] HOLAAA");
             player = gameObject.GetComponent<Player>();
         }
     }

@@ -57,6 +57,7 @@ public:
 	void RemoveBody(PhysBody* b);
 
 	void ClearBodiesList();
+	void ClearMotions();
 
 	void RecalculateInertia(PhysBody* pbody, float mass, bool useGravity);
 
@@ -91,7 +92,7 @@ public:
 public:
 	// TODO: create 2 lists, one for rigidbodies and one for colliders	
 	std::vector<PhysBody*> bodiesList;
-	std::vector <btDefaultMotionState*> motions;
+	std::vector<btDefaultMotionState*> motions;
 
 	btDiscreteDynamicsWorld* world; // World se puede dejar en public si se requiere
 

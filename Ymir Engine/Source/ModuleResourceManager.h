@@ -61,6 +61,8 @@ public:
 	void LoadResource(const uint& UID);
 	void ReleaseResource(Resource* resource);
 
+	void ClearResources();
+
 	void ReImportModel(const std::string& modelPath, bool onlyReimport);
 
 public:
