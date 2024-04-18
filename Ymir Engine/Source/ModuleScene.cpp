@@ -92,6 +92,7 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
+	LoadSceneFromStart("Assets", "ParticleTest");
 
 #endif // _RELEASE
 
@@ -101,7 +102,7 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
-	LoadSceneFromStart("Assets", "Particletest2");
+	LoadSceneFromStart("Assets", "ParticleTest");
 
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
