@@ -291,8 +291,6 @@ void ModulePathFinding::ClearNavMeshes()
 
 	geometry = new InputGeom();
 	geometry->SetMesh(new ResourceMesh(Random::Generate()));
-
-	pathfinder;
 }
 
 bool ModulePathFinding::IsWalkable(float x, float z, float3& hitPoint)
@@ -446,12 +444,24 @@ void Pathfinder::Init(NavMeshBuilder* builder)
 
 void Pathfinder::CleanUp()
 {
-	if (m_navQuery != nullptr)
+	if (m_navQuery != nullptr) 
+	{
+		delete m_navQuery;
 		m_navQuery = nullptr;
+	}
 
-	m_navMesh = nullptr;
-	m_navQuery = nullptr;
-	m_navMeshBuilder = nullptr;
+	if (m_navMesh != nullptr)
+	{
+		delete m_navMesh;
+		m_navMesh = nullptr;
+	}
+	
+	if (m_navMeshBuilder != nullptr)
+	{
+		delete m_navMeshBuilder;
+		m_navMeshBuilder = nullptr;
+	}
+
 	startPosSet = false;
 	endPosSet = false;
 }

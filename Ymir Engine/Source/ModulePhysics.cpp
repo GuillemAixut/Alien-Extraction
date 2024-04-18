@@ -236,6 +236,7 @@ void ModulePhysics::DeleteWorld()
 	world->clearForces();
 
 	delete world;
+	world = nullptr;
 }
 
 // ADDBODY ============================================================================================================
@@ -421,6 +422,7 @@ void ModulePhysics::RemoveBody(PhysBody* b)
 	bodiesList.shrink_to_fit();
 
 	delete b;
+	b = nullptr;
 }
 
 void ModulePhysics::ClearBodiesList()
@@ -439,6 +441,7 @@ void ModulePhysics::ClearMotions()
 	for (std::vector<btDefaultMotionState*>::iterator itr = motions.begin(); itr != motions.end(); ++itr)
 	{
 		delete (*itr);
+		(*itr) = nullptr;
 	}
 
 	motions.clear();

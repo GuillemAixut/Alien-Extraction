@@ -128,6 +128,7 @@ void ModuleLightManager::ClearLights()
     for (std::vector<Light*>::iterator itr = lights.begin(); itr != lights.end(); ++itr)
     {
         delete (*itr);
+        (*itr) = nullptr;
     }
 
     lights.clear();

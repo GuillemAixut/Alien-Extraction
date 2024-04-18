@@ -315,8 +315,13 @@ void ModuleEditor::DrawEditor()
 
 			if (ImGui::MenuItem("Clear Scene")) {
 
+				uint deletedSceneUID = App->scene->mRootNode->UID;
+
 				App->scene->ClearScene();
 
+				App->scene->mRootNode = App->scene->CreateGameObject("Scene", nullptr); // Recreate scene
+				App->scene->mRootNode->UID = deletedSceneUID;
+				
 				LOG("Scene cleared successfully");
 
 			}

@@ -2445,6 +2445,12 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		// Game Camera
 		ccamera->isGameCam = json_object_get_boolean(componentObject, "Game Camera");
 
+		if (ccamera->isGameCam) {
+
+			External->scene->gameCameraObject = gameObject;
+			External->scene->gameCameraComponent = ccamera;
+		}
+
 		ccamera->active = json_object_get_number(componentObject, "Active");
 
 		gameObject->AddComponent(ccamera);

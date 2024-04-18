@@ -539,7 +539,13 @@ void ModuleResourceManager::ClearResources()
 {
 	for (std::map<uint, Resource*>::iterator itr = resources.begin(); itr != resources.end(); ++itr)
 	{
-		delete (itr->second);
+		if ((*itr).second->GetType() != ResourceType::TEXTURE) {
+
+			delete (itr->second);
+			(itr->second) = nullptr;
+
+		}
+		
 	}
 
 	resources.clear();
