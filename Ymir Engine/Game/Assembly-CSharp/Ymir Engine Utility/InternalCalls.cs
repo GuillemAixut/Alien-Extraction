@@ -128,7 +128,13 @@ namespace YmirEngine
         /// Compare string to go name.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool CompareStringToName(object go, string name);        
+        public static extern bool CompareStringToName(object go, string name);
+
+        /// <summary>
+        /// Disable the component with name.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool DisableComponent(object go, string name);
 
     }
 

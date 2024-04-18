@@ -19,14 +19,14 @@ public class Caius : YmirComponent
 
     private List<Dialogue> dialogueList = null;
 
-    public GameObject name_gameObject;
-	public GameObject line1_gameObject;
-	public GameObject line2_gameObject;
-	public GameObject line3_gameObject;
-	public GameObject ui_gameObject;
+    public GameObject name_gameObject = null;
+	public GameObject line1_gameObject = null;
+	public GameObject line2_gameObject = null;
+	public GameObject line3_gameObject = null;
+	public GameObject ui_gameObject = null;
 
 	//private bool talked = false;
-	//private bool dialogue_ui = false;
+	private bool dialogue_ui = false;
 
 	//private Player csPlayer;
 
@@ -42,6 +42,31 @@ public class Caius : YmirComponent
 
         //LoadDialogues(str);
         Debug.Log("START Caius.cs");
+        name_gameObject = InternalCalls.GetGameObjectByName("Name");
+        line1_gameObject = InternalCalls.GetGameObjectByName("Text_Line1");
+        line2_gameObject = InternalCalls.GetGameObjectByName("Text_Line2");
+        line3_gameObject = InternalCalls.GetGameObjectByName("Text_Line3");
+        ui_gameObject = InternalCalls.GetGameObjectByName("Canvas");
+
+        if (name_gameObject != null && line1_gameObject != null && line2_gameObject != null && line3_gameObject != null && ui_gameObject != null)
+        {
+            Debug.Log("UI GameObjects Loaded corectly");
+        }
+        else
+        {
+            Debug.Log("[ERROR] Error Loading UI GameObjects");
+        }
+
+        //Load Dialogue Data
+        try
+        {
+            LoadDialogues(str);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("[ERROR] Error while Loading dialogue str: " + e);
+        }
+
     }
 
 	public void Update()
@@ -49,27 +74,34 @@ public class Caius : YmirComponent
         if (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN)
         {
             //TODO: Lógica del diálogo
-            //dialogue_ui = true;
+            dialogue_ui = true;
 
             Debug.Log("[WARNING] Mostrar UI del dialogo");
 
-            LoadDialogues(str);
-            DisplayDialogueByID("1");
-
+            try
+            {
+                DisplayDialogueByID("1");
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[ERROR] Error while displaying dialogue 1: " + e);
+            }
             
+
+
         }
 
         //TODO: Show the dialogue UI when the bool is true
-        /*if (dialogue_ui)
-		{
-			//UI.TextEdit(name_gameObject, "Lorem ipsum");
-			
-			ui_gameObject.SetActive(true);
+        if (dialogue_ui)
+        {
+            //UI.TextEdit(name_gameObject, "Lorem ipsum");
 
-            
+            ui_gameObject.SetActive(true);
+
+
             //TODO: Set de dialogue_ui = false; y csPlayer.inputsList.Add(Player.INPUT.I_IDLE); cuando acabe el dialogo
 
-        }*/
+        }
     }
 
    // public void OnCollisionStay(GameObject other)
@@ -90,16 +122,16 @@ public class Caius : YmirComponent
     public void OnCollisionStay(GameObject other)
     {
         //TODO: Mostrat UI de que puede interactuar si pulsa el botón asignado
-        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
-        {
+        //if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
+        //{
 
-            //TODO: Lógica del diálogo
-            //dialogue_ui = true;
+        //    //TODO: Lógica del diálogo
+        //    dialogue_ui = true;
 
-            DisplayDialogueByID("1");
+        //    DisplayDialogueByID("1");
 
-            Debug.Log("[WARNING] Mostrar UI del dialogo");
-        }
+        //    Debug.Log("[WARNING] Mostrar UI del dialogo");
+        //}
     }
 
     public void LoadDialogues(string dialogueData)
@@ -139,21 +171,29 @@ public class Caius : YmirComponent
 
     public void DisplayDialogueByID(string id)
     {
-        UI.TextEdit(name_gameObject, GetDialogueByID(id).Name);
-        UI.TextEdit(line1_gameObject, GetDialogueByID(id).Text);
+        if (line1_gameObject != null && name_gameObject != null)
+        {
+            UI.TextEdit(name_gameObject, GetDialogueByID(id).Name);
+            UI.TextEdit(line1_gameObject, GetDialogueByID(id).Text);
+        }
 
-        Debug.Log("[WARNING] Se ha cargado correctamente el Dialogo con id: " + id);
+        Debug.Log("[WARNING] Se ha mostrado correctamente el Dialogo con id: " + id);
     }
 
     public Dialogue GetDialogueByID(string id)
     {
-        foreach (Dialogue dialogue in dialogueList)
+        try
         {
-            if (dialogue.ID == id)
+            foreach (Dialogue dialogue in dialogueList)
             {
-                return dialogue;
+                if (dialogue.ID == id)
+                {
+                    return dialogue;
+                }
             }
         }
+        catch { }
+
 
         return default(Dialogue);
     }

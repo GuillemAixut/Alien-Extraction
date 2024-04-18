@@ -1,24 +1,24 @@
 {
     "NavMesh": "4294967295",
     "Editor Camera Position": [
-        -73.470314025878906,
-        63.662940979003906,
-        -6.1130237579345703
+        75.357963562011719,
+        44.540458679199219,
+        -4.2814197540283203
     ],
     "Editor Camera Right (X)": [
-        -0.27594730257987976,
-        1.0281801223754883e-06,
-        0.95717084407806396
+        0.30615326762199402,
+        2.9802322387695312e-08,
+        -0.95198428630828857
     ],
     "Editor Camera Up (Y)": [
-        0.60799729824066162,
-        0.76942896842956543,
-        0.1752815842628479
+        -0.45287531614303589,
+        0.87959831953048706,
+        -0.14564235508441925
     ],
     "Editor Camera Front (Z)": [
-        0.74211680889129639,
-        -0.63514208793640137,
-        0.21394902467727661
+        -0.83736300468444824,
+        -0.47571846842765808,
+        -0.26929166913032532
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,6 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1192284687,
             "Components": [
                 {
                     "Type": "Transform",
@@ -54,8 +53,7 @@
                 366680627,
                 1398847280,
                 1794070133,
-                484997781,
-                232432059
+                217199119
             ]
         },
         {
@@ -71,9 +69,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -51.719337463378906,
                         0,
-                        0
+                        0,
+                        -35.242912292480469
                     ],
                     "Rotation": [
                         -0,
@@ -168,7 +166,7 @@
         {
             "Name": "Player",
             "Static": false,
-            "Tag": "Player",
+            "Tag": "Untagged",
             "UID": 402787232,
             "Active": true,
             "Element_Type": "Model",
@@ -2105,13 +2103,47 @@
             ]
         },
         {
-            "Name": "PROP_Base_Chest",
+            "Name": "Caius and Canvas",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 484997781,
+            "UID": 217199119,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1192284687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1484304711,
+                352295544
+            ]
+        },
+        {
+            "Name": "Caius (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1192284687,
+            "Parent UID": 217199119,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2119,7 +2151,7 @@
                     "Translation": [
                         0,
                         0,
-                        44.88970947265625
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -2127,9 +2159,9 @@
                         -0
                     ],
                     "Scale": [
-                        0.05000000074505806,
-                        0.05000000074505806,
-                        0.05000000074505806
+                        1,
+                        1,
+                        1
                     ]
                 },
                 {
@@ -2142,9 +2174,9 @@
                     "Active": 1,
                     "Collider Type": 0,
                     "Size": [
-                        300,
-                        100,
-                        250
+                        5,
+                        5,
+                        5
                     ],
                     "Physics Type": 2,
                     "Mass": 0,
@@ -2157,42 +2189,38 @@
                     "LockZ": false,
                     "Offset": [
                         0,
-                        0,
+                        1.6000000238418579,
                         0
                     ]
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "Loot_Chest.cs",
+                    "ScriptName": "Caius.cs",
                     "Active": 1,
                     "UID": 0,
-                    "keys": "Nombre:,Probabilidad:",
-                    "path": "Assets\/Loot Tables\/loot_table.csv",
-                    "numFields": 2,
-                    "spawnRange": 0
+                    "str": ""
                 }
             ],
             "Children UID": [
-                1871714168,
-                342242430
+                1981179967
             ]
         },
         {
-            "Name": "PROP_Base_Chest_Lid",
+            "Name": "Cube (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1871714168,
+            "UID": 1981179967,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
-            "Parent UID": 484997781,
+            "Origin_Path": "Assets\/Primitives\/Cube.fbx",
+            "Parent UID": 1484304711,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
                         0,
-                        0,
+                        1.6243923902511597,
                         0
                     ],
                     "Rotation": [
@@ -2202,175 +2230,42 @@
                     ],
                     "Scale": [
                         1,
-                        1,
+                        3.489640474319458,
                         1
                     ]
                 },
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 333817056,
-                    "Vertex Count": 388,
-                    "Index Count": 690
+                    "UID": 1728623793,
+                    "Vertex Count": 24,
+                    "Index Count": 36
                 },
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
                     "Uniforms": [
                         {
-                            "numLights": 1,
-                            "transparency": 1,
-                            "camPos": [
-                                -117.71933746337891,
-                                139,
-                                72
+                            "lightDir": [
+                                0,
+                                0,
+                                0
                             ],
-                            "numPointLights": 1,
-                            "enableDiffuse": true,
-                            "enableSpecular": true,
-                            "enableNormal": true,
-                            "enableAmbient": true,
-                            "enableHeight": true,
-                            "enableEmissive": true,
-                            "ambient": 1,
-                            "specularLight": 1,
-                            "normalIntensity": 1,
-                            "emissive": 1
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 356,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
-                    "Diffuse_UID": 1170378668,
-                    "Specular_ID": 388,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
-                    "Specular_UID": 300545344,
-                    "Normal_ID": 380,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
-                    "Normal_UID": 1614848588,
-                    "Height_ID": 372,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
-                    "Height_UID": 414377273,
-                    "Ambient_ID": 348,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
-                    "Ambient_UID": 1263068321,
-                    "Emissive_ID": 364,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
-                    "Emissive_UID": 1409401328
-                }
-            ]
-        },
-        {
-            "Name": "PROP_Base_Chest_Base",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 342242430,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
-            "Parent UID": 484997781,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1005804023,
-                    "Vertex Count": 452,
-                    "Index Count": 840
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
-                    "Uniforms": [
-                        {
-                            "numLights": 1,
-                            "transparency": 1,
-                            "camPos": [
-                                -117.71933746337891,
-                                139,
-                                72
-                            ],
-                            "numPointLights": 1,
-                            "enableDiffuse": true,
-                            "enableSpecular": true,
-                            "enableNormal": true,
-                            "enableAmbient": true,
-                            "enableHeight": true,
-                            "enableEmissive": true,
-                            "ambient": 1,
-                            "specularLight": 1,
-                            "normalIntensity": 1,
-                            "emissive": 1
-                        }
-                    ],
-                    "Diffuse_ID": 360,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
-                    "Diffuse_UID": 1170378668,
-                    "Specular_ID": 392,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
-                    "Specular_UID": 300545344,
-                    "Normal_ID": 384,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
-                    "Normal_UID": 1614848588,
-                    "Height_ID": 376,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
-                    "Height_UID": 414377273,
-                    "Ambient_ID": 352,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
-                    "Ambient_UID": 1263068321,
-                    "Emissive_ID": 368,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
-                    "Emissive_UID": 1409401328
-                }
-            ]
-        },
-        {
-            "Name": "Door_LowPoly",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 232432059,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 1192284687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        17.824834823608398,
-                        0
-                    ],
-                    "Rotation": [
-                        1.3512297059037337e-08,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        0.090000443160533905,
-                        0.09000001847743988,
-                        0.090000629425048828
-                    ]
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
                 },
                 {
                     "World gravity": [
@@ -2382,16 +2277,16 @@
                     "Active": 1,
                     "Collider Type": 0,
                     "Size": [
-                        435.29998779296875,
-                        354.20001220703125,
-                        422.70001220703125
+                        1,
+                        1,
+                        1
                     ],
                     "Physics Type": 2,
                     "Mass": 0,
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
-                    "IsSensor": true,
+                    "IsSensor": false,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
@@ -2400,189 +2295,17 @@
                         0,
                         0
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "lDoor": 1163680921,
-                    "rDoor": 902427818
-                }
-            ],
-            "Children UID": [
-                1163680921,
-                902427818,
-                1106644159
-            ]
-        },
-        {
-            "Name": "Door2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1163680921,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 232432059,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        -3.5527136788005009e-15
-                    ],
-                    "Rotation": [
-                        -1.5902773592947552e-15,
-                        0,
-                        0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 728437194,
-                    "Vertex Count": 242,
-                    "Index Count": 540
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 308,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_D.png",
-                    "Diffuse_UID": 1409043110,
-                    "Specular_ID": 316,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_S.png",
-                    "Specular_UID": 960732568,
-                    "Normal_ID": 314,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_N.png",
-                    "Normal_UID": 1112776949,
-                    "Height_ID": 312,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_H.png",
-                    "Height_UID": 319471824,
-                    "Ambient_ID": 306,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_A.png",
-                    "Ambient_UID": 1782471351,
-                    "Emissive_ID": 310,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
-                    "Emissive_UID": 1442365833
                 }
             ]
         },
         {
-            "Name": "Door1",
+            "Name": "Canvas",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 902427818,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 232432059,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        -9.6633812063373625e-13
-                    ],
-                    "Rotation": [
-                        -4.1514290387567598e-06,
-                        3.6398560326081002e-19,
-                        1.044093460222939e-05
-                    ],
-                    "Scale": [
-                        0.99999910593032837,
-                        1,
-                        1.0000069141387939
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 2101808898,
-                    "Vertex Count": 238,
-                    "Index Count": 564
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 308,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_D.png",
-                    "Diffuse_UID": 1409043110,
-                    "Specular_ID": 316,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_S.png",
-                    "Specular_UID": 960732568,
-                    "Normal_ID": 314,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_N.png",
-                    "Normal_UID": 1112776949,
-                    "Height_ID": 312,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_H.png",
-                    "Height_UID": 319471824,
-                    "Ambient_ID": 306,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_A.png",
-                    "Ambient_UID": 1782471351,
-                    "Emissive_ID": 310,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
-                    "Emissive_UID": 1442365833
-                }
-            ]
-        },
-        {
-            "Name": "Marc",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1106644159,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 232432059,
+            "UID": 352295544,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 217199119,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2604,52 +2327,465 @@
                     ]
                 },
                 {
-                    "Type": "Mesh",
+                    "Type": "UI",
                     "Active": 1,
-                    "UID": 1533505745,
-                    "Vertex Count": 72,
-                    "Index Count": 168
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 181,
+                    "Height": 624,
+                    "UI Type": 0,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        632,
+                        641
+                    ]
+                }
+            ],
+            "Children UID": [
+                459813690,
+                2067033629,
+                573848764,
+                445086859,
+                1160763200,
+                932653845,
+                463233547
+            ]
+        },
+        {
+            "Name": "Image",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 459813690,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 352295544,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
                 },
                 {
-                    "Type": "Material",
+                    "Type": "UI",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1920,
+                    "Height": 1080,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        1920,
+                        1080
                     ],
-                    "Diffuse_ID": 308,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_D.png",
-                    "Diffuse_UID": 1409043110,
-                    "Specular_ID": 316,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_S.png",
-                    "Specular_UID": 960732568,
-                    "Normal_ID": 314,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_N.png",
-                    "Normal_UID": 1112776949,
-                    "Height_ID": 312,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_H.png",
-                    "Height_UID": 319471824,
-                    "Ambient_ID": 306,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_A.png",
-                    "Ambient_UID": 1782471351,
-                    "Emissive_ID": 310,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
-                    "Emissive_UID": 1442365833
+                    "Path": "Assets\/Dialogue\/Dialogo.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Name",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2067033629,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 352295544,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        575.388916015625,
+                        790.1685791015625,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        575.388916015625,
+                        790.1685791015625,
+                        200,
+                        50
+                    ],
+                    "Text": "Caius",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text_Line1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 573848764,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 352295544,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        417.43301391601562,
+                        871.72662353515625,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        417.43301391601562,
+                        871.72662353515625,
+                        200,
+                        50
+                    ],
+                    "Text": "OH, GOOD, I SEE THEY'VE WOKEN YOU UP. JUST IN TIME",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 18,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text_Line2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 445086859,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 352295544,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        417.4329833984375,
+                        917.23583984375,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        417.4329833984375,
+                        917.23583984375,
+                        200,
+                        50
+                    ],
+                    "Text": "WE'VE JUST ARRIVED AT GLIESE 667. YOU'LL HAVE TO CLEAN UP THE PLANET. I DON'T HAVE",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 12,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text_Line3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1160763200,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 352295544,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        417.43301391601562,
+                        951.59814453125,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        417.43301391601562,
+                        951.59814453125,
+                        200,
+                        50
+                    ],
+                    "Text": "MUCH INFORMATION ABOUT THE MISSION, IT'S LABELED \"CONFIDENTIAL LEVEL: EXTREME\", I'M\n",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 12,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text_Line4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 932653845,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 352295544,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        417.43301391601562,
+                        987.7313232421875,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        417.43301391601562,
+                        987.7313232421875,
+                        200,
+                        50
+                    ],
+                    "Text": "NOT ALLOWED TO ACCESS BEYOND THE SUMMARY ANNEX. I HOPE YOU HAVE BEEN BRIEFED ",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 12,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text_Line5",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 463233547,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 352295544,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        417.43301391601562,
+                        1020.5455932617188,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        417.43301391601562,
+                        1020.5455932617188,
+                        200,
+                        50
+                    ],
+                    "Text": "ON BETTER RAISEN.",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 12,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
                 }
             ]
         }

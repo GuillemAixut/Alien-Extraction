@@ -105,6 +105,9 @@ public:
 	// Handle both keyboard and gamepad control of all UI game objects
 	void HandleUINavigation();
 
+	std::string ComponentTypeToString(ComponentType type);  //Lo siento, era necesario :(
+	ComponentType StringToComponentType(const std::string& typeName);  //Lo siento, era necesario (x2) :(
+
 public:
 
 	GameObject* mRootNode;

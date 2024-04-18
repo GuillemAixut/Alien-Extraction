@@ -1123,3 +1123,56 @@ void ModuleScene::HandleUINavigation()
 	}
 }
 
+std::string ModuleScene::ComponentTypeToString(ComponentType type)
+{
+	switch (type) {
+	case NONE: return "NONE";
+	case TRANSFORM: return "TRANSFORM";
+	case MESH: return "MESH";
+	case MATERIAL: return "MATERIAL";
+	case SCRIPT: return "SCRIPT";
+	case AUDIO_SOURCE: return "AUDIO_SOURCE";
+	case AUDIO_LISTENER: return "AUDIO_LISTENER";
+	case CAMERA: return "CAMERA";
+	case RIGIDBODY: return "RIGIDBODY";
+	case PHYSICS: return "PHYSICS";
+	case ANIMATION: return "ANIMATION";
+	case PARTICLE: return "PARTICLE";
+	case UI_TRAMSFORM: return "UI_TRAMSFORM";
+	case UI: return "UI";
+	case LIGHT: return "LIGHT";
+	case NAVMESHAGENT: return "NAVMESHAGENT";
+	case ALL_TYPES: return "ALL_TYPES";
+	default: return "UNKNOWN";
+	}
+}
+
+ComponentType ModuleScene::StringToComponentType(const std::string& typeName) {
+	static std::unordered_map<std::string, ComponentType> typeMap = {
+		{"NONE", NONE},
+		{"TRANSFORM", TRANSFORM},
+		{"MESH", MESH},
+		{"MATERIAL", MATERIAL},
+		{"SCRIPT", SCRIPT},
+		{"AUDIO_SOURCE", AUDIO_SOURCE},
+		{"AUDIO_LISTENER", AUDIO_LISTENER},
+		{"CAMERA", CAMERA},
+		{"RIGIDBODY", RIGIDBODY},
+		{"PHYSICS", PHYSICS},
+		{"ANIMATION", ANIMATION},
+		{"PARTICLE", PARTICLE},
+		{"UI_TRAMSFORM", UI_TRAMSFORM},
+		{"UI", UI},
+		{"LIGHT", LIGHT},
+		{"NAVMESHAGENT", NAVMESHAGENT},
+		{"ALL_TYPES", ALL_TYPES}
+	};
+
+	auto it = typeMap.find(typeName);
+	if (it != typeMap.end()) {
+		return it->second;
+	}
+	else {
+		return NONE;
+	}
+}
