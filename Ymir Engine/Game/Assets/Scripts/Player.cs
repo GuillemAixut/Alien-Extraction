@@ -768,7 +768,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOTING_END:
                             currentState = STATE.IDLE;
-                            EndShooting();
+                            StartShooting();
                             //StartIdle(); //Trigger de la animacion
                             break;
 
@@ -1135,15 +1135,10 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Dash");
         Audio.PlayAudio(gameObject, "P_Dash");
 
-        //LO SIENTO (WARRADA)
+        //Sistema de particulas
         GameObject particles;
         particles = GetParticles();
-
-        if (particles != null)
-        {
-            Particles.PlayEmitter(particles);
-        }
-        else Debug.Log("QUe cono pasa");
+        Particles.PlayEmitter(particles);
 
         Input.Rumble_Controller(100, 7);
         StopPlayer();
@@ -1165,8 +1160,12 @@ public class Player : YmirComponent
 
     private GameObject GetParticles()
     {
-        string tag = "Particle";
-        return gameObject.GetChildrenByTag(gameObject, tag);
+        //TODO TONI
+        //string tag = "Particle";
+        //return gameObject.GetChildrenByTag(gameObject, tag);
+
+        //El game object que maneja las particulas
+        return InternalCalls.GetGameObjectByName("ParticleSystemDash");
     }
 
     private void StartJump()
