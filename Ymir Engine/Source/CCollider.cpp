@@ -134,7 +134,7 @@ void CCollider::Update()
 
 	// --------------------------- Physics Simulation Stopped ---------------------------
 
-	if (isFirstTick || (TimeManager::gameTimer.GetState() == TimerState::STOPPED && active))
+	if (isFirstTick || (TimeManager::gameTimer.GetState() == TimerState::STOPPED))
 	{
 		if (physBody != nullptr)
 		{
@@ -247,7 +247,12 @@ void CCollider::OnInspector()
 
 	bool exists = true;
 
-	ImGui::Checkbox(("##" + std::to_string(UID)).c_str(), &active);
+	if (ImGui::Checkbox(("##" + std::to_string(UID)).c_str(), &active))
+	{
+		if (active)	physBody->body->setActivationState(ACTIVE_TAG);
+		else physBody->body->setActivationState(DISABLE_SIMULATION);
+	}
+
 	ImGui::SameLine();
 
 	if (ImGui::CollapsingHeader((headerLabel + "##" + std::to_string(UID)).c_str(), &exists, flags))
