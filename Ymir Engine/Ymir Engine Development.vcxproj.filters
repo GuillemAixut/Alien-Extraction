@@ -133,6 +133,9 @@
     <Filter Include="Externals\RecastNavigation">
       <UniqueIdentifier>{599c487e-a52f-4d31-a5b6-241e2f1a801a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Features\GameObjects &amp; Components\Particles">
+      <UniqueIdentifier>{580df608-7f86-44f5-9d4f-3731f31b685a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -747,9 +750,6 @@
     <ClInclude Include="Source\Color.h">
       <Filter>Sources\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Delegate.h">
-      <Filter>Sources\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Source\EventSystem.h">
       <Filter>Sources\Utils</Filter>
     </ClInclude>
@@ -826,9 +826,6 @@
       <Filter>Sources\Features\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="Source\G_UI.h">
-      <Filter>Sources\Features\GameObjects &amp; Components\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\C_UI.h">
       <Filter>Sources\Features\GameObjects &amp; Components\UI</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI_Image.h">
@@ -1206,7 +1203,19 @@
     <ClInclude Include="Source\CNavMeshAgent.h">
       <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CS_NavMesh_Bindings.h">
+    <ClInclude Include="Source\EmitterSetting.h">
+      <Filter>Sources\Features\GameObjects &amp; Components\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Particle.h">
+      <Filter>Sources\Features\GameObjects &amp; Components\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ParticleEmitter.h">
+      <Filter>Sources\Features\GameObjects &amp; Components\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CParticleSystem.h">
+      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CS_Particle_Bindings.h">
       <Filter>Sources\Utils\Bindings</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1728,6 +1737,18 @@
       <Filter>Sources\Features\Custom File Format</Filter>
     </ClCompile>
     <ClCompile Include="Source\CNavMeshAgent.cpp">
+      <Filter>Sources\Features\GameObjects &amp; Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EmitterSetting.cpp">
+      <Filter>Sources\Features\GameObjects &amp; Components\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Particle.cpp">
+      <Filter>Sources\Features\GameObjects &amp; Components\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ParticleEmitter.cpp">
+      <Filter>Sources\Features\GameObjects &amp; Components\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CParticleSystem.cpp">
       <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClCompile>
   </ItemGroup>
