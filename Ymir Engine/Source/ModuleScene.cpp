@@ -184,7 +184,7 @@ update_status ModuleScene::Update(float dt)
 	}
 
 	// UI navigation
-	HandleUINavigation();
+	//HandleUINavigation();
 
 	return UPDATE_CONTINUE;
 }

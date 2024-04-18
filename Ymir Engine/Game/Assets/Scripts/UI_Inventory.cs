@@ -53,21 +53,24 @@ public class UI_Inventory : YmirComponent
                 SwitchMenu();
             }
 
-            if (((_focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE ||
-                _focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.SAVE) &&
-                _focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE) &&
-                Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
+            if (_focusedGO.GetComponent<UI_Item_Button>() != null)
             {
-                _focusedGO.GetComponent<UI_Item_Button>().item.currentSlot = ITEM_SLOT.NONE;
-                _focusedGO.GetComponent<UI_Item_Button>().item.itemType = ITEM_SLOT.NONE;
+                if (((_focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE ||
+                                _focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.SAVE) &&
+                                _focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE) &&
+                                Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
+                {
+                    _focusedGO.GetComponent<UI_Item_Button>().item.currentSlot = ITEM_SLOT.NONE;
+                    _focusedGO.GetComponent<UI_Item_Button>().item.itemType = ITEM_SLOT.NONE;
 
-                // Add real art and other stuff
-                UI.ChangeImageUI(_focusedGO, "Assets/UI/Inventory Buttons/InventorySlotUnselected.png", (int)UI_STATE.NORMAL);
+                    // Add real art and other stuff
+                    UI.ChangeImageUI(_focusedGO, "Assets/UI/Inventory Buttons/InventorySlotUnselected.png", (int)UI_STATE.NORMAL);
 
-                //GameObject text = InternalCalls.GetChildrenByName(_focusedGO, "Text");
-                UI.TextEdit(InternalCalls.GetChildrenByName(_focusedGO, "Text"), " ");
+                    //GameObject text = InternalCalls.GetChildrenByName(_focusedGO, "Text");
+                    UI.TextEdit(InternalCalls.GetChildrenByName(_focusedGO, "Text"), " ");
+                }
             }
-
+           
             //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
             //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
         }

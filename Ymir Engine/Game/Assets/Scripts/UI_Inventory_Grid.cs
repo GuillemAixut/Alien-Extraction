@@ -14,10 +14,15 @@ public class UI_Inventory_Grid : YmirComponent
     private bool _canTab;
 
     private GameObject leftGrid;
-    private GameObject rightGrid;
+    private GameObject rightGrid;   
+    private GameObject downGrid;
+    private GameObject upGrid;
     public string leftGridName = " ";
     public string rightGridName = " ";
-    public bool naviagteGrids = false;
+    public string downGridName = " ";
+    public string upGridName = " ";
+    public bool naviagteX = false;
+    public bool naviagteY = false;
 
     private float _time;
     private float _timer;
@@ -25,7 +30,9 @@ public class UI_Inventory_Grid : YmirComponent
     public void Start()
     {
         leftGrid = InternalCalls.GetGameObjectByName(leftGridName);
-        rightGrid = InternalCalls.GetGameObjectByName(rightGridName);
+        rightGrid = InternalCalls.GetGameObjectByName(rightGridName);        
+        downGrid = InternalCalls.GetGameObjectByName(downGridName);
+        upGrid = InternalCalls.GetGameObjectByName(upGridName);
         _timer = 0.0f;
         _time = 0.3f;
     }
@@ -43,31 +50,32 @@ public class UI_Inventory_Grid : YmirComponent
             {
                 _timer = 0.0f;
                 _canTab = true;
+                UI.SetCanNav(true);
             }
         }
 
         if (Input.GetLeftAxisX() > 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteGrids, leftGrid, rightGrid);
+            UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteX, leftGrid, rightGrid);
         }
 
         else if (Input.GetLeftAxisX() < 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteGrids, leftGrid, rightGrid);
+            UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteX, leftGrid, rightGrid);
         }
         
         else if (Input.GetLeftAxisY() > 0 && _canTab)
         {
             _canTab = false;
-            //UI.NavigateGridVertical(gameObject, rows, cols, true, false, leftGrid, rightGrid);
+            UI.NavigateGridVertical(gameObject, rows, cols, true, naviagteY, downGrid, upGrid);
         }
 
         else if (Input.GetLeftAxisY() < 0 && _canTab)
         {
             _canTab = false;
-            //UI.NavigateGridVertical(gameObject, rows, cols, false, false, leftGrid, rightGrid);
+            UI.NavigateGridVertical(gameObject, rows, cols, false, naviagteY, downGrid, upGrid);
         }
 
         return;

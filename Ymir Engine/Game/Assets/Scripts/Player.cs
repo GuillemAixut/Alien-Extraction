@@ -1308,6 +1308,10 @@ public class Player : YmirComponent
         {
             currentMenu = "";
         }
+        else
+        {
+            //UI.SetFirstFocused(canvas);
+        }
     }
 
     // External scripts
