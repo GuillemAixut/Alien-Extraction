@@ -120,6 +120,7 @@ UI_Text::~UI_Text()
 	//RELEASE_ARRAY(boundsGame->index);
 	RELEASE(boundsEditor);
 	RELEASE(boundsGame);
+	RELEASE(mat);
 }
 
 void UI_Text::OnInspector()
@@ -640,16 +641,14 @@ Font::Font(std::string name, std::string fontPath)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		// FRANCESC: MEMORY LEAK
-		Character* chara(new Character
-			{
-				texture,
-				float2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
-				float2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-				static_cast<unsigned int>(face->glyph->advance.x),
-			});
+		std::unique_ptr<Character> chara = std::make_unique<Character>();
 
-		mCharacters.insert(std::pair<GLchar, Character*>(c, chara));
+		chara->textureID = texture;
+		chara->size = float2(face->glyph->bitmap.width, face->glyph->bitmap.rows);
+		chara->bearing = float2(face->glyph->bitmap_left, face->glyph->bitmap_top);
+		chara->advance = static_cast<unsigned int>(face->glyph->advance.x);
+
+		mCharacters.insert(std::make_pair(c, std::move(chara)));
 	}
 
 	// destroy FreeType once we're finished
@@ -662,12 +661,6 @@ Font::Font(std::string name, std::string fontPath)
 
 Font::~Font()
 {
-	// After the loop
-	for (auto& character : mCharacters) 
-	{
-		delete character.second.get(); // Deallocate memory for each Character object
-	}
-
 	mCharacters.clear();
 }
 
