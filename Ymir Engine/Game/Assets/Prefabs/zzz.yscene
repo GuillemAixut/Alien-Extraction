@@ -196,13 +196,9 @@
                 {
                     "Type": "Animation",
                     "Active": 1,
-                    "NumPaths": 1,
-                    "Paths": [
-                        ".\/Library\/Animations\/402787232.yanim"
-                    ],
-                    "AssetsPath": [
-                        ""
-                    ]
+                    "NumPaths": 0,
+                    "Paths": [],
+                    "AssetsPath": []
                 },
                 {
                     "Type": "Audio source",
@@ -663,8 +659,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 580,
-                    "Height": 525,
+                    "Width": 648,
+                    "Height": 645,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -2371,43 +2367,6 @@
                         0.09000001847743988,
                         0.090000629425048828
                     ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": 1,
-                    "Collider Type": 0,
-                    "Size": [
-                        435.29998779296875,
-                        354.20001220703125,
-                        422.70001220703125
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "lDoor": 1163680921,
-                    "rDoor": 902427818
                 }
             ],
             "Children UID": [
@@ -2492,6 +2451,41 @@
                     "Emissive_ID": 310,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
                     "Emissive_UID": 1442365833
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        100.07900238037109,
+                        333.10858154296875,
+                        185.51686096191406
+                    ],
+                    "Physics Type": 1,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Door.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ]
         },
