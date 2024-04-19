@@ -9,39 +9,54 @@ using YmirEngine;
 public class Door_Horizontal : YmirComponent
 {
     float timer = 0;
-    float animDuration = 5f;  
+    float animDuration = 6f;
+    float velocity = 10f;
+
+    bool inMovment;
+    bool closing;
+
+    public bool inverted;
 
     public void Start()
     {
+        inMovment = false;
+        closing = false;
     }
 
     public void Update()
     {
-        if (timer > -0.1)
+        if(inverted)
         {
-            timer -= Time.deltaTime; //El timer inicia valiendo 6
+            velocity = -velocity;
+            inverted = false;
         }
 
-        if (timer > 4.0f) // Hasta el segundo 4 (6 a 4 segundos)
+        if (timer > -0.1)
         {
-            //TODO: Set the collider inactive
-            gameObject.SetVelocity(gameObject.transform.GetForward() * 5);
-            Debug.Log("1. Primera fase: Tiempo restante " + timer);
+            timer -= Time.deltaTime; //Ejemplo: El timer inicia valiendo 6
         }
-        else if (timer > 2.0f) // Desde el segundo 4 al segundo 2 (4 a 2 segundos)
+
+        if (timer > (animDuration/3)*2) //Ejemplo: Hasta el segundo 4 (6 a 4 segundos)
+        {
+            gameObject.SetVelocity(gameObject.transform.GetForward() * velocity);
+            Debug.Log("1. Opening: Time remaining " + timer);
+        }
+        else if (timer > (animDuration / 3)) //Ejemplo: Desde el segundo 4 al segundo 2 (4 a 2 segundos)
         {
             gameObject.SetVelocity(Vector3.zero);
             gameObject.ClearForces();
-            Debug.Log("2. Segunda fase: Tiempo restante " + timer);
+            Debug.Log("2. Waiting: Time remaining " + timer);
         }
-        else if (timer > 0f) // Del segundo 2 al final (2 a 0 segundos)
+        else if (timer > 0f) //Ejemplo: Del segundo 2 al final (2 a 0 segundos)
         {
-            gameObject.SetVelocity(gameObject.transform.GetForward() * -5);
-            Debug.Log("3. Tercera fase: Tiempo restante " + timer);
+            closing = true;
+            gameObject.SetVelocity(gameObject.transform.GetForward() * -velocity);
+            Debug.Log("3. Closing: Time remaining " + timer);
         }
         else if (timer < 0f)
         {
-            //TODO: Set the collider active
+            inMovment = false;
+            closing = false;
             gameObject.SetVelocity(Vector3.zero);
             gameObject.ClearForces();
         }
@@ -50,9 +65,15 @@ public class Door_Horizontal : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")
+        if (other.Tag == "Player" && !inMovment)
         {
             timer = animDuration;
+            inMovment = true;
+        }
+        else if(other.Tag == "Player" &&  inMovment && closing)
+        {
+            timer = animDuration - timer;
+            closing = false;
         }
     }
 }

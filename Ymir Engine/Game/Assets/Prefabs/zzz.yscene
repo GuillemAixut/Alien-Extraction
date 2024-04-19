@@ -1,24 +1,24 @@
 {
     "NavMesh": "4294967295",
     "Editor Camera Position": [
-        -73.470314025878906,
-        63.662940979003906,
-        -6.1130237579345703
+        -67.87249755859375,
+        80.970443725585938,
+        -10.546083450317383
     ],
     "Editor Camera Right (X)": [
-        -0.27594730257987976,
-        1.0281801223754883e-06,
-        0.95717084407806396
+        0.066211514174938202,
+        9.4622373580932617e-07,
+        0.99395096302032471
     ],
     "Editor Camera Up (Y)": [
-        0.60799729824066162,
-        0.76942896842956543,
-        0.1752815842628479
+        0.5378836989402771,
+        0.83773612976074219,
+        -0.03583163395524025
     ],
     "Editor Camera Front (Z)": [
-        0.74211680889129639,
-        -0.63514208793640137,
-        0.21394902467727661
+        0.83904755115509033,
+        -0.5411030650138855,
+        -0.055892191827297211
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1192284687,
             "Components": [
                 {
                     "Type": "Transform",
@@ -659,8 +659,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 566,
-                    "Height": 417,
+                    "Width": 401,
+                    "Height": 596,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -2462,9 +2462,9 @@
                     "Active": 1,
                     "Collider Type": 0,
                     "Size": [
-                        100.07900238037109,
+                        150,
                         333.10858154296875,
-                        185.51686096191406
+                        400
                     ],
                     "Physics Type": 1,
                     "Mass": 1,
@@ -2485,7 +2485,8 @@
                     "Type": "Script",
                     "ScriptName": "Door_Horizontal.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "inverted": false
                 }
             ]
         },
@@ -2565,6 +2566,42 @@
                     "Emissive_ID": 310,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
                     "Emissive_UID": 1442365833
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": 1,
+                    "Collider Type": 0,
+                    "Size": [
+                        150,
+                        333,
+                        400
+                    ],
+                    "Physics Type": 1,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Door_Horizontal.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "inverted": true
                 }
             ]
         },
