@@ -23,6 +23,8 @@ public class UI_Inventory_Grid : YmirComponent
     public string upGridName = " ";
     public bool naviagteX = false;
     public bool naviagteY = false;
+    public bool bounceX = false;
+    public bool bounceY = false;
 
     private float _time;
     private float _timer;
@@ -57,25 +59,25 @@ public class UI_Inventory_Grid : YmirComponent
         if (Input.GetLeftAxisX() > 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteX, leftGrid, rightGrid);
+            UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteX, leftGrid, rightGrid, bounceX);
         }
 
         else if (Input.GetLeftAxisX() < 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteX, leftGrid, rightGrid);
+            UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteX, leftGrid, rightGrid, bounceX);
         }
         
         else if (Input.GetLeftAxisY() > 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGridVertical(gameObject, rows, cols, true, naviagteY, downGrid, upGrid);
+            UI.NavigateGridVertical(gameObject, rows, cols, true, naviagteY, downGrid, upGrid, bounceY);
         }
 
         else if (Input.GetLeftAxisY() < 0 && _canTab)
         {
             _canTab = false;
-            UI.NavigateGridVertical(gameObject, rows, cols, false, naviagteY, downGrid, upGrid);
+            UI.NavigateGridVertical(gameObject, rows, cols, false, naviagteY, downGrid, upGrid, bounceY);
         }
 
         return;
