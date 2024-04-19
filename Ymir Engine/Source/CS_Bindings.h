@@ -356,6 +356,7 @@ void SetImpulse(MonoObject* obj, MonoObject* vel) {
 
 	if (rigidbody)
 	{
+		rigidbody->physBody->body->activate(true);
 		rigidbody->physBody->body->applyCentralImpulse({ omgItWorks.x, omgItWorks.y,omgItWorks.z });
 	}
 }
