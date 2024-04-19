@@ -17,6 +17,7 @@
 #include "CS_Bindings.h"
 #include "CS_Input_Bindings.h"
 #include "CS_Audio_Bindings.h"
+#include "CS_UI_Bindings.h"
 #include "CS_Animation_Bindings.h"
 #include "CS_Particle_Bindings.h"
 #include "CS_NavMesh_Bindings.h"

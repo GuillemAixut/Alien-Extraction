@@ -28,7 +28,7 @@
             "UID": 35028185,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 35028185,
+            "Parent UID": 1176110137,
             "Components": [
                 {
                     "Type": "Transform",
@@ -73,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -100,17 +100,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        -1.4361705780174816e-07,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361705780174816e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -156,8 +156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1647,
-                    "Height": 996,
+                    "Width": 1860,
+                    "Height": 1152,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -322,7 +322,9 @@
                     "downGridName": "Grid Chip 2",
                     "upGridName": "",
                     "naviagteX": true,
-                    "naviagteY": true
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false
                 }
             ],
             "Children UID": [
@@ -623,7 +625,9 @@
                     "downGridName": "Grid Consumable 1",
                     "upGridName": "Grid Armor",
                     "naviagteX": true,
-                    "naviagteY": true
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false
                 }
             ],
             "Children UID": [
@@ -924,7 +928,9 @@
                     "downGridName": " ",
                     "upGridName": "Grid Armor",
                     "naviagteX": true,
-                    "naviagteY": true
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false
                 }
             ],
             "Children UID": [
@@ -1225,7 +1231,9 @@
                     "downGridName": "Grid Consumable 2",
                     "upGridName": "Grid Chip 1",
                     "naviagteX": true,
-                    "naviagteY": true
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false
                 }
             ],
             "Children UID": [
@@ -1523,10 +1531,12 @@
                     "cols": 1,
                     "leftGridName": "",
                     "rightGridName": "Grid Chip 1",
-                    "downGridName": "Grid Save",
+                    "downGridName": "",
                     "upGridName": "Grid Consumable 1",
                     "naviagteX": true,
-                    "naviagteY": true
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false
                 }
             ],
             "Children UID": [
@@ -1823,11 +1833,13 @@
                     "rows": 1,
                     "cols": 1,
                     "leftGridName": "",
-                    "rightGridName": "Inventory",
-                    "downGridName": "",
-                    "upGridName": "Grid Consumable 2",
-                    "naviagteX": true,
-                    "naviagteY": true
+                    "rightGridName": "",
+                    "downGridName": "Inventory",
+                    "upGridName": "",
+                    "naviagteX": false,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false
                 }
             ],
             "Children UID": [
@@ -1866,15 +1878,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 530,
-                    "Position Y": 860,
+                    "Position X": 1154,
+                    "Position Y": 118,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        530,
-                        860,
+                        1154,
+                        118,
                         100,
                         100
                     ],
@@ -1992,15 +2004,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 189,
-                    "Position Y": 859,
+                    "Position X": 813,
+                    "Position Y": 117,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        189,
-                        859,
+                        813,
+                        117,
                         336,
                         277
                     ],
@@ -2058,15 +2070,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 256,
-                    "Position Y": 897,
+                    "Position X": 880,
+                    "Position Y": 155,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        256,
-                        897,
+                        880,
+                        155,
                         300,
                         50
                     ],
@@ -2126,9 +2138,11 @@
                     "leftGridName": "Grid Chip 2",
                     "rightGridName": " ",
                     "downGridName": " ",
-                    "upGridName": " ",
+                    "upGridName": "Grid Save",
                     "naviagteX": true,
-                    "naviagteY": false
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": true
                 }
             ],
             "Children UID": [

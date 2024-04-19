@@ -147,7 +147,6 @@ public class Player : YmirComponent
     #region DEFINE MENUS
 
     private string currentMenu = "";
-    private bool _openInventory = false;
 
     #endregion
 
@@ -224,7 +223,6 @@ public class Player : YmirComponent
         GetWeaponVars();
 
         //--------------------- Menus ---------------------\\
-        _openInventory = false;
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -274,10 +272,9 @@ public class Player : YmirComponent
         if (dashCDTimer > 0)
         {
             dashCDTimer -= Time.deltaTime;
-            if (dashCDTimer <= 0)
-            {
-                hasDashed = false;
 
+            if (dashCDTimer < csUI_AnimationDash.delay * csUI_AnimationDash.totalFrames && !csUI_AnimationDash.backwards)
+            {
                 // SARA: vuelve ui normal
                 // Without ping-pong
                 //csUI_AnimationDash.SetAnimationState(false);
@@ -286,6 +283,13 @@ public class Player : YmirComponent
                 // With ping-pong
                 csUI_AnimationDash.Reset();
                 csUI_AnimationDash.backwards = !csUI_AnimationDash.backwards;
+
+                Debug.Log("dash cd: " + dashCDTimer.ToString() + " delay: " + (csUI_AnimationDash.delay * csUI_AnimationDash.totalFrames).ToString());
+            }
+
+            if (dashCDTimer <= 0)
+            {
+                hasDashed = false;
             }
         }
 
@@ -337,9 +341,10 @@ public class Player : YmirComponent
         {
             acidicCDTimer -= Time.deltaTime;
 
-            if (acidicCDTimer <= 0)
+            if (acidicCDTimer < csUI_AnimationAcid.delay * csUI_AnimationAcid.totalFrames && !csUI_AnimationAcid.backwards)
             {
                 hasAcidic = false;
+
                 // SARA: vuelve ui normal
                 // Without ping-pong
                 //csUI_AnimationAcid.SetAnimationState(false);
@@ -348,7 +353,22 @@ public class Player : YmirComponent
                 // With ping-pong
                 csUI_AnimationAcid.Reset();
                 csUI_AnimationAcid.backwards = !csUI_AnimationAcid.backwards;
+
+                Debug.Log("acid cd: " + acidicCDTimer.ToString() + " delay: " + (csUI_AnimationAcid.delay * csUI_AnimationAcid.totalFrames).ToString());
             }
+
+            //if (acidicCDTimer <= 0)
+            //{
+            //    hasAcidic = false;
+            //    // SARA: vuelve ui normal
+            //    // Without ping-pong
+            //    //csUI_AnimationAcid.SetAnimationState(false);
+            //    //csUI_AnimationAcid.SetCurrentFrame(0, 0);
+
+            //    // With ping-pong
+            //    csUI_AnimationAcid.Reset();
+            //    csUI_AnimationAcid.backwards = !csUI_AnimationAcid.backwards;
+            //}
         }
 
         //--------------------- Predatory Timer ---------------------\\
@@ -366,9 +386,10 @@ public class Player : YmirComponent
         {
             predatoryCDTimer -= Time.deltaTime;
 
-            if (predatoryCDTimer <= 0)
+            if (predatoryCDTimer < csUI_AnimationPredatory.delay * csUI_AnimationPredatory.totalFrames && !csUI_AnimationPredatory.backwards)
             {
                 hasPred = false;
+
                 // SARA: vuelve ui normal
                 // Without ping-pong
                 //csUI_AnimationPredatory.SetAnimationState(false);
@@ -377,7 +398,22 @@ public class Player : YmirComponent
                 // With ping-pong
                 csUI_AnimationPredatory.Reset();
                 csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
+
+                Debug.Log("predatory cd: " + predatoryCDTimer.ToString() + " delay: " + (csUI_AnimationPredatory.delay * csUI_AnimationPredatory.totalFrames).ToString());
             }
+
+            //if (predatoryCDTimer <= 0)
+            //{
+            //    hasPred = false;
+            //    // SARA: vuelve ui normal
+            //    // Without ping-pong
+            //    //csUI_AnimationPredatory.SetAnimationState(false);
+            //    //csUI_AnimationPredatory.SetCurrentFrame(0, 0);
+
+            //    // With ping-pong
+            //    csUI_AnimationPredatory.Reset();
+            //    csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
+            //}
         }
 
         //--------------------- Tail Swipe Timer ---------------------\\
@@ -395,9 +431,10 @@ public class Player : YmirComponent
         {
             swipeCDTimer -= Time.deltaTime;
 
-            if (swipeCDTimer <= 0)
+            if (swipeCDTimer < csUI_AnimationSwipe.delay * csUI_AnimationSwipe.totalFrames && !csUI_AnimationSwipe.backwards)
             {
                 hasSwipe = false;
+
                 // SARA: vuelve ui normal
                 // Without ping-pong
                 //csUI_AnimationSwipe.SetAnimationState(false);
@@ -406,7 +443,22 @@ public class Player : YmirComponent
                 // With ping-pong
                 csUI_AnimationSwipe.Reset();
                 csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
+
+                Debug.Log("predatory cd: " + swipeCDTimer.ToString() + " delay: " + (csUI_AnimationSwipe.delay * csUI_AnimationSwipe.totalFrames).ToString());
             }
+
+            //if (swipeCDTimer <= 0)
+            //{
+            //    hasSwipe = false;
+            //    // SARA: vuelve ui normal
+            //    // Without ping-pong
+            //    //csUI_AnimationSwipe.SetAnimationState(false);
+            //    //csUI_AnimationSwipe.SetCurrentFrame(0, 0);
+
+            //    // With ping-pong
+            //    csUI_AnimationSwipe.Reset();
+            //    csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
+            //}
         }
 
         //--------------------- HP Detector ---------------------\\
@@ -524,11 +576,10 @@ public class Player : YmirComponent
         //----------------- Inventory -----------------\\
         if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
         {
-            _openInventory = !_openInventory;
             currentMenu = "Inventory Menu";
-            ToggleMenu(_openInventory);
+            ToggleMenu(true);
 
-            Debug.Log("" + _openInventory);
+            Debug.Log("Inventory Menu");
         }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
@@ -1170,11 +1221,15 @@ public class Player : YmirComponent
     private GameObject GetParticles()
     {
         //TODO TONI
-        //string tag = "Particle";
-        //return gameObject.GetChildrenByTag(gameObject, tag);
+        if (gameObject.Tag == "jsadfasdf")
+        {
+            Debug.Log("AMARILLOS");
+        }
+
+        return gameObject.GetChildrenByTag("Particle");
 
         //El game object que maneja las particulas
-        return InternalCalls.GetGameObjectByName("ParticleSystemDash");
+        //return InternalCalls.GetGameObjectByName("ParticleSystemDash");
     }
 
     private void StartJump()
