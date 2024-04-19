@@ -23,8 +23,9 @@ enum ComponentType {
 	PARTICLE,
 	UI_TRAMSFORM,
 	UI,
-	LIGHT,
 	NAVMESHAGENT,
+	LIGHT,
+	
 
 	ALL_TYPES
 
