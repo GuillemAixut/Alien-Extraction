@@ -3546,7 +3546,7 @@ void ModuleEditor::DeleteFileAndRefs(const char* filePath)
 
 			if (tmpMetaFile)
 			{
-				int* ids = tmpMetaFile->GetIntArray("Meshes Embedded UID");
+				std::unique_ptr<int[]> ids = tmpMetaFile->GetIntArray("Meshes Embedded UID");
 
 				for (int i = 0; i < tmpMetaFile->GetInt("Meshes num"); i++)
 				{

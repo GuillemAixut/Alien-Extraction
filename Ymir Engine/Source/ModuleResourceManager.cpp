@@ -336,7 +336,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 				//	break;
 				//}
 
-				int* resourcesIds = metaFile->GetIntArray("Resources Embedded UID");
+				std::unique_ptr<int[]> resourcesIds = metaFile->GetIntArray("Resources Embedded UID");
 
 				std::string libraryPath = "Library/Meshes/" + std::to_string(resourcesIds[0]) + ".ymesh";
 
@@ -352,7 +352,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 				modelGO->type = "Model";
 				modelGO->originPath = assetsFilePath;
 
-				int* ids = metaFile->GetIntArray("Meshes Embedded UID");
+				std::unique_ptr<int[]> ids = metaFile->GetIntArray("Meshes Embedded UID");
 
 				for (int i = 0; i < metaFile->GetInt("Meshes num"); i++)
 				{
