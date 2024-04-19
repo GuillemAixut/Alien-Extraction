@@ -52,7 +52,7 @@ public:
     std::string GetString(const char* key) const;
 
     void SetIntArray(const char* key, const int* array, size_t size);
-    int* GetIntArray(const char* key) const;
+    std::unique_ptr<int[]> GetIntArray(const char* key) const;
 
     void SetFloatArray(const char* key, const float* array, size_t size);
     float* GetFloatArray(const char* key) const;

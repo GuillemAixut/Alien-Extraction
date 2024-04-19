@@ -202,8 +202,8 @@ void JsonFile::SetIntArray(const char* key, const int* array, size_t size) {
 
 }
 
-int* JsonFile::GetIntArray(const char* key) const {
-
+std::unique_ptr<int[]> JsonFile::GetIntArray(const char* key) const {
+	
 	JSON_Value* jsonArrayValue = json_object_get_value(rootObject, key);
 
 	if (jsonArrayValue == nullptr || json_value_get_type(jsonArrayValue) != JSONArray)
@@ -215,7 +215,7 @@ int* JsonFile::GetIntArray(const char* key) const {
 	size_t size = json_array_get_count(jsonArrayObject);
 
 	// TODO FRANCESC: Need a smart pointer to solve this memory leak
-	int* resultArray = new int[size + 1];
+	std::unique_ptr<int[]> resultArray = std::make_unique<int[]>(size + 1);
 
 	for (size_t i = 0; i < size; i++)
 	{
