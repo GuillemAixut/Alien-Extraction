@@ -127,21 +127,6 @@ bool ModuleRenderer3D::Init()
 			ret = false;
 		}
 
-		GLfloat LightModelAmbient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
-		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);
-
-		gl_lights[0].ref = GL_LIGHT0;
-		gl_lights[0].ambient.Set(0.25f, 0.25f, 0.25f, 1.0f);
-		gl_lights[0].diffuse.Set(0.75f, 0.75f, 0.75f, 1.0f);
-		gl_lights[0].SetPos(0.0f, 0.0f, 2.5f);
-		gl_lights[0].Init();
-
-		GLfloat MaterialAmbient[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, MaterialAmbient);
-
-		GLfloat MaterialDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, MaterialDiffuse);
-
 		// Enable OpenGL initial configurations
 
 		// Stencil Buffer (outline)
@@ -150,14 +135,12 @@ bool ModuleRenderer3D::Init()
 		glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
 		glEnable(GL_CULL_FACE);
-		gl_lights[0].Active(true);
 		glEnable(GL_LIGHTING);
 		glEnable(GL_COLOR_MATERIAL);
 		glEnable(GL_TEXTURE_2D);
 		glEnable(GL_BLEND);
 		glEnable(GL_ALPHA_TEST);
 		
-
 		// Additional OpenGL configurations (starting disabled)
 
 		glDisable(GL_TEXTURE_3D);
@@ -271,14 +254,6 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadMatrixf(App->camera->editorCamera->GetViewMatrix().ptr());
-
-	// light 0 on cam pos
-	gl_lights[0].SetPos(App->camera->editorCamera->GetPos().x, App->camera->editorCamera->GetPos().y, App->camera->editorCamera->GetPos().z);
-
-	for (uint i = 0; i < MAX_GL_LIGHTS; ++i) 
-	{
-		gl_lights[i].Render();
-	}
 
 	App->editor->AddFPS(App->GetFPS());
 	App->editor->AddDT(App->GetDT());
