@@ -147,7 +147,6 @@ public class Player : YmirComponent
     #region DEFINE MENUS
 
     private string currentMenu = "";
-    private bool _openInventory = false;
 
     #endregion
 
@@ -224,7 +223,6 @@ public class Player : YmirComponent
         GetWeaponVars();
 
         //--------------------- Menus ---------------------\\
-        _openInventory = false;
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -524,11 +522,10 @@ public class Player : YmirComponent
         //----------------- Inventory -----------------\\
         if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
         {
-            _openInventory = !_openInventory;
             currentMenu = "Inventory Menu";
-            ToggleMenu(_openInventory);
+            ToggleMenu(true);
 
-            Debug.Log("" + _openInventory);
+            Debug.Log("Inventory Menu");
         }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
