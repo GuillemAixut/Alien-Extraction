@@ -1107,9 +1107,6 @@
     <ClInclude Include="Source\ModuleLightManager.h">
       <Filter>Sources\Features\Lighting System</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GL_Light.h">
-      <Filter>Sources\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Light.h">
       <Filter>Sources\Features\Lighting System</Filter>
     </ClInclude>
@@ -1216,6 +1213,9 @@
       <Filter>Sources\Features\GameObjects &amp; Components</Filter>
     </ClInclude>
     <ClInclude Include="Source\CS_Particle_Bindings.h">
+      <Filter>Sources\Utils\Bindings</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CS_UI_Bindings.h">
       <Filter>Sources\Utils\Bindings</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1633,9 +1633,6 @@
     </ClCompile>
     <ClCompile Include="Source\ModuleLightManager.cpp">
       <Filter>Sources\Features\Lighting System</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GL_Light.cpp">
-      <Filter>Sources\Utils</Filter>
     </ClCompile>
     <ClCompile Include="Source\Light.cpp">
       <Filter>Sources\Features\Lighting System</Filter>
