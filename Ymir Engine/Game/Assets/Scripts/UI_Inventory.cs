@@ -10,6 +10,7 @@ public class UI_Inventory : YmirComponent
 {
     private GameObject _selectedGO;
     public GameObject _focusedGO;
+    public bool _droppable = true;
     private bool _show;
 
     public void Start()
@@ -53,7 +54,7 @@ public class UI_Inventory : YmirComponent
                 SwitchMenu();
             }
 
-            if (_focusedGO.GetComponent<UI_Item_Button>() != null)
+            if (_focusedGO.GetComponent<UI_Item_Button>() != null && _droppable)
             {
                 if (((_focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE ||
                                 _focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.SAVE) &&
