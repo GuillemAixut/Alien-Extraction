@@ -13,7 +13,7 @@ void PlayEmitter(MonoObject* go) {
 	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
 	if (GO == nullptr)
 	{
-		LOG("[ERROR] No Particle Game Object Finded (be sure the name is correct!)");
+		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
 		return;
 	}
 
