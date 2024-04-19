@@ -2223,7 +2223,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			}
 			else {
 
-				ResourceTexture* rTex = new ResourceTexture();
+				ResourceTexture* rTex = new ResourceTexture(); // FRANCESC: MEMORY LEAK
 
 				auto itr = External->resourceManager->resources.find(UID);
 

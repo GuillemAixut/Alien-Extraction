@@ -474,7 +474,7 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 {
 	std::string metaFilePath = imgPath + ".meta"; // Assuming the meta file exists.
 
-	ResourceTexture* rTexTemp = new ResourceTexture();
+	ResourceTexture* rTexTemp = new ResourceTexture(); // FRANCESC: MEMORY LEAK
 
 	std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 

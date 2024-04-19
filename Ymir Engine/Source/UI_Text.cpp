@@ -102,7 +102,7 @@ UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float
 	lineSpacing = ls;
 	space = 0;
 
-	mat = new CMaterial(g);
+	mat = new CMaterial(g); // FRANCESC: MEMORY LEAK
 	mat->shaderPath = shaderPath;
 	mat->shader.LoadShader(mat->shaderPath);
 
@@ -640,7 +640,7 @@ Font::Font(std::string name, std::string fontPath)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		// TODO: MEMORY LEAK -> Smart pointers don't work here
+		// FRANCESC: MEMORY LEAK
 		Character* chara(new Character
 			{
 				texture,

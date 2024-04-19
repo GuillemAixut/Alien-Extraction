@@ -457,7 +457,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 			std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
-			ResourceTexture* rTexTemp = new ResourceTexture();
+			ResourceTexture* rTexTemp = new ResourceTexture(); // FRANCESC: MEMORY LEAK
 
 			if (metaFile == nullptr) {
 
@@ -595,6 +595,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 			}
 			
+
 		}
 		else {
 
