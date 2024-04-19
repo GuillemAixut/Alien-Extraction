@@ -1678,9 +1678,9 @@ MonoObject* GetChildrenByTag(MonoObject* go, MonoString* tag)
 
 	for (auto i = 0; i < gameObejectchilds.size(); i++)
 	{
-		if (gameObejectchilds[i]->tag.c_str() == nameCompare.c_str())
+		if (gameObejectchilds[i]->tag.c_str() == nameCompare)
 		{
-			return External->moduleMono->GoToCSGO(gameObejectchilds[i]);
+			mono_string_new(External->moduleMono->domain, gameObejectchilds[i]->tag.c_str());
 		}
 	}
 

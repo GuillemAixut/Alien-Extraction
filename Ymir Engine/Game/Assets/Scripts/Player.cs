@@ -1170,11 +1170,15 @@ public class Player : YmirComponent
     private GameObject GetParticles()
     {
         //TODO TONI
-        //string tag = "Particle";
-        //return gameObject.GetChildrenByTag(gameObject, tag);
+        if(gameObject.Tag == "jsadfasdf")
+        {
+            Debug.Log("AMARILLOS");
+        }
+
+        return gameObject.GetChildrenByTag("Particle");
 
         //El game object que maneja las particulas
-        return InternalCalls.GetGameObjectByName("ParticleSystemDash");
+        //return InternalCalls.GetGameObjectByName("ParticleSystemDash");
     }
 
     private void StartJump()
