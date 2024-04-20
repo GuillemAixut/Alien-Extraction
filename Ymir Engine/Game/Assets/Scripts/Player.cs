@@ -343,8 +343,6 @@ public class Player : YmirComponent
 
             if (acidicCDTimer < csUI_AnimationAcid.delay * csUI_AnimationAcid.totalFrames && !csUI_AnimationAcid.backwards)
             {
-                hasAcidic = false;
-
                 // SARA: vuelve ui normal
                 // Without ping-pong
                 //csUI_AnimationAcid.SetAnimationState(false);
@@ -357,18 +355,18 @@ public class Player : YmirComponent
                 Debug.Log("acid cd: " + acidicCDTimer.ToString() + " delay: " + (csUI_AnimationAcid.delay * csUI_AnimationAcid.totalFrames).ToString());
             }
 
-            //if (acidicCDTimer <= 0)
-            //{
-            //    hasAcidic = false;
-            //    // SARA: vuelve ui normal
-            //    // Without ping-pong
-            //    //csUI_AnimationAcid.SetAnimationState(false);
-            //    //csUI_AnimationAcid.SetCurrentFrame(0, 0);
+            if (acidicCDTimer <= 0)
+            {
+                hasAcidic = false;
+                //    // SARA: vuelve ui normal
+                //    // Without ping-pong
+                //    //csUI_AnimationAcid.SetAnimationState(false);
+                //    //csUI_AnimationAcid.SetCurrentFrame(0, 0);
 
-            //    // With ping-pong
-            //    csUI_AnimationAcid.Reset();
-            //    csUI_AnimationAcid.backwards = !csUI_AnimationAcid.backwards;
-            //}
+                //    // With ping-pong
+                //    csUI_AnimationAcid.Reset();
+                //    csUI_AnimationAcid.backwards = !csUI_AnimationAcid.backwards;
+            }
         }
 
         //--------------------- Predatory Timer ---------------------\\
@@ -388,8 +386,6 @@ public class Player : YmirComponent
 
             if (predatoryCDTimer < csUI_AnimationPredatory.delay * csUI_AnimationPredatory.totalFrames && !csUI_AnimationPredatory.backwards)
             {
-                hasPred = false;
-
                 // SARA: vuelve ui normal
                 // Without ping-pong
                 //csUI_AnimationPredatory.SetAnimationState(false);
@@ -402,18 +398,18 @@ public class Player : YmirComponent
                 Debug.Log("predatory cd: " + predatoryCDTimer.ToString() + " delay: " + (csUI_AnimationPredatory.delay * csUI_AnimationPredatory.totalFrames).ToString());
             }
 
-            //if (predatoryCDTimer <= 0)
-            //{
-            //    hasPred = false;
-            //    // SARA: vuelve ui normal
-            //    // Without ping-pong
-            //    //csUI_AnimationPredatory.SetAnimationState(false);
-            //    //csUI_AnimationPredatory.SetCurrentFrame(0, 0);
+            if (predatoryCDTimer <= 0)
+            {
+                hasPred = false;
+                //    // SARA: vuelve ui normal
+                //    // Without ping-pong
+                //    //csUI_AnimationPredatory.SetAnimationState(false);
+                //    //csUI_AnimationPredatory.SetCurrentFrame(0, 0);
 
-            //    // With ping-pong
-            //    csUI_AnimationPredatory.Reset();
-            //    csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
-            //}
+                //    // With ping-pong
+                //    csUI_AnimationPredatory.Reset();
+                //    csUI_AnimationPredatory.backwards = !csUI_AnimationPredatory.backwards;
+            }
         }
 
         //--------------------- Tail Swipe Timer ---------------------\\
@@ -433,8 +429,6 @@ public class Player : YmirComponent
 
             if (swipeCDTimer < csUI_AnimationSwipe.delay * csUI_AnimationSwipe.totalFrames && !csUI_AnimationSwipe.backwards)
             {
-                hasSwipe = false;
-
                 // SARA: vuelve ui normal
                 // Without ping-pong
                 //csUI_AnimationSwipe.SetAnimationState(false);
@@ -447,18 +441,18 @@ public class Player : YmirComponent
                 Debug.Log("predatory cd: " + swipeCDTimer.ToString() + " delay: " + (csUI_AnimationSwipe.delay * csUI_AnimationSwipe.totalFrames).ToString());
             }
 
-            //if (swipeCDTimer <= 0)
-            //{
-            //    hasSwipe = false;
-            //    // SARA: vuelve ui normal
-            //    // Without ping-pong
-            //    //csUI_AnimationSwipe.SetAnimationState(false);
-            //    //csUI_AnimationSwipe.SetCurrentFrame(0, 0);
+            if (swipeCDTimer <= 0)
+            {
+                hasSwipe = false;
+                //    // SARA: vuelve ui normal
+                //    // Without ping-pong
+                //    //csUI_AnimationSwipe.SetAnimationState(false);
+                //    //csUI_AnimationSwipe.SetCurrentFrame(0, 0);
 
-            //    // With ping-pong
-            //    csUI_AnimationSwipe.Reset();
-            //    csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
-            //}
+                //    // With ping-pong
+                //    csUI_AnimationSwipe.Reset();
+                //    csUI_AnimationSwipe.backwards = !csUI_AnimationSwipe.backwards;
+            }
         }
 
         //--------------------- HP Detector ---------------------\\
