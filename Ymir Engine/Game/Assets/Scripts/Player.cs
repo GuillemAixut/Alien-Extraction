@@ -1196,8 +1196,7 @@ public class Player : YmirComponent
         Audio.PlayAudio(gameObject, "P_Dash");
 
         //Sistema de particulas
-        GameObject particles;
-        particles = GetParticles();
+        GameObject particles = GetParticles(gameObject, "ParticlesDash");
         Particles.PlayEmitter(particles);
 
         Input.Rumble_Controller(100, 7);
@@ -1216,20 +1215,6 @@ public class Player : YmirComponent
         //gameObject.transform.localPosition.y = dashStartYPos;
         Animation.PlayAnimation(gameObject, "Raisen_Idle"); // Chuekada para la entrega, si ves esto ponlo bien porfa no lo ignores
 
-    }
-
-    private GameObject GetParticles()
-    {
-        //TODO TONI
-        if (gameObject.Tag == "jsadfasdf")
-        {
-            Debug.Log("AMARILLOS");
-        }
-
-        return gameObject.GetChildrenByTag("Part");
-
-        //El game object que maneja las particulas
-        //return InternalCalls.GetGameObjectByName("ParticleSystemDash");
     }
 
     private void StartJump()
@@ -1553,6 +1538,21 @@ public class Player : YmirComponent
     private void EndAcidicSpit()
     {
         acidicCDTimer = acidicCD;
+    }
+
+    #endregion
+
+    #region GetParticlesByName
+
+    //TONI: Lo pongo aqui porque servirá para las habilidades y disparo
+
+    /*Para hacer funcionar las particulas hay que hacerle un hijo ParticleSystem al player
+    y llamarlo de la manera que quieras, luego pasas por parametro ese nombre aqui y haces
+    Particle.PlayEmitter del game object con las particulas (ejemplo en el dash)*/
+
+    private GameObject GetParticles(GameObject go, string pName)
+    {
+        return InternalCalls.GetChildrenByName(go, pName);
     }
 
     #endregion
