@@ -862,6 +862,11 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 		break;
 	}
 
+	//POINT ROTATION
+	Quat nuwDirQuat = rotacion.Mul(Quat(eBase->emitterOrigin.x, eBase->emitterOrigin.y, eBase->emitterOrigin.z, 0));
+	float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+
+	//BOX ROTATIONS ERIC:TODO Fixear esto, rota mal
 	Quat nuwDirPositives = rotacion.Mul(Quat(eBase->boxPointsPositives.x, eBase->boxPointsPositives.y, eBase->boxPointsPositives.z, 0));
 	float3 positivesModified = float3(nuwDirPositives.x, nuwDirPositives.y, nuwDirPositives.z);
 
@@ -869,9 +874,27 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 	Quat nuwDirNegative = rotacion.Mul(Quat(eBase->boxPointsNegatives.x, eBase->boxPointsNegatives.y, eBase->boxPointsNegatives.z, 0));
 	float3 negativesModified = float3(nuwDirNegative.x, nuwDirNegative.y, nuwDirNegative.z);
 
+
+	float3 color = { 0.8f,0,0.8f };
 	switch (eBase->currentShape)
 	{
 	case SpawnAreaShape::PAR_POINT:
+
+		glLineWidth(4.f);
+		glBegin(GL_LINES);
+		glColor3fv(color.ptr());
+
+		
+		//Position 0,0,0 of game object and current origin emmiter
+		glVertex3fv(pSystem->mOwner->mTransform->GetGlobalPosition().ptr());
+		glVertex3fv(originModified.ptr());
+
+		
+
+		glColor3f(255.f, 255.f, 255.f);
+		glEnd();
+		glLineWidth(1.f);
+
 		break;
 	case SpawnAreaShape::PAR_CONE:
 	{
@@ -901,7 +924,7 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 
 
 
-		float3 color = { 0.8f,0,0.8f };
+		
 		DrawBox(vertices, color);
 	}
 		break;

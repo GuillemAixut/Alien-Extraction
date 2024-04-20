@@ -88,8 +88,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	particle->diesByDistance = hasDistanceLimit;
 	particle->distanceLimit = distanceLimit;
 	
-	//World rotation
-	//World rotation
+	//World rotation (changes the origin 
 	switch (rotacionBase)
 	{
 	case PAR_WORLD_MATRIX:
@@ -106,8 +105,6 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	default:
 		break;
 	}
-
-	
 
 	switch (currentShape)
 	{
