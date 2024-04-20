@@ -839,6 +839,58 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 	}
 }
 
+void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
+{
+	EmitterBase* eBase = (EmitterBase*)pSystem->allEmitters.at(0)->modules.at(0); //We create the referemce to accces more easily
+
+	switch (eBase->currentShape)
+	{
+	case SpawnAreaShape::PAR_POINT:
+		break;
+	case SpawnAreaShape::PAR_CONE:
+	{
+	
+	}
+		break;
+	case SpawnAreaShape::PAR_BOX:
+	{
+		float3 temp;
+		float3 vertices[8];
+		temp = { eBase->boxPointsNegative.x,eBase->boxPointsNegative.y,eBase->boxPointsPositives.z };
+		vertices[0] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+		temp = { eBase->boxPointsNegative.x,eBase->boxPointsNegative.y,eBase->boxPointsNegative.z };
+		vertices[1] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+		temp = { eBase->boxPointsNegative.x,eBase->boxPointsPositives.y,eBase->boxPointsPositives.z };
+		vertices[2] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+		temp = { eBase->boxPointsNegative.x,eBase->boxPointsPositives.y,eBase->boxPointsNegative.z };
+		vertices[3] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+		temp = { eBase->boxPointsPositives.x,eBase->boxPointsNegative.y,eBase->boxPointsPositives.z };
+		vertices[4] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+		temp = { eBase->boxPointsPositives.x,eBase->boxPointsNegative.y,eBase->boxPointsNegative.z };
+		vertices[5] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+		temp = { eBase->boxPointsPositives.x,eBase->boxPointsPositives.y,eBase->boxPointsPositives.z };
+		vertices[6] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+		temp = { eBase->boxPointsPositives.x,eBase->boxPointsPositives.y,eBase->boxPointsNegative.z };
+		vertices[7] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+
+
+
+		float3 color = { 0.8f,0,0.8f };
+		DrawBox(vertices, color);
+	}
+		break;
+	case SpawnAreaShape::PAR_SPHERE:
+	{
+
+	}
+		break;
+	case SpawnAreaShape::PAR_SHAPE_ENUM_END:
+		break;
+	default:
+		break;
+	}
+}
+
 void ModuleRenderer3D::DrawLightsDebug()
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -987,6 +1039,10 @@ void ModuleRenderer3D::DrawGameObjects(bool isGame)
 
 		if(particleComponent != nullptr && particleComponent->active)
 		{
+			if (External->scene->godMode || particleComponent->mOwner == External->scene->selectedGO) 
+			{
+				DrawParticlesShapeDebug(particleComponent);
+			}
 			for (int i = 0; i < particleComponent->allEmitters.size(); i++)
 			{
 				DrawParticles(particleComponent->allEmitters.at(i));

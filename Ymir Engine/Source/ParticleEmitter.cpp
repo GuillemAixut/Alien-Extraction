@@ -200,7 +200,7 @@ void ParticleEmitter::Update(float dt)
 void ParticleEmitter::DrawParticles()
 {
 	//ERIC: Si lo unico que se hace es poner esto en true jamas parara, lo cual no ha de ser el caso
-	External->renderer3D->initParticles = true;
+	//External->renderer3D->initParticles = true;
 }
 
 void ParticleEmitter::Reset()

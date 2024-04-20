@@ -83,7 +83,7 @@ ParticleEmitter* CParticleSystem::CreateEmitter()
 	ParticleEmitter* emisor = new ParticleEmitter(this);
 	emisor->UID = External->resourceManager->GenerateNewUID();
 	allEmitters.push_back(emisor);
-	External->renderer3D->particleEmitters = allEmitters;
+	//External->renderer3D->particleEmitters = allEmitters;
 	emisor->Init(this);
 
 	return emisor;
