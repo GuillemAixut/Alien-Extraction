@@ -747,7 +747,7 @@ void CreateAcidicSpit(MonoObject* name, MonoObject* position)
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
 
-	uint UID = 1798080460; // UID of Sphere.fbx mesh in meta (lo siento)
+	uint UID = 826872905; // UID of Sphere.fbx mesh in meta (lo siento)
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
 
 	//Añade la mesh a la bola de acido
@@ -781,7 +781,7 @@ void CreateAcidicSpit(MonoObject* name, MonoObject* position)
 void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 {
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	float3 scaleVector = float3(12.0f, 1.0f, 12.0f);
+	float3 scaleVector = float3(6.0f, 1.0f, 6.0f);
 	char* p = mono_string_to_utf8(mono_object_to_string(name, NULL));
 
 	if (External == nullptr) return;
@@ -792,7 +792,7 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
 
-	uint UID = 1051177528; // UID of Cylinder.fbx mesh in meta (lo siento)
+	uint UID = 1899531165; // UID of Cylinder.fbx mesh in meta (lo siento)
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
 
 	//Añade la mesh a la bullet
