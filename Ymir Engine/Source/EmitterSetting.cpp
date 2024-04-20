@@ -239,7 +239,7 @@ void EmitterBase::OnInspector()
 		case SpawnAreaShape::PAR_BOX:
 		{
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
-			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f,0.001f);
+			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f, 0.001f,200.0f);
 			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegative[0]), 0.1f,-200.0f,-0.0f);
 		}
 			break;

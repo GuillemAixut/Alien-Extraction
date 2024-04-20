@@ -43,6 +43,7 @@
 
 class GameObject;
 class CCamera;
+class CParticleSystem;
 class ParticleEmitter;
 
 struct LineRender
@@ -124,9 +125,8 @@ public:
 
 	void DrawLightsDebug();
 
-	//ERIC: Esto habria que hacerle un rework, el renderer no ha de tener ninguna lista de emmiter
-	//Habria que hacer que recorriera todos los game objects y si tiene component particles pues hacerle un draw particles (maybe se puede poner en el propio DrawGameObjects()
 	void DrawParticles(ParticleEmitter* emitter);
+	void DrawParticlesShapeDebug(CParticleSystem* obj);
 	void DrawOutline(CMesh* cMeshReference, float4x4 transform);
 
 public:
@@ -144,8 +144,8 @@ public:
 
 	bool texturingEnabled = true;
 
-	std::vector<ParticleEmitter*> particleEmitters;
-	bool initParticles = false;
+	//std::vector<ParticleEmitter*> particleEmitters;
+	//bool initParticles = false;
 
 private:
 
