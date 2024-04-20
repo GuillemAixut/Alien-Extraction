@@ -153,6 +153,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 	// Text
 	mono_add_internal_call("YmirEngine.UI::TextEdit", TextEdit);
+	mono_add_internal_call("YmirEngine.UI::GetUIText", GetUIText);
 
 	// Slider
 	mono_add_internal_call("YmirEngine.UI::SliderEdit", SliderEdit);
@@ -169,6 +170,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.UI::CompareStringToName", CompareStringToName);
 	mono_add_internal_call("YmirEngine.UI::SetActiveAllUI", SetActiveAllUI);
 	mono_add_internal_call("YmirEngine.UI::SetFirstFocused", SetFirstFocused);
+	mono_add_internal_call("YmirEngine.UI::SetUIPosWithOther", SetUIPosWithOther);
+
 
 #pragma endregion
 

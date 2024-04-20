@@ -50,7 +50,6 @@ public class UI_Upgrade_Navigation : YmirComponent
             if (Input.GetLeftAxisX() > 0 && _canTab)
             {
                 NavigateRight();
-
                 _canTab = false;
             }
 

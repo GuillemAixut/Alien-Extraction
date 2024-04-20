@@ -265,13 +265,13 @@ namespace YmirEngine
         /// Navigate in x axis with gamepad.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject NavigateGridHorizontal(object go, int rows, int columns, bool isRight, bool navigate, object gridLeft, object gridRight, bool bounce);
+        public static extern void NavigateGridHorizontal(object go, int rows, int columns, bool isRight, bool navigate, object gridLeft, object gridRight, bool bounce);
 
         /// <summary>
         /// Navigate in y axis with gamepad.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject NavigateGridVertical(object go, int rows, int columns, bool isDown, bool navigate, object gridDown, object gridUp, bool bounce);
+        public static extern void NavigateGridVertical(object go, int rows, int columns, bool isDown, bool navigate, object gridDown, object gridUp, bool bounce);
         
         /// <summary>
         /// Unlock upgrades.
@@ -283,9 +283,21 @@ namespace YmirEngine
         /// Set child of UI go as focused.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject SetFirstFocused(object go);
+        public static extern void SetFirstFocused(object go);
+
+        /// <summary>
+        /// Get UI text
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern string GetUIText(object go);     
+        
+        /// <summary>
+        /// Get UI text
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetUIPosWithOther(object goSource, object goDestination);
     }
-    
+
     /// <summary>
     /// Provides methods for handling input.
     /// </summary>

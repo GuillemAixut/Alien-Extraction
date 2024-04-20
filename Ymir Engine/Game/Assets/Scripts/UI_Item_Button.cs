@@ -14,13 +14,16 @@ public class UI_Item_Button : YmirComponent
 
     public string enumItem = "";
     public string enumSlot = "";
+    public string descriptionText = "";
 
-    private GameObject _text;
     private GameObject _inventoryReference;
 
     public void Start()
     {
-        _text = InternalCalls.GetChildrenByName(gameObject, "Description");
+        GameObject goDescription = InternalCalls.GetChildrenByName(gameObject, "Description");
+        GameObject goText = InternalCalls.GetChildrenByName(goDescription, "Text");
+        descriptionText = UI.GetUIText(goText);
+
         _inventoryReference = InternalCalls.GetGameObjectByName("Inventory Menu");
 
         itemType = SetType(enumItem);
@@ -33,21 +36,21 @@ public class UI_Item_Button : YmirComponent
 
     public void Update()
     {
-        if (_inventoryReference.GetComponent<UI_Inventory>()._focusedGO != null)
-        {
-            if (!InternalCalls.CompareGameObjectsByUID(_inventoryReference.GetComponent<UI_Inventory>()._focusedGO, gameObject))
-            {
-                _text.SetActive(false);
-            }
-        }
+        //if (_inventoryReference.GetComponent<UI_Inventory>()._focusedGO != null)
+        //{
+        //    if (InternalCalls.CompareGameObjectsByUID(_inventoryReference.GetComponent<UI_Inventory>()._focusedGO, gameObject))
+        //    {
+        //        UI.TextEdit(_inventoryReference.GetComponent<UI_Inventory>().goDescription, descriptionText);
+        //    }
+        //}
         return;
     }
 
-    public void ShowInfo(bool isShowing)
+    public void UpdateInfo()
     {
-        if (_text != null)
+        if (_inventoryReference.GetComponent<UI_Inventory>().goDescription != null)
         {
-            _text.SetActive(isShowing);
+            UI.TextEdit(_inventoryReference.GetComponent<UI_Inventory>().goText, descriptionText);
         }
     }
 
@@ -84,4 +87,5 @@ public class UI_Item_Button : YmirComponent
 
         return elementChanged;
     }
+
 }

@@ -20,10 +20,16 @@ public class UI_Upgrade_Station : YmirComponent
         cost = InternalCalls.GetChildrenByName(gameObject, "Cost");        
         coins = InternalCalls.GetChildrenByName(gameObject, "Coins");
         UI.TextEdit(coins, currentScore.ToString());
+        
     }
 
     public void Update()
     {
+        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
+        {
+            UI.SetFirstFocused(gameObject); 
+        }
+
         //_focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
         //if (_focusedGO != null)

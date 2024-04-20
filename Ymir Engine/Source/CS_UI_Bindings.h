@@ -28,51 +28,57 @@ void SetUIState(MonoObject* object, int uiState)
 
 	for (auto it = vec.begin(); it != vec.end(); ++it)
 	{
-		((C_UI*)(*it))->SetState((UI_STATE)uiState);
-
-		if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::FOCUSED)
+		if (((C_UI*)(*it))->state != UI_STATE::DISABLED)
 		{
-			int offset = 0;
-			std::vector<C_UI*> listOffset;
-			for (int i = 0; i < External->scene->vCanvas.size(); ++i)
-			{
-				External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
-			}
+			((C_UI*)(*it))->SetState((UI_STATE)uiState);
 
-			for (auto i = 0; i < listOffset.size(); i++)
+			if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::FOCUSED)
 			{
-				if (listOffset[i]->GetUID() != (int)(C_UI*)(*it)->GetUID())
+				int offset = 0;
+				std::vector<C_UI*> listOffset;
+				for (int i = 0; i < External->scene->vCanvas.size(); ++i)
 				{
-					offset++;
+					External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
 				}
 
-				else
+				for (auto i = 0; i < listOffset.size(); i++)
 				{
-					break;
+					if (listOffset[i]->GetUID() != (int)(C_UI*)(*it)->GetUID())
+					{
+						offset++;
+					}
+
+					else
+					{
+						break;
+					}
 				}
-			}
 
-			External->scene->onHoverUI = offset;
-			std::vector<Component*> listComponents = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
+				External->scene->onHoverUI = offset;
 
-			for (auto it = listComponents.begin(); it != listComponents.end(); ++it)
-			{
-				if (((C_UI*)(*it))->tabNav_)
+				if (External->scene->focusedUIGO != nullptr)
 				{
-					((C_UI*)(*it))->SetState(UI_STATE::NORMAL);
+					std::vector<Component*> listComponents = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
+					for (auto it = listComponents.begin(); it != listComponents.end(); ++it)
+					{
+						if (((C_UI*)(*it))->tabNav_)
+						{
+							((C_UI*)(*it))->SetState(UI_STATE::NORMAL);
+						}
+					}
 				}
-			}
 
-			External->scene->focusedUIGO = ((C_UI*)(*it))->mOwner;
-			External->scene->SetSelected(((C_UI*)(*it))->mOwner);
+				External->scene->focusedUIGO = ((C_UI*)(*it))->mOwner;
+				External->scene->SetSelected(((C_UI*)(*it))->mOwner);
 
-			listComponents = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
+				std::vector<Component*> listComponentsNew = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
 
-			for (auto it = listComponents.begin(); it != listComponents.end(); ++it)
-			{
-				if (((C_UI*)(*it))->tabNav_)
+				for (auto it = listComponentsNew.begin(); it != listComponentsNew.end(); ++it)
 				{
-					((C_UI*)(*it))->SetState(UI_STATE::FOCUSED);
+					if (((C_UI*)(*it))->tabNav_)
+					{
+						((C_UI*)(*it))->SetState(UI_STATE::FOCUSED);
+					}
 				}
 			}
 		}
@@ -337,7 +343,6 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 					if (navigateGrids)
 					{
 						GameObject* gridGo = External->moduleMono->GameObject_From_CSGO(gridRight);
-
 
 						if (gridGo != nullptr)
 						{
@@ -732,28 +737,54 @@ void SetFirstFocused(MonoObject* go)
 	std::vector<C_UI*> listUI;
 	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
 	External->scene->GetUINavigate(gameObject, listUI); bool isInGO = false;
-	int offset = 0;
+	//int offset = 0;
 
-	std::vector<C_UI*> listOffset;
-	for (int i = 0; i < External->scene->vCanvas.size(); ++i)
-	{
-		External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
-	}
+	//std::vector<C_UI*> listOffset;
+	//for (int i = 0; i < External->scene->vCanvas.size(); ++i)
+	//{
+	//	External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
+	//}
 
-	for (auto i = 0; i < listOffset.size(); i++)
-	{
-		if (listOffset[i]->mOwner->UID != listUI[0]->mOwner->UID)
-		{
-			offset++;
-		}
+	//for (auto i = 0; i < listOffset.size(); i++)
+	//{
+	//	if (listOffset[i]->mOwner->UID != listUI[0]->mOwner->UID)
+	//	{
+	//		offset++;
+	//	}
 
-		else
-		{
-			break;
-		}
-	}
+	//	else
+	//	{
+	//		break;
+	//	}
+	//}
 
-	External->scene->focusedUIGO = listUI[0]->mOwner;
-	External->scene->SetSelected(listUI[0]->mOwner);
-	External->scene->onHoverUI = offset;
+	SetUIState(External->moduleMono->GoToCSGO(listUI[0]->mOwner), (int)UI_STATE::FOCUSED);
+
+	//External->scene->focusedUIGO = listUI[0]->mOwner;
+	//External->scene->SetSelected(listUI[0]->mOwner);
+	//External->scene->onHoverUI = offset;
+}
+
+MonoString* GetUIText(MonoObject* go)
+{
+	G_UI* gameObject = (G_UI*)External->moduleMono->GameObject_From_CSGO(go);
+	UI_Text* textUI = static_cast<UI_Text*>(gameObject->GetComponentUI(UI_TYPE::TEXT));
+
+	return mono_string_new(External->moduleMono->domain, textUI->text.c_str());
+}
+
+void SetUIPosWithOther(MonoObject* goSource, MonoObject* goDestination)
+{
+	G_UI* selectedgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(goSource);
+	UI_Transform* selectedTransform = static_cast<UI_Transform*>(selectedgo->GetComponent(ComponentType::UI_TRAMSFORM));
+
+	G_UI* targetgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(goDestination);
+	UI_Transform* targetTransform = static_cast<UI_Transform*>(targetgo->GetComponent(ComponentType::UI_TRAMSFORM));
+
+	selectedTransform->componentReference->posX = targetTransform->componentReference->posX;
+	selectedTransform->componentReference->posY = targetTransform->componentReference->posY;
+
+	selectedTransform->UpdateUITransformChilds();
+	selectedTransform->componentReference->dirty_ = true;
+
 }
