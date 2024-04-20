@@ -1226,7 +1226,7 @@ public class Player : YmirComponent
             Debug.Log("AMARILLOS");
         }
 
-        return gameObject.GetChildrenByTag("Particle");
+        return gameObject.GetChildrenByTag("Part");
 
         //El game object que maneja las particulas
         //return InternalCalls.GetGameObjectByName("ParticleSystemDash");

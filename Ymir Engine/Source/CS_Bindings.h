@@ -940,14 +940,15 @@ MonoObject* GetChildrenByTag(MonoObject* go, MonoString* tag)
 	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
 	std::string nameCompare = mono_string_to_utf8(tag);
 
-	std::vector<GameObject*> gameObejectchilds;
-	gameObejectchilds = gameObject->mChildren;
+	std::vector<GameObject*> gameObjectChilds;
+	gameObjectChilds = gameObject->mChildren;
 
-	for (auto i = 0; i < gameObejectchilds.size(); i++)
+	for (auto i = 0; i < gameObjectChilds.size(); i++)
 	{
-		if (gameObejectchilds[i]->tag.c_str() == nameCompare)
+		if (gameObjectChilds[i]->tag.c_str() == nameCompare)
 		{
-			mono_string_new(External->moduleMono->domain, gameObejectchilds[i]->tag.c_str());
+			//mono_string_new(External->moduleMono->domain, gameObjectChilds[i]->tag.c_str());
+			return External->moduleMono->GoToCSGO(gameObjectChilds[i]);
 		}
 	}
 
