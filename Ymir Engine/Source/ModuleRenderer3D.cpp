@@ -843,34 +843,60 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 {
 	EmitterBase* eBase = (EmitterBase*)pSystem->allEmitters.at(0)->modules.at(0); //We create the referemce to accces more easily
 
+	
+	Quat rotacion;
+	switch (eBase->rotacionBase)
+	{
+	case PAR_WORLD_MATRIX:
+		rotacion = Quat::identity;
+		break;
+	case PAR_GAMEOBJECT_MATRIX:
+		rotacion = pSystem->mOwner->mTransform->GetLocalRotation();
+		break;
+	case PAR_PARENT_MATRIX:
+		rotacion = pSystem->mOwner->mParent->mTransform->GetGlobalRotation();
+		break;
+	case PAR_INITIAL_ROTATION_END:
+		break;
+	default:
+		break;
+	}
+
+	Quat nuwDirPositives = rotacion.Mul(Quat(eBase->boxPointsPositives.x, eBase->boxPointsPositives.y, eBase->boxPointsPositives.z, 0));
+	float3 positivesModified = float3(nuwDirPositives.x, nuwDirPositives.y, nuwDirPositives.z);
+
+	//Get rotated negatives point from the world
+	Quat nuwDirNegative = rotacion.Mul(Quat(eBase->boxPointsNegatives.x, eBase->boxPointsNegatives.y, eBase->boxPointsNegatives.z, 0));
+	float3 negativesModified = float3(nuwDirNegative.x, nuwDirNegative.y, nuwDirNegative.z);
+
 	switch (eBase->currentShape)
 	{
 	case SpawnAreaShape::PAR_POINT:
 		break;
 	case SpawnAreaShape::PAR_CONE:
 	{
-	
+
 	}
-		break;
+	break;
 	case SpawnAreaShape::PAR_BOX:
 	{
 		float3 temp;
 		float3 vertices[8];
-		temp = { eBase->boxPointsNegative.x,eBase->boxPointsNegative.y,eBase->boxPointsPositives.z };
+		temp = { eBase->boxPointsNegatives.x,eBase->boxPointsNegatives.y,positivesModified.z };
 		vertices[0] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsNegative.x,eBase->boxPointsNegative.y,eBase->boxPointsNegative.z };
+		temp = { eBase->boxPointsNegatives.x,eBase->boxPointsNegatives.y,eBase->boxPointsNegatives.z };
 		vertices[1] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsNegative.x,eBase->boxPointsPositives.y,eBase->boxPointsPositives.z };
+		temp = { eBase->boxPointsNegatives.x,positivesModified.y,positivesModified.z };
 		vertices[2] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsNegative.x,eBase->boxPointsPositives.y,eBase->boxPointsNegative.z };
+		temp = { eBase->boxPointsNegatives.x,positivesModified.y,eBase->boxPointsNegatives.z };
 		vertices[3] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsPositives.x,eBase->boxPointsNegative.y,eBase->boxPointsPositives.z };
+		temp = { positivesModified.x,eBase->boxPointsNegatives.y,positivesModified.z };
 		vertices[4] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsPositives.x,eBase->boxPointsNegative.y,eBase->boxPointsNegative.z };
+		temp = { positivesModified.x,eBase->boxPointsNegatives.y,eBase->boxPointsNegatives.z };
 		vertices[5] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsPositives.x,eBase->boxPointsPositives.y,eBase->boxPointsPositives.z };
+		temp = { positivesModified.x,positivesModified.y,positivesModified.z };
 		vertices[6] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsPositives.x,eBase->boxPointsPositives.y,eBase->boxPointsNegative.z };
+		temp = { positivesModified.x,positivesModified.y,eBase->boxPointsNegatives.z };
 		vertices[7] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
 
 

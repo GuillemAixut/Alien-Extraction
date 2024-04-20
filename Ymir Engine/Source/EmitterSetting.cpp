@@ -41,7 +41,7 @@ EmitterBase::EmitterBase()
 
 	//Box
 	boxPointsPositives = { 1,1,1 };
-	boxPointsNegative = { -1,-1,-1 };
+	boxPointsNegatives = { -1,-1,-1 };
 
 	//Life time
 	randomLT = false;
@@ -137,12 +137,23 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	case PAR_BOX:
 	{
-		//Random values
+		//Get rotated positives point from the world
+		Quat nuwDirPositives = particle->directionRotation.Mul(Quat(boxPointsPositives.x, boxPointsPositives.y, boxPointsPositives.z, 0));
+		float3 positivesModified = float3(nuwDirPositives.x, nuwDirPositives.y, nuwDirPositives.z);
 
+		//Get rotated negatives point from the world
+		Quat nuwDirNegative = particle->directionRotation.Mul(Quat(boxPointsNegatives.x, boxPointsNegatives.y, boxPointsNegatives.z, 0));
+		float3 negativesModified = float3(nuwDirNegative.x, nuwDirNegative.y, nuwDirNegative.z);
+
+		//Random values
 		float3 randPos;
-		randPos.x = Random::GenerateRandomFloat(boxPointsNegative.x, boxPointsPositives.x);
-		randPos.y = Random::GenerateRandomFloat(boxPointsNegative.y, boxPointsPositives.y);
-		randPos.z = Random::GenerateRandomFloat(boxPointsNegative.z, boxPointsPositives.z);
+		if(negativesModified.x < positivesModified.x){ randPos.x = Random::GenerateRandomFloat(negativesModified.x, positivesModified.x); }
+		else{ randPos.x = Random::GenerateRandomFloat(positivesModified.x, negativesModified.x); }
+		if (negativesModified.y < positivesModified.y) { randPos.y = Random::GenerateRandomFloat(negativesModified.y, positivesModified.y); }
+		else { randPos.y = Random::GenerateRandomFloat(positivesModified.y, negativesModified.y); }
+		if (negativesModified.z < positivesModified.z) { randPos.z = Random::GenerateRandomFloat(negativesModified.z, positivesModified.z); }
+		else { randPos.z = Random::GenerateRandomFloat(positivesModified.z, negativesModified.z); }
+
 
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
 		if (cTra != nullptr)
@@ -240,7 +251,7 @@ void EmitterBase::OnInspector()
 		{
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
 			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f, 0.001f,200.0f);
-			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegative[0]), 0.1f,-200.0f,-0.0f);
+			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegatives[0]), 0.1f,-200.0f,-0.0f);
 		}
 			break;
 		case SpawnAreaShape::PAR_SPHERE: 

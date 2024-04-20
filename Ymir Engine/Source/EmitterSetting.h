@@ -89,7 +89,7 @@ struct EmitterBase : EmitterSetting
 
 	//Box Parameters
 	float3 boxPointsPositives;
-	float3 boxPointsNegative;
+	float3 boxPointsNegatives;
 
 };
 
