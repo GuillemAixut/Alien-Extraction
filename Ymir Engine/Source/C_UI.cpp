@@ -21,10 +21,10 @@ C_UI::C_UI(UI_TYPE ui_t, ComponentType t, GameObject* g, std::string n, float x,
 
 	fade = false;
 
-	float3 position = { x,y,0 };
+	float3 position = { x, y, 0 };
 	posX = x;
 	posY = y;
-	scaleBounds = { 1,1,1 };
+	scaleBounds = { 1, 1, 1 };
 
 	boundsEditor = new UI_Bounds;
 	boundsGame = new UI_Bounds;

@@ -2725,6 +2725,9 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			ui_comp->color.b = static_cast<float>(json_array_get_number(jsonUIArray, 2));
 			ui_comp->color.a = static_cast<float>(json_array_get_number(jsonUIArray, 3));
 
+			float* aux = &ui_comp->color.r;
+			ui_comp->mat->shader.SetUniformValue("color", aux);
+
 			gameObject->AddComponent(ui_comp);
 			comp = ui_comp;
 
@@ -2761,6 +2764,9 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			ui_comp->color.g = static_cast<float>(json_array_get_number(jsonUIArray, 1));
 			ui_comp->color.b = static_cast<float>(json_array_get_number(jsonUIArray, 2));
 			ui_comp->color.a = static_cast<float>(json_array_get_number(jsonUIArray, 3));
+
+			float* aux = &ui_comp->color.r;
+			ui_comp->mat->shader.SetUniformValue("color", aux);
 
 			gameObject->AddComponent(ui_comp);
 			comp = ui_comp;

@@ -296,6 +296,11 @@ void UI_Image::OnInspector()
 
 					mat->shader.SetUniformValue(kt->name, (float*)kt->value.get());
 
+					color.r = ((float*)kt->value.get())[0];
+					color.g = ((float*)kt->value.get())[1];
+					color.b = ((float*)kt->value.get())[2];
+					color.a = ((float*)kt->value.get())[3];
+
 					break;
 
 				}

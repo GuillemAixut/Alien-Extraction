@@ -68,7 +68,7 @@ enum class UI_TYPE
 class C_UI : public Component
 {
 public:
-	C_UI(UI_TYPE ui_t, ComponentType t, GameObject* g, std::string n = "UI", float x = 0, float y = 0, float w = 200, float h = 100, Color c = { 1, 1, 1, 1 });
+	C_UI(UI_TYPE ui_t, ComponentType t, GameObject* g, std::string n = "UI", float x = 0, float y = 0, float w = 200, float h = 100, Color c = { 0, 0, 0, 0 });
 	~C_UI();
 
 	virtual update_status Update(float dt);
