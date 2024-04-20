@@ -100,4 +100,6 @@ public:
 	//TODO: crear variables: hull, mesh, sensor, edit collider, transform�?
 
 	bool isFirstTick;
+
+	bool isActive;
 };

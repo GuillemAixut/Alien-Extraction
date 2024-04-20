@@ -20,6 +20,8 @@ CCollider::CCollider(GameObject* owner, ColliderType collider, PhysicsType physi
 	collType = collider;
 	physType = physics;
 
+	isActive = true;
+
 	isSensor = false;
 
 	mass = 1;
@@ -116,6 +118,9 @@ CCollider::~CCollider()
 void CCollider::Update()
 {
 
+	if (isActive)	physBody->body->setActivationState(ACTIVE_TAG);
+	else physBody->body->setActivationState(ISLAND_SLEEPING);
+
 	if (physBody != nullptr)
 	{
 		External->physics->RecalculateInertia(physBody, mass, useGravity);
@@ -177,63 +182,66 @@ void CCollider::Update()
 	
 	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING && physBody != nullptr)
 	{
-		float4x4 mat;
-		physBody->GetTransform(mat);
-
-		CMesh* componentMesh = (CMesh*)mOwner->GetComponent(ComponentType::MESH);
-		CTransform* componentTransform = (CTransform*)mOwner->GetComponent(ComponentType::TRANSFORM);
-
-		CTransform* parentTransform = (CTransform*)mOwner->mParent->GetComponent(ComponentType::TRANSFORM);
-
-		float meshOffsetX = 0;
-		float meshOffsetY = 0;
-		float meshOffsetZ = 0;
-
-		if (componentMesh != nullptr)
+		if (isActive)
 		{
-			meshOffsetX = componentMesh->obb.CenterPoint().x - componentTransform->GetGlobalPosition().x;
-			meshOffsetY = componentMesh->obb.CenterPoint().y - componentTransform->GetGlobalPosition().y;
-			meshOffsetZ = componentMesh->obb.CenterPoint().z - componentTransform->GetGlobalPosition().z;
+			float4x4 mat;
+			physBody->GetTransform(mat);
+
+			CMesh* componentMesh = (CMesh*)mOwner->GetComponent(ComponentType::MESH);
+			CTransform* componentTransform = (CTransform*)mOwner->GetComponent(ComponentType::TRANSFORM);
+
+			CTransform* parentTransform = (CTransform*)mOwner->mParent->GetComponent(ComponentType::TRANSFORM);
+
+			float meshOffsetX = 0;
+			float meshOffsetY = 0;
+			float meshOffsetZ = 0;
+
+			if (componentMesh != nullptr)
+			{
+				meshOffsetX = componentMesh->obb.CenterPoint().x - componentTransform->GetGlobalPosition().x;
+				meshOffsetY = componentMesh->obb.CenterPoint().y - componentTransform->GetGlobalPosition().y;
+				meshOffsetZ = componentMesh->obb.CenterPoint().z - componentTransform->GetGlobalPosition().z;
+			}
+
+			float4x4 newMat;
+			float* matrix = mat.ptr();
+
+			newMat.SetCol(0, float4(matrix[0], matrix[1], matrix[2], matrix[3]));
+			newMat.SetCol(1, float4(matrix[4], matrix[5], matrix[6], matrix[7]));
+			newMat.SetCol(2, float4(matrix[8], matrix[9], matrix[10], matrix[11]));
+			newMat.SetCol(3, float4(matrix[12], matrix[13], matrix[14], matrix[15]));
+
+			float3 pos = newMat.TranslatePart();
+			//float3 pos = totalMatrix.TranslatePart();
+
+			if (parentTransform)
+			{
+				pos.x -= parentTransform->translation.x;
+				pos.y -= parentTransform->translation.y;
+				pos.z -= parentTransform->translation.z;
+
+				pos.x /= parentTransform->scale.x;
+				pos.y /= parentTransform->scale.y;
+				pos.z /= parentTransform->scale.z;
+			}
+
+			// Puede ser que a la matriz newMat le falte tener en cuenta la rotacion del parent (?)
+			mOwner->mTransform->SetPosition(pos - offset);
+			mOwner->mTransform->SetOrientation(physBody->body->getOrientation());
+
+			if (lockX) {
+				UpdateLockRotation();
+			}
+
+			if (lockY) {
+				UpdateLockRotation();
+			}
+
+			if (lockZ) {
+				UpdateLockRotation();
+			}
+
 		}
-
-		float4x4 newMat;
-		float* matrix = mat.ptr();
-
-		newMat.SetCol(0, float4(matrix[0], matrix[1], matrix[2], matrix[3]));
-		newMat.SetCol(1, float4(matrix[4], matrix[5], matrix[6], matrix[7]));
-		newMat.SetCol(2, float4(matrix[8], matrix[9], matrix[10], matrix[11]));
-		newMat.SetCol(3, float4(matrix[12], matrix[13], matrix[14], matrix[15]));
-
-		float3 pos = newMat.TranslatePart();
-		//float3 pos = totalMatrix.TranslatePart();
-
-		if (parentTransform)
-		{
-			pos.x -= parentTransform->translation.x;
-			pos.y -= parentTransform->translation.y;
-			pos.z -= parentTransform->translation.z;
-
-			pos.x /= parentTransform->scale.x;
-			pos.y /= parentTransform->scale.y;
-			pos.z /= parentTransform->scale.z;
-		}
-
-		// Puede ser que a la matriz newMat le falte tener en cuenta la rotacion del parent (?)
-		mOwner->mTransform->SetPosition(pos - offset);
-		mOwner->mTransform->SetOrientation(physBody->body->getOrientation());
-
-		if (lockX) {
-			UpdateLockRotation();
-		}
-
-		if (lockY) {
-			UpdateLockRotation();
-		}
-
-		if (lockZ) {
-			UpdateLockRotation();
-		}
-
 	}
 }
 
@@ -247,11 +255,7 @@ void CCollider::OnInspector()
 
 	bool exists = true;
 
-	if (ImGui::Checkbox(("##" + std::to_string(UID)).c_str(), &active))
-	{
-		if (active)	physBody->body->setActivationState(ACTIVE_TAG);
-		else physBody->body->setActivationState(DISABLE_SIMULATION);
-	}
+	ImGui::Checkbox(("##" + std::to_string(UID)).c_str(), &isActive);
 
 	ImGui::SameLine();
 
@@ -261,7 +265,7 @@ void CCollider::OnInspector()
 
 		ImGui::Spacing();
 
-		if (!active) { ImGui::BeginDisabled(); }
+		if (!isActive) { ImGui::BeginDisabled(); }
 
 		ImGui::SeparatorText("COLLIDER");
 		ImGui::Spacing();
@@ -462,7 +466,7 @@ void CCollider::OnInspector()
 			return;
 		}
 
-		if (!active) { ImGui::EndDisabled(); }
+		if (!isActive) { ImGui::EndDisabled(); }
 
 		ImGui::Unindent();
 

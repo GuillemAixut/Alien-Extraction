@@ -1290,7 +1290,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 		CCollider* ccollider = (CCollider*)&component;
 
-		json_object_set_number(componentObject, "Active", ccollider->active);
+		json_object_set_boolean(componentObject, "Active", ccollider->isActive);
 
 		// Collider Type
 
@@ -2591,7 +2591,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		ccollider->lockY = json_object_get_boolean(componentObject, "LockY");
 		ccollider->lockZ = json_object_get_boolean(componentObject, "LockZ");
 
-		ccollider->active = json_object_get_number(componentObject, "Active");
+		ccollider->isActive = json_object_get_boolean(componentObject, "Active");
 
 		gameObject->AddComponent(ccollider);
 
