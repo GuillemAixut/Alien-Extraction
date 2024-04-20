@@ -83,6 +83,7 @@ struct EmitterBase : EmitterSetting
 	float3 emitterOrigin;
 
 	//Cylinder Parameters
+	float radiusHollow; //Espacio vacio del cono por si se quiere hacer un donut o algo asi
 	float baseRadius; //Radius/face positioned on 0,0,0
 	float topRadius; // Radius/face projected after the length
 	float heigth; //Heigth of the cone.
