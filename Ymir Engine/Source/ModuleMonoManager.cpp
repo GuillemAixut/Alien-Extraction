@@ -79,6 +79,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma region GameObject
 
 	mono_add_internal_call("YmirEngine.GameObject::SetActive", SetActive);
+	mono_add_internal_call("YmirEngine.GameObject::SetAsBillboard", SetGameObjectAsBillboardCS);
+	mono_add_internal_call("YmirEngine.GameObject::IsActive", IsActiveCS);
 
 #pragma endregion
 

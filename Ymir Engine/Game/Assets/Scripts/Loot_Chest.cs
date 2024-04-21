@@ -17,19 +17,34 @@ public class Loot_Chest : YmirComponent
     private Vector3 pos = Vector3.zero;
     Random random = new Random();
 
+    private GameObject popup;
+
     public void Start()
 	{
         pos = gameObject.transform.localPosition;
         spawnRange = 15;
+        popup = InternalCalls.GetChildrenByName(gameObject, "Pop-Up");
+        
 	}
 
 	public void Update()
 	{
-
+        popup.SetAsBillboard();
+        if (popup.IsActive())
+        {
+            popup.SetActive(false);
+        }
+        
     }
 
     public void OnCollisionStay(GameObject other)
     {
+        if (other.Tag == "Player")
+        {
+            popup.SetActive(true);
+        }
+
+
         if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
         {
             string output = InternalCalls.CSVToString(path, keys);
