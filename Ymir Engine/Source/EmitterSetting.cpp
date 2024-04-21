@@ -140,10 +140,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 		float baseTopDiference = topRadius - baseRadius;
 		float normalizedRefPos = randomLength / baseRadius;
-		float displacmentCone = 1 + (baseTopDiference * normalizedRefPos * randomHeigth/heigth);
-		float3 circularPos = { randomLength * cos(randomAngle )* displacmentCone, randomHeigth, randomLength * -sin(randomAngle )* displacmentCone};
-		float3 randPos = circularPos;
-		
+		float3 randPos = { cos(randomAngle )* ((1 - randomHeigth / heigth) * randomLength + (randomLength * (topRadius / baseRadius)) * randomHeigth / heigth), randomHeigth, -sin(randomAngle) * ((1 - randomHeigth/heigth) * randomLength + (randomLength * (topRadius/baseRadius)) * randomHeigth/heigth) };
 
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
 		if (cTra != nullptr)
