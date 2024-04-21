@@ -16,6 +16,7 @@ public class UI_Upgrade_Button : YmirComponent
     public string stationName = "";
 
     public UI_Upgrade_Station currentStation;
+    private GameObject _parent;
 
     public void Start()
     {
@@ -31,6 +32,11 @@ public class UI_Upgrade_Button : YmirComponent
         if (go != null)
         {
             currentStation = go.GetComponent<UI_Upgrade_Station>();
+        }
+
+        if (cost == 2)
+        {
+            _parent = InternalCalls.GetGameObjectByName(stationName + " End");
         }
     }
 
@@ -54,8 +60,8 @@ public class UI_Upgrade_Button : YmirComponent
                     break;
                 case 2:
                     {
-                        GameObject go3 = InternalCalls.GetChildrenByName(InternalCalls.GetGameObjectByName(stationName), "Upgrade 3");
-                        GameObject go4 = InternalCalls.GetChildrenByName(InternalCalls.GetGameObjectByName(stationName), "Upgrade 4");
+                        GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 3");
+                        GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
 
                         UI.SetUIState(go3, (int)UI_STATE.NORMAL);
                         UI.SetUIState(go4, (int)UI_STATE.NORMAL);
