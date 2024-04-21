@@ -1015,4 +1015,29 @@ void DisableComponent(MonoObject* go, MonoString* compName)
 
 }
 
+void SetGameObjectAsBillboardCS(MonoObject* go) {
+
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+
+	float3 cameraPosition = External->scene->gameCameraComponent->GetPos();
+
+	float3 directionToCamera = cameraPosition - gameObject->mTransform->GetGlobalPosition();
+	directionToCamera.Normalize();
+
+	float3 localUpVector(0.0f, 1.0f, 0.0f); 
+	float3 worldUpVector(0.0f, 1.0f, 0.0f); 
+
+	Quat desiredRotation = Quat::LookAt(float3(0, 0, 1), directionToCamera, localUpVector, worldUpVector);
+
+	gameObject->mTransform->SetRotation(desiredRotation);
+}
+
+bool IsActiveCS(MonoObject* go)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+
+	return gameObject->active;
+}
+
+
 #pragma endregion

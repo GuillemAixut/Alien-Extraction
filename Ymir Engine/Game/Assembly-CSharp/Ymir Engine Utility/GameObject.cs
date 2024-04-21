@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -204,5 +204,16 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern bool RaycastTest(object origin, object direction, float rayLenght, object gameObject);
+        /// Make the GO look at the camera
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern void SetAsBillboard();
+
+
+        /// <summary>
+        /// Returns true if the GameObject is active, and false otherwise
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern bool IsActive();
     }
 }
