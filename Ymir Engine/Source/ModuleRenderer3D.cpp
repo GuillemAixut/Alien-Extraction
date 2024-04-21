@@ -887,7 +887,7 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 		
 		//Position 0,0,0 of game object and current origin emmiter
 		glVertex3fv(pSystem->mOwner->mTransform->GetGlobalPosition().ptr());
-		glVertex3fv(originModified.ptr());
+		glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition() + originModified).ptr());
 
 		
 
@@ -898,6 +898,65 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 		break;
 	case SpawnAreaShape::PAR_CONE:
 	{
+		glLineWidth(2.f);
+		glBegin(GL_LINES);
+		glColor3fv(color.ptr());
+
+
+		float3 temp;
+		float3 temp2;
+		int numDivision = 1;
+		int numPuntos = 12;		
+		for (int j = 0; j <= numDivision+1; j++) //Hara siempre 0 que es la base y 1 que es arriba
+		{
+			float subDiv = (j * eBase->heigth) / (eBase->heigth * (numDivision + 1));
+
+			for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+			{
+				//Draw external circle
+				temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ( (1-subDiv) * eBase->baseRadius + eBase->topRadius*subDiv) }; //Lerp entre base y top usando subdiv
+				temp2 = { cos((pi * 2 / numPuntos) * (i+1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i+1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv) }; //Lerp entre base y top usando subdiv
+				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+				if(eBase->radiusHollow>0.0f)
+				{
+					//Draw inner circle
+					temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius/eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
+					temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
+					glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				}
+			}
+		}
+		
+		for (int i = 0; i < numPuntos; i++)
+		{
+			if(i == 0 || i % (numPuntos /4) == 0)
+			{
+				//Draw external circle
+				temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius }; //Punto Inferior
+				temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->topRadius ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->topRadius }; //Punto Superior
+				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+				if (eBase->radiusHollow > 0.0f)
+				{
+					//Draw inner circle
+					temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow }; //Punto Inferior
+					temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) }; //Punto Superior
+					glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				}
+			}
+		}
+		
+
+
+		glColor3f(255.f, 255.f, 255.f);
+		glEnd();
+		glLineWidth(1.f);
+		
 
 	}
 	break;

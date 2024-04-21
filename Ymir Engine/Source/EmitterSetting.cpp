@@ -35,6 +35,7 @@ EmitterBase::EmitterBase()
 	emitterOrigin = float3::zero;
 
 	//Cone
+	radiusHollow = 0.0f;
 	baseRadius = 2.0f;
 	topRadius = 4.0f;
 	heigth = 3.0f;
@@ -131,6 +132,33 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	}
 		break;
 	case PAR_CONE:
+	{
+		//Get random radius size
+		float randomLength = Random::GenerateRandomFloat(radiusHollow, baseRadius);
+		float randomAngle = Random::GenerateRandomFloat(0.0f, pi * 2);
+		float randomHeigth = Random::GenerateRandomFloat(0, heigth);
+
+		float baseTopDiference = topRadius - baseRadius;
+		float normalizedRefPos = randomLength / baseRadius;
+		float displacmentCone = 1 + (baseTopDiference * normalizedRefPos * randomHeigth/heigth);
+		float3 circularPos = { randomLength * cos(randomAngle )* displacmentCone, randomHeigth, randomLength * -sin(randomAngle )* displacmentCone};
+		float3 randPos = circularPos;
+		
+
+		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
+		if (cTra != nullptr)
+		{
+			float4x4 matrix = cTra->GetGlobalTransform();
+			float3 position;
+			Quat rotation;
+			float3 escale;
+			matrix.Decompose(position, rotation, escale);
+			particle->position += position + emitterOrigin + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->worldRotation = rotation;
+			particle->size = escale;
+		}
+
+	}
 		break;
 	case PAR_BOX:
 	{
@@ -230,7 +258,7 @@ void EmitterBase::OnInspector()
 		ImGui::EndCombo();
 	}
 	ImGui::SameLine;
-	ImGui::Text("Shape");
+	ImGui::Text("Shape Mode");
 
 	switch (currentShape)
 	{
@@ -241,7 +269,11 @@ void EmitterBase::OnInspector()
 			break;
 		case SpawnAreaShape::PAR_CONE:
 		{
-
+			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
+			ImGui::DragFloat("Heigth ## BASE", &(this->heigth), 0.2f, 0.01f, 200.f);
+			ImGui::DragFloat("Base Radius ## BASE", &(this->baseRadius), 0.2f, radiusHollow+0.01f, 200.f);
+			ImGui::DragFloat("End Radius ## BASE", &(this->topRadius), 0.2f, 0.01f, 200.f);
+			ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius-0.01f);
 		};
 			break;
 		case SpawnAreaShape::PAR_BOX:
