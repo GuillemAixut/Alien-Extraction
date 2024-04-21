@@ -171,6 +171,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.UI::SetActiveAllUI", SetActiveAllUI);
 	mono_add_internal_call("YmirEngine.UI::SetFirstFocused", SetFirstFocused);
 	mono_add_internal_call("YmirEngine.UI::SetUIPosWithOther", SetUIPosWithOther);
+	mono_add_internal_call("YmirEngine.UI::CheckUI", CheckUI);
 
 
 #pragma endregion

@@ -13,6 +13,7 @@ public class UI_Inventory : YmirComponent
     public GameObject focusedGO, goDescription, goText;
     public bool _droppable = true, _disable = false;
     private bool _show;
+    private Player _player = null;
 
     public void Start()
     {
@@ -24,10 +25,17 @@ public class UI_Inventory : YmirComponent
         goText.SetActive(false);
         _disable = false;
         _show = false;
+        GetPlayerScript();
     }
 
     public void Update()
     {
+        //if (UI.GetFocused() == null || !UI.CheckUI(UI.GetFocused(), gameObject))
+        //{
+        //    Debug.Log("set first");
+        //    UI.SetFirstFocused(gameObject);
+        //}
+
         if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
         {
             Debug.Log("set first");
@@ -44,9 +52,10 @@ public class UI_Inventory : YmirComponent
                 {
                     _show = true;
                     ShowText(_show);
-                    UpdateTextPos();
-                    focusedGO.GetComponent<UI_Item_Button>().UpdateInfo();
                 }
+
+                UpdateTextPos();
+                focusedGO.GetComponent<UI_Item_Button>().UpdateInfo();
             }
 
             else if (Input.GetGamepadButton(GamePadButton.RIGHTSHOULDER) == KeyState.KEY_UP)
@@ -160,4 +169,15 @@ public class UI_Inventory : YmirComponent
         goDescription.SetActive(isActive);
         goText.SetActive(isActive);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
     }
+    private void GetPlayerScript()
+    {
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            _player = gameObject.GetComponent<Player>();
+        }
+    }
+
 }
+

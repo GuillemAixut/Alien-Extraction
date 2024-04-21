@@ -863,3 +863,22 @@ void SetUIPosWithOther(MonoObject* goSource, MonoObject* goDestination)
 	selectedTransform->componentReference->dirty_ = true;
 
 }
+
+bool CheckUI(MonoObject* goTarget, MonoObject* goOrigin)
+{
+	G_UI* gameObjectTarget = (G_UI*)External->moduleMono->GameObject_From_CSGO(goTarget);
+	G_UI* gameObjectOrigin = (G_UI*)External->moduleMono->GameObject_From_CSGO(goOrigin);
+
+	std::vector<C_UI*> listUI;
+	External->scene->GetUINavigate(gameObjectOrigin, listUI);
+
+	for (auto i = 0; i < listUI.size(); i++)
+	{
+		if (listUI[i]->mOwner->UID == gameObjectTarget->UID)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}

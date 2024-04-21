@@ -295,7 +295,13 @@ namespace YmirEngine
         /// Get UI text
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void SetUIPosWithOther(object goSource, object goDestination);
+        public static extern void SetUIPosWithOther(object goSource, object goDestination);       
+        
+        /// <summary>
+        /// Check UI inside list
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool CheckUI(object goTarget, object goOrigin);
     }
 
     /// <summary>

@@ -576,6 +576,15 @@ public class Player : YmirComponent
             Debug.Log("Inventory Menu");
         }
 
+        //----------------- Upgrade -----------------\\
+        if (Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN) // Debug upgrade station
+        {
+            currentMenu = "Upgrade Station";
+            ToggleMenu(true);
+
+            Debug.Log("Upgrade Station");
+        }
+
         //----------------- Swap to SMG -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
         {
