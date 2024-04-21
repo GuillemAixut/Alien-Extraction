@@ -1,10 +1,10 @@
 {
     "Prefab": [
         {
-            "Name": "BakerHouse",
+            "Name": "PROP_AccesKey",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1650915083,
+            "UID": 1495121981,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1192284687,
@@ -13,9 +13,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -35.802787780761719,
+                        -31.767723083496094,
                         0,
-                        16.998395919799805
+                        30.215410232543945
                     ],
                     "Rotation": [
                         -0,
@@ -30,7 +30,7 @@
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "PickUp.cs",
+                    "ScriptName": "Key.cs",
                     "Active": 1,
                     "UID": 0
                 },
@@ -65,26 +65,25 @@
                 }
             ],
             "Children UID": [
-                108945139,
-                215124175,
+                884547342,
                 1015976471
             ]
         },
         {
-            "Name": "Chimney",
+            "Name": "PROP_Key_Lab",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 108945139,
+            "UID": 884547342,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/Pick Up WIP\/BakerHouse.fbx",
-            "Parent UID": 1650915083,
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Key\/PROP_AccesKey.fbx",
+            "Parent UID": 1495121981,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
+                        -5.0584821701049805,
                         0,
                         0
                     ],
@@ -102,99 +101,48 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 1534554927,
-                    "Vertex Count": 160,
-                    "Index Count": 324
+                    "UID": 2062845143,
+                    "Vertex Count": 290,
+                    "Index Count": 534
                 },
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -117.71933746337891,
+                                139,
+                                72
+                            ],
+                            "numPointLights": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/1955580875.dds",
-                    "Diffuse_UID": 1955580875
-                }
-            ]
-        },
-        {
-            "Name": "Baker_house",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 215124175,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/Pick Up WIP\/BakerHouse.fbx",
-            "Parent UID": 1650915083,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 694593550,
-                    "Vertex Count": 1641,
-                    "Index Count": 2751
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/1955580875.dds",
-                    "Diffuse_UID": 1955580875
+                    "Diffuse_ID": 407,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Key\/TEX_PROP_Access_Key_D.png",
+                    "Diffuse_UID": 326375671,
+                    "Specular_ID": 415,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Key\/TEX_PROP_Access_Key_S.png",
+                    "Specular_UID": 1895387872,
+                    "Height_ID": 411,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Key\/TEX_PROP_Access_Key_H.png",
+                    "Height_UID": 1777429424,
+                    "Ambient_ID": 403,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Key\/TEX_PROP_Access_Key_A.png",
+                    "Ambient_UID": 738910781
                 }
             ]
         },
@@ -205,15 +153,15 @@
             "UID": 1015976471,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1650915083,
+            "Parent UID": 1495121981,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
-                        0
+                        0.56653976440429688,
+                        1.6565300226211548,
+                        0.54311561584472656
                     ],
                     "Rotation": [
                         -0,
