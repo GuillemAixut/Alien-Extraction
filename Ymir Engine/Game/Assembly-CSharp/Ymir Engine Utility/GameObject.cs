@@ -192,5 +192,17 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern GameObject GetChildrenByTag(string tag);
+
+        /// <summary>
+        /// Find the taged children inside a specific GO
+        /// </summary>
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //public extern bool Raycast(object origin, object direction, float rayLenght, object hitPoints, object hits);
+
+        /// <summary>
+        /// Check if a gameObject has collided with a raycast
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern bool RaycastTest(object origin, object direction, float rayLenght, object gameObject);
     }
 }

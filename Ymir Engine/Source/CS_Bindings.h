@@ -448,6 +448,49 @@ void ClearForces(MonoObject* obj) {
 
 }
 
+//bool Raycast(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, std::vector<float3> hitPoints, std::vector<MonoObject*> hits) {
+//
+//	if (External == nullptr)
+//		return;
+//
+//	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+//
+//	float3 pOrigin = External->moduleMono->UnboxVector(origin);
+//
+//	btVector3 fOrigin;
+//
+//	External->physics->Raycast(origin);
+//
+//}
+
+bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, MonoObject* gameObject) {
+
+	if (External == nullptr)
+		return false;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+
+	float3 pOrigin = External->moduleMono->UnboxVector(origin);
+
+	btVector3 fOrigin;
+
+	fOrigin.setX(pOrigin.x);
+	fOrigin.setY(pOrigin.y);
+	fOrigin.setZ(pOrigin.z);
+
+	float3 pdirection = External->moduleMono->UnboxVector(direction);
+
+	btVector3 fdirection;
+
+	fdirection.setX(pdirection.x);
+	fdirection.setY(pdirection.y);
+	fdirection.setZ(pdirection.z);
+
+	GameObject* testGameObject = External->moduleMono->GameObject_From_CSGO(gameObject);
+
+	return External->physics->RaycastTest(fOrigin, fdirection, rayLenght, testGameObject);
+}
+
 MonoObject* SendPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
 {
 	//return mono_value_box(External->moduleMono->domain, vecClass, External->moduleMono->Float3ToCS(C_Script::runningScript->GetGO()->transform->position)); //Use this method to send "object" types

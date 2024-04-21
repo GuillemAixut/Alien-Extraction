@@ -1075,7 +1075,7 @@ public class Player : YmirComponent
 
         //Crea la bala
         //Debug.Log("rot: " + gameObject.transform.localRotation.x + gameObject.transform.localRotation.y + gameObject.transform.localRotation.z + gameObject.transform.localRotation.w);
-        InternalCalls.CreateBullet(pos, rot, scale);
+        //InternalCalls.CreateBullet(pos, rot, scale);
 
         inputsList.Add(INPUT.I_SHOOT_END);
     }

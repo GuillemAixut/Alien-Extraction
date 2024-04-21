@@ -556,21 +556,21 @@ btCollisionShape* ModulePhysics::CreateCollisionShape(const std::vector<Vertex>&
 }
 
 // RayCasts ========================================================================
-bool ModulePhysics::RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint)
-{
-	btCollisionWorld::ClosestRayResultCallback rayCallback(from, to);
-
-	// Realizar el raycast
-	world->rayTest(from, to, rayCallback);
-
-	// Comprobar si hubo una colisi�n
-	if (rayCallback.hasHit()) {
-		hitPoint = rayCallback.m_hitPointWorld; // Punto de impacto
-		return true;
-	}
-
-	return false;
-}
+//bool ModulePhysics::RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint)
+//{
+//	btCollisionWorld::ClosestRayResultCallback rayCallback(from, to);
+//
+//	// Realizar el raycast
+//	world->rayTest(from, to, rayCallback);
+//
+//	// Comprobar si hubo una colisi�n
+//	if (rayCallback.hasHit()) {
+//		hitPoint = rayCallback.m_hitPointWorld; // Punto de impacto
+//		return true;
+//	}
+//
+//	return false;
+//}
 
 bool ModulePhysics::VolumetricRayCast(const btVector3& origin, const btVector3& direction, int numRays, float rayLength, std::vector<btVector3>& hitPoints)
 {
@@ -611,6 +611,62 @@ bool ModulePhysics::DirectionalRayCast(const btVector3& origin, const btVector3&
 	if (rayCallback.hasHit()) {
 		hitPoint = rayCallback.m_hitPointWorld;
 		return true;
+	}
+
+	return false;
+}
+
+bool ModulePhysics::Raycast(btVector3 origin, btVector3 direction, float rayLength, std::vector<btVector3>& hitPoints, std::vector<GameObject*>& hits) {
+
+	btVector3 end = origin + direction.normalized() * rayLength;
+
+	//btCollisionWorld::ClosestRayResultCallback rayCallback(origin, end);
+	btCollisionWorld::AllHitsRayResultCallback rayCallback(origin, end);
+
+	world->rayTest(origin, end, rayCallback);
+
+	if (rayCallback.hasHit()) {
+
+		// Fill hitPoints array
+		for (int i = 0; i < rayCallback.m_hitPointWorld.size(); i++) {
+			hitPoints.push_back(rayCallback.m_hitPointWorld.at(i));
+		}
+
+		// Fill GameObject array
+		for (int i = 0; i < rayCallback.m_collisionObjects.size(); i++) {
+			PhysBody* physBody = (PhysBody*)rayCallback.m_collisionObjects.at(i)->getUserPointer();
+			hits.push_back(physBody->owner);
+		}
+
+		return true;
+	}
+
+	return false;
+}
+
+bool ModulePhysics::RaycastTest(btVector3 origin, btVector3 direction, float rayLength, GameObject* gameObject)
+{
+	btVector3 end = origin + direction.normalized() * rayLength;
+
+	//btCollisionWorld::ClosestRayResultCallback rayCallback(origin, end);
+	btCollisionWorld::AllHitsRayResultCallback rayCallback(origin, end);
+
+	world->rayTest(origin, end, rayCallback);
+
+	glBegin(GL_LINE);
+	glVertex3f();
+	glEnd();
+
+	if (rayCallback.hasHit()) {
+
+		for (int i = 0; i < rayCallback.m_collisionObjects.size(); i++) {
+			PhysBody* physBody = (PhysBody*)rayCallback.m_collisionObjects.at(i)->getUserPointer();
+
+			if (physBody->owner == gameObject) {
+
+				return true;
+			}
+		}
 	}
 
 	return false;
