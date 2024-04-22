@@ -500,7 +500,7 @@ void UI_Slider::SetValue(float val)
 				case SLIDER_DIRECTION::BOTTOM_TO_UP:
 				{
 					img.width = dragLimits.z;
-					img.height = ((dragLimits.y + dragLimits.w) * val / maxValue.iValue);
+					img.height = ((/*dragLimits.y + */dragLimits.w) * val / maxValue.iValue);
 
 					img.posY = dragLimits.y + dragLimits.w + (1 - ((val - minValue.iValue) / (maxValue.iValue - minValue.iValue)) * dragLimits.w) - 1;
 
