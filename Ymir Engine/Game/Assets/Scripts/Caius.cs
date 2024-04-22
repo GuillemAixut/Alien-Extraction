@@ -96,8 +96,10 @@ public class Caius : YmirComponent
         {
             //UI.TextEdit(name_gameObject, "Lorem ipsum");
 
-            ui_gameObject.SetActive(true);
-
+            if (!ui_gameObject.IsActive())
+            {
+                ui_gameObject.SetActive(true);
+            }
 
             //TODO: Set de dialogue_ui = false; y csPlayer.inputsList.Add(Player.INPUT.I_IDLE); cuando acabe el dialogo
 
