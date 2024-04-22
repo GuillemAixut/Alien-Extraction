@@ -134,6 +134,7 @@ public class Player : YmirComponent
 
     private float angle;
     private bool has360;
+    float initRot;
 
     //--------------------- Acidic Spit ------------------------\\
     private float acidicTimer;
@@ -1522,26 +1523,33 @@ public class Player : YmirComponent
         InternalCalls.CreateTailSensor(pos, rot);
 
         has360 = false;
+        initRot = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
+        angle = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
 
         swipeTimer = swipeDuration;
     }
 
     private void UpdateTailSwipe()
     {
-        if (angle < 360 && has360 == false)
+        //LookAt(3.1415f);
+
+        if (angle < (initRot + 360) && has360 == false)
         {
-            angle += 1;
+            Debug.Log("" + angle);
+            angle += 2;
+            //gameObject.transform.globalRotation.y
+            Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.up);
+            gameObject.SetRotation(targetRotation);
         }
         else
         {
             has360 = true;
-            angle = 0;
         }
 
         //angle += 3 * Time.deltaTime;
-        Quaternion targetRotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.up);
 
-        gameObject.SetRotation(targetRotation);
+
+
     }
 
     private void EndTailSwipe()
@@ -1549,6 +1557,22 @@ public class Player : YmirComponent
         //StopPlayer();
         //Delete de la hitbox de la cola
         swipeCDTimer = swipeCD;
+    }
+
+    public void LookAt(float angle)
+    {
+        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
+            return;
+
+        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
+
+        float rotationSpeed = Time.deltaTime * 1;
+
+
+        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
+
+        gameObject.SetRotation(desiredRotation);
+
     }
 
     #endregion
