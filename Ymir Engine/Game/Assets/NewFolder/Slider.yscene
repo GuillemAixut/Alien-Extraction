@@ -1,5 +1,5 @@
 {
-    "NavMesh": "4294967295",
+    "NavMesh": "",
     "Editor Camera Position": [
         -36,
         48,
@@ -28,7 +28,28 @@
             "UID": 1832630078,
             "Active": true,
             "Element_Type": "None",
-            "Components": [],
+            "Parent UID": 1760844351,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
             "Children UID": [
                 758171043,
                 881020223
@@ -52,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -78,19 +99,19 @@
                     "Type": "Camera",
                     "Active": 1,
                     "Right": [
-                        0.76604485511779785,
-                        -1.4361712885602174e-07,
+                        0.76604437828063965,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.6969747081202513e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361708622345759e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.6969747081202513e-08,
-                        -0.76604485511779785
+                        -6.696972576492044e-08,
+                        -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
@@ -135,8 +156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 619,
-                    "Height": 629,
+                    "Width": 585,
+                    "Height": 457,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -206,20 +227,20 @@
                     "Focused color": [
                         0,
                         0,
+                        0,
+                        1
+                    ],
+                    "Pressed color": [
+                        0,
+                        1,
                         1,
                         0
                     ],
-                    "Pressed color": [
-                        1,
-                        1,
-                        0,
-                        1
-                    ],
                     "Selected color": [
                         1,
+                        1,
                         0,
-                        0,
-                        1
+                        0
                     ],
                     "Disabled color": [
                         1,
@@ -234,71 +255,7 @@
                 }
             ],
             "Children UID": [
-                374636784,
                 810759258
-            ]
-        },
-        {
-            "Name": "Background",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 374636784,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1225569724,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        300,
-                        50
-                    ],
-                    "Path": "Assets\/InGameConeptPng.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
             ]
         },
         {

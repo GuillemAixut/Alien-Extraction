@@ -500,12 +500,12 @@ void UI_Slider::SetValue(float val)
 				case SLIDER_DIRECTION::BOTTOM_TO_UP:
 				{
 					img.width = dragLimits.z;
-					img.height = dragLimits.w;
+					img.height = ((dragLimits.y + dragLimits.w) * val / maxValue.iValue);
 
-					img.posY = dragLimits.y + img.height + (1 - ((val - minValue.iValue) / (maxValue.iValue - minValue.iValue)) * dragLimits.w);
+					img.posY = dragLimits.y + dragLimits.w + (1 - ((val - minValue.iValue) / (maxValue.iValue - minValue.iValue)) * dragLimits.w) - 1;
 
-					img.boundsGame->vertices[0].position = float3(img.posX, dragLimits.y + (img.height * img.scaleBounds.y), 0);
-					img.boundsGame->vertices[1].position = float3(img.posX + (img.width * img.scaleBounds.x), dragLimits.y + (img.height * img.scaleBounds.y), 0);
+					img.boundsGame->vertices[0].position = float3(img.posX, dragLimits.y + (dragLimits.w * img.scaleBounds.y), 0);
+					img.boundsGame->vertices[1].position = float3(img.posX + (img.width * img.scaleBounds.x), dragLimits.y + (dragLimits.w * img.scaleBounds.y), 0);
 					img.boundsGame->vertices[2].position = float3(img.posX, img.posY, 0);
 					img.boundsGame->vertices[3].position = float3(img.posX + (img.width * img.scaleBounds.x), img.posY, 0);
 				}
