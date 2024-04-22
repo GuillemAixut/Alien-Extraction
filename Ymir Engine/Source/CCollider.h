@@ -77,6 +77,7 @@ public:
 	float3 size;
 	btVector3 btSize;
 	float3 offset;
+	Quat offsetRotation;
 
 	float mass;
 	float friction;

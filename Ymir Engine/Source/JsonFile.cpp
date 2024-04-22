@@ -1348,6 +1348,18 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 		json_object_set_value(componentObject, "Offset", offsetArrayValue);
 
+		// Offset Rotation
+		
+		JSON_Value* rotationOffsetArrayValue = json_value_init_array();
+		JSON_Array* rotationOffsetArray = json_value_get_array(rotationOffsetArrayValue);
+
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.x);
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.y);
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.z); 
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.w);
+
+		json_object_set_value(componentObject, "Offset Rotation", rotationOffsetArrayValue);
+
 		break;
 	}
 	case SCRIPT:
@@ -2551,19 +2563,43 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		if (jsonOffsetValue == nullptr || json_value_get_type(jsonOffsetValue) != JSONArray) {
 
-			return;
+			ccollider->offset = { 0, 0, 0 };
+		}
+		else
+		{
+			JSON_Array* jsonOffsetArray = json_value_get_array(jsonOffsetValue);
+
+			float3 _offset;
+
+			_offset.x = static_cast<float>(json_array_get_number(jsonOffsetArray, 0));
+			_offset.y = static_cast<float>(json_array_get_number(jsonOffsetArray, 1));
+			_offset.z = static_cast<float>(json_array_get_number(jsonOffsetArray, 2));
+
+			ccollider->offset = _offset;
 		}
 
-		JSON_Array* jsonOffsetArray = json_value_get_array(jsonOffsetValue);
+		// Offset Rotation
 
-		float3 _offset;
+		JSON_Value* jsonRotationOffsetValue = json_object_get_value(componentObject, "Offset Rotation"); 
 
-		_offset.x = static_cast<float>(json_array_get_number(jsonOffsetArray, 0));
-		_offset.y = static_cast<float>(json_array_get_number(jsonOffsetArray, 1));
-		_offset.z = static_cast<float>(json_array_get_number(jsonOffsetArray, 2));
+		if (jsonRotationOffsetValue == nullptr || json_value_get_type(jsonRotationOffsetValue) != JSONArray) {
 
-		ccollider->offset = _offset;
+			ccollider->offsetRotation = Quat().identity;
+		}
+		else
+		{
+			JSON_Array* jsonRotationOffsetArray = json_value_get_array(jsonRotationOffsetValue);
 
+			Quat _offsetRotation;
+
+			_offsetRotation.x = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 0));
+			_offsetRotation.y = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 1));
+			_offsetRotation.z = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 2));
+			_offsetRotation.w = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 3));
+
+			ccollider->offsetRotation = _offsetRotation;
+		}
+		
 		// Mass
 
 		ccollider->mass = static_cast<float>(json_object_get_number(componentObject, "Mass"));

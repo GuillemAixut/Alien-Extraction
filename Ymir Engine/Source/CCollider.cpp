@@ -33,6 +33,7 @@ CCollider::CCollider(GameObject* owner, ColliderType collider, PhysicsType physi
 	lockZ = false;
 	
 	offset = { 0, 0, 0 };
+	offsetRotation = Quat().identity;
 	size = float3(5, 5, 5); 
 
 	transform = mOwner->mTransform;
@@ -156,7 +157,8 @@ void CCollider::Update()
 			//else physBody->SetPosition(trans.TranslatePart());
 
 			physBody->SetPosition(trans.TranslatePart());
-			physBody->SetRotation(Quat(trans.RotatePart()));
+			//physBody->SetRotation(Quat(trans.RotatePart()));
+			physBody->SetRotation(Quat(trans.RotatePart()) * offsetRotation);
 
 			if (collType != ColliderType::MESH_COLLIDER)
 			{
@@ -227,7 +229,12 @@ void CCollider::Update()
 
 			// Puede ser que a la matriz newMat le falte tener en cuenta la rotacion del parent (?)
 			mOwner->mTransform->SetPosition(pos - offset);
-			mOwner->mTransform->SetOrientation(physBody->body->getOrientation());
+			//mOwner->mTransform->SetOrientation(physBody->body->getOrientation());
+
+			Quat rotation = Quat(physBody->body->getOrientation().x(), physBody->body->getOrientation().y(), 
+								 physBody->body->getOrientation().z(), physBody->body->getOrientation().w());
+
+			mOwner->mTransform->SetRotation(rotation / offsetRotation);
 
 			if (lockX) {
 				UpdateLockRotation();
@@ -381,8 +388,11 @@ void CCollider::OnInspector()
 				shape->setLocalScaling(btSize);
 			}
 
-			ImGui::Text("Offset"); ImGui::SameLine();
-			ImGui::DragFloat3("##Offset", offset.ptr(), 0.1f, 0.1f);
+			ImGui::Text("Offset Position"); ImGui::SameLine();
+			ImGui::DragFloat3("##OffsetPos", offset.ptr(), 0.1f, 0.1f);
+
+			ImGui::Text("Offset Rotation"); ImGui::SameLine();
+			ImGui::DragFloat3("##OffsetRot", offsetRotation.ptr(), 0.1f, 0.1f);
 
 			if (ImGui::Button("Set size from OBB")) {
 
