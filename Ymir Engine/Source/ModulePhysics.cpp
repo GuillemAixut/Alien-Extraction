@@ -644,6 +644,27 @@ bool ModulePhysics::Raycast(btVector3 origin, btVector3 direction, float rayLeng
 	return false;
 }
 
+GameObject* ModulePhysics::RaycastHit(btVector3 origin, btVector3 direction, float rayLength) {
+
+	btVector3 end = origin + direction.normalized() * rayLength;
+
+	btCollisionWorld::ClosestRayResultCallback rayCallback(origin, end);
+
+	world->rayTest(origin, end, rayCallback);
+
+	LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
+	LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());
+
+	if (rayCallback.hasHit()) {
+
+		PhysBody* physBody = (PhysBody*)rayCallback.m_collisionObject->getUserPointer();
+
+		return physBody->owner;
+	}
+
+	return nullptr;
+}
+
 bool ModulePhysics::RaycastTest(btVector3 origin, btVector3 direction, float rayLength, GameObject* gameObject)
 {
 	btVector3 end = origin + direction.normalized() * rayLength;
@@ -652,6 +673,9 @@ bool ModulePhysics::RaycastTest(btVector3 origin, btVector3 direction, float ray
 	btCollisionWorld::AllHitsRayResultCallback rayCallback(origin, end);
 
 	world->rayTest(origin, end, rayCallback);
+
+	LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
+	LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());
 
 	if (rayCallback.hasHit()) {
 

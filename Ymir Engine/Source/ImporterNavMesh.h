@@ -35,6 +35,6 @@ struct GeometryData
 
 namespace ImporterNavMesh
 {
-	uint Save(const char* assets_path, dtNavMesh* navMesh, BuildSettings& buildSettings, uint UID);
-	dtNavMesh* Load(uint navMeshResourceUID, BuildSettings& buildSettings);
+	const char* Save(const char* assets_path, dtNavMesh* navMesh, BuildSettings& buildSettings, uint UID);
+	dtNavMesh* Load(const char* path, BuildSettings& buildSettings);
 }

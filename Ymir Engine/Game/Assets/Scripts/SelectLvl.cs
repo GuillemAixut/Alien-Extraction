@@ -112,29 +112,32 @@ public class SelectLvl : YmirComponent
 
     public void OnHoverButton()
     {
-        switch ((LEVELS)lvl)
+        if (levelSelector != null)
         {
-            case LEVELS.NONE:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "");
-                }
-                break;
-            case LEVELS.WAREHOUSE:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "WAREHOUSE - Donde estan \nlas descripciones?");
-                }
-                break;
-            case LEVELS.LAB:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "LAB - En el gdd no estan");
-                }
-                break;
-            case LEVELS.HATCHERY:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "HATCHERY - AAA");
-                }
-                break;
+            switch ((LEVELS)lvl)
+            {
+                case LEVELS.NONE:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "");
+                    }
+                    break;
+                case LEVELS.WAREHOUSE:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "An unused warehouse under the\nname of Weyland-Yutani corp.\nIt doesn't look like a dangerous\nplace, it smells a bit burnt.");
+                    }
+                    break;
+                case LEVELS.LAB:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "There are no records of this\nplace, although it looks like a\nresearch area. A laboratory?\nUnderground?");
+                    }
+                    break;
+                case LEVELS.HATCHERY:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "If this was once a laboratory,\nit is definitely no longer one.\nAll of it is covered in\nsomething black and slimy.");
+                    }
+                    break;
 
+            }
         }
     }
 }

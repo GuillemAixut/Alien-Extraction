@@ -86,8 +86,8 @@ public:
 	bool Init() override;
 	update_status Update(float dt);
 
-	uint Save(const char* scene_path);
-	void Load(uint navMeshResourceUID);
+	std::string Save(const std::string& scene_path);
+	void Load(const char* path);
 
 #ifndef _STANDALONE
 	void DebugDraw();

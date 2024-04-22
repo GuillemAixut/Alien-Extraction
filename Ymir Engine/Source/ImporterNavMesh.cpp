@@ -8,14 +8,15 @@
 
 #include "External/mmgr/mmgr.h"
 
-uint ImporterNavMesh::Save(const char* assets_path, dtNavMesh* navMesh, BuildSettings& buildSettings, uint UID)
+const char* ImporterNavMesh::Save(const char* assets_path, dtNavMesh* navMesh, BuildSettings& buildSettings, uint UID)
 {
+	const char* path = assets_path;
 	if (!navMesh)
-		return -1;
+		return "";
 
 	FILE* fp = fopen(assets_path, "wb");
 	if (!fp)
-		return -1;
+		return "";
 
 	//Store all geometry data
 	fwrite(&buildSettings, sizeof(BuildSettings), 1, fp);
@@ -50,18 +51,12 @@ uint ImporterNavMesh::Save(const char* assets_path, dtNavMesh* navMesh, BuildSet
 
 	fclose(fp);
 
-	/*int uid = EngineExternal->moduleResources->ImportFile(assets_path, Resource::Type::NAVMESH);
-	EngineExternal->moduleResources->GenerateMeta(assets_path, EngineExternal->moduleResources->GenLibraryPath(uid, Resource::Type::NAVMESH).c_str(),
-		uid, Resource::Type::NAVMESH);*/
-
-	return UID;
+	return path;
 }
 
-dtNavMesh* ImporterNavMesh::Load(uint navMeshResourceUID, BuildSettings& buildSettings)
+dtNavMesh* ImporterNavMesh::Load(const char* path, BuildSettings& buildSettings)
 {
-	std::string libraryPath = External->fileSystem->libraryNavMeshPath + std::to_string(navMeshResourceUID) + ".nav";
-
-	FILE* fp = fopen(libraryPath.c_str(), "rb");
+	FILE* fp = fopen(path, "rb");
 	if (!fp)
 		return nullptr;
 

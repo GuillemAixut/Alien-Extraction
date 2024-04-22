@@ -463,6 +463,32 @@ void ClearForces(MonoObject* obj) {
 //
 //}
 
+MonoObject* RaycastHit(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght) {
+
+	if (External == nullptr)
+		return false;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+
+	float3 pOrigin = External->moduleMono->UnboxVector(origin);
+
+	btVector3 fOrigin;
+
+	fOrigin.setX(pOrigin.x);
+	fOrigin.setY(pOrigin.y);
+	fOrigin.setZ(pOrigin.z);
+
+	float3 pdirection = External->moduleMono->UnboxVector(direction);
+
+	btVector3 fdirection;
+
+	fdirection.setX(pdirection.x);
+	fdirection.setY(pdirection.y);
+	fdirection.setZ(pdirection.z);
+
+	return External->moduleMono->GoToCSGO(External->physics->RaycastHit(fOrigin, fdirection, rayLenght));
+}
+
 bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, MonoObject* gameObject) {
 
 	if (External == nullptr)
@@ -752,7 +778,7 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 	//Hace unbox de los parametros de transform pasados
 	float3 posVector = External->moduleMono->UnboxVector(position);
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(1, 1, 3);
+	float3 scaleVector = float3(1, 1, 50);
 
 
 	//Añade RigidBody a la bala

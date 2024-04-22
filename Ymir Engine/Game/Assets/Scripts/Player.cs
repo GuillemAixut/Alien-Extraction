@@ -134,6 +134,7 @@ public class Player : YmirComponent
 
     private float angle;
     private bool has360;
+    float initRot;
 
     //--------------------- Acidic Spit ------------------------\\
     private float acidicTimer;
@@ -147,7 +148,6 @@ public class Player : YmirComponent
     #region DEFINE MENUS
 
     private string currentMenu = "";
-    private bool menuOpen = false;
     public bool setHover = false; // Guarrada temporal
 
     #endregion
@@ -252,6 +252,21 @@ public class Player : YmirComponent
         if (Input.GetKey(YmirKeyCode.F1) == KeyState.KEY_DOWN)
         {
             godMode = !godMode;
+        }
+
+        if (Input.GetKey(YmirKeyCode.KP_1) == KeyState.KEY_DOWN)
+        {
+            weaponType = WEAPON.SMG;
+        }
+
+        if (Input.GetKey(YmirKeyCode.KP_2) == KeyState.KEY_DOWN)
+        {
+            weaponType = WEAPON.SHOTGUN;
+        }
+
+        if (Input.GetKey(YmirKeyCode.KP_3) == KeyState.KEY_DOWN)
+        {
+            weaponType = WEAPON.TRACE;
         }
 
         //Debug.Log("swipeCD = " + swipeCDTimer);
@@ -570,7 +585,7 @@ public class Player : YmirComponent
         }
 
         //----------------- Inventory -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN && !menuOpen)
+        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN && currentMenu == "")
         {
             currentMenu = "Inventory Menu";
             ToggleMenu(true);
@@ -579,7 +594,7 @@ public class Player : YmirComponent
         }
 
         //----------------- Upgrade -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN && !menuOpen) // Debug upgrade station
+        if (Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN && currentMenu == "") // Debug upgrade station
         {
             currentMenu = "Upgrade Station";
             ToggleMenu(true);
@@ -1044,6 +1059,11 @@ public class Player : YmirComponent
         // Añadir efecto de sonido
         Audio.PlayAudio(gameObject, "P_Shoot");
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
+
+        //Particles
+        GameObject particles = GetParticles(gameObject, "ParticlesShoot");
+        Particles.PlayEmitter(particles);
+
         //Debug.Log("Shoot!");
 
         if (!godMode)
@@ -1078,6 +1098,22 @@ public class Player : YmirComponent
         //Crea la bala
         //Debug.Log("rot: " + gameObject.transform.localRotation.x + gameObject.transform.localRotation.y + gameObject.transform.localRotation.z + gameObject.transform.localRotation.w);
         //InternalCalls.CreateBullet(pos, rot, scale);
+        //GameObject test = InternalCalls.GetGameObjectByName("Target");
+        GameObject test = new GameObject();
+
+        //if (gameObject.RaycastTest(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 100, test))
+        //{
+        //    Debug.Log("HIT");
+        //}
+        Vector3 shootPos = gameObject.transform.globalPosition;
+        shootPos.y += 15;
+
+        test = gameObject.RaycastHit(shootPos, gameObject.transform.GetForward(), 100);
+        if (test != null)
+        {
+            Debug.Log("HIT");
+            Debug.Log(test.Name);
+        }
 
         inputsList.Add(INPUT.I_SHOOT_END);
     }
@@ -1352,13 +1388,11 @@ public class Player : YmirComponent
         if (!open)
         {
             currentMenu = "";
-            menuOpen = false;
         }
         else
         {
-            menuOpen = true;
             setHover = true;
-            //UI.SetFirstFocused(canvas);
+            UI.SetFirstFocused(canvas);
         }
     }
 
@@ -1489,26 +1523,33 @@ public class Player : YmirComponent
         InternalCalls.CreateTailSensor(pos, rot);
 
         has360 = false;
+        initRot = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
+        angle = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
 
         swipeTimer = swipeDuration;
     }
 
     private void UpdateTailSwipe()
     {
-        if (angle < 360 && has360 == false)
+        //LookAt(3.1415f);
+
+        if (angle < (initRot + 360) && has360 == false)
         {
-            angle += 1;
+            Debug.Log("" + angle);
+            angle += 2;
+            //gameObject.transform.globalRotation.y
+            Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.up);
+            gameObject.SetRotation(targetRotation);
         }
         else
         {
             has360 = true;
-            angle = 0;
         }
 
         //angle += 3 * Time.deltaTime;
-        Quaternion targetRotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.up);
 
-        gameObject.SetRotation(targetRotation);
+
+
     }
 
     private void EndTailSwipe()
@@ -1516,6 +1557,22 @@ public class Player : YmirComponent
         //StopPlayer();
         //Delete de la hitbox de la cola
         swipeCDTimer = swipeCD;
+    }
+
+    public void LookAt(float angle)
+    {
+        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
+            return;
+
+        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
+
+        float rotationSpeed = Time.deltaTime * 1;
+
+
+        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
+
+        gameObject.SetRotation(desiredRotation);
+
     }
 
     #endregion
