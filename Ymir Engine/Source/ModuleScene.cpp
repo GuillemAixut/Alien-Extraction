@@ -414,9 +414,10 @@ void ModuleScene::ClearScene()
 
 void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 {
-	char str[20];
-	sprintf(str, "%u", App->pathFinding->Save(fileName.c_str()));
-	ysceneFile.SetString("NavMesh", str);
+	//char str[20];
+	//sprintf(str, "%u", App->pathFinding->Save((dir + "/" + fileName).c_str()));
+	std::string str = App->pathFinding->Save((dir + "/" + fileName).c_str());
+	ysceneFile.SetString("NavMesh", str.c_str());
 	ysceneFile.SetFloat3("Editor Camera Position", App->camera->editorCamera->GetPos());
 	ysceneFile.SetFloat3("Editor Camera Right (X)", App->camera->editorCamera->GetRight());
 	ysceneFile.SetFloat3("Editor Camera Up (Y)", App->camera->editorCamera->GetUp());
@@ -473,9 +474,9 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 
 	LoadScriptsData();
 
-	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
-	if (navMeshId != -1)
-		External->pathFinding->Load(navMeshId);
+	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
+	if (navMeshPath != "")
+		External->pathFinding->Load(navMeshPath);
 }
 
 void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName)
@@ -590,9 +591,9 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 
 	LoadScriptsData();
 
-	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
-	if (navMeshId != -1)
-		External->pathFinding->Load(navMeshId);
+	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
+	if (navMeshPath != "")
+		External->pathFinding->Load(navMeshPath);
 }
 
 void ModuleScene::Destroy(GameObject* gm)
