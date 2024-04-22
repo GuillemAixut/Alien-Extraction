@@ -65,10 +65,10 @@ public class UI_Upgrade_Station : YmirComponent
         //    }
         //}
 
-        if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
-        {
-            gameObject.SetActive(false);
-        }
+        //if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
+        //{
+        //    gameObject.SetActive(false);
+        //}
 
         return;
     }
