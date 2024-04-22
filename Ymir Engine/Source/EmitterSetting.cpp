@@ -29,7 +29,7 @@ void EmitterSetting::OnInspector()
 
 EmitterBase::EmitterBase()
 {
-	currentShape = SpawnAreaShape::PAR_POINT;
+	currentShape = SpawnAreaShape::PAR_CONE;
 
 	//Point
 	emitterOrigin = float3::zero;
@@ -154,7 +154,6 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}
-
 	}
 		break;
 	case PAR_BOX:
