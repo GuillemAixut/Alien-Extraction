@@ -1066,21 +1066,56 @@ void ModuleEditor::DrawEditor()
 	if (ImGui::Begin(" ", NULL, ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse)) {
 
 		float windowWidth = ImGui::GetWindowWidth();
+		float windowHeight = ImGui::GetWindowHeight();
+
 		float buttonWidth = 50.0f;
 		float posX = (windowWidth - (3 * buttonWidth + 2 * ImGui::GetStyle().ItemSpacing.x)) * 0.5f;
 
+		float posY = 5.0f;
+
 		ImGui::SameLine(20.0f);
+		ImGui::SetCursorPosY(posY);
 
 		ImGui::TextColored(ImVec4(0.7f, 0.7f, 1.0f, 1.0f), "Graphics Time: %.3f", TimeManager::graphicsTimer.ReadSec());
 
 		ImGui::SameLine();
 		ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 20.0f);
+		ImGui::SetCursorPosY(posY);
 
 		ImGui::TextColored(ImVec4(0.7f, 0.7f, 1.0f, 1.0f), "Frame Count: %d", TimeManager::FrameCount);
 
 		ImGui::SameLine();
+		ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 20.0f);
+		ImGui::SetCursorPosY(posY);
+
+		ImGui::PushItemWidth(100.0f);
+
+		static float targetFPS = App->GetTargetFPS();
+
+		if (ImGui::SliderFloat("Target FPS", &targetFPS, 30.0f, 144.0f, "%1.0f"))
+		{
+			App->SetTargetFPS(targetFPS);
+		}
+
+		ImGui::SameLine();
+		ImGui::SetCursorPosY(posY);
+
+		ImGui::PushItemWidth(-1);
+
+		if (ImGui::Button("Reset##1"))
+		{
+			targetFPS = 60.0f;
+			App->SetTargetFPS(targetFPS);
+		}
+
+		ImGui::SameLine();
+		ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 20.0f);
+		ImGui::SetCursorPosY(posY);
+
+		ImGui::TextColored(ImVec4(0.7f, 0.7f, 1.0f, 1.0f), "FPS: %.2f", 1 / TimeManager::DeltaTime);
 
 		ImGui::SetCursorPosX(posX);
+		ImGui::SetCursorPosY(posY);
 
 #ifdef _STANDALONE
 		static bool isPlaying = true;
@@ -1177,7 +1212,7 @@ void ModuleEditor::DrawEditor()
 
 		ImGui::SameLine();
 
-		if (ImGui::Button("Reset"))
+		if (ImGui::Button("Reset##2"))
 		{
 			scale = 1.0f;
 			TimeManager::gameTimer.SetTimeScale(scale);

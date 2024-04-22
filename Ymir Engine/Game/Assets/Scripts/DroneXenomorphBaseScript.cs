@@ -52,7 +52,7 @@ public class DroneXenomorphBaseScript : YmirComponent
     private float tailRange;
 
 	//FOR GENERAL TIME MANAGEMENT
-	private float timeCounter;
+	public float timeCounter;
 	private float timeLimit;
 
 	public void Start()

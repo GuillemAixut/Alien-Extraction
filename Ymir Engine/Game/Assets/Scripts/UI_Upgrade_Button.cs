@@ -44,6 +44,7 @@ public class UI_Upgrade_Button : YmirComponent
     {
         return;
     }
+
     public void OnClickButton()
     {
         if (!upgrade.isUnlocked && currentStation.currentScore >= upgrade.cost)
@@ -83,7 +84,10 @@ public class UI_Upgrade_Button : YmirComponent
 
     public void OnHoverButton()
     {
-        UI.TextEdit(currentStation.description, upgrade.description);
-        UI.TextEdit(currentStation.cost, upgrade.cost.ToString());
+        if (currentStation != null)
+        {
+            UI.TextEdit(currentStation.description, upgrade.description);
+            UI.TextEdit(currentStation.cost, upgrade.cost.ToString());
+        }
     }
 }

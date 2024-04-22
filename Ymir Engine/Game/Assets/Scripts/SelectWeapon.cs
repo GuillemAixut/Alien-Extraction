@@ -103,29 +103,32 @@ public class SelectWeapon : YmirComponent
 
     public void OnHoverButton()
     {
-        switch ((WEAPON_TYPE)weapon)
+        if (levelSelector != null)
         {
-            case WEAPON_TYPE.NONE:
-                {
-                    UI.TextEdit(levelSelector.weaponText, "");
-                }
-                break;
-            case WEAPON_TYPE.SMG:
-                {
-                    UI.TextEdit(levelSelector.weaponText, "SMG - Pew Pew rapido");
-                }
-                break;
-            case WEAPON_TYPE.SHOTGUN:
-                {
-                    UI.TextEdit(levelSelector.weaponText, "SHOTGUN - Pew Pew lento");
-                }
-                break;
-            case WEAPON_TYPE.PLASMA:
-                {
-                    UI.TextEdit(levelSelector.weaponText, "PLASMA - mucho rango == mucho dmg");
-                }
-                break;
+            switch ((WEAPON_TYPE)weapon)
+            {
+                case WEAPON_TYPE.NONE:
+                    {
+                        UI.TextEdit(levelSelector.weaponText, "");
+                    }
+                    break;
+                case WEAPON_TYPE.SMG:
+                    {
+                        UI.TextEdit(levelSelector.weaponText, "SMG - Pew Pew rapido");
+                    }
+                    break;
+                case WEAPON_TYPE.SHOTGUN:
+                    {
+                        UI.TextEdit(levelSelector.weaponText, "SHOTGUN - Pew Pew lento");
+                    }
+                    break;
+                case WEAPON_TYPE.PLASMA:
+                    {
+                        UI.TextEdit(levelSelector.weaponText, "PLASMA - mucho rango == mucho dmg");
+                    }
+                    break;
 
+            }
         }
     }
 }
