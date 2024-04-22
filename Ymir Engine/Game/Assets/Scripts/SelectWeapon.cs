@@ -114,17 +114,17 @@ public class SelectWeapon : YmirComponent
                     break;
                 case WEAPON_TYPE.SMG:
                     {
-                        UI.TextEdit(levelSelector.weaponText, "SMG - Pew Pew rapido");
+                        UI.TextEdit(levelSelector.weaponText, "The “S.T.A.P.L.E.R.” is a fast submachine \ngun capable of blasting multiple \nlow damage bullets in less than \na second, perfect for a fast cleaning.");
                     }
                     break;
                 case WEAPON_TYPE.SHOTGUN:
                     {
-                        UI.TextEdit(levelSelector.weaponText, "SHOTGUN - Pew Pew lento");
+                        UI.TextEdit(levelSelector.weaponText, "The “Spar-X” is a shotgun that allows \nyou to eliminate multiple enemies in \none shot, perfect for close-distance combat.");
                     }
                     break;
                 case WEAPON_TYPE.PLASMA:
                     {
-                        UI.TextEdit(levelSelector.weaponText, "PLASMA - mucho rango == mucho dmg");
+                        UI.TextEdit(levelSelector.weaponText, "The “EM-MK2” is a plasma weapon capable\nof firing a constant beam of lethal \nenergy, ideal for suppressing enemies\n in medium and long-range combat. ");
                     }
                     break;
 
