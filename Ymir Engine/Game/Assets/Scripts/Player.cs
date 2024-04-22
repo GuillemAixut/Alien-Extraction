@@ -1058,6 +1058,11 @@ public class Player : YmirComponent
         // Añadir efecto de sonido
         Audio.PlayAudio(gameObject, "P_Shoot");
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
+
+        //Particles
+        GameObject particles = GetParticles(gameObject, "ParticlesShoot");
+        Particles.PlayEmitter(particles);
+
         //Debug.Log("Shoot!");
 
         if (!godMode)
