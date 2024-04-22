@@ -40,17 +40,13 @@ public class UI_Inventory : YmirComponent
             GetPlayerScript();
         }
 
-        //if (_player != null && _player.setHover)
-        //{
-        //    Debug.Log("set first");
-        //   UI.SetFirstFocused(gameObject);
-        //    _player.setHover = false;
-        //}
-
-        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
+        if (_player != null && _player.setHover)
         {
             Debug.Log("set first");
-            //UI.SetFirstFocused(gameObject); // TODO: MissingMethodException WHY?
+            goDescription.SetActive(false);// TODO: when menu opened
+            goText.SetActive(false);
+
+            _player.setHover = false;
         }
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
