@@ -39,7 +39,8 @@ public class OpenMenu_OnCollision : YmirComponent
         if (other.Tag == "Player" || other.Name == "Player")
         {
             canvas.SetActive(true);
-            UI.SetFirstFocused(canvas);
+            //UI.SetFirstFocused(canvas);
+            player.setHover = true;
             player.PlayerStopState(true);
         }
     }

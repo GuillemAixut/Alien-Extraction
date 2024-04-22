@@ -30,11 +30,17 @@ public class UI_Inventory : YmirComponent
 
     public void Update()
     {
-        //if (UI.GetFocused() == null || !UI.CheckUI(UI.GetFocused(), gameObject))
-        //{
-        //    Debug.Log("set first");
-        //    UI.SetFirstFocused(gameObject);
-        //}
+        if (_player == null)
+        {
+            GetPlayerScript();
+        }
+
+        if (_player != null && _player.setHover)
+        {
+            Debug.Log("set first");
+           //UI.SetFirstFocused(gameObject);
+            _player.setHover = false;
+        }
 
         if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
         {

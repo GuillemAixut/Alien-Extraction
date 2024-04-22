@@ -58,25 +58,25 @@ public class UI_Inventory_Grid : YmirComponent
             }
         }
 
-        if (Input.GetLeftAxisX() > 0 && _canTab)
+        if ((Input.GetLeftAxisX() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN) && _canTab)
         {
             _canTab = false;
             UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteX, leftGrid, rightGrid, bounceX, childX);
         }
 
-        else if (Input.GetLeftAxisX() < 0 && _canTab)
+        else if ((Input.GetLeftAxisX() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN) && _canTab)
         {
             _canTab = false;
             UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteX, leftGrid, rightGrid, bounceX, childX);
         }
 
-        else if (Input.GetLeftAxisY() > 0 && _canTab)
+        else if ((Input.GetLeftAxisY() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_DOWN) == KeyState.KEY_DOWN) && _canTab)
         {
             _canTab = false;
             UI.NavigateGridVertical(gameObject, rows, cols, true, naviagteY, downGrid, upGrid, bounceY, childY);
         }
 
-        else if (Input.GetLeftAxisY() < 0 && _canTab)
+        else if ((Input.GetLeftAxisY() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_UP) == KeyState.KEY_DOWN) && _canTab)
         {
             _canTab = false;
             UI.NavigateGridVertical(gameObject, rows, cols, false, naviagteY, downGrid, upGrid, bounceY, childY);
