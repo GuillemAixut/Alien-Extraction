@@ -40,13 +40,13 @@ public class DroneXenomorphBaseScript : YmirComponent
 	private float wanderRange;
 
 	//Claw
-	private float clawDamage;
+	//private float clawDamage;
 	private float clawCooldown;
     private float clawCooldownTime;
     private float clawRange;
 
 	//Tail
-	private float tailDamage;
+	//private float tailDamage;
 	private float tailCooldown;
     private float tailCooldownTime;
     private float tailRange;
@@ -74,13 +74,13 @@ public class DroneXenomorphBaseScript : YmirComponent
         wanderRange = 100f;
 
         //Claw
-        clawDamage = 150f;
+        //clawDamage = 150f;
 		clawCooldown = 2f;
         clawCooldownTime = 0f;
         clawRange = 20f;
 
 		//Tail
-		tailDamage = 200f;
+		//tailDamage = 200f;
 		tailCooldown = 6f;
         tailCooldownTime = 0f;
         tailRange = 30f;

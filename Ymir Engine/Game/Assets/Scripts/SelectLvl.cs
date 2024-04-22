@@ -112,29 +112,32 @@ public class SelectLvl : YmirComponent
 
     public void OnHoverButton()
     {
-        switch ((LEVELS)lvl)
+        if (levelSelector != null)
         {
-            case LEVELS.NONE:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "");
-                }
-                break;
-            case LEVELS.WAREHOUSE:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "WAREHOUSE - Donde estan \nlas descripciones?");
-                }
-                break;
-            case LEVELS.LAB:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "LAB - En el gdd no estan");
-                }
-                break;
-            case LEVELS.HATCHERY:
-                {
-                    UI.TextEdit(levelSelector.lvlText, "HATCHERY - AAA");
-                }
-                break;
+            switch ((LEVELS)lvl)
+            {
+                case LEVELS.NONE:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "");
+                    }
+                    break;
+                case LEVELS.WAREHOUSE:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "WAREHOUSE - Donde estan \nlas descripciones?");
+                    }
+                    break;
+                case LEVELS.LAB:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "LAB - En el gdd no estan");
+                    }
+                    break;
+                case LEVELS.HATCHERY:
+                    {
+                        UI.TextEdit(levelSelector.lvlText, "HATCHERY - AAA");
+                    }
+                    break;
 
+            }
         }
     }
 }

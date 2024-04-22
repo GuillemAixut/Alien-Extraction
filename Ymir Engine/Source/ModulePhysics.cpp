@@ -653,10 +653,6 @@ bool ModulePhysics::RaycastTest(btVector3 origin, btVector3 direction, float ray
 
 	world->rayTest(origin, end, rayCallback);
 
-	glBegin(GL_LINE);
-	glVertex3f();
-	glEnd();
-
 	if (rayCallback.hasHit()) {
 
 		for (int i = 0; i < rayCallback.m_collisionObjects.size(); i++) {

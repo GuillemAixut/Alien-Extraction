@@ -1,4 +1,5 @@
 {
+    "NavMesh": "4294967295",
     "Editor Camera Position": [
         -36,
         48,
@@ -22,11 +23,12 @@
     "Hierarchy": [
         {
             "Name": "Scene",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1406306264,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1028818973,
+            "Parent UID": 1406306264,
             "Components": [
                 {
                     "Type": "Transform",
@@ -55,6 +57,7 @@
         },
         {
             "Name": "Main Camera",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 598771385,
             "Active": true,
@@ -121,6 +124,7 @@
         },
         {
             "Name": "Level Selection Canvas",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 365492027,
             "Active": true,
@@ -152,8 +156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 513,
-                    "Height": 609,
+                    "Width": 1861,
+                    "Height": 1080,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -166,11 +170,12 @@
             ],
             "Children UID": [
                 815848601,
-                576447595
+                1180200894
             ]
         },
         {
             "Name": "Background",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 815848601,
             "Active": true,
@@ -219,10 +224,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -248,6 +253,7 @@
         },
         {
             "Name": "Lvl Selector",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1384942655,
             "Active": true,
@@ -295,10 +301,10 @@
                     "Font size": 30,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -309,6 +315,7 @@
         },
         {
             "Name": "Weapon Selector",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1514367215,
             "Active": true,
@@ -356,10 +363,10 @@
                     "Font size": 30,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -370,6 +377,7 @@
         },
         {
             "Name": "Grid",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 73189607,
             "Active": true,
@@ -404,7 +412,14 @@
                     "cols": 2,
                     "leftGridName": "",
                     "rightGridName": "",
-                    "naviagteGrids": true
+                    "downGridName": "Grid Raid",
+                    "upGridName": "",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -418,6 +433,7 @@
         },
         {
             "Name": "Lvl (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1029089681,
             "Active": true,
@@ -466,10 +482,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -495,35 +511,35 @@
                     "Is interactable": true,
                     "Text": 1389414915,
                     "Image": 1029089681,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonUnselected.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Lava.png",
                     "Focused color": [
                         0,
-                        1,
                         0,
-                        1
+                        0,
+                        0
                     ],
                     "Pressed color": [
-                        1,
                         0,
-                        1,
-                        1
+                        0,
+                        0,
+                        0
                     ],
                     "Selected color": [
                         0,
                         0,
-                        1,
-                        1
+                        0,
+                        0
                     ],
                     "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -542,6 +558,7 @@
         },
         {
             "Name": "Text (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1389414915,
             "Active": true,
@@ -589,10 +606,10 @@
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -603,6 +620,7 @@
         },
         {
             "Name": "Lock (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 894515750,
             "Active": true,
@@ -651,10 +669,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -665,6 +683,7 @@
         },
         {
             "Name": "Lvl (2)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 982789995,
             "Active": true,
@@ -713,10 +732,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -742,35 +761,35 @@
                     "Is interactable": true,
                     "Text": 1255638116,
                     "Image": 982789995,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonUnselected.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Lava.png",
                     "Focused color": [
                         0,
-                        1,
                         0,
-                        1
+                        0,
+                        0
                     ],
                     "Pressed color": [
-                        1,
                         0,
-                        1,
-                        1
+                        0,
+                        0,
+                        0
                     ],
                     "Selected color": [
                         0,
                         0,
-                        1,
-                        1
+                        0,
+                        0
                     ],
                     "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -789,6 +808,7 @@
         },
         {
             "Name": "Text (2)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1255638116,
             "Active": true,
@@ -836,10 +856,10 @@
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -850,6 +870,7 @@
         },
         {
             "Name": "Lock (2)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1856286275,
             "Active": true,
@@ -898,10 +919,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -912,6 +933,7 @@
         },
         {
             "Name": "Lvl (3)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 481170743,
             "Active": true,
@@ -960,10 +982,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -989,35 +1011,35 @@
                     "Is interactable": true,
                     "Text": 841147879,
                     "Image": 481170743,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonUnselected.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Lava.png",
                     "Focused color": [
                         0,
-                        1,
                         0,
-                        1
+                        0,
+                        0
                     ],
                     "Pressed color": [
-                        1,
                         0,
-                        1,
-                        1
+                        0,
+                        0,
+                        0
                     ],
                     "Selected color": [
                         0,
                         0,
-                        1,
-                        1
+                        0,
+                        0
                     ],
                     "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1036,6 +1058,7 @@
         },
         {
             "Name": "Text (3)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 841147879,
             "Active": true,
@@ -1083,10 +1106,10 @@
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1097,6 +1120,7 @@
         },
         {
             "Name": "Lock (3)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 700192384,
             "Active": true,
@@ -1145,10 +1169,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1159,6 +1183,7 @@
         },
         {
             "Name": "Weapon (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1489064132,
             "Active": true,
@@ -1207,10 +1232,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1236,35 +1261,35 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 1489064132,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/SmgUnselected.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/SmgHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/SmgPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/SmgHover.png",
+                    "Normal": ".\/Library\/Textures\/1748176977.dds",
+                    "Focused": ".\/Library\/Textures\/2048616731.dds",
+                    "Pressed": ".\/Library\/Textures\/2058122151.dds",
+                    "Selected": ".\/Library\/Textures\/2048616731.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
                         0,
-                        1,
                         0,
-                        1
+                        0,
+                        0
                     ],
                     "Pressed color": [
-                        1,
                         0,
-                        1,
-                        1
+                        0,
+                        0,
+                        0
                     ],
                     "Selected color": [
                         0,
                         0,
-                        1,
-                        1
+                        0,
+                        0
                     ],
                     "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1278,6 +1303,7 @@
         },
         {
             "Name": "Weapon (2)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 314406228,
             "Active": true,
@@ -1326,10 +1352,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1355,35 +1381,35 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 314406228,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/ShotgunUnselected.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/ShotgunHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/ShotgunPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/ShotgunHover.png",
+                    "Normal": ".\/Library\/Textures\/1454675499.dds",
+                    "Focused": ".\/Library\/Textures\/1318329773.dds",
+                    "Pressed": ".\/Library\/Textures\/974004735.dds",
+                    "Selected": ".\/Library\/Textures\/1318329773.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
                         0,
-                        1,
                         0,
-                        1
+                        0,
+                        0
                     ],
                     "Pressed color": [
-                        1,
                         0,
-                        1,
-                        1
+                        0,
+                        0,
+                        0
                     ],
                     "Selected color": [
                         0,
                         0,
-                        1,
-                        1
+                        0,
+                        0
                     ],
                     "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1397,6 +1423,7 @@
         },
         {
             "Name": "Weapon (3)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1271137560,
             "Active": true,
@@ -1445,10 +1472,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1474,35 +1501,35 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 1271137560,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/LaserUnselected.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/LaserHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/LaserPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/LaserHover.png",
+                    "Normal": ".\/Library\/Textures\/593917124.dds",
+                    "Focused": ".\/Library\/Textures\/2114463967.dds",
+                    "Pressed": ".\/Library\/Textures\/379505121.dds",
+                    "Selected": ".\/Library\/Textures\/2114463967.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
                         0,
-                        1,
                         0,
-                        1
+                        0,
+                        0
                     ],
                     "Pressed color": [
-                        1,
                         0,
-                        1,
-                        1
+                        0,
+                        0,
+                        0
                     ],
                     "Selected color": [
                         0,
                         0,
-                        1,
-                        1
+                        0,
+                        0
                     ],
                     "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1516,6 +1543,7 @@
         },
         {
             "Name": "Lvl description",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1445816975,
             "Active": true,
@@ -1563,10 +1591,10 @@
                     "Font size": 15,
                     "Line Spacing": 3.2999999523162842,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1577,6 +1605,7 @@
         },
         {
             "Name": "Weapon description",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 642862657,
             "Active": true,
@@ -1624,10 +1653,10 @@
                     "Font size": 15,
                     "Line Spacing": 3.2999999523162842,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1637,12 +1666,64 @@
             ]
         },
         {
+            "Name": "Grid Raid",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1180200894,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 365492027,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": "Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "childX": 0,
+                    "childY": 0
+                }
+            ],
+            "Children UID": [
+                576447595
+            ]
+        },
+        {
             "Name": "Go to raid",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 576447595,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 365492027,
+            "Parent UID": 1180200894,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1679,17 +1760,17 @@
                         324,
                         102
                     ],
-                    "Path": "Assets\/UI\/Teleport Buttons\/GoToRaidBlocked.png",
+                    "Path": ".\/Library\/Textures\/1672199877.dds",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1715,35 +1796,35 @@
                     "Is interactable": true,
                     "Text": 1445646835,
                     "Image": 576447595,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/GoToRaidUnselected.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/GoToRaidHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/GoToRaidPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/GoToRaidHover.png",
+                    "Normal": ".\/Library\/Textures\/99857578.dds",
+                    "Focused": ".\/Library\/Textures\/1449995463.dds",
+                    "Pressed": ".\/Library\/Textures\/1812459137.dds",
+                    "Selected": ".\/Library\/Textures\/1449995463.dds",
                     "Release": "Assets\/Baker_house.png",
-                    "Disabled": "Assets\/UI\/Teleport Buttons\/GoToRaidBlocked.png",
+                    "Disabled": ".\/Library\/Textures\/1672199877.dds",
                     "Focused color": [
                         0,
-                        1,
                         0,
-                        1
+                        0,
+                        0
                     ],
                     "Pressed color": [
-                        1,
                         0,
-                        1,
-                        1
+                        0,
+                        0,
+                        0
                     ],
                     "Selected color": [
                         0,
                         0,
-                        1,
-                        1
+                        0,
+                        0
                     ],
                     "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -1760,6 +1841,7 @@
         },
         {
             "Name": "Text Button",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1445646835,
             "Active": true,
@@ -1807,10 +1889,10 @@
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {

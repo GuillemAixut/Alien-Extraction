@@ -32,6 +32,8 @@ public class BaseTeleporter : YmirComponent
 
     private GameObject _grid;
 
+    private Player _player = null;
+
     //public string[] lvlDescriptions = new string[3];
     //public string[] weaponDescriptions = new string[3];
 
@@ -56,7 +58,9 @@ public class BaseTeleporter : YmirComponent
         selectedLvl = LEVELS.NONE;
         selectedWeapon = WEAPON_TYPE.NONE;
 
-        _grid = InternalCalls.GetGameObjectByName("Grid"); 
+        _grid = InternalCalls.GetGameObjectByName("Grid");
+
+        GetPlayerScript();
 
         //lvlDescriptions.Add("WAREHOUSE");
         //lvlDescriptions.Add("LAB");
@@ -72,6 +76,18 @@ public class BaseTeleporter : YmirComponent
 
     public void Update()
     {
+        if (_player == null)
+        {
+            GetPlayerScript();
+        }
+
+        //if (_player != null && _player.setHover)
+        //{
+        //    Debug.Log("set first");
+        //    UI.SetFirstFocused(gameObject);
+        //    _player.setHover = false;
+        //}
+
         // TODO: delete this
         if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
         {
@@ -128,5 +144,15 @@ public class BaseTeleporter : YmirComponent
         }
 
         return;
+    }
+
+    private void GetPlayerScript()
+    {
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            _player = gameObject.GetComponent<Player>();
+        }
     }
 }

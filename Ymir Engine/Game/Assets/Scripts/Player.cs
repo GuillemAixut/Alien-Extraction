@@ -147,6 +147,7 @@ public class Player : YmirComponent
     #region DEFINE MENUS
 
     private string currentMenu = "";
+    public bool setHover = false; // Guarrada temporal
 
     #endregion
 
@@ -568,7 +569,7 @@ public class Player : YmirComponent
         }
 
         //----------------- Inventory -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN)
+        if (Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN && currentMenu == "")
         {
             currentMenu = "Inventory Menu";
             ToggleMenu(true);
@@ -577,7 +578,7 @@ public class Player : YmirComponent
         }
 
         //----------------- Upgrade -----------------\\
-        if (Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN) // Debug upgrade station
+        if (Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN && currentMenu == "") // Debug upgrade station
         {
             currentMenu = "Upgrade Station";
             ToggleMenu(true);
@@ -1353,7 +1354,8 @@ public class Player : YmirComponent
         }
         else
         {
-            //UI.SetFirstFocused(canvas);
+            setHover = true;
+            UI.SetFirstFocused(canvas);
         }
     }
 

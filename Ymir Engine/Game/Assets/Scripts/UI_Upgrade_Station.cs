@@ -12,6 +12,7 @@ public class UI_Upgrade_Station : YmirComponent
     public int currentScore;// Put in player
 
     public GameObject description, cost, coins;
+    private Player _player = null;
 
     public void Start()
     {
@@ -20,11 +21,24 @@ public class UI_Upgrade_Station : YmirComponent
         cost = InternalCalls.GetChildrenByName(gameObject, "Cost");        
         coins = InternalCalls.GetChildrenByName(gameObject, "Coins");
         UI.TextEdit(coins, currentScore.ToString());
-        
+        GetPlayerScript();
+
     }
 
     public void Update()
     {
+        if (_player == null)
+        {
+            GetPlayerScript();
+        }
+
+        //if (_player != null && _player.setHover)
+        //{
+        //    Debug.Log("set first");
+        //    UI.SetFirstFocused(gameObject);
+        //    _player.setHover = false;
+        //}
+
         if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
         {
             UI.SetFirstFocused(gameObject); 
@@ -51,10 +65,10 @@ public class UI_Upgrade_Station : YmirComponent
         //    }
         //}
 
-        if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
-        {
-            gameObject.SetActive(false);
-        }
+        //if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
+        //{
+        //    gameObject.SetActive(false);
+        //}
 
         return;
     }
@@ -62,5 +76,15 @@ public class UI_Upgrade_Station : YmirComponent
     public void UpdateCoins()
     {
         UI.TextEdit(coins, currentScore.ToString());
+    }
+
+    private void GetPlayerScript()
+    {
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            _player = gameObject.GetComponent<Player>();
+        }
     }
 }

@@ -19,27 +19,34 @@ public class UI_Inventory : YmirComponent
     {
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();
+
         goDescription = InternalCalls.GetGameObjectByName("Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
         goText = InternalCalls.GetGameObjectByName("Item Description Text");
         goDescription.SetActive(false);// TODO: when menu opened
         goText.SetActive(false);
+       
         _disable = false;
         _show = false;
+
         GetPlayerScript();
+
+        //UI.SetFirstFocused(gameObject); // TODO: MissingMethodException WHY?
     }
 
     public void Update()
     {
-        //if (UI.GetFocused() == null || !UI.CheckUI(UI.GetFocused(), gameObject))
-        //{
-        //    Debug.Log("set first");
-        //    UI.SetFirstFocused(gameObject);
-        //}
+        if (_player == null)
+        {
+            GetPlayerScript();
+        }
 
-        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
+        if (_player != null && _player.setHover)
         {
             Debug.Log("set first");
-            UI.SetFirstFocused(gameObject); // TODO: MissingMethodException WHY?
+            goDescription.SetActive(false);// TODO: when menu opened
+            goText.SetActive(false);
+
+            _player.setHover = false;
         }
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
@@ -79,13 +86,19 @@ public class UI_Inventory : YmirComponent
 
             if (focusedGO.GetComponent<UI_Item_Button>() != null && _droppable)
             {
+                Debug.Log(" " + focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
+                Debug.Log(" " + focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+
                 if (((focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE ||
                                 focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.SAVE) &&
                                 focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE) &&
                                 Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
                 {
+                    Debug.Log("333333");
                     focusedGO.GetComponent<UI_Item_Button>().item.currentSlot = ITEM_SLOT.NONE;
+                    Debug.Log("444444444");
                     focusedGO.GetComponent<UI_Item_Button>().item.itemType = ITEM_SLOT.NONE;
+                    Debug.Log("66666666666");
 
                     // Add real art and other stuff
                     UI.ChangeImageUI(focusedGO, "Assets/UI/Inventory Buttons/InventorySlotUnselected.png", (int)UI_STATE.NORMAL);

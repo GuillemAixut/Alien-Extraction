@@ -94,6 +94,8 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets", "Pollo Loco");
 	//LoadSceneFromStart("Assets", "ParticleTest");
 
+	//LoadSceneFromStart("Assets/Prefabs", "Prueba de Pruebas");
+
 #endif // _RELEASE
 
 #ifdef _STANDALONE

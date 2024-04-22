@@ -21,7 +21,7 @@ public class PickUp : YmirComponent
 
 	public void OnCollisionStay(GameObject other)
 	{
-		if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
+		if (other.Tag == "Player")
 		{
 			//TODO: Hacer que el item se destruya/elimine
 			gameObject.SetActive(false);
