@@ -109,22 +109,23 @@ update_status ModulePathFinding::Update(float dt)
 	return UPDATE_CONTINUE;
 }
 
-uint ModulePathFinding::Save(const char* scene_path)
+std::string ModulePathFinding::Save(const std::string& scene_path)
 {
-	std::string navMeshPath;
-	//Falta mirar si esto es correcto!!!!
-	External->scene->GetUniqueName(navMeshPath); // no funciona 
-
+	std::string navMeshPath = scene_path;
+	navMeshPath += ".nav";
+//	//Falta mirar si esto es correcto!!!!
+//	External->scene->GetUniqueName(navMeshPath); // no funciona 
+//
 	uint UID = Random::Generate();
-	navMeshPath = std::to_string(UID) + ".nav";
-	std::string libraryPath = External->fileSystem->libraryNavMeshPath + navMeshPath;
-
-	if (PhysfsEncapsule::FileExists(navMeshPath)) {
-		uint UID = Random::Generate();
-		navMeshPath = std::to_string(UID) + ".nav";
-		std::string libraryPath = External->fileSystem->libraryNavMeshPath + navMeshPath;
-
-	}
+//	navMeshPath = std::to_string(UID) + ".nav";
+//	std::string libraryPath = External->fileSystem->libraryNavMeshPath + navMeshPath;
+//
+//	if (PhysfsEncapsule::FileExists(navMeshPath)) {
+//		uint UID = Random::Generate();
+//		navMeshPath = std::to_string(UID) + ".nav";
+//		std::string libraryPath = External->fileSystem->libraryNavMeshPath + navMeshPath;
+//
+//	}
 
 	BuildSettings settings;
 
@@ -132,17 +133,17 @@ uint ModulePathFinding::Save(const char* scene_path)
 	rcVcopy(settings.navMeshBMax, geometry->getNavMeshBoundsMax());
 
 	if (navMeshBuilder == nullptr)
-		return -1;
+		return "";
 
 	navMeshBuilder->CollectSettings(settings);
-
-	return ImporterNavMesh::Save(libraryPath.c_str(), navMeshBuilder->GetNavMesh(), settings, UID);
+	std::string str = ImporterNavMesh::Save(navMeshPath.c_str(), navMeshBuilder->GetNavMesh(), settings, UID);
+	return str;
 }
 
-void ModulePathFinding::Load(uint navMeshResourceUID)
+void ModulePathFinding::Load(const char* path)
 {
 	BuildSettings settings;
-	dtNavMesh* navMesh = ImporterNavMesh::Load(navMeshResourceUID, settings);
+	dtNavMesh* navMesh = ImporterNavMesh::Load(path, settings);
 
 	// If library exists
 	if (navMesh != nullptr)
@@ -368,7 +369,7 @@ void ModulePathFinding::AddGameObjectToNavMesh(GameObject* objectToAdd)
 	navMeshBuilder->HandleSettings();
 	navMeshBuilder->HandleBuild();
 
-	//pathfinder.Init(navMeshBuilder);
+	pathfinder.Init(navMeshBuilder);
 }
 
 NavMeshBuilder* ModulePathFinding::GetNavMeshBuilder()
@@ -446,19 +447,19 @@ void Pathfinder::CleanUp()
 {
 	if (m_navQuery != nullptr) 
 	{
-		delete m_navQuery;
+		//delete m_navQuery;
 		m_navQuery = nullptr;
 	}
 
 	if (m_navMesh != nullptr)
 	{
-		delete m_navMesh;
+		//delete m_navMesh;
 		m_navMesh = nullptr;
 	}
 	
 	if (m_navMeshBuilder != nullptr)
 	{
-		delete m_navMeshBuilder;
+		//delete m_navMeshBuilder;
 		m_navMeshBuilder = nullptr;
 	}
 
