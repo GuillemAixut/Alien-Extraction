@@ -748,10 +748,21 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
+
+		// El resto bien menos semitransparencia
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_ALPHA_TEST);
 		glAlphaFunc(GL_GREATER, 0.5f);
+
+		// alpha semitransparente bien
+		//glEnable(GL_BLEND);
+		//glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+		//glEnable(GL_DEPTH_TEST); // Enable depth testing
+		//glDepthFunc(GL_LEQUAL); // Set the depth test function
+
+		//glDepthMask(GL_FALSE);
+		// glAlphaFunc(GL_GREATER, 0.5f); // Commented out alpha testing
 	}
 
 	//Get UI elements to draw
@@ -777,7 +788,9 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 			if (i == 0) { break; }
 		}
 	}
-	glAlphaFunc(GL_GREATER, 0.0f);
+
+	glDepthMask(GL_TRUE);
+	//glAlphaFunc(GL_GREATER, 0.0f);
 }
 
 void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)

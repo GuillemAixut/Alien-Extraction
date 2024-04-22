@@ -28,7 +28,7 @@
             "UID": 1832630078,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1760844351,
+            "Parent UID": 1588581774,
             "Components": [
                 {
                     "Type": "Transform",
@@ -73,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         40.000007629394531,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -100,17 +100,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        1.4361705780174816e-07,
+                        -1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         1,
-                        -1.4361705780174816e-07
+                        1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -156,7 +156,7 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 585,
+                    "Width": 439,
                     "Height": 457,
                     "UI Type": 0,
                     "UI State": 1,
@@ -205,14 +205,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 0,
+                    "Position Y": 172,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 6,
                     "UI State": 1,
                     "Drag Limits": [
                         0,
-                        0,
+                        172,
                         300,
                         50
                     ],
@@ -223,27 +223,27 @@
                     "Value": 0,
                     "Value min": 0,
                     "Value max": 10,
-                    "Direction": 0,
+                    "Direction": 2,
                     "Focused color": [
                         0,
                         0,
                         0,
-                        1
-                    ],
-                    "Pressed color": [
-                        0,
-                        1,
-                        1,
                         0
                     ],
-                    "Selected color": [
-                        1,
+                    "Pressed color": [
                         1,
                         0,
+                        1,
+                        1
+                    ],
+                    "Selected color": [
+                        0,
+                        1,
+                        1,
                         0
                     ],
                     "Disabled color": [
-                        1,
+                        0,
                         1,
                         1,
                         1
@@ -291,14 +291,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 0,
-                    "Height": 50,
+                    "Position Y": 222,
+                    "Width": 300,
+                    "Height": 0,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         0,
-                        0,
+                        222,
                         0,
                         50
                     ],
