@@ -77,7 +77,7 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
 	//LoadSceneFromStart("Assets/UI/Scenes", "BaseUI");
 	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 
 #ifdef _RELEASE
