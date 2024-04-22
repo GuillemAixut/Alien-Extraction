@@ -200,6 +200,12 @@ namespace YmirEngine
         //public extern bool Raycast(object origin, object direction, float rayLenght, object hitPoints, object hits);
 
         /// <summary>
+        /// Returns the gameObject that has collided with the ray
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern GameObject RaycastHit(object origin, object direction, float rayLenght);
+
+        /// <summary>
         /// Check if a gameObject has collided with a raycast
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]

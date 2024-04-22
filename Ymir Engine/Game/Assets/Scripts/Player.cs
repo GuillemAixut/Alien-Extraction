@@ -254,6 +254,21 @@ public class Player : YmirComponent
             godMode = !godMode;
         }
 
+        if (Input.GetKey(YmirKeyCode.KP_1) == KeyState.KEY_DOWN)
+        {
+            weaponType = WEAPON.SMG;
+        }
+
+        if (Input.GetKey(YmirKeyCode.KP_2) == KeyState.KEY_DOWN)
+        {
+            weaponType = WEAPON.SHOTGUN;
+        }
+
+        if (Input.GetKey(YmirKeyCode.KP_3) == KeyState.KEY_DOWN)
+        {
+            weaponType = WEAPON.TRACE;
+        }
+
         //Debug.Log("swipeCD = " + swipeCDTimer);
     }
 
@@ -1078,6 +1093,22 @@ public class Player : YmirComponent
         //Crea la bala
         //Debug.Log("rot: " + gameObject.transform.localRotation.x + gameObject.transform.localRotation.y + gameObject.transform.localRotation.z + gameObject.transform.localRotation.w);
         //InternalCalls.CreateBullet(pos, rot, scale);
+        //GameObject test = InternalCalls.GetGameObjectByName("Target");
+        GameObject test = new GameObject();
+
+        //if (gameObject.RaycastTest(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 100, test))
+        //{
+        //    Debug.Log("HIT");
+        //}
+        Vector3 shootPos = gameObject.transform.globalPosition;
+        shootPos.y += 15;
+
+        test = gameObject.RaycastHit(shootPos, gameObject.transform.GetForward(), 100);
+        if (test != null)
+        {
+            Debug.Log("HIT");
+            Debug.Log(test.Name);
+        }
 
         inputsList.Add(INPUT.I_SHOOT_END);
     }

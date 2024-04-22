@@ -463,6 +463,32 @@ void ClearForces(MonoObject* obj) {
 //
 //}
 
+MonoObject* RaycastHit(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght) {
+
+	if (External == nullptr)
+		return false;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+
+	float3 pOrigin = External->moduleMono->UnboxVector(origin);
+
+	btVector3 fOrigin;
+
+	fOrigin.setX(pOrigin.x);
+	fOrigin.setY(pOrigin.y);
+	fOrigin.setZ(pOrigin.z);
+
+	float3 pdirection = External->moduleMono->UnboxVector(direction);
+
+	btVector3 fdirection;
+
+	fdirection.setX(pdirection.x);
+	fdirection.setY(pdirection.y);
+	fdirection.setZ(pdirection.z);
+
+	return External->moduleMono->GoToCSGO(External->physics->RaycastHit(fOrigin, fdirection, rayLenght));
+}
+
 bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, MonoObject* gameObject) {
 
 	if (External == nullptr)
