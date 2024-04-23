@@ -74,4 +74,5 @@ namespace PhysfsEncapsule {
     //Get name from any asset path
     std::string GetAssetName(const std::string& path);
     std::string ExtractStringFromCSV(const std::string& filename, const std::vector<std::string>& keys);
+    std::string ExtractStringFromCSV(const std::string& filename);
 }
