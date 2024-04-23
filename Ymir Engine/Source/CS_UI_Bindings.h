@@ -283,7 +283,7 @@ void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
 
 }
 
-void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight, bool navigateGrids, MonoObject* gridLeft, MonoObject* gridRight, bool bounce, int childNavigate = 0)
+void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight, bool navigateGrids, MonoObject* gridLeft, MonoObject* gridRight, bool bounce, int childNavigate = 0, bool isEmpty = false)
 {
 	if (External->scene->canNav)
 	{
@@ -299,16 +299,40 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 			External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
 		}
 
-		for (auto i = 0; i < listOffset.size(); i++)
-		{
-			if (listOffset[i]->mOwner->UID != gameObject->mChildren[0]->UID)
-			{
-				offset++;
-			}
 
-			else
+		if (isEmpty)
+		{
+			std::vector<C_UI*> listCompare;
+			External->scene->GetUINavigate(gameObject->mChildren[0], listCompare);
+
+			for (auto i = 0; i < listOffset.size(); i++)
 			{
-				break;
+				if (listOffset[i]->mOwner->UID != listCompare[0]->mOwner->UID)
+				{
+					offset++;
+				}
+
+				else
+				{
+					break;
+				}
+			}
+		}
+
+		else
+		{
+
+			for (auto i = 0; i < listOffset.size(); i++)
+			{
+				if (listOffset[i]->mOwner->UID != gameObject->mChildren[0]->UID)
+				{
+					offset++;
+				}
+
+				else
+				{
+					break;
+				}
 			}
 		}
 
@@ -548,7 +572,7 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 	}
 }
 
-void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bool navigateGrids, MonoObject* gridDown, MonoObject* gridUp, bool bounce, int childNavigate = 0)
+void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bool navigateGrids, MonoObject* gridDown, MonoObject* gridUp, bool bounce, int childNavigate = 0, bool isEmpty = false)
 {
 	if (External->scene->canNav)
 	{
@@ -564,16 +588,39 @@ void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bo
 			External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
 		}
 
-		for (auto i = 0; i < listOffset.size(); i++)
+		if (isEmpty)
 		{
-			if (listOffset[i]->mOwner->UID != gameObject->mChildren[0]->UID)
-			{
-				offset++;
-			}
+			std::vector<C_UI*> listCompare;
+			External->scene->GetUINavigate(gameObject->mChildren[0], listCompare);
 
-			else
+			for (auto i = 0; i < listOffset.size(); i++)
 			{
-				break;
+				if (listOffset[i]->mOwner->UID != listCompare[0]->mOwner->UID)
+				{
+					offset++;
+				}
+
+				else
+				{
+					break;
+				}
+			}
+		}
+		
+		else
+		{
+
+			for (auto i = 0; i < listOffset.size(); i++)
+			{
+				if (listOffset[i]->mOwner->UID != gameObject->mChildren[0]->UID)
+				{
+					offset++;
+				}
+
+				else
+				{
+					break;
+				}
 			}
 		}
 

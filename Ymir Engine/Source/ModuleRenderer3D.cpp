@@ -748,7 +748,6 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-
 		// El resto bien menos semitransparencia
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

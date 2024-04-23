@@ -667,6 +667,8 @@ void LoadSceneCS(MonoString* scenePath)
 {
 	char* _path = mono_string_to_utf8(scenePath);
 	External->scene->pendingToAddScene = _path;
+
+	External->scene->CheckCurrentMap(_path);
 }
 
 void Destroy(MonoObject* go)
@@ -777,8 +779,10 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 
 	//Hace unbox de los parametros de transform pasados
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(1, 1, 50);
+	//Funciona pero es rarete
+	//Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	Quat rotVector = Quat(0,0,0,0);
+	float3 scaleVector = float3(50, 50, 50);
 
 
 	//Añade RigidBody a la bala
@@ -1075,5 +1079,19 @@ bool IsActiveCS(MonoObject* go)
 	return gameObject->active;
 }
 
+void SetColliderSizeCS(MonoObject* go, MonoObject* vec)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	float3 vector = External->moduleMono->UnboxVector(vec);
+
+	if (gameObject->GetComponent(ComponentType::PHYSICS) != nullptr)
+	{
+		CCollider* physBody = (CCollider*)gameObject->GetComponent(ComponentType::PHYSICS);
+		physBody->shape->setLocalScaling(btVector3(vector.x, vector.y, vector.z));
+
+		RELEASE(physBody);
+	}
+
+}
 
 #pragma endregion

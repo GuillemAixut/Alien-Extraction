@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -101.49321746826172,
-        102.50909423828125,
-        -29.520229339599609
+        -83.847640991210938,
+        94.879898071289062,
+        40.943576812744141
     ],
     "Editor Camera Right (X)": [
-        0.7220160961151123,
-        2.1606683731079102e-06,
-        0.68600618839263916
+        0.85318714380264282,
+        2.0563602447509766e-06,
+        0.513763427734375
     ],
     "Editor Camera Up (Y)": [
-        0.50770300626754761,
-        0.66999596357345581,
-        -0.5343555212020874
+        0.25287893414497375,
+        0.86710107326507568,
+        -0.41994979977607727
     ],
     "Editor Camera Front (Z)": [
-        0.46325165033340454,
-        -0.7398606538772583,
-        -0.48756635189056396
+        0.44900932908058167,
+        -0.49204155802726746,
+        -0.74565058946609497
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 1192284687,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56,7 +57,7 @@
                 484997781,
                 232432059,
                 1495121981,
-                1358728197
+                561936188
             ]
         },
         {
@@ -250,6 +251,7 @@
                     "UID": 0,
                     "currentHealth": 0,
                     "maxHealth": 10,
+                    "armor": 0,
                     "isAlive": false,
                     "debugDmg": 1
                 },
@@ -267,8 +269,14 @@
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,
+                    "reloadDuration": 0,
                     "ammo": 0,
                     "magsize": 5,
+                    "smgRange": 0,
+                    "shootgunRange": 0,
+                    "traceRange": 0,
+                    "damageMultiplier": 0,
+                    "resin": 0,
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
@@ -2050,7 +2058,7 @@
             ]
         },
         {
-            "Name": "Empty",
+            "Name": "Empty (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1794070133,
@@ -3152,7 +3160,7 @@
             "Name": "PROP_WareHouseDoor_LowPoly",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1358728197,
+            "UID": 561936188,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1192284687,
@@ -3161,9 +3169,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        1.0340628623962402,
                         0,
-                        -64.264030456542969
+                        0,
+                        -65.529525756835938
                     ],
                     "Rotation": [
                         -0,
@@ -3178,30 +3186,27 @@
                 }
             ],
             "Children UID": [
-                1647185138,
-                955004789,
-                808295150,
-                999184963,
-                2038207996
+                529243381,
+                1942744883
             ]
         },
         {
             "Name": "DoorFrame2",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1647185138,
+            "UID": 529243381,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/PROP_WareHouseDoor_LowPoly.fbx",
-            "Parent UID": 1358728197,
+            "Parent UID": 561936188,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
-                        0
+                        -22.18574333190918,
+                        3.7079036235809326,
+                        3.3302958011627197
                     ],
                     "Rotation": [
                         -0,
@@ -3209,17 +3214,17 @@
                         -0
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        7.4378900527954102,
+                        7.4378900527954102,
+                        7.4378900527954102
                     ]
                 },
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 454386137,
-                    "Vertex Count": 244,
-                    "Index Count": 420
+                    "UID": 1294287143,
+                    "Vertex Count": 218,
+                    "Index Count": 408
                 },
                 {
                     "Type": "Material",
@@ -3243,36 +3248,32 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 293,
+                    "Diffuse_ID": 286,
                     "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_D.png",
-                    "Diffuse_UID": 2023324069,
-                    "Specular_ID": 309,
+                    "Diffuse_UID": 1094937274,
+                    "Specular_ID": 298,
                     "Specular_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_S.png",
-                    "Specular_UID": 282133221,
-                    "Normal_ID": 305,
+                    "Specular_UID": 1433137365,
+                    "Normal_ID": 294,
                     "Normal_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_N.png",
-                    "Normal_UID": 1349552205,
-                    "Height_ID": 301,
+                    "Normal_UID": 1731537222,
+                    "Height_ID": 290,
                     "Height_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_H.png",
-                    "Height_UID": 1978279427,
-                    "Ambient_ID": 289,
+                    "Height_UID": 470026873,
+                    "Ambient_ID": 282,
                     "Ambient_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_A.png",
-                    "Ambient_UID": 1443264690,
-                    "Emissive_ID": 297,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_E.png",
-                    "Emissive_UID": 1143795754
+                    "Ambient_UID": 779670812
                 }
             ]
         },
         {
-            "Name": "Door_Part9",
+            "Name": "Door",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 955004789,
+            "UID": 1942744883,
             "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/PROP_WareHouseDoor_LowPoly.fbx",
-            "Parent UID": 1358728197,
+            "Element_Type": "None",
+            "Parent UID": 561936188,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3294,64 +3295,63 @@
                     ]
                 },
                 {
-                    "Type": "Mesh",
+                    "Type": "Script",
+                    "ScriptName": "Door.cs",
                     "Active": 1,
-                    "UID": 1769832442,
-                    "Vertex Count": 16,
-                    "Index Count": 36
+                    "UID": 0
                 },
                 {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
                     ],
-                    "Diffuse_ID": 293,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_D.png",
-                    "Diffuse_UID": 2023324069,
-                    "Specular_ID": 309,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_S.png",
-                    "Specular_UID": 282133221,
-                    "Normal_ID": 305,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_N.png",
-                    "Normal_UID": 1349552205,
-                    "Height_ID": 301,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_H.png",
-                    "Height_UID": 1978279427,
-                    "Ambient_ID": 289,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_A.png",
-                    "Ambient_UID": 1443264690,
-                    "Emissive_ID": 297,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_E.png",
-                    "Emissive_UID": 1143795754
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        36.099998474121094,
+                        73.800003051757812,
+                        31.100000381469727
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
                 }
+            ],
+            "Children UID": [
+                485873111,
+                1216118405,
+                1252600097,
+                1730868769
             ]
         },
         {
-            "Name": "Door_Part10",
+            "Name": "Door_Part12",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 808295150,
+            "UID": 485873111,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/PROP_WareHouseDoor_LowPoly.fbx",
-            "Parent UID": 1358728197,
+            "Parent UID": 1942744883,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3375,9 +3375,9 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 574831934,
-                    "Vertex Count": 590,
-                    "Index Count": 1212
+                    "UID": 1063011626,
+                    "Vertex Count": 124,
+                    "Index Count": 198
                 },
                 {
                     "Type": "Material",
@@ -3401,24 +3401,21 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 293,
+                    "Diffuse_ID": 286,
                     "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_D.png",
-                    "Diffuse_UID": 2023324069,
-                    "Specular_ID": 309,
+                    "Diffuse_UID": 1094937274,
+                    "Specular_ID": 298,
                     "Specular_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_S.png",
-                    "Specular_UID": 282133221,
-                    "Normal_ID": 305,
+                    "Specular_UID": 1433137365,
+                    "Normal_ID": 294,
                     "Normal_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_N.png",
-                    "Normal_UID": 1349552205,
-                    "Height_ID": 301,
+                    "Normal_UID": 1731537222,
+                    "Height_ID": 290,
                     "Height_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_H.png",
-                    "Height_UID": 1978279427,
-                    "Ambient_ID": 289,
+                    "Height_UID": 470026873,
+                    "Ambient_ID": 282,
                     "Ambient_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_A.png",
-                    "Ambient_UID": 1443264690,
-                    "Emissive_ID": 297,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_E.png",
-                    "Emissive_UID": 1143795754
+                    "Ambient_UID": 779670812
                 }
             ]
         },
@@ -3426,11 +3423,11 @@
             "Name": "Door_Part11",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 999184963,
+            "UID": 1216118405,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/PROP_WareHouseDoor_LowPoly.fbx",
-            "Parent UID": 1358728197,
+            "Parent UID": 1942744883,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3454,9 +3451,9 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 754075297,
-                    "Vertex Count": 88,
-                    "Index Count": 132
+                    "UID": 779215481,
+                    "Vertex Count": 124,
+                    "Index Count": 198
                 },
                 {
                     "Type": "Material",
@@ -3480,36 +3477,33 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 293,
+                    "Diffuse_ID": 286,
                     "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_D.png",
-                    "Diffuse_UID": 2023324069,
-                    "Specular_ID": 309,
+                    "Diffuse_UID": 1094937274,
+                    "Specular_ID": 298,
                     "Specular_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_S.png",
-                    "Specular_UID": 282133221,
-                    "Normal_ID": 305,
+                    "Specular_UID": 1433137365,
+                    "Normal_ID": 294,
                     "Normal_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_N.png",
-                    "Normal_UID": 1349552205,
-                    "Height_ID": 301,
+                    "Normal_UID": 1731537222,
+                    "Height_ID": 290,
                     "Height_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_H.png",
-                    "Height_UID": 1978279427,
-                    "Ambient_ID": 289,
+                    "Height_UID": 470026873,
+                    "Ambient_ID": 282,
                     "Ambient_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_A.png",
-                    "Ambient_UID": 1443264690,
-                    "Emissive_ID": 297,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_E.png",
-                    "Emissive_UID": 1143795754
+                    "Ambient_UID": 779670812
                 }
             ]
         },
         {
-            "Name": "Door_Part12",
+            "Name": "Door_Part10",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2038207996,
+            "UID": 1252600097,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/PROP_WareHouseDoor_LowPoly.fbx",
-            "Parent UID": 1358728197,
+            "Parent UID": 1942744883,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3533,9 +3527,9 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 2078391023,
-                    "Vertex Count": 88,
-                    "Index Count": 132
+                    "UID": 1720120032,
+                    "Vertex Count": 826,
+                    "Index Count": 1308
                 },
                 {
                     "Type": "Material",
@@ -3559,24 +3553,97 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 293,
+                    "Diffuse_ID": 286,
                     "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_D.png",
-                    "Diffuse_UID": 2023324069,
-                    "Specular_ID": 309,
+                    "Diffuse_UID": 1094937274,
+                    "Specular_ID": 298,
                     "Specular_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_S.png",
-                    "Specular_UID": 282133221,
-                    "Normal_ID": 305,
+                    "Specular_UID": 1433137365,
+                    "Normal_ID": 294,
                     "Normal_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_N.png",
-                    "Normal_UID": 1349552205,
-                    "Height_ID": 301,
+                    "Normal_UID": 1731537222,
+                    "Height_ID": 290,
                     "Height_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_H.png",
-                    "Height_UID": 1978279427,
-                    "Ambient_ID": 289,
+                    "Height_UID": 470026873,
+                    "Ambient_ID": 282,
                     "Ambient_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_A.png",
-                    "Ambient_UID": 1443264690,
-                    "Emissive_ID": 297,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_E.png",
-                    "Emissive_UID": 1143795754
+                    "Ambient_UID": 779670812
+                }
+            ]
+        },
+        {
+            "Name": "Door_Part9",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1730868769,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/PROP_WareHouseDoor_LowPoly.fbx",
+            "Parent UID": 1942744883,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1664732944,
+                    "Vertex Count": 44,
+                    "Index Count": 78
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 286,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_D.png",
+                    "Diffuse_UID": 1094937274,
+                    "Specular_ID": 298,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_S.png",
+                    "Specular_UID": 1433137365,
+                    "Normal_ID": 294,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_N.png",
+                    "Normal_UID": 1731537222,
+                    "Height_ID": 290,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_H.png",
+                    "Height_UID": 470026873,
+                    "Ambient_ID": 282,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Warehouse_Door\/TEX_PROP_WareHouseDoor_A.png",
+                    "Ambient_UID": 779670812
                 }
             ]
         }
