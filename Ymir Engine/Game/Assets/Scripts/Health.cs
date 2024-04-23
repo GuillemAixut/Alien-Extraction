@@ -16,6 +16,7 @@ public class Health : YmirComponent
 
     public float currentHealth = 0;
     public float maxHealth = 1200;
+    public float armor = 0;
     public bool isAlive;
 
     public float debugDmg = 100;
@@ -88,7 +89,7 @@ public class Health : YmirComponent
     {
         if (player != null && !player.godMode)
         {
-            currentHealth -= dmg;
+            currentHealth -= (dmg + armor); // reduce damage with amount of armor
 
             if (currentHealth > maxHealth)
             {

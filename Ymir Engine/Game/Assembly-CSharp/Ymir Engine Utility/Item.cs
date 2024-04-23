@@ -34,12 +34,18 @@ namespace YmirEngine
     {
         public ITEM_SLOT currentSlot;
         public ITEM_SLOT itemType;
-        public float defense, healingEficiency, speed, reloadSpeed, skillDamage;
+        public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
 
-        public Item(ITEM_SLOT currentSlot, ITEM_SLOT itemType)
+        public Item(ITEM_SLOT currentSlot, ITEM_SLOT itemType, float HP = 0, float armor = 0, float speed = 0, float fireRate = 0, float reloadSpeed = 0, float damageMultiplier = 0)
         {
             this.currentSlot = currentSlot;
             this.itemType = itemType;
+            this.HP = HP;
+            this.armor = armor;
+            this.speed = speed;
+            this.fireRate = fireRate;
+            this.reloadSpeed = reloadSpeed;
+            this.damageMultiplier = damageMultiplier;
         }
     }
 

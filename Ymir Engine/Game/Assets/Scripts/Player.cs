@@ -68,7 +68,7 @@ public class Player : YmirComponent
 
     //--------------------- Movement ---------------------\\
     //public float rotationSpeed = 2.0f;
-    public float movementSpeed = 35.0f;
+    public float movementSpeed = 35.0f; // speed
     //private double angle = 0.0f;
     private float deathZone = 0.5f;
 
@@ -84,14 +84,14 @@ public class Player : YmirComponent
     #region DEFINE SHOOT VARS
 
     //--------------------- Shoot var ---------------------\\
-    public float fireRate = 0;
+    public float fireRate = 0; // rate of fire
     private float shootingTimer = 0.0f;
     //public float secondaryRate = 0.2f;
     private bool shootBefore = false;
 
     private bool isReloading = false;
     private float reloadTimer = 0.0f;
-    private float reloadDuration = 1.0f;
+    public float reloadDuration = 1.0f; // reload speed
 
     public int ammo = 0;
     public int magsize = 5;
@@ -100,6 +100,11 @@ public class Player : YmirComponent
     private int shootRumbleDuration;
 
     private WEAPON weaponType = WEAPON.NONE;
+
+    // Stats que no he visto implementadas, para inventario
+    public float damageMultiplier = 0;
+    public int resin = 10; 
+
 
     #endregion
 

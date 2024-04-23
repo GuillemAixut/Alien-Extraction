@@ -7,7 +7,7 @@
             "UID": 1904908806,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1060713167,
+            "Parent UID": 485180280,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1847,
-                    "Height": 977,
+                    "Width": 1923,
+                    "Height": 1062,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -60,7 +60,14 @@
                 730604888,
                 975518885,
                 1010645615,
-                563983283
+                563983283,
+                1245706322,
+                1617697427,
+                110726321,
+                78147728,
+                1075903248,
+                432873557,
+                1667167596
             ]
         },
         {
@@ -107,7 +114,7 @@
                         1920,
                         1080
                     ],
-                    "Path": "Assets\/UI\/FondoInevntory.png",
+                    "Path": "Assets\/UI\/InventoryFondo.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -295,10 +302,10 @@
                     "Is interactable": true,
                     "Text": 1001448237,
                     "Image": 294962486,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -335,7 +342,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "ARMOR",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -601,10 +615,10 @@
                     "Is interactable": true,
                     "Text": 428551072,
                     "Image": 1671257493,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -641,7 +655,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP1",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -907,10 +928,10 @@
                     "Is interactable": true,
                     "Text": 352767713,
                     "Image": 541837697,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -947,7 +968,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP2",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -1166,14 +1194,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 528,
-                    "Position Y": 614,
+                    "Position Y": 613,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         528,
-                        614,
+                        613,
                         100,
                         100
                     ],
@@ -1213,10 +1241,10 @@
                     "Is interactable": true,
                     "Text": 2044207875,
                     "Image": 1708915839,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -1253,7 +1281,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE1",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -1293,14 +1328,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 187,
-                    "Position Y": 607,
+                    "Position Y": 606,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         187,
-                        607,
+                        606,
                         336,
                         277
                     ],
@@ -1359,14 +1394,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 312,
-                    "Position Y": -1070,
+                    "Position Y": -1071,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
                         312,
-                        -1070,
+                        -1071,
                         300,
                         50
                     ],
@@ -1519,10 +1554,10 @@
                     "Is interactable": true,
                     "Text": 368922602,
                     "Image": 2060313977,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -1559,7 +1594,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE2",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -1777,15 +1819,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1154,
-                    "Position Y": 118,
+                    "Position X": 1144,
+                    "Position Y": 191,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1154,
-                        118,
+                        1144,
+                        191,
                         100,
                         100
                     ],
@@ -1799,7 +1841,7 @@
                         0,
                         0,
                         0,
-                        1
+                        0
                     ]
                 },
                 {
@@ -1825,10 +1867,10 @@
                     "Is interactable": true,
                     "Text": 1617470444,
                     "Image": 1799950518,
-                    "Normal": "Assets\/UI\/Inventory Buttons\/SpecialSlotUnselected.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/SpecialSlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -1865,7 +1907,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -1904,15 +1953,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 813,
-                    "Position Y": 117,
+                    "Position X": 803,
+                    "Position Y": 190,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        813,
-                        117,
+                        803,
+                        190,
                         336,
                         277
                     ],
@@ -1970,15 +2019,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 880,
-                    "Position Y": -1589,
+                    "Position X": 870,
+                    "Position Y": -1516,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        880,
-                        -1589,
+                        870,
+                        -1516,
                         300,
                         50
                     ],
@@ -2097,15 +2146,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1154,
-                    "Position Y": 236,
+                    "Position X": 1147,
+                    "Position Y": 387,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1154,
-                        236,
+                        1147,
+                        387,
                         100,
                         100
                     ],
@@ -2145,10 +2194,10 @@
                     "Is interactable": true,
                     "Text": 1131207758,
                     "Image": 1649563615,
-                    "Normal": "Assets\/juan.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/ArmorIconColor.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -2185,7 +2234,14 @@
                     "itemType": 0,
                     "enumItem": "ARMOR",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2224,15 +2280,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 833,
-                    "Position Y": 227,
+                    "Position X": 826,
+                    "Position Y": 378,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        833,
-                        227,
+                        826,
+                        378,
                         336,
                         277
                     ],
@@ -2290,15 +2346,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 891,
-                    "Position Y": -1400,
+                    "Position X": 884,
+                    "Position Y": -1249,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        891,
-                        -1400,
+                        884,
+                        -1249,
                         300,
                         50
                     ],
@@ -2352,15 +2408,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1154,
-                    "Position Y": 367,
+                    "Position X": 1147,
+                    "Position Y": 500,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1154,
-                        367,
+                        1147,
+                        500,
                         100,
                         100
                     ],
@@ -2400,10 +2456,10 @@
                     "Is interactable": true,
                     "Text": 218868507,
                     "Image": 859937820,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -2440,7 +2496,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2479,15 +2542,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 814,
-                    "Position Y": 364,
+                    "Position X": 807,
+                    "Position Y": 497,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        814,
-                        364,
+                        807,
+                        497,
                         336,
                         277
                     ],
@@ -2545,15 +2608,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 922,
-                    "Position Y": -954,
+                    "Position X": 915,
+                    "Position Y": -821,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        922,
-                        -954,
+                        915,
+                        -821,
                         300,
                         50
                     ],
@@ -2607,15 +2670,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1154,
-                    "Position Y": 489,
+                    "Position X": 1147,
+                    "Position Y": 613,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1154,
-                        489,
+                        1147,
+                        613,
                         100,
                         100
                     ],
@@ -2655,10 +2718,10 @@
                     "Is interactable": true,
                     "Text": 1717747725,
                     "Image": 1263838880,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -2695,7 +2758,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2734,15 +2804,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 820,
-                    "Position Y": 489,
+                    "Position X": 813,
+                    "Position Y": 613,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        820,
-                        489,
+                        813,
+                        613,
                         336,
                         277
                     ],
@@ -2800,15 +2870,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 926,
-                    "Position Y": -1206,
+                    "Position X": 919,
+                    "Position Y": -1082,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        926,
-                        -1206,
+                        919,
+                        -1082,
                         300,
                         50
                     ],
@@ -2862,15 +2932,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1154,
-                    "Position Y": 602,
+                    "Position X": 1147,
+                    "Position Y": 726,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1154,
-                        602,
+                        1147,
+                        726,
                         100,
                         100
                     ],
@@ -2910,10 +2980,10 @@
                     "Is interactable": true,
                     "Text": 1439520452,
                     "Image": 1294683051,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -2950,7 +3020,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2989,15 +3066,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 819,
-                    "Position Y": 602,
+                    "Position X": 812,
+                    "Position Y": 726,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        819,
-                        602,
+                        812,
+                        726,
                         336,
                         277
                     ],
@@ -3055,15 +3132,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 917,
-                    "Position Y": -903,
+                    "Position X": 910,
+                    "Position Y": -779,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        917,
-                        -903,
+                        910,
+                        -779,
                         300,
                         50
                     ],
@@ -3117,15 +3194,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1154,
-                    "Position Y": 715,
+                    "Position X": 1147,
+                    "Position Y": 839,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1154,
-                        715,
+                        1147,
+                        839,
                         100,
                         100
                     ],
@@ -3165,10 +3242,10 @@
                     "Is interactable": true,
                     "Text": 1297611138,
                     "Image": 914218921,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -3205,7 +3282,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -3244,15 +3328,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 823,
-                    "Position Y": 715,
+                    "Position X": 816,
+                    "Position Y": 839,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        823,
-                        715,
+                        816,
+                        839,
                         336,
                         277
                     ],
@@ -3310,15 +3394,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 918,
-                    "Position Y": -970,
+                    "Position X": 911,
+                    "Position Y": -846,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        918,
-                        -970,
+                        911,
+                        -846,
                         300,
                         50
                     ],
@@ -3372,15 +3456,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1256,
-                    "Position Y": 236,
+                    "Position X": 1258,
+                    "Position Y": 387,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1256,
-                        236,
+                        1258,
+                        387,
                         100,
                         100
                     ],
@@ -3420,10 +3504,10 @@
                     "Is interactable": true,
                     "Text": 843042817,
                     "Image": 1995946548,
-                    "Normal": "Assets\/Baker_house.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/DefensiveChipIcon2Color.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -3460,7 +3544,14 @@
                     "itemType": 0,
                     "enumItem": "CHIP1",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -3499,15 +3590,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 919,
-                    "Position Y": 236,
+                    "Position X": 921,
+                    "Position Y": 387,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        919,
-                        236,
+                        921,
+                        387,
                         336,
                         277
                     ],
@@ -3565,15 +3656,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1036,
-                    "Position Y": -669,
+                    "Position X": 1038,
+                    "Position Y": -518,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1036,
-                        -669,
+                        1038,
+                        -518,
                         300,
                         50
                     ],
@@ -3627,15 +3718,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1256,
-                    "Position Y": 367,
+                    "Position X": 1258,
+                    "Position Y": 500,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1256,
-                        367,
+                        1258,
+                        500,
                         100,
                         100
                     ],
@@ -3675,10 +3766,10 @@
                     "Is interactable": true,
                     "Text": 1101949662,
                     "Image": 631059356,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -3715,7 +3806,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -3754,15 +3852,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 919,
-                    "Position Y": 367,
+                    "Position X": 921,
+                    "Position Y": 500,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        919,
-                        367,
+                        921,
+                        500,
                         336,
                         277
                     ],
@@ -3820,15 +3918,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1040,
-                    "Position Y": -1342,
+                    "Position X": 1042,
+                    "Position Y": -1209,
                     "Width": 300,
                     "Height": -1412,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1040,
-                        -1342,
+                        1042,
+                        -1209,
                         300,
                         -1412
                     ],
@@ -3882,15 +3980,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1256,
-                    "Position Y": 489,
+                    "Position X": 1258,
+                    "Position Y": 613,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1256,
-                        489,
+                        1258,
+                        613,
                         100,
                         100
                     ],
@@ -3930,10 +4028,10 @@
                     "Is interactable": true,
                     "Text": 644224063,
                     "Image": 381666577,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -3970,7 +4068,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4009,15 +4114,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 920,
-                    "Position Y": 489,
+                    "Position X": 922,
+                    "Position Y": 613,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        920,
-                        489,
+                        922,
+                        613,
                         336,
                         277
                     ],
@@ -4075,15 +4180,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1033,
-                    "Position Y": -1195,
+                    "Position X": 1035,
+                    "Position Y": -1071,
                     "Width": 300,
                     "Height": -1713,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1033,
-                        -1195,
+                        1035,
+                        -1071,
                         300,
                         -1713
                     ],
@@ -4137,15 +4242,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1256,
-                    "Position Y": 602,
+                    "Position X": 1258,
+                    "Position Y": 726,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1256,
-                        602,
+                        1258,
+                        726,
                         100,
                         100
                     ],
@@ -4185,10 +4290,10 @@
                     "Is interactable": true,
                     "Text": 654116996,
                     "Image": 981694012,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -4225,7 +4330,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4264,15 +4376,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 921,
-                    "Position Y": 602,
+                    "Position X": 923,
+                    "Position Y": 726,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        921,
-                        602,
+                        923,
+                        726,
                         336,
                         277
                     ],
@@ -4330,15 +4442,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1028,
-                    "Position Y": -1075,
+                    "Position X": 1030,
+                    "Position Y": -951,
                     "Width": 300,
                     "Height": -1375,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1028,
-                        -1075,
+                        1030,
+                        -951,
                         300,
                         -1375
                     ],
@@ -4392,15 +4504,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1256,
-                    "Position Y": 715,
+                    "Position X": 1258,
+                    "Position Y": 839,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1256,
-                        715,
+                        1258,
+                        839,
                         100,
                         100
                     ],
@@ -4414,7 +4526,7 @@
                         0,
                         0,
                         0,
-                        1
+                        0
                     ]
                 },
                 {
@@ -4440,10 +4552,10 @@
                     "Is interactable": true,
                     "Text": 547711246,
                     "Image": 533956899,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -4480,7 +4592,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4519,15 +4638,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 922,
-                    "Position Y": 715,
+                    "Position X": 1260,
+                    "Position Y": -419,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        922,
-                        715,
+                        1260,
+                        -419,
                         336,
                         277
                     ],
@@ -4585,15 +4704,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1034,
-                    "Position Y": -1181,
+                    "Position X": 1372,
+                    "Position Y": -2315,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1034,
-                        -1181,
+                        1372,
+                        -2315,
                         300,
                         50
                     ],
@@ -4647,15 +4766,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1367,
-                    "Position Y": 236,
+                    "Position X": 1369,
+                    "Position Y": 387,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1367,
-                        236,
+                        1369,
+                        387,
                         100,
                         100
                     ],
@@ -4695,10 +4814,10 @@
                     "Is interactable": true,
                     "Text": 233419383,
                     "Image": 1023312370,
-                    "Normal": "Assets\/pato.png",
-                    "Focused": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
-                    "Pressed": "Assets\/UI\/Inventory Buttons\/InventorySlotPressed.png",
-                    "Selected": "Assets\/UI\/Inventory Buttons\/InventorySlotHover.png",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/OffensiveChipIcon2Color.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -4735,7 +4854,14 @@
                     "itemType": 0,
                     "enumItem": "CHIP2",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4774,15 +4900,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1031,
-                    "Position Y": 226,
+                    "Position X": 1033,
+                    "Position Y": 377,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1031,
-                        226,
+                        1033,
+                        377,
                         336,
                         277
                     ],
@@ -4840,15 +4966,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1144,
-                    "Position Y": -1485,
+                    "Position X": 1146,
+                    "Position Y": -1334,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1144,
-                        -1485,
+                        1146,
+                        -1334,
                         300,
                         50
                     ],
@@ -4902,15 +5028,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1367,
-                    "Position Y": 367,
+                    "Position X": 1369,
+                    "Position Y": 500,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1367,
-                        367,
+                        1369,
+                        500,
                         100,
                         100
                     ],
@@ -4950,10 +5076,10 @@
                     "Is interactable": true,
                     "Text": 41022260,
                     "Image": 1420247647,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -4990,7 +5116,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -5029,15 +5162,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1054,
-                    "Position Y": 367,
+                    "Position X": 1056,
+                    "Position Y": 500,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1054,
-                        367,
+                        1056,
+                        500,
                         336,
                         277
                     ],
@@ -5095,15 +5228,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1157,
-                    "Position Y": -626,
+                    "Position X": 1159,
+                    "Position Y": -493,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1157,
-                        -626,
+                        1159,
+                        -493,
                         300,
                         50
                     ],
@@ -5157,15 +5290,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1367,
-                    "Position Y": 489,
+                    "Position X": 1369,
+                    "Position Y": 613,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1367,
-                        489,
+                        1369,
+                        613,
                         100,
                         100
                     ],
@@ -5205,10 +5338,10 @@
                     "Is interactable": true,
                     "Text": 1759668415,
                     "Image": 102710654,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -5245,7 +5378,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -5284,15 +5424,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1073,
-                    "Position Y": 489,
+                    "Position X": 1075,
+                    "Position Y": 613,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1073,
-                        489,
+                        1075,
+                        613,
                         336,
                         277
                     ],
@@ -5350,15 +5490,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1184,
-                    "Position Y": -847,
+                    "Position X": 1186,
+                    "Position Y": -723,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1184,
-                        -847,
+                        1186,
+                        -723,
                         300,
                         50
                     ],
@@ -5412,15 +5552,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1367,
-                    "Position Y": 602,
+                    "Position X": 1369,
+                    "Position Y": 726,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1367,
-                        602,
+                        1369,
+                        726,
                         100,
                         100
                     ],
@@ -5460,10 +5600,10 @@
                     "Is interactable": true,
                     "Text": 1229207877,
                     "Image": 1249812674,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -5500,7 +5640,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -5539,15 +5686,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1038,
-                    "Position Y": 602,
+                    "Position X": 1040,
+                    "Position Y": 726,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1038,
-                        602,
+                        1040,
+                        726,
                         336,
                         277
                     ],
@@ -5605,15 +5752,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1161,
-                    "Position Y": -222,
+                    "Position X": 1163,
+                    "Position Y": -98,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1161,
-                        -222,
+                        1163,
+                        -98,
                         300,
                         50
                     ],
@@ -5667,15 +5814,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1367,
-                    "Position Y": 715,
+                    "Position X": 1369,
+                    "Position Y": 839,
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        1367,
-                        715,
+                        1369,
+                        839,
                         100,
                         100
                     ],
@@ -5715,10 +5862,10 @@
                     "Is interactable": true,
                     "Text": 1216183641,
                     "Image": 58850297,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Focused": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
+                    "Pressed": "Assets\/UI\/Inventory Buttons\/New Buttons\/Pressed.png",
+                    "Selected": "Assets\/UI\/Inventory Buttons\/New Buttons\/Hover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -5755,7 +5902,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -5794,15 +5948,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 928,
-                    "Position Y": 715,
+                    "Position X": 930,
+                    "Position Y": 839,
                     "Width": 336,
                     "Height": 277,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        928,
-                        715,
+                        930,
+                        839,
                         336,
                         277
                     ],
@@ -5860,15 +6014,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1040,
-                    "Position Y": -433,
+                    "Position X": 1042,
+                    "Position Y": -309,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1040,
-                        -433,
+                        1042,
+                        -309,
                         300,
                         50
                     ],
@@ -5923,18 +6077,18 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 730,
-                    "Position Y": 872,
-                    "Width": 209,
-                    "Height": 58,
+                    "Position Y": 864,
+                    "Width": 197,
+                    "Height": 77,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         730,
-                        872,
-                        209,
-                        58
+                        864,
+                        197,
+                        77
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/Laser.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/Smg.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -6065,6 +6219,440 @@
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 3.4000000953674316,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text HP",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1245706322,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 488,
+                    "Position Y": 249,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        488,
+                        249,
+                        200,
+                        50
+                    ],
+                    "Text": "69",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 14.699999809265137,
+                    "Line Spacing": 2.7000000476837158,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text Armor",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1617697427,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 382,
+                    "Position Y": 300,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        382,
+                        300,
+                        200,
+                        50
+                    ],
+                    "Text": "420.69",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 14.699999809265137,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text Speed",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 110726321,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 382,
+                    "Position Y": 351,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        382,
+                        351,
+                        200,
+                        50
+                    ],
+                    "Text": "420",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 14.699999809265137,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text Reload",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 78147728,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 475,
+                    "Position Y": 403,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        475,
+                        403,
+                        200,
+                        50
+                    ],
+                    "Text": "656566",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 14.699999809265137,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text Damage",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1075903248,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 540,
+                    "Position Y": 456,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        540,
+                        456,
+                        200,
+                        50
+                    ],
+                    "Text": "6.9",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 14.699999809265137,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text Rate",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 432873557,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 475,
+                    "Position Y": 507,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        475,
+                        507,
+                        200,
+                        50
+                    ],
+                    "Text": "475",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 14.699999809265137,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text Resin",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1667167596,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 488,
+                    "Position Y": 564,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        488,
+                        564,
+                        200,
+                        50
+                    ],
+                    "Text": "323233",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 14.699999809265137,
+                    "Line Spacing": 0.5,
                     "Color": [
                         0,
                         0,

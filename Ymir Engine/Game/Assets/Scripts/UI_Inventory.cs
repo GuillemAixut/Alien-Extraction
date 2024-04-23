@@ -9,11 +9,12 @@ using YmirEngine;
 
 public class UI_Inventory : YmirComponent
 {
-    private GameObject _selectedGO;
+    private GameObject _selectedGO, _textHP, _textArmor, _textSpeed, _textReload, _textDamage, _textRate, _textResin;
     public GameObject focusedGO, goDescription, goText;
     public bool _droppable = true, _disable = false;
     private bool _show;
-    private Player _player = null;
+    public Player player = null;
+    public Health health = null;
 
     public void Start()
     {
@@ -29,24 +30,35 @@ public class UI_Inventory : YmirComponent
         _show = false;
 
         GetPlayerScript();
+        GetHealthScript();
+
+        _textHP = InternalCalls.GetGameObjectByName("Text HP");
+        _textArmor = InternalCalls.GetGameObjectByName("Text Armor");
+        _textSpeed = InternalCalls.GetGameObjectByName("Text Speed");
+        _textReload = InternalCalls.GetGameObjectByName("Text Reload");
+        _textDamage = InternalCalls.GetGameObjectByName("Text Damage");
+        _textRate = InternalCalls.GetGameObjectByName("Text Rate");
+        _textResin = InternalCalls.GetGameObjectByName("Text Resin");
+
+        UpdateTextStats();
 
         //UI.SetFirstFocused(gameObject); // TODO: MissingMethodException WHY?
     }
 
     public void Update()
     {
-        if (_player == null)
+        if (player == null)
         {
             GetPlayerScript();
         }
 
-        if (_player != null && _player.setHover)
+        if (player != null && player.setHover)
         {
             Debug.Log("set first");
             goDescription.SetActive(false);// TODO: when menu opened
             goText.SetActive(false);
 
-            _player.setHover = false;
+            player.setHover = false;
         }
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
@@ -143,6 +155,9 @@ public class UI_Inventory : YmirComponent
                 ITEM_SLOT aux = _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot;
                 _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot = focusedGO.GetComponent<UI_Item_Button>().item.currentSlot;
                 focusedGO.GetComponent<UI_Item_Button>().item.currentSlot = aux;
+
+                focusedGO.GetComponent<UI_Item_Button>().updateStats = true;
+                _selectedGO.GetComponent<UI_Item_Button>().updateStats = true;
             }
 
             else
@@ -188,7 +203,35 @@ public class UI_Inventory : YmirComponent
 
         if (gameObject != null)
         {
-            _player = gameObject.GetComponent<Player>();
+            player = gameObject.GetComponent<Player>();
+        }
+    }   
+    
+    private void GetHealthScript()
+    {
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            health = gameObject.GetComponent<Health>();
+        }
+    }
+
+    public void UpdateTextStats()
+    {
+        if (player != null)
+        {
+            UI.TextEdit(_textSpeed, player.movementSpeed.ToString());
+            UI.TextEdit(_textRate, player.fireRate.ToString());
+            UI.TextEdit(_textReload, player.reloadDuration.ToString());
+            UI.TextEdit(_textDamage, player.damageMultiplier.ToString());
+            UI.TextEdit(_textResin, player.resin.ToString());
+        }
+
+        if (health != null)
+        {
+            UI.TextEdit(_textHP, health.currentHealth.ToString());
+            UI.TextEdit(_textArmor, health.armor.ToString());
         }
     }
 
