@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "Electric_Trap",
+            "Name": "Electric_Trap (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2063663470,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 1092854789,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        325,
-                        98.599998474121094,
-                        361.60000610351562
+                        508.1458740234375,
+                        0,
+                        -180.35374450683594
                     ],
                     "Rotation": [
                         -0,
@@ -35,7 +35,7 @@
                         0
                     ],
                     "Type": "Physics",
-                    "Active": 1,
+                    "Active": true,
                     "Collider Type": 4,
                     "Size": [
                         0.55000001192092896,
@@ -47,7 +47,7 @@
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
-                    "IsSensor": false,
+                    "IsSensor": true,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
@@ -55,6 +55,12 @@
                         0,
                         0,
                         0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
                     ]
                 },
                 {
@@ -62,7 +68,7 @@
                     "ScriptName": "Electric_trap.cs",
                     "Active": 1,
                     "UID": 0,
-                    "damage": 1
+                    "damage": 220
                 }
             ],
             "Children UID": [

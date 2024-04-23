@@ -64,7 +64,7 @@ using YmirEngine;
 
         private WanderState wanderState;
 
-        RandomPointGenerator pointGenerator;
+       
         
 
         
@@ -83,7 +83,7 @@ using YmirEngine;
 
         public void Start()
         {
-            pointGenerator = new RandomPointGenerator();
+            
             wanderState = WanderState.REACHED;
             wanderDuration = 5f;
             wanderTimer = wanderDuration;
