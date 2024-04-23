@@ -6,19 +6,19 @@
         40.943576812744141
     ],
     "Editor Camera Right (X)": [
-        0.85318714380264282,
-        2.0563602447509766e-06,
-        0.513763427734375
+        0.56534123420715332,
+        2.0116567611694336e-06,
+        0.81991958618164062
     ],
     "Editor Camera Up (Y)": [
-        0.25287893414497375,
-        0.86710107326507568,
-        -0.41994979977607727
+        0.66710156202316284,
+        0.57928293943405151,
+        -0.45997333526611328
     ],
     "Editor Camera Front (Z)": [
-        0.44900932908058167,
-        -0.49204155802726746,
-        -0.74565058946609497
+        0.47873634099960327,
+        -0.81336313486099243,
+        -0.33009058237075806
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1192284687,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2252,6 +2252,7 @@
                                 72
                             ],
                             "numPointLights": 1,
+                            "map": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -2335,6 +2336,7 @@
                                 72
                             ],
                             "numPointLights": 1,
+                            "map": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
@@ -2854,7 +2856,8 @@
                     "Type": "Script",
                     "ScriptName": "Key.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "door": 232432059
                 },
                 {
                     "World gravity": [
@@ -2947,6 +2950,7 @@
                                 72
                             ],
                             "numPointLights": 1,
+                            "map": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
