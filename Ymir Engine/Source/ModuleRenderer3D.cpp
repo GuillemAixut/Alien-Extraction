@@ -788,7 +788,7 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 		}
 	}
 
-	glDepthMask(GL_TRUE);
+	//glDepthMask(GL_TRUE);
 	glAlphaFunc(GL_GREATER, 0.0f);
 }
 
