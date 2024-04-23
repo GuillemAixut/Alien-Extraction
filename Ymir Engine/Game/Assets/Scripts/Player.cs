@@ -265,17 +265,17 @@ public class Player : YmirComponent
 
         if (Input.GetKey(YmirKeyCode.KP_1) == KeyState.KEY_DOWN)
         {
-            weaponType = WEAPON.SMG;
+            SwapWeapon(WEAPON.SMG);
         }
 
         if (Input.GetKey(YmirKeyCode.KP_2) == KeyState.KEY_DOWN)
         {
-            weaponType = WEAPON.SHOTGUN;
+            SwapWeapon(WEAPON.SHOTGUN);
         }
 
         if (Input.GetKey(YmirKeyCode.KP_3) == KeyState.KEY_DOWN)
         {
-            weaponType = WEAPON.TRACE;
+            SwapWeapon(WEAPON.TRACE);
         }
 
         //Debug.Log("swipeCD = " + swipeCDTimer);
@@ -853,7 +853,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOTING_END:
                             currentState = STATE.IDLE;
-                            StartShooting();
+                            EndShooting();
                             //StartIdle(); //Trigger de la animacion
                             break;
 
@@ -885,7 +885,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOT_END:
                             currentState = STATE.SHOOTING;
-                            EndShooting();
+                            StartShooting();
                             break;
 
                         case INPUT.I_PRED_END:
