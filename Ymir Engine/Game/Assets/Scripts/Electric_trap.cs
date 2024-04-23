@@ -15,6 +15,7 @@ public class Electric_trap : YmirComponent
     private bool hitPlayer = false;
     private Vector3 originalPosition;
     public float damage = 1;
+    //public string toParticle = ""; electricidad
     //int aux = 0;
 
     public void Start()
@@ -32,6 +33,7 @@ public class Electric_trap : YmirComponent
             if (time < 3f)
             {
                 gameObject.SetPosition(Vector3.negativeInfinity * Time.deltaTime * 1f);
+                //InternalCalls.GetGameObjectByName(toParticle).SetActive(false);
             }
             else
             {
@@ -44,6 +46,7 @@ public class Electric_trap : YmirComponent
             if (time < 3f)
             {
                 gameObject.SetPosition(originalPosition);
+                // InternalCalls.GetGameObjectByName(toParticle).SetActive(true);
                 if (hitPlayer)
                 {
                     activate = true;
