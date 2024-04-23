@@ -28,7 +28,7 @@
             "UID": 485180280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1783266176,
+            "Parent UID": 485180280,
             "Components": [
                 {
                     "Type": "Transform",
@@ -73,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         40.000007629394531,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -100,17 +100,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        1.4361705780174816e-07,
+                        -1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         1,
-                        -1.4361705780174816e-07
+                        1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -156,8 +156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 585,
-                    "Height": 338,
+                    "Width": 765,
+                    "Height": 449,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -464,7 +464,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "ARMOR",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -583,7 +590,7 @@
                     ],
                     "Text": "empty\n",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -770,7 +777,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP1",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -889,7 +903,7 @@
                     ],
                     "Text": "Empty\n",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -1076,7 +1090,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP2",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -1195,7 +1216,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -1382,7 +1403,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE1",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -1501,7 +1529,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -1688,7 +1716,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE2",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -1807,7 +1842,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -1994,7 +2029,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2113,7 +2155,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -2314,7 +2356,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2433,7 +2482,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -2569,7 +2618,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2688,7 +2744,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -2824,7 +2880,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -2943,7 +3006,7 @@
                     ],
                     "Text": "Empty\nempry\nasdas\nasd\na\n\ndddddddddddddd",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -3079,7 +3142,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -3198,7 +3268,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -3334,7 +3404,14 @@
                     "itemType": 0,
                     "enumItem": "CHIP1",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -3453,7 +3530,7 @@
                     ],
                     "Text": "Chip1",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -3589,7 +3666,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -3708,7 +3792,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -3844,7 +3928,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -3963,7 +4054,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -4099,7 +4190,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4218,7 +4316,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -4354,7 +4452,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4473,7 +4578,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -4609,7 +4714,14 @@
                     "itemType": 0,
                     "enumItem": "CHIP2",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4728,7 +4840,7 @@
                     ],
                     "Text": "Chip2\n",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -4864,7 +4976,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -4983,7 +5102,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -5119,7 +5238,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -5238,7 +5364,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -5374,7 +5500,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -5493,7 +5626,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -5629,7 +5762,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -5748,7 +5888,7 @@
                     ],
                     "Text": "Empty",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\/Fonts",
+                    "Font path": "Assets\\Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -5969,7 +6109,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Hover.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5979,7 +6119,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.20000000298023224
                     ]
                 },
                 {
@@ -6005,10 +6145,10 @@
                     "Is interactable": true,
                     "Text": 838864476,
                     "Image": 1110638304,
-                    "Normal": "Assets\/UI\/Items Slots\/Hover.png",
-                    "Focused": "Assets\/UI\/Items Slots\/Hover.png",
-                    "Pressed": "Assets\/UI\/Items Slots\/Pressed.png",
-                    "Selected": "Assets\/UI\/Items Slots\/Hover.png",
+                    "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
+                    "Focused": "Assets\/UI\/Items Slots\/onHover.png",
+                    "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
+                    "Selected": "Assets\/UI\/Items Slots\/onHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -6045,7 +6185,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
