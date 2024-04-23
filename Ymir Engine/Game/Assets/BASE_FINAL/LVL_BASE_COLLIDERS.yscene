@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -49.436538696289062,
-        122.64659881591797,
-        59.873676300048828
+        301.9969482421875,
+        185.07687377929688,
+        124.87274169921875
     ],
     "Editor Camera Right (X)": [
-        0.48257854580879211,
-        -8.1956386566162109e-07,
-        0.87596356868743896
+        0.63775491714477539,
+        -2.384185791015625e-07,
+        -0.77006363868713379
     ],
     "Editor Camera Up (Y)": [
-        0.60995471477508545,
-        0.71772193908691406,
-        -0.336030513048172
+        -0.40997141599655151,
+        0.84638494253158569,
+        -0.3395322859287262
     ],
     "Editor Camera Front (Z)": [
-        0.62865608930587769,
-        -0.69638490676879883,
-        -0.34633463621139526
+        -0.65194863080978394,
+        -0.53238874673843384,
+        -0.53993368148803711
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 498755831,
+            "Parent UID": 1457677832,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1840,7 +1840,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 1,
+                    "Frustum Culling": 0,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
@@ -1975,9 +1975,6 @@
                     "reloadDuration": 0,
                     "ammo": 0,
                     "magsize": 5,
-                    "smgRange": 0,
-                    "shootgunRange": 0,
-                    "traceRange": 0,
                     "damageMultiplier": 0,
                     "resin": 0,
                     "dashDuration": 0.25,
@@ -2250,8 +2247,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 585,
-                    "Height": 465,
+                    "Width": 465,
+                    "Height": 486,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -13726,9 +13723,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 958,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 795,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Normal_ID": 687,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 651,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 579,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -13790,9 +13796,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 627,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 699,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 663,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 591,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -13854,9 +13869,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 763,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 727,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -13918,9 +13936,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 795,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Normal_ID": 691,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 655,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 723,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -13982,9 +14009,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 631,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 703,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 667,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 595,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -14046,9 +14082,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 767,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 731,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -14110,9 +14149,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 623,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_D.png",
+                    "Diffuse_UID": 1771161206,
+                    "Normal_ID": 695,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 659,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 587,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -14174,9 +14222,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 635,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 707,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 671,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 599,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -14238,9 +14295,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 771,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 735,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -14302,9 +14362,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 627,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_D.png",
+                    "Diffuse_UID": 1771161206,
+                    "Normal_ID": 699,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 663,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 591,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -14366,9 +14435,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 639,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 711,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 675,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 603,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -14430,9 +14508,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 775,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 739,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -14494,9 +14575,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 631,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_D.png",
+                    "Diffuse_UID": 1771161206,
+                    "Normal_ID": 703,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 667,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 595,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -14558,9 +14648,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 643,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 715,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 679,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 607,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -14622,9 +14721,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 779,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 743,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -14686,9 +14788,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 635,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_D.png",
+                    "Diffuse_UID": 1771161206,
+                    "Normal_ID": 707,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 671,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 599,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -14750,9 +14861,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 647,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 719,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 683,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 611,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -14814,9 +14934,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 783,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 747,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -14878,9 +15001,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 639,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_D.png",
+                    "Diffuse_UID": 1771161206,
+                    "Normal_ID": 711,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 675,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 603,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -14942,9 +15074,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 651,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 723,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 687,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 615,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -15006,9 +15147,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 787,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 751,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -15070,9 +15214,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 643,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_D.png",
+                    "Diffuse_UID": 1771161206,
+                    "Normal_ID": 715,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 679,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 607,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -15134,9 +15287,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 655,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 727,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 691,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 619,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },
@@ -15198,9 +15360,12 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 791,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_D.png",
+                    "Diffuse_UID": 253104274,
+                    "Ambient_ID": 755,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_2\/TEX_ExteriorWalls_Type2_A.png",
+                    "Ambient_UID": 980074902
                 }
             ]
         },
@@ -15262,9 +15427,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 647,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_D.png",
+                    "Diffuse_UID": 1771161206,
+                    "Normal_ID": 719,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_N.png",
+                    "Normal_UID": 637804325,
+                    "Height_ID": 683,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_H.png",
+                    "Height_UID": 1841084588,
+                    "Ambient_ID": 611,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_1\/TEX_ExteriorWalls_Type1_A.png",
+                    "Ambient_UID": 396449104
                 }
             ]
         },
@@ -15326,9 +15500,18 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/233303010.dds",
-                    "Diffuse_UID": 233303010
+                    "Diffuse_ID": 659,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_D.png",
+                    "Diffuse_UID": 986745772,
+                    "Normal_ID": 731,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_N.png",
+                    "Normal_UID": 1676633706,
+                    "Height_ID": 695,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_H.png",
+                    "Height_UID": 626931516,
+                    "Ambient_ID": 623,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior Walls\/Texturas\/Type_3\/TEX_ExteriorWalls_Type3_A.png",
+                    "Ambient_UID": 189362414
                 }
             ]
         },

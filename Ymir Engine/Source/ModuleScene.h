@@ -62,7 +62,7 @@ public:
 	void SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName);
 	GameObject* LoadPrefab(const std::string& dir, const std::string& fileName);
 
-	GameObject* LoadPrefab(char* path);
+	GameObject* LoadPrefab(const char* path);
 
 	// Start with a loaded scene from start
 	void LoadSceneFromStart(const std::string& dir, const std::string& fileName);

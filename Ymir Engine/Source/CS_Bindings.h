@@ -143,36 +143,36 @@ int MouseY()
 }
 
 
-//MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
-//{
-//	if (prefabPath == nullptr)
-//		return nullptr;
-//
-//	 char* library_path = mono_string_to_utf8(prefabPath);
-//	GameObject* prefab_object =  ModuleScene::LoadPrefab(library_path);
-//	mono_free(library_path);
-//
-//	if (prefab_object != nullptr)
-//	{
-//		CTransform* object_transform = dynamic_cast<CTransform*>(prefab_object->GetComponent(ComponentType::TRANSFORM));
-//
-//		float3 posVector = ModuleMonoManager::UnboxVector(position);
-//		Quat rotQuat = ModuleMonoManager::UnboxQuat(rotation);
-//
-//		float3 scaleVector;
-//		if (scale != nullptr)
-//			scaleVector = ModuleMonoManager::UnboxVector(scale);
-//		else
-//			scaleVector = prefab_object->mTransform->scale;
-//
-//		prefab_object->mTransform->SetPosition(posVector);
-//
-//		prefab_object->mTransform->SetRotation(rotQuat);
-//		
-//	}
-//
-//	return External->moduleMono->GoToCSGO(prefab_object);
-//}
+MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
+{
+	if (prefabPath == nullptr)
+		return nullptr;
+
+	 char* library_path = mono_string_to_utf8(prefabPath);
+	GameObject* prefab_object =  External->scene->LoadPrefab(library_path);
+	mono_free(library_path);
+
+	if (prefab_object != nullptr)
+	{
+		CTransform* object_transform = dynamic_cast<CTransform*>(prefab_object->GetComponent(ComponentType::TRANSFORM));
+
+		float3 posVector = ModuleMonoManager::UnboxVector(position);
+		Quat rotQuat = ModuleMonoManager::UnboxQuat(rotation);
+
+		float3 scaleVector;
+		if (scale != nullptr)
+			scaleVector = ModuleMonoManager::UnboxVector(scale);
+		else
+			scaleVector = prefab_object->mTransform->scale;
+
+		prefab_object->mTransform->SetPosition(posVector);
+
+		prefab_object->mTransform->SetRotation(rotQuat);
+		
+	}
+
+	return External->moduleMono->GoToCSGO(prefab_object);
+}
 
 void CSCreateGameObject(MonoObject* name, MonoObject* position)
 {

@@ -109,6 +109,7 @@ void GameObject::Disable()
 {
 	if (active) {
 		active = false;
+
 	}
 }
 
