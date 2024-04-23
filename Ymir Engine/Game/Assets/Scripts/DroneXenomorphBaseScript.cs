@@ -18,16 +18,13 @@ public enum DroneState
 	DEAD
 }
 
-public class DroneXenomorphBaseScript : YmirComponent
+public class DroneXenomorphBaseScript : Enemy
 {
     public GameObject thisReference = null;
 
-    private GameObject player;
-
-    protected PathFinding agent;
     protected Vector3 targetPosition = null;
 
-    private Health healthScript;
+    
 
     private DroneState droneState;
 
@@ -35,9 +32,6 @@ public class DroneXenomorphBaseScript : YmirComponent
 	private bool aggro;
 
 	//Attacks variables
-
-	private float detectionRadius;
-	private float wanderRange;
 
 	//Claw
 	//private float clawDamage;
@@ -68,7 +62,7 @@ public class DroneXenomorphBaseScript : YmirComponent
 		//AGENT
 		aggro = false;
         agent.stoppingDistance = 2f;
-        agent.speed = 25f;
+        agent.speed = 50f;
 
 		//ATTACKS
 
@@ -240,51 +234,11 @@ public class DroneXenomorphBaseScript : YmirComponent
     //SHOULD BE ON ENEMY BASE SCRIPT!!!!!
     //LookAt, CheckDistance, MoveToPosition, DestroyEnemy, IsReached
     //Check distance between two gameobjects world position
-    public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
-    {
-        float deltaX = Math.Abs(first.x - second.x);
-        float deltaY = Math.Abs(first.y - second.y);
-        float deltaZ = Math.Abs(first.z - second.z);
-
-        return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
-    }
-    public void LookAt(Vector3 pointToLook)
-    {
-        Vector3 direction = pointToLook - gameObject.transform.globalPosition;
-        direction = direction.normalized;
-        float angle = (float)Math.Atan2(direction.x, direction.z);
-
-        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
-
-        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-            return;
-
-        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
-
-        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
 
 
-        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
 
-        gameObject.SetRotation(desiredRotation);
 
-    }
-
-    public void MoveToCalculatedPos(float speed)
-    {
-        Vector3 pos = gameObject.transform.globalPosition;
-        Vector3 destination = agent.GetDestination();
-        Vector3 direction = destination - pos;
-
-        gameObject.SetVelocity(direction.normalized * speed);
-    }
-    public void DestroyEnemy()
-    {
-        Audio.PlayAudio(gameObject, "FH_Death");
-        InternalCalls.Destroy(gameObject);
-    }
-
-    public void IsReached(Vector3 position, Vector3 destintion)
+    public new void IsReached(Vector3 position, Vector3 destintion)
     {
         Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
                                       0,
