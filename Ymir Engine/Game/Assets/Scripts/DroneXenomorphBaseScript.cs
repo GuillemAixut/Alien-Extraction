@@ -70,7 +70,7 @@ public class DroneXenomorphBaseScript : YmirComponent
 
 		//ATTACKS
 
-		detectionRadius = 100f;
+		detectionRadius = 60f;
         wanderRange = 100f;
 
         //Claw
