@@ -1,9 +1,9 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -36.623569488525391,
-        48.8314208984375,
-        101.73214721679688
+        -36.109081268310547,
+        48.145423889160156,
+        100.30300903320312
     ],
     "Editor Camera Right (X)": [
         0.94088733196258545,
@@ -28,7 +28,7 @@
             "UID": 485180280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 89681098,
+            "Parent UID": 485180280,
             "Components": [
                 {
                     "Type": "Transform",
@@ -73,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -100,17 +100,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        -1.4361705780174816e-07,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361705780174816e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -156,8 +156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1909,
-                    "Height": 1001,
+                    "Width": 1779,
+                    "Height": 1081,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -297,8 +297,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        775,
-                        312,
+                        0,
+                        0,
                         0
                     ],
                     "Rotation": [
@@ -349,8 +349,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        775,
+                        312,
                         0
                     ],
                     "Rotation": [
@@ -541,7 +541,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/pato.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -577,7 +577,7 @@
                     "Is interactable": true,
                     "Text": 104690399,
                     "Image": 1526688955,
-                    "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
                     "Selected": "Assets\/UI\/Items Slots\/onHover.png",
@@ -825,7 +825,7 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        633,
+                        663.29998779296875,
                         457,
                         0
                     ],
@@ -886,7 +886,7 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        633,
+                        663.29998779296875,
                         457,
                         100,
                         100
@@ -949,7 +949,7 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        633,
+                        663.29998779296875,
                         457,
                         100,
                         100
@@ -1012,7 +1012,7 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        633,
+                        663.29998779296875,
                         457,
                         100,
                         100
@@ -1045,7 +1045,7 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        633,
+                        663.29998779296875,
                         457,
                         300,
                         50
@@ -1147,7 +1147,7 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        194,
+                        224.29998779296875,
                         457,
                         336,
                         277
@@ -1213,7 +1213,7 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        306,
+                        336.29998779296875,
                         504,
                         300,
                         50
@@ -1249,8 +1249,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        885,
-                        457,
+                        0,
+                        0,
                         0
                     ],
                     "Rotation": [
@@ -1301,8 +1301,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        885,
+                        457,
                         0
                     ],
                     "Rotation": [
@@ -1725,8 +1725,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        528,
-                        613,
+                        0,
+                        0,
                         0
                     ],
                     "Rotation": [
@@ -1777,8 +1777,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        528,
+                        613,
                         0
                     ],
                     "Rotation": [
@@ -2201,8 +2201,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        528,
-                        734,
+                        0,
+                        0,
                         0
                     ],
                     "Rotation": [
@@ -2253,8 +2253,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        528,
+                        734,
                         0
                     ],
                     "Rotation": [
@@ -2677,8 +2677,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        1144,
-                        191,
+                        0,
+                        0,
                         0
                     ],
                     "Rotation": [
@@ -2729,8 +2729,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1144,
+                        191,
                         0
                     ],
                     "Rotation": [
@@ -3348,7 +3348,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/ArmorIconColor.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3411,7 +3411,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/pato.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3447,7 +3447,7 @@
                     "Is interactable": true,
                     "Text": 838864476,
                     "Image": 1110638304,
-                    "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
+                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
                     "Selected": "Assets\/UI\/Items Slots\/onHover.png",
@@ -3485,7 +3485,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "ARMOR",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -9597,15 +9597,15 @@
             ],
             "Children UID": [
                 975518885,
-                1010645615,
-                563983283,
                 1245706322,
                 1617697427,
                 110726321,
                 78147728,
                 1075903248,
                 432873557,
-                1667167596
+                1667167596,
+                1010645615,
+                563983283
             ]
         },
         {
@@ -9668,131 +9668,6 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Item Description Image",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1010645615,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 413940744,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 116,
-                    "Position Y": 491,
-                    "Width": 300,
-                    "Height": 300,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        116,
-                        491,
-                        300,
-                        300
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Item Description Text",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 563983283,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 413940744,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 127,
-                    "Position Y": 529,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        127,
-                        529,
-                        200,
-                        50
-                    ],
-                    "Text": "This is a text",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 3.4000000953674316,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -10217,6 +10092,131 @@
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 0.5,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Item Description Image",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1010645615,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 413940744,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 300,
+                    "Height": 300,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        300,
+                        300
+                    ],
+                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Item Description Text",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 563983283,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 413940744,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 20,
+                    "Position Y": 30,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        20,
+                        30,
+                        200,
+                        50
+                    ],
+                    "Text": "This is a text",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 3.4000000953674316,
                     "Color": [
                         0,
                         0,
