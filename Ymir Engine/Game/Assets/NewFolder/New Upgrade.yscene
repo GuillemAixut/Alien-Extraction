@@ -1,5 +1,5 @@
 {
-    "NavMesh": "4294967295",
+    "NavMesh": "",
     "Editor Camera Position": [
         -36,
         48,
@@ -28,7 +28,7 @@
             "UID": 451811846,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 451811846,
+            "Parent UID": 1355549016,
             "Components": [
                 {
                     "Type": "Transform",
@@ -73,9 +73,9 @@
                         54
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         40.000007629394531,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -100,17 +100,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        1.4361705780174816e-07,
+                        -1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         1,
-                        -1.4361705780174816e-07
+                        1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -156,8 +156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1861,
-                    "Height": 1080,
+                    "Width": 1801,
+                    "Height": 1008,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -534,8 +534,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1861,
-                    "Height": 1080,
+                    "Width": 1801,
+                    "Height": 1008,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -560,6 +560,7 @@
                     "naviagteY": true,
                     "bounceX": false,
                     "bounceY": false,
+                    "empty": false,
                     "childX": 0,
                     "childY": 0
                 }
@@ -615,7 +616,7 @@
                         197,
                         77
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/Smg.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -804,7 +805,7 @@
                         197,
                         77
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -993,7 +994,7 @@
                         197,
                         77
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1243,6 +1244,7 @@
                     "naviagteY": true,
                     "bounceX": false,
                     "bounceY": false,
+                    "empty": false,
                     "childX": 0,
                     "childY": 2
                 }
@@ -1296,7 +1298,7 @@
                         197,
                         77
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1485,7 +1487,7 @@
                         197,
                         77
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/SmgBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1664,8 +1666,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1861,
-                    "Height": 1080,
+                    "Width": 1801,
+                    "Height": 1008,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -1690,6 +1692,7 @@
                     "naviagteY": true,
                     "bounceX": false,
                     "bounceY": false,
+                    "empty": false,
                     "childX": 0,
                     "childY": 0
                 }
@@ -1745,7 +1748,7 @@
                         213,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1934,7 +1937,7 @@
                         213,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2123,7 +2126,7 @@
                         213,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/Shotgun.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2373,6 +2376,7 @@
                     "naviagteY": true,
                     "bounceX": false,
                     "bounceY": false,
+                    "empty": false,
                     "childX": 0,
                     "childY": 2
                 }
@@ -2426,7 +2430,7 @@
                         213,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2615,7 +2619,7 @@
                         213,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/ShotgunBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2794,8 +2798,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1861,
-                    "Height": 1080,
+                    "Width": 1801,
+                    "Height": 1008,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -2820,6 +2824,7 @@
                     "naviagteY": true,
                     "bounceX": false,
                     "bounceY": false,
+                    "empty": false,
                     "childX": 0,
                     "childY": 0
                 }
@@ -2874,7 +2879,7 @@
                         209,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3252,7 +3257,7 @@
                         209,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3440,6 +3445,7 @@
                     "naviagteY": true,
                     "bounceX": false,
                     "bounceY": false,
+                    "empty": false,
                     "childX": 0,
                     "childY": 2
                 }
@@ -3493,7 +3499,7 @@
                         209,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3682,7 +3688,7 @@
                         209,
                         58
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserExported.png",
+                    "Path": "Assets\/UI\/Upgrade Buttons\/LaserBlocked.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,

@@ -154,12 +154,16 @@ struct EmitterPosition : EmitterSetting
 	bool randomized; //Si la direccion es solo la uno o un numero random entre la 1 y la 2
 	float3 direction1;
 	float3 direction2;
+	bool normalizedSpeed;
+
 	bool acceleration;
 	float particleSpeed1;
 	float particleSpeed2;
+
 	float3 newDirection;
 	float changeSpeed1;
 	float changeSpeed2;
+	bool normalizedChange;
 	
 	SpeedChangeMode actualSpeedChange;
 

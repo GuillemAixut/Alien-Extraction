@@ -15,6 +15,7 @@ public class UI_Item_Button : YmirComponent
     public string enumItem = "";
     public string enumSlot = "";
     public string descriptionText = "";
+    public string menuName = "";
 
     private GameObject _inventoryReference;
     public bool updateStats;
@@ -26,7 +27,7 @@ public class UI_Item_Button : YmirComponent
         GameObject goText = InternalCalls.GetChildrenByName(goDescription, "Text");
         descriptionText = UI.GetUIText(goText);
 
-        _inventoryReference = InternalCalls.GetGameObjectByName("Inventory Menu");
+        _inventoryReference = InternalCalls.GetGameObjectByName(menuName);
 
         itemType = SetType(enumItem);
         currentSlot = SetType(enumSlot);
@@ -39,16 +40,16 @@ public class UI_Item_Button : YmirComponent
 
     public void Update()
     {
-        if (updateStats)
-        {
-            if (item.currentSlot != ITEM_SLOT.NONE)
-            {
-                UpdateStats();
-                _inventoryReference.GetComponent<UI_Inventory>().UpdateTextStats();
-            }
+        //if (updateStats)
+        //{
+        //    if (item.currentSlot != ITEM_SLOT.NONE)
+        //    {
+        //        UpdateStats();
+        //        _inventoryReference.GetComponent<UI_Inventory>().UpdateTextStats();
+        //    }
 
-            updateStats = false;
-        }
+        //    updateStats = false;
+        //}
 
         return;
     }

@@ -203,7 +203,7 @@ public class Player : YmirComponent
 
         //--------------------- Swipe ---------------------\\
         swipeTimer = 0;
-        swipeDuration = 3.0f;
+        swipeDuration = 1.0f;
         swipeCDTimer = 0;
         swipeCD = 2.0f; //Es 13.0f
         hasSwipe = false;

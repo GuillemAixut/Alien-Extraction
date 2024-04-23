@@ -23,11 +23,12 @@ public class Key : YmirComponent
     {
         if (other.Tag == "Player")
         {
-            if (Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN)
-            {
-                //TODO: Set unActive the door
-                door.SetActive(false);
-            }
+            //TODO: Set unActive the door
+            InternalCalls.DisableComponent(door, "PHYSICS");
+            //TODO: Set unActive all the components physics of the childrens
+            door.SetActive(false);
+            gameObject.SetActive(false);
+
         }
     }
 }

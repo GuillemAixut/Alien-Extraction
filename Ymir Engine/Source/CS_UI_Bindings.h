@@ -234,35 +234,16 @@ MonoObject* GetFocused()
 
 void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
 {
-	G_UI* selectedgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(selectedObject);
-	UI_Transform* selectedTransform = static_cast<UI_Transform*>(selectedgo->GetComponent(ComponentType::UI_TRAMSFORM));
+	GameObject* selectedgo = External->moduleMono->GameObject_From_CSGO(selectedObject);
+	CTransform* selectedTransform = selectedgo->mTransform;
 
-	G_UI* targetgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(targetObject);
-	UI_Transform* targetTransform = static_cast<UI_Transform*>(targetgo->GetComponent(ComponentType::UI_TRAMSFORM));
+	GameObject* targetgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(targetObject);
+	CTransform* targetTransform = targetgo->mTransform;
 
-	float auxPosX = targetTransform->componentReference->posX;
-	float auxPosY = targetTransform->componentReference->posY;
-	//float auxWidth = targetTransform->componentReference->width;
-	//float auxHeight = targetTransform->componentReference->height;
+	float3 auxPos = float3(targetTransform->translation);
 
-	targetTransform->componentReference->posX = selectedTransform->componentReference->posX;
-	targetTransform->componentReference->posY = selectedTransform->componentReference->posY;
-
-	selectedTransform->componentReference->posX = auxPosX;
-	selectedTransform->componentReference->posY = auxPosY;
-
-	//targetTransform->componentReference->width = selectedTransform->componentReference->width;
-	//targetTransform->componentReference->height = selectedTransform->componentReference->height;
-
-	//selectedTransform->componentReference->width = auxWidth;
-	//selectedTransform->componentReference->height = auxHeight;
-
-	targetTransform->UpdateUITransformChilds();
-	targetTransform->componentReference->dirty_ = true;
-
-	selectedTransform->UpdateUITransformChilds();
-	selectedTransform->componentReference->dirty_ = true;
-
+	targetTransform->SetPosition(selectedTransform->translation);
+	selectedTransform->SetPosition(auxPos);
 
 	for (int i = 0; i < External->scene->selectedUIGO->mComponents.size(); i++)
 	{
@@ -274,7 +255,7 @@ void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
 			}
 		}
 	}
-
+	
 	External->scene->swapList.insert(std::pair<GameObject*, GameObject*>(selectedgo, targetgo));
 	//selectedgo->SwapChildren(targetgo);
 
@@ -918,17 +899,16 @@ MonoString* GetUIText(MonoObject* go)
 
 void SetUIPosWithOther(MonoObject* goSource, MonoObject* goDestination)
 {
-	G_UI* selectedgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(goSource);
-	UI_Transform* selectedTransform = static_cast<UI_Transform*>(selectedgo->GetComponent(ComponentType::UI_TRAMSFORM));
+	GameObject* selectedgo = External->moduleMono->GameObject_From_CSGO(goSource);
+	CTransform* selectedTransform = selectedgo->mTransform;
 
-	G_UI* targetgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(goDestination);
-	UI_Transform* targetTransform = static_cast<UI_Transform*>(targetgo->GetComponent(ComponentType::UI_TRAMSFORM));
+	GameObject* targetgo = External->moduleMono->GameObject_From_CSGO(goDestination);
+	CTransform* targetTransform = targetgo->mTransform;
 
-	selectedTransform->componentReference->posX = targetTransform->componentReference->posX;
-	selectedTransform->componentReference->posY = targetTransform->componentReference->posY;
+	selectedTransform->SetPosition(float3(targetTransform->translation.x, targetTransform->translation.y,0));
 
-	selectedTransform->UpdateUITransformChilds();
-	selectedTransform->componentReference->dirty_ = true;
+	//selectedTransform->UpdateUITransformChilds();
+	//selectedTransform->componentReference->dirty_ = true;
 
 }
 
