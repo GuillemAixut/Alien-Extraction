@@ -29,37 +29,40 @@ public class UI_Inventory : YmirComponent
         _disable = false;
         _show = false;
 
-        GetPlayerScript();
-        GetHealthScript();
+        //GetPlayerScript();
+        //GetHealthScript();
 
-        _textHP = InternalCalls.GetGameObjectByName("Text HP");
-        _textArmor = InternalCalls.GetGameObjectByName("Text Armor");
-        _textSpeed = InternalCalls.GetGameObjectByName("Text Speed");
-        _textReload = InternalCalls.GetGameObjectByName("Text Reload");
-        _textDamage = InternalCalls.GetGameObjectByName("Text Damage");
-        _textRate = InternalCalls.GetGameObjectByName("Text Rate");
-        _textResin = InternalCalls.GetGameObjectByName("Text Resin");
+        if (_droppable)
+        {
+            _textHP = InternalCalls.GetGameObjectByName("Text HP");
+            _textArmor = InternalCalls.GetGameObjectByName("Text Armor");
+            _textSpeed = InternalCalls.GetGameObjectByName("Text Speed");
+            _textReload = InternalCalls.GetGameObjectByName("Text Reload");
+            _textDamage = InternalCalls.GetGameObjectByName("Text Damage");
+            _textRate = InternalCalls.GetGameObjectByName("Text Rate");
+            _textResin = InternalCalls.GetGameObjectByName("Text Resin");
+        }
 
-        UpdateTextStats();
+        //UpdateTextStats();
 
         //UI.SetFirstFocused(gameObject); // TODO: MissingMethodException WHY?
     }
 
     public void Update()
     {
-        if (player == null)
-        {
-            GetPlayerScript();
-        }
+        //if (player == null)
+        //{
+        //    GetPlayerScript();
+        //}
 
-        if (player != null && player.setHover)
-        {
-            Debug.Log("set first");
-            goDescription.SetActive(false);// TODO: when menu opened
-            goText.SetActive(false);
+        //if (player != null && player.setHover)
+        //{
+        //    Debug.Log("set first");
+        //    goDescription.SetActive(false);// TODO: when menu opened
+        //    goText.SetActive(false);
 
-            player.setHover = false;
-        }
+        //    player.setHover = false;
+        //}
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
@@ -93,7 +96,7 @@ public class UI_Inventory : YmirComponent
 
             if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
             {
-                SwitchMenu();
+                UI.SetFirstFocused(gameObject);
             }
 
             if (focusedGO.GetComponent<UI_Item_Button>() != null && _droppable)
@@ -146,7 +149,7 @@ public class UI_Inventory : YmirComponent
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && focusedGO.GetComponent<UI_Item_Button>().item.itemType == ITEM_SLOT.NONE) ||
                 focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.SAVE)
             {
-                UI.SwitchPosition(_selectedGO, focusedGO);
+                UI.SwitchPosition(_selectedGO.parent, focusedGO.parent);
 
                 //_show = false;
                 //_focusedGO.GetComponent<UI_Item_Button>().ShowInfo(_show);
@@ -188,8 +191,8 @@ public class UI_Inventory : YmirComponent
 
     void UpdateTextPos()
     {
-        UI.SetUIPosWithOther(goDescription, focusedGO);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
-        UI.SetUIPosWithOther(goText, focusedGO);
+        UI.SetUIPosWithOther(goDescription, focusedGO.parent);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
+        UI.SetUIPosWithOther(goText, focusedGO.parent);
     }
 
     public void ShowText(bool isActive)

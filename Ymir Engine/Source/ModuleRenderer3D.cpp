@@ -788,7 +788,7 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 		}
 	}
 
-	glDepthMask(GL_TRUE);
+	//glDepthMask(GL_TRUE);
 	glAlphaFunc(GL_GREATER, 0.0f);
 }
 
@@ -854,7 +854,6 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 {
 	EmitterBase* eBase = (EmitterBase*)pSystem->allEmitters.at(0)->modules.at(0); //We create the referemce to accces more easily
-
 	
 	Quat rotacion;
 	switch (eBase->rotacionBase)
@@ -1001,7 +1000,75 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 		break;
 	case SpawnAreaShape::PAR_SPHERE:
 	{
+		glLineWidth(2.f);
+		glBegin(GL_LINES);
+		glColor3fv(color.ptr());
 
+		float3 temp;
+		float3 temp2;
+
+		int numPuntos = 16;
+
+		//Eje X
+		for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+		{
+			//Draw external circle
+			temp = { 0,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * i) * eBase->baseRadius };
+			temp2 = { 0 , sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius };
+			glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+			if (eBase->radiusHollow > 0.0f)
+			{
+				//Draw inner circle
+				temp = { 0,sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,-cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow };
+				temp2 = { 0,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow ,-cos((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow };
+				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			}
+		}
+
+		//Eje Y
+		for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+		{
+			//Draw external circle
+			temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius }; 
+			temp2 = { cos((pi * 2 / numPuntos) * (i+1)) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * (i+1)) * eBase->baseRadius }; 
+			glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+			if (eBase->radiusHollow > 0.0f)
+			{
+				//Draw inner circle
+				temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,0,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow };
+				temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow ,0,-sin((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow };
+				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			}
+		}
+
+		//Eje Z
+		for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+		{
+			//Draw external circle
+			temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius, 0 };
+			temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,0 };
+			glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+			if (eBase->radiusHollow > 0.0f)
+			{
+				//Draw inner circle
+				temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow, 0 };
+				temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow ,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow,0 };
+				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			}
+		}
+
+		glColor3f(255.f, 255.f, 255.f);
+		glEnd();
+		glLineWidth(1.f);
 	}
 		break;
 	case SpawnAreaShape::PAR_SHAPE_ENUM_END:

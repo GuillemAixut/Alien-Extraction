@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        301.9969482421875,
-        185.07687377929688,
-        124.87274169921875
+        157.41868591308594,
+        22.366409301757812,
+        -2.042595386505127
     ],
     "Editor Camera Right (X)": [
-        0.63775491714477539,
-        -2.384185791015625e-07,
-        -0.77006363868713379
+        0.70974218845367432,
+        -7.4505805969238281e-08,
+        0.70427185297012329
     ],
     "Editor Camera Up (Y)": [
-        -0.40997141599655151,
-        0.84638494253158569,
-        -0.3395322859287262
+        0.42001697421073914,
+        0.8025888204574585,
+        -0.42327931523323059
     ],
     "Editor Camera Front (Z)": [
-        -0.65194863080978394,
-        -0.53238874673843384,
-        -0.53993368148803711
+        0.56539362668991089,
+        -0.59638839960098267,
+        -0.56978529691696167
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1457677832,
+            "Parent UID": 1085869352,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1975,6 +1975,9 @@
                     "reloadDuration": 0,
                     "ammo": 0,
                     "magsize": 5,
+                    "smgRange": 0,
+                    "shootgunRange": 0,
+                    "traceRange": 0,
                     "damageMultiplier": 0,
                     "resin": 0,
                     "dashDuration": 0.25,
@@ -2248,7 +2251,7 @@
                     "Position X": 0,
                     "Position Y": 0,
                     "Width": 465,
-                    "Height": 486,
+                    "Height": 430,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -12686,21 +12689,21 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 1101,
-                    "Diffuse_Path": "Assets\/BASE_FINAL\/Base_Textures\/Workstation\/TEX_PROP_Workbench_R.png",
-                    "Diffuse_UID": 215308208,
-                    "Normal_ID": 1093,
-                    "Normal_Path": "Assets\/BASE_FINAL\/Base_Textures\/Workstation\/TEX_PROP_Workbench_N.png",
-                    "Normal_UID": 422565266,
-                    "Height_ID": 1085,
-                    "Height_Path": "Assets\/BASE_FINAL\/Base_Textures\/Workstation\/TEX_PROP_Workbench_H.png",
-                    "Height_UID": 1373272375,
-                    "Ambient_ID": 1075,
-                    "Ambient_Path": "Assets\/BASE_FINAL\/Base_Textures\/Workstation\/TEX_PROP_Workbench_A.png",
-                    "Ambient_UID": 1970648232,
-                    "Emissive_ID": 1081,
-                    "Emissive_Path": "Assets\/BASE_FINAL\/Base_Textures\/Workstation\/TEX_PROP_Workbench_E.png",
-                    "Emissive_UID": 1185071749
+                    "Diffuse_ID": 613,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Fix Workstation Textures\/TEX_PROP_BaseWorkbench_D.png",
+                    "Diffuse_UID": 1751476291,
+                    "Normal_ID": 609,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Fix Workstation Textures\/TEX_PROP_BaseWorkbench_N.png",
+                    "Normal_UID": 1332524953,
+                    "Height_ID": 605,
+                    "Height_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Fix Workstation Textures\/TEX_PROP_BaseWorkbench_H.png",
+                    "Height_UID": 908672153,
+                    "Ambient_ID": 597,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Fix Workstation Textures\/TEX_PROP_BaseWorkbench_A.png",
+                    "Ambient_UID": 1099055820,
+                    "Emissive_ID": 601,
+                    "Emissive_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Fix Workstation Textures\/TEX_PROP_BaseWorkbench_E.png",
+                    "Emissive_UID": 1366229549
                 }
             ]
         },
