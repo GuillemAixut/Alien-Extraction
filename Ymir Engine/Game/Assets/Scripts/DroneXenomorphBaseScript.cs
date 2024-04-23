@@ -66,7 +66,7 @@ public class DroneXenomorphBaseScript : YmirComponent
 		//AGENT
 		aggro = false;
         agent.stoppingDistance = 2f;
-        agent.speed = 15f;
+        agent.speed = 50f;
 
 		//ATTACKS
 
