@@ -501,8 +501,9 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 
 GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
 {
+	TimeManager::gameTimer.Pause();
 	ClearVec(vTempComponents);
-
+	
 	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
 
 	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
@@ -526,12 +527,13 @@ GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& f
 	LOG("Prefab '%s' loaded", fileName.c_str());
 
 	ClearVec(prefab);
+	TimeManager::gameTimer.Resume();
 		
 	return rootObject;
 }
 
 
-GameObject* ModuleScene::LoadPrefab( char* path)
+GameObject* ModuleScene::LoadPrefab( const char* path)
 {
 	ClearVec(vTempComponents);
 
