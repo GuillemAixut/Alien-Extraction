@@ -21,8 +21,9 @@
         float lightInt;
     }; 
 
-    #define MAX_POINT_LIGHTS 9
+    #define MAX_POINT_LIGHTS 4
 
+    out mat3 TBN;
 	out vec3 Normal;
 	out vec2 TexCoords;
 
@@ -50,7 +51,7 @@
 		vec3 T = normalize(vec3(model * vec4(aTangents,   0.0)));
    		vec3 B = normalize(vec3(model * vec4(aBitangents, 0.0)));
    		vec3 N = normalize(vec3(model * vec4(aNormal,    0.0)));
-   		mat3 TBN = mat3(T, B, N);
+   		TBN = mat3(T, B, N);
    		TBN = transpose(TBN);
    		
         TangentViewPos = TBN * camPos;
@@ -78,7 +79,7 @@
         float lightInt;
     }; 
     
-    #define MAX_POINT_LIGHTS 9
+    #define MAX_POINT_LIGHTS 4
     in TangentPointLight tPointLights[MAX_POINT_LIGHTS];
     uniform int numPointLights;
 
@@ -89,6 +90,8 @@
 	
     in vec3 TangentViewPos;
     in vec3 TangentFragPos;
+
+    in mat3 TBN;
 
     out vec4 FragColor;
 
@@ -152,6 +155,48 @@
 	
 	}
 	
+    vec4 BakePointLight(vec3 lightPos, vec3 lightColor, float lightInt, vec3 normal, vec3 TangentFragPos, vec3 viewDirection) {
+		
+        lightPos = TBN * lightPos;
+
+        // Point Light Attenuation
+
+		vec3 lightVec = lightPos - TangentFragPos;
+		float dist = length(lightVec);
+		float a = 0.005;
+		float b = 0.0001;
+		float intensity = 1.0f / (a * dist * dist + b * dist + 1.0f);
+            
+        // Normal
+
+        vec3 lightDirection = normalize(lightPos - TangentFragPos);
+        float diffuse = max(dot(normal, lightDirection), 0.0f);
+        
+        // Specular
+        
+        vec3 reflectionDirection = reflect(-lightDirection, normal);
+        float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 16);
+        float specular = specAmount * specularLight;
+		
+		// Apply texture maps
+
+        vec3 finalColor = vec3(0.0); // Initialize the final color variable
+
+        // Apply diffuse and ambient texture
+        finalColor += (enableDiffuse ? texture(texture_diffuse, TexCoords).rgb : vec3(1.0f)) * lightColor * (diffuse * intensity +
+        ambient * intensity * (enableAmbient ? texture(texture_ambient, TexCoords).r : 1.0f));
+
+        // Apply specular texture
+        if (enableSpecular) finalColor += texture(texture_specular, TexCoords).a * specular * intensity;
+
+        // Apply emissive texture
+        if (enableEmissive) finalColor += texture(texture_emissive, TexCoords).rgb * emissive;
+
+        // Apply transparency
+        return vec4(finalColor,transparency);
+	
+	}
+
 	vec4 DirectionalLight() {
 		
 		float ambient = 0.50f;
@@ -268,6 +313,22 @@
             // Spot Light Management
 
             // Area Light Management
+
+            // Baked Lights LVL2
+
+            // Faltaria el uniform para detectar en que mapa estas
+
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,82.0f), vec3(1.0f,0.0f,0.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,92.0f), vec3(0.0f,1.0f,0.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,102.0f), vec3(0.0f,0.0f,1.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,112.0f), vec3(1.0f,0.0f,0.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,122.0f), vec3(0.0f,1.0f,0.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,132.0f), vec3(0.0f,0.0f,1.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,142.0f), vec3(1.0f,0.0f,0.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,152.0f), vec3(0.0f,1.0f,0.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,162.0f), vec3(0.0f,0.0f,1.0f), 1, normal, TangentFragPos, viewDirection);
+            //finalColor += BakePointLight(vec3(0.0f,113.0f,172.0f), vec3(1.0f,0.0f,0.0f), 1, normal, TangentFragPos, viewDirection);
+
         }
         else 
         { 
@@ -279,6 +340,7 @@
     }
 
 #endif
+
 
 
 
