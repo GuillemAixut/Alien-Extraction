@@ -365,8 +365,6 @@ void CScript::CollisionExitCallback(bool isTrigger, GameObject* collidedGameObje
 
 		}
 
-
-
 		if (isTrigger)
 		{
 			if (onCollisionExitMethod != nullptr)
