@@ -145,6 +145,7 @@ public class DroneXenomorphBaseScript : YmirComponent
 				{
                     timeLimit = 0.5f;
                     aggro = true;
+                    Audio.PlayAudio(gameObject, "DX_Cry");
                     droneState = DroneState.CRY;
 				}
 
@@ -183,6 +184,7 @@ public class DroneXenomorphBaseScript : YmirComponent
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
+                    Audio.PlayAudio(gameObject, "DX_Claw");
                     droneState = DroneState.IDLE_AGGRO;
                 }
 
@@ -198,6 +200,7 @@ public class DroneXenomorphBaseScript : YmirComponent
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
+                    Audio.PlayAudio(gameObject, "DX_Tail");
                     droneState = DroneState.IDLE_AGGRO;
                 }
 
