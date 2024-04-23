@@ -27,6 +27,7 @@ public class Key : YmirComponent
             {
                 //TODO: Set unActive the door
                 door.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }
