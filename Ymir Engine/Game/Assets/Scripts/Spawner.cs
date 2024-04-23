@@ -15,10 +15,13 @@ public class Spawner: YmirComponent
 
     public List<GameObject> currentEnemies = null;
 
+    public int typeOfEnemy = 0;
+
     public void Start()
     {
-        spawn = true;
+        spawn = false;
         currentEnemies = new List<GameObject>();
+        
         //enemiesCounter = 0;
     }
 
@@ -27,22 +30,30 @@ public class Spawner: YmirComponent
 
         if(spawn)
         {
-            Spawn();
+            Spawn(typeOfEnemy);
             spawn = false;
         }
 
     }
 
 
-    private void Spawn()
+    public void Spawn(int enemyType)
     {
-        InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger", gameObject.transform.globalPosition);
+        switch (enemyType)
+        {
+            case 0:
+            break;
+            case 1:
+                InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger", gameObject.transform.globalPosition);
+                break;
 
-        //if( enemy != null)
-        //{
-        //    currentEnemies.Add(enemy);
-        //    enemiesCounter++;
-        //}
+            case 2:
+
+                InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-Drone", gameObject.transform.globalPosition);
+                break;
+        }
+       
+
 
     }
 
