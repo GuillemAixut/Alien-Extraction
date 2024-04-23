@@ -39,13 +39,12 @@ public class DroneXenomorphAttack : YmirComponent
 
         gameObject.SetRotation(drone.transform.globalRotation);
 
-        if (drone.GetComponent<DroneXenomorphBaseScript>().timeCounter > 0.5f)
+        if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() != DroneState.CLAW && drone.GetComponent<DroneXenomorphBaseScript>().GetState() != DroneState.TAIL)
         {
             gameObject.SetPosition(drone.transform.globalPosition);
         }
-        else if ((drone.GetComponent<DroneXenomorphBaseScript>().timeCounter < 0.5f) && (drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.CLAW || drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.TAIL))
+        else if (drone.GetComponent<DroneXenomorphBaseScript>().timeCounter > 0.5f)
         {
-            //gameObject.SetPosition(new Vector3(gameObject.transform.globalPosition.x, gameObject.transform.globalPosition.y, gameObject.transform.GetForward().z + 5));
             if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.CLAW) attackRange = 10f;
             else attackRange = 20f;
 
