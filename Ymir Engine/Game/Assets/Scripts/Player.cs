@@ -96,6 +96,10 @@ public class Player : YmirComponent
     public int ammo = 0;
     public int magsize = 5;
 
+    public float smgRange = 30.0f;
+    public float shootgunRange = 15.0f;
+    public float traceRange = 100.0f;
+
     private int shootRumbleIntensity;
     private int shootRumbleDuration;
 
@@ -1044,80 +1048,28 @@ public class Player : YmirComponent
     }
     private void StartShoot()
     {
-        //TO DO
+        StopPlayer();
+
         //Logica del disparo depende del arma equipada
-        //switch (weaponType)
-        //{
-        //    case WEAPON.SMG:
-        //        //SmgShoot();
-        //        break;
-
-        //    case WEAPON.SHOTGUN:
-        //        //ShotgunShoot();
-        //        break;
-
-        //    case WEAPON.TRACE:
-        //        //TraceShoot();
-        //        break;
-        //}
-
-        // Añadir efecto de sonido
-        Audio.PlayAudio(gameObject, "P_Shoot");
-        Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
-
-        //Particles
-        GameObject particles = GetParticles(gameObject, "ParticlesShoot");
-        Particles.PlayEmitter(particles);
-
-        //Debug.Log("Shoot!");
+        switch (weaponType) {
+            case WEAPON.SMG:
+                SmgShoot();
+                break;
+            case WEAPON.SHOTGUN:
+                ShotgunShoot();
+                break;
+            case WEAPON.TRACE:
+                TraceShoot();
+                break;
+            default:
+                SmgShoot();
+                break;
+        }
 
         if (!godMode)
         {
             --ammo;
             if (csBullets != null) { csBullets.UseBullets(); }
-        }
-
-        //Debug.Log("Ammo:" + ammo);
-
-        StopPlayer();
-
-        Vector3 offset = new Vector3(0, 15, 0);
-        //Posicion desde la que se crea la bala (la misma que el game object que le dispara)
-        //Vector3 pos = gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * 2);
-
-        //Distancias y posicion para que la bala salga desde delante del player
-        Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-        float distance = 10.0f;
-        Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
-
-
-        //Debug.Log("ParentPos: " + gameObject.transform.globalPosition.x + gameObject.transform.globalPosition.y + gameObject.transform.globalPosition.z);
-        //Debug.Log("Spawn pos: " + pos);
-
-        //Rotacion desde la que se crea la bala (la misma que el game object que le dispara)
-        Quaternion rot = gameObject.transform.globalRotation;
-
-        //Tamaño de la bala
-        Vector3 scale = new Vector3(2.0f, 2.0f, 2.0f);
-
-        //Crea la bala
-        //Debug.Log("rot: " + gameObject.transform.localRotation.x + gameObject.transform.localRotation.y + gameObject.transform.localRotation.z + gameObject.transform.localRotation.w);
-        //InternalCalls.CreateBullet(pos, rot, scale);
-        //GameObject test = InternalCalls.GetGameObjectByName("Target");
-        GameObject test = new GameObject();
-
-        //if (gameObject.RaycastTest(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 100, test))
-        //{
-        //    Debug.Log("HIT");
-        //}
-        Vector3 shootPos = gameObject.transform.globalPosition;
-        shootPos.y += 15;
-
-        test = gameObject.RaycastHit(shootPos, gameObject.transform.GetForward(), 100);
-        if (test != null)
-        {
-            Debug.Log("HIT");
-            Debug.Log(test.Name);
         }
 
         inputsList.Add(INPUT.I_SHOOT_END);
@@ -1150,23 +1102,42 @@ public class Player : YmirComponent
             //if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
-        StopPlayer();
+        //Particles
+        GameObject particles = GetParticles(gameObject, "ParticlesShoot");
+        Particles.PlayEmitter(particles);
 
         Vector3 offset = new Vector3(0, 15, 0);
 
         //Distancias y posicion para que la bala salga desde delante del player
-        Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-        float distance = 20.0f;
-        Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
+        //Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
+        //float distance = 20.0f;
+        //Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
 
         //Rotacion desde la que se crea la bala (la misma que el game object que le dispara)
-        Quaternion rot = gameObject.transform.globalRotation;
+        //Quaternion rot = gameObject.transform.globalRotation;
 
         //Tamaño de la bala
-        Vector3 scale = new Vector3(2.0f, 2.0f, 2.0f);
+        //Vector3 scale = new Vector3(2.0f, 2.0f, 2.0f);
 
         //Crea la bala
-        InternalCalls.CreateBullet(pos, rot, scale);
+        //InternalCalls.CreateBullet(pos, rot, scale);
+
+        GameObject target;
+        target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 30.0f);
+
+        if (target != null) {
+
+            Debug.Log(target.Name);
+
+            if (target.Tag != "Enemy") {
+                // Damage enemy
+                // Blood particle
+            }
+            else {
+                // Sparkle particle
+                // Play bullet hit wall SFX
+            }
+        }
 
         inputsList.Add(INPUT.I_SHOOT_END);
     }
