@@ -66,7 +66,7 @@ public class DroneXenomorphBaseScript : YmirComponent
 		//AGENT
 		aggro = false;
         agent.stoppingDistance = 2f;
-        agent.speed = 50f;
+        agent.speed = 25f;
 
 		//ATTACKS
 
@@ -172,6 +172,8 @@ public class DroneXenomorphBaseScript : YmirComponent
 
                 timeCounter += Time.deltaTime;
 
+                gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
                 {
@@ -184,6 +186,8 @@ public class DroneXenomorphBaseScript : YmirComponent
                 //Do tail attack, then go to idle aggro state
 
                 timeCounter += Time.deltaTime;
+
+                gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
