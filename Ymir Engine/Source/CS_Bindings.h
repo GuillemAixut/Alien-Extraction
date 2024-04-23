@@ -777,8 +777,10 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 
 	//Hace unbox de los parametros de transform pasados
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(1, 1, 50);
+	//Funciona pero es rarete
+	//Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	Quat rotVector = Quat(0,0,0,0);
+	float3 scaleVector = float3(50, 50, 50);
 
 
 	//Añade RigidBody a la bala
