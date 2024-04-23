@@ -82,6 +82,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::SetAsBillboard", SetGameObjectAsBillboardCS);
 	mono_add_internal_call("YmirEngine.GameObject::IsActive", IsActiveCS);
 
+	mono_add_internal_call("YmirEngine.GameObject::SetColliderSize", SetColliderSizeCS);
+
 #pragma endregion
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);
