@@ -853,7 +853,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOTING_END:
                             currentState = STATE.IDLE;
-                            StartShooting();
+                            EndShooting();
                             //StartIdle(); //Trigger de la animacion
                             break;
 
@@ -885,7 +885,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOT_END:
                             currentState = STATE.SHOOTING;
-                            EndShooting();
+                            StartShooting();
                             break;
 
                         case INPUT.I_PRED_END:
