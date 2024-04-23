@@ -787,7 +787,8 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 
 	//Añade RigidBody a la bala
 	CCollider* physBody;
-	physBody = new CCollider(go);
+	physBody = new CCollider(go, CYLINDER);
+	//physBody = new CCollider(go);
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector.Normalized());
