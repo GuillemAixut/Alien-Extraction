@@ -963,7 +963,17 @@ bool CompareStringToName(MonoObject* go, MonoString* name)
 	return nameCompare.compare(gameObject->name) == 0;
 }
 
-MonoString* CSVToString(MonoString* _filePath, MonoString* _csFields) {
+MonoString* CSVToString(MonoString* _filePath) {
+
+	std::string filename = mono_string_to_utf8(_filePath); // File name to process
+
+	std::string output = PhysfsEncapsule::ExtractStringFromCSV(filename);
+
+	// Convert the resulting output string back to MonoString
+	return mono_string_new(External->moduleMono->domain, output.c_str());
+}
+MonoString* CSVToStringKeys(MonoString* _filePath, MonoString* _csFields) {
+
 
 	std::string filename = mono_string_to_utf8(_filePath); // File name to process
 	std::string csFields = mono_string_to_utf8(_csFields); // CSV fields to extract

@@ -11,7 +11,7 @@ public class Spawner: YmirComponent
 
     public int maxEnemies;
 
-    private int enemiesCounter;
+    //private int enemiesCounter;
 
     public List<GameObject> currentEnemies = null;
 
@@ -19,7 +19,7 @@ public class Spawner: YmirComponent
     {
         spawn = true;
         currentEnemies = new List<GameObject>();
-        enemiesCounter = 0;
+        //enemiesCounter = 0;
     }
 
     public void Update()
