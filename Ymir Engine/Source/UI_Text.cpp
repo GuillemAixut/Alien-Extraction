@@ -465,7 +465,7 @@ void UI_Text::Draw(bool game)
 	UI_Bounds* boundsDrawn = nullptr;
 	space = 0;
 
-	float fs = fontSize * 1.5;
+	float fsDiv = fontSize / 100;
 	uint newLines = 0;
 
 	for (size_t i = 0; i < text.length(); ++i)
@@ -476,11 +476,13 @@ void UI_Text::Draw(bool game)
 
 		if (itr != font->mCharacters.end())
 		{
-			float sizeX = itr->second->size.x * (fs / 98);
-			float sizeY = itr->second->size.y * (fs / 98);
+			float sizeX = itr->second->size.x * fsDiv;
+			float sizeY = itr->second->bearing.y * fsDiv;
 
-			float nlOffsetE = (/*position.y +*/ sizeY + mOwner->mTransform->GetGlobalPosition().y + (fs * lineSpacing)) * newLines;
-			float nlOffsetG = (/*posY +*/ (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + (fs * lineSpacing)) / 2 * newLines;
+			float offY = itr->second->size.y * fsDiv;
+
+			float nlOffsetE = (/*position.y +*/ offY + mOwner->mTransform->GetGlobalPosition().y + (fontSize * lineSpacing)) * newLines;
+			float nlOffsetG = (/*posY +*/ (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + (fontSize * lineSpacing)) * newLines;
 
 			if (i != 0)
 			{
@@ -493,13 +495,13 @@ void UI_Text::Draw(bool game)
 
 				if (itr2->first != '\n')
 				{
-					space = space + itr2->second->size.x * (fs / 98) + (fs / 5);
+					space = space + itr2->second->size.x * fsDiv + (fontSize / 5);
 				}
 			}
 
 			if (itr->first == ' ')
 			{
-				space += (fs / 2);
+				space += (fontSize / 5);
 			}
 
 			if (itr->first == '\n')
@@ -515,8 +517,8 @@ void UI_Text::Draw(bool game)
 				boundsEditor->vertices[3].position = float3(position.x + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, position.y + mOwner->mTransform->GetGlobalPosition().y + nlOffsetE, 0);
 
 				// Bot left - Bot right - Top left - Top right
-				boundsGame->vertices[0].position = float3(posX + space + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
-				boundsGame->vertices[1].position = float3(posX + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
+				boundsGame->vertices[0].position = float3(posX + space + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + offY - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
+				boundsGame->vertices[1].position = float3(posX + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + offY - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
 				boundsGame->vertices[2].position = float3(posX + space + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
 				boundsGame->vertices[3].position = float3(posX + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
 

@@ -33,7 +33,7 @@ public:
 	bool AddUIComponent(UI_TYPE type, float x, float y, GameObject* parent = External->scene->mRootNode);
 
 	UI_Image* AddImage(std::string imgPath = "Assets/InGameConeptPng.png", float x = 0, float y = 0, float w = 100, float h = 100, std::string shaderPath = "Assets/Shaders/UI Shader.glsl");
-	UI_Text* AddText(const char* text, float x = 0, float y = 0, float fontSize = 21, float lineSpacing = 0.5f, std::string fontName = "", std::string fontPath = "Assets\\Fonts");
+	UI_Text* AddText(const char* text, float x = 0, float y = 0, float fontSize = 21, float lineSpacing = 1.0f, std::string fontName = "", std::string fontPath = "Assets\\Fonts");
 	UI_Button* AddButton(const char* text = "Button", float x = 0, float y = 0, std::string imgPath = "Assets/InGameConeptPng.png", float w = 300, float h = 50);
 	UI_InputBox* AddInputBox(float x = 0, float y = 0, std::string imgPath = "Assets/InGameConeptPng.png", float w = 300, float h = 50);
 	UI_Checkbox* AddCheckBox(bool checked = true, float x = 0, float y = 0, float w = 170, float h = 20);

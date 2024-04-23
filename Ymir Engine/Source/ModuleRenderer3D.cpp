@@ -790,7 +790,7 @@ void ModuleRenderer3D::DrawUIElements(bool isGame, bool isBuild)
 	}
 
 	glDepthMask(GL_TRUE);
-	//glAlphaFunc(GL_GREATER, 0.0f);
+	glAlphaFunc(GL_GREATER, 0.0f);
 }
 
 void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
