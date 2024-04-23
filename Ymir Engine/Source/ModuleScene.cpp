@@ -79,7 +79,6 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
-
 #ifdef _RELEASE
 
 	//LoadSceneFromStart("Assets", "VS2 Release");
@@ -91,7 +90,7 @@ bool ModuleScene::Start()
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
@@ -455,6 +454,8 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
 	}
 
+	CheckCurrentMap((dir + "/" + fileName + ".yscene").c_str());
+
 	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
 
 	App->camera->editorCamera->SetPos(sceneToLoad->GetFloat3("Editor Camera Position"));
@@ -573,6 +574,8 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 
 		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
 	}
+
+	CheckCurrentMap((dir + "/" + fileName + ".yscene").c_str());
 
 	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
 
@@ -1178,5 +1181,39 @@ ComponentType ModuleScene::StringToComponentType(const std::string& typeName) {
 	}
 	else {
 		return NONE;
+	}
+}
+
+void ModuleScene::CheckCurrentMap(const char* mapPath)
+{
+	// Hardcodeada para saber en que mapa estás 
+
+	if (strcmp(mapPath, "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_BASE;
+	}
+	else if (strcmp(mapPath, "Assets/LVL1_FINAL/LVL1_FINAL_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_1;
+	}
+	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_2_PART_1;
+	}
+	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_2_PART_2;
+	}
+	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_3_PART_1;
+	}
+	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_3_PART_2;
+	}
+	else 
+	{
+		External->scene->currentMap = MAP::NO_MAP;
 	}
 }

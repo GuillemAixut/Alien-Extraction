@@ -31,12 +31,16 @@ class G_UI;
 
 
 enum MAP {
+
+	NO_MAP = -1,
+
 	LVL_BASE,
 	LVL_1,
 	LVL_2_PART_1,
 	LVL_2_PART_2,
 	LVL_3_PART_1,
 	LVL_3_PART_2,
+
 };
 
 class ModuleScene : public Module
@@ -117,6 +121,8 @@ public:
 
 	std::string ComponentTypeToString(ComponentType type);  //Lo siento, era necesario :(
 	ComponentType StringToComponentType(const std::string& typeName);  //Lo siento, era necesario (x2) :(
+
+	void CheckCurrentMap(const char* mapPath); // Lo siento, era necesario (x3) :((((((
 
 public:
 

@@ -667,6 +667,8 @@ void LoadSceneCS(MonoString* scenePath)
 {
 	char* _path = mono_string_to_utf8(scenePath);
 	External->scene->pendingToAddScene = _path;
+
+	External->scene->CheckCurrentMap(_path);
 }
 
 void Destroy(MonoObject* go)
