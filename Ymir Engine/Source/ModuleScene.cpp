@@ -95,8 +95,7 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
 	//LoadSceneFromStart("Assets", "ParticleTest");
-
-	LoadSceneFromStart("Assets/Prefabs", "Prueba de Pruebas");
+	//LoadSceneFromStart("Assets/Prefabs", "Prueba de Pruebas");
 
 #endif // _RELEASE
 
