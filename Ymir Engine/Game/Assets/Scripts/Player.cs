@@ -141,9 +141,9 @@ public class Player : YmirComponent
     private float swipeCD = 13.0f;
     private bool hasSwipe = false;
 
-    private float angle;
-    private bool has360;
-    float initRot;
+    //private float angle;
+    //private bool has360;
+    //float initRot;
 
     //--------------------- Acidic Spit ------------------------\\
     private float acidicTimer;
@@ -181,8 +181,8 @@ public class Player : YmirComponent
 
     public void Start()
     {
-        angle = 0;
-        has360 = false;
+        //angle = 0;
+        //has360 = false;
         //
         weaponType = WEAPON.SMG;
 
@@ -203,7 +203,7 @@ public class Player : YmirComponent
 
         //--------------------- Swipe ---------------------\\
         swipeTimer = 0;
-        swipeDuration = 3.0f;
+        swipeDuration = 1.0f;
         swipeCDTimer = 0;
         swipeCD = 2.0f; //Es 13.0f
         hasSwipe = false;
@@ -265,17 +265,17 @@ public class Player : YmirComponent
 
         if (Input.GetKey(YmirKeyCode.KP_1) == KeyState.KEY_DOWN)
         {
-            weaponType = WEAPON.SMG;
+            SwapWeapon(WEAPON.SMG);
         }
 
         if (Input.GetKey(YmirKeyCode.KP_2) == KeyState.KEY_DOWN)
         {
-            weaponType = WEAPON.SHOTGUN;
+            SwapWeapon(WEAPON.SHOTGUN);
         }
 
         if (Input.GetKey(YmirKeyCode.KP_3) == KeyState.KEY_DOWN)
         {
-            weaponType = WEAPON.TRACE;
+            SwapWeapon(WEAPON.TRACE);
         }
 
         //Debug.Log("swipeCD = " + swipeCDTimer);
@@ -853,7 +853,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOTING_END:
                             currentState = STATE.IDLE;
-                            StartShooting();
+                            EndShooting();
                             //StartIdle(); //Trigger de la animacion
                             break;
 
@@ -885,7 +885,7 @@ public class Player : YmirComponent
 
                         case INPUT.I_SHOOT_END:
                             currentState = STATE.SHOOTING;
-                            EndShooting();
+                            StartShooting();
                             break;
 
                         case INPUT.I_PRED_END:
@@ -1493,39 +1493,40 @@ public class Player : YmirComponent
         StopPlayer();
 
         //Vector3 offset = new Vector3(0, 15, 0);
-        Vector3 pos = gameObject.transform.globalPosition + (gameObject.transform.GetForward() * -2.5f);
+
+        //Funciona pero es rarete
+        //Vector3 pos = gameObject.transform.globalPosition + (gameObject.transform.GetForward() * -2.5f);
+        //Quaternion rot = gameObject.transform.globalRotation;
+
+        Vector3 pos = gameObject.transform.globalPosition;
         Quaternion rot = gameObject.transform.globalRotation;
 
         InternalCalls.CreateTailSensor(pos, rot);
 
-        has360 = false;
-        initRot = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
-        angle = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
+        //has360 = false;
+        //initRot = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
+        //angle = gameObject.transform.globalRotation.y * Mathf.Rad2Deg;
 
         swipeTimer = swipeDuration;
     }
 
     private void UpdateTailSwipe()
     {
-        //LookAt(3.1415f);
-
-        if (angle < (initRot + 360) && has360 == false)
-        {
-            Debug.Log("" + angle);
-            angle += 2;
-            //gameObject.transform.globalRotation.y
-            Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.up);
-            gameObject.SetRotation(targetRotation);
-        }
-        else
-        {
-            has360 = true;
-        }
+        //Funciona pero es rarete
+        //if (angle < (initRot + 360) && has360 == false)
+        //{
+        //    Debug.Log("" + angle);
+        //    angle += 2;
+        //    //gameObject.transform.globalRotation.y
+        //    Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.up);
+        //    gameObject.SetRotation(targetRotation);
+        //}
+        //else
+        //{
+        //    has360 = true;
+        //}
 
         //angle += 3 * Time.deltaTime;
-
-
-
     }
 
     private void EndTailSwipe()

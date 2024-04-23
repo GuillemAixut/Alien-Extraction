@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        447.22702026367188,
-        223.31719970703125,
-        -293.24102783203125
+        792.2618408203125,
+        137.34687805175781,
+        -37.086879730224609
     ],
     "Editor Camera Right (X)": [
-        -0.67121690511703491,
-        5.8114528656005859e-07,
-        0.74126195907592773
+        -0.41172680258750916,
+        3.8743019104003906e-07,
+        0.91130661964416504
     ],
     "Editor Camera Up (Y)": [
-        0.11628322303295135,
-        0.98761951923370361,
-        0.10529433935880661
+        0.29385620355606079,
+        0.94658380746841431,
+        0.1327633410692215
     ],
     "Editor Camera Front (Z)": [
-        0.73208409547805786,
-        -0.1568705141544342,
-        0.66290640830993652
+        0.86262959241867065,
+        -0.3224550187587738,
+        0.38973474502563477
     ],
     "Hierarchy": [
         {
@@ -52951,7 +52951,7 @@
                     ],
                     "Rotation": [
                         180,
-                        0.092366546392440796,
+                        0.09236656129360199,
                         180
                     ],
                     "Scale": [
@@ -55534,8 +55534,8 @@
                 754710897,
                 2054861601,
                 2063663470,
-                1079809148,
-                431899032
+                826405756,
+                2113740402
             ]
         },
         {
@@ -55770,9 +55770,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        510.999755859375,
+                        508.1458740234375,
                         0,
-                        -181.11991882324219
+                        -180.35374450683594
                     ],
                     "Rotation": [
                         -0,
@@ -55804,7 +55804,7 @@
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
-                    "IsSensor": false,
+                    "IsSensor": true,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
@@ -55825,7 +55825,7 @@
                     "ScriptName": "Electric_trap.cs",
                     "Active": 1,
                     "UID": 0,
-                    "damage": 1
+                    "damage": 220
                 }
             ],
             "Children UID": [
@@ -55897,7 +55897,7 @@
             "Name": "Electric_Trap (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1079809148,
+            "UID": 826405756,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1092854789,
@@ -55906,9 +55906,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        716.491943359375,
+                        721.3248291015625,
                         0,
-                        -124.68767547607422
+                        -122.08769989013672
                     ],
                     "Rotation": [
                         -0,
@@ -55940,7 +55940,7 @@
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
-                    "IsSensor": false,
+                    "IsSensor": true,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
@@ -55961,22 +55961,22 @@
                     "ScriptName": "Electric_trap.cs",
                     "Active": 1,
                     "UID": 0,
-                    "damage": 1
+                    "damage": 220
                 }
             ],
             "Children UID": [
-                1743679935
+                201618196
             ]
         },
         {
             "Name": "Cylinder (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1743679935,
+            "UID": 201618196,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Cylinder.fbx",
-            "Parent UID": 1079809148,
+            "Parent UID": 826405756,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56033,7 +56033,7 @@
             "Name": "Electric_Trap (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 431899032,
+            "UID": 2113740402,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1092854789,
@@ -56042,9 +56042,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        834.69232177734375,
+                        834.8336181640625,
                         0,
-                        2.3673915863037109
+                        2.4794244766235352
                     ],
                     "Rotation": [
                         -0,
@@ -56076,7 +56076,7 @@
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
-                    "IsSensor": false,
+                    "IsSensor": true,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
@@ -56097,22 +56097,22 @@
                     "ScriptName": "Electric_trap.cs",
                     "Active": 1,
                     "UID": 0,
-                    "damage": 1
+                    "damage": 220
                 }
             ],
             "Children UID": [
-                977574788
+                1365119731
             ]
         },
         {
             "Name": "Cylinder (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 977574788,
+            "UID": 1365119731,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Cylinder.fbx",
-            "Parent UID": 431899032,
+            "Parent UID": 2113740402,
             "Components": [
                 {
                     "Type": "Transform",
@@ -60036,11 +60036,11 @@
                         39.24383544921875,
                         47.696624755859375
                     ],
-                    "Physics Type": 0,
-                    "Mass": 1,
+                    "Physics Type": 2,
+                    "Mass": 0,
                     "Friction": 0,
                     "Angular Friction": 0,
-                    "UseGravity": true,
+                    "UseGravity": false,
                     "IsSensor": false,
                     "LockX": false,
                     "LockY": false,
@@ -60627,8 +60627,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 465,
-                    "Height": 590,
+                    "Width": 470,
+                    "Height": 490,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -69116,7 +69116,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.5000021457672119,
+                        2.5000030994415283,
                         -0
                     ],
                     "Scale": [
@@ -69731,7 +69731,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327007293701172,
+                        31.327001571655273,
                         -0
                     ],
                     "Scale": [
@@ -70056,7 +70056,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        27.591018676757812,
+                        27.591022491455078,
                         -0
                     ],
                     "Scale": [
@@ -72461,7 +72461,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        33.591037750244141,
+                        33.591045379638672,
                         -0
                     ],
                     "Scale": [
