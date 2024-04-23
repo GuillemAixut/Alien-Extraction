@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        67.427200317382812,
-        144.35249328613281,
-        155.92709350585938
+        17.957075119018555,
+        113.80645751953125,
+        177.12924194335938
     ],
     "Editor Camera Right (X)": [
-        -0.99157083034515381,
-        5.4016709327697754e-07,
-        -0.12395966053009033
+        0.99852073192596436,
+        6.9290399551391602e-07,
+        0.03917095810174942
     ],
     "Editor Camera Up (Y)": [
-        -0.041233036667108536,
-        0.94237953424453735,
-        0.32983297109603882
+        0.025530919432640076,
+        0.75785011053085327,
+        -0.65083116292953491
     ],
     "Editor Camera Front (Z)": [
-        -0.11698465794324875,
-        -0.33263891935348511,
-        0.93577533960342407
+        0.029728744179010391,
+        -0.65179890394210815,
+        -0.75781440734863281
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -60,7 +61,6 @@
                 1676754095,
                 753960160,
                 1904908806,
-                232432059,
                 852660047
             ]
         },
@@ -9587,9 +9587,9 @@
                         619.72198486328125
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -9686,9 +9686,9 @@
                         618.6265869140625
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -9785,9 +9785,9 @@
                         618.6087646484375
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -12704,6 +12704,7 @@
                     "UID": 0,
                     "currentHealth": 0,
                     "maxHealth": 10,
+                    "armor": 0,
                     "isAlive": false,
                     "debugDmg": 1
                 },
@@ -12721,8 +12722,14 @@
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,
+                    "reloadDuration": 0,
                     "ammo": 0,
                     "magsize": 5,
+                    "smgRange": 0,
+                    "shootgunRange": 0,
+                    "traceRange": 0,
+                    "damageMultiplier": 0,
+                    "resin": 0,
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
@@ -13559,8 +13566,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 391,
-                    "Height": 446,
+                    "Width": 465,
+                    "Height": 646,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -16024,6 +16031,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -16112,10 +16120,10 @@
                     "Is interactable": true,
                     "Text": 1001448237,
                     "Image": 294962486,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -16152,7 +16160,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "ARMOR",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -16330,6 +16345,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -16419,10 +16435,10 @@
                     "Is interactable": true,
                     "Text": 428551072,
                     "Image": 1671257493,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -16459,7 +16475,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP1",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -16674,10 +16697,10 @@
                     "Is interactable": true,
                     "Text": 352767713,
                     "Image": 541837697,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -16714,7 +16737,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP2",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -16892,6 +16922,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -16980,10 +17011,10 @@
                     "Is interactable": true,
                     "Text": 2044207875,
                     "Image": 1708915839,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -17020,7 +17051,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE1",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -17198,6 +17236,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -17286,10 +17325,10 @@
                     "Is interactable": true,
                     "Text": 368922602,
                     "Image": 2060313977,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/Baker_house.png",
                     "Focused color": [
@@ -17326,7 +17365,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE2",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -17504,6 +17550,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -17632,7 +17679,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -17810,6 +17864,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -17952,7 +18007,14 @@
                     "itemType": 0,
                     "enumItem": "ARMOR",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -18167,10 +18229,10 @@
                     "Is interactable": true,
                     "Text": 218868507,
                     "Image": 859937820,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -18207,7 +18269,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -18422,10 +18491,10 @@
                     "Is interactable": true,
                     "Text": 1717747725,
                     "Image": 1263838880,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -18462,7 +18531,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -18677,10 +18753,10 @@
                     "Is interactable": true,
                     "Text": 1439520452,
                     "Image": 1294683051,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -18717,7 +18793,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -18932,10 +19015,10 @@
                     "Is interactable": true,
                     "Text": 1297611138,
                     "Image": 914218921,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -18972,7 +19055,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -19227,7 +19317,14 @@
                     "itemType": 0,
                     "enumItem": "CHIP1",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -19442,10 +19539,10 @@
                     "Is interactable": true,
                     "Text": 1101949662,
                     "Image": 631059356,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -19482,7 +19579,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -19697,10 +19801,10 @@
                     "Is interactable": true,
                     "Text": 644224063,
                     "Image": 381666577,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -19737,7 +19841,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -19952,10 +20063,10 @@
                     "Is interactable": true,
                     "Text": 654116996,
                     "Image": 981694012,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -19992,7 +20103,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -20207,10 +20325,10 @@
                     "Is interactable": true,
                     "Text": 547711246,
                     "Image": 533956899,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -20247,7 +20365,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -20502,7 +20627,14 @@
                     "itemType": 0,
                     "enumItem": "CHIP2",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -20717,10 +20849,10 @@
                     "Is interactable": true,
                     "Text": 41022260,
                     "Image": 1420247647,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -20757,7 +20889,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -20972,10 +21111,10 @@
                     "Is interactable": true,
                     "Text": 1759668415,
                     "Image": 102710654,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -21012,7 +21151,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -21227,10 +21373,10 @@
                     "Is interactable": true,
                     "Text": 1229207877,
                     "Image": 1249812674,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -21267,7 +21413,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -21482,10 +21635,10 @@
                     "Is interactable": true,
                     "Text": 1216183641,
                     "Image": 58850297,
-                    "Normal": ".\/Library\/Textures\/1384564788.dds",
-                    "Focused": ".\/Library\/Textures\/894159765.dds",
-                    "Pressed": ".\/Library\/Textures\/688164846.dds",
-                    "Selected": ".\/Library\/Textures\/894159765.dds",
+                    "Normal": ".\/Library\/Textures\/2000741897.dds",
+                    "Focused": ".\/Library\/Textures\/1428877966.dds",
+                    "Pressed": ".\/Library\/Textures\/80667357.dds",
+                    "Selected": ".\/Library\/Textures\/1428877966.dds",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -21522,7 +21675,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
@@ -21717,363 +21877,6 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Door_LowPoly",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 232432059,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        17.824834823608398,
-                        98.913055419921875
-                    ],
-                    "Rotation": [
-                        -179.99984741210938,
-                        89.980216979980469,
-                        179.99986267089844
-                    ],
-                    "Scale": [
-                        0.090000122785568237,
-                        0.09000001847743988,
-                        0.14424452185630798
-                    ]
-                }
-            ],
-            "Children UID": [
-                1163680921,
-                902427818,
-                1106644159
-            ]
-        },
-        {
-            "Name": "Door2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1163680921,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 232432059,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        -3.5527136788005009e-15
-                    ],
-                    "Rotation": [
-                        -1.5902773592947552e-15,
-                        0,
-                        0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 728437194,
-                    "Vertex Count": 242,
-                    "Index Count": 540
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 308,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_D.png",
-                    "Diffuse_UID": 1409043110,
-                    "Specular_ID": 316,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_S.png",
-                    "Specular_UID": 960732568,
-                    "Normal_ID": 314,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_N.png",
-                    "Normal_UID": 1112776949,
-                    "Height_ID": 312,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_H.png",
-                    "Height_UID": 319471824,
-                    "Ambient_ID": 306,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_A.png",
-                    "Ambient_UID": 1782471351,
-                    "Emissive_ID": 310,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
-                    "Emissive_UID": 1442365833
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        150,
-                        333.10858154296875,
-                        400
-                    ],
-                    "Physics Type": 1,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        -1.5,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "inverted": false
-                }
-            ]
-        },
-        {
-            "Name": "Door1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 902427818,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 232432059,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        -9.6633812063373625e-13
-                    ],
-                    "Rotation": [
-                        -4.1514290387567598e-06,
-                        3.6398560326081002e-19,
-                        1.044093460222939e-05
-                    ],
-                    "Scale": [
-                        0.99999910593032837,
-                        1,
-                        1.0000069141387939
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 2101808898,
-                    "Vertex Count": 238,
-                    "Index Count": 564
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 308,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_D.png",
-                    "Diffuse_UID": 1409043110,
-                    "Specular_ID": 316,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_S.png",
-                    "Specular_UID": 960732568,
-                    "Normal_ID": 314,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_N.png",
-                    "Normal_UID": 1112776949,
-                    "Height_ID": 312,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_H.png",
-                    "Height_UID": 319471824,
-                    "Ambient_ID": 306,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_A.png",
-                    "Ambient_UID": 1782471351,
-                    "Emissive_ID": 310,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
-                    "Emissive_UID": 1442365833
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        150,
-                        333,
-                        400
-                    ],
-                    "Physics Type": 1,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        -1.5,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "inverted": true
-                }
-            ]
-        },
-        {
-            "Name": "Marc",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1106644159,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 232432059,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1533505745,
-                    "Vertex Count": 72,
-                    "Index Count": 168
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 308,
-                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_D.png",
-                    "Diffuse_UID": 1409043110,
-                    "Specular_ID": 316,
-                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_S.png",
-                    "Specular_UID": 960732568,
-                    "Normal_ID": 314,
-                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_N.png",
-                    "Normal_UID": 1112776949,
-                    "Height_ID": 312,
-                    "Height_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_H.png",
-                    "Height_UID": 319471824,
-                    "Ambient_ID": 306,
-                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_A.png",
-                    "Ambient_UID": 1782471351,
-                    "Emissive_ID": 310,
-                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
-                    "Emissive_UID": 1442365833
                 }
             ]
         },
