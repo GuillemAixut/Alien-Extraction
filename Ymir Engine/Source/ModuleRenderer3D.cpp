@@ -855,7 +855,6 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 {
 	EmitterBase* eBase = (EmitterBase*)pSystem->allEmitters.at(0)->modules.at(0); //We create the referemce to accces more easily
-
 	
 	Quat rotacion;
 	switch (eBase->rotacionBase)

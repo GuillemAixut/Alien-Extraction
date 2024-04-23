@@ -281,7 +281,7 @@ void EmitterBase::OnInspector()
 			break;
 		case SpawnAreaShape::PAR_SPHERE: 
 		{
-		
+			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
 		} 
 			break;
 		case SpawnAreaShape::PAR_SHAPE_ENUM_END:
@@ -643,16 +643,23 @@ void EmitterSpawner::OnInspector()
 
 EmitterPosition::EmitterPosition()
 {
+	//Normal direction
 	randomized = false; //Si la direccion es solo la uno o un numero random entre la 1 y la 2
 	direction1 = { 0,0,0 };
 	direction2 = { 0,0,0 };
+	normalizedSpeed = true;
+
+	//Normal acceleration
 	acceleration = false;
 	particleSpeed1 = 1.0f;
 	particleSpeed2 = 0.0f;
-	newDirection = { 0,0,0 };
+
+	//Direction change mid execution
 	actualSpeedChange = SpeedChangeMode::PAR_NO_SPEED_CHANGE;
+	newDirection = { 0,0,0 };
 	changeSpeed1 = 0.0f;
 	changeSpeed2 = 1.0f;
+	normalizedChange = true;
 
 }
 
@@ -712,23 +719,40 @@ void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 		float randomZ = ((float)rand()) / (float)RAND_MAX;
 		float rangeZ = maxZ - minZ;
 		float fZ = (randomZ * rangeZ) + minZ;
-
-		float newModul = GetModuleVec({ fX,fY,fZ });
-		particle->velocity.x += fX / newModul;
-		particle->velocity.y += fY / newModul;
-		particle->velocity.z += fZ / newModul;
+		if (normalizedSpeed) 
+		{
+			float newModul = GetModuleVec({ fX,fY,fZ });
+			particle->velocity.x += fX / newModul;
+			particle->velocity.y += fY / newModul;
+			particle->velocity.z += fZ / newModul;
+		}
+		else 
+		{
+			particle->velocity.x += fX;
+			particle->velocity.y += fY;
+			particle->velocity.z += fZ;
+		}
+		
 	}
 	else
 	{
-		float modul1 = GetModuleVec(direction1);
-		if (modul1 > 0)
+		if (normalizedSpeed)
 		{
-			particle->velocity.x += direction1.x / modul1;
-			particle->velocity.y += direction1.y / modul1;
-			particle->velocity.z += direction1.z / modul1;
+			float modul1 = GetModuleVec(direction1);
+			if (modul1 > 0)
+			{
+				particle->velocity.x += direction1.x / modul1;
+				particle->velocity.y += direction1.y / modul1;
+				particle->velocity.z += direction1.z / modul1;
+			}
+		}
+		else
+		{
+			particle->velocity.x += direction1.x;
+			particle->velocity.y += direction1.y;
+			particle->velocity.z += direction1.z;
 		}
 	}
-
 	particle->velocity.w += particleSpeed1;
 }
 
@@ -751,6 +775,20 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 		Quat nuwDirQuat = emitter->listParticles.at(i)->directionRotation.Mul(Quat(emitter->listParticles.at(i)->velocity.x, emitter->listParticles.at(i)->velocity.y, emitter->listParticles.at(i)->velocity.z, 0));
 		float3 directionParticle = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
 
+		float3 directionChange; // Se declara aqui para poder decidir si se normaliza o no;
+		if (normalizedChange)
+		{
+			float newModule = GetModuleVec(newDirection);
+			if (newModule == 0) { newModule = 1; } //Para evitar el NaN infinito
+			directionChange = { newDirection.x / newModule, newDirection.y / newModule , newDirection.z / newModule };
+		}
+		else 
+		{
+			directionChange = newDirection;
+		}
+
+		 
+
 		switch (actualSpeedChange)
 		{
 		case SpeedChangeMode::PAR_NO_SPEED_CHANGE:
@@ -764,9 +802,9 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 		{
 			if (changeSpeed1<=actualLT && changeSpeed2 >= actualLT)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + directionChange.x) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + directionChange.y) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + directionChange.z) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -775,21 +813,21 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		case SpeedChangeMode::PAR_ADD_OVER_TIME:
 		{
 
 			if (changeSpeed1 <= actualLT && actualLT <= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + directionChange.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + directionChange.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + directionChange.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
-			else if(actualLT >= changeSpeed2)
+			else if (actualLT >= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + directionChange.x) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + directionChange.y) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + directionChange.z) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -798,14 +836,14 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:
 		{
 			if (changeSpeed1 <= actualLT && changeSpeed2 >= actualLT)
 			{
-				emitter->listParticles.at(i)->position.x += newDirection.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += newDirection.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += newDirection.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionChange.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionChange.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionChange.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -814,20 +852,20 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:
 		{
 			if (changeSpeed1 <= actualLT && actualLT <= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x * (1- ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + directionChange.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + directionChange.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + directionChange.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else if (actualLT >= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += newDirection.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += newDirection.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += newDirection.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionChange.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionChange.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionChange.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -836,7 +874,7 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		default:
 			break;
 		}
@@ -849,12 +887,31 @@ void EmitterPosition::OnInspector()
 	if (this->randomized)
 	{
 		ImGui::DragFloat3("Range 1 ##POSITION", &(this->direction1[0]), 0.1f);
+		if (normalizedSpeed)
+		{
+			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+		}
 		ImGui::DragFloat3("Range 2 ##POSITION", &(this->direction2[0]), 0.1f);
+		if (normalizedSpeed)
+		{
+			float newModul = GetModuleVec({ direction2[0],direction2[1],direction2[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(direction2[0] / newModul) + ", " + std::to_string(direction2[1] / newModul) + ", " + std::to_string(direction2[2] / newModul) + " )").c_str());
+		}
 	}
 	else
 	{
 		ImGui::DragFloat3("Position", &(this->direction1[0]), 0.1f);
+		if (normalizedSpeed)
+		{
+			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+		}
 	}
+	ImGui::Checkbox("Normalize Dir. ##POSITION", &this->normalizedSpeed);
 	ImGui::Checkbox("Acceleration ##POSITION", &this->acceleration);
 	if (this->acceleration)
 	{
@@ -870,11 +927,11 @@ void EmitterPosition::OnInspector()
 
 	switch (actualSpeedChange)
 	{
-	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None";break;
-	case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time";break;
-	case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time";break;
-	case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time";break;
-	case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time";break;
+	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None"; break;
+	case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time"; break;
+	case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time"; break;
+	case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time"; break;
+	case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time"; break;
 	default:break;
 	}
 
@@ -886,11 +943,11 @@ void EmitterPosition::OnInspector()
 
 			switch ((SpeedChangeMode)i)
 			{
-			case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None";break;
-			case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time";break;
-			case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time";break;
-			case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time";break;
-			case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time";break;
+			case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None"; break;
+			case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time"; break;
+			case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time"; break;
+			case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time"; break;
+			case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time"; break;
 			default:break;
 			}
 			if (ImGui::Selectable(modeName.c_str()))
@@ -902,6 +959,8 @@ void EmitterPosition::OnInspector()
 		ImGui::EndCombo();
 	}
 
+	ImGui::Checkbox("Normalize Change Dir. ##POSITION", &this->normalizedChange);
+
 	switch (actualSpeedChange)
 	{
 	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:
@@ -909,21 +968,45 @@ void EmitterPosition::OnInspector()
 		break;
 	case SpeedChangeMode::PAR_IF_TIME_ADD:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Adding ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Adding ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
 	case SpeedChangeMode::PAR_ADD_OVER_TIME:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Change ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Change ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
 	case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Adding ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Adding ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
 	case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Change ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Change ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
