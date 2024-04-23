@@ -769,6 +769,40 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	go->AddComponent(c);
 }
 
+void CreateShotgunSensor(MonoObject* position, MonoObject* rotation) {
+
+	//Crea un game object temporal llamado "ShotgunBullet"
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("ShotgunBullet", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "ShotgunBullet";
+
+	//Hace unbox de los parametros de transform pasados
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	//Funciona pero es rarete
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	rotVector = rotVector.RotateAxisAngle({ 0.0f, 0.0f,1.0f }, DegToRad(90.0f));
+	float3 scaleVector = float3(15, 70, 15);
+
+	//Añade RigidBody a la bala
+	CCollider* physBody;
+	physBody = new CCollider(go, CONE);
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector.Normalized());
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	//Añade el script AcidicSpit al gameObject go
+	Component* c = nullptr;
+	c = new CScript(go, "BH_Shotgun");
+	go->AddComponent(c);
+}
+
 void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 {
 	//Crea un game object temporal llamado "Bullet"
@@ -803,7 +837,6 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 	Component* c = nullptr;
 	c = new CScript(go, t);
 	go->AddComponent(c);
-
 }
 
 void CreateAcidicSpit(MonoObject* name, MonoObject* position)

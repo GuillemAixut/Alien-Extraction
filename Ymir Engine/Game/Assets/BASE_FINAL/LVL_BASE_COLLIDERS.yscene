@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        301.9969482421875,
-        185.07687377929688,
-        124.87274169921875
+        -101.20538330078125,
+        128.15005493164062,
+        43.067485809326172
     ],
     "Editor Camera Right (X)": [
-        0.63775491714477539,
-        -2.384185791015625e-07,
-        -0.77006363868713379
+        0.66294646263122559,
+        -1.7881393432617188e-07,
+        0.74848699569702148
     ],
     "Editor Camera Up (Y)": [
-        -0.40997141599655151,
-        0.84638494253158569,
-        -0.3395322859287262
+        0.50566703081130981,
+        0.73717987537384033,
+        -0.44787690043449402
     ],
     "Editor Camera Front (Z)": [
-        -0.65194863080978394,
-        -0.53238874673843384,
-        -0.53993368148803711
+        0.55191946029663086,
+        -0.67558896541595459,
+        -0.48884373903274536
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1457677832,
+            "Parent UID": 206684200,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1975,6 +1975,9 @@
                     "reloadDuration": 0,
                     "ammo": 0,
                     "magsize": 5,
+                    "smgRange": 0,
+                    "shootgunRange": 0,
+                    "traceRange": 0,
                     "damageMultiplier": 0,
                     "resin": 0,
                     "dashDuration": 0.25,
@@ -2247,8 +2250,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 465,
-                    "Height": 486,
+                    "Width": 686,
+                    "Height": 654,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4804,6 +4807,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -6440,6 +6444,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -6753,6 +6758,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -7329,6 +7335,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -7642,6 +7649,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -7955,6 +7963,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }
@@ -8268,6 +8277,7 @@
                     "naviagteY": true,
                     "bounceX": true,
                     "bounceY": true,
+                    "empty": true,
                     "childX": 0,
                     "childY": 0
                 }

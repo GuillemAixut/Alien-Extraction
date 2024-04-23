@@ -1144,12 +1144,28 @@ public class Player : YmirComponent
 
     private void ShotgunShoot()
     {
+        Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
 
+        if (!godMode)
+        {
+            --ammo;
+            //if (csBullets!= null){ csBullets.UseBullets(); }
+        }
+
+        Vector3 pos = gameObject.transform.globalPosition;
+        Quaternion rot = gameObject.transform.globalRotation;
+
+        Vector3 offset = new Vector3(0, 15, 0);
+
+        InternalCalls.CreateShotgunSensor(pos + offset, rot);
+
+        inputsList.Add(INPUT.I_SHOOT_END);
     }
 
     private void TraceShoot()
     {
 
+        inputsList.Add(INPUT.I_SHOOT_END);
     }
 
     private void GetWeaponVars()
