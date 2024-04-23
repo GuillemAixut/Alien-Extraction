@@ -55,6 +55,8 @@ public class DroneXenomorphBaseScript : YmirComponent
 	public float timeCounter;
 	private float timeLimit;
 
+    private float outOfRangeTimer;
+
 	public void Start()
 	{
 		//MAIN STUFF
@@ -88,6 +90,9 @@ public class DroneXenomorphBaseScript : YmirComponent
 		//Time
 		timeCounter = 0f;
 		timeLimit = 5f;
+
+        //Out of range timer
+        outOfRangeTimer = 0f;
 	}
 
     public void Update()
@@ -209,10 +214,22 @@ public class DroneXenomorphBaseScript : YmirComponent
         //If player too far away, go back to wander
         if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
         {
-            timeCounter = 0f;
-            timeLimit = 5f;
-            aggro = false;
-            droneState = DroneState.IDLE_NO_AGGRO;
+            outOfRangeTimer += Time.deltaTime;
+
+            if (outOfRangeTimer >= 3f)
+            {
+                outOfRangeTimer = 0f;
+                timeCounter = 0f;
+                timeLimit = 5f;
+                aggro = false;
+                droneState = DroneState.IDLE_NO_AGGRO;
+            }
+
+        }
+        else
+        {
+            //So that it resets if it is again in range
+            outOfRangeTimer = 0f;
         }
 
     }
