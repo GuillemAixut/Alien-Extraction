@@ -265,14 +265,14 @@ namespace YmirEngine
         /// Navigate in x axis with gamepad.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void NavigateGridHorizontal(object go, int rows, int columns, bool isRight, bool navigate, object gridLeft, object gridRight, bool bounce, int childNumber);
+        public static extern void NavigateGridHorizontal(object go, int rows, int columns, bool isRight, bool navigate, object gridLeft, object gridRight, bool bounce, int childNumber, bool isEmpty);
 
         /// <summary>
         /// Navigate in y axis with gamepad.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void NavigateGridVertical(object go, int rows, int columns, bool isDown, bool navigate, object gridDown, object gridUp, bool bounce, int childNumber);
-        
+        public static extern void NavigateGridVertical(object go, int rows, int columns, bool isDown, bool navigate, object gridDown, object gridUp, bool bounce, int childNumber, bool isEmpty);
+
         /// <summary>
         /// Unlock upgrades.
         /// </summary>
