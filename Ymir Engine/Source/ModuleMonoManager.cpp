@@ -84,7 +84,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma endregion
 
-	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);	//TODO: Descomentar cuando est� el CreateBullet()
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreatePrefab", CreatePrefab);	//TODO: Descomentar cuando est� el CreateBullet()
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateTailSensor", CreateTailSensor);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidicSpit", CreateAcidicSpit);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidPuddle", CreateAcidPuddle);

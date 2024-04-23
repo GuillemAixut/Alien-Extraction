@@ -75,7 +75,7 @@ update_status ModulePhysics::PreUpdate(float dt)
 
 	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING) 
 	{
-		world->stepSimulation(dt, 1, fixedTimeStep);
+		world->stepSimulation(dt);
 	}
 	else
 	{
