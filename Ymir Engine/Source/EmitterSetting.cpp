@@ -34,7 +34,7 @@ EmitterBase::EmitterBase()
 	//Point
 	emitterOrigin = float3::zero;
 
-	//Cone
+	//Cone && Sphere
 	radiusHollow = 0.0f;
 	baseRadius = 2.0f;
 	topRadius = 4.0f;
@@ -194,7 +194,27 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	case PAR_SPHERE:
 	{
-	
+		//Get random radius size
+		float randomLength = Random::GenerateRandomFloat(radiusHollow, baseRadius);
+
+		float3 randPos;
+		math::LCG lgc;
+		randPos = randPos.RandomSphere(lgc, emitterOrigin, randomLength);
+
+		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
+		if (cTra != nullptr)
+		{
+			float4x4 matrix = cTra->GetGlobalTransform();
+			float3 position;
+			Quat rotation;
+			float3 escale;
+			matrix.Decompose(position, rotation, escale);
+			particle->position += position + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->worldRotation = rotation;
+			particle->size = escale;
+		}
+
+		particle->initialPosition = particle->position;
 	}
 		break;
 	case PAR_SHAPE_ENUM_END:
@@ -282,6 +302,8 @@ void EmitterBase::OnInspector()
 		case SpawnAreaShape::PAR_SPHERE: 
 		{
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
+			ImGui::DragFloat("Base Radius ## BASE", &(this->baseRadius), 0.2f, radiusHollow + 0.01f, 200.f);
+			ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius - 0.01f);
 		} 
 			break;
 		case SpawnAreaShape::PAR_SHAPE_ENUM_END:
@@ -787,6 +809,9 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 			directionChange = newDirection;
 		}
 
+		//Maybe aqui podrian haber casos en los que no se quiera usar esto. De momento lo dejo
+		Quat nuwDirQuat2 = emitter->listParticles.at(i)->directionRotation.Mul(Quat(directionChange.x, directionChange.y, directionChange.z, 0));
+		directionChange = float3(nuwDirQuat2.x, nuwDirQuat2.y, nuwDirQuat2.z);
 		 
 
 		switch (actualSpeedChange)
