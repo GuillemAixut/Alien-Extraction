@@ -47,7 +47,7 @@ public class Loot_Chest : YmirComponent
 
         if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
         {
-            string output = InternalCalls.CSVToString(path, keys);
+            string output = InternalCalls.CSVToStringKeys(path, keys);
             //Debug.Log("Output :" + output);
 
             List<List<string>> result = DeconstructString(output, numFields);

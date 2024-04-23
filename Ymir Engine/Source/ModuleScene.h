@@ -29,6 +29,20 @@ class CCamera;
 
 class G_UI;
 
+
+enum MAP {
+
+	NO_MAP = -1,
+
+	LVL_BASE,
+	LVL_1,
+	LVL_2_PART_1,
+	LVL_2_PART_2,
+	LVL_3_PART_1,
+	LVL_3_PART_2,
+
+};
+
 class ModuleScene : public Module
 {
 public:
@@ -62,7 +76,7 @@ public:
 	void SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName);
 	GameObject* LoadPrefab(const std::string& dir, const std::string& fileName);
 
-	GameObject* LoadPrefab(char* path);
+	GameObject* LoadPrefab(const char* path);
 
 	// Start with a loaded scene from start
 	void LoadSceneFromStart(const std::string& dir, const std::string& fileName);
@@ -108,6 +122,8 @@ public:
 	std::string ComponentTypeToString(ComponentType type);  //Lo siento, era necesario :(
 	ComponentType StringToComponentType(const std::string& typeName);  //Lo siento, era necesario (x2) :(
 
+	void CheckCurrentMap(const char* mapPath); // Lo siento, era necesario (x3) :((((((
+
 public:
 
 	GameObject* mRootNode;
@@ -147,6 +163,9 @@ public:
 	bool godMode;
 	GameObject* selectedUIGO;
 	GameObject* focusedUIGO;
+
+	//Current map
+	MAP currentMap;
 
 private:
 	G_UI* canvas;

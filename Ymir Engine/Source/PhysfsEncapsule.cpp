@@ -542,3 +542,22 @@ std::string PhysfsEncapsule::ExtractStringFromCSV(const std::string& filename, c
 
 	return result.str();
 }
+
+std::string PhysfsEncapsule::ExtractStringFromCSV(const std::string& filename)
+{
+	std::ifstream file(filename); // Abrir el archivo en modo lectura
+	std::string content; // Variable para almacenar el contenido del archivo
+
+	if (file.is_open()) {
+		std::stringstream buffer;
+		buffer << file.rdbuf(); // Leer todo el contenido del archivo en un stringstream
+		content = buffer.str(); // Convertir el stringstream a std::string
+		file.close(); // Cerrar el archivo
+	}
+	else {
+		// Manejar el caso en que no se pueda abrir el archivo
+		std::cerr << "No se pudo abrir el archivo: " << filename << std::endl;
+	}
+
+	return content;
+}

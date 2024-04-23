@@ -113,11 +113,40 @@ void UI_Image::OnInspector()
 		}
 
 		ImGui::SeparatorText("States");
-		SetStateImg("Normal", UI_STATE::NORMAL); ImGui::SameLine();
-		SetStateImg("Focused", UI_STATE::FOCUSED); ImGui::SameLine();
+		SetStateImg("Normal", UI_STATE::NORMAL);
+		if (mapTextures.find(UI_STATE::NORMAL) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::NORMAL]->GetAssetsFilePath().c_str());
+		}
+
+		SetStateImg("Focused", UI_STATE::FOCUSED);
+		if (mapTextures.find(UI_STATE::FOCUSED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::FOCUSED]->GetAssetsFilePath().c_str());
+		}
+
 		SetStateImg("Pressed", UI_STATE::PRESSED);
-		SetStateImg("Selected", UI_STATE::SELECTED); ImGui::SameLine();
+		if (mapTextures.find(UI_STATE::PRESSED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::PRESSED]->GetAssetsFilePath().c_str());
+		}
+
+		SetStateImg("Selected", UI_STATE::SELECTED);
+		if (mapTextures.find(UI_STATE::SELECTED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::SELECTED]->GetAssetsFilePath().c_str());
+		}
+
 		SetStateImg("Disabled", UI_STATE::DISABLED);
+		if (mapTextures.find(UI_STATE::DISABLED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::DISABLED]->GetAssetsFilePath().c_str());
+		}
 
 		ImGui::SeparatorText("Parameters");
 		if (ImGui::Button("Set Native Size", ImVec2(110, 30)))

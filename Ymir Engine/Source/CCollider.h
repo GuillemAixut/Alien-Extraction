@@ -52,8 +52,8 @@ public:
 
 	void AdaptSizeToShape(ColliderType prevType);
 	void SetDefaultValues(PhysicsType type);
-	void SetOBBSize();
 	void SetAsSensor(bool is_sensor);
+	void SetOBBSize();
 
 	void RemovePhysbody();
 

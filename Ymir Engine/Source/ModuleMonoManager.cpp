@@ -71,6 +71,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::Destroy", Destroy);
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CSVToString", CSVToString);
+	mono_add_internal_call("YmirEngine.InternalCalls::CSVToStringKeys", CSVToStringKeys);
+
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateGOFromPrefab", CreateGOFromPrefabCS);
 	
 	
@@ -82,9 +84,12 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::SetAsBillboard", SetGameObjectAsBillboardCS);
 	mono_add_internal_call("YmirEngine.GameObject::IsActive", IsActiveCS);
 
+	mono_add_internal_call("YmirEngine.GameObject::SetColliderSize", SetColliderSizeCS);
+
 #pragma endregion
 
-	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);	//TODO: Descomentar cuando est� el CreateBullet()
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreatePrefab", CreatePrefab);	//TODO: Descomentar cuando est� el CreateBullet()
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateTailSensor", CreateTailSensor);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidicSpit", CreateAcidicSpit);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidPuddle", CreateAcidPuddle);

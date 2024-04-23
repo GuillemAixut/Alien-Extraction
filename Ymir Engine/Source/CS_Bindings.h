@@ -143,36 +143,36 @@ int MouseY()
 }
 
 
-//MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
-//{
-//	if (prefabPath == nullptr)
-//		return nullptr;
-//
-//	 char* library_path = mono_string_to_utf8(prefabPath);
-//	GameObject* prefab_object =  ModuleScene::LoadPrefab(library_path);
-//	mono_free(library_path);
-//
-//	if (prefab_object != nullptr)
-//	{
-//		CTransform* object_transform = dynamic_cast<CTransform*>(prefab_object->GetComponent(ComponentType::TRANSFORM));
-//
-//		float3 posVector = ModuleMonoManager::UnboxVector(position);
-//		Quat rotQuat = ModuleMonoManager::UnboxQuat(rotation);
-//
-//		float3 scaleVector;
-//		if (scale != nullptr)
-//			scaleVector = ModuleMonoManager::UnboxVector(scale);
-//		else
-//			scaleVector = prefab_object->mTransform->scale;
-//
-//		prefab_object->mTransform->SetPosition(posVector);
-//
-//		prefab_object->mTransform->SetRotation(rotQuat);
-//		
-//	}
-//
-//	return External->moduleMono->GoToCSGO(prefab_object);
-//}
+MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
+{
+	if (prefabPath == nullptr)
+		return nullptr;
+
+	 char* library_path = mono_string_to_utf8(prefabPath);
+	GameObject* prefab_object =  External->scene->LoadPrefab(library_path);
+	mono_free(library_path);
+
+	if (prefab_object != nullptr)
+	{
+		CTransform* object_transform = dynamic_cast<CTransform*>(prefab_object->GetComponent(ComponentType::TRANSFORM));
+
+		float3 posVector = ModuleMonoManager::UnboxVector(position);
+		Quat rotQuat = ModuleMonoManager::UnboxQuat(rotation);
+
+		float3 scaleVector;
+		if (scale != nullptr)
+			scaleVector = ModuleMonoManager::UnboxVector(scale);
+		else
+			scaleVector = prefab_object->mTransform->scale;
+
+		prefab_object->mTransform->SetPosition(posVector);
+
+		prefab_object->mTransform->SetRotation(rotQuat);
+		
+	}
+
+	return External->moduleMono->GoToCSGO(prefab_object);
+}
 
 void CSCreateGameObject(MonoObject* name, MonoObject* position)
 {
@@ -667,6 +667,8 @@ void LoadSceneCS(MonoString* scenePath)
 {
 	char* _path = mono_string_to_utf8(scenePath);
 	External->scene->pendingToAddScene = _path;
+
+	External->scene->CheckCurrentMap(_path);
 }
 
 void Destroy(MonoObject* go)
@@ -777,8 +779,10 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 
 	//Hace unbox de los parametros de transform pasados
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(1, 1, 50);
+	//Funciona pero es rarete
+	//Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	Quat rotVector = Quat(0,0,0,0);
+	float3 scaleVector = float3(50, 50, 50);
 
 
 	//Añade RigidBody a la bala
@@ -963,7 +967,17 @@ bool CompareStringToName(MonoObject* go, MonoString* name)
 	return nameCompare.compare(gameObject->name) == 0;
 }
 
-MonoString* CSVToString(MonoString* _filePath, MonoString* _csFields) {
+MonoString* CSVToString(MonoString* _filePath) {
+
+	std::string filename = mono_string_to_utf8(_filePath); // File name to process
+
+	std::string output = PhysfsEncapsule::ExtractStringFromCSV(filename);
+
+	// Convert the resulting output string back to MonoString
+	return mono_string_new(External->moduleMono->domain, output.c_str());
+}
+MonoString* CSVToStringKeys(MonoString* _filePath, MonoString* _csFields) {
+
 
 	std::string filename = mono_string_to_utf8(_filePath); // File name to process
 	std::string csFields = mono_string_to_utf8(_csFields); // CSV fields to extract
@@ -1065,5 +1079,19 @@ bool IsActiveCS(MonoObject* go)
 	return gameObject->active;
 }
 
+void SetColliderSizeCS(MonoObject* go, MonoObject* vec)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	float3 vector = External->moduleMono->UnboxVector(vec);
+
+	if (gameObject->GetComponent(ComponentType::PHYSICS) != nullptr)
+	{
+		CCollider* physBody = (CCollider*)gameObject->GetComponent(ComponentType::PHYSICS);
+		physBody->shape->setLocalScaling(btVector3(vector.x, vector.y, vector.z));
+
+		RELEASE(physBody);
+	}
+
+}
 
 #pragma endregion

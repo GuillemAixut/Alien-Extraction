@@ -7,7 +7,7 @@
             "UID": 554361400,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1385067794,
+            "Parent UID": 730604888,
             "Components": [
                 {
                     "Type": "Transform",
@@ -79,7 +79,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/InGameConeptPng.png",
+                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -142,7 +142,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/InGameConeptPng.png",
+                    "Path": "Assets\/UI\/Items Slots\/Iconos\/TailIconColor.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -205,7 +205,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/pato.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -215,7 +215,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.20000000298023224
                     ]
                 },
                 {
@@ -241,10 +241,10 @@
                     "Is interactable": true,
                     "Text": 838864476,
                     "Image": 1110638304,
-                    "Normal": ".\/Library\/Textures\/120577598.dds",
-                    "Focused": ".\/Library\/Textures\/424495814.dds",
-                    "Pressed": ".\/Library\/Textures\/997451359.dds",
-                    "Selected": ".\/Library\/Textures\/424495814.dds",
+                    "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
+                    "Focused": "Assets\/UI\/Items Slots\/onHover.png",
+                    "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
+                    "Selected": "Assets\/UI\/Items Slots\/onHover.png",
                     "Release": "Assets\/Baker_house.png",
                     "Disabled": "Assets\/pato.png",
                     "Focused color": [
@@ -281,7 +281,14 @@
                     "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": ""
+                    "descriptionText": "",
+                    "updateStats": true,
+                    "HP": 0,
+                    "armor": 0,
+                    "speed": 0,
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0
                 }
             ],
             "Children UID": [
