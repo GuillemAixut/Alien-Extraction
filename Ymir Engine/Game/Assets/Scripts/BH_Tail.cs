@@ -32,17 +32,19 @@ public class BH_Tail : YmirComponent
 
             timer = player.swipeTimer;
         }
-
     }
 
 	public void Update()
 	{
         timer = player.swipeTimer;
 
-        size.x += 1;
-        size.z += 1;
-        gameObject.SetColliderSize(size);
-
+        if(size.x <= 20)
+        {
+            size.x += 5;
+            size.z += 5;
+            gameObject.SetColliderSize(size);
+        }
+        
         gameObject.SetRotation(playerObject.transform.globalRotation);
         //gameObject.SetPosition(playerObject.transform.globalPosition + (playerObject.transform.GetForward() * -2.5f));
         gameObject.SetPosition(playerObject.transform.globalPosition);
@@ -58,6 +60,6 @@ public class BH_Tail : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-      
+
     }
 }
