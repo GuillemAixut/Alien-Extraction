@@ -240,7 +240,7 @@ UI_Image* G_UI::AddImage(std::string imgPath, float x, float y, float w, float h
 UI_Text* G_UI::AddText(const char* text, float x, float y, float fontSize, float lineSpacing, std::string fontName, std::string fontPath)
 {
 	if (External->scene->GetCanvas() == nullptr)
-	{
+	{	
 		External->scene->CreateGUI(UI_TYPE::CANVAS);
 	}
 	if (mParent == External->scene->mRootNode)

@@ -143,7 +143,7 @@ public class FaceHuggerBaseScript : YmirComponent
         }
 
         agent.stoppingDistance = 2f;
-        agent.speed = 15f;
+        agent.speed = 50f;
 
 
     }
@@ -382,7 +382,9 @@ public class FaceHuggerBaseScript : YmirComponent
     {
         Vector3 pos = gameObject.transform.globalPosition;
         Vector3 destination = agent.GetDestination();
+        Debug.Log("[ERROR]Destination: " + destination);
         Vector3 direction = destination - pos;
+        Debug.Log("[ERROR]Direction: " + direction);
 
         gameObject.SetVelocity(direction.normalized * speed);
     }
