@@ -29,6 +29,16 @@ class CCamera;
 
 class G_UI;
 
+
+enum MAP {
+	LVL_BASE,
+	LVL_1,
+	LVL_2_PART_1,
+	LVL_2_PART_2,
+	LVL_3_PART_1,
+	LVL_3_PART_2,
+};
+
 class ModuleScene : public Module
 {
 public:
@@ -147,6 +157,9 @@ public:
 	bool godMode;
 	GameObject* selectedUIGO;
 	GameObject* focusedUIGO;
+
+	//Current map
+	MAP currentMap;
 
 private:
 	G_UI* canvas;

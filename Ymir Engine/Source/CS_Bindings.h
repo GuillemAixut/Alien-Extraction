@@ -667,6 +667,32 @@ void LoadSceneCS(MonoString* scenePath)
 {
 	char* _path = mono_string_to_utf8(scenePath);
 	External->scene->pendingToAddScene = _path;
+
+	//Hardcodeada para saber en que mapa estás 
+	if (_path == "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene")
+	{
+		External->scene->currentMap = MAP::LVL_BASE;
+	}
+	else if (_path == "Assets/LVL1_FINAL/LVL1_FINAL_COLLIDERS.yscene")
+	{
+		External->scene->currentMap = MAP::LVL_1;
+	}
+	else if (_path == "Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene")
+	{
+		External->scene->currentMap = MAP::LVL_2_PART_1;
+	}
+	else if (_path == "Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene")
+	{
+		External->scene->currentMap = MAP::LVL_2_PART_2;
+	}
+	else if (_path == "Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene")
+	{
+		External->scene->currentMap = MAP::LVL_3_PART_1;
+	}
+	else if (_path == "Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene")
+	{
+		External->scene->currentMap = MAP::LVL_3_PART_2;
+	}
 }
 
 void Destroy(MonoObject* go)
