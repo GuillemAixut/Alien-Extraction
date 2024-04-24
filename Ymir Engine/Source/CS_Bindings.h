@@ -872,11 +872,24 @@ void CreateAcidicSpit(MonoObject* name, MonoObject* position)
 	go->AddComponent(cmaterial);
 
 	//Añade RigidBody a la bola de acido
+
+	//Antiguo
+	//CCollider* physBody = new CCollider(go);
+	//physBody->useGravity = false;
+	//physBody->size = scaleVector;
+	//physBody->physBody->SetPosition(posVector);
+	//go->AddComponent(physBody);
+	
+	//Nuevo
 	CCollider* physBody = new CCollider(go);
 	physBody->useGravity = false;
-	physBody->size = scaleVector;
 	physBody->physBody->SetPosition(posVector);
+	physBody->SetAsSensor(true);
+
 	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
 	//Añade el script AcidicSpit al gameObject go
 	const char* t = "AcidicSpit";
@@ -916,12 +929,23 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 	cmaterial->shaderDirtyFlag = false;
 	go->AddComponent(cmaterial);
 
+	//Antiguo
 	//Añade RigidBody a la bala
+	//CCollider* physBody = new CCollider(go);
+	//physBody->useGravity = true;
+	//physBody->size = scaleVector;
+	//physBody->physBody->SetPosition(posVector);
+	//go->AddComponent(physBody);
+
 	CCollider* physBody = new CCollider(go);
-	physBody->useGravity = true;
-	physBody->size = scaleVector;
+	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
+	physBody->SetAsSensor(true);
+
 	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
 	//Añade el script Bullet al gameObject Bullet
 	const char* t = "AcidPuddle";
