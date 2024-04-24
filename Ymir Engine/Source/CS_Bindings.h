@@ -780,7 +780,7 @@ void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, MonoObject*
 
 	//Funciona pero es rarete
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	rotVector = rotVector.RotateAxisAngle(rightVector, DegToRad(-90.0f));
+	//rotVector = rotVector.RotateAxisAngle(rightVector, DegToRad(-90.0f));
 
 
 	float3 scaleVector = float3(15, 70, 15);
