@@ -126,7 +126,7 @@ public:
 	void DrawLightsDebug();
 
 	void DrawParticles(ParticleEmitter* emitter);
-	void DrawParticlesShapeDebug(CParticleSystem* obj);
+	bool DrawParticlesShapeDebug(CParticleSystem* obj);
 	void DrawOutline(CMesh* cMeshReference, float4x4 transform);
 
 public:
