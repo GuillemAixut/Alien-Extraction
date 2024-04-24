@@ -146,7 +146,6 @@ void CScript::OnInspector()
 
 void CScript::DropField(SerializedField& field, const char* dropType)
 {
-
 	const char* fieldName = mono_field_get_name(field.field);
 	ImGui::PushID(fieldName);
 
