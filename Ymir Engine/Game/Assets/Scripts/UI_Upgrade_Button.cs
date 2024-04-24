@@ -10,7 +10,8 @@ public class UI_Upgrade_Button : YmirComponent
 {
     public Upgrade upgrade;
 
-    public string name = "", description = "";
+    public string name = "";
+    public string description = "";
     public int cost;
     public bool isUnlocked;
     public string stationName = "";

@@ -89,6 +89,8 @@ public class DroneXenomorphBaseScript : Enemy
 
         //Out of range timer
         outOfRangeTimer = 0f;
+
+        life = 300f;
 	}
 
     public void Update()
@@ -243,7 +245,16 @@ public class DroneXenomorphBaseScript : Enemy
     //LookAt, CheckDistance, MoveToPosition, DestroyEnemy, IsReached
     //Check distance between two gameobjects world position
 
+    public void OnCollisionStay(GameObject other)
+    {
+        if (other.Tag == "Tail")
+        {
 
+            life -= 80;
+            gameObject.SetImpulse(gameObject.transform.GetForward() * -20);
+            Debug.Log("Life: " + life);
+        }
+    }
 
 
     public new void IsReached(Vector3 position, Vector3 destintion)

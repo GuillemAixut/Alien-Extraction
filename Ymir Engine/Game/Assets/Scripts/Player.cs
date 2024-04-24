@@ -188,10 +188,10 @@ public class Player : YmirComponent
         //
         weaponType = WEAPON.SMG;
 
-        movementSpeed = 100.0f;    //Antes 35
+        movementSpeed = 4000.0f;    //Antes 35
 
         //--------------------- Dash ---------------------\\
-        dashDistance = 1000.0f;     //Antes 2 
+        dashDistance = 500.0f;     //Antes 2 
 
         dashTimer = 0f;
         dashDuration = 0.250f;
@@ -503,10 +503,10 @@ public class Player : YmirComponent
     private void ProcessExternalInput()
     {
         //----------------- Debug KEY to test Die Animation -----------------\\
-        //if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
-        //{
-        //    inputsList.Add(INPUT.I_DEAD);
-        //}
+        if (Input.GetKey(YmirKeyCode.V) == KeyState.KEY_DOWN)
+        {
+            inputsList.Add(INPUT.I_DEAD);
+        }
 
         if (currentState != STATE.STOP)
         {        //----------------- Joystic -----------------\\
@@ -1060,7 +1060,7 @@ public class Player : YmirComponent
     private void StartShoot()
     {
         StopPlayer();
-
+        Animation.PlayAnimation(gameObject, "Raisen_Shooting");
         //Logica del disparo depende del arma equipada
         switch (weaponType) {
             case WEAPON.SMG:
@@ -1372,7 +1372,7 @@ public class Player : YmirComponent
     private void StartMove()
     {
         //Trigger de la animacion
-        Animation.PlayAnimation(gameObject, "Raisen_Run");
+        Animation.PlayAnimation(gameObject, "Raisen_Walk");
         //Trigger del SFX de caminar
         //Vector3 impulse = new Vector3(0.0f,0.0f,0.01f);
         //gameObject.SetImpulse(gameObject.transform.GetForward() * 0.5f);
@@ -1385,7 +1385,7 @@ public class Player : YmirComponent
 
         HandleRotation();
 
-        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed);
+        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
 
         //if (gamepadInput.x > 0)
         //{
@@ -1439,7 +1439,7 @@ public class Player : YmirComponent
 
     private void StartDeath()
     {
-        Animation.PlayAnimation(gameObject, "Raisen_Die");
+        Animation.PlayAnimation(gameObject, "Raisen_Death");
     }
 
     public void PlayerStopState(bool stop)
@@ -1505,86 +1505,46 @@ public class Player : YmirComponent
 
     private void SetAnimParameters()
     {
-        //Armature|ANIM_CHAR_RAISE_IDLE
-        //Armature|ANIM_CHAR_RAISEN_DASH
-        //Armature|ANIM_CHAR_RAISEN_DEATH
-        //Armature|ANIM_CHAR_RAISEN_SHOOTING
-        //Armature|ANIM_CHAR_RAISEN_SPIN
-        //Armature|ANIM_CHAR_RAISEN_WALK
-
-        //Animation.SetLoop(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", true);
-        //Animation.SetLoop(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", true);
-        //Animation.SetLoop(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", true);
-
-        //Animation.SetResetToZero(gameObject, "Armature|ANIM_CHAR_RAISEN_DEATH", false);
-
-        //Animation.SetPingPong(gameObject, "Armature|ANIM_CHAR_RAISEN_DEATH", true);
-
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
-
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
-
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
-
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
-
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
-
-
-        //Animation.PlayAnimation(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE");
-
-        //Old Animations
         Animation.SetLoop(gameObject, "Raisen_Idle", true);
         Animation.SetLoop(gameObject, "Raisen_Walk", true);
-        Animation.SetLoop(gameObject, "Raisen_Run", true);
         Animation.SetLoop(gameObject, "Raisen_Dash", true);
 
-        Animation.SetResetToZero(gameObject, "Raisen_Die", false);
+        Animation.SetSpeed(gameObject, "Raisen_Dash", 4);
 
-        Animation.SetPingPong(gameObject, "Raisen_Die", true);
+        Animation.SetResetToZero(gameObject, "Raisen_Death", false);
 
         Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Die", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Dash", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Death", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Spin", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Shooting", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Dash", 5.0f);
 
 
         Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Die", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Dash", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Death", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Spin", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Shooting", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Dash", 5.0f);
 
 
-        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Die", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Death", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Spin", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Shooting", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
+
+        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Death", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Shooting", 5.0f);
 
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Idle", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Die", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Death", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Walk", 5.0f);
-
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Spin", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Shooting", 5.0f);
 
         Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
@@ -1628,6 +1588,7 @@ public class Player : YmirComponent
     private void StartTailSwipe()
     {
         //trigger del sonido
+        Animation.PlayAnimation(gameObject, "Raisen_Spin");
         Audio.PlayAudio(gameObject, "P_TailSweep");
 
         GameObject particles = GetParticles(gameObject, "Tail Particles");

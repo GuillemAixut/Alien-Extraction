@@ -73,7 +73,7 @@ update_status ModulePhysics::PreUpdate(float dt)
 {
 	float fixedTimeStep = 1 / App->GetFPS();
 
-	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING) 
+	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING && !isWorldFirstFrame) 
 	{
 		world->stepSimulation(dt);
 	}
@@ -210,6 +210,8 @@ update_status ModulePhysics::PostUpdate(float dt)
 
 	}
 
+	if (isWorldFirstFrame) isWorldFirstFrame = false;
+
 	return UPDATE_CONTINUE;
 }
 
@@ -225,6 +227,7 @@ bool ModulePhysics::CleanUp()
 // CREATE / DELETE WORLD --------------------------------------------------------------
 void ModulePhysics::CreateWorld()
 {
+	isWorldFirstFrame = true;
 	world = new btDiscreteDynamicsWorld(dispatcher, broadphase, constraintSolver, collisionConfig);
 }
 

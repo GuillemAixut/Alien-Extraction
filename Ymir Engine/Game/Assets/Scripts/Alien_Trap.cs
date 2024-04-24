@@ -12,52 +12,64 @@ public class Alien_Trap : YmirComponent
     public bool axisZ = false;
     public float damage = 10f;
     private float time = 0f;
-    private bool active = false;
+    private bool active = true;
     private bool hitPlayer = false;
+    private Vector3 originalPosition;
+    public bool sensorTrap = false;
     public void Start()
     {
         Debug.Log("HelloWorld");
+        originalPosition = gameObject.transform.localPosition;
+        time = 0f;
     }
 
     public void Update()
     {
-        if (Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN)
-        {
-            active = true;
-            time = 0f;
-        }
-        if (active & !axisZ)
+
+
+
+        if (!axisZ)
         {
             if (time < 0.3f)
             {
 
-                gameObject.transform.localPosition = gameObject.transform.localPosition + new Vector3(velocity * time, 0, 0);
+                gameObject.SetPosition(originalPosition + new Vector3(velocity * time, 0, 0));
                 time += Time.deltaTime;
                 if (hitPlayer)
                 {
                     active = false;
                 }
             }
-            if (time > 0.3f && time < 0.6f)
+            if (time > 0.3f)
             {
-                gameObject.transform.localPosition = gameObject.transform.localPosition - new Vector3(velocity * (time - 0.3f), 0, 0);
-                time += Time.deltaTime;
+
+                gameObject.SetPosition(originalPosition);
+                time = 0f;
+                InternalCalls.GetGameObjectByName("Alien_Trap").SetActive(false);
+                active = true;
+
             }
         }
 
-        if (active & axisZ)
+        if (axisZ)
         {
             if (time < 0.3f)
             {
-
-                gameObject.transform.localPosition = gameObject.transform.localPosition + new Vector3(0, 0, velocity * time);
+                gameObject.SetPosition(originalPosition + new Vector3(0, 0, velocity * time));
                 time += Time.deltaTime;
+                if (hitPlayer)
+                {
+                    active = false;
+                }
 
             }
-            if (time > 0.3f && time < 0.6f)
+            if (time > 0.3f)
             {
-                gameObject.transform.localPosition = gameObject.transform.localPosition - new Vector3(0, 0, velocity * (time - 0.3f));
-                time += Time.deltaTime;
+                gameObject.SetPosition(originalPosition);
+                time = 0f;
+                InternalCalls.GetGameObjectByName("Alien_Trap").SetActive(false);
+                active = true;
+
             }
         }
 
@@ -81,6 +93,5 @@ public class Alien_Trap : YmirComponent
 
         }
     }
-
 
 }
