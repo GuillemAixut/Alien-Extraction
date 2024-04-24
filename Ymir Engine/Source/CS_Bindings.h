@@ -1077,7 +1077,7 @@ MonoObject* GetChildrenByTag(MonoObject* go, MonoString* tag)
 	return nullptr;
 }
 
-void DisableComponent(MonoObject* go, MonoString* compName)
+void DisableComponentCS(MonoObject* go, MonoString* compName, bool includeChildren)
 {
 	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
 	std::string nameCompare = mono_string_to_utf8(compName);
@@ -1085,11 +1085,28 @@ void DisableComponent(MonoObject* go, MonoString* compName)
 
 	ComponentType comp = External->scene->StringToComponentType(nameCompare);
 
-	std::vector<Component*> vec = gameObject->GetAllComponentsByType(comp);
-
-	for (auto it = vec.begin(); it != vec.end(); ++it)
+	if (!includeChildren)
 	{
-		((Component*)(*it))->Disable();
+		std::vector<Component*> components = gameObject->GetAllComponentsByType(comp);
+
+		for (auto comp : components)
+		{
+			comp->Disable();
+		}
+	}
+	else
+	{
+		std::vector<GameObject*> children = gameObject->mChildren;
+
+		for (auto child : children)
+		{
+			std::vector<Component*> childComponents = child->GetAllComponentsByType(comp);
+
+			for (auto comp : childComponents)
+			{
+				comp->Disable();
+			}
+		}
 	}
 
 }

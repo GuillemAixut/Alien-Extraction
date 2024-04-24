@@ -222,10 +222,5 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern bool IsActive();
 
-        /// <summary>
-        /// Changes the size of the physBody
-        /// </summary>
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public extern void SetColliderSize();
     }
 }

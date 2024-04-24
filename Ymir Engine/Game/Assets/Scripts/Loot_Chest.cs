@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 using YmirEngine;
 
 public class Loot_Chest : YmirComponent
@@ -15,6 +14,10 @@ public class Loot_Chest : YmirComponent
     public int spawnRange;
 
     private float time = 0f;
+    private float animationTime = 1;
+
+    private bool isOpened = false;
+
     private float velocity = 30f;
 
     private Vector3 pos = Vector3.zero;
@@ -32,34 +35,49 @@ public class Loot_Chest : YmirComponent
 
 	public void Update()
 	{
+        Debug.Log("Time: " + time);
+
         popup.SetAsBillboard();
-        if (popup.IsActive())
+        if (!isOpened)
+        {
+            if (popup.IsActive())
+            {
+                popup.SetActive(false);
+            }
+
+            if (time > 0)
+            {
+                InternalCalls.CS_GetChild(gameObject, 0).transform.localRotation = Quaternion.Euler(180f, velocity * (animationTime - time), 0f);// GetGameObjectByName("PROP_Base_Chest_Lid").transform.localRotation = Quaternion.Euler(180f, velocity * time, 0f);
+                time -= Time.deltaTime;
+
+                if (time <= 0)
+                {
+                    isOpened = true;
+                }
+            }
+        }
+        else
         {
             popup.SetActive(false);
         }
-        
     }
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")
+        if (other.Tag == "Player" && !isOpened)
         {
             popup.SetActive(true);
         }
 
 
-        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
+        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN) && !isOpened)
         {
             string output = InternalCalls.CSVToStringKeys(path, keys);
             //Debug.Log("Output :" + output);
 
             List<List<string>> result = DeconstructString(output, numFields);
 
-            if (time < 1)
-            {
-                InternalCalls.CS_GetChild(gameObject, 0).transform.localRotation = Quaternion.Euler(180f, velocity * time, 0f);// GetGameObjectByName("PROP_Base_Chest_Lid").transform.localRotation = Quaternion.Euler(180f, velocity * time, 0f);
-                time += Time.deltaTime;
-            }
+            time = animationTime;
 
             Debug.Log("Result:");
             foreach (var sublist in result)
@@ -90,7 +108,6 @@ public class Loot_Chest : YmirComponent
                 }
             }
 
-            InternalCalls.Destroy(gameObject);
         }
     }
 

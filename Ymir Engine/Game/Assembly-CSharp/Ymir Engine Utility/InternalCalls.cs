@@ -147,7 +147,7 @@ namespace YmirEngine
         /// Disable the component with name.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool DisableComponent(object go, string name);
+        public static extern bool DisableComponent(object go, string name, bool includeChildren);
 
     }
 

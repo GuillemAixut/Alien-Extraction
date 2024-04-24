@@ -76,7 +76,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateGOFromPrefab", CreateGOFromPrefabCS);
 	
 	
-	mono_add_internal_call("YmirEngine.InternalCalls::DisableComponent", DisableComponent);
+	mono_add_internal_call("YmirEngine.InternalCalls::DisableComponent", DisableComponentCS);
 
 #pragma region GameObject
 
