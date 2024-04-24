@@ -44,9 +44,6 @@ public class SelectLvl : YmirComponent
             LEVELS selectedLvlPrev = levelSelector.selectedLvl;
             WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;
 
-            Debug.Log("a Lvl" + selectedLvlPrev);
-            Debug.Log("a Weapon" + selectedWeaponPrev);
-
             if (levelSelector.selectedLvl != (LEVELS)lvl)
             {
                 levelSelector.selectedLvl = (LEVELS)lvl;
@@ -55,7 +52,7 @@ public class SelectLvl : YmirComponent
             {
                 levelSelector.selectedLvl = LEVELS.NONE;
                 UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
-                UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                //UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
             }
 
             if (gameObject0 != null)
