@@ -20,6 +20,9 @@ public class UI_Upgrade_Button : YmirComponent
 
     public void Start()
     {
+        GameObject goText = InternalCalls.GetChildrenByName(gameObject, "Text");
+        description = UI.GetUIText(goText);
+
         upgrade = new Upgrade(name, description, cost, isUnlocked);
 
         if (!upgrade.isUnlocked && cost != 1)
@@ -86,7 +89,7 @@ public class UI_Upgrade_Button : YmirComponent
     {
         if (currentStation != null)
         {
-            UI.TextEdit(currentStation.description, upgrade.description);
+            UI.TextEdit(currentStation.description, description);
             UI.TextEdit(currentStation.cost, upgrade.cost.ToString());
         }
     }
