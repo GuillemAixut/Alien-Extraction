@@ -884,6 +884,22 @@ void SetFirstFocused(MonoObject* go)
 
 	SetUIState(External->moduleMono->GoToCSGO(listUI[0]->mOwner), (int)UI_STATE::FOCUSED);
 
+	if (External->scene->selectedUIGO != nullptr)
+	{
+		for (int i = 0; i < External->scene->selectedUIGO->mComponents.size(); i++)
+		{
+			if (External->scene->selectedUIGO->mComponents[i]->ctype == ComponentType::UI)
+			{
+				if (static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state == UI_STATE::SELECTED)
+				{
+					static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state = UI_STATE::NORMAL;
+				}
+			}
+		}
+
+		External->scene->selectedUIGO = nullptr;
+	}
+
 	//External->scene->focusedUIGO = listUI[0]->mOwner;
 	//External->scene->SetSelected(listUI[0]->mOwner);
 	//External->scene->onHoverUI = offset;

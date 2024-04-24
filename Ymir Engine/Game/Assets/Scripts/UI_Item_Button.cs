@@ -40,16 +40,16 @@ public class UI_Item_Button : YmirComponent
 
     public void Update()
     {
-        //if (updateStats)
-        //{
-        //    if (item.currentSlot != ITEM_SLOT.NONE)
-        //    {
-        //        UpdateStats();
-        //        _inventoryReference.GetComponent<UI_Inventory>().UpdateTextStats();
-        //    }
+        if (updateStats && _inventoryReference.GetComponent<UI_Inventory>()._droppable)
+        {
+            if (item.currentSlot != ITEM_SLOT.NONE)
+            {
+                UpdateStats();
+                _inventoryReference.GetComponent<UI_Inventory>().UpdateTextStats();
+            }
 
-        //    updateStats = false;
-        //}
+            updateStats = false;
+        }
 
         return;
     }

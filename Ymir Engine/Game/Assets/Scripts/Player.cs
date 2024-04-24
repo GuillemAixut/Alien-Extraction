@@ -615,6 +615,15 @@ public class Player : YmirComponent
 
             Debug.Log("Upgrade Station");
         }
+        
+        //----------------- Upgrade -----------------\\
+        if (Input.GetGamepadButton(GamePadButton.DPAD_UP) == KeyState.KEY_DOWN && currentMenu == "") // Debug stash 
+        {
+            currentMenu = "Stash Canvas";
+            ToggleMenu(true);
+
+            Debug.Log("Stash Canvas");
+        }
 
         //----------------- Swap to SMG -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)

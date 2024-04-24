@@ -21,16 +21,16 @@ public class UI_Inventory : YmirComponent
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();
 
-        goDescription = InternalCalls.GetGameObjectByName("Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
-        goText = InternalCalls.GetGameObjectByName("Item Description Text");
+        goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
+        goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goDescription.SetActive(false);// TODO: when menu opened
         goText.SetActive(false);
        
         _disable = false;
         _show = false;
 
-        //GetPlayerScript();
-        //GetHealthScript();
+        GetPlayerScript();
+        GetHealthScript();
 
         if (_droppable)
         {
@@ -50,19 +50,19 @@ public class UI_Inventory : YmirComponent
 
     public void Update()
     {
-        //if (player == null)
-        //{
-        //    GetPlayerScript();
-        //}
+        if (player == null)
+        {
+            GetPlayerScript();
+        }
 
-        //if (player != null && player.setHover)
-        //{
-        //    Debug.Log("set first");
-        //    goDescription.SetActive(false);// TODO: when menu opened
-        //    goText.SetActive(false);
+        if (player != null && player.setHover)
+        {
+            Debug.Log("set first");
+            goDescription.SetActive(false);// TODO: when menu opened
+            goText.SetActive(false);
 
-        //    player.setHover = false;
-        //}
+            player.setHover = false;
+        }
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
@@ -116,7 +116,10 @@ public class UI_Inventory : YmirComponent
                     Debug.Log("66666666666");
 
                     // Add real art and other stuff
-                    UI.ChangeImageUI(focusedGO, "Assets/UI/Inventory Buttons/InventorySlotUnselected.png", (int)UI_STATE.NORMAL);
+
+                    GameObject imageItem = InternalCalls.GetChildrenByName(focusedGO.parent, "Image Item");
+
+                    UI.ChangeImageUI(imageItem, "Assets/UI/Inventory Buttons/New Buttons/Unselected.png", (int)UI_STATE.NORMAL);
 
                     //GameObject text = InternalCalls.GetChildrenByName(_focusedGO, "Text");
                     UI.TextEdit(InternalCalls.GetChildrenByName(focusedGO, "Text"), " ");
