@@ -508,31 +508,42 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 {
 	std::string metaFilePath = imgPath + ".meta"; // Assuming the meta file exists.
 
-	ResourceTexture* rTexTemp = new ResourceTexture(); // FRANCESC: MEMORY LEAK
-
 	std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 
 	if (metaFile == nullptr) {
-
-		ImporterTexture::Import(imgPath, rTexTemp);
 
 		// Get meta
 
 		std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(imgPath + ".meta");
 
 		std::string libraryPath = metaFile->GetString("Library Path");
-		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
-
+		
 		uint UID = metaFile->GetInt("UID");
 		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
 
-		rTexTemp = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::TEXTURE, UID, type);
+		ResourceTexture* rTexTemp = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(imgPath, ResourceType::TEXTURE, UID, type);
+		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+		auto itr = mapTextures.find(state);
+		if (itr != mapTextures.end())
+		{
+			External->resourceManager->UnloadResource(itr->second->GetUID());
+			mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
+			mat->rTextures.shrink_to_fit();
+
+			mapTextures.erase(state);
+		}
+
+		mat->diffuse_path = imgPath;
+		mat->rTextures.push_back(rTexTemp);
+
+		mapTextures.insert({ state, rTexTemp });
 
 	}
 	else {
 
 		std::string libraryPath = metaFile->GetString("Library Path");
-		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+		
 
 		uint UID = metaFile->GetInt("UID");
 		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
@@ -545,32 +556,51 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 
 			//rTexTemp = static_cast<ResourceTexture*>
 				//(CreateResourceFromLibrary(libraryPath.c_str(), ResourceType::TEXTURE, UID, type));
-			rTexTemp = static_cast<ResourceTexture*>
-				(External->resourceManager->CreateResourceFromLibrary(imgPath.c_str(), ResourceType::TEXTURE, UID, type));
+			ResourceTexture* rTexTemp = static_cast<ResourceTexture*>
+				(External->resourceManager->CreateResourceFromLibrary(imgPath, ResourceType::TEXTURE, UID, type));
+			rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+			auto itr = mapTextures.find(state);
+			if (itr != mapTextures.end())
+			{
+				External->resourceManager->UnloadResource(itr->second->GetUID());
+				mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
+				mat->rTextures.shrink_to_fit();
+
+				mapTextures.erase(state);
+			}
+
+			mat->diffuse_path = imgPath;
+			mat->rTextures.push_back(rTexTemp);
+
+			mapTextures.insert({ state, rTexTemp });
+
 		}
 		else
 		{
-			rTexTemp = static_cast<ResourceTexture*>(itr->second);
+			ResourceTexture* rTexTemp = static_cast<ResourceTexture*>(itr->second);
+			rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
 			rTexTemp->type = type;
 			itr->second->IncreaseReferenceCount();
+
+			auto itr = mapTextures.find(state);
+			if (itr != mapTextures.end())
+			{
+				External->resourceManager->UnloadResource(itr->second->GetUID());
+				mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
+				mat->rTextures.shrink_to_fit();
+
+				mapTextures.erase(state);
+			}
+
+			mat->diffuse_path = imgPath;
+			mat->rTextures.push_back(rTexTemp);
+
+			mapTextures.insert({ state, rTexTemp });
 		}
 
 	}
 
-	auto itr = mapTextures.find(state);
-	if (itr != mapTextures.end())
-	{
-		External->resourceManager->UnloadResource(itr->second->GetUID());
-		mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
-		mat->rTextures.shrink_to_fit();
-
-		mapTextures.erase(state);
-	}
-
-	mat->diffuse_path = imgPath;
-	mat->rTextures.push_back(rTexTemp);
-
-	mapTextures.insert({ state, rTexTemp });
 }
 
 void UI_Image::SetStateImg(const char* label, UI_STATE s)
