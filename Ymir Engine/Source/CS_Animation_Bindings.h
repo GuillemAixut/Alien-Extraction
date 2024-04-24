@@ -27,8 +27,6 @@ void PlayAnimation(MonoObject*go, MonoString* nameAnim) {
 		LOG("[WARNING] Couldn't play the anim %s. Component was null pointer", ev.c_str());
 	}
 
-	mono_free(go);
-	mono_free(nameAnim);
 }
 
 void PauseAnimation(MonoObject* go) {
@@ -49,8 +47,6 @@ void PauseAnimation(MonoObject* go) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
 }
 
 void ResumeAnimation(MonoObject* go) {
@@ -71,8 +67,6 @@ void ResumeAnimation(MonoObject* go) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
 }
 
 void StopAnimation(MonoObject* go) {
@@ -93,8 +87,6 @@ void StopAnimation(MonoObject* go) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
 }
 
 void SetLoop(MonoObject* go, MonoString* nameAnim, bool loop) {
@@ -115,9 +107,6 @@ void SetLoop(MonoObject* go, MonoString* nameAnim, bool loop) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
-	mono_free(nameAnim);
 }
 
 void SetBackward(MonoObject* go, MonoString* nameAnim, bool backwards) {
@@ -138,9 +127,6 @@ void SetBackward(MonoObject* go, MonoString* nameAnim, bool backwards) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
-	mono_free(nameAnim);
 }
 
 void SetPingPong(MonoObject* go, MonoString* nameAnim, bool pingPong) {
@@ -161,9 +147,6 @@ void SetPingPong(MonoObject* go, MonoString* nameAnim, bool pingPong) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
-	mono_free(nameAnim);
 }
 
 void SetSpeed(MonoObject* go, MonoString* nameAnim, float speed) {
@@ -184,9 +167,6 @@ void SetSpeed(MonoObject* go, MonoString* nameAnim, float speed) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
-	mono_free(nameAnim);
 }
 
 void AddBlendOption(MonoObject* go, MonoString* animationName, MonoString* blendName, float transitionTime) {
@@ -208,10 +188,6 @@ void AddBlendOption(MonoObject* go, MonoString* animationName, MonoString* blend
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
-	mono_free(animationName);
-	mono_free(blendName);
 }
 
 void SetResetToZero(MonoObject* go, MonoString* animationName, bool resetToZero) {
@@ -232,9 +208,6 @@ void SetResetToZero(MonoObject* go, MonoString* animationName, bool resetToZero)
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
-	mono_free(animationName);
 }
 
 bool HasFinished(MonoObject* go, MonoString* animationName) {
@@ -255,7 +228,4 @@ bool HasFinished(MonoObject* go, MonoString* animationName) {
 	{
 		LOG("[WARNING] Couldn't find ANIMATION COMPONENT!");
 	}
-
-	mono_free(go);
-	mono_free(animationName);
 }
