@@ -2224,7 +2224,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 			if (diffusePath == "Checker Image") {
 
-				ResourceTexture* rTex = new ResourceTexture(); // FRANCESC: MEMORY LEAK
+				ResourceTexture* rTex = new ResourceTexture();
 
 				rTex->type = TextureType::DIFFUSE;
 				rTex->LoadCheckerImage();

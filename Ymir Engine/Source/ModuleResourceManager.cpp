@@ -960,3 +960,17 @@ ResourceType ModuleResourceManager::CheckExtensionType(const char* fileDir)
 
 	return ResourceType::UNKNOWN;
 }
+
+bool ModuleResourceManager::ResourceExists(const uint& UID)
+{
+	std::map<uint, Resource*>::iterator it = resources.find(UID);
+
+	if (it == resources.end())
+	{
+		return false;
+	}
+	else 
+	{
+		return true;
+	}
+}
