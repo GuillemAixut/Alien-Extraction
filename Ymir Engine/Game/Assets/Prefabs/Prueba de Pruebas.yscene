@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -5.2153573036193848,
-        112.42322540283203,
-        95.654624938964844
+        0.47353088855743408,
+        15.01569938659668,
+        37.798538208007812
     ],
     "Editor Camera Right (X)": [
-        0.99956071376800537,
-        -1.5087425708770752e-07,
-        -0.029627017676830292
+        0.99785524606704712,
+        -3.8114376366138458e-07,
+        -0.066919028759002686
     ],
     "Editor Camera Up (Y)": [
-        -0.023832149803638458,
-        0.59407597780227661,
-        -0.80405569076538086
+        -0.0037399681750684977,
+        0.99848073720932007,
+        -0.0557737797498703
     ],
     "Editor Camera Front (Z)": [
-        -0.017600828781723976,
-        -0.80440860986709595,
-        -0.59381532669067383
+        -0.066811487078666687,
+        -0.055895041674375534,
+        -0.99625128507614136
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 996421616,
+            "Parent UID": 1414919725,
             "Components": [
                 {
                     "Type": "Transform",
@@ -93,7 +93,7 @@
             ],
             "Children UID": [
                 598771385,
-                402787232
+                2014744640
             ]
         },
         {
@@ -179,7 +179,7 @@
             "Name": "Player",
             "Static": false,
             "Tag": "Player",
-            "UID": 402787232,
+            "UID": 2014744640,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1806365249,
@@ -189,35 +189,43 @@
                     "Active": 1,
                     "Translation": [
                         0,
-                        0.83073639869689941,
+                        0,
                         0
                     ],
                     "Rotation": [
-                        5.0089561227650847e-06,
-                        -5.0089561227650847e-06,
-                        5.0089561227650847e-06
+                        -0,
+                        0,
+                        -0
                     ],
                     "Scale": [
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612
+                        0.10403002053499222,
+                        0.10403002053499222,
+                        0.10403002053499222
                     ]
                 },
                 {
                     "Type": "Animation",
                     "Active": 1,
-                    "NumPaths": 4,
+                    "NumPaths": 8,
                     "Paths": [
-                        ".\/Assets\/Raisen_Walk.yanim",
-                        ".\/Assets\/Raisen_Run.yanim",
-                        ".\/Assets\/Raisen_Dash.yanim",
-                        ".\/Assets\/Raisen_Die.yanim"
+                        ".\/Library\/Animations\/224474025.yanim",
+                        ".\/Library\/Animations\/1574248038.yanim",
+                        ".\/Library\/Animations\/728104177.yanim",
+                        ".\/Library\/Animations\/1438834824.yanim",
+                        ".\/Library\/Animations\/1332406739.yanim",
+                        ".\/Library\/Animations\/1414726077.yanim",
+                        ".\/Library\/Animations\/608664654.yanim",
+                        ".\/Library\/Animations\/9822649.yanim"
                     ],
                     "AssetsPath": [
-                        "",
-                        "",
-                        "",
-                        ""
+                        ".\/Assets\/Armature|ANIM_CHAR_Raise_Idle.yanim",
+                        ".\/Assets\/Armature|ANIM_CHAR_Raisen_BaseIdle.yanim",
+                        ".\/Assets\/Armature|ANIM_CHAR_Raisen_BaseWalk.yanim",
+                        ".\/Assets\/Armature|ANIM_CHAR_Raisen_Dash.yanim",
+                        ".\/Assets\/Armature|ANIM_CHAR_Raisen_Death.yanim",
+                        ".\/Assets\/Armature|ANIM_CHAR_Raisen_Shooting.yanim",
+                        ".\/Assets\/Armature|ANIM_CHAR_Raisen_Spin.yanim",
+                        ".\/Assets\/Armature|ANIM_CHAR_Raisen_Walk.yanim"
                     ]
                 },
                 {
@@ -237,9 +245,9 @@
                     "Active": true,
                     "Collider Type": 0,
                     "Size": [
-                        63.700000762939453,
+                        64,
                         200,
-                        45.400001525878906
+                        45
                     ],
                     "Physics Type": 0,
                     "Mass": 1,
@@ -252,7 +260,7 @@
                     "LockZ": true,
                     "Offset": [
                         0,
-                        10.199999809265137,
+                        11.5,
                         0
                     ],
                     "Offset Rotation": [
@@ -268,7 +276,7 @@
                     "Active": 1,
                     "UID": 0,
                     "currentHealth": 0,
-                    "maxHealth": 10,
+                    "maxHealth": 1200,
                     "armor": 0,
                     "isAlive": false,
                     "debugDmg": 100
@@ -287,37 +295,38 @@
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,
-                    "reloadDuration": 0,
+                    "reloadDuration": 1,
                     "ammo": 0,
                     "magsize": 5,
-                    "smgRange": 0,
-                    "shootgunRange": 0,
-                    "traceRange": 0,
+                    "smgRange": 30,
+                    "shootgunRange": 15,
+                    "traceRange": 100,
                     "damageMultiplier": 0,
-                    "resin": 0,
+                    "resin": 10,
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
-                    "setHover": true
+                    "setHover": false
                 }
             ],
             "Children UID": [
-                674768309,
-                680428138,
-                2003545222,
-                2105473488,
+                869595824,
+                433176410,
+                24552325,
+                484534739,
+                1404628182,
                 2046160732
             ]
         },
         {
-            "Name": "Tail (1)",
+            "Name": "Armature",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 674768309,
+            "UID": 869595824,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
-            "Parent UID": 402787232,
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 2014744640,
             "Components": [
                 {
                     "Type": "Transform",
@@ -337,39 +346,618 @@
                         1,
                         1
                     ]
-                },
+                }
+            ],
+            "Children UID": [
+                261477979
+            ]
+        },
+        {
+            "Name": "tail1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 261477979,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 869595824,
+            "Components": [
                 {
-                    "Type": "Mesh",
+                    "Type": "Transform",
                     "Active": 1,
-                    "UID": 1003707611,
-                    "Vertex Count": 248,
-                    "Index Count": 660
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1
-                        }
+                    "Translation": [
+                        0.37317419052124023,
+                        -4.1231279373168945,
+                        -12.996118545532227
                     ],
-                    "Diffuse_ID": 168,
-                    "Diffuse_Path": "Assets\/TEX_CHAR_Tail_D.png",
-                    "Diffuse_UID": 481287073
+                    "Rotation": [
+                        -178.8482666015625,
+                        62.049003601074219,
+                        172.65753173828125
+                    ],
+                    "Scale": [
+                        1.0000001192092896,
+                        0.99999988079071045,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1961602421
+            ]
+        },
+        {
+            "Name": "tail2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1961602421,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 261477979,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        11.126218795776367,
+                        -0.53901147842407227,
+                        -3.814697265625e-06
+                    ],
+                    "Rotation": [
+                        -0.2467983216047287,
+                        -4.0243525505065918,
+                        -0.050437565892934799
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999988079071045,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                2118867498
+            ]
+        },
+        {
+            "Name": "tail3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2118867498,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1961602421,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        13.723600387573242,
+                        -0.81470620632171631,
+                        -9.5367431640625e-07
+                    ],
+                    "Rotation": [
+                        -0.18097111582756042,
+                        -5.5964498519897461,
+                        -4.4042472839355469
+                    ],
+                    "Scale": [
+                        0.99999994039535522,
+                        0.99999982118606567,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                652550515
+            ]
+        },
+        {
+            "Name": "tail4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 652550515,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 2118867498,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        13.632598876953125,
+                        2.2649765014648438e-06,
+                        -4.76837158203125e-07
+                    ],
+                    "Rotation": [
+                        -0.077054522931575775,
+                        -6.2642745971679688,
+                        -1.2499891519546509
+                    ],
+                    "Scale": [
+                        0.9999997615814209,
+                        0.99999994039535522,
+                        0.9999997615814209
+                    ]
+                }
+            ],
+            "Children UID": [
+                742847289
+            ]
+        },
+        {
+            "Name": "tail5",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 742847289,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 652550515,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        11.92737865447998,
+                        -1.7881393432617188e-06,
+                        -9.5367431640625e-07
+                    ],
+                    "Rotation": [
+                        0.14476777613162994,
+                        -5.7014579772949219,
+                        -5.0933308601379395
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1989154329
+            ]
+        },
+        {
+            "Name": "tail6",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1989154329,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 742847289,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        10.414508819580078,
+                        0.68740266561508179,
+                        -2.8312206268310547e-06
+                    ],
+                    "Rotation": [
+                        0.30314627289772034,
+                        -4.3513360023498535,
+                        -0.56711620092391968
+                    ],
+                    "Scale": [
+                        0.99999994039535522,
+                        0.9999997615814209,
+                        0.99999970197677612
+                    ]
+                }
+            ],
+            "Children UID": [
+                1423671103
+            ]
+        },
+        {
+            "Name": "tail7",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1423671103,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1989154329,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        10.806367874145508,
+                        0.57191121578216553,
+                        -3.814697265625e-06
+                    ],
+                    "Rotation": [
+                        -0.0049513019621372223,
+                        -1.8627272844314575,
+                        -2.6142532825469971
+                    ],
+                    "Scale": [
+                        1.0000001192092896,
+                        1.0000001192092896,
+                        1.0000001192092896
+                    ]
+                }
+            ],
+            "Children UID": [
+                1792869230
+            ]
+        },
+        {
+            "Name": "tail8",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1792869230,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1423671103,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        10.225208282470703,
+                        0.80195337533950806,
+                        0
+                    ],
+                    "Rotation": [
+                        -0.025472087785601616,
+                        0.46033665537834167,
+                        0.27163556218147278
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        0.99999994039535522
+                    ]
+                }
+            ],
+            "Children UID": [
+                1820485226
+            ]
+        },
+        {
+            "Name": "tail9",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1820485226,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1792869230,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        9.4680662155151367,
+                        0.61975586414337158,
+                        -1.9073486328125e-06
+                    ],
+                    "Rotation": [
+                        0.075498446822166443,
+                        -1.0146132707595825,
+                        1.3463670015335083
+                    ],
+                    "Scale": [
+                        1.0000001192092896,
+                        1,
+                        1.0000002384185791
+                    ]
+                }
+            ],
+            "Children UID": [
+                1436113621
+            ]
+        },
+        {
+            "Name": "tail10",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1436113621,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1820485226,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        9.4680624008178711,
+                        0.59276115894317627,
+                        4.76837158203125e-06
+                    ],
+                    "Rotation": [
+                        0.15590932965278625,
+                        -2.7298848628997803,
+                        0.86497706174850464
+                    ],
+                    "Scale": [
+                        1.0000001192092896,
+                        0.99999994039535522,
+                        0.99999982118606567
+                    ]
+                }
+            ],
+            "Children UID": [
+                1490600613
+            ]
+        },
+        {
+            "Name": "tail11",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1490600613,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1436113621,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        8.7088737487792969,
+                        0.79032230377197266,
+                        -5.7220458984375e-06
+                    ],
+                    "Rotation": [
+                        0.24360409379005432,
+                        -3.372225284576416,
+                        2.5215935707092285
+                    ],
+                    "Scale": [
+                        0.9999997615814209,
+                        0.99999994039535522,
+                        0.99999982118606567
+                    ]
+                }
+            ],
+            "Children UID": [
+                1612824302
+            ]
+        },
+        {
+            "Name": "tail12",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1612824302,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1490600613,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        8.143101692199707,
+                        0.79033637046813965,
+                        2.384185791015625e-06
+                    ],
+                    "Rotation": [
+                        0.49070891737937927,
+                        -3.3896727561950684,
+                        4.9230737686157227
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999982118606567,
+                        1.0000001192092896
+                    ]
+                }
+            ],
+            "Children UID": [
+                9194941
+            ]
+        },
+        {
+            "Name": "tail13",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 9194941,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1612824302,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        8.1409120559692383,
+                        0.49395942687988281,
+                        -6.67572021484375e-06
+                    ],
+                    "Rotation": [
+                        0.25199109315872192,
+                        -3.2689378261566162,
+                        3.5022768974304199
+                    ],
+                    "Scale": [
+                        0.99999970197677612,
+                        0.9999997615814209,
+                        0.99999988079071045
+                    ]
+                }
+            ],
+            "Children UID": [
+                1662305916
+            ]
+        },
+        {
+            "Name": "tail14",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1662305916,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 9194941,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        8.5195436477661133,
+                        0.395172119140625,
+                        9.7751617431640625e-06
+                    ],
+                    "Rotation": [
+                        0.21499361097812653,
+                        -2.9197180271148682,
+                        1.633920431137085
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                552514226
+            ]
+        },
+        {
+            "Name": "tail15",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 552514226,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1662305916,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        8.3302383422851562,
+                        0.49395561218261719,
+                        -6.67572021484375e-06
+                    ],
+                    "Rotation": [
+                        0.077622547745704651,
+                        -2.3319618701934814,
+                        -0.22696481645107269
+                    ],
+                    "Scale": [
+                        1.0000001192092896,
+                        1.0000001192092896,
+                        0.9999997615814209
+                    ]
+                }
+            ],
+            "Children UID": [
+                1450213218
+            ]
+        },
+        {
+            "Name": "tail16",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1450213218,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 552514226,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        7.1967811584472656,
+                        0.69154930114746094,
+                        8.7022781372070312e-06
+                    ],
+                    "Rotation": [
+                        0.075761675834655762,
+                        -2.4059758186340332,
+                        9.7603302001953125
+                    ],
+                    "Scale": [
+                        0.99999994039535522,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1590911098
+            ]
+        },
+        {
+            "Name": "tail17",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1590911098,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1450213218,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        11.925876617431641,
+                        -0.49396514892578125,
+                        -1.1086463928222656e-05
+                    ],
+                    "Rotation": [
+                        3.9108945202315226e-05,
+                        -87.815376281738281,
+                        3.9187518268590793e-05
+                    ],
+                    "Scale": [
+                        0.99999988079071045,
+                        0.9999997615814209,
+                        0.99999988079071045
+                    ]
+                }
+            ],
+            "Children UID": [
+                368639068
+            ]
+        },
+        {
+            "Name": "tail17_end",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 368639068,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 1590911098,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        11.936093330383301,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
                 }
             ]
         },
@@ -377,11 +965,11 @@
             "Name": "Eyes",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 680428138,
+            "UID": 433176410,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
-            "Parent UID": 402787232,
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 2014744640,
             "Components": [
                 {
                     "Type": "Transform",
@@ -405,8 +993,8 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 1089882795,
-                    "Vertex Count": 717,
+                    "UID": 1224458374,
+                    "Vertex Count": 718,
                     "Index Count": 2592
                 },
                 {
@@ -431,9 +1019,9 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 172,
-                    "Diffuse_Path": "Assets\/TEX_CHAR_Eyes_D.png",
-                    "Diffuse_UID": 32956622
+                    "Diffuse_ID": 433,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Eyes_D.png",
+                    "Diffuse_UID": 436068193
                 }
             ]
         },
@@ -441,11 +1029,11 @@
             "Name": "Body",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2003545222,
+            "UID": 24552325,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
-            "Parent UID": 402787232,
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 2014744640,
             "Components": [
                 {
                     "Type": "Transform",
@@ -469,8 +1057,8 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 798019010,
-                    "Vertex Count": 10134,
+                    "UID": 930722130,
+                    "Vertex Count": 10032,
                     "Index Count": 36885
                 },
                 {
@@ -495,21 +1083,21 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 164,
-                    "Diffuse_Path": "Assets\/TEX_CHAR_Body_D.png",
-                    "Diffuse_UID": 1203624701
+                    "Diffuse_ID": 437,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Body_D.png",
+                    "Diffuse_UID": 685050207
                 }
             ]
         },
         {
-            "Name": "Backpack",
+            "Name": "Tail Mesh",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2105473488,
+            "UID": 484534739,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Raisen_MixamoAnims.fbx",
-            "Parent UID": 402787232,
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 2014744640,
             "Components": [
                 {
                     "Type": "Transform",
@@ -526,9 +1114,106 @@
                     ],
                     "Scale": [
                         1,
+                        0.99999988079071045,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 200843820,
+                    "Vertex Count": 274,
+                    "Index Count": 660
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 441,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Tail_D.png",
+                    "Diffuse_UID": 114520890
+                }
+            ]
+        },
+        {
+            "Name": "Backpack",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1404628182,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_CHAR_Raisen.fbx",
+            "Parent UID": 2014744640,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.99999988079071045,
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 510419927,
+                    "Vertex Count": 1828,
+                    "Index Count": 3114
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 445,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_backpack_D.png",
+                    "Diffuse_UID": 29044413
                 }
             ]
         },
@@ -539,25 +1224,25 @@
             "UID": 2046160732,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 402787232,
+            "Parent UID": 2014744640,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -7.2625272196091828e-07,
-                        -8.3073635101318359,
-                        7.2625277880433714e-07
+                        7.2702455695765854e-15,
+                        5.7295619626529515e-07,
+                        0
                     ],
                     "Rotation": [
-                        -5.008955213270383e-06,
-                        5.0089570322597865e-06,
-                        -5.0089556680177338e-06
+                        -2.0355550198972866e-13,
+                        2.0355550198972866e-13,
+                        -4.0711100397945732e-13
                     ],
                     "Scale": [
-                        10,
-                        10,
-                        10
+                        9.61260986328125,
+                        9.61260986328125,
+                        9.61260986328125
                     ]
                 },
                 {
@@ -576,12 +1261,22 @@
                                     "Position": [
                                         1.8999999761581421,
                                         0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 23.309000015258789,
                                     "HasDistanceLimit": true,
                                     "BaseRotation": 0,
-                                    "BaseShape": 2
+                                    "BaseShape": 2,
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 0,
+                                    "RadiusTop": 0,
+                                    "Heigth": 0
                                 },
                                 {
                                     "Type": 1,
@@ -604,6 +1299,7 @@
                                         0,
                                         5
                                     ],
+                                    "NormalizedBaseDirection": true,
                                     "Accelerates": false,
                                     "Speed1": 22.799999237060547,
                                     "Speed2": 0,
@@ -614,7 +1310,8 @@
                                         0
                                     ],
                                     "ChangeSpeed1": 0,
-                                    "ChangeSpeed2": 1
+                                    "ChangeSpeed2": 1,
+                                    "NormalizedChange": true
                                 },
                                 {
                                     "Type": 3,
@@ -693,8 +1390,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 625,
-                    "Height": 646,
+                    "Width": 335,
+                    "Height": 497,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
