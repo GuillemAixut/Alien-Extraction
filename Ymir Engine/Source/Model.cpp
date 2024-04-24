@@ -240,7 +240,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 					for (int i = 0; i < scene->mNumAnimations; i++) {
 
 						//Animation* anim = new Animation(path, this, i);
-						ResourceAnimation* rAnim = new ResourceAnimation(modelGO->UID); // FRANCESC: MEMORY LEAK
+						ResourceAnimation* rAnim = new ResourceAnimation(modelGO->UID);
 						ImporterAnimation::Import(path, rAnim, this, i);
 
 						uint UID = modelGO->UID;
@@ -265,8 +265,10 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 
 						External->fileSystem->SaveAnimationToFile(rAnim, assetsPath);
 
-						//ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::ANIMATION, UID);
-						cAnim->AddAnimation(*rAnim);
+						RELEASE(rAnim);
+
+						ResourceAnimation* rAnimation = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(assetsPath, ResourceType::ANIMATION, UID);
+						cAnim->AddAnimation(*rAnimation);
 					}
 				}
 			}
