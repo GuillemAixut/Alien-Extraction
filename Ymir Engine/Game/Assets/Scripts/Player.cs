@@ -1477,6 +1477,55 @@ public class Player : YmirComponent
 
     private void SetAnimParameters()
     {
+        //Armature|ANIM_CHAR_RAISE_IDLE
+        //Armature|ANIM_CHAR_RAISEN_DASH
+        //Armature|ANIM_CHAR_RAISEN_DEATH
+        //Armature|ANIM_CHAR_RAISEN_SHOOTING
+        //Armature|ANIM_CHAR_RAISEN_SPIN
+        //Armature|ANIM_CHAR_RAISEN_WALK
+
+        //Animation.SetLoop(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", true);
+        //Animation.SetLoop(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", true);
+        //Animation.SetLoop(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", true);
+
+        //Animation.SetResetToZero(gameObject, "Armature|ANIM_CHAR_RAISEN_DEATH", false);
+
+        //Animation.SetPingPong(gameObject, "Armature|ANIM_CHAR_RAISEN_DEATH", true);
+
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
+
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_WALK", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
+
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_DASH", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
+
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SHOOTING", "Armature|ANIM_CHAR_RAISEN_SPIN", 5.0f);
+
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISE_IDLE", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_WALK", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_DASH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_DEATH", 5.0f);
+        //Animation.AddBlendOption(gameObject, "Armature|ANIM_CHAR_RAISEN_SPIN", "Armature|ANIM_CHAR_RAISEN_SHOOTING", 5.0f);
+
+
+        //Animation.PlayAnimation(gameObject, "Armature|ANIM_CHAR_RAISE_IDLE");
+
+        //Old Animations
         Animation.SetLoop(gameObject, "Raisen_Idle", true);
         Animation.SetLoop(gameObject, "Raisen_Walk", true);
         Animation.SetLoop(gameObject, "Raisen_Run", true);
