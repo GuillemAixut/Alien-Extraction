@@ -512,9 +512,15 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 
 	if (metaFile == nullptr) {
 
+		// Chuekada para crear el meta en library :((((
+
+		ResourceTexture* rTexMeta = new ResourceTexture();
+		ImporterTexture::Import(imgPath, rTexMeta);
+		RELEASE(rTexMeta);
+
 		// Get meta
 
-		std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(imgPath + ".meta");
+		metaFile = JsonFile::GetJSON(imgPath + ".meta");
 
 		std::string libraryPath = metaFile->GetString("Library Path");
 		
