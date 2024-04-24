@@ -102,6 +102,7 @@ void CParticleSystem::OnInspector()
 	ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_DefaultOpen;
 
 	bool exists = true;
+	int deleteEmitter = -1; //This is outside everything to delete after the ImGui to don't violate the acess.
 
 	ImGui::Checkbox(("##" + std::to_string(UID)).c_str(), &active);
 	ImGui::SameLine();
@@ -153,15 +154,12 @@ void CParticleSystem::OnInspector()
 					nameEmitter.append(std::to_string(i + 1));
 
 				}
-				//std::string nameEmitter;
-				////ImGui::Text("ParticleEmmiter %i", i);
-				//nameEmitter.append("Particle Emitter ");
-				//nameEmitter.append(std::to_string(i+1));
 
 				//Delete emmiter
-				if (ImGui::Button("Delete"))
+				
+				if (ImGui::Button(("Delete ##" + std::to_string(i)).c_str()))
 				{
-					allEmitters.erase(allEmitters.begin() + i);
+					deleteEmitter = i;
 				}
 				ImGui::SameLine();
 
@@ -169,124 +167,109 @@ void CParticleSystem::OnInspector()
 				{
 					auto listModule = allEmitters.at(i)->modules;
 					int securityCheckTree = 999;
-					for (int j = (i>0) ? -1 : 0; j < listModule.size(); j++)
+					int numInit = (i > 0) ? -1 : 0;
+					for (numInit; numInit < listModule.size(); numInit++)
 					{
 						std::string particleModule; //Les opciones
 						std::string deleteButton; //Lo creamos aqui fuera para evitar petadas, pero como la ID va por nombre ha de ser un string para diferenciarlos
 
-						switch (listModule.at(j)->type)
+						switch (listModule.at(numInit)->type)
 						{
-						case EmitterType::PAR_SUBEMITTER: 
+						case EmitterType::PAR_SUBEMITTER:
 						{
-							ImGui::SeparatorText("SUBEMITTER");
+							//ImGui::SeparatorText("SUBEMITTER");
 							break;
 						}
 						case EmitterType::PAR_BASE:
 						{
-							ImGui::SeparatorText("BASE");
+							ImGui::SeparatorText(("BASE ##" + std::to_string(i)).c_str());
 
-							EmitterBase* eBase = (EmitterBase*)listModule.at(j);
+							EmitterBase* eBase = (EmitterBase*)listModule.at(numInit);
 							eBase->OnInspector();
 							break;
 						}
 						case EmitterType::PAR_SPAWN:
 						{
-							ImGui::SeparatorText("SPAWN");
+							ImGui::SeparatorText(("SPAWN ##" + std::to_string(i)).c_str());
 
-							EmitterSpawner* eSpawner = (EmitterSpawner*)listModule.at(j);
+							EmitterSpawner* eSpawner = (EmitterSpawner*)listModule.at(numInit);
 							eSpawner->OnInspector();
 							break;
 						}
 						case EmitterType::PAR_POSITION:
 						{
-							ImGui::Text(particleModule.append("POSITION").c_str());
+							ImGui::Text(particleModule.append(("POSITION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
-							deleteButton.append("Delete ##").append(std::to_string(j));
+							deleteButton.append("Delete ##").append(std::to_string(numInit));
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								securityCheckTree = allEmitters.at(i)->DestroyEmitter(numInit);
 							}
 							deleteButton.clear();
 
-							EmitterPosition* ePosition = (EmitterPosition*)listModule.at(j);
+							EmitterPosition* ePosition = (EmitterPosition*)listModule.at(numInit);
 							ePosition->OnInspector();
 							break;
 						}
 						case EmitterType::PAR_ROTATION:
 						{
-							ImGui::Text(particleModule.append("ROTATION").c_str());
+							ImGui::Text(particleModule.append(("ROTATION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
-							deleteButton.append("Delete ##").append(std::to_string(j));
+							deleteButton.append("Delete ##").append(std::to_string(numInit));
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								securityCheckTree = allEmitters.at(i)->DestroyEmitter(numInit);
 							}
 							deleteButton.clear();
 
-							EmitterRotation* eRotation = (EmitterRotation*)listModule.at(j);
-							eRotation->OnInspector(); //Todo, porque la rotation aun no existe bien , solo mira a camara
+							EmitterRotation* eRotation = (EmitterRotation*)listModule.at(numInit);
+							eRotation->OnInspector();
 							break;
 						}
 						case EmitterType::PAR_SIZE:
 						{
-							ImGui::Text(particleModule.append("SIZE").c_str());
+							ImGui::Text(particleModule.append(("SIZE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
-							deleteButton.append("Delete ##").append(std::to_string(j));
+							deleteButton.append("Delete ##").append(std::to_string(numInit));
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								securityCheckTree = allEmitters.at(i)->DestroyEmitter(numInit);
 							}
 							deleteButton.clear();
 
-							EmitterSize* eSize = (EmitterSize*)listModule.at(j);
+							EmitterSize* eSize = (EmitterSize*)listModule.at(numInit);
 							eSize->OnInspector();
 							break;
 						}
 						case EmitterType::PAR_COLOR:
 						{
-							ImGui::Text(particleModule.append("COLOR").c_str());
+							ImGui::Text(particleModule.append(("COLOR ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
-							deleteButton.append("Delete ##").append(std::to_string(j));
+							deleteButton.append("Delete ##").append(std::to_string(numInit));
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								securityCheckTree = allEmitters.at(i)->DestroyEmitter(numInit);
 							}
 							deleteButton.clear();
 
-							EmitterColor* eColor = (EmitterColor*)listModule.at(j);
+							EmitterColor* eColor = (EmitterColor*)listModule.at(numInit);
 							eColor->OnInspector();
 
 							break;
 						}
 						case EmitterType::PAR_IMAGE:
 						{
-							ImGui::Text(particleModule.append("IMAGE").c_str());
+							ImGui::Text(particleModule.append(("IMAGE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
-							deleteButton.append("Delete ##").append(std::to_string(j));
+							deleteButton.append("Delete ##").append(std::to_string(numInit));
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								securityCheckTree = allEmitters.at(i)->DestroyEmitter(numInit);
 							}
 							deleteButton.clear();
 
-							EmitterImage* eImage = (EmitterImage*)listModule.at(j);
+							EmitterImage* eImage = (EmitterImage*)listModule.at(numInit);
 							eImage->OnInspector();
-
-							break;
-						}
-						case EmitterType::PAR_SHAPE:
-						{
-							ImGui::Text(particleModule.append("SHAPE").c_str());
-							ImGui::SameLine();
-							deleteButton.append("Delete ##").append(std::to_string(j));
-							if (ImGui::SmallButton(deleteButton.c_str()))
-							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
-							}
-							deleteButton.clear();
-
-							EmitterShape* eShape = (EmitterShape*)listModule.at(j);
-							eShape->OnInspector();
 
 							break;
 						}
@@ -306,38 +289,35 @@ void CParticleSystem::OnInspector()
 				std::string CEid;
 				if (ImGui::CollapsingHeader(CEid.append("Emitter Options ##").append(std::to_string(i)).c_str()))
 				{
-					for (int k = 0; k < EmitterType::PARTICLES_MAX; k++)
+					for (int k = (i > 0) ? -1 : 0; k < EmitterType::PARTICLES_MAX; k++)
 					{
 						std::string emitterType;
 
 						switch (k)
 						{
 						case EmitterType::PAR_SUBEMITTER:
-							emitterType.assign("Base Emitter");
+							emitterType.assign("Base Emitter ##");
 							break;
 						case EmitterType::PAR_BASE:
-							emitterType.assign("Base Emitter");
+							emitterType.assign("Base Emitter ##");
 							break;
 						case EmitterType::PAR_SPAWN:
-							emitterType.assign("Spawn Emitter");
+							emitterType.assign("Spawn Emitter ##");
 							break;
 						case EmitterType::PAR_POSITION:
-							emitterType.assign("Position Emitter");
+							emitterType.assign("Position Emitter ##");
 							break;
 						case EmitterType::PAR_ROTATION:
-							emitterType.assign("Rotation Emitter");
+							emitterType.assign("Rotation Emitter ##");
 							break;
 						case EmitterType::PAR_SIZE:
-							emitterType.assign("Scale Emitter");
+							emitterType.assign("Scale Emitter ##");
 							break;
 						case EmitterType::PAR_COLOR:
-							emitterType.assign("Color Emitter");
+							emitterType.assign("Color Emitter ##");
 							break;
 						case EmitterType::PAR_IMAGE:
-							emitterType.assign("Image Emitter");
-							break;
-						case EmitterType::PAR_SHAPE:
-							emitterType.assign("Shape Emitter");
+							emitterType.assign("Image Emitter ##");
 							break;
 						case EmitterType::PARTICLES_MAX:
 							break;
@@ -346,7 +326,7 @@ void CParticleSystem::OnInspector()
 						}
 						if (!allEmitters.at(i)->EmitterSettingExist((EmitterType)k)) //If the setting already exist on the 
 						{
-							if (ImGui::Button(emitterType.c_str()))
+							if (ImGui::Button((emitterType + std::to_string(i)).c_str()))
 							{
 								allEmitters.at(i)->CreateEmitterSettingByType((EmitterType)k);
 							}
@@ -375,6 +355,8 @@ void CParticleSystem::OnInspector()
 		}
 
 	}
+
+	if (deleteEmitter > -1) { allEmitters.erase(allEmitters.begin() + deleteEmitter); }
 
 	if (!exists) { mOwner->RemoveComponent(this); }
 }

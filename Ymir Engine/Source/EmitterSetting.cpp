@@ -1714,3 +1714,19 @@ void EmitterShapeArea::OnInspector()
 		ImGui::DragFloat(suffixLabel.c_str(), &angle);
 	}
 }
+
+Subemitter::Subemitter()
+{
+}
+
+void Subemitter::Spawn(ParticleEmitter* emitter, Particle* particle)
+{
+}
+
+void Subemitter::Update(float dt, ParticleEmitter* emitter)
+{
+}
+
+void Subemitter::OnInspector()
+{
+}

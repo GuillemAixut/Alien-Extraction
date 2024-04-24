@@ -17,7 +17,6 @@ enum EmitterType
 	PAR_SIZE,
 	PAR_COLOR,
 	PAR_IMAGE,
-	PAR_SHAPE,
 	PARTICLES_MAX,
 };
 
@@ -92,7 +91,6 @@ struct EmitterBase : EmitterSetting
 	//Box Parameters
 	float3 boxPointsPositives;
 	float3 boxPointsNegatives;
-
 };
 
 //EnumS of types of spawn of the spawn setting
@@ -296,29 +294,12 @@ struct EmitterShapeArea : EmitterSetting
 	bool useDirection = true;
 };
 
-//struct EmmiterShapeCircumference : EmitterShape
-//{
-//	EmmiterShapeCircumference();
-//	void Spawn(ParticleEmitter* emitter, Particle* particle);
-//	void Update(float dt, ParticleEmitter* emitter);
-//	void OnInspector();
-//};
-//
-//struct EmitterShapeCone : EmitterShape
-//{
-//	EmitterShapeCone();
-//	void Spawn(ParticleEmitter* emitter, Particle* particle);
-//	void Update(float dt, ParticleEmitter* emitter);
-//	void OnInspector();
-//};
-//
-//
-//struct EmitterShapeSphere : EmitterShape
-//{
-//	EmitterShapeSphere();
-//	void Spawn(ParticleEmitter* emitter, Particle* particle);
-//	void Update(float dt, ParticleEmitter* emitter);
-//	void OnInspector();
-//};
+struct Subemitter : EmitterSetting
+{
+	Subemitter();
+	void Spawn(ParticleEmitter* emitter, Particle* particle);
+	void Update(float dt, ParticleEmitter* emitter);
+	void OnInspector();
+};
 
 #endif //__EMITTER_INSTANCE_H__
