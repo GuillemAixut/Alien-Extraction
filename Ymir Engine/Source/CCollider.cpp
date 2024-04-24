@@ -118,9 +118,14 @@ CCollider::~CCollider()
 
 void CCollider::Update()
 {
+	
 
 	if (isActive)	physBody->body->setActivationState(ACTIVE_TAG);
-	else physBody->body->setActivationState(ISLAND_SLEEPING);
+	else
+	{
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
+		physBody->body->setActivationState(ISLAND_SLEEPING);
+	}
 
 	if (physBody != nullptr)
 	{
