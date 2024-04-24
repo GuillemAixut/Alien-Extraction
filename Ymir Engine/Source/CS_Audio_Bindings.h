@@ -28,6 +28,9 @@ void PlayAudio(MonoObject* go, MonoString* eventAudio)
 	{
 		LOG("[WARNING] Couldn't play the audio %s. Component was null pointer", ev.c_str());
 	}
+
+	mono_free(go);
+	mono_free(eventAudio);
 }
 
 void PlayEmbedAudio(MonoObject* go)
@@ -48,6 +51,8 @@ void PlayEmbedAudio(MonoObject* go)
 	{
 		LOG("[WARNING] Couldn't play the audio %s. Component was null pointer", audSource->evName);
 	}
+
+	mono_free(go);
 }
 
 void ResumeAudio(MonoObject* go)
@@ -66,6 +71,8 @@ void ResumeAudio(MonoObject* go)
 	{
 		LOG("[WARNING] Couldn't resume the audio. Component was null pointer");
 	}
+
+	mono_free(go);
 }
 
 void PauseAudio(MonoObject* go)
@@ -84,6 +91,8 @@ void PauseAudio(MonoObject* go)
 	{
 		LOG("[WARNING] Couldn't pause the audio. Component was null pointer");
 	}
+
+	mono_free(go);
 }
 
 
@@ -103,6 +112,8 @@ void StopOneAudio(MonoObject* go, MonoString* eventAudio)
 	{
 		LOG("[WARNING] Couldn't stop the audio. Component was null pointer");
 	}
+
+	mono_free(go);
 }
 
 void StopAudio(MonoObject* go)
@@ -120,6 +131,8 @@ void StopAudio(MonoObject* go)
 	{
 		LOG("[WARNING] Couldn't stop the audio. Component was null pointer");
 	}
+
+	mono_free(go);
 }
 
 
@@ -130,6 +143,9 @@ void SetState(MonoString* stateGroupString, MonoString* stateString)
 	std::string stateGroup = mono_string_to_utf8(stateGroupString);
 	std::string state = mono_string_to_utf8(stateString);
 	External->audio->SetState(stateGroup, state);
+
+	mono_free(stateGroupString);
+	mono_free(stateString);
 }
 
 void SetSwitch(MonoObject* go, MonoString* switchGroupString, MonoString* stateSwitchString)
@@ -151,6 +167,9 @@ void SetSwitch(MonoObject* go, MonoString* switchGroupString, MonoString* stateS
 
 	audSource->SetSwitch(stateGroupSwitch, stateSwitch);
 
+	mono_free(go);
+	mono_free(switchGroupString);
+	mono_free(stateSwitchString);
 }
 
 float GetVolume(MonoObject* go)
@@ -170,6 +189,8 @@ float GetVolume(MonoObject* go)
 		LOG("[WARNING] Couldn't get the volume. Component was null pointer");
 		return NULL;
 	}
+
+	mono_free(go);
 }
 
 void SetVolume(MonoObject* go, float volume)
@@ -188,6 +209,8 @@ void SetVolume(MonoObject* go, float volume)
 	{
 		LOG("[WARNING] Couldn't set the volume to %.2f. Component was null pointer", volume);
 	}
+
+	mono_free(go);
 }
 
 float GetPitch(MonoObject* go)
@@ -207,6 +230,8 @@ float GetPitch(MonoObject* go)
 		LOG("[WARNING] Couldn't get the pitch. Component was null pointer");
 		return NULL;
 	}
+
+	mono_free(go);
 }
 
 void SetPitch(MonoObject* go, float pitch)
@@ -225,6 +250,8 @@ void SetPitch(MonoObject* go, float pitch)
 	{
 		LOG("[WARNING] Couldn't set the pitch to %.2f. Component was null pointer", pitch);
 	}
+
+	mono_free(go);
 }
 
 bool GetMuted(MonoObject* go)
@@ -243,6 +270,8 @@ bool GetMuted(MonoObject* go)
 	{
 		LOG("[WARNING] Couldn't get the mute variable. Component was null pointer");
 	}
+
+	mono_free(go);
 }
 
 void SetMuted(MonoObject* go, bool muted)
@@ -261,6 +290,8 @@ void SetMuted(MonoObject* go, bool muted)
 	{
 		LOG("[WARNING] Couldn't set the mute to the given value. Component was null pointer");
 	}
+
+	mono_free(go);
 }
 
 void PauseAllAudios()
