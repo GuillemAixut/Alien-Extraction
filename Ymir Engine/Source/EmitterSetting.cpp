@@ -133,6 +133,10 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	case PAR_CONE:
 	{
+		//Get rotated point from the world
+		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
+		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+
 		//Get random radius size
 		float randomLength = Random::GenerateRandomFloat(radiusHollow, baseRadius);
 		float randomAngle = Random::GenerateRandomFloat(0.0f, pi * 2);
@@ -158,6 +162,10 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	case PAR_BOX:
 	{
+		//Get rotated point from the world
+		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
+		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+		
 		//Get rotated positives point from the world
 		Quat nuwDirPositives = particle->directionRotation.Mul(Quat(boxPointsPositives.x, boxPointsPositives.y, boxPointsPositives.z, 0));
 		float3 positivesModified = float3(nuwDirPositives.x, nuwDirPositives.y, nuwDirPositives.z);
@@ -184,7 +192,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			Quat rotation;
 			float3 escale;
 			matrix.Decompose(position, rotation, escale);
-			particle->position += position + emitterOrigin + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->position += position + originModified + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}

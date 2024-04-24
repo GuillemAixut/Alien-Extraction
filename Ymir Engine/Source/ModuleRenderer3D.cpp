@@ -877,14 +877,12 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 	Quat nuwDirQuat = rotacion.Mul(Quat(eBase->emitterOrigin.x, eBase->emitterOrigin.y, eBase->emitterOrigin.z, 0));
 	float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
 
-	//BOX ROTATIONS ERIC:TODO Fixear esto, rota mal
+	////BOX ROTATIONS ERIC:TODO Fixear esto, rota mal
 	Quat nuwDirPositives = rotacion.Mul(Quat(eBase->boxPointsPositives.x, eBase->boxPointsPositives.y, eBase->boxPointsPositives.z, 0));
-	float3 positivesModified = float3(nuwDirPositives.x, nuwDirPositives.y, nuwDirPositives.z);
+	float3 positivesModified = eBase->boxPointsPositives + originModified;
 
 	//Get rotated negatives point from the world
-	Quat nuwDirNegative = rotacion.Mul(Quat(eBase->boxPointsNegatives.x, eBase->boxPointsNegatives.y, eBase->boxPointsNegatives.z, 0));
-	float3 negativesModified = float3(nuwDirNegative.x, nuwDirNegative.y, nuwDirNegative.z);
-
+	float3 negativesModified = eBase->boxPointsNegatives + originModified;
 
 	float3 color = { 0.8f,0,0.8f };
 	switch (eBase->currentShape)
@@ -927,16 +925,16 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 				//Draw external circle
 				temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ( (1-subDiv) * eBase->baseRadius + eBase->topRadius*subDiv) }; //Lerp entre base y top usando subdiv
 				temp2 = { cos((pi * 2 / numPuntos) * (i+1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i+1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv) }; //Lerp entre base y top usando subdiv
-				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 
 				if(eBase->radiusHollow>0.0f)
 				{
 					//Draw inner circle
 					temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius/eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
 					temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
-					glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-					glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 				}
 			}
 		}
@@ -948,16 +946,16 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 				//Draw external circle
 				temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius }; //Punto Inferior
 				temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->topRadius ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->topRadius }; //Punto Superior
-				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 
 				if (eBase->radiusHollow > 0.0f)
 				{
 					//Draw inner circle
 					temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow }; //Punto Inferior
 					temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) }; //Punto Superior
-					glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-					glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 				}
 			}
 		}
@@ -975,27 +973,41 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 	{
 		float3 temp;
 		float3 vertices[8];
-		temp = { eBase->boxPointsNegatives.x,eBase->boxPointsNegatives.y,positivesModified.z };
+		temp = { negativesModified.x,negativesModified.y,positivesModified.z };
 		vertices[0] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsNegatives.x,eBase->boxPointsNegatives.y,eBase->boxPointsNegatives.z };
+		temp = { negativesModified.x,negativesModified.y,negativesModified.z };
 		vertices[1] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsNegatives.x,positivesModified.y,positivesModified.z };
+		temp = { negativesModified.x,positivesModified.y,positivesModified.z };
 		vertices[2] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { eBase->boxPointsNegatives.x,positivesModified.y,eBase->boxPointsNegatives.z };
+		temp = { negativesModified.x,positivesModified.y,negativesModified.z };
 		vertices[3] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { positivesModified.x,eBase->boxPointsNegatives.y,positivesModified.z };
+		temp = { positivesModified.x,negativesModified.y,positivesModified.z };
 		vertices[4] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { positivesModified.x,eBase->boxPointsNegatives.y,eBase->boxPointsNegatives.z };
+		temp = { positivesModified.x,negativesModified.y,negativesModified.z };
 		vertices[5] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
 		temp = { positivesModified.x,positivesModified.y,positivesModified.z };
 		vertices[6] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { positivesModified.x,positivesModified.y,eBase->boxPointsNegatives.z };
+		temp = { positivesModified.x,positivesModified.y,negativesModified.z };
 		vertices[7] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-
-
-
 		
 		DrawBox(vertices, color);
+
+		if(External->scene->godMode)
+		{
+			glLineWidth(4.f);
+			glBegin(GL_LINES);
+			glColor3fv(color.ptr());
+
+			glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((positivesModified + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+			glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((negativesModified + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+			glColor3f(255.f, 255.f, 255.f);
+			glEnd();
+			glLineWidth(1.f);
+		}
 	}
 		break;
 	case SpawnAreaShape::PAR_SPHERE:
@@ -1015,17 +1027,8 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 			//Draw external circle
 			temp = { 0,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * i) * eBase->baseRadius };
 			temp2 = { 0 , sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius };
-			glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-
-			if (eBase->radiusHollow > 0.0f)
-			{
-				//Draw inner circle
-				temp = { 0,sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,-cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow };
-				temp2 = { 0,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow ,-cos((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow };
-				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			}
+			glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 		}
 
 		//Eje Y
@@ -1034,17 +1037,8 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 			//Draw external circle
 			temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius }; 
 			temp2 = { cos((pi * 2 / numPuntos) * (i+1)) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * (i+1)) * eBase->baseRadius }; 
-			glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-
-			if (eBase->radiusHollow > 0.0f)
-			{
-				//Draw inner circle
-				temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,0,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow };
-				temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow ,0,-sin((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow };
-				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			}
+			glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 		}
 
 		//Eje Z
@@ -1053,17 +1047,8 @@ void ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 			//Draw external circle
 			temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius, 0 };
 			temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,0 };
-			glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-
-			if (eBase->radiusHollow > 0.0f)
-			{
-				//Draw inner circle
-				temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow, 0 };
-				temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow ,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->radiusHollow,0 };
-				glVertex3fv((temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				glVertex3fv((temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			}
+			glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 		}
 
 		glColor3f(255.f, 255.f, 255.f);
