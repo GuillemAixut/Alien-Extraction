@@ -3480,6 +3480,30 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					//Shape
 					eBase->currentShape = (SpawnAreaShape)json_object_get_number(modulo, "BaseShape");
 
+					//Box specifics
+					//Get box points array
+					JSON_Array* positivesArr = json_object_get_array(modulo, "PositiveBoxPoints");
+
+					//Get elements of position
+					float bpposX = json_array_get_number(positivesArr, 0);
+					float bpposY = json_array_get_number(positivesArr, 1);
+					float bpposZ = json_array_get_number(positivesArr, 2);
+					eBase->boxPointsPositives = { bpposX,bpposY,bpposZ };
+
+					JSON_Array* negativesArr = json_object_get_array(modulo, "NegativeBoxPoints");
+
+					//Get elements of position
+					float bnposX = json_array_get_number(negativesArr, 0);
+					float bnposY = json_array_get_number(negativesArr, 1);
+					float bnposZ = json_array_get_number(negativesArr, 2);
+					eBase->boxPointsNegatives = { bnposX,bnposY,bnposZ };
+
+					//Cylinder and Sphere specifics
+					eBase->radiusHollow = (float)json_object_get_number(modulo, "RadiusHollow");
+					eBase->baseRadius = (float)json_object_get_number(modulo, "RadiusBase");
+					eBase->topRadius = (float)json_object_get_number(modulo, "RadiusTop");
+					eBase->heigth = (float)json_object_get_number(modulo, "Heigth");
+
 					break;
 				}
 				case PAR_SPAWN:
@@ -3513,6 +3537,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					float posZ1 = json_array_get_number(dirArr1, 2);
 					ePos->direction1 = { posX1,posY1,posZ1 };
 
+					ePos->normalizedSpeed = json_object_get_boolean(modulo, "NormalizedBaseDirection");
+
 					//Get position array
 					JSON_Array* dirArr2 = json_object_get_array(modulo, "Direction2");
 
@@ -3536,6 +3562,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 					ePos->changeSpeed1 = json_object_get_number(modulo, "ChangeSpeed1");
 					ePos->changeSpeed2 = json_object_get_number(modulo, "ChangeSpeed2");
+
+					ePos->normalizedChange = json_object_get_boolean(modulo, "NormalizedChange");
 
 					break;
 				}

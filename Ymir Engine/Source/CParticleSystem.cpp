@@ -416,11 +416,10 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "Lifetime2", eBase->particlesLifeTime2);
 				json_object_set_boolean(child_object, "RandomLT", eBase->randomLT);
 				//InitialPosition
-				JSON_Array* arrInitialPos;
 
 				//Position
 				JSON_Value* jValuePos = json_value_init_array();
-				arrInitialPos = json_value_get_array(jValuePos);
+				JSON_Array* arrInitialPos = json_value_get_array(jValuePos);
 
 				json_object_dotset_value(child_object, "Position", jValuePos);
 				json_array_append_number(arrInitialPos, eBase->emitterOrigin.x);
@@ -435,6 +434,29 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Shape
 				json_object_set_number(child_object, "BaseShape", eBase->currentShape);
+
+				//Box Parameters
+				JSON_Value* jValuePositiveCube = json_value_init_array();
+				JSON_Array* arrInitialPositiveCube = json_value_get_array(jValuePositiveCube);
+
+				json_object_dotset_value(child_object, "PositiveBoxPoints", jValuePos);
+				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.x);
+				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.y);
+				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.z);
+
+				JSON_Value* jValueNegativeCube = json_value_init_array();
+				JSON_Array* arrInitialNegativeCube = json_value_get_array(jValueNegativeCube);
+
+				json_object_dotset_value(child_object, "NegativeBoxPoints", jValuePos);
+				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.x);
+				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.y);
+				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.z);
+
+				//Cone & Sphere parameters
+				json_object_set_number(child_object, "RadiusHollow", eBase->radiusHollow);
+				json_object_set_number(child_object, "RadiusBase", eBase->baseRadius);
+				json_object_set_number(child_object, "RadiusTop", eBase->topRadius);
+				json_object_set_number(child_object, "Heigth", eBase->heigth);
 
 				break;
 			}
@@ -487,6 +509,8 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_array_append_number(arrInitialDir2, ePosition->direction2.y);
 				json_array_append_number(arrInitialDir2, ePosition->direction2.z);
 
+				json_object_set_boolean(child_object, "NormalizedBaseDirection", ePosition->normalizedSpeed);
+
 				//Accelerate
 				json_object_set_boolean(child_object, "Accelerates", ePosition->acceleration);
 
@@ -507,6 +531,8 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				json_object_set_number(child_object, "ChangeSpeed1", ePosition->changeSpeed1);
 				json_object_set_number(child_object, "ChangeSpeed2", ePosition->changeSpeed2);
+
+				json_object_set_boolean(child_object, "NormalizedChange", ePosition->normalizedChange);
 
 
 				break;
