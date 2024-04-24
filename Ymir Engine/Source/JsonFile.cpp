@@ -3422,8 +3422,6 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 	}
 	else if (type == "ParticleSystem")
 	{
-		//TODO ERIC. hacer la carga de cosas
-
 		CParticleSystem* cparticleSystem = new CParticleSystem(gameObject);
 		cparticleSystem->active = json_object_get_boolean(componentObject, "Active");
 
@@ -3548,7 +3546,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					float posZ2 = json_array_get_number(dirArr2, 2);
 					ePos->direction2 = { posX2,posY2,posZ2 };
 
-					//Speed changes ERIC TODO
+					//Speed changes
 					ePos->actualSpeedChange = (SpeedChangeMode)json_object_get_number(modulo, "ChangeSpeedMode");
 
 					//Get newPosition array

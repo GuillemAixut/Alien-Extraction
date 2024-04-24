@@ -616,7 +616,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 			}
 			case EmitterType::PAR_IMAGE:
 			{
-				//TODO ERIC: QUE HA DE GUARDARSE PARA LA CARGA?
+				//The material already saves all the necesary information
 				break;
 			}
 			case EmitterType::PARTICLES_MAX:
@@ -772,9 +772,9 @@ void CParticleSystem::LoadAllEmmitersJSON(const char* path)
 		uint32_t emmiterID = json_array_get_number(arr, i);
 
 		std::string pathEmitter;
-		//pathEmitter += PARTICLES_PATH; TODO TONI
+		//pathEmitter += PARTICLES_PATH;
 		pathEmitter += std::to_string(emmiterID);
-		//pathEmitter += PAR; TODO TONI
+		//pathEmitter += PAR;
 		this->allEmitters.push_back(LoadEmitterFromMeta(pathEmitter.c_str()));
 	}
 }
