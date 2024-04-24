@@ -24,20 +24,13 @@ public class Caius : YmirComponent
 
     public void Start()
     {
-        line1_gameObject = InternalCalls.GetGameObjectByName("Text");
+        line1_gameObject = InternalCalls.GetGameObjectByName("Callu");
         juan = InternalCalls.CSVToString("Assets/Dialogue/asddasdf.csv");
         LoadDialogues(juan);
 
     }
 	public void Update()
 	{
-        
-        if(Input.GetKey(YmirKeyCode.L) == KeyState.KEY_DOWN)
-        {
-            line1_gameObject.SetActive(true);
-
-            UI.TextEdit(line1_gameObject, dialogue[1].Name + ":" + dialogue[1].Text);
-        }
         if (Input.GetKey(YmirKeyCode.H) == KeyState.KEY_DOWN)
         {
             UI.TextEdit(line1_gameObject, dialogue[2].Name+":" + dialogue[2].Text);
@@ -46,11 +39,18 @@ public class Caius : YmirComponent
         {
             line1_gameObject.SetActive(false);
         }
-
-
-
         return;
 	}
+
+    public void OnCollisionStay(GameObject other)
+    {
+        if(other.Tag == "Player")
+        {
+            line1_gameObject.SetActive(true);
+
+            UI.TextEdit(line1_gameObject, dialogue[1].Name + ":" + dialogue[1].Text);
+        }
+    }
     public void LoadDialogues(string dialogueData)
     {
         string[] lines = dialogueData.Split(new string[] { "<end>" }, System.StringSplitOptions.RemoveEmptyEntries);
