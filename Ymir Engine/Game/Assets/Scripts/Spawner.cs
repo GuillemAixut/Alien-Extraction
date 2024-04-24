@@ -46,6 +46,7 @@ public class Spawner: YmirComponent
     {
 
         double randomValue = random.NextDouble();
+        Debug.Log("RandomValue" + randomValue);
 
         if(randomValue < porcentajeFaceHugger)
         {

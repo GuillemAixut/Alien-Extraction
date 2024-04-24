@@ -17,6 +17,8 @@ public class FaceHuggerBaseScript : Enemy
 {
     public GameObject thisReference = null;
 
+    public GameObject canvas;
+
 
     protected Vector3 targetPosition = null;
 
