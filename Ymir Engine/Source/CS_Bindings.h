@@ -258,10 +258,6 @@ MonoObject* FindObjectWithName(MonoString* name) {
 
 	char* _name = mono_string_to_utf8(name);
 
-	if (strcmp(_name,"Door1") == 0|| strcmp(_name, "Door2") == 0)
-	{
-		LOG("JUAN----------------------------------------------------------------------------------");
-	}
 
 	for (int i = 0; i < gameObjectVec.size(); i++) {
 
