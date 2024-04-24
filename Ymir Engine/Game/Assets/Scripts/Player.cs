@@ -188,7 +188,7 @@ public class Player : YmirComponent
         //
         weaponType = WEAPON.SMG;
 
-        movementSpeed = 100.0f;    //Antes 35
+        movementSpeed = 4000.0f;    //Antes 35
 
         //--------------------- Dash ---------------------\\
         dashDistance = 1000.0f;     //Antes 2 
@@ -1385,7 +1385,7 @@ public class Player : YmirComponent
 
         HandleRotation();
 
-        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed);
+        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
 
         //if (gamepadInput.x > 0)
         //{
