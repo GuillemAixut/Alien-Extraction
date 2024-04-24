@@ -1553,6 +1553,9 @@ public class Player : YmirComponent
         //trigger del sonido
         Audio.PlayAudio(gameObject, "P_TailSweep");
 
+        GameObject particles = GetParticles(gameObject, "Tail Particles");
+        Particles.PlayEmitter(particles);   
+
         //trigger de la animacion
         //Setup de todo lo necesario
 
