@@ -23,6 +23,8 @@ public class Key : YmirComponent
     {
         if (other.Tag == "Player")
         {
+            Audio.PlayEmbedAudio(gameObject);
+
             InternalCalls.DisableComponent(door, "PHYSICS", true);
             gameObject.SetActive(false);
             InternalCalls.Destroy(gameObject);

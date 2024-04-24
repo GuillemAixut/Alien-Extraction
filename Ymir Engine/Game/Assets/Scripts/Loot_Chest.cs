@@ -36,7 +36,7 @@ public class Loot_Chest : YmirComponent
 
 	public void Update()
 	{
-        Debug.Log("Time: " + time);
+        //Debug.Log("Time: " + time);
 
         popup.SetAsBillboard();
         if (!isOpened)
