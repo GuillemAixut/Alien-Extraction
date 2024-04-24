@@ -112,6 +112,8 @@ public class Player : YmirComponent
     // Lo usa el script de BH_Shotgun
     public Vector3 shotgunOffset = Vector3.zero;
 
+    private float tracerCurrentDistance;
+
 
     #endregion
 
@@ -1169,6 +1171,40 @@ public class Player : YmirComponent
 
     private void TraceShoot()
     {
+        Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
+
+        if (!godMode)
+        {
+            --ammo;
+            //if (csBullets!= null){ csBullets.UseBullets(); }
+        }
+
+        tracerCurrentDistance = 0;
+
+        //for  (tracerCurrentDistance = 0; tracerCurrentDistance < traceRange; )
+        //{
+            
+        //}
+
+        GameObject target;
+        target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 30.0f);
+
+        if (target != null)
+        {
+
+            Debug.Log(target.Name);
+
+            if (target.Tag != "Enemy")
+            {
+                // Damage enemy
+                // Blood particle
+            }
+            else
+            {
+                // Sparkle particle
+                // Play bullet hit wall SFX
+            }
+        }
 
         inputsList.Add(INPUT.I_SHOOT_END);
     }
