@@ -1094,6 +1094,7 @@ public class Player : YmirComponent
     private void EndShooting()
     {
         // Reset del futuro autoapuntado
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
     private void StartReload()
     {
@@ -1531,7 +1532,7 @@ public class Player : YmirComponent
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Walk", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Death", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Spin", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Shooting", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Shooting", 2.0f);
         //Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
 
         Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Idle", 5.0f);
@@ -1641,6 +1642,7 @@ public class Player : YmirComponent
         //StopPlayer();
         //Delete de la hitbox de la cola
         swipeCDTimer = swipeCD;
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
 
     public void LookAt(float angle)
