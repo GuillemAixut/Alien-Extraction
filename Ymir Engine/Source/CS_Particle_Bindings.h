@@ -29,6 +29,4 @@ void PlayEmitter(MonoObject* go) {
 	{
 		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
 	}
-
-	mono_free(go);
 }
