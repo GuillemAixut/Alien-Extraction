@@ -23,7 +23,7 @@ int GetGamepadButton(MonoObject* x)
 {
 	if (External != nullptr)
 		return External->input->GetGamePadKey(*(int*)mono_object_unbox(x));
-
+	mono_free(x);
 	return 0;
 }
 float GetLeftAxisY()
