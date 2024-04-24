@@ -462,6 +462,7 @@ void Shader::SetShaderUniforms(float4x4* matrix, bool isSelected)
 	// Baked Lights
 
 	this->SetInt("map", (int)External->scene->currentMap);
+	this->SetBool("enableLighting", External->editor->gl_Lighting);
 	
 }
 

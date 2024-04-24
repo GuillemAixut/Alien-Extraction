@@ -111,6 +111,8 @@
     uniform bool enableHeight;
     uniform bool enableEmissive;
     
+    uniform bool enableLighting;
+
    	uniform float transparency = 1.0f;
    	uniform float ambient = 0.50f;
     uniform float specularLight = 0.50f;
@@ -301,7 +303,7 @@
 
         vec4 finalColor;
 		
-		if (numPointLights > 0) // Light Management (we only handle Point Lights for the moment)
+		if (numPointLights > 0 && enableLighting) // Light Management (we only handle Point Lights for the moment)
         {
             // Directional Light Management
 
