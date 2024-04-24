@@ -1052,7 +1052,7 @@ float EmitterPosition::GetModuleVec(float3 vec)
 EmitterRotation::EmitterRotation()
 {
 	horAlign = true;
-	currentAlignmentMode = BillboardType::PAR_LOOK_EDITOR_CAMERA;
+	currentAlignmentMode = BillboardType::PAR_LOOK_GAME_CAMERA;
 	orientationFromWorld = OrientationDirection::PAR_Y_AXIS;
 	orientationOfAxis = OrientationDirection::PAR_Y_AXIS;
 	freeWorldRotation = { 0,0,0 };

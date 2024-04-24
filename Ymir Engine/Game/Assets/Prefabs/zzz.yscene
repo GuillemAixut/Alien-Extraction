@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -83.847640991210938,
-        94.879898071289062,
-        40.943576812744141
+        -67.734062194824219,
+        68.190971374511719,
+        19.005456924438477
     ],
     "Editor Camera Right (X)": [
-        0.56534123420715332,
-        2.0116567611694336e-06,
-        0.81991958618164062
+        0.17810486257076263,
+        2.2575259208679199e-06,
+        0.97987604141235352
     ],
     "Editor Camera Up (Y)": [
-        0.66710156202316284,
-        0.57928293943405151,
-        -0.45997333526611328
+        0.68045914173126221,
+        0.71683084964752197,
+        -0.12368371337652206
     ],
     "Editor Camera Front (Z)": [
-        0.47873634099960327,
-        -0.81336313486099243,
-        -0.33009058237075806
+        0.70797145366668701,
+        -0.69420808553695679,
+        -0.12868116796016693
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1192284687,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2821,6 +2821,41 @@
                     "Emissive_ID": 310,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
                     "Emissive_UID": 1442365833
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        20,
+                        401.18994140625,
+                        419.99996948242188
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        -1.2628132914360712e-11
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
                 }
             ]
         },
