@@ -1096,13 +1096,20 @@ void DisableComponentCS(MonoObject* go, MonoString* compName, bool includeChildr
 	}
 	else
 	{
+		std::vector<Component*> components = gameObject->GetAllComponentsByType(comp);
+
+		for (Component* comp : components)
+		{
+			comp->Disable();
+		}
+
 		std::vector<GameObject*> children = gameObject->mChildren;
 
 		for (auto child : children)
 		{
 			std::vector<Component*> childComponents = child->GetAllComponentsByType(comp);
 
-			for (auto comp : childComponents)
+			for (Component* comp : childComponents)
 			{
 				comp->Disable();
 			}

@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -67.734062194824219,
-        68.190971374511719,
-        19.005456924438477
+        -87.038726806640625,
+        75.869300842285156,
+        54.305519104003906
     ],
     "Editor Camera Right (X)": [
-        0.17810486257076263,
-        2.2575259208679199e-06,
-        0.97987604141235352
+        0.5033029317855835,
+        2.2053718566894531e-06,
+        0.85939538478851318
     ],
     "Editor Camera Up (Y)": [
-        0.68045914173126221,
-        0.71683084964752197,
-        -0.12368371337652206
+        0.49512341618537903,
+        0.81420916318893433,
+        -0.28996998071670532
     ],
     "Editor Camera Front (Z)": [
-        0.70797145366668701,
-        -0.69420808553695679,
-        -0.12868116796016693
+        0.70527011156082153,
+        -0.57593321800231934,
+        -0.41303834319114685
     ],
     "Hierarchy": [
         {
@@ -558,12 +558,22 @@
                                     "Position": [
                                         0,
                                         0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 2,
-                                    "BaseShape": 0
+                                    "BaseShape": 0,
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 0,
+                                    "RadiusTop": 0,
+                                    "Heigth": 0
                                 },
                                 {
                                     "Type": 1,
@@ -586,6 +596,7 @@
                                         2.4000000953674316,
                                         1.7000000476837158
                                     ],
+                                    "NormalizedBaseDirection": true,
                                     "Accelerates": false,
                                     "Speed1": 21,
                                     "Speed2": 0,
@@ -596,7 +607,8 @@
                                         0
                                     ],
                                     "ChangeSpeed1": 0,
-                                    "ChangeSpeed2": 1
+                                    "ChangeSpeed2": 1,
+                                    "NormalizedChange": true
                                 },
                                 {
                                     "Type": 3,
@@ -2259,6 +2271,7 @@
                             "enableAmbient": true,
                             "enableHeight": true,
                             "enableEmissive": true,
+                            "enableLighting": true,
                             "ambient": 1,
                             "specularLight": 1,
                             "normalIntensity": 1,
@@ -2343,6 +2356,7 @@
                             "enableAmbient": true,
                             "enableHeight": true,
                             "enableEmissive": true,
+                            "enableLighting": true,
                             "ambient": 1,
                             "specularLight": 1,
                             "normalIntensity": 1,
@@ -2992,6 +3006,7 @@
                             "enableAmbient": true,
                             "enableHeight": true,
                             "enableEmissive": true,
+                            "enableLighting": true,
                             "ambient": 1,
                             "specularLight": 1,
                             "normalIntensity": 1,
@@ -3083,12 +3098,22 @@
                                     "Position": [
                                         0,
                                         0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0.10000000149011612,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
-                                    "BaseShape": 0
+                                    "BaseShape": 0,
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 0,
+                                    "RadiusTop": 0,
+                                    "Heigth": 0
                                 },
                                 {
                                     "Type": 1,
@@ -3129,6 +3154,7 @@
                                         5,
                                         0
                                     ],
+                                    "NormalizedBaseDirection": true,
                                     "Accelerates": false,
                                     "Speed1": 1,
                                     "Speed2": 0,
@@ -3139,7 +3165,8 @@
                                         0
                                     ],
                                     "ChangeSpeed1": 0,
-                                    "ChangeSpeed2": 1
+                                    "ChangeSpeed2": 1,
+                                    "NormalizedChange": true
                                 },
                                 {
                                     "Type": 4,

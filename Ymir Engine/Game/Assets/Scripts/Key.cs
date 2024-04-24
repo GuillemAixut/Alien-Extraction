@@ -23,11 +23,9 @@ public class Key : YmirComponent
     {
         if (other.Tag == "Player")
         {
-            //TODO: Set unActive the door
             InternalCalls.DisableComponent(door, "PHYSICS", true);
-            //TODO: Set unActive all the components physics of the childrens
-            door.SetActive(false);
             gameObject.SetActive(false);
+            InternalCalls.Destroy(gameObject);
 
         }
     }
