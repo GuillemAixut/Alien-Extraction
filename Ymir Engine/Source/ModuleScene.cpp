@@ -73,16 +73,11 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
-	//LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
-	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
-	//LoadSceneFromStart("Assets/UI/Scenes", "BaseUI");
-	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+
 	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #ifdef _RELEASE
-
-	//LoadSceneFromStart("Assets", "VS2 Release");
-	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
+	
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets", "Enemigo player");
@@ -102,8 +97,6 @@ bool ModuleScene::Start()
 #ifdef _STANDALONE
 
 	//LoadSceneFromStart("Assets", "Alpha1_Level");
-	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
-	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
 	//LoadSceneFromStart("Assets", "ParticleTest");
 
