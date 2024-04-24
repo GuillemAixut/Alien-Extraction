@@ -57,10 +57,10 @@
                 27792721,
                 1806365249,
                 42472947,
-                1398847280,
                 1904908806,
                 1676754095,
-                641969660
+                641969660,
+                1398847280
             ]
         },
         {
@@ -1456,7 +1456,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        14.605808258056641,
+                        14.605810165405273,
                         -0
                     ],
                     "Scale": [
@@ -3067,1422 +3067,6 @@
                     "Emissive_ID": 205,
                     "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
                     "Emissive_UID": 1417189470
-                }
-            ]
-        },
-        {
-            "Name": "Game Canva",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1398847280,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1968864687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 596,
-                    "Height": 429,
-                    "UI Type": 0,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                }
-            ],
-            "Children UID": [
-                1206971064,
-                1749880555,
-                1378669993,
-                823303942,
-                1647798137,
-                118355006,
-                1843557112,
-                1408335669,
-                183930958,
-                962327450,
-                1850236214,
-                1829516722
-            ]
-        },
-        {
-            "Name": "Background (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1206971064,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 1920,
-                    "Height": 1080,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        1920,
-                        1080
-                    ],
-                    "Path": "Assets\/UI\/HUD.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Dpad_Down",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1749880555,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1756,
-                    "Position Y": 995,
-                    "Width": 27,
-                    "Height": 29,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1756,
-                        995,
-                        27,
-                        29
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Down_unpressed.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Dpad_Right",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1378669993,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1749,
-                    "Position Y": 64,
-                    "Width": 29,
-                    "Height": 28,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1749,
-                        64,
-                        29,
-                        28
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Right_unpressed.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Dpad_Up",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 823303942,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1749,
-                    "Position Y": 123,
-                    "Width": 27,
-                    "Height": 29,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1749,
-                        123,
-                        27,
-                        29
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Up_unpressed.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Bullets Text",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1647798137,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        57.397430419921875,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 157,
-                    "Position Y": 984,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        157,
-                        1041.3974609375,
-                        200,
-                        50
-                    ],
-                    "Text": "This is a text",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 15,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Item",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 118355006,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1686,
-                    "Position Y": 964,
-                    "Width": 58,
-                    "Height": 52,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1686,
-                        964,
-                        58,
-                        52
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Bumper_unpressed.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Heal",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1843557112,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 719,
-                    "Position Y": 991,
-                    "Width": 58,
-                    "Height": 52,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        719,
-                        991,
-                        58,
-                        52
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Bumper_unpressed.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Health_Frame",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1408335669,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 683,
-                    "Position Y": 898,
-                    "Width": 128,
-                    "Height": 128,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        683,
-                        898,
-                        128,
-                        128
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Slider\/Marco_Vida.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                664762359
-            ]
-        },
-        {
-            "Name": "Health Bar",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 664762359,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1408335669,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 707,
-                    "Position Y": 923,
-                    "Width": 80,
-                    "Height": 78,
-                    "UI Type": 6,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        707,
-                        923,
-                        80,
-                        78
-                    ],
-                    "Is interactable": true,
-                    "Fill image": 1746115142,
-                    "Handle image": 256935145,
-                    "Use Floats": false,
-                    "Value": 10,
-                    "Value min": 0,
-                    "Value max": 10,
-                    "Direction": 2,
-                    "Focused color": [
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44
-                    ],
-                    "Pressed color": [
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44
-                    ],
-                    "Selected color": [
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44
-                    ],
-                    "Disabled color": [
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
-                        -1.5816255460782938e+38,
-                        1.4012984643248171e-44
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 6
-                }
-            ],
-            "Children UID": [
-                995673855,
-                1746115142,
-                256935145
-            ]
-        },
-        {
-            "Name": "Background",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 995673855,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 664762359,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 707,
-                    "Position Y": 923,
-                    "Width": 80,
-                    "Height": 78,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        707,
-                        923,
-                        80,
-                        78
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Slider\/Slider_Background.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Fill",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1746115142,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 664762359,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 707,
-                    "Position Y": 923,
-                    "Width": 80,
-                    "Height": 78,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        707,
-                        923,
-                        80,
-                        78
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Slider\/Slider_Fill.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Handle",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 256935145,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 664762359,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 672,
-                    "Position Y": 966,
-                    "Width": 70,
-                    "Height": 70,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        660,
-                        984,
-                        70,
-                        70
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/Slider\/Marco_Vida.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Frame (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 183930958,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 885,
-                    "Position Y": 981,
-                    "Width": 75,
-                    "Height": 75,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        885,
-                        981,
-                        75,
-                        75
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 19,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Animation.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "loop": false,
-                    "pingpongWIP": false,
-                    "backwards": false,
-                    "animState": false,
-                    "delay": 0.10000000149011612,
-                    "loopCount": 0,
-                    "totalFrames": 18,
-                    "currentIndex": 0
-                }
-            ],
-            "Children UID": [
-                567052357
-            ]
-        },
-        {
-            "Name": "Skill (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 567052357,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 183930958,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 892,
-                    "Position Y": 990,
-                    "Width": 55,
-                    "Height": 55,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        892,
-                        990,
-                        55,
-                        55
-                    ],
-                    "Path": "Assets\/UI\/Skills Icons\/Tail.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Frame (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 962327450,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 988,
-                    "Position Y": 981,
-                    "Width": 75,
-                    "Height": 75,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        988,
-                        981,
-                        75,
-                        75
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 19,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Animation.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "loop": false,
-                    "pingpongWIP": false,
-                    "backwards": false,
-                    "animState": false,
-                    "delay": 0.10000000149011612,
-                    "loopCount": 0,
-                    "totalFrames": 18,
-                    "currentIndex": 0
-                }
-            ],
-            "Children UID": [
-                293282370
-            ]
-        },
-        {
-            "Name": "Skill (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 293282370,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 962327450,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 995,
-                    "Position Y": 990,
-                    "Width": 55,
-                    "Height": 55,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        995,
-                        990,
-                        55,
-                        55
-                    ],
-                    "Path": "Assets\/UI\/Skills Icons\/Buff.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Frame (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1850236214,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1092,
-                    "Position Y": 981,
-                    "Width": 75,
-                    "Height": 75,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1092,
-                        981,
-                        75,
-                        75
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 19,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Animation.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "loop": false,
-                    "pingpongWIP": false,
-                    "backwards": false,
-                    "animState": false,
-                    "delay": 0.10000000149011612,
-                    "loopCount": 0,
-                    "totalFrames": 18,
-                    "currentIndex": 0
-                }
-            ],
-            "Children UID": [
-                382775098
-            ]
-        },
-        {
-            "Name": "Skill (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 382775098,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1850236214,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1101,
-                    "Position Y": 990,
-                    "Width": 55,
-                    "Height": 55,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1101,
-                        990,
-                        55,
-                        55
-                    ],
-                    "Path": "Assets\/UI\/Skills Icons\/Acid.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Frame (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1829516722,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1229,
-                    "Position Y": 981,
-                    "Width": 75,
-                    "Height": 75,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1229,
-                        981,
-                        75,
-                        75
-                    ],
-                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 19,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Animation.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "loop": false,
-                    "pingpongWIP": false,
-                    "backwards": false,
-                    "animState": false,
-                    "delay": 0.10000000149011612,
-                    "loopCount": 0,
-                    "totalFrames": 18,
-                    "currentIndex": 0
-                }
-            ],
-            "Children UID": [
-                1896137622
-            ]
-        },
-        {
-            "Name": "Dash",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1896137622,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1829516722,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1238,
-                    "Position Y": 994,
-                    "Width": 55,
-                    "Height": 55,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1238,
-                        994,
-                        55,
-                        55
-                    ],
-                    "Path": "Assets\/UI\/Skills Icons\/Dash.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
                 }
             ]
         },
@@ -11689,6 +10273,2100 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Game Canvas",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1398847280,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1968864687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1919,
+                    "Height": 1164,
+                    "UI Type": 0,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            ],
+            "Children UID": [
+                1378669993,
+                823303942,
+                807770031,
+                1883355782,
+                175461015
+            ]
+        },
+        {
+            "Name": "Dpad_Right",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1378669993,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1398847280,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1749,
+                    "Position Y": 64,
+                    "Width": 29,
+                    "Height": 28,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1749,
+                        64,
+                        29,
+                        28
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Right_unpressed.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ],
+            "Children UID": [
+                1422333972
+            ]
+        },
+        {
+            "Name": "Inventory Icon",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1422333972,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1378669993,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1779,
+                    "Position Y": 32,
+                    "Width": 92,
+                    "Height": 90,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1779,
+                        32,
+                        92,
+                        90
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Icons\/Inventory.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Dpad_Up",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 823303942,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1398847280,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1749,
+                    "Position Y": 123,
+                    "Width": 27,
+                    "Height": 29,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1749,
+                        123,
+                        27,
+                        29
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Up_unpressed.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ],
+            "Children UID": [
+                1504559421
+            ]
+        },
+        {
+            "Name": "Map Icon",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1504559421,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 823303942,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1779,
+                    "Position Y": 94,
+                    "Width": 100,
+                    "Height": 100,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1779,
+                        94,
+                        100,
+                        100
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Icons\/Map.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Weapon and Bullets",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 807770031,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1398847280,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 50,
+                    "Position Y": 892,
+                    "Width": 251,
+                    "Height": 186,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        50,
+                        892,
+                        251,
+                        186
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Weapon&Bullets.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ],
+            "Children UID": [
+                1739477824,
+                1647798137
+            ]
+        },
+        {
+            "Name": "Weapon Image",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1739477824,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 807770031,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 113,
+                    "Position Y": 936,
+                    "Width": 126,
+                    "Height": 49,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        113,
+                        936,
+                        126,
+                        49
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Icons\/SmgHUD.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Bullets Text",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1647798137,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 807770031,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        57.397430419921875,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 149,
+                    "Position Y": 979,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        149,
+                        1036.3974609375,
+                        200,
+                        50
+                    ],
+                    "Text": "35\/35",
+                    "Font name": "de-valencia-beta.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 15,
+                    "Line Spacing": 0.5,
+                    "Color": [
+                        -0.98000001907348633,
+                        0,
+                        -0.98000001907348633,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Items",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1883355782,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1398847280,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1677,
+                    "Position Y": 856,
+                    "Width": 177,
+                    "Height": 185,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1677,
+                        856,
+                        177,
+                        185
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Consumibles.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ],
+            "Children UID": [
+                1810944020,
+                118355006,
+                1749880555
+            ]
+        },
+        {
+            "Name": "Switch Items",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1810944020,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1883355782,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1732,
+                    "Position Y": 1010,
+                    "Width": 21,
+                    "Height": 19,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1732,
+                        1010,
+                        21,
+                        19
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/RotateConsumable.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Use Item",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 118355006,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1883355782,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1686,
+                    "Position Y": 964,
+                    "Width": 58,
+                    "Height": 52,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1686,
+                        964,
+                        58,
+                        52
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Bumper_unpressed.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Dpad_Down",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1749880555,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1883355782,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1756,
+                    "Position Y": 995,
+                    "Width": 27,
+                    "Height": 29,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1756,
+                        995,
+                        27,
+                        29
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Down_unpressed.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "HUD",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 175461015,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1398847280,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                664762359,
+                794843613,
+                1118421309,
+                397458731,
+                404505283
+            ]
+        },
+        {
+            "Name": "Health Bar",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 664762359,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 175461015,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 661,
+                    "Position Y": 913,
+                    "Width": 103,
+                    "Height": 107,
+                    "UI Type": 6,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        661,
+                        913,
+                        103,
+                        107
+                    ],
+                    "Is interactable": true,
+                    "Fill image": 1746115142,
+                    "Handle image": 4294967295,
+                    "Use Floats": false,
+                    "Value": 1200,
+                    "Value min": 0,
+                    "Value max": 1200,
+                    "Direction": 2,
+                    "Focused color": [
+                        -1.5816255460782938e+38,
+                        1.6815581571897805e-42,
+                        1.6815581571897805e-42,
+                        -1.5816255460782938e+38
+                    ],
+                    "Pressed color": [
+                        1.6815581571897805e-42,
+                        -1.5816255460782938e+38,
+                        1.6815581571897805e-42,
+                        -1.5816255460782938e+38
+                    ],
+                    "Selected color": [
+                        1.6815581571897805e-42,
+                        -1.5816255460782938e+38,
+                        1.4012984643248171e-44,
+                        -1.5816255460782938e+38
+                    ],
+                    "Disabled color": [
+                        1.4012984643248171e-44,
+                        -1.5816255460782938e+38,
+                        1.4012984643248171e-44,
+                        -1.5816255460782938e+38
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 6
+                }
+            ],
+            "Children UID": [
+                995673855,
+                1746115142,
+                346795120,
+                833603155,
+                1843557112,
+                456066568
+            ]
+        },
+        {
+            "Name": "Background (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 995673855,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 664762359,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 661,
+                    "Position Y": 913,
+                    "Width": 107,
+                    "Height": 112,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        661,
+                        913,
+                        107,
+                        112
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Slider\/Slider_Background.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        1.7999999523162842,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Fill",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1746115142,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 664762359,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 670,
+                    "Position Y": 913,
+                    "Width": 103,
+                    "Height": 107,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        670,
+                        913,
+                        103,
+                        107
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Slider\/Slider_Fill.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Main HUD",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 346795120,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 664762359,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 626,
+                    "Position Y": 841,
+                    "Width": 692,
+                    "Height": 215,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        626,
+                        841,
+                        692,
+                        215
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/MainHud.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Heal Icon",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 833603155,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 664762359,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 706,
+                    "Position Y": 874,
+                    "Width": 16,
+                    "Height": 32,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        706,
+                        874,
+                        16,
+                        32
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Icons\/VesselLlena.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Heal",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1843557112,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 664762359,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 685,
+                    "Position Y": 885,
+                    "Width": 58,
+                    "Height": 52,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        685,
+                        885,
+                        58,
+                        52
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/Bumper_unpressed.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Text (29)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 456066568,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 664762359,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 746,
+                    "Position Y": 896,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        746,
+                        896,
+                        200,
+                        50
+                    ],
+                    "Text": "x2",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 18,
+                    "Line Spacing": 1,
+                    "Color": [
+                        -0.98000001907348633,
+                        0,
+                        -0.98000001907348633,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Frame (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 794843613,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 175461015,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 837,
+                    "Position Y": 933,
+                    "Width": 75,
+                    "Height": 75,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        837,
+                        933,
+                        75,
+                        75
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 19,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Animation.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "loop": false,
+                    "pingpongWIP": false,
+                    "backwards": true,
+                    "animState": true,
+                    "delay": 0.10000000149011612,
+                    "loopCount": 1,
+                    "totalFrames": 18,
+                    "currentIndex": 18
+                }
+            ],
+            "Children UID": [
+                1520941648,
+                1278031458
+            ]
+        },
+        {
+            "Name": "Skill (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1520941648,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 794843613,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 846,
+                    "Position Y": 944,
+                    "Width": 55,
+                    "Height": 55,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        846,
+                        944,
+                        55,
+                        55
+                    ],
+                    "Path": "Assets\/UI\/Skills Icons\/Tail.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Skill Button (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1278031458,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 794843613,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 860,
+                    "Position Y": 989,
+                    "Width": 29,
+                    "Height": 29,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        860,
+                        989,
+                        29,
+                        29
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/BotonUnselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Frame (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1118421309,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 175461015,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 941,
+                    "Position Y": 933,
+                    "Width": 75,
+                    "Height": 75,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        941,
+                        933,
+                        75,
+                        75
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 19,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Animation.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "loop": false,
+                    "pingpongWIP": false,
+                    "backwards": true,
+                    "animState": true,
+                    "delay": 0.10000000149011612,
+                    "loopCount": 1,
+                    "totalFrames": 18,
+                    "currentIndex": 18
+                }
+            ],
+            "Children UID": [
+                348900005,
+                847052683
+            ]
+        },
+        {
+            "Name": "Skill (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 348900005,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1118421309,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 948,
+                    "Position Y": 942,
+                    "Width": 55,
+                    "Height": 55,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        948,
+                        942,
+                        55,
+                        55
+                    ],
+                    "Path": "Assets\/UI\/Skills Icons\/Buff.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Skill Button (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 847052683,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1118421309,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 964,
+                    "Position Y": 989,
+                    "Width": 29,
+                    "Height": 29,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        964,
+                        989,
+                        29,
+                        29
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/BotonUnselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Frame (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 397458731,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 175461015,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1043,
+                    "Position Y": 933,
+                    "Width": 75,
+                    "Height": 75,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1043,
+                        933,
+                        75,
+                        75
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 19,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Animation.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "loop": false,
+                    "pingpongWIP": false,
+                    "backwards": true,
+                    "animState": true,
+                    "delay": 0.10000000149011612,
+                    "loopCount": 1,
+                    "totalFrames": 18,
+                    "currentIndex": 18
+                }
+            ],
+            "Children UID": [
+                450047155,
+                1039560090
+            ]
+        },
+        {
+            "Name": "Skill (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 450047155,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 397458731,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1051,
+                    "Position Y": 942,
+                    "Width": 55,
+                    "Height": 55,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1051,
+                        942,
+                        55,
+                        55
+                    ],
+                    "Path": "Assets\/UI\/Skills Icons\/Acid.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Skill Button (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1039560090,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 397458731,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1066,
+                    "Position Y": 989,
+                    "Width": 29,
+                    "Height": 29,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1066,
+                        989,
+                        29,
+                        29
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/BotonUnselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Frame (4)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 404505283,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 175461015,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1181,
+                    "Position Y": 933,
+                    "Width": 75,
+                    "Height": 75,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1181,
+                        933,
+                        75,
+                        75
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/ss_skillsFrame.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 19,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Animation.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "loop": false,
+                    "pingpongWIP": false,
+                    "backwards": true,
+                    "animState": true,
+                    "delay": 0.10000000149011612,
+                    "loopCount": 1,
+                    "totalFrames": 18,
+                    "currentIndex": 18
+                }
+            ],
+            "Children UID": [
+                1602915786,
+                825663870
+            ]
+        },
+        {
+            "Name": "Skill (4)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1602915786,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 404505283,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1190,
+                    "Position Y": 944,
+                    "Width": 55,
+                    "Height": 55,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1190,
+                        944,
+                        55,
+                        55
+                    ],
+                    "Path": "Assets\/UI\/Skills Icons\/Dash.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Skill Button (4)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 825663870,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 404505283,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1204,
+                    "Position Y": 989,
+                    "Width": 29,
+                    "Height": 29,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1204,
+                        989,
+                        29,
+                        29
+                    ],
+                    "Path": "Assets\/UI\/HUD Buttons\/BotonUnselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
                 }
             ]
         }
