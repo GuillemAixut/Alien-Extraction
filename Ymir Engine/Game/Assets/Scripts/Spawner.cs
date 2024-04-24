@@ -9,7 +9,7 @@ public class Spawner: YmirComponent
 {
     public bool spawn = false;
 
-    private int maxEnemies = 2;
+    //private int maxEnemies = 2;
 
     public float porcentajeFaceHugger;
     public float porcentajeDroneXenomorph;
