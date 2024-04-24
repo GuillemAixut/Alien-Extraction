@@ -138,6 +138,7 @@ public class FaceHuggerBaseScript : Enemy
 
                 case WanderState.HIT:
 
+
                     Proccescumdown();
 
                     break;
@@ -246,17 +247,11 @@ public class FaceHuggerBaseScript : Enemy
 
     public void OnCollisionStay(GameObject other)
     {
-        //if (other.Name == "Player" && wanderState != WanderState.HIT)
-        //{
-
-        //    Debug.Log("[ERROR] Name: " + other.Name);
-        //    Debug.Log("[ERROR] HIT!!!");
-        //    gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-
-        //    gameObject.SetImpulse(gameObject.transform.GetForward() * -10);
-        //    healthScript.TakeDmg(3);
-        //    wanderState = WanderState.HIT;
-        //    cumTimer = cumDuration;
-        //}
+       if(other.Tag == "Tail" && wanderState != WanderState.HIT)
+        {
+            life -= 80;
+            gameObject.SetImpulse(gameObject.transform.GetForward() * -50);
+            wanderState = WanderState.HIT;
+        }
     }
 }

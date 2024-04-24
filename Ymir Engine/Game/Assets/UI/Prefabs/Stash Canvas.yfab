@@ -7,7 +7,7 @@
             "UID": 2098616738,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1661175982,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1782,
-                    "Height": 1042,
+                    "Width": 1910,
+                    "Height": 1064,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -64,7 +64,7 @@
             ]
         },
         {
-            "Name": "Background",
+            "Name": "Background (3)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 578015511,
@@ -167,7 +167,7 @@
                     "upGridName": " ",
                     "naviagteX": true,
                     "naviagteY": true,
-                    "bounceX": false,
+                    "bounceX": true,
                     "bounceY": true,
                     "empty": true,
                     "childX": 0,
@@ -175,7 +175,7 @@
                 }
             ],
             "Children UID": [
-                554361400,
+                1809855475,
                 560505238,
                 2071577802,
                 194126257,
@@ -231,7 +231,7 @@
             "Name": "Item",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 554361400,
+            "UID": 1809855475,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 1547208430,
@@ -257,19 +257,19 @@
                 }
             ],
             "Children UID": [
-                463981516,
-                553207789,
-                1110638304
+                352829067,
+                358889858,
+                1429558229
             ]
         },
         {
-            "Name": "Image Background",
+            "Name": "Image Background (34)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 463981516,
+            "UID": 352829067,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1809855475,
             "Components": [
                 {
                     "Type": "Transform",
@@ -326,13 +326,13 @@
             ]
         },
         {
-            "Name": "Image Item",
+            "Name": "Image Item (34)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 553207789,
+            "UID": 358889858,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1809855475,
             "Components": [
                 {
                     "Type": "Transform",
@@ -389,13 +389,13 @@
             ]
         },
         {
-            "Name": "Item Button",
+            "Name": "Item Button (34)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1110638304,
+            "UID": 1429558229,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1809855475,
             "Components": [
                 {
                     "Type": "Transform",
@@ -466,8 +466,8 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 838864476,
-                    "Image": 1110638304,
+                    "Text": 243483976,
+                    "Image": 1429558229,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -520,17 +520,17 @@
                 }
             ],
             "Children UID": [
-                1592071889
+                849195215
             ]
         },
         {
             "Name": "Description",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1592071889,
+            "UID": 849195215,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1110638304,
+            "Parent UID": 1429558229,
             "Components": [
                 {
                     "Type": "Transform",
@@ -586,17 +586,17 @@
                 }
             ],
             "Children UID": [
-                838864476
+                243483976
             ]
         },
         {
-            "Name": "Text ",
+            "Name": "Text  (34)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 838864476,
+            "UID": 243483976,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1592071889,
+            "Parent UID": 849195215,
             "Components": [
                 {
                     "Type": "Transform",
@@ -652,7 +652,7 @@
             ]
         },
         {
-            "Name": "Item (1)",
+            "Name": "Item (12)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 560505238,
@@ -687,7 +687,7 @@
             ]
         },
         {
-            "Name": "Image Background (1)",
+            "Name": "Image Background (68)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 872708511,
@@ -750,7 +750,7 @@
             ]
         },
         {
-            "Name": "Image Item (1)",
+            "Name": "Image Item (68)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 426172469,
@@ -813,7 +813,7 @@
             ]
         },
         {
-            "Name": "Item Button (1)",
+            "Name": "Item Button (68)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1917355393,
@@ -948,7 +948,7 @@
             ]
         },
         {
-            "Name": "Description (1)",
+            "Name": "Description (68)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 353713617,
@@ -1014,7 +1014,7 @@
             ]
         },
         {
-            "Name": "Text  (1)",
+            "Name": "Text  (68)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 695564375,
@@ -1111,7 +1111,7 @@
             ]
         },
         {
-            "Name": "Image Background (2)",
+            "Name": "Image Background (69)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 313764098,
@@ -1174,7 +1174,7 @@
             ]
         },
         {
-            "Name": "Image Item (2)",
+            "Name": "Image Item (69)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2141075297,
@@ -1237,7 +1237,7 @@
             ]
         },
         {
-            "Name": "Item Button (2)",
+            "Name": "Item Button (69)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 73495455,
@@ -1438,7 +1438,7 @@
             ]
         },
         {
-            "Name": "Text  (2)",
+            "Name": "Text  (69)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 213373154,
@@ -1535,7 +1535,7 @@
             ]
         },
         {
-            "Name": "Image Background (3)",
+            "Name": "Image Background (70)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 389969561,
@@ -1598,7 +1598,7 @@
             ]
         },
         {
-            "Name": "Image Item (3)",
+            "Name": "Image Item (70)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1149248130,
@@ -1661,7 +1661,7 @@
             ]
         },
         {
-            "Name": "Item Button (3)",
+            "Name": "Item Button (70)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1552609092,
@@ -1862,7 +1862,7 @@
             ]
         },
         {
-            "Name": "Text  (3)",
+            "Name": "Text  (70)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 618909175,
@@ -1959,7 +1959,7 @@
             ]
         },
         {
-            "Name": "Image Background (4)",
+            "Name": "Image Background (71)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 436108507,
@@ -2022,7 +2022,7 @@
             ]
         },
         {
-            "Name": "Image Item (4)",
+            "Name": "Image Item (71)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2017829009,
@@ -2085,7 +2085,7 @@
             ]
         },
         {
-            "Name": "Item Button (4)",
+            "Name": "Item Button (71)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 597520853,
@@ -2286,7 +2286,7 @@
             ]
         },
         {
-            "Name": "Text  (4)",
+            "Name": "Text  (71)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1134398858,
@@ -2383,7 +2383,7 @@
             ]
         },
         {
-            "Name": "Image Background (5)",
+            "Name": "Image Background (72)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 751605680,
@@ -2446,7 +2446,7 @@
             ]
         },
         {
-            "Name": "Image Item (5)",
+            "Name": "Image Item (72)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2078513106,
@@ -2509,7 +2509,7 @@
             ]
         },
         {
-            "Name": "Item Button (5)",
+            "Name": "Item Button (72)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1799066758,
@@ -2710,7 +2710,7 @@
             ]
         },
         {
-            "Name": "Text  (5)",
+            "Name": "Text  (72)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1466550766,
@@ -2807,7 +2807,7 @@
             ]
         },
         {
-            "Name": "Image Background (6)",
+            "Name": "Image Background (73)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1829174172,
@@ -2870,7 +2870,7 @@
             ]
         },
         {
-            "Name": "Image Item (6)",
+            "Name": "Image Item (73)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1099042966,
@@ -2933,7 +2933,7 @@
             ]
         },
         {
-            "Name": "Item Button (6)",
+            "Name": "Item Button (73)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 230322506,
@@ -3134,7 +3134,7 @@
             ]
         },
         {
-            "Name": "Text  (6)",
+            "Name": "Text  (73)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1899300201,
@@ -3231,7 +3231,7 @@
             ]
         },
         {
-            "Name": "Image Background (7)",
+            "Name": "Image Background (74)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1019855353,
@@ -3294,7 +3294,7 @@
             ]
         },
         {
-            "Name": "Image Item (7)",
+            "Name": "Image Item (74)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1932875406,
@@ -3357,7 +3357,7 @@
             ]
         },
         {
-            "Name": "Item Button (7)",
+            "Name": "Item Button (74)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 134586181,
@@ -3492,7 +3492,7 @@
             ]
         },
         {
-            "Name": "Description (7)",
+            "Name": "Description (69)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 775939690,
@@ -3558,7 +3558,7 @@
             ]
         },
         {
-            "Name": "Text  (7)",
+            "Name": "Text  (74)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 146389063,
@@ -3655,7 +3655,7 @@
             ]
         },
         {
-            "Name": "Image Background (8)",
+            "Name": "Image Background (75)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 682126006,
@@ -3718,7 +3718,7 @@
             ]
         },
         {
-            "Name": "Image Item (8)",
+            "Name": "Image Item (75)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1937655921,
@@ -3781,7 +3781,7 @@
             ]
         },
         {
-            "Name": "Item Button (8)",
+            "Name": "Item Button (75)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2089365339,
@@ -3916,7 +3916,7 @@
             ]
         },
         {
-            "Name": "Description (8)",
+            "Name": "Description (70)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 225452709,
@@ -3982,7 +3982,7 @@
             ]
         },
         {
-            "Name": "Text  (8)",
+            "Name": "Text  (75)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1785059799,
@@ -4079,7 +4079,7 @@
             ]
         },
         {
-            "Name": "Image Background (9)",
+            "Name": "Image Background (76)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 583275085,
@@ -4142,7 +4142,7 @@
             ]
         },
         {
-            "Name": "Image Item (9)",
+            "Name": "Image Item (76)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1698074300,
@@ -4205,7 +4205,7 @@
             ]
         },
         {
-            "Name": "Item Button (9)",
+            "Name": "Item Button (76)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1614861896,
@@ -4340,7 +4340,7 @@
             ]
         },
         {
-            "Name": "Description (9)",
+            "Name": "Description (71)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1081737573,
@@ -4406,7 +4406,7 @@
             ]
         },
         {
-            "Name": "Text  (9)",
+            "Name": "Text  (76)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 438805962,
@@ -4503,7 +4503,7 @@
             ]
         },
         {
-            "Name": "Image Background (10)",
+            "Name": "Image Background (77)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 733282950,
@@ -4566,7 +4566,7 @@
             ]
         },
         {
-            "Name": "Image Item (10)",
+            "Name": "Image Item (77)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1463475699,
@@ -4629,7 +4629,7 @@
             ]
         },
         {
-            "Name": "Item Button (10)",
+            "Name": "Item Button (77)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1057466876,
@@ -4764,7 +4764,7 @@
             ]
         },
         {
-            "Name": "Description (10)",
+            "Name": "Description (72)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1374577177,
@@ -4830,7 +4830,7 @@
             ]
         },
         {
-            "Name": "Text  (10)",
+            "Name": "Text  (77)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 964223765,
@@ -4927,7 +4927,7 @@
             ]
         },
         {
-            "Name": "Image Background (11)",
+            "Name": "Image Background (78)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 365945141,
@@ -4990,7 +4990,7 @@
             ]
         },
         {
-            "Name": "Image Item (11)",
+            "Name": "Image Item (78)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1640439547,
@@ -5053,7 +5053,7 @@
             ]
         },
         {
-            "Name": "Item Button (11)",
+            "Name": "Item Button (78)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1013934197,
@@ -5188,7 +5188,7 @@
             ]
         },
         {
-            "Name": "Description (11)",
+            "Name": "Description (73)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1542354637,
@@ -5254,7 +5254,7 @@
             ]
         },
         {
-            "Name": "Text  (11)",
+            "Name": "Text  (78)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 641060852,
@@ -5316,7 +5316,7 @@
             ]
         },
         {
-            "Name": "Item (13)",
+            "Name": "Item (34)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 893559355,
@@ -5351,7 +5351,7 @@
             ]
         },
         {
-            "Name": "Image Background (13)",
+            "Name": "Image Background (79)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 689271555,
@@ -5414,7 +5414,7 @@
             ]
         },
         {
-            "Name": "Image Item (13)",
+            "Name": "Image Item (79)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 617883312,
@@ -5477,7 +5477,7 @@
             ]
         },
         {
-            "Name": "Item Button (13)",
+            "Name": "Item Button (79)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 492146888,
@@ -5678,7 +5678,7 @@
             ]
         },
         {
-            "Name": "Text  (13)",
+            "Name": "Text  (79)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 916073254,
@@ -5740,7 +5740,7 @@
             ]
         },
         {
-            "Name": "Item (14)",
+            "Name": "Item (52)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1761464628,
@@ -5775,7 +5775,7 @@
             ]
         },
         {
-            "Name": "Image Background (14)",
+            "Name": "Image Background (80)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 670483856,
@@ -5838,7 +5838,7 @@
             ]
         },
         {
-            "Name": "Image Item (14)",
+            "Name": "Image Item (80)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 319732475,
@@ -5901,7 +5901,7 @@
             ]
         },
         {
-            "Name": "Item Button (14)",
+            "Name": "Item Button (80)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1803556316,
@@ -6102,7 +6102,7 @@
             ]
         },
         {
-            "Name": "Text  (14)",
+            "Name": "Text  (80)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1290564559,
@@ -6164,7 +6164,7 @@
             ]
         },
         {
-            "Name": "Item (15)",
+            "Name": "Item (57)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 455959847,
@@ -6199,7 +6199,7 @@
             ]
         },
         {
-            "Name": "Image Background (15)",
+            "Name": "Image Background (81)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1213496000,
@@ -6262,7 +6262,7 @@
             ]
         },
         {
-            "Name": "Image Item (15)",
+            "Name": "Image Item (81)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1283240289,
@@ -6526,7 +6526,7 @@
             ]
         },
         {
-            "Name": "Text  (15)",
+            "Name": "Text  (81)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 463983238,
@@ -6588,7 +6588,7 @@
             ]
         },
         {
-            "Name": "Item (16)",
+            "Name": "Item (62)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1860132273,
@@ -6623,7 +6623,7 @@
             ]
         },
         {
-            "Name": "Image Background (16)",
+            "Name": "Image Background (82)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1308188150,
@@ -6686,7 +6686,7 @@
             ]
         },
         {
-            "Name": "Image Item (16)",
+            "Name": "Image Item (82)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1182723721,
@@ -6950,7 +6950,7 @@
             ]
         },
         {
-            "Name": "Text  (16)",
+            "Name": "Text  (82)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1996864084,
@@ -7012,7 +7012,7 @@
             ]
         },
         {
-            "Name": "Item (17)",
+            "Name": "Item (68)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 192994887,
@@ -7047,7 +7047,7 @@
             ]
         },
         {
-            "Name": "Image Background (17)",
+            "Name": "Image Background (83)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 193236473,
@@ -7110,7 +7110,7 @@
             ]
         },
         {
-            "Name": "Image Item (17)",
+            "Name": "Image Item (83)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1965201819,
@@ -7374,7 +7374,7 @@
             ]
         },
         {
-            "Name": "Text  (17)",
+            "Name": "Text  (83)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 422206774,
@@ -7436,7 +7436,7 @@
             ]
         },
         {
-            "Name": "Item (18)",
+            "Name": "Item (69)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 555221603,
@@ -7471,7 +7471,7 @@
             ]
         },
         {
-            "Name": "Image Background (18)",
+            "Name": "Image Background (84)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 175579634,
@@ -7534,7 +7534,7 @@
             ]
         },
         {
-            "Name": "Image Item (18)",
+            "Name": "Image Item (84)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 853189001,
@@ -7798,7 +7798,7 @@
             ]
         },
         {
-            "Name": "Text  (18)",
+            "Name": "Text  (84)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2144020865,
@@ -7860,7 +7860,7 @@
             ]
         },
         {
-            "Name": "Item (19)",
+            "Name": "Item (70)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 598293231,
@@ -7895,7 +7895,7 @@
             ]
         },
         {
-            "Name": "Image Background (19)",
+            "Name": "Image Background (85)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 972250937,
@@ -7958,7 +7958,7 @@
             ]
         },
         {
-            "Name": "Image Item (19)",
+            "Name": "Image Item (85)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 653756331,
@@ -8222,7 +8222,7 @@
             ]
         },
         {
-            "Name": "Text  (19)",
+            "Name": "Text  (85)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1721595463,
@@ -8284,7 +8284,7 @@
             ]
         },
         {
-            "Name": "Item (20)",
+            "Name": "Item (71)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1513186317,
@@ -8319,7 +8319,7 @@
             ]
         },
         {
-            "Name": "Image Background (20)",
+            "Name": "Image Background (86)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 998798380,
@@ -8382,7 +8382,7 @@
             ]
         },
         {
-            "Name": "Image Item (20)",
+            "Name": "Image Item (86)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1462322144,
@@ -8646,7 +8646,7 @@
             ]
         },
         {
-            "Name": "Text  (20)",
+            "Name": "Text  (86)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1056920568,
@@ -8708,7 +8708,7 @@
             ]
         },
         {
-            "Name": "Item (21)",
+            "Name": "Item (72)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1597738035,
@@ -9132,7 +9132,7 @@
             ]
         },
         {
-            "Name": "Item (22)",
+            "Name": "Item (73)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1457422795,
@@ -9428,7 +9428,7 @@
             ]
         },
         {
-            "Name": "Description (22)",
+            "Name": "Description (74)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 726564612,
@@ -9556,7 +9556,7 @@
             ]
         },
         {
-            "Name": "Item (23)",
+            "Name": "Item (74)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1495240745,
@@ -9852,7 +9852,7 @@
             ]
         },
         {
-            "Name": "Description (23)",
+            "Name": "Description (75)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 750686313,
@@ -9980,7 +9980,7 @@
             ]
         },
         {
-            "Name": "Item (24)",
+            "Name": "Item (75)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 782355492,
@@ -10276,7 +10276,7 @@
             ]
         },
         {
-            "Name": "Description (24)",
+            "Name": "Description (76)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 170115816,
@@ -10404,7 +10404,7 @@
             ]
         },
         {
-            "Name": "Item (25)",
+            "Name": "Item (76)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1416128322,
@@ -10700,7 +10700,7 @@
             ]
         },
         {
-            "Name": "Description (25)",
+            "Name": "Description (77)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1216443345,
@@ -10828,7 +10828,7 @@
             ]
         },
         {
-            "Name": "Item (26)",
+            "Name": "Item (77)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2046138685,
@@ -11124,7 +11124,7 @@
             ]
         },
         {
-            "Name": "Description (26)",
+            "Name": "Description (78)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1138671193,
@@ -11548,7 +11548,7 @@
             ]
         },
         {
-            "Name": "Description (27)",
+            "Name": "Description (79)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 324111137,
@@ -11972,7 +11972,7 @@
             ]
         },
         {
-            "Name": "Description (28)",
+            "Name": "Description (80)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 723690190,
@@ -12396,7 +12396,7 @@
             ]
         },
         {
-            "Name": "Description (29)",
+            "Name": "Description (81)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 175014028,
@@ -12820,7 +12820,7 @@
             ]
         },
         {
-            "Name": "Description (30)",
+            "Name": "Description (82)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 367075314,
@@ -13244,7 +13244,7 @@
             ]
         },
         {
-            "Name": "Description (31)",
+            "Name": "Description (83)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 243353796,
@@ -13668,7 +13668,7 @@
             ]
         },
         {
-            "Name": "Description (32)",
+            "Name": "Description (84)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 240012241,
@@ -14092,7 +14092,7 @@
             ]
         },
         {
-            "Name": "Description (33)",
+            "Name": "Description (85)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 793663735,
@@ -14516,7 +14516,7 @@
             ]
         },
         {
-            "Name": "Description (35)",
+            "Name": "Description (86)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1062836077,
@@ -21899,7 +21899,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "Armor",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -24019,7 +24019,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "Defensive Chip",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -26139,7 +26139,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "Offensive Chip",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -28330,7 +28330,7 @@
             ]
         },
         {
-            "Name": "Item Description Image",
+            "Name": "Item Description Image (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2035443946,
@@ -28393,7 +28393,7 @@
             ]
         },
         {
-            "Name": "Item Description Text",
+            "Name": "Item Description Text (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1545799819,
