@@ -869,6 +869,8 @@ bool Pathfinder::CalculatePath(float3 origin, float3 destination, std::vector<fl
 	endPosition = destination;
 	startPosSet = true;
 	endPosSet = true;
+
+	return true;
 }
 
 void Pathfinder::RenderPath()

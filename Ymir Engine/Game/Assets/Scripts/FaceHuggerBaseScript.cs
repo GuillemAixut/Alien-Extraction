@@ -85,6 +85,7 @@ public class FaceHuggerBaseScript : Enemy
 
         agent.stoppingDistance = 2f;
         agent.speed = 50f;
+        agent.angularSpeed = 10f;
 
 
     }
@@ -155,12 +156,13 @@ public class FaceHuggerBaseScript : Enemy
                     if (wanderState != WanderState.HIT)
                     {
                         
-                        if (CryTimer >= 10)
+                        if (CryTimer >= 10) 
                         {
                             Audio.PlayAudio(gameObject, "FH_Cry");
                             CryTimer = 0;
                         }
                         wanderState = WanderState.CHASING;
+                        
                     }
                     //Attack if in range
                     if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, AttackDistance))
