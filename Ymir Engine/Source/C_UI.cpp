@@ -311,10 +311,10 @@ void C_UI::StateLogic()
 
 				//	External->scene->selectedUIGO = nullptr;
 				//}
-
-				External->scene->selectedUIGO = mOwner;
-				state = UI_STATE::RELEASE;
 			}
+
+			External->scene->selectedUIGO = mOwner;
+			state = UI_STATE::RELEASE;
 		}
 
 	}
