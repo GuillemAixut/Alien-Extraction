@@ -121,8 +121,8 @@ public class UI_Inventory : YmirComponent
 
                     UI.ChangeImageUI(imageItem, "Assets/UI/Inventory Buttons/New Buttons/Unselected.png", (int)UI_STATE.NORMAL);
 
-                    //GameObject text = InternalCalls.GetChildrenByName(_focusedGO, "Text");
-                    UI.TextEdit(InternalCalls.GetChildrenByName(focusedGO, "Text"), " ");
+                    focusedGO.GetComponent<UI_Item_Button>().descriptionText = "Empty";
+                    focusedGO.GetComponent<UI_Item_Button>().UpdateInfo();
                 }
             }
 

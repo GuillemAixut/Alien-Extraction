@@ -7,7 +7,7 @@
             "UID": 1904908806,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 485180280,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1782,
-                    "Height": 1042,
+                    "Width": 956,
+                    "Height": 654,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -62,7 +62,7 @@
             ]
         },
         {
-            "Name": "Background",
+            "Name": "Background (5)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 923526943,
@@ -455,7 +455,7 @@
                     "Is interactable": true,
                     "Text": 104690399,
                     "Image": 1526688955,
-                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
                     "Selected": "Assets\/UI\/Items Slots\/onHover.png",
@@ -3085,7 +3085,7 @@
             ]
         },
         {
-            "Name": "Item",
+            "Name": "Item (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 554361400,
@@ -3325,7 +3325,7 @@
                     "Is interactable": true,
                     "Text": 838864476,
                     "Image": 1110638304,
-                    "Normal": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
                     "Selected": "Assets\/UI\/Items Slots\/onHover.png",
@@ -3369,7 +3369,7 @@
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "HP": 0,
-                    "armor": 0,
+                    "armor": 50,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
@@ -3381,7 +3381,7 @@
             ]
         },
         {
-            "Name": "Description",
+            "Name": "Description (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1592071889,
@@ -3490,7 +3490,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "Armor\n",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -5346,7 +5346,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/DefensiveChipIcon2Color.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5483,13 +5483,13 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "CHIP1",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
-                    "HP": 0,
-                    "armor": 0,
+                    "HP": 5,
+                    "armor": 5,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
@@ -5610,7 +5610,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "Defensive chip\n",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -7466,7 +7466,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/OffensiveChipIcon2Color.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -7603,7 +7603,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "CHIP2",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -7611,8 +7611,8 @@
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
-                    "fireRate": 0,
-                    "reloadSpeed": 0,
+                    "fireRate": 1.0000001192092896,
+                    "reloadSpeed": 0.5,
                     "damageMultiplier": 0
                 }
             ],
@@ -7730,7 +7730,7 @@
                         300,
                         50
                     ],
-                    "Text": "Empty",
+                    "Text": "Offensive chip\n",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -9457,8 +9457,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        7.4000000953674316,
+                        -3.2999999523162842,
                         0
                     ],
                     "Rotation": [
@@ -9525,8 +9525,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        730,
-                        864,
+                        737.4000244140625,
+                        860.70001220703125,
                         197,
                         77
                     ],
@@ -9588,8 +9588,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        488,
-                        249,
+                        495.39999389648438,
+                        245.69999694824219,
                         200,
                         50
                     ],
@@ -9650,8 +9650,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        382,
-                        300,
+                        389.39999389648438,
+                        296.70001220703125,
                         200,
                         50
                     ],
@@ -9712,8 +9712,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        382,
-                        351,
+                        389.39999389648438,
+                        347.70001220703125,
                         200,
                         50
                     ],
@@ -9774,8 +9774,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        475,
-                        403,
+                        482.39999389648438,
+                        399.70001220703125,
                         200,
                         50
                     ],
@@ -9836,8 +9836,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        540,
-                        456,
+                        547.4000244140625,
+                        452.70001220703125,
                         200,
                         50
                     ],
@@ -9898,8 +9898,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        475,
-                        507,
+                        482.39999389648438,
+                        503.70001220703125,
                         200,
                         50
                     ],
@@ -9960,8 +9960,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        488,
-                        564,
+                        495.39999389648438,
+                        560.70001220703125,
                         200,
                         50
                     ],
@@ -10022,8 +10022,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        7.4000000953674316,
+                        -3.2999999523162842,
                         300,
                         300
                     ],
@@ -10085,8 +10085,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        20,
-                        30,
+                        27.399999618530273,
+                        26.700000762939453,
                         200,
                         50
                     ],
@@ -10094,7 +10094,7 @@
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
-                    "Line Spacing": 3.4000000953674316,
+                    "Line Spacing": 0,
                     "Color": [
                         0,
                         0,

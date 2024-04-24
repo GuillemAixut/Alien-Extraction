@@ -337,7 +337,34 @@
             // Baked Lights LVL2_PART_1
             if (map == 2) {
                                                     // Posicion           // Color [0,1]
-                // finalColor += BakePointLight(vec3(133.5f,105.5f,1.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection);
+                finalColor += BakePointLight(vec3(133.5f,108.4f,1.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //reactorlight1
+                finalColor += BakePointLight(vec3(-24.3f,108.4f,66.4f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //reactorlight2
+                finalColor += BakePointLight(vec3(17.6f,108.4f,2.8f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //reactorlight3
+                finalColor += BakePointLight(vec3(132.8f,108.4f,98.2f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //reactorlight4
+
+                finalColor += BakePointLight(vec3(-143.7f,108.4f,82.8f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //hallwaylight1
+                finalColor += BakePointLight(vec3(-327.3f,108.4f,42.7f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //hallwaylight2
+                finalColor += BakePointLight(vec3(-291.3f,108.4f,131.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //secretroom1
+                finalColor += BakePointLight(vec3(-326.9f,108.4f,271.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //secretroom2
+
+                finalColor += BakePointLight(vec3(-240.0f,108.4f,294.3f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //monitorroomlights1
+                finalColor += BakePointLight(vec3(-239.7f,108.4f,168.6f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //monitorroomlights2
+                finalColor += BakePointLight(vec3(-87.2f,108.4f,126.3f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //monitorroomlights3
+                finalColor += BakePointLight(vec3(-51.4f,108.4f,234.2f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //monitorroomlights4
+                finalColor += BakePointLight(vec3(-136.6f,108.4f,313.9f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //monitorroomlights5
+
+                finalColor += BakePointLight(vec3(-54.1f,108.4f,293.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights1
+                finalColor += BakePointLight(vec3(-148.5f,108.4f,254.8f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights2
+                finalColor += BakePointLight(vec3(-54.1f,108.4f,293.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights3
+                finalColor += BakePointLight(vec3(-252.0f,108.4f,316.7f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights4
+                finalColor += BakePointLight(vec3(377.8f,108.4f,385.9f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights5
+                finalColor += BakePointLight(vec3(253.3f,108.4f,225.3f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights6
+                finalColor += BakePointLight(vec3(293.0f,108.4f,136.6f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights7
+                finalColor += BakePointLight(vec3(-54.1f,108.4f,293.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights8
+                finalColor += BakePointLight(vec3(216.2f,108.4f,119.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights9
+                finalColor += BakePointLight(vec3(216.2f,108.4f,119.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights10
+                finalColor += BakePointLight(vec3(252.4f,108.4f,18.6f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights11
+                finalColor += BakePointLight(vec3(216.8f,108.4f,-42.7f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //abysshwlights12
 
             }
 
