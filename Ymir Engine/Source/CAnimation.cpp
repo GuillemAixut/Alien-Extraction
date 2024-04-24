@@ -35,7 +35,7 @@ CAnimation::CAnimation(GameObject* owner) : Component(owner, ComponentType::ANIM
 
 CAnimation::~CAnimation()
 {
-
+    delete animator;
 }
 
 void CAnimation::Update() {

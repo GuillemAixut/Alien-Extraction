@@ -9,7 +9,12 @@ public class Spawner: YmirComponent
 {
     public bool spawn = false;
 
-    public int maxEnemies;
+    private int maxEnemies = 2;
+
+    public float porcentajeFaceHugger;
+    public float porcentajeDroneXenomorph;
+
+    static Random random = new Random();
 
     //private int enemiesCounter;
 
@@ -39,23 +44,40 @@ public class Spawner: YmirComponent
 
     public void Spawn(int enemyType)
     {
-        switch (enemyType)
+
+        double randomValue = random.NextDouble();
+
+        if(randomValue < porcentajeFaceHugger)
         {
-            case 0:
-            break;
-            case 1:
-                InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger", gameObject.transform.globalPosition);
-                break;
-
-            case 2:
-
-                InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-Drone", gameObject.transform.globalPosition);
-                break;
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger", gameObject.transform.globalPosition);
         }
+        else
+        {
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-DroneXenomorph", gameObject.transform.globalPosition);
+        }
+
+
+
+        //switch (enemyType)
+        //{
+        //    case 0:
+        //    break;
+        //    case 1:
+        //        InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger", gameObject.transform.globalPosition);
+        //        break;
+
+        //    case 2:
+
+        //        InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-DroneXenomorph", gameObject.transform.globalPosition);
+        //        break;
+        //}
        
 
 
     }
+
+
+
 
 
 }

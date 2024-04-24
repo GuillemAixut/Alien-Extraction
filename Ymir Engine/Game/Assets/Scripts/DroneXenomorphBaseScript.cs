@@ -63,6 +63,8 @@ public class DroneXenomorphBaseScript : Enemy
 		aggro = false;
         agent.stoppingDistance = 2f;
         agent.speed = 50f;
+        agent.angularSpeed = 10f;
+        Debug.Log("AngularSpeed" + agent.angularSpeed);
 
 		//ATTACKS
 
@@ -124,6 +126,7 @@ public class DroneXenomorphBaseScript : Enemy
                 if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, clawRange))
                 {
                     droneState = DroneState.MOVE_AGGRO;
+                    
                 }
 
                 break;
@@ -149,9 +152,8 @@ public class DroneXenomorphBaseScript : Enemy
 			case DroneState.MOVE_AGGRO:
                 //Move either to player or to a destination, perform attack when possible
 
-                LookAt(agent.GetDestination());
-
                 agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
+                LookAt(agent.GetDestination());
 
                 MoveToCalculatedPos(agent.speed);
 
@@ -221,7 +223,7 @@ public class DroneXenomorphBaseScript : Enemy
 
             if (outOfRangeTimer >= 3f)
             {
-                outOfRangeTimer = 0f;
+                outOfRangeTimer = 0f;                           
                 timeCounter = 0f;
                 timeLimit = 5f;
                 aggro = false;

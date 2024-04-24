@@ -24,7 +24,7 @@ struct Font
 {
 public:
 
-	static std::vector<Font*> mFonts;
+	static std::vector<std::shared_ptr<Font>> mFonts;
 
 	Font(std::string name, std::string fontPath = "Assets\\Fonts");
 
@@ -76,7 +76,7 @@ public:
 
 public:
 	std::string text;
-	Font* font;
+	std::shared_ptr<Font> font;
 
 	float fontSize;
 	float lineSpacing;
