@@ -177,7 +177,7 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-                LookAt(agent.GetDestination());
+                //LookAt(agent.GetDestination());
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
@@ -194,7 +194,7 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-                LookAt(agent.GetDestination());
+                //LookAt(agent.GetDestination());
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
