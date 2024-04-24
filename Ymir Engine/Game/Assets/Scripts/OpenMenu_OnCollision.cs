@@ -52,6 +52,7 @@ public class OpenMenu_OnCollision : YmirComponent
             player.PlayerStopState(false);
         }
     }
+
     //public void OnCollisionStay(GameObject other)
     //{
     //    //Debug.Log("other.name");
