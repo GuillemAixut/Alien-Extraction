@@ -119,6 +119,8 @@ public class DroneXenomorphBaseScript : Enemy
 			case DroneState.IDLE_AGGRO:
                 //When attacking, stay idle when everything is on cooldown and sometimes switch to move aggro
 
+                LookAt(agent.GetDestination());
+
                 if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, clawRange))
                 {
                     droneState = DroneState.MOVE_AGGRO;
@@ -159,6 +161,8 @@ public class DroneXenomorphBaseScript : Enemy
 
 				timeCounter += Time.deltaTime;
 
+                gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+
                 //If done with animation, go to move aggro
                 if (timeCounter >= timeLimit)
                 {
@@ -173,6 +177,7 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+                //LookAt(agent.GetDestination());
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
@@ -189,6 +194,7 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+                //LookAt(agent.GetDestination());
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
