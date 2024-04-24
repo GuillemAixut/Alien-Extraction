@@ -118,6 +118,8 @@ public:
 	bool onExitCollision = false;
 	bool firstCollision = true;
 
+	bool isWorldFirstFrame = false;
+
 private:
 
 };
