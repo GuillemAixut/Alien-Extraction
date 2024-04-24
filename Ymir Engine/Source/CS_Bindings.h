@@ -769,7 +769,7 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	go->AddComponent(c);
 }
 
-void CreateShotgunSensor(MonoObject* position, MonoObject* rotation) {
+void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, MonoObject* right) {
 
 	//Crea un game object temporal llamado "ShotgunBullet"
 	if (External == nullptr) return;
@@ -779,9 +779,14 @@ void CreateShotgunSensor(MonoObject* position, MonoObject* rotation) {
 
 	//Hace unbox de los parametros de transform pasados
 	float3 posVector = External->moduleMono->UnboxVector(position);
+
+	float3 rightVector = External->moduleMono->UnboxVector(right);
+
 	//Funciona pero es rarete
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	rotVector = rotVector.RotateAxisAngle({ 0.0f, 0.0f,1.0f }, DegToRad(90.0f));
+	rotVector = rotVector.RotateAxisAngle(rightVector, DegToRad(-90.0f));
+
+
 	float3 scaleVector = float3(15, 70, 15);
 
 	//Añade RigidBody a la bala
