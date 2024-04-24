@@ -9,6 +9,7 @@
 
 enum EmitterType
 {
+	PAR_SUBEMITTER = -1,
 	PAR_BASE,
 	PAR_SPAWN,
 	PAR_POSITION,

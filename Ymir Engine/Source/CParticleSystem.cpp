@@ -169,13 +169,18 @@ void CParticleSystem::OnInspector()
 				{
 					auto listModule = allEmitters.at(i)->modules;
 					int securityCheckTree = 999;
-					for (int j = 0; j < listModule.size(); j++)
+					for (int j = (i>0) ? -1 : 0; j < listModule.size(); j++)
 					{
 						std::string particleModule; //Les opciones
 						std::string deleteButton; //Lo creamos aqui fuera para evitar petadas, pero como la ID va por nombre ha de ser un string para diferenciarlos
 
 						switch (listModule.at(j)->type)
 						{
+						case EmitterType::PAR_SUBEMITTER: 
+						{
+							ImGui::SeparatorText("SUBEMITTER");
+							break;
+						}
 						case EmitterType::PAR_BASE:
 						{
 							ImGui::SeparatorText("BASE");
@@ -307,6 +312,9 @@ void CParticleSystem::OnInspector()
 
 						switch (k)
 						{
+						case EmitterType::PAR_SUBEMITTER:
+							emitterType.assign("Base Emitter");
+							break;
 						case EmitterType::PAR_BASE:
 							emitterType.assign("Base Emitter");
 							break;
