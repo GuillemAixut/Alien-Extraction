@@ -14,6 +14,9 @@ public class Loot_Chest : YmirComponent
 
     public int spawnRange;
 
+    private float time = 0f;
+    private float velocity = 30f;
+
     private Vector3 pos = Vector3.zero;
     Random random = new Random();
 
@@ -51,6 +54,12 @@ public class Loot_Chest : YmirComponent
             //Debug.Log("Output :" + output);
 
             List<List<string>> result = DeconstructString(output, numFields);
+
+            if (time < 1)
+            {
+                InternalCalls.CS_GetChild(gameObject, 0).transform.localRotation = Quaternion.Euler(180f, velocity * time, 0f);// GetGameObjectByName("PROP_Base_Chest_Lid").transform.localRotation = Quaternion.Euler(180f, velocity * time, 0f);
+                time += Time.deltaTime;
+            }
 
             Debug.Log("Result:");
             foreach (var sublist in result)
