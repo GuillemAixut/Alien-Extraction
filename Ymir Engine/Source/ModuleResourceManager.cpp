@@ -773,7 +773,7 @@ Resource* ModuleResourceManager::CreateResourceFromAssets(std::string assetsFile
 
 Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFilePath, ResourceType type, const uint& UID, TextureType rTexType)
 {
-	// TODO FRANCESC: Need a smart pointer to solve this memory leak;
+	// FRANCESC: MEMORY LEAK
 	Resource* tmpResource = nullptr;
 
 	switch (type) {
@@ -815,24 +815,6 @@ Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFi
 
 	if (tmpResource != nullptr)
 	{
-		// Fix Resource Texture
-		
-		//if (resources.find(UID) != resources.end()) {
-
-		//	tmpResource->IncreaseReferenceCount();
-
-		//}
-		//else {
-
-		//	resources.emplace(UID, tmpResource);
-
-		//	tmpResource->SetLibraryFilePath(libraryFilePath);
-
-		//	tmpResource->LoadInMemory();
-
-		//	tmpResource->IncreaseReferenceCount();
-
-		//}
 
 		if (rTexType != TextureType::UNKNOWN) {
 
@@ -840,7 +822,6 @@ Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFi
 
 		}
 
-		// FRANCESC: Disparo arreglado por alg�n motivo si comentas esta l�nea
 		resources.emplace(UID, tmpResource);
 
 		tmpResource->SetLibraryFilePath(libraryFilePath);
