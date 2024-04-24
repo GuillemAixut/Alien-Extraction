@@ -102,7 +102,7 @@ UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float
 	lineSpacing = ls;
 	space = 0;
 
-	mat = new CMaterial(g); // FRANCESC: MEMORY LEAK
+	mat = new CMaterial(g);
 	mat->shaderPath = shaderPath;
 	mat->shader.LoadShader(mat->shaderPath);
 
