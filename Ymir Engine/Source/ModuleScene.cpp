@@ -274,7 +274,7 @@ GameObject* ModuleScene::CreateGameObject(std::string name, GameObject* parent)
 {
 	std::string newName = GetUniqueName(name);
 
-	// TODO FRANCESC: Need a smart pointer to solve this memory leak;
+	// FRANCESC: MEMORY LEAK
 	GameObject* tempGameObject = new GameObject(newName, parent);
 
 	if (parent != nullptr) {

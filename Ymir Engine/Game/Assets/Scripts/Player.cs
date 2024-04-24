@@ -112,9 +112,6 @@ public class Player : YmirComponent
     // Lo usa el script de BH_Shotgun
     public Vector3 shotgunOffset = Vector3.zero;
 
-    private float tracerCurrentDistance;
-
-
     #endregion
 
     #region DEFINE SKILL VARS
@@ -1171,7 +1168,7 @@ public class Player : YmirComponent
         Vector3 offset = new Vector3(0, 15, 0);
         shotgunOffset = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
 
-        Quaternion rot = gameObject.transform.globalRotation;
+        Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 
         InternalCalls.CreateShotgunSensor(shotgunOffset, rot, gameObject.transform.GetRight());
 
@@ -1188,15 +1185,11 @@ public class Player : YmirComponent
             //if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
-        tracerCurrentDistance = 0;
+        Vector3 offset = new Vector3(0, 15, 0);
 
-        //for  (tracerCurrentDistance = 0; tracerCurrentDistance < traceRange; )
-        //{
-            
-        //}
 
         GameObject target;
-        target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 30.0f);
+        target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 30.0f);
 
         if (target != null)
         {
@@ -1214,6 +1207,41 @@ public class Player : YmirComponent
                 // Play bullet hit wall SFX
             }
         }
+        // List<GameObject> targets = new List<GameObject>();
+
+        // for (float tracerCurrentDistance = 0; tracerCurrentDistance < traceRange; tracerCurrentDistance += 0) {
+
+        //     Debug.Log("Tracer CurrentDistance" + tracerCurrentDistance);
+
+        //     GameObject tempTarget = gameObject.RaycastHit(gameObject.transform.globalPosition + offset + (tracerCurrentDistance * gameObject.transform.GetForward()), gameObject.transform.GetForward(), traceRange - tracerCurrentDistance);
+
+        //     if (tempTarget != null && !targets.Contains(tempTarget)) {
+
+        //         targets.Add(tempTarget);
+        //         tracerCurrentDistance = Mathf.Distance(gameObject.transform.globalPosition, tempTarget.transform.globalPosition);
+        //     }
+        //     else
+        //     {
+        //         tracerCurrentDistance = traceRange;
+        //     }
+        // }
+
+        //for (int i = 0; i < targets.Count(); i++)
+        // {
+        //     Debug.Log("Tracer" + i + "Hit:"+ targets[i].Name);
+
+        //     if (targets[i].Tag != "Enemy")
+        //     {
+        //         // Sparkle particle
+        //         // Play bullet hit wall SFX
+        //     }
+        //     else
+        //     {
+        //         // Damage enemy
+        //         // Blood particle
+
+        //     }
+        // }
 
         inputsList.Add(INPUT.I_SHOOT_END);
     }

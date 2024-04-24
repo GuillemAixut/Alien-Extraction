@@ -23,6 +23,7 @@ public class Tp_To_Lvl3 : YmirComponent
     {
         if (other.Tag == "Player")
         {
+            Audio.StopAllAudios();
             InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene");
         }
     }

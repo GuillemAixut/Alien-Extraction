@@ -504,7 +504,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 
         Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
 
-        gameObject.transform.localRotation = desiredRotation;
+        gameObject.SetRotation(desiredRotation);
 
         //Debug.Log("[ERROR] rotation:  " + gameObject.transform.localRotation);
     }
