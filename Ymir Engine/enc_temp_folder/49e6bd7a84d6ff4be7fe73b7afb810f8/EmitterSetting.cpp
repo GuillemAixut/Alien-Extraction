@@ -107,14 +107,14 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	}
 
-	//Get rotated point from the world
-	Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
-	float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
-
 	switch (currentShape)
 	{
 	case PAR_POINT:
 	{
+		//Get rotated point from the world
+		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
+		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
 		if (cTra != nullptr)
 		{
@@ -123,7 +123,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			Quat rotation;
 			float3 escale;
 			matrix.Decompose(position, rotation, escale);
-			particle->position += position + originModified; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->position += position + emitterOrigin; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}
@@ -133,6 +133,10 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	case PAR_CONE:
 	{
+		//Get rotated point from the world
+		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
+		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+
 		//Get random radius size
 		float randomLength = Random::GenerateRandomFloat(radiusHollow, baseRadius);
 		float randomAngle = Random::GenerateRandomFloat(0.0f, pi * 2);
@@ -150,7 +154,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			Quat rotation;
 			float3 escale;
 			matrix.Decompose(position, rotation, escale);
-			particle->position += position + originModified + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->position += position + emitterOrigin + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}
@@ -203,7 +207,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 		float3 randPos;
 		math::LCG lgc;
-		randPos = randPos.RandomSphere(lgc, originModified, randomLength);
+		randPos = randPos.RandomSphere(lgc, emitterOrigin, randomLength);
 
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
 		if (cTra != nullptr)
