@@ -17,6 +17,7 @@ public class Loot_Chest : YmirComponent
     private float animationTime = 1;
 
     private bool isOpened = false;
+    private bool isOpening = false;
 
     private float velocity = 30f;
 
@@ -69,8 +70,7 @@ public class Loot_Chest : YmirComponent
             popup.SetActive(true);
         }
 
-
-        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN) && !isOpened)
+        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN) && !isOpened && !isOpening)
         {
             string output = InternalCalls.CSVToStringKeys(path, keys);
             //Debug.Log("Output :" + output);
@@ -78,6 +78,7 @@ public class Loot_Chest : YmirComponent
             List<List<string>> result = DeconstructString(output, numFields);
 
             time = animationTime;
+            isOpening = true;
 
             Debug.Log("Result:");
             foreach (var sublist in result)
