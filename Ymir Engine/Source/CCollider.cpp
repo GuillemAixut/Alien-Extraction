@@ -68,33 +68,34 @@ CCollider::CCollider(GameObject* owner, ColliderType collider, PhysicsType physi
 
 		External->physics->RecalculateInertia(physBody, mass, useGravity);
 
-		CMesh* componentMesh = (CMesh*)mOwner->GetComponent(ComponentType::MESH);
+		//CMesh* componentMesh = (CMesh*)mOwner->GetComponent(ComponentType::MESH);
 
-		CTransform* componentTransform = (CTransform*)mOwner->GetComponent(ComponentType::TRANSFORM);
+		//CTransform* componentTransform = (CTransform*)mOwner->GetComponent(ComponentType::TRANSFORM);
 
-		if (componentMesh != nullptr) {
+		//if (componentMesh != nullptr) 
+		//{
+		//	float3 pos; 
 
-			float3 pos;
+		//	if (collType != ColliderType::MESH_COLLIDER)
+		//	{
+		//		pos = componentMesh->obb.CenterPoint();
+		//	}
+		//	else 
+		//	{
+		//		pos = componentTransform->GetGlobalPosition();
+		//	}
 
-			if (collType != ColliderType::MESH_COLLIDER) {
+		//	physBody->SetPosition(pos);
+		//	physBody->SetRotation(componentTransform->GetLocalRotation());
+		//}
+		//else {
 
-				pos = componentMesh->obb.CenterPoint();
+		//	LOG("This: %s | GT: %f, %f, %f", mOwner->name.c_str(), componentTransform->GetGlobalTransform().TranslatePart().x,
+		//		componentTransform->GetGlobalTransform().TranslatePart().y, componentTransform->GetGlobalTransform().TranslatePart().z);
 
-			}
-			else {
-
-				pos = componentTransform->GetGlobalPosition();
-
-			}
-
-			physBody->SetPosition(pos);
-			physBody->SetRotation(componentTransform->GetLocalRotation());
-		}
-		else {
-
-			physBody->SetPosition(componentTransform->GetGlobalTransform().TranslatePart());
-			physBody->SetRotation(componentTransform->GetGlobalRotation());
-		}
+		//	physBody->SetPosition(componentTransform->GetGlobalTransform().TranslatePart());
+		//	physBody->SetRotation(componentTransform->GetGlobalRotation()); 
+		//}
 
 		if (size.x == 0) size.x = 0.1;
 		if (size.y == 0) size.y = 0.1;
@@ -117,9 +118,12 @@ CCollider::~CCollider()
 }
 
 void CCollider::Update()
-{
+{	
+	if (isFirstTick)
+	{
+		
+	}
 	
-
 	if (isActive)	physBody->body->setActivationState(ACTIVE_TAG);
 	else
 	{
@@ -205,9 +209,9 @@ void CCollider::Update()
 
 			if (componentMesh != nullptr)
 			{
-				meshOffsetX = componentMesh->obb.CenterPoint().x - componentTransform->GetGlobalPosition().x;
-				meshOffsetY = componentMesh->obb.CenterPoint().y - componentTransform->GetGlobalPosition().y;
-				meshOffsetZ = componentMesh->obb.CenterPoint().z - componentTransform->GetGlobalPosition().z;
+				meshOffsetX = componentMesh->obb.CenterPoint().x - componentTransform->GetGlobalPosition().x; 
+				meshOffsetY = componentMesh->obb.CenterPoint().y - componentTransform->GetGlobalPosition().y; 
+				meshOffsetZ = componentMesh->obb.CenterPoint().z - componentTransform->GetGlobalPosition().z; 
 			}
 
 			float4x4 newMat;
@@ -484,11 +488,8 @@ void CCollider::OnInspector()
 		if (!isActive) { ImGui::EndDisabled(); }
 
 		ImGui::Unindent();
-
 	}
-
 	if (!exists) { mOwner->RemoveComponent(this); }
-
 }
 
 btCollisionShape* CCollider::GetShape()
@@ -523,8 +524,6 @@ void CCollider::SetSphereCollider()
 
 	CSphere sphere;
 
-	transform = mOwner->mTransform;
-
 	physBody = External->physics->AddBody(sphere, PhysicsType::DYNAMIC, mass, true, shape);
 	physBody->SetGameObject(mOwner);
 
@@ -537,8 +536,6 @@ void CCollider::SetCapsuleCollider()
 	collType = ColliderType::CAPSULE;
 	
 	CCapsule capsule;
-
-	transform = mOwner->mTransform;
 
 	physBody = External->physics->AddBody(capsule, PhysicsType::DYNAMIC, mass, true, shape);
 	physBody->SetGameObject(mOwner);
@@ -553,8 +550,6 @@ void CCollider::SetConeCollider()
 
 	CCone cone;
 
-	transform = mOwner->mTransform;
-
 	physBody = External->physics->AddBody(cone, PhysicsType::DYNAMIC, mass, true, shape);
 	physBody->SetGameObject(mOwner);
 
@@ -567,8 +562,6 @@ void CCollider::SetCylinderCollider()
 	collType = ColliderType::CYLINDER;
 
 	CCylinder cylinder;
-
-	transform = mOwner->mTransform;
 
 	physBody = External->physics->AddBody(cylinder, PhysicsType::DYNAMIC, mass, true, shape);
 	physBody->SetGameObject(mOwner);
