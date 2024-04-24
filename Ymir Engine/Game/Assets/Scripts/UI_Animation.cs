@@ -139,5 +139,7 @@ public class UI_Animation : YmirComponent
         currentIndex = 0;
         loopCount = 0;
         _timer = 0;
+
+        SetCurrentFrame(0, 0);
     }
 }
