@@ -9,7 +9,7 @@
 
 #include "External/mmgr/mmgr.h"
 
-std::vector<Font*> Font::mFonts;
+std::vector<std::shared_ptr<Font>> Font::mFonts;
 
 UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float ls, std::string fontName, std::string fontPath, float w, float h, std::string shaderPath) : C_UI(UI_TYPE::TEXT, ComponentType::UI, g, "Text", x, y, w, h)
 {
@@ -142,7 +142,7 @@ void UI_Text::OnInspector()
 
 		if (ImGui::BeginCombo("Font", font->name.c_str()))
 		{
-			for (std::vector<Font*>::const_iterator it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
+			for (std::vector<std::shared_ptr<Font>>::const_iterator it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
 			{
 				bool isSelected = (font->name == (*it)->name);
 				if (ImGui::Selectable((*it)->name.c_str()))
@@ -585,7 +585,8 @@ void UI_Text::SetFont(std::string name, std::string fontPath)
 
 	if (!isImported)
 	{
-		font = new Font(name, fontPath);
+		font = std::make_shared<Font>(name, fontPath);
+		Font::mFonts.push_back(font);
 	}
 }
 
@@ -663,7 +664,6 @@ Font::Font(std::string name, std::string fontPath)
 	FT_Done_FreeType(ft);
 
 	LOG("Font loaded: %s", name.c_str());
-	Font::mFonts.push_back(this);
 }
 
 Font::~Font()

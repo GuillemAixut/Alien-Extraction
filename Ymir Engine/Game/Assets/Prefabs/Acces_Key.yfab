@@ -32,7 +32,8 @@
                     "Type": "Script",
                     "ScriptName": "Key.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "door": 232432059
                 },
                 {
                     "World gravity": [
@@ -61,7 +62,20 @@
                         0,
                         0,
                         0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
                     ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "MapInteractionLV2",
+                    "Event Name": "LV2_GrabKey",
+                    "Event ID": 936921561
                 }
             ],
             "Children UID": [
@@ -119,12 +133,14 @@
                                 72
                             ],
                             "numPointLights": 1,
+                            "map": 1,
                             "enableDiffuse": true,
                             "enableSpecular": true,
                             "enableNormal": true,
                             "enableAmbient": true,
                             "enableHeight": true,
                             "enableEmissive": true,
+                            "enableLighting": true,
                             "ambient": 1,
                             "specularLight": 1,
                             "normalIntensity": 1,
@@ -216,12 +232,22 @@
                                     "Position": [
                                         0,
                                         0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0.10000000149011612,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
-                                    "BaseShape": 0
+                                    "BaseShape": 0,
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 0,
+                                    "RadiusTop": 0,
+                                    "Heigth": 0
                                 },
                                 {
                                     "Type": 1,
@@ -262,6 +288,7 @@
                                         5,
                                         0
                                     ],
+                                    "NormalizedBaseDirection": true,
                                     "Accelerates": false,
                                     "Speed1": 1,
                                     "Speed2": 0,
@@ -272,7 +299,8 @@
                                         0
                                     ],
                                     "ChangeSpeed1": 0,
-                                    "ChangeSpeed2": 1
+                                    "ChangeSpeed2": 1,
+                                    "NormalizedChange": true
                                 },
                                 {
                                     "Type": 4,

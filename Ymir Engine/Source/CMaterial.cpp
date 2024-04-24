@@ -50,8 +50,20 @@ CMaterial::~CMaterial()
 
     for (auto& it = rTextures.begin(); it != rTextures.end(); ++it)
     {
-        External->resourceManager->UnloadResource((*it)->GetUID());
+        if (!(*it)->checkerLoaded) {
+
+            External->resourceManager->UnloadResource((*it)->GetUID());
+            
+
+        }
+        else {
+
+            delete (*it);
+
+        }
+
         (*it) = nullptr;
+
     }
 
     ClearVec(rTextures);

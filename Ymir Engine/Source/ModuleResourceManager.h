@@ -58,6 +58,8 @@ public:
 
 	ResourceType CheckExtensionType(const char* fileDir);
 
+	bool ResourceExists(const uint& UID);
+
 	void LoadResource(const uint& UID);
 	void ReleaseResource(Resource* resource);
 

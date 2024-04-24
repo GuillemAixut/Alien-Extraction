@@ -23,7 +23,7 @@ public class Door : YmirComponent
 
 	public void Update()
 	{
-        Debug.Log("openTime: " + openTime);
+        //Debug.Log("openTime: " + openTime);
 
 		if (opened)
         {

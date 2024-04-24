@@ -61,13 +61,26 @@
                         0,
                         0,
                         0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
                     ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "MapInteractionLV1",
+                    "Event Name": "LV1_CollectItem",
+                    "Event ID": 2518039338
                 }
             ],
             "Children UID": [
                 108945139,
                 215124175,
-                1015976471
+                1593727294
             ]
         },
         {
@@ -199,10 +212,10 @@
             ]
         },
         {
-            "Name": "Key Paticle System",
+            "Name": "Key Paticle System (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1015976471,
+            "UID": 1593727294,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 1650915083,
@@ -268,12 +281,22 @@
                                     "Position": [
                                         0,
                                         0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0.10000000149011612,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
-                                    "BaseShape": 0
+                                    "BaseShape": 0,
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 0,
+                                    "RadiusTop": 0,
+                                    "Heigth": 0
                                 },
                                 {
                                     "Type": 1,
@@ -314,6 +337,7 @@
                                         5,
                                         0
                                     ],
+                                    "NormalizedBaseDirection": true,
                                     "Accelerates": false,
                                     "Speed1": 1,
                                     "Speed2": 0,
@@ -324,7 +348,8 @@
                                         0
                                     ],
                                     "ChangeSpeed1": 0,
-                                    "ChangeSpeed2": 1
+                                    "ChangeSpeed2": 1,
+                                    "NormalizedChange": true
                                 },
                                 {
                                     "Type": 4,
