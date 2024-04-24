@@ -240,7 +240,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 					for (int i = 0; i < scene->mNumAnimations; i++) {
 
 						//Animation* anim = new Animation(path, this, i);
-						ResourceAnimation* rAnim = new ResourceAnimation(modelGO->UID); 
+						ResourceAnimation* rAnim = new ResourceAnimation(modelGO->UID); // FRANCESC: MEMORY LEAK
 						ImporterAnimation::Import(path, rAnim, this, i);
 
 						uint UID = modelGO->UID;
@@ -248,7 +248,6 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 						std::string filenameUID = std::to_string(UID) + ".yanim";
 						std::string libraryPath = External->fileSystem->libraryAnimationsPath + filenameUID;
 
-						
 						if (PhysfsEncapsule::FileExists(libraryPath)) {
 							UID = Random::Generate();
 							filenameUID = std::to_string(UID) + ".yanim";
@@ -457,11 +456,13 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 			std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
-			ResourceTexture* rTexTemp = new ResourceTexture(); // FRANCESC: MEMORY LEAK
-
 			if (metaFile == nullptr) {
 
+				ResourceTexture* rTexTemp = new ResourceTexture();
+
 				ImporterTexture::Import(path, rTexTemp);
+
+				RELEASE(rTexTemp);
 
 				// Get meta
 
@@ -534,7 +535,9 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 				if (!PhysfsEncapsule::FileExists(libraryPath)) {
 
+					ResourceTexture* rTexTemp = new ResourceTexture();
 					ImporterTexture::Import(path, rTexTemp);
+					RELEASE(rTexTemp);
 
 				}
 
@@ -542,60 +545,102 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 				if (itr == External->resourceManager->resources.end())
 				{
-					rTexTemp = static_cast<ResourceTexture*>
+					ResourceTexture* rTexTemp = static_cast<ResourceTexture*>
 						(External->resourceManager->CreateResourceFromLibrary(libraryPath.c_str(), ResourceType::TEXTURE, UID, type));
+
+					switch (rTexTemp->type)
+					{
+					case TextureType::DIFFUSE:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					case TextureType::SPECULAR:
+						cmaterial->specular_UID = UID;
+						cmaterial->specular_path = libraryPath;
+						break;
+
+					case TextureType::AMBIENT:
+						cmaterial->ambient_UID = UID;
+						cmaterial->ambient_path = libraryPath;
+						break;
+
+					case TextureType::EMISSIVE:
+						cmaterial->emissive_UID = UID;
+						cmaterial->emissive_path = libraryPath;
+						break;
+
+					case TextureType::HEIGHT:
+						cmaterial->height_UID = UID;
+						cmaterial->height_path = libraryPath;
+						break;
+
+					case TextureType::NORMAL:
+						cmaterial->normal_UID = UID;
+						cmaterial->normal_path = libraryPath;
+						break;
+
+					default:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					}
+
+					cmaterial->rTextures.push_back(rTexTemp);
+
 				}
 				else
 				{
-					rTexTemp = static_cast<ResourceTexture*>(itr->second);
+					ResourceTexture* rTexTemp = static_cast<ResourceTexture*>(itr->second);
 					rTexTemp->type = type;
 					itr->second->IncreaseReferenceCount();
+
+					switch (rTexTemp->type)
+					{
+					case TextureType::DIFFUSE:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					case TextureType::SPECULAR:
+						cmaterial->specular_UID = UID;
+						cmaterial->specular_path = libraryPath;
+						break;
+
+					case TextureType::AMBIENT:
+						cmaterial->ambient_UID = UID;
+						cmaterial->ambient_path = libraryPath;
+						break;
+
+					case TextureType::EMISSIVE:
+						cmaterial->emissive_UID = UID;
+						cmaterial->emissive_path = libraryPath;
+						break;
+
+					case TextureType::HEIGHT:
+						cmaterial->height_UID = UID;
+						cmaterial->height_path = libraryPath;
+						break;
+
+					case TextureType::NORMAL:
+						cmaterial->normal_UID = UID;
+						cmaterial->normal_path = libraryPath;
+						break;
+
+					default:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					}
+
+					cmaterial->rTextures.push_back(rTexTemp);
+
 				}
-
-				switch (rTexTemp->type)
-				{
-				case TextureType::DIFFUSE:
-					cmaterial->diffuse_UID = UID;
-					cmaterial->diffuse_path = libraryPath;
-					break;
-
-				case TextureType::SPECULAR:
-					cmaterial->specular_UID = UID;
-					cmaterial->specular_path = libraryPath;
-					break;
-
-				case TextureType::AMBIENT:
-					cmaterial->ambient_UID = UID;
-					cmaterial->ambient_path = libraryPath;
-					break;
-
-				case TextureType::EMISSIVE:
-					cmaterial->emissive_UID = UID;
-					cmaterial->emissive_path = libraryPath;
-					break;
-
-				case TextureType::HEIGHT:
-					cmaterial->height_UID = UID;
-					cmaterial->height_path = libraryPath;
-					break;
-
-				case TextureType::NORMAL:
-					cmaterial->normal_UID = UID;
-					cmaterial->normal_path = libraryPath;
-					break;
-
-				default:
-					cmaterial->diffuse_UID = UID;
-					cmaterial->diffuse_path = libraryPath;
-					break;
-
-				}
-
-				cmaterial->rTextures.push_back(rTexTemp);
 
 			}
 			
-
 		}
 		else {
 
