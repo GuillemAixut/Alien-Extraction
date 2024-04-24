@@ -107,7 +107,10 @@ public class Player : YmirComponent
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
-    public int resin = 10; 
+    public int resin = 10;
+
+    // Lo usa el script de BH_Shotgun
+    public Vector3 shotgunOffset = Vector3.zero;
 
 
     #endregion
@@ -1152,12 +1155,14 @@ public class Player : YmirComponent
             //if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
-        Vector3 pos = gameObject.transform.globalPosition;
+        Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
+        float distance = 40.0f;
+        Vector3 offset = new Vector3(0, 15, 0);
+        shotgunOffset = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
+
         Quaternion rot = gameObject.transform.globalRotation;
 
-        Vector3 offset = new Vector3(0, 15, 0);
-
-        InternalCalls.CreateShotgunSensor(pos + offset, rot);
+        InternalCalls.CreateShotgunSensor(shotgunOffset, rot, gameObject.transform.GetRight());
 
         inputsList.Add(INPUT.I_SHOOT_END);
     }

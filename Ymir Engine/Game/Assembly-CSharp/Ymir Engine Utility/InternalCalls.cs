@@ -37,7 +37,7 @@ namespace YmirEngine
         /// Creates Shotgun Sensor
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void CreateShotgunSensor(object position, object rotation);
+        public static extern void CreateShotgunSensor(object position, object rotation, object rightVector);
 
         /// <summary>
         /// Creates a bullet.
