@@ -36,13 +36,16 @@ public class SelectLvl : YmirComponent
     {
         if (!isLocked)
         {
-            GameObject gameObject = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
+            GameObject gameObject0 = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
             GameObject gameObject1 = InternalCalls.GetGameObjectByName("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
 
             //Debug.Log("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
 
             LEVELS selectedLvlPrev = levelSelector.selectedLvl;
             WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;
+
+            Debug.Log("a Lvl" + selectedLvlPrev);
+            Debug.Log("a Weapon" + selectedWeaponPrev);
 
             if (levelSelector.selectedLvl != (LEVELS)lvl)
             {
@@ -51,32 +54,13 @@ public class SelectLvl : YmirComponent
             else
             {
                 levelSelector.selectedLvl = LEVELS.NONE;
+                UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
+                UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
             }
 
-            if (gameObject != null)
+            if (gameObject0 != null)
             {
-                switch (selectedLvlPrev)
-                {
-                    case LEVELS.NONE:
-                        {
-                            break;
-                        }
-                    case LEVELS.WAREHOUSE:
-                        {
-                            UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
-                            break;
-                        }
-                    case LEVELS.LAB:
-                        {
-                            UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
-                            break;
-                        }
-                    case LEVELS.HATCHERY:
-                        {
-                            UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
-                            break;
-                        }
-                }
+                UI.ChangeImageUI(gameObject0, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
             }
 
             if (gameObject1 != null/* && levelSelector.selectedWeapon != selectedWeaponPrev*/)
@@ -105,7 +89,6 @@ public class SelectLvl : YmirComponent
                 }
             }
 
-
             Debug.Log("Lvl: " + levelSelector.selectedLvl.ToString());
         }
     }
@@ -123,17 +106,17 @@ public class SelectLvl : YmirComponent
                     break;
                 case LEVELS.WAREHOUSE:
                     {
-                        UI.TextEdit(levelSelector.lvlText, "An unused warehouse under the\nname of Weyland-Yutani corp.\nIt doesn't look like a dangerous\nplace, it smells a bit burnt.");
+                        UI.TextEdit(levelSelector.lvlText, "An unused warehouse under the name of\nWeyland-Yutani corp. It doesn't look like a dangerous\nplace, it smells a bit burnt.");
                     }
                     break;
                 case LEVELS.LAB:
                     {
-                        UI.TextEdit(levelSelector.lvlText, "There are no records of this\nplace, although it looks like a\nresearch area. A laboratory?\nUnderground?");
+                        UI.TextEdit(levelSelector.lvlText, "There are no records of this place, although it\nlooks like a research area. A laboratory?\nUnderground?");
                     }
                     break;
                 case LEVELS.HATCHERY:
                     {
-                        UI.TextEdit(levelSelector.lvlText, "If this was once a laboratory,\nit is definitely no longer one.\nAll of it is covered in\nsomething black and slimy.");
+                        UI.TextEdit(levelSelector.lvlText, "If this was once a laboratory, it is definitely no\nlonger one. All of it is covered in something\nblack and slimy.");
                     }
                     break;
 

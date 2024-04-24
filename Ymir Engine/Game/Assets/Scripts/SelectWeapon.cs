@@ -35,6 +35,9 @@ public class SelectWeapon : YmirComponent
         LEVELS selectedLvlPrev = levelSelector.selectedLvl;
         WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;
 
+        Debug.Log("b Lvl" + selectedLvlPrev);
+        Debug.Log("b Weapon" + selectedWeaponPrev);
+
         if (levelSelector.selectedWeapon != (WEAPON_TYPE)weapon)
         {
             levelSelector.selectedWeapon = (WEAPON_TYPE)weapon;

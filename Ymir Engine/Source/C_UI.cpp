@@ -259,9 +259,22 @@ void C_UI::StateLogic()
 							}
 						}
 					}
+
+					External->scene->selectedUIGO = mOwner;
+					state = UI_STATE::RELEASE;
 				}
-				External->scene->selectedUIGO = mOwner;
-				state = UI_STATE::RELEASE;
+
+				else if (External->scene->selectedUIGO == nullptr)
+				{
+					External->scene->selectedUIGO = mOwner;
+					state = UI_STATE::RELEASE;
+				}
+
+				else
+				{
+					state = UI_STATE::FOCUSED;
+					External->scene->selectedUIGO = nullptr;
+				}
 			}
 		}
 
@@ -272,7 +285,18 @@ void C_UI::StateLogic()
 		//LOG("RELEASE");
 
 		OnRelease();
+
 		state = UI_STATE::SELECTED;
+
+		//if (External->scene->selectedUIGO != nullptr && External->scene->selectedUIGO->UID != mOwner->UID)
+		//{
+		//	state = UI_STATE::SELECTED;
+		//}
+		//else
+		//{
+		//	state = UI_STATE::NORMAL;
+		//	External->scene->selectedUIGO = nullptr;
+		//}
 	}
 	break;
 	case UI_STATE::SELECTED:
