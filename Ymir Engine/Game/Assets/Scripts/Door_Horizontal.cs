@@ -9,8 +9,8 @@ using YmirEngine;
 public class Door_Horizontal : YmirComponent
 {
     float timer = 0;
-    float animDuration = 6f;
-    float velocity = 10f;
+    float animDuration = 3f;
+    float velocity = 20f;
 
     bool inMovment;
     bool closing;
