@@ -18,14 +18,12 @@
 int GetUIState(MonoObject* object, int uiState)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	mono_free(object);
 	return (int)((C_UI*)(go->GetComponent(ComponentType::UI)))->state;
 }
 
 void SetUIState(MonoObject* object, int uiState)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	mono_free(object);
 	std::vector<Component*> vec = go->GetAllComponentsByType(ComponentType::UI);
 
 	for (auto it = vec.begin(); it != vec.end(); ++it)
@@ -91,8 +89,6 @@ MonoObject* CreateImageUI(MonoObject* pParent, MonoString* newImage, int x, int 
 {
 	GameObject* ui_gameObject = External->moduleMono->GameObject_From_CSGO(pParent);
 	std::string _newImage = mono_string_to_utf8(newImage);
-	mono_free(pParent);
-	mono_free(newImage);
 
 	G_UI* tempGameObject = new G_UI(External->scene->mRootNode, 0, 0);
 
@@ -118,8 +114,6 @@ void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
 	//Falta meter automaticamente que haga el change de Image
 	GameObject* go_image_to_change = External->moduleMono->GameObject_From_CSGO(go);
 	std::string _newImage = mono_string_to_utf8(newImage);
-	mono_free(go);
-	mono_free(newImage);
 
 	UI_Image* image_to_change = static_cast<UI_Image*>(static_cast<G_UI*>(go_image_to_change)->GetComponentUI(UI_TYPE::IMAGE));
 	image_to_change->SetImg(_newImage, (UI_STATE)state);
@@ -129,28 +123,24 @@ void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
 int GetImageRows(MonoObject* object)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	mono_free(object);
 	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssRows;
 }
 
 int GetImageColumns(MonoObject* object)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	mono_free(object);
 	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssColumns;
 }
 
 int GetImageCurrentFrameX(MonoObject* object)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	mono_free(object);
 	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssCoordsX;
 }
 
 int GetImageCurrentFrameY(MonoObject* object)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	mono_free(object);
 	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssCoordsY;
 }
 
@@ -161,8 +151,6 @@ void SetImageCurrentFrame(MonoObject* object, int x, int y)
 	static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssCoordsY = y;
 
 	static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->SetSpriteSize();
-
-	mono_free(object);
 }
 
 //
@@ -170,16 +158,12 @@ void TextEdit(MonoObject* object, MonoString* text)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
 	static_cast<UI_Text*>(go->GetComponentUI(UI_TYPE::TEXT))->SetText(mono_string_to_utf8(text));
-
-	mono_free(object);
-	mono_free(text);
 }
 
 void SliderEdit(MonoObject* object, double value)
 {
 	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
 	static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->SetValue(value);
-	mono_free(object);
 }
 
 void SliderSetRange(MonoObject* object, double min, double max)
@@ -196,8 +180,6 @@ void SliderSetRange(MonoObject* object, double min, double max)
 		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->minValue.iValue = min;
 		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->maxValue.iValue = max;
 	}
-
-	mono_free(object);
 }
 
 void SliderSetMin(MonoObject* object, double value)
@@ -212,8 +194,6 @@ void SliderSetMin(MonoObject* object, double value)
 	{
 		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->minValue.iValue = value;
 	}
-
-	mono_free(object);
 }
 
 void SliderSetMax(MonoObject* object, double value)
@@ -228,8 +208,6 @@ void SliderSetMax(MonoObject* object, double value)
 	{
 		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->maxValue.iValue = value;
 	}
-
-	mono_free(object);
 }
 
 // Inventory
@@ -283,9 +261,6 @@ void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
 
 	External->scene->focusedUIGO = External->scene->selectedUIGO;
 	External->scene->selectedUIGO = nullptr;
-
-	mono_free(selectedObject);
-	mono_free(targetObject);
 
 }
 
@@ -576,10 +551,6 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 			}
 		}
 	}
-
-	mono_free(go);
-	mono_free(gridLeft);
-	mono_free(gridRight);
 }
 
 void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bool navigateGrids, MonoObject* gridDown, MonoObject* gridUp, bool bounce, int childNavigate = 0, bool isEmpty = false)
@@ -867,10 +838,6 @@ void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bo
 			}
 		}
 	}
-
-	mono_free(go);
-	mono_free(gridUp);
-	mono_free(gridDown);
 }
 
 //
@@ -886,8 +853,6 @@ void SetActiveAllUI(MonoObject* go, bool isActive)
 	{
 		listUI[i]->mOwner->mChildren[0]->active = isActive;
 	}
-
-	mono_free(go);
 }
 
 void SetFirstFocused(MonoObject* go)
@@ -938,16 +903,12 @@ void SetFirstFocused(MonoObject* go)
 	//External->scene->focusedUIGO = listUI[0]->mOwner;
 	//External->scene->SetSelected(listUI[0]->mOwner);
 	//External->scene->onHoverUI = offset;
-
-	mono_free(go);
 }
 
 MonoString* GetUIText(MonoObject* go)
 {
 	G_UI* gameObject = (G_UI*)External->moduleMono->GameObject_From_CSGO(go);
 	UI_Text* textUI = static_cast<UI_Text*>(gameObject->GetComponentUI(UI_TYPE::TEXT));
-
-	mono_free(go);
 
 	return mono_string_new(External->moduleMono->domain, textUI->text.c_str());
 }
@@ -965,18 +926,12 @@ void SetUIPosWithOther(MonoObject* goSource, MonoObject* goDestination)
 	//selectedTransform->UpdateUITransformChilds();
 	//selectedTransform->componentReference->dirty_ = true;
 
-	mono_free(goSource);
-	mono_free(goDestination);
-
 }
 
 bool CheckUI(MonoObject* goTarget, MonoObject* goOrigin)
 {
 	G_UI* gameObjectTarget = (G_UI*)External->moduleMono->GameObject_From_CSGO(goTarget);
 	G_UI* gameObjectOrigin = (G_UI*)External->moduleMono->GameObject_From_CSGO(goOrigin);
-
-	mono_free(goTarget);
-	mono_free(goOrigin);
 
 	std::vector<C_UI*> listUI;
 	External->scene->GetUINavigate(gameObjectOrigin, listUI);

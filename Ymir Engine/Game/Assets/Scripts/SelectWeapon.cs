@@ -35,9 +35,6 @@ public class SelectWeapon : YmirComponent
         LEVELS selectedLvlPrev = levelSelector.selectedLvl;
         WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;
 
-        Debug.Log("b Lvl" + selectedLvlPrev);
-        Debug.Log("b Weapon" + selectedWeaponPrev);
-
         if (levelSelector.selectedWeapon != (WEAPON_TYPE)weapon)
         {
             levelSelector.selectedWeapon = (WEAPON_TYPE)weapon;
@@ -45,32 +42,12 @@ public class SelectWeapon : YmirComponent
         else
         {
             levelSelector.selectedWeapon = WEAPON_TYPE.NONE;
+            UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
         }
 
         if (gameObject != null/* && levelSelector.selectedLvl != selectedLvlPrev*/)
         {
-            switch (selectedLvlPrev)
-            {
-                case LEVELS.NONE:
-                    {
-                        break;
-                    }
-                case LEVELS.WAREHOUSE:
-                    {
-                        UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonHover.png", (int)UI_STATE.NORMAL);
-                        break;
-                    }
-                case LEVELS.LAB:
-                    {
-                        UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonHover.png", (int)UI_STATE.NORMAL);
-                        break;
-                    }
-                case LEVELS.HATCHERY:
-                    {
-                        UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonHover.png", (int)UI_STATE.NORMAL);
-                        break;
-                    }
-            }
+            UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonHover.png", (int)UI_STATE.NORMAL);
         }
 
         if (gameObject1 != null)
@@ -117,17 +94,17 @@ public class SelectWeapon : YmirComponent
                     break;
                 case WEAPON_TYPE.SMG:
                     {
-                        UI.TextEdit(levelSelector.weaponText, "The “S.T.A.P.L.E.R.” is a fast submachine\ngun capable of blasting multiple\nlow damage bullets in less than\na second, perfect for a fast cleaning.");
+                        UI.TextEdit(levelSelector.weaponText, "The 'S.T.A.P.L.E.R.' is a fast submachine gun\ncapable of blasting multiple low damage bullets\nin less than a second, perfect for a fast cleaning.");
                     }
                     break;
                 case WEAPON_TYPE.SHOTGUN:
                     {
-                        UI.TextEdit(levelSelector.weaponText, "The “Spar-X” is a shotgun that allows\nyou to eliminate multiple enemies in\none shot, perfect for close-distance combat.");
+                        UI.TextEdit(levelSelector.weaponText, "The 'Spar-X' is a shotgun that allows\nyou to eliminate multiple enemies in\none shot, perfect for close-distance combat.");
                     }
                     break;
                 case WEAPON_TYPE.PLASMA:
                     {
-                        UI.TextEdit(levelSelector.weaponText, "The “EM-MK2” is a plasma weapon capable\nof firing a constant beam of lethal\nenergy, ideal for suppressing enemies\nin medium and long-range combat. ");
+                        UI.TextEdit(levelSelector.weaponText, "The 'EM-MK2' is a plasma weapon capable of firing\na constant beam of lethal energy, ideal for\nsuppressing enemies in medium and long-range combat.");
                     }
                     break;
 

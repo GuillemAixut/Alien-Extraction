@@ -7,7 +7,7 @@
             "UID": 365492027,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1835818300,
+            "Parent UID": 1464744117,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1497,
-                    "Height": 984,
+                    "Width": 1919,
+                    "Height": 1164,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -48,7 +48,7 @@
             ],
             "Children UID": [
                 815848601,
-                576447595
+                1225803009
             ]
         },
         {
@@ -290,13 +290,13 @@
                     "cols": 2,
                     "leftGridName": "",
                     "rightGridName": "",
-                    "downGridName": "",
+                    "downGridName": "Grid Raid",
                     "upGridName": "",
                     "naviagteX": true,
-                    "naviagteY": false,
-                    "bounceX": true,
-                    "bounceY": true,
-                    "empty": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
                     "childX": 0,
                     "childY": 0
                 }
@@ -1545,13 +1545,65 @@
             ]
         },
         {
+            "Name": "Grid Raid",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1225803009,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 365492027,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": "Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
+                }
+            ],
+            "Children UID": [
+                576447595
+            ]
+        },
+        {
             "Name": "Go to raid",
             "Static": false,
             "Tag": "Untagged",
             "UID": 576447595,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 365492027,
+            "Parent UID": 1225803009,
             "Components": [
                 {
                     "Type": "Transform",
