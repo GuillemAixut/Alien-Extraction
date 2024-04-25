@@ -245,6 +245,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma region Particles
 	mono_add_internal_call("YmirEngine.Particles::PlayEmitter", PlayEmitter);
+	mono_add_internal_call("YmirEngine.Particles::ParticleShoot", ParticleShoot);
 
 #pragma endregion
 

@@ -140,7 +140,7 @@ public class Player : YmirComponent
 
     //--------------------- Tail Swipe ---------------------\\
     public float swipeTimer;
-    private float swipeDuration = 2f;
+    private float swipeDuration = 3f;
     private float swipeCDTimer;
     private float swipeCD = 13.0f;
     private bool hasSwipe = false;
@@ -207,7 +207,7 @@ public class Player : YmirComponent
 
         //--------------------- Swipe ---------------------\\
         swipeTimer = 0;
-        swipeDuration = 0.5f;
+        swipeDuration = 1f;
         swipeCDTimer = 0;
         swipeCD = 2.0f; //Es 13.0f
         hasSwipe = false;
@@ -1139,7 +1139,10 @@ public class Player : YmirComponent
 
         //Bullet
         GameObject bulletParticles = GetParticles(gameObject, "ParticlesSmgBullet");
+        Particles.ParticleShoot(bulletParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(bulletParticles);
+
+        Debug.Log("Forward: " + gameObject.transform.GetForward().normalized.x + " " + gameObject.transform.GetForward().normalized.y + " " + gameObject.transform.GetForward().normalized.z);
 
         Vector3 offset = new Vector3(0, 15, 0);
 
@@ -1213,6 +1216,7 @@ public class Player : YmirComponent
         }
 
         GameObject shotgunParticles = GetParticles(gameObject, "ParticlesShotgun");
+        Particles.ParticleShoot(shotgunParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(shotgunParticles);
 
         Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
@@ -1234,6 +1238,7 @@ public class Player : YmirComponent
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
 
         GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
+        Particles.ParticleShoot(traceParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(traceParticles);
 
         if (!godMode)
@@ -1731,8 +1736,9 @@ public class Player : YmirComponent
     {
         //StopPlayer();
         //Delete de la hitbox de la cola
-        swipeCDTimer = swipeCD;
         Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        swipeCDTimer = swipeCD;
+        
     }
 
     public void LookAt(float angle)
