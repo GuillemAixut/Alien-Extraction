@@ -1,43 +1,9 @@
 {
     "Prefab": [
         {
-            "Name": "Enemy-Facehugger",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1079439365,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        1.8185663223266602,
-                        78.047660827636719
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1339668438,
-                1251795386
-            ]
-        },
-        {
             "Name": "Facehugger",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Enemy",
             "UID": 1339668438,
             "Active": true,
             "Element_Type": "Model",
@@ -157,7 +123,8 @@
                 }
             ],
             "Children UID": [
-                644078744
+                644078744,
+                1251795386
             ]
         },
         {
@@ -179,9 +146,9 @@
                         0
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         0,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -203,15 +170,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
@@ -231,7 +198,7 @@
             "UID": 1251795386,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1079439365,
+            "Parent UID": 1339668438,
             "Components": [
                 {
                     "Type": "Transform",

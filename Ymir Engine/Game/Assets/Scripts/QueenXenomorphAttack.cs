@@ -45,35 +45,35 @@ public class QueenXenomorphAttack : YmirComponent
         else if (queen.GetComponent<QueenXenomorphBaseScript>().GetState() == QueenState.CLAW)
         {
             //gameObject.SetPosition(new Vector3(gameObject.transform.globalPosition.x, gameObject.transform.globalPosition.y, gameObject.transform.GetForward().z + 5));
-            if ((queen.GetComponent<QueenXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, queen.transform.globalPosition, 15f)) && queen.GetComponent<QueenXenomorphBaseScript>().clawAniCounter >= 1f)
+            if ((queen.GetComponent<QueenXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, queen.transform.globalPosition, 25f)) && queen.GetComponent<QueenXenomorphBaseScript>().clawAniCounter >= 1f)
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 150f);
+                gameObject.SetVelocity(queen.transform.GetForward() * 150f);
             }
             else
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 0f);
+                gameObject.SetVelocity(queen.transform.GetForward() * 0f);
             }
         }
         else if (queen.GetComponent<QueenXenomorphBaseScript>().GetState() == QueenState.AXE_TAIL)
         {
             if ((queen.GetComponent<QueenXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, queen.transform.globalPosition, 50f)) && queen.GetComponent<QueenXenomorphBaseScript>().axeAniCounter >= 1f)
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 200f);
+                gameObject.SetVelocity(queen.transform.GetForward() * 200f);
             }
             else
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 0f);
+                gameObject.SetVelocity(queen.transform.GetForward() * 0f);
             }
         }
         else if (queen.GetComponent<QueenXenomorphBaseScript>().GetState() == QueenState.ACID_SPIT)
         {
             if ((queen.GetComponent<QueenXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, queen.transform.globalPosition, 80f)) && queen.GetComponent<QueenXenomorphBaseScript>().acidSpitAniCounter >= 1.5f)
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 500f);
+                gameObject.SetVelocity(queen.transform.GetForward() * 500f);
             }
             else
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 0f);
+                gameObject.SetVelocity(queen.transform.GetForward() * 0f);
             }
         }
 

@@ -5,9 +5,9 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 869362369,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1406306264,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1914,
-                    "Height": 1101,
+                    "Width": 1956,
+                    "Height": 1057,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -51,6 +51,13 @@
                     "Active": 1,
                     "UID": 0,
                     "currentScore": 10
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "UI_Sfx",
+                    "Event Name": "",
+                    "Event ID": 0
                 }
             ],
             "Children UID": [
@@ -71,7 +78,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 2032028395,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -134,7 +141,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1841483514,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -196,7 +203,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 81102519,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -258,7 +265,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 369905588,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -285,14 +292,14 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1298,
+                    "Position X": 1288,
                     "Position Y": 973,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1298,
+                        1288,
                         973,
                         200,
                         50
@@ -320,7 +327,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 633310999,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -349,8 +356,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1914,
-                    "Height": 1101,
+                    "Width": 1956,
+                    "Height": 1057,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -392,7 +399,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1369398907,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 633310999,
             "Components": [
@@ -519,7 +526,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1231346999,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1369398907,
             "Components": [
@@ -558,7 +565,7 @@
                         300,
                         50
                     ],
-                    "Text": "Enhanced recoil and an extended magazine \n\n",
+                    "Text": "Enhanced recoil and an extended magazine.\n",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -581,7 +588,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1776631007,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 633310999,
             "Components": [
@@ -708,7 +715,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1496391655,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1776631007,
             "Components": [
@@ -747,7 +754,7 @@
                         300,
                         50
                     ],
-                    "Text": "Double Shot: Dual damage enhancement ensures\ndevastating firepower",
+                    "Text": "Double Shot: Dual damage enhancement\nensures devastating firepower.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -770,7 +777,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 570139881,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 633310999,
             "Components": [
@@ -897,7 +904,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1481559395,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 570139881,
             "Components": [
@@ -936,7 +943,7 @@
                         300,
                         50
                     ],
-                    "Text": "Instant Reload by dash: the weapon reloads automatically.\n",
+                    "Text": "Instant Reload by dash: the weapon reloads\nautomatically.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -959,7 +966,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 634465263,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 633310999,
             "Components": [
@@ -1021,7 +1028,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1323418078,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -1074,7 +1081,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1508460498,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1323418078,
             "Components": [
@@ -1201,7 +1208,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1458761499,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1508460498,
             "Components": [
@@ -1240,7 +1247,7 @@
                         300,
                         50
                     ],
-                    "Text": "Alpha Boost: unmatched power and extended\nmagazine",
+                    "Text": "Alpha Boost: unmatched power and extended\nmagazine.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -1263,7 +1270,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 726324725,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1323418078,
             "Components": [
@@ -1390,7 +1397,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 572668614,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 726324725,
             "Components": [
@@ -1452,7 +1459,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 973145517,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -1481,8 +1488,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1914,
-                    "Height": 1101,
+                    "Width": 1956,
+                    "Height": 1057,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -1524,7 +1531,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 591818415,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 973145517,
             "Components": [
@@ -1651,7 +1658,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 448828685,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 591818415,
             "Components": [
@@ -1713,7 +1720,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1524045569,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 973145517,
             "Components": [
@@ -1840,7 +1847,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1893079825,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1524045569,
             "Components": [
@@ -1879,7 +1886,7 @@
                         300,
                         50
                     ],
-                    "Text": "Extended Magazine: Boasts expanded magazine\ncapacity",
+                    "Text": "Extended Magazine: Boasts expanded magazine\ncapacity.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -1902,7 +1909,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1210495609,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 973145517,
             "Components": [
@@ -2029,7 +2036,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 987327593,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1210495609,
             "Components": [
@@ -2091,7 +2098,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 22630197,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 973145517,
             "Components": [
@@ -2153,7 +2160,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1648966489,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -2206,7 +2213,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 584746059,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1648966489,
             "Components": [
@@ -2333,7 +2340,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 2081167457,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 584746059,
             "Components": [
@@ -2395,7 +2402,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1182897050,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1648966489,
             "Components": [
@@ -2522,7 +2529,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1099191182,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1182897050,
             "Components": [
@@ -2561,7 +2568,7 @@
                         300,
                         50
                     ],
-                    "Text": "Beta Boost: now shoots 4 bullets instead of 2",
+                    "Text": "Beta Boost: now shoots 4 bullets instead of 2.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -2584,7 +2591,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 807582257,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -2613,8 +2620,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1914,
-                    "Height": 1101,
+                    "Width": 1956,
+                    "Height": 1057,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -2656,7 +2663,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 210269694,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 807582257,
             "Components": [
@@ -2783,7 +2790,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1233384702,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 210269694,
             "Components": [
@@ -2822,7 +2829,7 @@
                         300,
                         50
                     ],
-                    "Text": "EM-MK2: fires a lethal energy beam for\nsustained suppression ",
+                    "Text": "EM-MK2: fires a lethal energy beam for\nsustained suppression.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -2845,7 +2852,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 94371946,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 807582257,
             "Components": [
@@ -2972,7 +2979,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 166467195,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 94371946,
             "Components": [
@@ -3011,7 +3018,7 @@
                         300,
                         50
                     ],
-                    "Text": "Fast Loader: Speeds magazine reload for\nfaster ammo replenishment",
+                    "Text": "Fast Loader: Speeds magazine reload for\nfaster ammo replenishment.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -3034,7 +3041,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1015103931,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 807582257,
             "Components": [
@@ -3161,7 +3168,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1013838875,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1015103931,
             "Components": [
@@ -3200,7 +3207,7 @@
                         300,
                         50
                     ],
-                    "Text": "Extended Magazine: Adds an expanded magazine for\nsustained firepower",
+                    "Text": "Extended Magazine: Adds an expanded magazine for\nsustained firepower.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -3223,7 +3230,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 147491104,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 807582257,
             "Components": [
@@ -3285,7 +3292,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 467350589,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 869362369,
             "Components": [
@@ -3339,7 +3346,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 717679600,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 467350589,
             "Components": [
@@ -3466,7 +3473,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1925425038,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 717679600,
             "Components": [
@@ -3505,7 +3512,7 @@
                         300,
                         50
                     ],
-                    "Text": "Alpha Boost: intensified fire rate and damage output",
+                    "Text": "Alpha Boost: intensified fire rate and damage output.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -3528,7 +3535,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1417957922,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 467350589,
             "Components": [
@@ -3655,7 +3662,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 237752832,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1417957922,
             "Components": [
@@ -3694,7 +3701,7 @@
                         300,
                         50
                     ],
-                    "Text": "Beta Boost: enhances combat prowess with penetrating\nability",
+                    "Text": "Beta Boost: enhances combat prowess with penetrating\nability.",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -3717,7 +3724,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1639033827,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 467350589,
             "Components": [

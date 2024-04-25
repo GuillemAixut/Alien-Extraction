@@ -1,43 +1,9 @@
 {
     "Prefab": [
         {
-            "Name": "Enemy-Boss",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1876376624,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        91.117538452148438,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1934786796,
-                136109789
-            ]
-        },
-        {
             "Name": "BOSS_ANIM",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Enemy",
             "UID": 1934786796,
             "Active": true,
             "Element_Type": "Model",
@@ -128,7 +94,10 @@
                     "armor": 0,
                     "xSpeed": 0,
                     "ySpeed": 0,
-                    "DetectionRadius": 200
+                    "DetectionRadius": 200,
+                    "clawAniCounter": 0,
+                    "acidSpitAniCounter": 0,
+                    "axeAniCounter": 0
                 },
                 {
                     "Type": "Audio source",
@@ -142,7 +111,8 @@
                 1268033826,
                 891134309,
                 1368300667,
-                954109591
+                954109591,
+                136109789
             ]
         },
         {
@@ -188,15 +158,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -264,15 +234,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -340,15 +310,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -416,15 +386,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -456,15 +426,15 @@
             "UID": 136109789,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1876376624,
+            "Parent UID": 1934786796,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0.89963531494140625,
-                        8.9755859375,
-                        -0.59653663635253906
+                        6.6359701156616211,
+                        130.3082275390625,
+                        -8.1494073867797852
                     ],
                     "Rotation": [
                         -0,
@@ -472,9 +442,9 @@
                         -0
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        13.661201477050781,
+                        13.661201477050781,
+                        13.661201477050781
                     ]
                 },
                 {

@@ -366,6 +366,30 @@
                 finalColor += BakePointLight(vec3(117.9f,108.4f,-137.9f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //intersectionlights1
                 finalColor += BakePointLight(vec3(234.0f,108.4f,-318.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //intersectionlights2
                 finalColor += BakePointLight(vec3(358.4f,108.4f,-141.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //intersectionlights3
+                finalColor += BakePointLight(vec3(236.2f,114.7f,-194.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //intersectionlights4
+                finalColor += BakePointLight(vec3(236.2f,120.7f,-194.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //intersectionlights5
+                finalColor += BakePointLight(vec3(273.7f,108.4f,-77.4f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors1
+                finalColor += BakePointLight(vec3(273.7f,108.4f,-106.8f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors2
+                finalColor += BakePointLight(vec3(273.7f,108.4f,-140.0f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors3
+                finalColor += BakePointLight(vec3(307.2f,108.4f,-140.0f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors4
+                finalColor += BakePointLight(vec3(307.2f,108.4f,-107.0f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors5
+                finalColor += BakePointLight(vec3(197.4f,108.4f,-77.4f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors6
+                finalColor += BakePointLight(vec3(197.4f,108.4f,-106.8f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors7
+                finalColor += BakePointLight(vec3(197.4f,108.4f,-140.0f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors8
+                finalColor += BakePointLight(vec3(160.1f,108.4f,-140.0f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors9
+                finalColor += BakePointLight(vec3(160.1f,108.4f,-106.8f), vec3(0.0f,0.2f,0.7f), 1, normal, TangentFragPos, viewDirection); //monitors8
+                finalColor += BakePointLight(vec3(132.4f,104.2f,-211.3f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers1
+                finalColor += BakePointLight(vec3(152.4f,104.2f,-211.3f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers2
+                finalColor += BakePointLight(vec3(169.4f,104.2f,-211.3f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers3
+                finalColor += BakePointLight(vec3(149.4f,104.2f,-238.9f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers4
+                finalColor += BakePointLight(vec3(169.1f,104.2f,-238.9f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers5
+                finalColor += BakePointLight(vec3(186.3f,104.2f,-238.9f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers6
+                finalColor += BakePointLight(vec3(287.2f,104.2f,-238.9f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers7
+                finalColor += BakePointLight(vec3(305.4f,104.2f,-238.9f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers8
+                finalColor += BakePointLight(vec3(323.8f,104.2f,-238.9f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers9
+                finalColor += BakePointLight(vec3(308.0f,104.2f,-211.3f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers10
+                finalColor += BakePointLight(vec3(327.2f,104.2f,-211.3f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers11
+                finalColor += BakePointLight(vec3(344.2f,104.2f,-211.3f), vec3(0.0f,0.7f,0.7f), 1, normal, TangentFragPos, viewDirection); //servers12
 
             }
 
