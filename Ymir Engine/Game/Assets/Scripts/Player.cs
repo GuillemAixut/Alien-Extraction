@@ -254,6 +254,7 @@ public class Player : YmirComponent
     {
         //Debug.Log(currentState.ToString());
         // New Things WIP
+        Debug.Log("State: " + currentState);
         UpdateControllerInputs();
 
         ProcessInternalInput();
@@ -1019,7 +1020,7 @@ public class Player : YmirComponent
                 UpdateMove();
                 break;
             case STATE.STOP:
-                //StopPlayer();
+                StopPlayer();
                 break;
             case STATE.DASH:
                 UpdateDash();
