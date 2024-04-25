@@ -21,6 +21,7 @@ public enum QueenState
     WALK_BACKWARDS,
 	WALKING_SIDEWAYS,
 
+    DEAD,
 	//ATTACKS
 
     ACID_SPIT,
@@ -112,6 +113,10 @@ public class QueenXenomorphBaseScript : YmirComponent
     private float backwardsTimer;
     private float backwardsDuration = 1f;
 
+    private float timePassed = 0f;
+
+    private bool tailColdown = false;
+
 
 
     public void Start()
@@ -119,7 +124,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 		//Temporary until we know for sure
 		queenState = QueenState.IDLE_PHASE_2;
 		
-		life = 10000;
+		life = 500f;
 		speed = 12f;
 		queenRotationSpeed = 2f;
         player = InternalCalls.GetGameObjectByName("Player");
@@ -144,6 +149,8 @@ public class QueenXenomorphBaseScript : YmirComponent
 
     public void Update()
 	{
+
+        isDeath();
         //Dont rotate while doing dash
         if (queenState != QueenState.DASH)
         {
@@ -164,6 +171,18 @@ public class QueenXenomorphBaseScript : YmirComponent
 
 		switch (queenState)
 		{
+
+            case QueenState.DEAD:
+
+                timePassed += Time.deltaTime;
+
+                if (timePassed >= 1.2f)
+                {
+                    Debug.Log("[ERROR] DEATH");
+
+                    InternalCalls.Destroy(gameObject);
+                }
+                return;
 			case QueenState.IDLE_PHASE_1:
 
             break;
@@ -366,6 +385,14 @@ public class QueenXenomorphBaseScript : YmirComponent
             queenState = QueenState.IDLE_PHASE_2;
         }
 
+        if (tailColdown)
+        {
+            timePassed += Time.deltaTime;
+            if(timePassed >= 0.5)
+            {
+                tailColdown = false;
+            }
+        }
     }
 
     //GENERATE RANDOM NUMBER AMB PICK A ATTACK IF ITS COOLDOWN IS READY AND DISTANCE IS ENOUGH
@@ -532,6 +559,17 @@ public class QueenXenomorphBaseScript : YmirComponent
         //Debug.Log("[ERROR] rotation:  " + gameObject.transform.localRotation);
     }
 
+    public void OnCollisionStay(GameObject other)
+    {
+        if (other.Tag == "Tail"  && queenState != QueenState.DEAD && !tailColdown)
+        {
+            Debug.Log("[ERROR] HIT!!");
+            life -= 80;
+
+            tailColdown = true;
+        }
+    }
+
     public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
     {
         float deltaX = Math.Abs(first.x - second.x);
@@ -545,4 +583,13 @@ public class QueenXenomorphBaseScript : YmirComponent
         return queenState;
     }
 
+    private void isDeath()
+    {
+        if (life <= 0)
+        {
+            Debug.Log("[ERROR] DEATH");
+            gameObject.SetVelocity(new Vector3(0, 0, 0));
+            queenState = QueenState.DEAD;
+        }
+    }
 }

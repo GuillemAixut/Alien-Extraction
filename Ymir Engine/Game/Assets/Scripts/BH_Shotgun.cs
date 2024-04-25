@@ -29,7 +29,7 @@ public class BH_Shotgun : YmirComponent
     public void OnCollisionStay(GameObject other)
     {
 
-        if (playerObject.Tag != "Enemy")
+        if (other.Tag != "Enemy")
         {
             Audio.PlayAudio(gameObject, "W_FSADSurf");
         }
@@ -47,6 +47,12 @@ public class BH_Shotgun : YmirComponent
             if (aux2 != null)
             {
                 aux2.life -= 110;
+            }
+
+            QueenXenomorphBaseScript aux3 = other.GetComponent<QueenXenomorphBaseScript>();
+            if (aux3 != null)
+            {
+                aux3.life -= 110;
             }
             Debug.Log("[ERROR] HIT ENEMy");
            

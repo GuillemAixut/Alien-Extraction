@@ -28,7 +28,6 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -60,7 +59,7 @@
                 1806365249,
                 208637195,
                 1484304711,
-                1765229486
+                1934786796
             ]
         },
         {
@@ -13666,9 +13665,9 @@
                         619.72198486328125
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -13730,9 +13729,9 @@
                         618.6265869140625
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -13794,9 +13793,9 @@
                         618.6087646484375
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -18524,6 +18523,7 @@
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
+                    "acidicTimer": 0,
                     "currentMenu": "",
                     "setHover": true
                 }
@@ -19006,10 +19006,10 @@
             ]
         },
         {
-            "Name": "DroneXenomorph",
+            "Name": "BOSS_ANIM",
             "Static": false,
             "Tag": "Enemy",
-            "UID": 1765229486,
+            "UID": 1934786796,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 379278140,
@@ -19018,19 +19018,19 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.63420295715332031,
-                        0,
-                        64.548736572265625
+                        0.41388225555419922,
+                        -0.56298065185546875,
+                        48.055252075195312
                     ],
                     "Rotation": [
                         -0,
-                        -90,
-                        0
+                        0,
+                        -0
                     ],
                     "Scale": [
-                        0.024999996647238731,
-                        0.02500000037252903,
-                        0.024999996647238731
+                        0.073200002312660217,
+                        0.073200002312660217,
+                        0.073200002312660217
                     ]
                 },
                 {
@@ -19038,12 +19038,12 @@
                     "Active": 1,
                     "NumPaths": 6,
                     "Paths": [
-                        "Assets\/Drone_Walk.yanim",
-                        "Assets\/Drone_Tail_Attack.yanim",
-                        "Assets\/Death.yanim",
-                        "Assets\/Claw_Attack.yanim",
-                        "Assets\/Cry.yanim",
-                        "Assets\/Combat_Idle.yanim"
+                        "Assets\/Boss_Walk.yanim",
+                        "Assets\/Boss_Idle.yanim",
+                        "Assets\/Boss_Die.yanim",
+                        "Assets\/Boss_Dash.yanim",
+                        "Assets\/Boss_Cry.yanim",
+                        "Assets\/Boss_Claw_Attack.yanim"
                     ],
                     "AssetsPath": [
                         "",
@@ -19065,12 +19065,12 @@
                     "Collider Type": 0,
                     "Size": [
                         350,
-                        1000,
+                        800,
                         350
                     ],
                     "Physics Type": 0,
                     "Mass": 100,
-                    "Friction": 10,
+                    "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": true,
                     "IsSensor": false,
@@ -19079,7 +19079,7 @@
                     "LockZ": true,
                     "Offset": [
                         0,
-                        14,
+                        29.899999618530273,
                         0
                     ],
                     "Offset Rotation": [
@@ -19090,88 +19090,58 @@
                     ]
                 },
                 {
-                    "Type": "NavMesh",
-                    "Active": 1,
-                    "Speed": 0,
-                    "Angular Speed": 0,
-                    "Stopping Distance": 0
-                },
-                {
                     "Type": "Script",
-                    "ScriptName": "DroneXenomorphBaseScript.cs",
+                    "ScriptName": "QueenXenomorphBaseScript.cs",
                     "Active": 1,
-                    "movementSpeed": 0,
-                    "knockBackTimer": 0,
-                    "knockBackSpeed": 0,
-                    "wanderState": 0,
-                    "timePassed": 0,
-                    "life": 100,
+                    "UID": 0,
+                    "life": 0,
+                    "speed": 0,
                     "armor": 0,
-                    "rarity": 0,
-                    "wanderRange": 10,
-                    "detectionRadius": 60,
                     "xSpeed": 0,
                     "ySpeed": 0,
-                    "timeCounter": 0
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ]
+                    "DetectionRadius": 200,
+                    "clawAniCounter": 0,
+                    "acidSpitAniCounter": 0,
+                    "axeAniCounter": 0
                 },
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "DroneXenomorph",
+                    "Bank Name": "QueenXenomorph",
                     "Event Name": "",
                     "Event ID": 0
                 }
             ],
             "Children UID": [
-                317641903,
-                1977502411
+                1268033826,
+                891134309,
+                1368300667,
+                954109591,
+                136109789
             ]
         },
         {
-            "Name": "Xenomorph",
+            "Name": "RETOPO_BODY",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 317641903,
+            "UID": 1268033826,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/FBX\/Xeno_Combat_Idle.fbx",
-            "Parent UID": 1765229486,
+            "Origin_Path": "Assets\/FBX\/BOSS_ANIM.fbx",
+            "Parent UID": 1934786796,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
-                        0
+                        -0.15969075262546539,
+                        6.2381116094911704e-07,
+                        1.0257292615278857e-06
                     ],
                     "Rotation": [
                         -0,
-                        -90,
-                        0
+                        0,
+                        -0
                     ],
                     "Scale": [
                         1,
@@ -19182,9 +19152,9 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 1004726246,
-                    "Vertex Count": 5684,
-                    "Index Count": 17532
+                    "UID": 1397784039,
+                    "Vertex Count": 12539,
+                    "Index Count": 41208
                 },
                 {
                     "Type": "Material",
@@ -19208,12 +19178,249 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 598,
-                    "Diffuse_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_D.png",
-                    "Diffuse_UID": 1916503047,
-                    "Normal_ID": 602,
-                    "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
-                    "Normal_UID": 788886931
+                    "Diffuse_ID": 759,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 761,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 763,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 765,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 767,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_Diadem",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 891134309,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/BOSS_ANIM.fbx",
+            "Parent UID": 1934786796,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1243385615,
+                    "Vertex Count": 708,
+                    "Index Count": 3306
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 759,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 761,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 763,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 765,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 767,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_Shoulders",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1368300667,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/BOSS_ANIM.fbx",
+            "Parent UID": 1934786796,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1529102109,
+                    "Vertex Count": 537,
+                    "Index Count": 2340
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 759,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 761,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 763,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 765,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 767,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "RETOPO_ChestHands",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 954109591,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/BOSS_ANIM.fbx",
+            "Parent UID": 1934786796,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1259388583,
+                    "Vertex Count": 513,
+                    "Index Count": 2016
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 759,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_D.png",
+                    "Diffuse_UID": 409051621,
+                    "Specular_ID": 761,
+                    "Specular_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_S.png",
+                    "Specular_UID": 470219264,
+                    "Normal_ID": 763,
+                    "Normal_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_N.png",
+                    "Normal_UID": 1284339039,
+                    "Height_ID": 765,
+                    "Height_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_H.png",
+                    "Height_UID": 381538208,
+                    "Emissive_ID": 767,
+                    "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
+                    "Emissive_UID": 1417189470
                 }
             ]
         },
@@ -19221,28 +19428,28 @@
             "Name": "Sensor",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1977502411,
+            "UID": 136109789,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1765229486,
+            "Parent UID": 1934786796,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        2.56103515625,
-                        239.32478332519531,
-                        -18.405149459838867
+                        6.6359701156616211,
+                        130.3082275390625,
+                        -8.1494073867797852
                     ],
                     "Rotation": [
-                        -180,
-                        89.980216979980469,
-                        180
+                        -0,
+                        0,
+                        -0
                     ],
                     "Scale": [
-                        39.999992370605469,
-                        40,
-                        39.999992370605469
+                        13.661201477050781,
+                        13.661201477050781,
+                        13.661201477050781
                     ]
                 },
                 {
@@ -19255,37 +19462,37 @@
                     "Active": true,
                     "Collider Type": 0,
                     "Size": [
-                        9.1000003814697266,
-                        10.399999618530273,
-                        18.100000381469727
+                        20,
+                        30,
+                        30
                     ],
-                    "Physics Type": 1,
+                    "Physics Type": 0,
                     "Mass": 1,
                     "Friction": 0,
                     "Angular Friction": 0,
-                    "UseGravity": false,
+                    "UseGravity": true,
                     "IsSensor": true,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
                     "Offset": [
                         0,
-                        0,
+                        7,
                         0
                     ],
                     "Offset Rotation": [
                         0,
-                        180,
+                        0,
                         0,
                         1
                     ]
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "DroneXenomorphAttack.cs",
+                    "ScriptName": "QueenXenomorphAttack.cs",
                     "Active": 1,
                     "UID": 0,
-                    "drone": 1765229486
+                    "queen": 1934786796
                 }
             ]
         }

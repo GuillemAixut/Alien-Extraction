@@ -112,7 +112,7 @@ public class FaceHuggerBaseScript : Enemy
                     {
                         Debug.Log("[ERROR] DEATH");
 
-                        //InternalCalls.Destroy(gameObject);
+                        InternalCalls.Destroy(gameObject);
                     }
 
                     return;
