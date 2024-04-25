@@ -49,9 +49,9 @@ public class CameraRot : YmirComponent
     {
         // Follow Player (If unrelated stuff gets added, write above this comment)
 
-        Vector3 newpos = target.transform.globalPosition + difPos;
+        Vector3 newpos = target.transform.localPosition + difPos;
 
-        float distance = Vector3.Distance(gameObject.transform.globalPosition, newpos);
+        float distance = Vector3.Distance(gameObject.transform.localPosition, newpos);
 
         if (player.currentState == Player.STATE.IDLE)
         {
@@ -84,7 +84,8 @@ public class CameraRot : YmirComponent
             }
         }
 
-        gameObject.SetPosition(Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * distance * constDelay));
+        gameObject.transform.localPosition = (Vector3.Lerp(gameObject.transform.localPosition, newpos, Time.deltaTime * distance * constDelay));
+        //gameObject.SetPosition(Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * distance * constDelay));
     }
 }
 
