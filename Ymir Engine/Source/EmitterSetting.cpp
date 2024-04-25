@@ -1263,15 +1263,21 @@ void EmitterRotation::OnInspector()
 float4x4 EmitterRotation::LookAt(float3& Spot, float3& position) // https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function/framing-lookat-function.html
 {
 	//Z
-	float3 foward = (Spot - position).Normalized();
+	float3 forward = (Spot - position).Normalized();
 
 	//X
 	float3 tmp(0, 1, 0);
-	float3 right = tmp.Cross(foward);//crossProduct(tmp, forward); //Order is important!!
+	float3 right = tmp.Cross(forward);//crossProduct(tmp, forward); //Order is important!!
 
 	//Y
-	float3 up = foward.Cross(right);//crossProduct(forward, right);
+	float3 up = forward.Cross(right);//crossProduct(forward, right);
 	
+	float4x4 m;
+	m[0][0] = right.x, m[0][1] = right.y, m[0][2] = right.z;
+	m[1][0] = up.x, m[1][1] = up.y, m[1][2] = up.z;
+	m[2][0] = forward.x, m[2][1] = forward.y, m[2][2] = forward.z;
+	m[3][0] = position.x, m[3][1] = position.y, m[3][2] = position.z;
+
 	return float4x4();
 }
 
