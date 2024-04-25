@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        98.827217102050781,
-        113.91630554199219,
-        103.30544281005859
+        -79.158363342285156,
+        35.137458801269531,
+        -37.465450286865234
     ],
     "Editor Camera Right (X)": [
-        0.97858083248138428,
-        1.4156103134155273e-07,
-        -0.18754711747169495
+        -0.69095253944396973,
+        0,
+        -0.72289413213729858
     ],
     "Editor Camera Up (Y)": [
-        -0.10491187125444412,
-        0.82598918676376343,
-        -0.54740715026855469
+        -0.19060409069061279,
+        0.96461230516433716,
+        0.18218211829662323
     ],
     "Editor Camera Front (Z)": [
-        -0.15601666271686554,
-        -0.55931746959686279,
-        -0.81406205892562866
+        -0.69731426239013672,
+        -0.26366788148880005,
+        0.66650301218032837
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 490101705,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2745,18 +2746,12 @@
                 {
                     "Type": "Animation",
                     "Active": 1,
-                    "NumPaths": 5,
+                    "NumPaths": 2,
                     "Paths": [
-                        ".\/Assets\/Raisen_Walk.yanim",
                         ".\/Assets\/Raisen_Run.yanim",
-                        ".\/Assets\/Raisen_Dash.yanim",
-                        ".\/Assets\/Raisen_Die.yanim",
-                        "Assets\/Raisen_Idle.yanim"
+                        ".\/Assets\/Raisen_Die.yanim"
                     ],
                     "AssetsPath": [
-                        "",
-                        "",
-                        "",
                         "",
                         ""
                     ]
@@ -3106,8 +3101,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1930,
-                    "Height": 1059,
+                    "Width": 94,
+                    "Height": 433,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -50703,6 +50698,48 @@
                     "Emissive_ID": 1059,
                     "Emissive_Path": "Assets\/BASE_FINAL\/Base_Textures\/Teleporter\/PROP_Base_Teleporter_E.png",
                     "Emissive_UID": 1193523371
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        40,
+                        40,
+                        40
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -120.09999847412109,
+                        25.399999618530273,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "goName": "Level Selection Canvas"
                 }
             ]
         },
