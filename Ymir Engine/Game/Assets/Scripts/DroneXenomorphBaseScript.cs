@@ -67,7 +67,7 @@ public class DroneXenomorphBaseScript : Enemy
         //AGENT
         aggro = false;
         agent.stoppingDistance = 2f;
-        agent.speed = 50f;
+        agent.speed = 800f;
         agent.angularSpeed = 10f;
         Debug.Log("AngularSpeed" + agent.angularSpeed);
 
@@ -90,7 +90,7 @@ public class DroneXenomorphBaseScript : Enemy
 
 		//Time
 		timeCounter = 0f;
-		timeLimit = 5f;
+		timeLimit = 1f;
 
         //Out of range timer
         outOfRangeTimer = 0f;
@@ -101,22 +101,23 @@ public class DroneXenomorphBaseScript : Enemy
         Animation.PlayAnimation(gameObject, "Combat_Idle");
         Animation.SetLoop(gameObject, "Combat_Idle", true);
         Animation.SetLoop(gameObject, "Drone_Walk", true);
+        Animation.SetSpeed(gameObject, "Claw_Attack", 2f);
+        Animation.SetSpeed(gameObject, "Drone_Tail_Attack", 2f);
     }
 
     public void Update()
 	{
         Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
-        isDeath();
+        if (droneState != DroneState.DEAD) { isDeath(); }
         switch (droneState)
 		{
 
             case DroneState.DEAD:
                 timePassed += Time.deltaTime;
 
-                if (timePassed >= 1.2f)
+                if (timePassed >= 1.4f)
                 {
                     Debug.Log("[ERROR] DEATH");
-                    Animation.PlayAnimation(gameObject, "Death");
                     InternalCalls.Destroy(gameObject);
                 }
 
@@ -329,9 +330,12 @@ public class DroneXenomorphBaseScript : Enemy
     {
         if (life <= 0)
         {
+            Audio.PlayAudio(gameObject, "DX_Death");
+            Animation.PlayAnimation(gameObject, "Death");
             Debug.Log("[ERROR] CURRENTSTATE2: " + droneState);
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             droneState = DroneState.DEAD;
+            timePassed = 0;
         }
     }
     //REMOVE functions on top------------------------------------------------------------------------

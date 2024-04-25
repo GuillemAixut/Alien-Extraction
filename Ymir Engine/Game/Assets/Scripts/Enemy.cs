@@ -97,7 +97,7 @@ public class Enemy: YmirComponent
         Vector3 destination = agent.GetDestination();
         Vector3 direction = destination - pos;
 
-        gameObject.SetVelocity(direction.normalized * speed);
+        gameObject.SetVelocity(direction.normalized * speed * Time.deltaTime);
     }
 
     public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)

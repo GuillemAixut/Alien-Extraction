@@ -1173,7 +1173,7 @@ public class Player : YmirComponent
                 Audio.PlayAudio(gameObject, "W_FirearmSurf");
             }
             else {
-
+                Audio.PlayAudio(gameObject, "W_FirearmEnemy");
                 //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
                 FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
 

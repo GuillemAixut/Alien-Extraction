@@ -59,7 +59,24 @@ public class AcidPuddle : YmirComponent
         {
             //Deal damage
             //other.GetComponent<Enemy>().life -= tickDamage;
-            other.GetComponent<Enemy_Test>().life -= tickDamage;
+            FaceHuggerBaseScript aux = other.GetComponent<FaceHuggerBaseScript>();
+
+            if (aux != null)
+            {
+                aux.life -= tickDamage;
+            }
+
+            DroneXenomorphBaseScript aux2 = other.GetComponent<DroneXenomorphBaseScript>();
+            if (aux2 != null)
+            {
+                aux2.life -= tickDamage;
+            }
+
+            QueenXenomorphBaseScript aux3 = other.GetComponent<QueenXenomorphBaseScript>();
+            if (aux3 != null)
+            {
+                aux3.life -= tickDamage;
+            }
         }
     }
 

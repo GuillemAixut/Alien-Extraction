@@ -48,7 +48,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 
 	public float life;
 
-	public float speed;
+	public float speed = 1500f;
 
     public float armor = 0;
 
@@ -125,8 +125,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 		queenState = QueenState.IDLE_PHASE_2;
 		
 		life = 500f;
-		speed = 12f;
-		queenRotationSpeed = 2f;
+		queenRotationSpeed = 5f;
         player = InternalCalls.GetGameObjectByName("Player");
 		axeTimer = axeAttackCooldown;
 		dashTimer = dashAttackCooldown;
@@ -232,7 +231,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                 xSpeed = vectorToPlayer.x;
                 ySpeed = vectorToPlayer.z;
 
-                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * 2);
+                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * 2 * Time.deltaTime);
 
                 CheckAttackDistance();
 
@@ -242,12 +241,12 @@ public class QueenXenomorphBaseScript : YmirComponent
                 if (selectedMovement == 2)
                 {
                     //Walk to the right side
-                    gameObject.SetVelocity(new Vector3(-(gameObject.transform.GetForward().z * speed * 2), 0, (gameObject.transform.GetForward().x * speed * 2)));
+                    gameObject.SetVelocity(new Vector3(-(gameObject.transform.GetForward().z * speed * 2 * Time.deltaTime), 0, (gameObject.transform.GetForward().x * speed * 2 * Time.deltaTime)));
                 }
                 else
                 {
                     //Walk to the left side
-                    gameObject.SetVelocity(new Vector3((gameObject.transform.GetForward().z * speed * 2), 0, -(gameObject.transform.GetForward().x * speed * 2)));
+                    gameObject.SetVelocity(new Vector3((gameObject.transform.GetForward().z * speed * 2 * Time.deltaTime), 0, -(gameObject.transform.GetForward().x * speed * 2 * Time.deltaTime)));
                 }
 
                 sidewaysTimer += Time.deltaTime;
@@ -267,7 +266,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                 break;
             case QueenState.WALK_BACKWARDS:
 
-                gameObject.SetVelocity(gameObject.transform.GetForward() * -speed * 2);
+                gameObject.SetVelocity(gameObject.transform.GetForward() * -speed * 2 * Time.deltaTime);
 
                 backwardsTimer += Time.deltaTime;
 
@@ -352,7 +351,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     dashDone = true;
                     dashNum++;
                 }
-                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * 8);
+                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * 8 * Time.deltaTime);
 
                 dashAniCounter2 += Time.deltaTime;
 

@@ -50,11 +50,11 @@ public class DroneXenomorphAttack : YmirComponent
 
             if (drone.GetComponent<DroneXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, drone.transform.globalPosition, attackRange))
             {
-                gameObject.SetVelocity(drone.transform.GetForward() * 100f);
+                gameObject.SetVelocity(drone.transform.GetForward() * 3000f * Time.deltaTime);
             }
             else
             {
-                gameObject.SetVelocity(drone.transform.GetForward() * 0f);
+                gameObject.SetVelocity(drone.transform.GetForward() * 0f * Time.deltaTime);
             }
         }
 

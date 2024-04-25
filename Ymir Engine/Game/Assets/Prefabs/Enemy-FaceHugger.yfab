@@ -7,7 +7,7 @@
             "UID": 1339668438,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1079439365,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -15,7 +15,7 @@
                     "Translation": [
                         0,
                         0,
-                        0
+                        68.567680358886719
                     ],
                     "Rotation": [
                         -0,
@@ -83,7 +83,7 @@
                     "LockZ": true,
                     "Offset": [
                         0,
-                        13.800000190734863,
+                        15,
                         0
                     ],
                     "Offset Rotation": [
@@ -98,7 +98,10 @@
                     "ScriptName": "FaceHuggerBaseScript.cs",
                     "Active": 1,
                     "movementSpeed": 20,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
                     "wanderState": 0,
+                    "timePassed": 0,
                     "life": 100,
                     "armor": 0,
                     "rarity": 0,
@@ -181,13 +184,16 @@
                                 1
                             ],
                             "numLights": 1,
-                            "displayNormalMap": true,
+                            "displayNormalMap": false,
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
+                    "Diffuse_ID": 309,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Facehugger\/TEX_CHAR_Facehugger_D.png",
+                    "Diffuse_UID": 1823043176,
+                    "Normal_ID": 311,
+                    "Normal_Path": "Assets\/Textures\/Textures Facehugger\/TEX_CHAR_Facehugger_N.png",
+                    "Normal_UID": 122283368
                 }
             ]
         },

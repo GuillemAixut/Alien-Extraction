@@ -50,7 +50,24 @@ public class AcidicSpit : YmirComponent
             //Hace daño al enemigo
 
             //other.GetComponent<Enemy>().life -= damage;
-            other.GetComponent<Enemy_Test>().life -= damage;
+            FaceHuggerBaseScript aux = other.GetComponent<FaceHuggerBaseScript>();
+
+            if (aux != null)
+            {
+                aux.life -= damage;
+            }
+
+            DroneXenomorphBaseScript aux2 = other.GetComponent<DroneXenomorphBaseScript>();
+            if (aux2 != null)
+            {
+                aux2.life -= damage;
+            }
+
+            QueenXenomorphBaseScript aux3 = other.GetComponent<QueenXenomorphBaseScript>();
+            if (aux3 != null)
+            {
+                aux3.life -= damage;
+            }
             KillBullet();
         }
         else if (other.Tag == "Player")

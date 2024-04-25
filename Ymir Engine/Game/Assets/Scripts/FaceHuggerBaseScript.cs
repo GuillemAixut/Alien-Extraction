@@ -87,7 +87,7 @@ public class FaceHuggerBaseScript : Enemy
         }
 
         agent.stoppingDistance = 2f;
-        agent.speed = 50f;
+        agent.speed = 1500f;
         agent.angularSpeed = 10f;
 
 
@@ -95,9 +95,10 @@ public class FaceHuggerBaseScript : Enemy
 
     public void Update()
     {
-
+        Debug.Log("[ERROR] CurrentaState: " + wanderState);
        
-        isDeath();
+        if(wanderState != WanderState.DEATH) { isDeath(); }
+        
         CryTimer += Time.deltaTime;
         cumTimer2 -= Time.deltaTime;
         if (cumTimer2 <= 0)
@@ -284,6 +285,7 @@ public class FaceHuggerBaseScript : Enemy
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             Audio.PlayAudio(gameObject, "FH_Death");
             wanderState = WanderState.DEATH;
+            timePassed = 0;
         }
     }
 
