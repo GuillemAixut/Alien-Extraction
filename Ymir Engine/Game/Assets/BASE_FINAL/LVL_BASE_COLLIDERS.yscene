@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -79.158363342285156,
-        35.137458801269531,
-        -37.465450286865234
+        133.8363037109375,
+        84.832115173339844,
+        13.298358917236328
     ],
     "Editor Camera Right (X)": [
-        -0.69095253944396973,
-        0,
-        -0.72289413213729858
+        -0.96508395671844482,
+        2.6077032089233398e-08,
+        -0.17690712213516235
     ],
     "Editor Camera Up (Y)": [
-        -0.19060409069061279,
-        0.96461230516433716,
-        0.18218211829662323
+        -0.17044408619403839,
+        0.26549383997917175,
+        0.92982608079910278
     ],
     "Editor Camera Front (Z)": [
-        -0.69731426239013672,
-        -0.26366788148880005,
-        0.66650301218032837
+        -0.048715915530920029,
+        -0.96203601360321045,
+        0.26576048135757446
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 490101705,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3101,8 +3101,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 94,
-                    "Height": 433,
+                    "Width": 1664,
+                    "Height": 1088,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -49954,6 +49954,48 @@
                     "Emissive_ID": 601,
                     "Emissive_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Fix Workstation Textures\/TEX_PROP_BaseWorkbench_E.png",
                     "Emissive_UID": 1366229549
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        17.299999237060547,
+                        14.399999618530273,
+                        17.600000381469727
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        170.10000610351562,
+                        7.6999998092651367,
+                        -17
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        -0.40000000596046448,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "goName": "Upgrade Station"
                 }
             ]
         },
@@ -50457,6 +50499,48 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        22.5,
+                        11.399999618530273,
+                        14.100000381469727
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        126.59999847412109,
+                        6.6999998092651367,
+                        25.399999618530273
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "goName": "Stash Canvas"
                 }
             ],
             "Children UID": [
