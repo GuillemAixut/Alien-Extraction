@@ -1,9 +1,9 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -67.313453674316406,
-        127.44144439697266,
-        26.581026077270508
+        -67.0946044921875,
+        127.19029235839844,
+        26.514347076416016
     ],
     "Editor Camera Right (X)": [
         0.28594404458999634,
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1358175809,
+            "Parent UID": 244447759,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2705,7 +2705,8 @@
                     "Type": "Script",
                     "ScriptName": "CameraRot.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "constDelay": 0
                 },
                 {
                     "Type": "Script",
@@ -2820,6 +2821,7 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
+                    "currentState": 0,
                     "movementSpeed": 35,
                     "godMode": false,
                     "fireRate": 0,
@@ -2834,6 +2836,7 @@
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
+                    "acidicTimer": 0,
                     "currentMenu": "",
                     "setHover": true
                 }
@@ -11568,8 +11571,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 956,
-                    "Height": 435,
+                    "Width": 1839,
+                    "Height": 1108,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -14042,8 +14045,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1914,
-                    "Height": 1101,
+                    "Width": 1839,
+                    "Height": 1108,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -23602,7 +23605,7 @@
                         50
                     ],
                     "Text": "69",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 2.7000000476837158,
@@ -23664,7 +23667,7 @@
                         50
                     ],
                     "Text": "420.69",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 0.5,
@@ -23726,7 +23729,7 @@
                         50
                     ],
                     "Text": "420",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 0.5,
@@ -23788,7 +23791,7 @@
                         50
                     ],
                     "Text": "656566",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 0.5,
@@ -23850,7 +23853,7 @@
                         50
                     ],
                     "Text": "6.9",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 0.5,
@@ -23912,7 +23915,7 @@
                         50
                     ],
                     "Text": "475",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 0.5,
@@ -23974,7 +23977,7 @@
                         50
                     ],
                     "Text": "323233",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
                     "Line Spacing": 0.5,
@@ -24099,9 +24102,9 @@
                         50
                     ],
                     "Text": "This is a text",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 21,
+                    "Font size": 18,
                     "Line Spacing": 0,
                     "Color": [
                         0,
@@ -24150,8 +24153,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1914,
-                    "Height": 1101,
+                    "Width": 1572,
+                    "Height": 987,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -25583,8 +25586,8 @@
                     "Text": "There are no records of this place, although it\nlooks like a research area. A laboratory?\nUnderground?",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 12,
-                    "Line Spacing": 2,
+                    "Font size": 10.5,
+                    "Line Spacing": 2.5,
                     "Color": [
                         0,
                         0,
@@ -25645,8 +25648,8 @@
                     "Text": "The “EM-MK2” is a plasma weapon capable\nof firing a constant beam of lethal\nenergy, ideal for suppressing enemies\nin medium and long-range combat. ",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 12,
-                    "Line Spacing": 2,
+                    "Font size": 10.5,
+                    "Line Spacing": 2.5,
                     "Color": [
                         0,
                         0,
