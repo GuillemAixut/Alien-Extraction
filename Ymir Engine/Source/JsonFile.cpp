@@ -110,10 +110,9 @@ void JsonFile::DeleteJSON(const std::string& route)
 	}
 }
 
-JsonFile* JsonFile::GetJSON(const std::string& route) {
+std::unique_ptr<JsonFile> JsonFile::GetJSON(const std::string& route) {
 
-	// TODO FRANCESC: Need a smart pointer to solve this memory leak std::unique_ptr<JsonFile> jsonFile;
-	JsonFile* jsonFile = new JsonFile();
+	std::unique_ptr<JsonFile> jsonFile = std::make_unique<JsonFile>();
 
 	// Load the existing JSON file
 
@@ -123,8 +122,6 @@ JsonFile* JsonFile::GetJSON(const std::string& route) {
 	if (!jsonFile->rootValue) {
 
 		LOG("[ERROR] Unable to load JSON file from %s", route.c_str());
-
-		delete jsonFile;
 
 		return nullptr;
 	}
@@ -205,8 +202,8 @@ void JsonFile::SetIntArray(const char* key, const int* array, size_t size) {
 
 }
 
-int* JsonFile::GetIntArray(const char* key) const {
-
+std::unique_ptr<int[]> JsonFile::GetIntArray(const char* key) const {
+	
 	JSON_Value* jsonArrayValue = json_object_get_value(rootObject, key);
 
 	if (jsonArrayValue == nullptr || json_value_get_type(jsonArrayValue) != JSONArray)
@@ -218,7 +215,7 @@ int* JsonFile::GetIntArray(const char* key) const {
 	size_t size = json_array_get_count(jsonArrayObject);
 
 	// TODO FRANCESC: Need a smart pointer to solve this memory leak
-	int* resultArray = new int[size + 1];
+	std::unique_ptr<int[]> resultArray = std::make_unique<int[]>(size + 1);
 
 	for (size_t i = 0; i < size; i++)
 	{
@@ -1293,7 +1290,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 
 		CCollider* ccollider = (CCollider*)&component;
 
-		json_object_set_number(componentObject, "Active", ccollider->active);
+		json_object_set_boolean(componentObject, "Active", ccollider->isActive);
 
 		// Collider Type
 
@@ -1350,6 +1347,18 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		json_array_append_number(offsetArray, ccollider->offset.z);
 
 		json_object_set_value(componentObject, "Offset", offsetArrayValue);
+
+		// Offset Rotation
+		
+		JSON_Value* rotationOffsetArrayValue = json_value_init_array();
+		JSON_Array* rotationOffsetArray = json_value_get_array(rotationOffsetArrayValue);
+
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.x);
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.y);
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.z); 
+		json_array_append_number(rotationOffsetArray, ccollider->offsetRotation.w);
+
+		json_object_set_value(componentObject, "Offset Rotation", rotationOffsetArrayValue);
 
 		break;
 	}
@@ -1820,14 +1829,13 @@ std::vector<GameObject*> JsonFile::GetHierarchy(const char* key) const
 	return gameObjects;
 }
 
-uint JsonFile::GetNavMeshID(const char* key) const
+const char* JsonFile::GetNavMeshPath(const char* key) const
 {
 	const char* str = json_object_get_string(rootObject, key);
 	if (str != nullptr) {
-		uint navMeshId = (uint)strtoul(str, NULL, 10);
-		return navMeshId;
+		return str;
 	}
-	return -1;
+	return "";
 }
 
 void JsonFile::GetGameObject(const std::vector<GameObject*>& gameObjects, const JSON_Object* gameObjectObject, G_UI& gameObject) const
@@ -2021,33 +2029,44 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		auto itr = External->resourceManager->resources.find(UID);
 
-		ResourceMesh* rMesh = nullptr;
-
 		if (itr == External->resourceManager->resources.end()) {
 
-			rMesh = (ResourceMesh*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID);
+			ResourceMesh* rMesh = (ResourceMesh*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID);
+
+			CMesh* cmesh = new CMesh(gameObject);
+
+			cmesh->active = json_object_get_number(componentObject, "Active");
+
+			cmesh->nVertices = json_object_get_number(componentObject, "Vertex Count");
+			cmesh->nIndices = json_object_get_number(componentObject, "Index Count");
+
+			cmesh->rMeshReference = rMesh;
+
+			cmesh->InitBoundingBoxes();
+
+			gameObject->AddComponent(cmesh);
 
 		}
 		else {
 
-			rMesh = static_cast<ResourceMesh*>(itr->second);
+			ResourceMesh* rMesh = static_cast<ResourceMesh*>(itr->second);
 
 			itr->second->IncreaseReferenceCount();
 
+			CMesh* cmesh = new CMesh(gameObject);
+
+			cmesh->active = json_object_get_number(componentObject, "Active");
+
+			cmesh->nVertices = json_object_get_number(componentObject, "Vertex Count");
+			cmesh->nIndices = json_object_get_number(componentObject, "Index Count");
+
+			cmesh->rMeshReference = rMesh;
+
+			cmesh->InitBoundingBoxes();
+
+			gameObject->AddComponent(cmesh);
+
 		}
-
-		CMesh* cmesh = new CMesh(gameObject);
-
-		cmesh->active = json_object_get_number(componentObject, "Active");
-
-		cmesh->nVertices = json_object_get_number(componentObject, "Vertex Count");
-		cmesh->nIndices = json_object_get_number(componentObject, "Index Count");
-
-		cmesh->rMeshReference = rMesh;
-
-		cmesh->InitBoundingBoxes();
-
-		gameObject->AddComponent(cmesh);
 
 	}
 	else if (type == "Material") {
@@ -2226,24 +2245,25 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			}
 			else {
 
-				ResourceTexture* rTex = new ResourceTexture();
-
 				auto itr = External->resourceManager->resources.find(UID);
 
 				if (itr == External->resourceManager->resources.end()) {
 
-					rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(diffusePath, ResourceType::TEXTURE, UID, TextureType::DIFFUSE);
+					ResourceTexture* rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(diffusePath, ResourceType::TEXTURE, UID, TextureType::DIFFUSE);
+
+					cmaterial->rTextures.push_back(rTex);
 
 				}
 				else {
 
-					rTex = static_cast<ResourceTexture*>(itr->second);
+					ResourceTexture* rTex = static_cast<ResourceTexture*>(itr->second);
+
 					rTex->type = TextureType::DIFFUSE;
 					itr->second->IncreaseReferenceCount();
 
-				}
+					cmaterial->rTextures.push_back(rTex);
 
-				cmaterial->rTextures.push_back(rTex);
+				}
 
 			}
 
@@ -2260,24 +2280,20 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			uint UID = json_object_get_number(componentObject, "Specular_UID");
 			cmaterial->specular_UID = UID;
 
-			ResourceTexture* rTex = new ResourceTexture();
-
 			auto itr = External->resourceManager->resources.find(UID);
 
 			if (itr == External->resourceManager->resources.end()) {
 
-				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(specularPath, ResourceType::TEXTURE, UID, TextureType::SPECULAR);
-
+				ResourceTexture* rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(specularPath, ResourceType::TEXTURE, UID, TextureType::SPECULAR);
+				cmaterial->rTextures.push_back(rTex);
 			}
 			else {
 
-				rTex = static_cast<ResourceTexture*>(itr->second);
+				ResourceTexture* rTex = static_cast<ResourceTexture*>(itr->second);
 				rTex->type = TextureType::SPECULAR;
 				itr->second->IncreaseReferenceCount();
-
+				cmaterial->rTextures.push_back(rTex);
 			}
-
-			cmaterial->rTextures.push_back(rTex);
 
 		}
 
@@ -2292,24 +2308,20 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			uint UID = json_object_get_number(componentObject, "Normal_UID");
 			cmaterial->normal_UID = UID;
 
-			ResourceTexture* rTex = new ResourceTexture();
-
 			auto itr = External->resourceManager->resources.find(UID);
 
 			if (itr == External->resourceManager->resources.end()) {
 
-				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(normalPath, ResourceType::TEXTURE, UID, TextureType::NORMAL);
-
+				ResourceTexture* rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(normalPath, ResourceType::TEXTURE, UID, TextureType::NORMAL);
+				cmaterial->rTextures.push_back(rTex);
 			}
 			else {
 
-				rTex = static_cast<ResourceTexture*>(itr->second);
+				ResourceTexture* rTex = static_cast<ResourceTexture*>(itr->second);
 				rTex->type = TextureType::NORMAL;
 				itr->second->IncreaseReferenceCount();
-
+				cmaterial->rTextures.push_back(rTex);
 			}
-
-			cmaterial->rTextures.push_back(rTex);
 
 		}
 
@@ -2324,24 +2336,20 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			uint UID = json_object_get_number(componentObject, "Height_UID");
 			cmaterial->height_UID = UID;
 
-			ResourceTexture* rTex = new ResourceTexture();
-
 			auto itr = External->resourceManager->resources.find(UID);
 
 			if (itr == External->resourceManager->resources.end()) {
 
-				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(heightPath, ResourceType::TEXTURE, UID, TextureType::HEIGHT);
-
+				ResourceTexture* rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(heightPath, ResourceType::TEXTURE, UID, TextureType::HEIGHT);
+				cmaterial->rTextures.push_back(rTex);
 			}
 			else {
 
-				rTex = static_cast<ResourceTexture*>(itr->second);
+				ResourceTexture* rTex = static_cast<ResourceTexture*>(itr->second);
 				rTex->type = TextureType::HEIGHT;
 				itr->second->IncreaseReferenceCount();
-
+				cmaterial->rTextures.push_back(rTex);
 			}
-
-			cmaterial->rTextures.push_back(rTex);
 
 		}
 
@@ -2356,24 +2364,20 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			uint UID = json_object_get_number(componentObject, "Ambient_UID");
 			cmaterial->ambient_UID = UID;
 
-			ResourceTexture* rTex = new ResourceTexture();
-
 			auto itr = External->resourceManager->resources.find(UID);
 
 			if (itr == External->resourceManager->resources.end()) {
 
-				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(ambientPath, ResourceType::TEXTURE, UID, TextureType::AMBIENT);
-
+				ResourceTexture* rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(ambientPath, ResourceType::TEXTURE, UID, TextureType::AMBIENT);
+				cmaterial->rTextures.push_back(rTex);
 			}
 			else {
 
-				rTex = static_cast<ResourceTexture*>(itr->second);
+				ResourceTexture* rTex = static_cast<ResourceTexture*>(itr->second);
 				rTex->type = TextureType::AMBIENT;
 				itr->second->IncreaseReferenceCount();
-
+				cmaterial->rTextures.push_back(rTex);
 			}
-
-			cmaterial->rTextures.push_back(rTex);
 
 		}
 
@@ -2388,35 +2392,26 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			uint UID = json_object_get_number(componentObject, "Emissive_UID");
 			cmaterial->emissive_UID = UID;
 
-			ResourceTexture* rTex = new ResourceTexture();
-
 			auto itr = External->resourceManager->resources.find(UID);
 
 			if (itr == External->resourceManager->resources.end()) {
 
-				rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(emissivePath, ResourceType::TEXTURE, UID, TextureType::EMISSIVE);
+				ResourceTexture* rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(emissivePath, ResourceType::TEXTURE, UID, TextureType::EMISSIVE);
 
+				cmaterial->rTextures.push_back(rTex);
 			}
 			else {
 
-				rTex = static_cast<ResourceTexture*>(itr->second);
+				ResourceTexture* rTex = static_cast<ResourceTexture*>(itr->second);
 				rTex->type = TextureType::EMISSIVE;
 				itr->second->IncreaseReferenceCount();
 
+				cmaterial->rTextures.push_back(rTex);
 			}
 
-			cmaterial->rTextures.push_back(rTex);
+			
 
 		}
-
-		// FRANCESC: BUG WITH THE RESOURCETEXTURES HAVING UID 0, IT BREAKS THE MAP IF SOLVED
-
-		//if (UID != 0) {
-
-		//	ResourceTexture* rTex = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(diffusePath, ResourceType::TEXTURE, UID);
-		//	cmaterial->rTextures.push_back(rTex);
-
-		//}
 
 		cmaterial->active = json_object_get_number(componentObject, "Active");
 		gameObject->AddComponent(cmaterial);
@@ -2444,6 +2439,12 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		// Game Camera
 		ccamera->isGameCam = json_object_get_boolean(componentObject, "Game Camera");
+
+		if (ccamera->isGameCam) {
+
+			External->scene->gameCameraObject = gameObject;
+			External->scene->gameCameraComponent = ccamera;
+		}
 
 		ccamera->active = json_object_get_number(componentObject, "Active");
 
@@ -2549,19 +2550,43 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		if (jsonOffsetValue == nullptr || json_value_get_type(jsonOffsetValue) != JSONArray) {
 
-			return;
+			ccollider->offset = { 0, 0, 0 };
+		}
+		else
+		{
+			JSON_Array* jsonOffsetArray = json_value_get_array(jsonOffsetValue);
+
+			float3 _offset;
+
+			_offset.x = static_cast<float>(json_array_get_number(jsonOffsetArray, 0));
+			_offset.y = static_cast<float>(json_array_get_number(jsonOffsetArray, 1));
+			_offset.z = static_cast<float>(json_array_get_number(jsonOffsetArray, 2));
+
+			ccollider->offset = _offset;
 		}
 
-		JSON_Array* jsonOffsetArray = json_value_get_array(jsonOffsetValue);
+		// Offset Rotation
 
-		float3 _offset;
+		JSON_Value* jsonRotationOffsetValue = json_object_get_value(componentObject, "Offset Rotation"); 
 
-		_offset.x = static_cast<float>(json_array_get_number(jsonOffsetArray, 0));
-		_offset.y = static_cast<float>(json_array_get_number(jsonOffsetArray, 1));
-		_offset.z = static_cast<float>(json_array_get_number(jsonOffsetArray, 2));
+		if (jsonRotationOffsetValue == nullptr || json_value_get_type(jsonRotationOffsetValue) != JSONArray) {
 
-		ccollider->offset = _offset;
+			ccollider->offsetRotation = Quat().identity;
+		}
+		else
+		{
+			JSON_Array* jsonRotationOffsetArray = json_value_get_array(jsonRotationOffsetValue);
 
+			Quat _offsetRotation;
+
+			_offsetRotation.x = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 0));
+			_offsetRotation.y = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 1));
+			_offsetRotation.z = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 2));
+			_offsetRotation.w = static_cast<float>(json_array_get_number(jsonRotationOffsetArray, 3));
+
+			ccollider->offsetRotation = _offsetRotation;
+		}
+		
 		// Mass
 
 		ccollider->mass = static_cast<float>(json_object_get_number(componentObject, "Mass"));
@@ -2588,7 +2613,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		ccollider->lockY = json_object_get_boolean(componentObject, "LockY");
 		ccollider->lockZ = json_object_get_boolean(componentObject, "LockZ");
 
-		ccollider->active = json_object_get_number(componentObject, "Active");
+		ccollider->isActive = json_object_get_boolean(componentObject, "Active");
 
 		gameObject->AddComponent(ccollider);
 
@@ -2722,6 +2747,9 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			ui_comp->color.b = static_cast<float>(json_array_get_number(jsonUIArray, 2));
 			ui_comp->color.a = static_cast<float>(json_array_get_number(jsonUIArray, 3));
 
+			float* aux = &ui_comp->color.r;
+			ui_comp->mat->shader.SetUniformValue("color", aux);
+
 			gameObject->AddComponent(ui_comp);
 			comp = ui_comp;
 
@@ -2758,6 +2786,9 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 			ui_comp->color.g = static_cast<float>(json_array_get_number(jsonUIArray, 1));
 			ui_comp->color.b = static_cast<float>(json_array_get_number(jsonUIArray, 2));
 			ui_comp->color.a = static_cast<float>(json_array_get_number(jsonUIArray, 3));
+
+			float* aux = &ui_comp->color.r;
+			ui_comp->mat->shader.SetUniformValue("color", aux);
 
 			gameObject->AddComponent(ui_comp);
 			comp = ui_comp;
@@ -3378,8 +3409,6 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 	}
 	else if (type == "ParticleSystem")
 	{
-		//TODO ERIC. hacer la carga de cosas
-
 		CParticleSystem* cparticleSystem = new CParticleSystem(gameObject);
 		cparticleSystem->active = json_object_get_boolean(componentObject, "Active");
 
@@ -3436,6 +3465,30 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					//Shape
 					eBase->currentShape = (SpawnAreaShape)json_object_get_number(modulo, "BaseShape");
 
+					//Box specifics
+					//Get box points array
+					JSON_Array* positivesArr = json_object_get_array(modulo, "PositiveBoxPoints");
+
+					//Get elements of position
+					float bpposX = json_array_get_number(positivesArr, 0);
+					float bpposY = json_array_get_number(positivesArr, 1);
+					float bpposZ = json_array_get_number(positivesArr, 2);
+					eBase->boxPointsPositives = { bpposX,bpposY,bpposZ };
+
+					JSON_Array* negativesArr = json_object_get_array(modulo, "NegativeBoxPoints");
+
+					//Get elements of position
+					float bnposX = json_array_get_number(negativesArr, 0);
+					float bnposY = json_array_get_number(negativesArr, 1);
+					float bnposZ = json_array_get_number(negativesArr, 2);
+					eBase->boxPointsNegatives = { bnposX,bnposY,bnposZ };
+
+					//Cylinder and Sphere specifics
+					eBase->radiusHollow = (float)json_object_get_number(modulo, "RadiusHollow");
+					eBase->baseRadius = (float)json_object_get_number(modulo, "RadiusBase");
+					eBase->topRadius = (float)json_object_get_number(modulo, "RadiusTop");
+					eBase->heigth = (float)json_object_get_number(modulo, "Heigth");
+
 					break;
 				}
 				case PAR_SPAWN:
@@ -3469,6 +3522,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					float posZ1 = json_array_get_number(dirArr1, 2);
 					ePos->direction1 = { posX1,posY1,posZ1 };
 
+					ePos->normalizedSpeed = json_object_get_boolean(modulo, "NormalizedBaseDirection");
+
 					//Get position array
 					JSON_Array* dirArr2 = json_object_get_array(modulo, "Direction2");
 
@@ -3478,7 +3533,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					float posZ2 = json_array_get_number(dirArr2, 2);
 					ePos->direction2 = { posX2,posY2,posZ2 };
 
-					//Speed changes ERIC TODO
+					//Speed changes
 					ePos->actualSpeedChange = (SpeedChangeMode)json_object_get_number(modulo, "ChangeSpeedMode");
 
 					//Get newPosition array
@@ -3492,6 +3547,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 					ePos->changeSpeed1 = json_object_get_number(modulo, "ChangeSpeed1");
 					ePos->changeSpeed2 = json_object_get_number(modulo, "ChangeSpeed2");
+
+					ePos->normalizedChange = json_object_get_boolean(modulo, "NormalizedChange");
 
 					break;
 				}

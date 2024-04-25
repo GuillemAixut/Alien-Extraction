@@ -16,6 +16,7 @@ public class Health : YmirComponent
 
     public float currentHealth = 0;
     public float maxHealth = 1200;
+    public float armor = 0;
     public bool isAlive;
 
     public float debugDmg = 100;
@@ -88,7 +89,7 @@ public class Health : YmirComponent
     {
         if (player != null && !player.godMode)
         {
-            currentHealth -= dmg;
+            currentHealth -= (dmg + armor); // reduce damage with amount of armor
 
             if (currentHealth > maxHealth)
             {
@@ -115,7 +116,7 @@ public class Health : YmirComponent
 
     public bool DeathScreen()
     {
-        if (deathCanvas != null) { deathCanvas.SetActive(true); }
+        if (deathCanvas != null) { deathCanvas.SetActive(true); UI.SetFirstFocused(deathCanvas); }
         if (player != null) { player.gameObject.SetActive(false); }
         isAlive = false;
         Audio.StopAllAudios();
@@ -125,7 +126,7 @@ public class Health : YmirComponent
 
     public bool WinScreen()
     {
-        if (winCanvas != null) { winCanvas.SetActive(true); }
+        if (winCanvas != null) { winCanvas.SetActive(true); UI.SetFirstFocused(winCanvas); }
         if (player != null) { player.gameObject.SetActive(false); }
 
         return true;

@@ -33,7 +33,6 @@
 #include <vector>
 #include "Module.h"
 #include "Globals.h"
-#include "GL_Light.h"
 #include "Primitive.h"
 
 #include "Model.h"
@@ -42,10 +41,9 @@
 #include "UI_Text.h"
 #include "CMesh.h"
 
-#define MAX_GL_LIGHTS 8
-
 class GameObject;
 class CCamera;
+class CParticleSystem;
 class ParticleEmitter;
 
 struct LineRender
@@ -127,14 +125,12 @@ public:
 
 	void DrawLightsDebug();
 
-	//ERIC: Esto habria que hacerle un rework, el renderer no ha de tener ninguna lista de emmiter
-	//Habria que hacer que recorriera todos los game objects y si tiene component particles pues hacerle un draw particles (maybe se puede poner en el propio DrawGameObjects()
 	void DrawParticles(ParticleEmitter* emitter);
+	bool DrawParticlesShapeDebug(CParticleSystem* obj);
 	void DrawOutline(CMesh* cMeshReference, float4x4 transform);
 
 public:
 
-	GL_Light gl_lights[MAX_GL_LIGHTS];
 	SDL_GLContext context;
 
 	CPlane Grid;
@@ -148,8 +144,8 @@ public:
 
 	bool texturingEnabled = true;
 
-	std::vector<ParticleEmitter*> particleEmitters;
-	bool initParticles = false;
+	//std::vector<ParticleEmitter*> particleEmitters;
+	//bool initParticles = false;
 
 private:
 

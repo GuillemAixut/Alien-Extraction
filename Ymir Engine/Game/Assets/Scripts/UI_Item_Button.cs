@@ -14,40 +14,51 @@ public class UI_Item_Button : YmirComponent
 
     public string enumItem = "";
     public string enumSlot = "";
+    public string descriptionText = "";
+    public string menuName = "";
 
-    private GameObject _text;
     private GameObject _inventoryReference;
+    public bool updateStats;
+    public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
 
     public void Start()
     {
-        _text = InternalCalls.GetChildrenByName(gameObject, "Description");
-        _inventoryReference = InternalCalls.GetGameObjectByName("Inventory Menu");
+        GameObject goDescription = InternalCalls.GetChildrenByName(gameObject, "Description");
+        GameObject goText = InternalCalls.GetChildrenByName(goDescription, "Text");
+        descriptionText = UI.GetUIText(goText);
+
+        _inventoryReference = InternalCalls.GetGameObjectByName(menuName);
 
         itemType = SetType(enumItem);
         currentSlot = SetType(enumSlot);
 
-        item = new Item(currentSlot, itemType);
+        item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        
         //Debug.Log(item.currentSlot.ToString());
         //Debug.Log(item.itemType.ToString());
     }
 
     public void Update()
     {
-        if (_inventoryReference.GetComponent<UI_Inventory>()._focusedGO != null)
+        if (updateStats && _inventoryReference.GetComponent<UI_Inventory>()._droppable)
         {
-            if (!InternalCalls.CompareGameObjectsByUID(_inventoryReference.GetComponent<UI_Inventory>()._focusedGO, gameObject))
+            if (item.currentSlot != ITEM_SLOT.NONE)
             {
-                _text.SetActive(false);
+                UpdateStats();
+                _inventoryReference.GetComponent<UI_Inventory>().UpdateTextStats();
             }
+
+            updateStats = false;
         }
+
         return;
     }
 
-    public void ShowInfo(bool isShowing)
+    public void UpdateInfo()
     {
-        if (_text != null)
+        if (_inventoryReference.GetComponent<UI_Inventory>().goDescription != null)
         {
-            _text.SetActive(isShowing);
+            UI.TextEdit(_inventoryReference.GetComponent<UI_Inventory>().goText, descriptionText);
         }
     }
 
@@ -83,5 +94,19 @@ public class UI_Item_Button : YmirComponent
         }
 
         return elementChanged;
+    }
+
+    private void UpdateStats() // TODO: cambiar cuando items funcionen en player
+    {
+        if (_inventoryReference != null)
+        {
+            _inventoryReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;        
+            _inventoryReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;        
+            _inventoryReference.GetComponent<UI_Inventory>().health.armor += item.armor;        
+            _inventoryReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;        
+            _inventoryReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;        
+            _inventoryReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;        
+            _inventoryReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;        
+        }
     }
 }

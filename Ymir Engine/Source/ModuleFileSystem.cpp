@@ -54,6 +54,12 @@ bool ModuleFileSystem::Init()
 
 	}
 
+#ifdef _STANDALONE
+
+	CopyStandaloneBuild();
+
+#endif // _STANDALONE
+
 	return ret;
 }
 
@@ -246,4 +252,11 @@ bool ModuleFileSystem::LoadMeshToFile(const std::string filename, ResourceMesh* 
 
 	ImporterMesh::Load(buf, ourMesh);
 	return true;
+}
+
+void ModuleFileSystem::CopyStandaloneBuild()
+{
+	std::string standaloneEXEpath = "../Standalone/Ymir Engine.exe";
+	std::string gameEXEpath = "./ProjectClapcom.exe";
+	PhysfsEncapsule::DuplicateFile(standaloneEXEpath.c_str(), gameEXEpath.c_str());
 }

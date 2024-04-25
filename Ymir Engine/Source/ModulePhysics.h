@@ -65,9 +65,14 @@ public:
 	btCollisionShape* CreateCollisionShape(const std::vector<Vertex>& vertices, const std::vector<GLuint>& indices);
 
 	// RayCast functions
-	bool RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint);
+	//bool RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint);
 	bool VolumetricRayCast(const btVector3& origin, const btVector3& direction, int numRays, float rayLength, std::vector<btVector3>& hitPoints);
 	bool DirectionalRayCast(const btVector3& origin, const btVector3& direction, float rayLength, btVector3& hitPoint);
+
+	// Script RayCast
+	bool Raycast(btVector3 origin, btVector3 direction, float rayLength, std::vector<btVector3>& hitPoints, std::vector<GameObject*>& hits);
+	GameObject* RaycastHit(btVector3 origin, btVector3 direction, float rayLength);
+	bool RaycastTest(btVector3 origin, btVector3 direction, float rayLength, GameObject* gameObject);
 
 	btScalar* getOpenGLMatrix(float4x4 matrix);
 
@@ -112,6 +117,8 @@ public:
 	bool inCollision = false;
 	bool onExitCollision = false;
 	bool firstCollision = true;
+
+	bool isWorldFirstFrame = false;
 
 private:
 

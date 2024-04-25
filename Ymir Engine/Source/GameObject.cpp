@@ -57,15 +57,19 @@ GameObject::~GameObject()
 	{
 		ClearVecPtr(mChildren);
 	}
+
 	for (size_t i = 0; i < csReferences.size(); i++)
 	{
 		mono_field_set_value(mono_gchandle_get_target(csReferences[i]->parentSC->noGCobject), csReferences[i]->field, NULL);
 		csReferences[i]->fiValue.goValue = nullptr;
 	}
+
 	csReferences.clear();
 
 	auto it = std::find(External->scene->gameObjects.begin(), External->scene->gameObjects.end(), this);
+
 	if (it != External->scene->gameObjects.end()) {
+
 		External->scene->gameObjects.erase(it);
 		
 	}
@@ -109,6 +113,7 @@ void GameObject::Disable()
 {
 	if (active) {
 		active = false;
+
 	}
 }
 

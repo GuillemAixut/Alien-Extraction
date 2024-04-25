@@ -11,80 +11,24 @@ using System.Threading.Tasks;
 
 using YmirEngine;
 
-enum EnemyState
-{
-    Idle,
-    Moving,
-    Attacking,
-    Dead
-}
 
-public enum WanderState
-{
-    REACHED,
-    GOING,
-    CHASING,
-    ATTACK,
-    HIT,
-    STOPED
-}
-public class RandomPointGenerator
-{
-    private Random random = new Random();
 
-    public (float x, float y) GetRandomPointInRadius(float radius)
-    {
-        // Generate random angle
-        double angle = random.NextDouble() * 2 * Math.PI;
-
-        // Calculate random point coordinates
-        float x = (float)(Math.Cos(angle) * radius);
-        float y = (float)(Math.Sin(angle) * radius);
-
-        return (x, y);
-    }
-}
-
-public class FaceHuggerBaseScript : YmirComponent
+public class FaceHuggerBaseScript : Enemy
 {
     public GameObject thisReference = null;
 
-
-    public float movementSpeed = 20f;
-    private float actualMovementSpeed;
-
-    public float life = 100f;
-
-    //This may change depending on enemy rarity
-    public float armor = 0;
-
-    //0 = Common, 1 = Rare, 2 = Elite
-    public int rarity = 0;
-
-    private float wanderRange = 10f;
-
-    public float xSpeed = 0, ySpeed = 0;
+    public GameObject canvas;
 
 
-    
-
-    private GameObject player;
-    protected PathFinding agent;
     protected Vector3 targetPosition = null;
 
     public bool PlayerDetected = false;
 
-    public float DetectionRadius = 60f;
+    
     private float AttackDistance = 20f;
 
     //private EnemyState state = EnemyState.Idle;
-
-    private WanderState wanderState;
-
-    RandomPointGenerator pointGenerator;
-    private Health healthScript;
-
-
+   
 
     private float wanderTimer;
     public float wanderDuration = 5f;
@@ -107,7 +51,6 @@ public class FaceHuggerBaseScript : YmirComponent
 
     public void Start()
     {
-        pointGenerator = new RandomPointGenerator();
         wanderState = WanderState.REACHED;
         wanderDuration = 5f;
         wanderTimer = wanderDuration;
@@ -117,7 +60,7 @@ public class FaceHuggerBaseScript : YmirComponent
         agent = gameObject.GetComponent<PathFinding>();
         movementSpeed = 25f;
         stopedDuration = 1f;
-        DetectionRadius = 50f;
+        detectionRadius = 50f;
         wanderRange = 100f;
         cumDuration = 2f;
         cumDuration2 = 5f;
@@ -143,7 +86,8 @@ public class FaceHuggerBaseScript : YmirComponent
         }
 
         agent.stoppingDistance = 2f;
-        agent.speed = 15f;
+        agent.speed = 50f;
+        agent.angularSpeed = 10f;
 
 
     }
@@ -170,7 +114,7 @@ public class FaceHuggerBaseScript : YmirComponent
                     LookAt(agent.GetDestination());
                     //Debug.Log("[ERROR] Speed" + agent.speed);
                     MoveToCalculatedPos(agent.speed);
-                    //Debug.Log("[ERROR] Current State: GOING");
+                    Debug.Log("[ERROR] Current State: GOING");
 
                     IsReached(gameObject.transform.globalPosition, targetPosition);
                     break;
@@ -184,7 +128,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
                     MoveToCalculatedPos(agent.speed);
 
-                    //Debug.Log("[ERROR] Current State: CHASING");
+                    Debug.Log("[ERROR] Current State: CHASING");
                     break;
 
                 case WanderState.STOPED:
@@ -193,6 +137,7 @@ public class FaceHuggerBaseScript : YmirComponent
                     break;
 
                 case WanderState.HIT:
+
 
                     Proccescumdown();
 
@@ -208,18 +153,19 @@ public class FaceHuggerBaseScript : YmirComponent
             if (wanderState != WanderState.ATTACK && healthScript.GetCurrentHealth() > 0)
             {
 
-                if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, DetectionRadius))
+                if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
                 {
 
                     if (wanderState != WanderState.HIT)
                     {
-                        actualMovementSpeed = movementSpeed;
-                        if (CryTimer >= 10)
+                        
+                        if (CryTimer >= 10) 
                         {
                             Audio.PlayAudio(gameObject, "FH_Cry");
                             CryTimer = 0;
                         }
                         wanderState = WanderState.CHASING;
+                        
                     }
                     //Attack if in range
                     if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, AttackDistance))
@@ -245,14 +191,7 @@ public class FaceHuggerBaseScript : YmirComponent
 
     }
 
-    public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
-    {
-        float deltaX = Math.Abs(first.x - second.x);
-        float deltaY = Math.Abs(first.y - second.y);
-        float deltaZ = Math.Abs(first.z - second.z);
 
-        return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
-    }
 
     private void Proccescumdown()
     {
@@ -278,22 +217,6 @@ public class FaceHuggerBaseScript : YmirComponent
             }
         }
     }
-    private void ProcessMovement()
-    {
-        if (wanderTimer > 0)
-        {
-            wanderTimer -= Time.deltaTime;
-            if (wanderTimer <= 0)
-            {
-
-                //Debug.Log("[ERROR] AAAA");
-                actualMovementSpeed = 0;
-                stopedTimer = stopedDuration;
-                wanderState = WanderState.STOPED;
-
-            }
-        }
-    }
 
     public WanderState GetState()
     {
@@ -312,7 +235,7 @@ public class FaceHuggerBaseScript : YmirComponent
                 //Debug.Log("[ERROR] DID DAMAGE");
                 attackSensor = true;
                 attackTimer = attackDuration;
-                actualMovementSpeed = 0;
+                
                 stopedTimer = stopedDuration;
                 wanderState = WanderState.STOPED;
 
@@ -320,132 +243,15 @@ public class FaceHuggerBaseScript : YmirComponent
         }
     }
 
-    private void HandleRotation()
-    {
-        Vector3 aX = new Vector3(xSpeed, 0, ySpeed);
-        aX = Vector3.Normalize(aX);
 
-        //Debug.Log("[ERROR] Vector: " + aX);
-
-        Quaternion targetRotation = Quaternion.identity;
-
-        Vector3 aY = new Vector3(0, 1, 0);
-
-
-        if (aX != Vector3.zero)
-        {
-            float angle = 0;
-
-            if (aX.x >= 0)
-            {
-                angle = (float)Math.Acos(Vector3.Dot(aX, aY) - 1);
-            }
-            else if (aX.x < 0)
-            {
-                angle = -(float)Math.Acos(Vector3.Dot(aX, aY) - 1);
-            }
-
-            //Debug.Log("[ERROR] Angle: " + angle);
-
-            targetRotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.up);
-
-            //Debug.Log("[ERROR] Angle: " + targetRotation);
-        }
-
-        gameObject.SetRotation(targetRotation);
-
-    }
-
-    public void LookAt(Vector3 pointToLook)
-    {
-        Vector3 direction = pointToLook - gameObject.transform.globalPosition;
-        direction = direction.normalized;
-        float angle = (float)Math.Atan2(direction.x, direction.z);
-
-        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
-
-        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-            return;
-
-        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
-
-        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
-
-
-        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
-
-        gameObject.SetRotation(desiredRotation);
-
-    }
-
-    public void MoveToCalculatedPos(float speed)
-    {
-        Vector3 pos = gameObject.transform.globalPosition;
-        Vector3 destination = agent.GetDestination();
-        Vector3 direction = destination - pos;
-
-        gameObject.SetVelocity(direction.normalized * speed);
-    }
-
-    private void RotateEnemy()
-    {
-        Vector3 direction = player.transform.globalPosition - gameObject.transform.globalPosition;
-        direction = direction.normalized;
-        float angle = (float)Math.Atan2(direction.x, direction.z);
-
-        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
-
-        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-            return;
-
-        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
-
-        float rotationSpeed = Time.deltaTime * movementSpeed;
-        //Debug.Log("CS: Rotation speed: " + rotationSpeed.ToString());
-        //Debug.Log("CS: Time: " + Time.deltaTime);
-
-        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
-
-        gameObject.transform.localRotation = desiredRotation;
-
-        //Debug.Log("[ERROR] rotation:  " + gameObject.transform.localRotation);
-    }
-
-    public void DestroyEnemy()
-    {
-        Audio.PlayAudio(gameObject, "FH_Death");
-        InternalCalls.Destroy(gameObject);
-    }
-
-    public void IsReached(Vector3 position, Vector3 destintion)
-    {
-        Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
-                                      0,
-                                      Mathf.Round(position.z));
-
-        Vector3 roundedDestination = new Vector3(Mathf.Round(destintion.x),
-                                                 0,
-                                                 Mathf.Round(destintion.z));
-
-        if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
-        {
-            wanderState = WanderState.REACHED;
-        }
-    }
 
     public void OnCollisionStay(GameObject other)
     {
-        //if (other.Name == "Player" && wanderState != WanderState.HIT)
-        //{
-
-        //    Debug.Log("[ERROR] Name: " + other.Name);
-        //    Debug.Log("[ERROR] HIT!!!");
-        //    gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-
-        //    gameObject.SetImpulse(gameObject.transform.GetForward() * -10);
-        //    healthScript.TakeDmg(3);
-        //    wanderState = WanderState.HIT;
-        //    cumTimer = cumDuration;
-        //}
+       if(other.Tag == "Tail" && wanderState != WanderState.HIT)
+        {
+            life -= 80;
+            gameObject.SetImpulse(gameObject.transform.GetForward() * -50);
+            wanderState = WanderState.HIT;
+        }
     }
 }

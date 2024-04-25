@@ -66,6 +66,8 @@ public:
     GLuint ID;
     uint UID;
 
+    bool checkerLoaded = false;
+
 private:
 
     uint width; 

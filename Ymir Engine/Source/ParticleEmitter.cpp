@@ -33,7 +33,15 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 	EmitterSetting* nuevoEmitter = nullptr;
 	switch ((EmitterType)type)
 	{
-	case PAR_BASE:
+	case EmitterType::PAR_SUBEMITTER:
+	{
+		nuevoEmitter = new Subemitter;
+		nuevoEmitter->type = EmitterType::PAR_SUBEMITTER;
+		nuevoEmitter->unique = true;
+
+		break;
+	}
+	case EmitterType::PAR_BASE:
 	{
 		nuevoEmitter = new EmitterBase;
 		nuevoEmitter->type = EmitterType::PAR_BASE;
@@ -41,7 +49,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 
 		break;
 	}
-	case PAR_SPAWN:
+	case EmitterType::PAR_SPAWN:
 	{
 		nuevoEmitter = new EmitterSpawner;
 		nuevoEmitter->type = EmitterType::PAR_SPAWN;
@@ -49,7 +57,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 
 		break;
 	}
-	case PAR_POSITION:
+	case EmitterType::PAR_POSITION:
 	{
 		nuevoEmitter = new EmitterPosition;
 		nuevoEmitter->type = EmitterType::PAR_POSITION;
@@ -57,7 +65,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 
 		break;
 	}
-	case PAR_ROTATION:
+	case EmitterType::PAR_ROTATION:
 	{
 		nuevoEmitter = new EmitterRotation;
 		nuevoEmitter->type = EmitterType::PAR_ROTATION;
@@ -65,7 +73,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 
 		break;
 	}
-	case PAR_SIZE:
+	case EmitterType::PAR_SIZE:
 	{
 		nuevoEmitter = new EmitterSize;
 		nuevoEmitter->type = EmitterType::PAR_SIZE;
@@ -73,7 +81,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 
 		break;
 	}
-	case PAR_COLOR:
+	case EmitterType::PAR_COLOR:
 	{
 		nuevoEmitter = new EmitterColor;
 		nuevoEmitter->type = EmitterType::PAR_COLOR;
@@ -81,7 +89,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 
 		break;
 	}
-	case PAR_IMAGE:
+	case EmitterType::PAR_IMAGE:
 	{
 		nuevoEmitter = new EmitterImage(this);
 		nuevoEmitter->type = EmitterType::PAR_IMAGE;
@@ -89,14 +97,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 
 		break;
 	}
-	case PAR_SHAPE:
-	{
-		nuevoEmitter = new EmitterShape(this);
-		nuevoEmitter->type = EmitterType::PAR_SHAPE;
-		nuevoEmitter->unique = true;
-		break;
-	}
-	case PARTICLES_MAX:
+	case EmitterType::PARTICLES_MAX:
 		break;
 	default:
 		break;
@@ -200,7 +201,7 @@ void ParticleEmitter::Update(float dt)
 void ParticleEmitter::DrawParticles()
 {
 	//ERIC: Si lo unico que se hace es poner esto en true jamas parara, lo cual no ha de ser el caso
-	External->renderer3D->initParticles = true;
+	//External->renderer3D->initParticles = true;
 }
 
 void ParticleEmitter::Reset()

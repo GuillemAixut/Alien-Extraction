@@ -2,11 +2,12 @@
     "Prefab": [
         {
             "Name": "Frame",
+            "Static": false,
             "Tag": "Untagged",
-            "UID": 878129821,
+            "UID": 794843613,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1398847280,
+            "Parent UID": 175461015,
             "Components": [
                 {
                     "Type": "Transform",
@@ -31,15 +32,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
+                    "Position X": 837,
+                    "Position Y": 933,
                     "Width": 75,
                     "Height": 75,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        837,
+                        933,
                         75,
                         75
                     ],
@@ -50,10 +51,10 @@
                     "Rows": 1,
                     "Columns": 19,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -67,26 +68,28 @@
                     "UID": 0,
                     "loop": false,
                     "pingpongWIP": false,
-                    "backwards": false,
-                    "animState": false,
+                    "backwards": true,
+                    "animState": true,
                     "delay": 0.10000000149011612,
-                    "loopCount": 0,
+                    "loopCount": 1,
                     "totalFrames": 18,
-                    "currentIndex": 0
+                    "currentIndex": 18
                 }
             ],
             "Children UID": [
-                825327980,
-                451280011
+                1520941648,
+                1278031458,
+                627738032
             ]
         },
         {
             "Name": "Skill",
+            "Static": false,
             "Tag": "Untagged",
-            "UID": 825327980,
+            "UID": 1520941648,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 878129821,
+            "Parent UID": 794843613,
             "Components": [
                 {
                     "Type": "Transform",
@@ -111,15 +114,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 7,
-                    "Position Y": 9,
+                    "Position X": 846,
+                    "Position Y": 944,
                     "Width": 55,
                     "Height": 55,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        7,
-                        9,
+                        846,
+                        944,
                         55,
                         55
                     ],
@@ -130,10 +133,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -143,12 +146,13 @@
             ]
         },
         {
-            "Name": "GamePad Key",
+            "Name": "Skill Button",
+            "Static": false,
             "Tag": "Untagged",
-            "UID": 451280011,
+            "UID": 1278031458,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 878129821,
+            "Parent UID": 794843613,
             "Components": [
                 {
                     "Type": "Transform",
@@ -173,47 +177,45 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 22,
-                    "Position Y": 58,
+                    "Position X": 860,
+                    "Position Y": 989,
                     "Width": 29,
                     "Height": 29,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        22,
-                        58,
+                        860,
+                        989,
                         29,
                         29
                     ],
-                    "Path": "Assets\/UI\/HUD Buttons\/BotonSelected.png",
+                    "Path": "Assets\/UI\/HUD Buttons\/BotonUnselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
                     "Type": "UI Transform",
                     "Component reference": 1
                 }
-            ],
-            "Children UID": [
-                1502913607
             ]
         },
         {
-            "Name": "Key",
+            "Name": "Gp Text",
+            "Static": false,
             "Tag": "Untagged",
-            "UID": 1502913607,
+            "UID": 627738032,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 451280011,
+            "Parent UID": 794843613,
             "Components": [
                 {
                     "Type": "Transform",
@@ -238,28 +240,28 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 32,
-                    "Position Y": 77,
-                    "Width": 300,
+                    "Position X": 870,
+                    "Position Y": 1007,
+                    "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        32,
-                        77,
-                        300,
+                        870,
+                        1007,
+                        200,
                         50
                     ],
-                    "Text": "A",
-                    "Font name": "arial.ttf",
+                    "Text": "Y",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 8,
-                    "Line Spacing": 0.5,
+                    "Font size": 10,
+                    "Line Spacing": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {

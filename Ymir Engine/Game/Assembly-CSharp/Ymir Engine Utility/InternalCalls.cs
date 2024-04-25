@@ -34,6 +34,12 @@ namespace YmirEngine
         public static extern void CreateTailSensor(object position, object rotation);
 
         /// <summary>
+        /// Creates Shotgun Sensor
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateShotgunSensor(object position, object rotation, object rightVector);
+
+        /// <summary>
         /// Creates a bullet.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -89,12 +95,19 @@ namespace YmirEngine
         public static extern GameObject ExitGame();
 
         /// <summary>
+        /// Read all de characters of the csv file
+        /// </summary>
+        /// <param name="filePath">The path to the CSV file (in this format: "Assets/Loot Tables/loot_table.csv").</param>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern string CSVToString(string filePath);
+
+        /// <summary>
         /// Retrieves a string with the values of the fields of the CSV, every field end with "," and every item with ";"
         /// </summary>
         /// <param name="filePath">The path to the CSV file (in this format: "Assets/Loot Tables/loot_table.csv").</param>
-        /// <param name="csFields">The CSV field names with their corresponding delimiters (in this format: "Nombre:,Probabilidad:") every field end with a comma ",".</param>
+        /// <param name="field">The CSV field names with their corresponding delimiters (in this format: "Nombre:,Probabilidad:") every field end with a comma ",".</param>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern string CSVToString(string filePath, string csFields);
+        public static extern string CSVToStringKeys(string filePath, string field);
 
         /// <summary>
         /// Creates a GameObject in the Engine as the prefab indicated
@@ -128,7 +141,13 @@ namespace YmirEngine
         /// Compare string to go name.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool CompareStringToName(object go, string name);        
+        public static extern bool CompareStringToName(object go, string name);
+
+        /// <summary>
+        /// Disable the component with name.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool DisableComponent(object go, string name, bool includeChildren);
 
     }
 
@@ -147,7 +166,7 @@ namespace YmirEngine
         /// Set navigation bool.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void SetCanNav();
+        public static extern void SetCanNav(bool isActive);
         
         /// <summary>
         /// Change UI state.
@@ -256,24 +275,48 @@ namespace YmirEngine
         public static extern void SetActiveAllUI(object selectedgo, bool isActive);
 
         /// <summary>
-        /// Switch position of two game objects.
+        /// Navigate in x axis with gamepad.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject NavigateGridHorizontal(object go, int rows, int columns, bool isRight, bool navigate, object gridLeft, object gridRight);
-        
+        public static extern void NavigateGridHorizontal(object go, int rows, int columns, bool isRight, bool navigate, object gridLeft, object gridRight, bool bounce, int childNumber, bool isEmpty);
+
         /// <summary>
-        /// Switch position of two game objects.
+        /// Navigate in y axis with gamepad.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject NavigateGridVertical(object go, int rows, int columns, bool isDown, bool navigate, object gridDown, object gridUp);
-        
+        public static extern void NavigateGridVertical(object go, int rows, int columns, bool isDown, bool navigate, object gridDown, object gridUp, bool bounce, int childNumber, bool isEmpty);
+
         /// <summary>
-        /// Switch position of two game objects.
+        /// Unlock upgrades.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern GameObject UpgradeToUnlock(object go);
+        
+        /// <summary>
+        /// Set child of UI go as focused.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetFirstFocused(object go);
+
+        /// <summary>
+        /// Get UI text
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern string GetUIText(object go);     
+        
+        /// <summary>
+        /// Get UI text
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetUIPosWithOther(object goSource, object goDestination);       
+        
+        /// <summary>
+        /// Check UI inside list
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool CheckUI(object goTarget, object goOrigin);
     }
-    
+
     /// <summary>
     /// Provides methods for handling input.
     /// </summary>

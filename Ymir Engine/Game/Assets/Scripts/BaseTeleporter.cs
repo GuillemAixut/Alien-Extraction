@@ -30,6 +30,10 @@ public class BaseTeleporter : YmirComponent
 
     private bool _setNormal = false;
 
+    private GameObject _grid;
+
+    private Player _player = null;
+
     //public string[] lvlDescriptions = new string[3];
     //public string[] weaponDescriptions = new string[3];
 
@@ -54,6 +58,10 @@ public class BaseTeleporter : YmirComponent
         selectedLvl = LEVELS.NONE;
         selectedWeapon = WEAPON_TYPE.NONE;
 
+        _grid = InternalCalls.GetGameObjectByName("Grid");
+
+        GetPlayerScript();
+
         //lvlDescriptions.Add("WAREHOUSE");
         //lvlDescriptions.Add("LAB");
         //lvlDescriptions.Add("HATCHERY");
@@ -68,6 +76,24 @@ public class BaseTeleporter : YmirComponent
 
     public void Update()
     {
+        if (_player == null)
+        {
+            GetPlayerScript();
+        }
+
+        //if (_player != null && _player.setHover)
+        //{
+        //    Debug.Log("set first");
+        //    UI.SetFirstFocused(gameObject);
+        //    _player.setHover = false;
+        //}
+
+        // TODO: delete this
+        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
+        {
+            UI.SetFirstFocused(gameObject);
+        }
+
         if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
         {
             csPlayer.PlayerStopState(false);
@@ -79,6 +105,8 @@ public class BaseTeleporter : YmirComponent
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
             UI.SetUIState(button, (int)UI_STATE.NORMAL);
+            _grid.GetComponent<UI_Inventory_Grid>().naviagteY = true;
+
             _setNormal = true;
 
             switch (selectedLvl)
@@ -110,9 +138,21 @@ public class BaseTeleporter : YmirComponent
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
             UI.SetUIState(button, (int)UI_STATE.DISABLED);
+            _grid.GetComponent<UI_Inventory_Grid>().naviagteY = false;
+
             _setNormal = false;
         }
 
         return;
+    }
+
+    private void GetPlayerScript()
+    {
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            _player = gameObject.GetComponent<Player>();
+        }
     }
 }

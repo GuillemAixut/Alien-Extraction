@@ -9,6 +9,7 @@
 
 enum EmitterType
 {
+	PAR_SUBEMITTER = -1,
 	PAR_BASE,
 	PAR_SPAWN,
 	PAR_POSITION,
@@ -16,7 +17,6 @@ enum EmitterType
 	PAR_SIZE,
 	PAR_COLOR,
 	PAR_IMAGE,
-	PAR_SHAPE,
 	PARTICLES_MAX,
 };
 
@@ -83,14 +83,14 @@ struct EmitterBase : EmitterSetting
 	float3 emitterOrigin;
 
 	//Cylinder Parameters
+	float radiusHollow; //Espacio vacio del cono por si se quiere hacer un donut o algo asi
 	float baseRadius; //Radius/face positioned on 0,0,0
 	float topRadius; // Radius/face projected after the length
 	float heigth; //Heigth of the cone.
 
 	//Box Parameters
 	float3 boxPointsPositives;
-	float3 boxPointsNegative;
-
+	float3 boxPointsNegatives;
 };
 
 //EnumS of types of spawn of the spawn setting
@@ -153,12 +153,16 @@ struct EmitterPosition : EmitterSetting
 	bool randomized; //Si la direccion es solo la uno o un numero random entre la 1 y la 2
 	float3 direction1;
 	float3 direction2;
+	bool normalizedSpeed;
+
 	bool acceleration;
 	float particleSpeed1;
 	float particleSpeed2;
+
 	float3 newDirection;
 	float changeSpeed1;
 	float changeSpeed2;
+	bool normalizedChange;
 	
 	SpeedChangeMode actualSpeedChange;
 
@@ -193,6 +197,7 @@ struct EmitterRotation : EmitterSetting
 	void Update(float dt, ParticleEmitter* emitter);
 	void OnInspector();
 
+	float4x4 LookAt(float3& Spot, float3& position);
 	void SetRotation(Quat rot);
 
 	bool horAlign;
@@ -290,29 +295,12 @@ struct EmitterShapeArea : EmitterSetting
 	bool useDirection = true;
 };
 
-//struct EmmiterShapeCircumference : EmitterShape
-//{
-//	EmmiterShapeCircumference();
-//	void Spawn(ParticleEmitter* emitter, Particle* particle);
-//	void Update(float dt, ParticleEmitter* emitter);
-//	void OnInspector();
-//};
-//
-//struct EmitterShapeCone : EmitterShape
-//{
-//	EmitterShapeCone();
-//	void Spawn(ParticleEmitter* emitter, Particle* particle);
-//	void Update(float dt, ParticleEmitter* emitter);
-//	void OnInspector();
-//};
-//
-//
-//struct EmitterShapeSphere : EmitterShape
-//{
-//	EmitterShapeSphere();
-//	void Spawn(ParticleEmitter* emitter, Particle* particle);
-//	void Update(float dt, ParticleEmitter* emitter);
-//	void OnInspector();
-//};
+struct Subemitter : EmitterSetting
+{
+	Subemitter();
+	void Spawn(ParticleEmitter* emitter, Particle* particle);
+	void Update(float dt, ParticleEmitter* emitter);
+	void OnInspector();
+};
 
 #endif //__EMITTER_INSTANCE_H__

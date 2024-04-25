@@ -17,16 +17,6 @@
 #include "ModuleMonoManager.h"
 #include "Resources.h"
 #include "PhysfsEncapsule.h"
-
-#include "G_UI.h"
-#include "UI_Image.h"
-#include "UI_Text.h"
-#include "UI_Button.h"
-#include "UI_InputBox.h"
-#include "UI_CheckBox.h"
-#include "UI_Slider.h"
-#include "UI_Transform.h"
-
 #include "MathGeoLib/include/Math/float3.h"
 
 #include "External/mmgr/mmgr.h"
@@ -153,36 +143,36 @@ int MouseY()
 }
 
 
-//MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
-//{
-//	if (prefabPath == nullptr)
-//		return nullptr;
-//
-//	 char* library_path = mono_string_to_utf8(prefabPath);
-//	GameObject* prefab_object =  ModuleScene::LoadPrefab(library_path);
-//	mono_free(library_path);
-//
-//	if (prefab_object != nullptr)
-//	{
-//		CTransform* object_transform = dynamic_cast<CTransform*>(prefab_object->GetComponent(ComponentType::TRANSFORM));
-//
-//		float3 posVector = ModuleMonoManager::UnboxVector(position);
-//		Quat rotQuat = ModuleMonoManager::UnboxQuat(rotation);
-//
-//		float3 scaleVector;
-//		if (scale != nullptr)
-//			scaleVector = ModuleMonoManager::UnboxVector(scale);
-//		else
-//			scaleVector = prefab_object->mTransform->scale;
-//
-//		prefab_object->mTransform->SetPosition(posVector);
-//
-//		prefab_object->mTransform->SetRotation(rotQuat);
-//		
-//	}
-//
-//	return External->moduleMono->GoToCSGO(prefab_object);
-//}
+MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
+{
+	if (prefabPath == nullptr)
+		return nullptr;
+
+	 char* library_path = mono_string_to_utf8(prefabPath);
+	GameObject* prefab_object =  External->scene->LoadPrefab(library_path);
+	mono_free(library_path);
+
+	if (prefab_object != nullptr)
+	{
+		CTransform* object_transform = dynamic_cast<CTransform*>(prefab_object->GetComponent(ComponentType::TRANSFORM));
+
+		float3 posVector = ModuleMonoManager::UnboxVector(position);
+		Quat rotQuat = ModuleMonoManager::UnboxQuat(rotation);
+
+		float3 scaleVector;
+		if (scale != nullptr)
+			scaleVector = ModuleMonoManager::UnboxVector(scale);
+		else
+			scaleVector = prefab_object->mTransform->scale;
+
+		prefab_object->mTransform->SetPosition(posVector);
+
+		prefab_object->mTransform->SetRotation(rotQuat);
+		
+	}
+
+	return External->moduleMono->GoToCSGO(prefab_object);
+}
 
 void CSCreateGameObject(MonoObject* name, MonoObject* position)
 {
@@ -268,6 +258,7 @@ MonoObject* FindObjectWithName(MonoString* name) {
 
 	char* _name = mono_string_to_utf8(name);
 
+
 	for (int i = 0; i < gameObjectVec.size(); i++) {
 
 		if (strcmp(gameObjectVec[i]->name.c_str(), _name) == 0) {
@@ -351,6 +342,7 @@ void SetImpulse(MonoObject* obj, MonoObject* vel) {
 
 	if (rigidbody)
 	{
+		rigidbody->physBody->body->activate(true);
 		rigidbody->physBody->body->applyCentralImpulse({ omgItWorks.x, omgItWorks.y,omgItWorks.z });
 	}
 }
@@ -450,6 +442,75 @@ void ClearForces(MonoObject* obj) {
 	}
 
 
+}
+
+//bool Raycast(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, std::vector<float3> hitPoints, std::vector<MonoObject*> hits) {
+//
+//	if (External == nullptr)
+//		return;
+//
+//	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+//
+//	float3 pOrigin = External->moduleMono->UnboxVector(origin);
+//
+//	btVector3 fOrigin;
+//
+//	External->physics->Raycast(origin);
+//
+//}
+
+MonoObject* RaycastHit(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght) {
+
+	if (External == nullptr)
+		return false;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+
+	float3 pOrigin = External->moduleMono->UnboxVector(origin);
+
+	btVector3 fOrigin;
+
+	fOrigin.setX(pOrigin.x);
+	fOrigin.setY(pOrigin.y);
+	fOrigin.setZ(pOrigin.z);
+
+	float3 pdirection = External->moduleMono->UnboxVector(direction);
+
+	btVector3 fdirection;
+
+	fdirection.setX(pdirection.x);
+	fdirection.setY(pdirection.y);
+	fdirection.setZ(pdirection.z);
+
+	return External->moduleMono->GoToCSGO(External->physics->RaycastHit(fOrigin, fdirection, rayLenght));
+}
+
+bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, MonoObject* gameObject) {
+
+	if (External == nullptr)
+		return false;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+
+	float3 pOrigin = External->moduleMono->UnboxVector(origin);
+
+	btVector3 fOrigin;
+
+	fOrigin.setX(pOrigin.x);
+	fOrigin.setY(pOrigin.y);
+	fOrigin.setZ(pOrigin.z);
+
+	float3 pdirection = External->moduleMono->UnboxVector(direction);
+
+	btVector3 fdirection;
+
+	fdirection.setX(pdirection.x);
+	fdirection.setY(pdirection.y);
+	fdirection.setZ(pdirection.z);
+
+	GameObject* testGameObject = External->moduleMono->GameObject_From_CSGO(gameObject);
+
+	return External->physics->RaycastTest(fOrigin, fdirection, rayLenght, testGameObject);
 }
 
 MonoObject* SendPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
@@ -602,6 +663,8 @@ void LoadSceneCS(MonoString* scenePath)
 {
 	char* _path = mono_string_to_utf8(scenePath);
 	External->scene->pendingToAddScene = _path;
+
+	External->scene->CheckCurrentMap(_path);
 }
 
 void Destroy(MonoObject* go)
@@ -702,6 +765,45 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	go->AddComponent(c);
 }
 
+void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, MonoObject* right) {
+
+	//Crea un game object temporal llamado "ShotgunBullet"
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("ShotgunBullet", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "ShotgunBullet";
+
+	//Hace unbox de los parametros de transform pasados
+	float3 posVector = External->moduleMono->UnboxVector(position);
+
+	float3 rightVector = External->moduleMono->UnboxVector(right);
+
+	//Funciona pero es rarete
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	//rotVector = rotVector.RotateAxisAngle(rightVector, DegToRad(-90.0f));
+
+
+	float3 scaleVector = float3(15, 70, 15);
+
+	//Añade RigidBody a la bala
+	CCollider* physBody;
+	physBody = new CCollider(go, CONE);
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector.Normalized());
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	//Añade el script AcidicSpit al gameObject go
+	Component* c = nullptr;
+	c = new CScript(go, "BH_Shotgun");
+	go->AddComponent(c);
+}
+
 void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 {
 	//Crea un game object temporal llamado "Bullet"
@@ -712,13 +814,16 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 
 	//Hace unbox de los parametros de transform pasados
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(1, 1, 3);
+	//Funciona pero es rarete
+	//Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	Quat rotVector = Quat(0,0,0,0);
+	float3 scaleVector = float3(50, 50, 50);
 
 
 	//Añade RigidBody a la bala
 	CCollider* physBody;
-	physBody = new CCollider(go);
+	physBody = new CCollider(go, CYLINDER);
+	//physBody = new CCollider(go);
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector.Normalized());
@@ -734,7 +839,6 @@ void CreateTailSensor(MonoObject* position, MonoObject* rotation)
 	Component* c = nullptr;
 	c = new CScript(go, t);
 	go->AddComponent(c);
-
 }
 
 void CreateAcidicSpit(MonoObject* name, MonoObject* position)
@@ -751,7 +855,7 @@ void CreateAcidicSpit(MonoObject* name, MonoObject* position)
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
 
-	uint UID = 1798080460; // UID of Sphere.fbx mesh in meta (lo siento)
+	uint UID = 826872905; // UID of Sphere.fbx mesh in meta (lo siento)
 	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
 
 	//Añade la mesh a la bola de acido
@@ -768,11 +872,24 @@ void CreateAcidicSpit(MonoObject* name, MonoObject* position)
 	go->AddComponent(cmaterial);
 
 	//Añade RigidBody a la bola de acido
+
+	//Antiguo
+	//CCollider* physBody = new CCollider(go);
+	//physBody->useGravity = false;
+	//physBody->size = scaleVector;
+	//physBody->physBody->SetPosition(posVector);
+	//go->AddComponent(physBody);
+	
+	//Nuevo
 	CCollider* physBody = new CCollider(go);
 	physBody->useGravity = false;
-	physBody->size = scaleVector;
 	physBody->physBody->SetPosition(posVector);
+	physBody->SetAsSensor(true);
+
 	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
 	//Añade el script AcidicSpit al gameObject go
 	const char* t = "AcidicSpit";
@@ -785,7 +902,7 @@ void CreateAcidicSpit(MonoObject* name, MonoObject* position)
 void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 {
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	float3 scaleVector = float3(12.0f, 1.0f, 12.0f);
+	float3 scaleVector = float3(3.0f, 1.0f, 3.0f);
 	char* p = mono_string_to_utf8(mono_object_to_string(name, NULL));
 
 	if (External == nullptr) return;
@@ -796,28 +913,23 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
 
-	uint UID = 1051177528; // UID of Cylinder.fbx mesh in meta (lo siento)
-	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
-
-	//Añade la mesh a la bullet
-	ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
-	CMesh* cmesh = new CMesh(go);
-	cmesh->rMeshReference = rMesh;
-	go->AddComponent(cmesh);
-
-	//Añade el material a la Bullet
-	CMaterial* cmaterial = new CMaterial(go);
-	cmaterial->shaderPath = "Assets/Shaders/LavaShader.glsl";
-	cmaterial->shader.LoadShader(cmaterial->shaderPath);
-	cmaterial->shaderDirtyFlag = false;
-	go->AddComponent(cmaterial);
-
+	//Antiguo
 	//Añade RigidBody a la bala
-	CCollider* physBody = new CCollider(go);
-	physBody->useGravity = true;
-	physBody->size = scaleVector;
+	//CCollider* physBody = new CCollider(go);
+	//physBody->useGravity = true;
+	//physBody->size = scaleVector;
+	//physBody->physBody->SetPosition(posVector);
+	//go->AddComponent(physBody);
+
+	CCollider* physBody = new CCollider(go, CYLINDER);
+	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
+	physBody->SetAsSensor(true);
+
 	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
 	//Añade el script Bullet al gameObject Bullet
 	const char* t = "AcidPuddle";
@@ -876,85 +988,6 @@ void SetTag(MonoObject* cs_Object, MonoString* string)
 	cpp_gameObject->tag = newTag.c_str();
 }
 
-//
-int GetUIState(MonoObject* object, int uiState)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	return (int)((C_UI*)(go->GetComponent(ComponentType::UI)))->state;
-}
-
-void SetUIState(MonoObject* object, int uiState)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	std::vector<Component*> vec = go->GetAllComponentsByType(ComponentType::UI);
-
-	for (auto it = vec.begin(); it != vec.end(); ++it)
-	{
-		((C_UI*)(*it))->SetState((UI_STATE)uiState);
-
-		if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::FOCUSED)
-		{
-			int offset = 0;
-			std::vector<C_UI*> listOffset;
-			for (int i = 0; i < External->scene->vCanvas.size(); ++i)
-			{
-				External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
-			}
-
-			for (auto i = 0; i < listOffset.size(); i++)
-			{
-				if (listOffset[i]->GetUID() != (int)(C_UI*)(*it)->GetUID())
-				{
-					offset++;
-				}
-
-				else
-				{
-					break;
-				}
-			}
-
-			External->scene->onHoverUI = offset;
-			std::vector<Component*> listComponents = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
-
-			for (auto it = listComponents.begin(); it != listComponents.end(); ++it)
-			{
-				if (((C_UI*)(*it))->tabNav_)
-				{
-					((C_UI*)(*it))->SetState(UI_STATE::NORMAL);
-				}
-			}
-
-			External->scene->focusedUIGO = ((C_UI*)(*it))->mOwner;
-			External->scene->SetSelected(((C_UI*)(*it))->mOwner);
-
-			listComponents = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
-
-			for (auto it = listComponents.begin(); it != listComponents.end(); ++it)
-			{
-				if (((C_UI*)(*it))->tabNav_)
-				{
-					((C_UI*)(*it))->SetState(UI_STATE::FOCUSED);
-				}
-			}
-		}
-	}
-}
-
-MonoObject* CreateImageUI(MonoObject* pParent, MonoString* newImage, int x, int y)
-{
-	GameObject* ui_gameObject = External->moduleMono->GameObject_From_CSGO(pParent);
-	std::string _newImage = mono_string_to_utf8(newImage);
-
-	G_UI* tempGameObject = new G_UI(External->scene->mRootNode, 0, 0);
-
-	tempGameObject->AddImage(_newImage, x, y, 100, 100);
-
-	External->scene->PostUpdateCreateGameObject_UI((GameObject*)tempGameObject);
-
-	return External->moduleMono->GoToCSGO(tempGameObject);
-}
-
 void Rumble_Controller(int time, int intenisty)
 {
 	if (External != nullptr) {
@@ -969,572 +1002,6 @@ void Rumble_Controller(int time, int intenisty)
 	}
 }
 
-bool GetCanNav()
-{
-	return External->scene->canNav;
-}
-
-void SetCanNav(bool set)
-{
-	External->scene->canNav = set;
-}
-
-void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
-{
-	//Falta meter automaticamente que haga el change de Image
-	GameObject* go_image_to_change = External->moduleMono->GameObject_From_CSGO(go);
-	std::string _newImage = mono_string_to_utf8(newImage);
-
-	UI_Image* image_to_change = static_cast<UI_Image*>(static_cast<G_UI*>(go_image_to_change)->GetComponentUI(UI_TYPE::IMAGE));
-	image_to_change->SetImg(_newImage, (UI_STATE)state);
-}
-
-// Image Animations
-int GetImageRows(MonoObject* object)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssRows;
-}
-
-int GetImageColumns(MonoObject* object)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssColumns;
-}
-
-int GetImageCurrentFrameX(MonoObject* object)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssCoordsX;
-}
-
-int GetImageCurrentFrameY(MonoObject* object)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	return static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssCoordsY;
-}
-
-void SetImageCurrentFrame(MonoObject* object, int x, int y)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssCoordsX = x;
-	static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->ssCoordsY = y;
-
-	static_cast<UI_Image*>(go->GetComponentUI(UI_TYPE::IMAGE))->SetSpriteSize();
-}
-
-//
-void TextEdit(MonoObject* object, MonoString* text)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	static_cast<UI_Text*>(go->GetComponentUI(UI_TYPE::TEXT))->SetText(mono_string_to_utf8(text));
-}
-
-void SliderEdit(MonoObject* object, double value)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-	static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->SetValue(value);
-}
-
-void SliderSetRange(MonoObject* object, double min, double max)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-
-	if (static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->useFloat)
-	{
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->minValue.fValue = min;
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->maxValue.fValue = max;
-	}
-	else
-	{
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->minValue.iValue = min;
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->maxValue.iValue = max;
-	}
-}
-
-void SliderSetMin(MonoObject* object, double value)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-
-	if (static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->useFloat)
-	{
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->minValue.fValue = value;
-	}
-	else
-	{
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->minValue.iValue = value;
-	}
-}
-
-void SliderSetMax(MonoObject* object, double value)
-{
-	G_UI* go = (G_UI*)External->moduleMono->GameObject_From_CSGO(object);
-
-	if (static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->useFloat)
-	{
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->maxValue.fValue = value;
-	}
-	else
-	{
-		static_cast<UI_Slider*>(go->GetComponentUI(UI_TYPE::SLIDER))->maxValue.iValue = value;
-	}
-}
-
-// Inventory
-
-MonoObject* GetSelected()
-{
-	if (External->scene->selectedUIGO != nullptr)
-	{
-		return External->moduleMono->GoToCSGO(External->scene->selectedUIGO);
-	}
-
-	return nullptr;
-}
-
-MonoObject* GetFocused()
-{
-	if (External->scene->focusedUIGO != nullptr)
-	{
-		return External->moduleMono->GoToCSGO(External->scene->focusedUIGO);
-	}
-
-	return nullptr;
-}
-
-void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
-{
-	G_UI* selectedgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(selectedObject);
-	UI_Transform* selectedTransform = static_cast<UI_Transform*>(selectedgo->GetComponent(ComponentType::UI_TRAMSFORM));
-
-	G_UI* targetgo = (G_UI*)External->moduleMono->GameObject_From_CSGO(targetObject);
-	UI_Transform* targetTransform = static_cast<UI_Transform*>(targetgo->GetComponent(ComponentType::UI_TRAMSFORM));
-
-	float auxPosX = targetTransform->componentReference->posX;
-	float auxPosY = targetTransform->componentReference->posY;
-	//float auxWidth = targetTransform->componentReference->width;
-	//float auxHeight = targetTransform->componentReference->height;
-
-	targetTransform->componentReference->posX = selectedTransform->componentReference->posX;
-	targetTransform->componentReference->posY = selectedTransform->componentReference->posY;
-
-	selectedTransform->componentReference->posX = auxPosX;
-	selectedTransform->componentReference->posY = auxPosY;
-
-	//targetTransform->componentReference->width = selectedTransform->componentReference->width;
-	//targetTransform->componentReference->height = selectedTransform->componentReference->height;
-
-	//selectedTransform->componentReference->width = auxWidth;
-	//selectedTransform->componentReference->height = auxHeight;
-
-	targetTransform->UpdateUITransformChilds();
-	targetTransform->componentReference->dirty_ = true;
-
-	selectedTransform->UpdateUITransformChilds();
-	selectedTransform->componentReference->dirty_ = true;
-
-
-	for (int i = 0; i < External->scene->selectedUIGO->mComponents.size(); i++)
-	{
-		if (External->scene->selectedUIGO->mComponents[i]->ctype == ComponentType::UI)
-		{
-			if (static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state == UI_STATE::SELECTED)
-			{
-				static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state = UI_STATE::FOCUSED;
-			}
-		}
-	}
-
-	External->scene->swapList.insert(std::pair<GameObject*, GameObject*>(selectedgo, targetgo));
-	//selectedgo->SwapChildren(targetgo);
-
-	External->scene->focusedUIGO = External->scene->selectedUIGO;
-	External->scene->selectedUIGO = nullptr;
-
-}
-
-void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight, bool navigateGrids, MonoObject* gridLeft, MonoObject* gridRight)
-{
-	// Get UI elements to navigate
-	std::vector<C_UI*> listUI;
-	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
-	External->scene->GetUINavigate(gameObject, listUI); bool isInGO = false;
-	int offset = 0;
-
-	std::vector<C_UI*> listOffset;
-	for (int i = 0; i < External->scene->vCanvas.size(); ++i)
-	{
-		External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
-	}
-
-	for (auto i = 0; i < listOffset.size(); i++)
-	{
-		if (listOffset[i]->mOwner->UID != gameObject->mChildren[0]->UID)
-		{
-			offset++;
-		}
-
-		else
-		{
-			break;
-		}
-	}
-
-	if (External->scene->focusedUIGO == nullptr)
-	{
-		External->scene->SetSelected(listUI[0]->mOwner);
-		External->scene->focusedUIGO = listUI[0]->mOwner;
-		External->scene->onHoverUI = offset;
-	}
-
-	else
-	{
-		for (auto i = 0; i < listUI.size(); i++)
-		{
-			if (External->scene->focusedUIGO != nullptr)
-			{
-				if (listUI[i]->mOwner->UID == External->scene->focusedUIGO->UID)
-				{
-					isInGO = true;
-					break;
-				}
-			}
-		}
-	}
-
-	if (isInGO)
-	{
-		if (isRight)
-		{
-			if (External->scene->onHoverUI + rows >= listUI.size() + offset)
-			{
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (navigateGrids)
-				{
-					GameObject* gridGo = External->moduleMono->GameObject_From_CSGO(gridRight);
-
-					if (gridGo != nullptr)
-					{
-						SetUIState(External->moduleMono->GoToCSGO(gridGo->mChildren[0]), (int)UI_STATE::FOCUSED);
-					}
-
-					else
-					{
-						External->scene->SetSelected(listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->mOwner);
-
-						External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->mOwner;
-
-						if (listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->state != UI_STATE::SELECTED)
-						{
-							listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->SetState(UI_STATE::FOCUSED);
-						}
-
-						External->scene->onHoverUI -= (rows * (columns - 1));
-					}
-				}
-
-				else
-				{
-					// Same as below, should make a function
-					External->scene->SetSelected(listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->mOwner);
-
-					External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->mOwner;
-
-					if (listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->state != UI_STATE::SELECTED)
-					{
-						listUI[External->scene->onHoverUI - offset - (rows * (columns - 1))]->SetState(UI_STATE::FOCUSED);
-					}
-
-					External->scene->onHoverUI -= (rows * (columns - 1));
-				}
-			}
-
-			else
-			{
-				External->scene->SetSelected(listUI[External->scene->onHoverUI - offset + rows]->mOwner);
-
-				External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset + rows]->mOwner;
-
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (listUI[External->scene->onHoverUI - offset + rows]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset + rows]->SetState(UI_STATE::FOCUSED);
-				}
-
-				External->scene->onHoverUI += rows;
-			}
-		}
-
-		else
-		{
-			if (External->scene->onHoverUI - rows < offset)
-			{
-
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (navigateGrids)
-				{
-					GameObject* gridGo = External->moduleMono->GameObject_From_CSGO(gridLeft);
-
-					if (gridGo != nullptr)
-					{
-						SetUIState(External->moduleMono->GoToCSGO(gridGo->mChildren[0]), (int)UI_STATE::FOCUSED);
-					}
-
-					else
-					{
-						// Same as below, should make a function
-						External->scene->SetSelected(listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->mOwner);
-						External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->mOwner;
-
-						if (listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->state != UI_STATE::SELECTED)
-						{
-							listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->SetState(UI_STATE::FOCUSED);
-						}
-
-						External->scene->onHoverUI += (rows * (columns - 1));
-					}
-				}
-
-				else
-				{
-					External->scene->SetSelected(listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->mOwner);
-					External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->mOwner;
-
-					if (listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->state != UI_STATE::SELECTED)
-					{
-						listUI[External->scene->onHoverUI - offset + (rows * (columns - 1))]->SetState(UI_STATE::FOCUSED);
-					}
-
-					External->scene->onHoverUI += (rows * (columns - 1));
-				}
-			}
-
-			else
-			{
-				External->scene->SetSelected(listUI[External->scene->onHoverUI - offset - rows]->mOwner);
-				External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset - rows]->mOwner;
-
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (listUI[External->scene->onHoverUI - offset - rows]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset - rows]->SetState(UI_STATE::FOCUSED);
-				}
-
-				External->scene->onHoverUI -= rows;
-			}
-
-		}
-	}
-
-}
-
-void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bool navigateGrids, MonoObject* gridDown, MonoObject* gridUp)
-{
-	// Get UI elements to navigate
-	std::vector<C_UI*> listUI;
-	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
-	External->scene->GetUINavigate(gameObject, listUI); bool isInGO = false;
-	int offset = 0;
-
-	std::vector<C_UI*> listOffset;
-	for (int i = 0; i < External->scene->vCanvas.size(); ++i)
-	{
-		External->scene->GetUINavigate(External->scene->vCanvas[i], listOffset);
-	}
-
-	for (auto i = 0; i < listOffset.size(); i++)
-	{
-		if (listOffset[i]->mOwner->UID != gameObject->mChildren[0]->UID)
-		{
-			offset++;
-		}
-
-		else
-		{
-			break;
-		}
-	}
-
-	if (External->scene->focusedUIGO == nullptr)
-	{
-		External->scene->focusedUIGO = listUI[0]->mOwner;
-		External->scene->SetSelected(listUI[0]->mOwner);
-		External->scene->onHoverUI = offset;
-	}
-
-	else
-	{
-		for (auto i = 0; i < listUI.size(); i++)
-		{
-			if (External->scene->focusedUIGO != nullptr)
-			{
-				if (listUI[i]->mOwner->UID == External->scene->focusedUIGO->UID)
-				{
-					isInGO = true;
-					break;
-				}
-			}
-		}
-	}
-
-	if (isInGO)
-	{
-		if (isDown)
-		{
-			if ((External->scene->onHoverUI - offset + 1) % rows == 0 || External->scene->onHoverUI - offset == listUI.size() - 1)
-			{
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (navigateGrids)
-				{
-					GameObject* gridGo = External->moduleMono->GameObject_From_CSGO(gridDown);
-
-					if (gridGo != nullptr)
-					{
-						SetUIState(External->moduleMono->GoToCSGO(gridGo->mChildren[0]), (int)UI_STATE::FOCUSED);
-					}
-
-					else
-					{
-						External->scene->SetSelected(listUI[External->scene->onHoverUI - offset - rows + 1]->mOwner);
-
-						External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset - rows + 1]->mOwner;
-
-						if (listUI[External->scene->onHoverUI - offset - rows + 1]->state != UI_STATE::SELECTED)
-						{
-							listUI[External->scene->onHoverUI - offset - rows + 1]->SetState(UI_STATE::FOCUSED);
-						}
-
-						External->scene->onHoverUI -= (rows - 1);
-					}
-				}
-
-				else 
-				{
-					// Same as below, should make a function
-					External->scene->SetSelected(listUI[External->scene->onHoverUI - offset - rows + 1]->mOwner);
-
-					External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset - rows + 1]->mOwner;
-
-					if (listUI[External->scene->onHoverUI - offset - rows + 1]->state != UI_STATE::SELECTED)
-					{
-						listUI[External->scene->onHoverUI - offset - rows + 1]->SetState(UI_STATE::FOCUSED);
-					}
-
-					External->scene->onHoverUI -= (rows - 1);
-				}
-			}
-
-			else
-			{
-				External->scene->SetSelected(listUI[External->scene->onHoverUI - offset + 1]->mOwner);
-
-				External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset + 1]->mOwner;
-
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (listUI[External->scene->onHoverUI - offset + 1]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset + 1]->SetState(UI_STATE::FOCUSED);
-				}
-
-				External->scene->onHoverUI += 1;
-			}
-		}
-
-		else
-		{
-			if ((External->scene->onHoverUI - offset) % rows == 0 || External->scene->onHoverUI - offset == 0)
-			{
-
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (navigateGrids)
-				{
-					GameObject* gridGo = External->moduleMono->GameObject_From_CSGO(gridUp);
-
-					if (gridGo != nullptr)
-					{
-						SetUIState(External->moduleMono->GoToCSGO(gridGo->mChildren[0]), (int)UI_STATE::FOCUSED);
-					}
-
-					else
-					{
-						// Same as below, should make a function
-						External->scene->SetSelected(listUI[External->scene->onHoverUI - offset + rows - 1]->mOwner);
-						External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset + rows - 1]->mOwner;
-
-						if (listUI[External->scene->onHoverUI - offset + rows - 1]->state != UI_STATE::SELECTED)
-						{
-							listUI[External->scene->onHoverUI - offset + rows - 1]->SetState(UI_STATE::FOCUSED);
-						}
-
-						External->scene->onHoverUI += (rows - 1);
-					}
-				}
-
-				else
-				{
-					External->scene->SetSelected(listUI[External->scene->onHoverUI - offset + rows - 1]->mOwner);
-					External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset + rows - 1]->mOwner;
-
-					if (listUI[External->scene->onHoverUI - offset + rows - 1]->state != UI_STATE::SELECTED)
-					{
-						listUI[External->scene->onHoverUI - offset + rows - 1]->SetState(UI_STATE::FOCUSED);
-					}
-
-					External->scene->onHoverUI += (rows - 1);
-				}
-			}
-
-			else
-			{
-				External->scene->SetSelected(listUI[External->scene->onHoverUI - offset - 1]->mOwner);
-				External->scene->focusedUIGO = listUI[External->scene->onHoverUI - offset - 1]->mOwner;
-
-				if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset]->SetState(UI_STATE::NORMAL);
-				}
-
-				if (listUI[External->scene->onHoverUI - offset - 1]->state != UI_STATE::SELECTED)
-				{
-					listUI[External->scene->onHoverUI - offset - 1]->SetState(UI_STATE::FOCUSED);
-				}
-
-				External->scene->onHoverUI -= 1;
-			}
-
-		}
-	}
-
-}
-
 bool CompareStringToName(MonoObject* go, MonoString* name)
 {
 	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
@@ -1543,7 +1010,17 @@ bool CompareStringToName(MonoObject* go, MonoString* name)
 	return nameCompare.compare(gameObject->name) == 0;
 }
 
-MonoString* CSVToString(MonoString* _filePath, MonoString* _csFields) {
+MonoString* CSVToString(MonoString* _filePath) {
+
+	std::string filename = mono_string_to_utf8(_filePath); // File name to process
+
+	std::string output = PhysfsEncapsule::ExtractStringFromCSV(filename);
+
+	// Convert the resulting output string back to MonoString
+	return mono_string_new(External->moduleMono->domain, output.c_str());
+}
+MonoString* CSVToStringKeys(MonoString* _filePath, MonoString* _csFields) {
+
 
 	std::string filename = mono_string_to_utf8(_filePath); // File name to process
 	std::string csFields = mono_string_to_utf8(_csFields); // CSV fields to extract
@@ -1584,36 +1061,104 @@ void CreateGOFromPrefabCS(MonoString* _prefabPath, MonoString* _prefabName, Mono
 	External->scene->pendingToAddPrefab.emplace_back(prefabPath, prefabName, posVector);
 }
 
-void SetActiveAllUI(MonoObject* go, bool isActive)
-{
-	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
-
-	// Get UI elements to navigate
-	std::vector<C_UI*> listUI;
-	External->scene->GetUINavigate(gameObject, listUI);
-
-	for (auto i = 0; i < listUI.size(); i++)
-	{
-		listUI[i]->mOwner->mChildren[0]->active = isActive;
-	}
-}
 MonoObject* GetChildrenByTag(MonoObject* go, MonoString* tag)
 {
 	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
 	std::string nameCompare = mono_string_to_utf8(tag);
 
-	std::vector<GameObject*> gameObejectchilds;
-	gameObejectchilds = gameObject->mChildren;
+	std::vector<GameObject*> gameObjectChilds;
+	gameObjectChilds = gameObject->mChildren;
 
-	for (auto i = 0; i < gameObejectchilds.size(); i++)
+	for (auto i = 0; i < gameObjectChilds.size(); i++)
 	{
-		if (gameObejectchilds[i]->tag.c_str() == nameCompare.c_str())
+		if (gameObjectChilds[i]->tag.c_str() == nameCompare)
 		{
-			return External->moduleMono->GoToCSGO(gameObejectchilds[i]);
+			//mono_string_new(External->moduleMono->domain, gameObjectChilds[i]->tag.c_str());
+			return External->moduleMono->GoToCSGO(gameObjectChilds[i]);
 		}
 	}
 
 	return nullptr;
+}
+
+void DisableComponentCS(MonoObject* go, MonoString* compName, bool includeChildren)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	std::string nameCompare = mono_string_to_utf8(compName);
+
+
+	ComponentType comp = External->scene->StringToComponentType(nameCompare);
+
+	if (!includeChildren)
+	{
+		std::vector<Component*> components = gameObject->GetAllComponentsByType(comp);
+
+		for (auto comp : components)
+		{
+			comp->Disable();
+		}
+	}
+	else
+	{
+		std::vector<Component*> components = gameObject->GetAllComponentsByType(comp);
+
+		for (Component* comp : components)
+		{
+			comp->Disable();
+		}
+
+		std::vector<GameObject*> children = gameObject->mChildren;
+
+		for (auto child : children)
+		{
+			std::vector<Component*> childComponents = child->GetAllComponentsByType(comp);
+
+			for (Component* comp : childComponents)
+			{
+				comp->Disable();
+			}
+		}
+	}
+
+}
+
+void SetGameObjectAsBillboardCS(MonoObject* go) {
+
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+
+	float3 cameraPosition = External->scene->gameCameraComponent->GetPos();
+
+	float3 directionToCamera = cameraPosition - gameObject->mTransform->GetGlobalPosition();
+	directionToCamera.Normalize();
+
+	float3 localUpVector(0.0f, 1.0f, 0.0f); 
+	float3 worldUpVector(0.0f, 1.0f, 0.0f); 
+
+	Quat desiredRotation = Quat::LookAt(float3(0, 0, 1), directionToCamera, localUpVector, worldUpVector);
+
+	gameObject->mTransform->SetRotation(desiredRotation);
+}
+
+bool IsActiveCS(MonoObject* go)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+
+	return gameObject->active;
+}
+
+void SetColliderSizeCS(MonoObject* go, MonoObject* vec)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	float3 vector = External->moduleMono->UnboxVector(vec);
+
+	if (gameObject->GetComponent(ComponentType::PHYSICS) != nullptr)
+	{
+		CCollider* physBody = (CCollider*)gameObject->GetComponent(ComponentType::PHYSICS);
+		physBody->shape->setLocalScaling(btVector3(vector.x, vector.y, vector.z));
+
+		RELEASE(physBody);
+	}
+
 }
 
 #pragma endregion

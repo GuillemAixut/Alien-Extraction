@@ -45,6 +45,8 @@ private:
 	float	dt;
 	std::vector<Module*> list_modules;
 
+	float targetFPS;
+
 public:
 
 	Application();
@@ -53,6 +55,9 @@ public:
 	bool Init();
 	update_status Update();
 	bool CleanUp();
+
+	void SetTargetFPS(float FPS);
+	float GetTargetFPS();
 
 	float GetFPS();
 	float GetDT();

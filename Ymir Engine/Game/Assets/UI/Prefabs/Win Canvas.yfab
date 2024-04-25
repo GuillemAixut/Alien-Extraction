@@ -2,11 +2,12 @@
     "Prefab": [
         {
             "Name": "Win Canvas",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1676754095,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1065226763,
+            "Parent UID": 274552864,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 540,
-                    "Height": 597,
+                    "Width": 2029,
+                    "Height": 1173,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -47,11 +48,12 @@
             ],
             "Children UID": [
                 1076335875,
-                1984199107
+                505969807
             ]
         },
         {
             "Name": "Background",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1076335875,
             "Active": true,
@@ -100,10 +102,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -113,9 +115,10 @@
             ]
         },
         {
-            "Name": "Back To Menu",
+            "Name": "Grid",
+            "Static": false,
             "Tag": "Untagged",
-            "UID": 1984199107,
+            "UID": 505969807,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 1676754095,
@@ -140,20 +143,72 @@
                     ]
                 },
                 {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": false,
+                    "naviagteY": false,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
+                }
+            ],
+            "Children UID": [
+                1984199107
+            ]
+        },
+        {
+            "Name": "Back to base",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1984199107,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 505969807,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 670,
-                    "Position Y": 738,
-                    "Width": 649,
-                    "Height": 196,
+                    "Position X": 696,
+                    "Position Y": 834,
+                    "Width": 600,
+                    "Height": 88,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        670,
-                        738,
-                        649,
-                        196
+                        696,
+                        834,
+                        600,
+                        88
                     ],
                     "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
@@ -162,10 +217,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -227,7 +282,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/Scenes\/Start_scene.yscene"
+                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS"
                 }
             ],
             "Children UID": [
@@ -236,6 +291,7 @@
         },
         {
             "Name": "Text",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1850778591,
             "Active": true,
@@ -265,28 +321,28 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 742,
-                    "Position Y": 870,
+                    "Position X": 922,
+                    "Position Y": 889,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        742,
-                        870,
+                        922,
+                        889,
                         300,
                         50
                     ],
-                    "Text": "Back to menu",
+                    "Text": "Back to base",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 60,
+                    "Font size": 33.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {

@@ -7,7 +7,7 @@
 #include "Particle.h"
 #include <vector>
 
-#define MAXPARTICLES 500
+#define MAXPARTICLES 200
 
 class CParticleSystem;
 class EmitterSetting;
@@ -20,7 +20,7 @@ public:
 	~ParticleEmitter();
 
 	std::vector<Particle*> listParticles;
-	std::vector<EmitterSetting*> modules; //Son las Particle module del power, son las settings (posicion, tipo de billboarding, color)
+	std::vector<EmitterSetting*> modules; //Lista de settings (posicion, tipo de billboarding, color)
 	CParticleSystem* owner;
 
 	std::string name;

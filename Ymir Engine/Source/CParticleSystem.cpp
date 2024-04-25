@@ -83,7 +83,7 @@ ParticleEmitter* CParticleSystem::CreateEmitter()
 	ParticleEmitter* emisor = new ParticleEmitter(this);
 	emisor->UID = External->resourceManager->GenerateNewUID();
 	allEmitters.push_back(emisor);
-	External->renderer3D->particleEmitters = allEmitters;
+	//External->renderer3D->particleEmitters = allEmitters;
 	emisor->Init(this);
 
 	return emisor;
@@ -102,6 +102,7 @@ void CParticleSystem::OnInspector()
 	ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_DefaultOpen;
 
 	bool exists = true;
+	int deleteEmitter = -1; //This is outside everything to delete after the ImGui to don't violate the acess.
 
 	ImGui::Checkbox(("##" + std::to_string(UID)).c_str(), &active);
 	ImGui::SameLine();
@@ -153,32 +154,34 @@ void CParticleSystem::OnInspector()
 					nameEmitter.append(std::to_string(i + 1));
 
 				}
-				//std::string nameEmitter;
-				////ImGui::Text("ParticleEmmiter %i", i);
-				//nameEmitter.append("Particle Emitter ");
-				//nameEmitter.append(std::to_string(i+1));
 
 				//Delete emmiter
-				if (ImGui::Button("Delete"))
+				
+				if (ImGui::Button(("Delete ##" + std::to_string(i)).c_str()))
 				{
-					allEmitters.erase(allEmitters.begin() + i);
+					deleteEmitter = i;
 				}
 				ImGui::SameLine();
 
 				if (ImGui::TreeNodeEx((void*)(intptr_t)i, (!allEmitters.at(i)->modules.empty()) ? treeFlags : leafFlags, nameEmitter.c_str())) //nameEmitter.c_str()
 				{
-					auto listModule = allEmitters.at(i)->modules;
+					std::vector<EmitterSetting*> listModule = allEmitters.at(i)->modules;
 					int securityCheckTree = 999;
-					for (int j = 0; j < listModule.size(); j++)
+					for (int j= 0; j < listModule.size(); j++)
 					{
 						std::string particleModule; //Les opciones
 						std::string deleteButton; //Lo creamos aqui fuera para evitar petadas, pero como la ID va por nombre ha de ser un string para diferenciarlos
 
 						switch (listModule.at(j)->type)
 						{
+						case EmitterType::PAR_SUBEMITTER:
+						{
+							ImGui::SeparatorText("SUBEMITTER");
+							break;
+						}
 						case EmitterType::PAR_BASE:
 						{
-							ImGui::SeparatorText("BASE");
+							ImGui::SeparatorText(("BASE ##" + std::to_string(i)).c_str());
 
 							EmitterBase* eBase = (EmitterBase*)listModule.at(j);
 							eBase->OnInspector();
@@ -186,7 +189,7 @@ void CParticleSystem::OnInspector()
 						}
 						case EmitterType::PAR_SPAWN:
 						{
-							ImGui::SeparatorText("SPAWN");
+							ImGui::SeparatorText(("SPAWN ##" + std::to_string(i)).c_str());
 
 							EmitterSpawner* eSpawner = (EmitterSpawner*)listModule.at(j);
 							eSpawner->OnInspector();
@@ -194,7 +197,7 @@ void CParticleSystem::OnInspector()
 						}
 						case EmitterType::PAR_POSITION:
 						{
-							ImGui::Text(particleModule.append("POSITION").c_str());
+							ImGui::Text(particleModule.append(("POSITION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
 							if (ImGui::SmallButton(deleteButton.c_str()))
@@ -209,7 +212,7 @@ void CParticleSystem::OnInspector()
 						}
 						case EmitterType::PAR_ROTATION:
 						{
-							ImGui::Text(particleModule.append("ROTATION").c_str());
+							ImGui::Text(particleModule.append(("ROTATION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
 							if (ImGui::SmallButton(deleteButton.c_str()))
@@ -219,12 +222,12 @@ void CParticleSystem::OnInspector()
 							deleteButton.clear();
 
 							EmitterRotation* eRotation = (EmitterRotation*)listModule.at(j);
-							eRotation->OnInspector(); //Todo, porque la rotation aun no existe bien , solo mira a camara
+							eRotation->OnInspector();
 							break;
 						}
 						case EmitterType::PAR_SIZE:
 						{
-							ImGui::Text(particleModule.append("SIZE").c_str());
+							ImGui::Text(particleModule.append(("SIZE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
 							if (ImGui::SmallButton(deleteButton.c_str()))
@@ -239,7 +242,7 @@ void CParticleSystem::OnInspector()
 						}
 						case EmitterType::PAR_COLOR:
 						{
-							ImGui::Text(particleModule.append("COLOR").c_str());
+							ImGui::Text(particleModule.append(("COLOR ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
 							if (ImGui::SmallButton(deleteButton.c_str()))
@@ -255,7 +258,7 @@ void CParticleSystem::OnInspector()
 						}
 						case EmitterType::PAR_IMAGE:
 						{
-							ImGui::Text(particleModule.append("IMAGE").c_str());
+							ImGui::Text(particleModule.append(("IMAGE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
 							if (ImGui::SmallButton(deleteButton.c_str()))
@@ -266,22 +269,6 @@ void CParticleSystem::OnInspector()
 
 							EmitterImage* eImage = (EmitterImage*)listModule.at(j);
 							eImage->OnInspector();
-
-							break;
-						}
-						case EmitterType::PAR_SHAPE:
-						{
-							ImGui::Text(particleModule.append("SHAPE").c_str());
-							ImGui::SameLine();
-							deleteButton.append("Delete ##").append(std::to_string(j));
-							if (ImGui::SmallButton(deleteButton.c_str()))
-							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
-							}
-							deleteButton.clear();
-
-							EmitterShape* eShape = (EmitterShape*)listModule.at(j);
-							eShape->OnInspector();
 
 							break;
 						}
@@ -301,35 +288,35 @@ void CParticleSystem::OnInspector()
 				std::string CEid;
 				if (ImGui::CollapsingHeader(CEid.append("Emitter Options ##").append(std::to_string(i)).c_str()))
 				{
-					for (int k = 0; k < EmitterType::PARTICLES_MAX; k++)
+					for (int k = (i > 0) ? -1 : 0; k < EmitterType::PARTICLES_MAX; k++)
 					{
 						std::string emitterType;
 
 						switch (k)
 						{
+						case EmitterType::PAR_SUBEMITTER:
+							emitterType.assign("Subemitter ##");
+							break;
 						case EmitterType::PAR_BASE:
-							emitterType.assign("Base Emitter");
+							emitterType.assign("Base Emitter ##");
 							break;
 						case EmitterType::PAR_SPAWN:
-							emitterType.assign("Spawn Emitter");
+							emitterType.assign("Spawn Emitter ##");
 							break;
 						case EmitterType::PAR_POSITION:
-							emitterType.assign("Position Emitter");
+							emitterType.assign("Position Emitter ##");
 							break;
 						case EmitterType::PAR_ROTATION:
-							emitterType.assign("Rotation Emitter");
+							emitterType.assign("Rotation Emitter ##");
 							break;
 						case EmitterType::PAR_SIZE:
-							emitterType.assign("Scale Emitter");
+							emitterType.assign("Scale Emitter ##");
 							break;
 						case EmitterType::PAR_COLOR:
-							emitterType.assign("Color Emitter");
+							emitterType.assign("Color Emitter ##");
 							break;
 						case EmitterType::PAR_IMAGE:
-							emitterType.assign("Image Emitter");
-							break;
-						case EmitterType::PAR_SHAPE:
-							emitterType.assign("Shape Emitter");
+							emitterType.assign("Image Emitter ##");
 							break;
 						case EmitterType::PARTICLES_MAX:
 							break;
@@ -338,7 +325,7 @@ void CParticleSystem::OnInspector()
 						}
 						if (!allEmitters.at(i)->EmitterSettingExist((EmitterType)k)) //If the setting already exist on the 
 						{
-							if (ImGui::Button(emitterType.c_str()))
+							if (ImGui::Button((emitterType + std::to_string(i)).c_str()))
 							{
 								allEmitters.at(i)->CreateEmitterSettingByType((EmitterType)k);
 							}
@@ -367,6 +354,8 @@ void CParticleSystem::OnInspector()
 		}
 
 	}
+
+	if (deleteEmitter > -1) { allEmitters.erase(allEmitters.begin() + deleteEmitter); }
 
 	if (!exists) { mOwner->RemoveComponent(this); }
 }
@@ -416,11 +405,10 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "Lifetime2", eBase->particlesLifeTime2);
 				json_object_set_boolean(child_object, "RandomLT", eBase->randomLT);
 				//InitialPosition
-				JSON_Array* arrInitialPos;
 
 				//Position
 				JSON_Value* jValuePos = json_value_init_array();
-				arrInitialPos = json_value_get_array(jValuePos);
+				JSON_Array* arrInitialPos = json_value_get_array(jValuePos);
 
 				json_object_dotset_value(child_object, "Position", jValuePos);
 				json_array_append_number(arrInitialPos, eBase->emitterOrigin.x);
@@ -435,6 +423,29 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Shape
 				json_object_set_number(child_object, "BaseShape", eBase->currentShape);
+
+				//Box Parameters
+				JSON_Value* jValuePositiveCube = json_value_init_array();
+				JSON_Array* arrInitialPositiveCube = json_value_get_array(jValuePositiveCube);
+
+				json_object_dotset_value(child_object, "PositiveBoxPoints", jValuePos);
+				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.x);
+				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.y);
+				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.z);
+
+				JSON_Value* jValueNegativeCube = json_value_init_array();
+				JSON_Array* arrInitialNegativeCube = json_value_get_array(jValueNegativeCube);
+
+				json_object_dotset_value(child_object, "NegativeBoxPoints", jValuePos);
+				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.x);
+				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.y);
+				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.z);
+
+				//Cone & Sphere parameters
+				json_object_set_number(child_object, "RadiusHollow", eBase->radiusHollow);
+				json_object_set_number(child_object, "RadiusBase", eBase->baseRadius);
+				json_object_set_number(child_object, "RadiusTop", eBase->topRadius);
+				json_object_set_number(child_object, "Heigth", eBase->heigth);
 
 				break;
 			}
@@ -487,6 +498,8 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_array_append_number(arrInitialDir2, ePosition->direction2.y);
 				json_array_append_number(arrInitialDir2, ePosition->direction2.z);
 
+				json_object_set_boolean(child_object, "NormalizedBaseDirection", ePosition->normalizedSpeed);
+
 				//Accelerate
 				json_object_set_boolean(child_object, "Accelerates", ePosition->acceleration);
 
@@ -507,6 +520,8 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				json_object_set_number(child_object, "ChangeSpeed1", ePosition->changeSpeed1);
 				json_object_set_number(child_object, "ChangeSpeed2", ePosition->changeSpeed2);
+
+				json_object_set_boolean(child_object, "NormalizedChange", ePosition->normalizedChange);
 
 
 				break;
@@ -590,7 +605,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 			}
 			case EmitterType::PAR_IMAGE:
 			{
-				//TODO ERIC: QUE HA DE GUARDARSE PARA LA CARGA?
+				//The material already saves all the necesary information
 				break;
 			}
 			case EmitterType::PARTICLES_MAX:
@@ -746,9 +761,9 @@ void CParticleSystem::LoadAllEmmitersJSON(const char* path)
 		uint32_t emmiterID = json_array_get_number(arr, i);
 
 		std::string pathEmitter;
-		//pathEmitter += PARTICLES_PATH; TODO TONI
+		//pathEmitter += PARTICLES_PATH;
 		pathEmitter += std::to_string(emmiterID);
-		//pathEmitter += PAR; TODO TONI
+		//pathEmitter += PAR;
 		this->allEmitters.push_back(LoadEmitterFromMeta(pathEmitter.c_str()));
 	}
 }

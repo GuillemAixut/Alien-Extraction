@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -191,6 +191,36 @@ namespace YmirEngine
         /// Find the taged children inside a specific GO
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public extern GameObject GetChildrenByTag(object go, string tag);
+        public extern GameObject GetChildrenByTag(string tag);
+
+        /// <summary>
+        /// Find the taged children inside a specific GO
+        /// </summary>
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //public extern bool Raycast(object origin, object direction, float rayLenght, object hitPoints, object hits);
+
+        /// <summary>
+        /// Returns the gameObject that has collided with the ray
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern GameObject RaycastHit(object origin, object direction, float rayLenght);
+
+        /// <summary>
+        /// Check if a gameObject has collided with a raycast
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern bool RaycastTest(object origin, object direction, float rayLenght, object gameObject);
+        /// Make the GO look at the camera
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern void SetAsBillboard();
+
+
+        /// <summary>
+        /// Returns true if the GameObject is active, and false otherwise
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern bool IsActive();
+
     }
 }

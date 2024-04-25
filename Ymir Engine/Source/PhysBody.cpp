@@ -6,7 +6,7 @@
 // =================================================
 PhysBody::PhysBody(btRigidBody* body) : body(body), owner(nullptr), isSensor(false), drawShape(true)
 {
-
+	body->setUserPointer(this);
 }
 
 // ---------------------------------------------------------

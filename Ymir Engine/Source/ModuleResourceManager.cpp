@@ -93,7 +93,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 
 	// Retrieve info from Meta
 
-	JsonFile* metaFile = JsonFile::GetJSON(metaFilePath);
+	std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 
 	if (CheckExtensionType(assetsFilePath.c_str()) == ResourceType::TEXTURE)
 	{
@@ -111,7 +111,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 
 						// Get meta
 
-						JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
+						std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 						std::string libraryPath = metaFile->GetString("Library Path");
 						uint UID = metaFile->GetInt("UID");
@@ -222,7 +222,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 
 						// Get meta
 
-						JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
+						std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 						std::string libraryPath = metaFile->GetString("Library Path");
 						uint UID = metaFile->GetInt("UID");
@@ -336,7 +336,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 				//	break;
 				//}
 
-				int* resourcesIds = metaFile->GetIntArray("Resources Embedded UID");
+				std::unique_ptr<int[]> resourcesIds = metaFile->GetIntArray("Resources Embedded UID");
 
 				std::string libraryPath = "Library/Meshes/" + std::to_string(resourcesIds[0]) + ".ymesh";
 
@@ -352,7 +352,7 @@ void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool o
 				modelGO->type = "Model";
 				modelGO->originPath = assetsFilePath;
 
-				int* ids = metaFile->GetIntArray("Meshes Embedded UID");
+				std::unique_ptr<int[]> ids = metaFile->GetIntArray("Meshes Embedded UID");
 
 				for (int i = 0; i < metaFile->GetInt("Meshes num"); i++)
 				{
@@ -497,7 +497,7 @@ uint ModuleResourceManager::ExistsInLibrary(const std::string& assetsFilePath) c
 
 	if (PhysfsEncapsule::FileExists(metaFilePath))
 	{
-		JsonFile* metaFile = JsonFile::GetJSON(metaFilePath);
+		std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 
 		std::string libraryFilePath = metaFile->GetString("Library Path");
 
@@ -539,7 +539,13 @@ void ModuleResourceManager::ClearResources()
 {
 	for (std::map<uint, Resource*>::iterator itr = resources.begin(); itr != resources.end(); ++itr)
 	{
-		delete (itr->second);
+		if ((*itr).second->GetType() != ResourceType::TEXTURE) {
+
+			delete (itr->second);
+			(itr->second) = nullptr;
+
+		}
+		
 	}
 
 	resources.clear();
@@ -767,7 +773,7 @@ Resource* ModuleResourceManager::CreateResourceFromAssets(std::string assetsFile
 
 Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFilePath, ResourceType type, const uint& UID, TextureType rTexType)
 {
-	// TODO FRANCESC: Need a smart pointer to solve this memory leak;
+	// FRANCESC: MEMORY LEAK
 	Resource* tmpResource = nullptr;
 
 	switch (type) {
@@ -809,24 +815,6 @@ Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFi
 
 	if (tmpResource != nullptr)
 	{
-		// Fix Resource Texture
-		
-		//if (resources.find(UID) != resources.end()) {
-
-		//	tmpResource->IncreaseReferenceCount();
-
-		//}
-		//else {
-
-		//	resources.emplace(UID, tmpResource);
-
-		//	tmpResource->SetLibraryFilePath(libraryFilePath);
-
-		//	tmpResource->LoadInMemory();
-
-		//	tmpResource->IncreaseReferenceCount();
-
-		//}
 
 		if (rTexType != TextureType::UNKNOWN) {
 
@@ -834,7 +822,6 @@ Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFi
 
 		}
 
-		// FRANCESC: Disparo arreglado por alg�n motivo si comentas esta l�nea
 		resources.emplace(UID, tmpResource);
 
 		tmpResource->SetLibraryFilePath(libraryFilePath);
@@ -953,4 +940,18 @@ ResourceType ModuleResourceManager::CheckExtensionType(const char* fileDir)
 	}
 
 	return ResourceType::UNKNOWN;
+}
+
+bool ModuleResourceManager::ResourceExists(const uint& UID)
+{
+	std::map<uint, Resource*>::iterator it = resources.find(UID);
+
+	if (it == resources.end())
+	{
+		return false;
+	}
+	else 
+	{
+		return true;
+	}
 }

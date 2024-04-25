@@ -31,14 +31,12 @@ void Texture::LoadTexture(const std::string& path)
 {
 	// 0. Handle UID
 
-	JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+	std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 	if (tmpMetaFile) {
 
 		// The meta file exists; it's not the first time we load the texture.
 		UID = tmpMetaFile->GetInt("UID");
-
-		delete tmpMetaFile;
 
 	}
 	else {

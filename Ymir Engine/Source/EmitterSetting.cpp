@@ -29,19 +29,20 @@ void EmitterSetting::OnInspector()
 
 EmitterBase::EmitterBase()
 {
-	currentShape = SpawnAreaShape::PAR_POINT;
+	currentShape = SpawnAreaShape::PAR_CONE;
 
 	//Point
 	emitterOrigin = float3::zero;
 
-	//Cone
+	//Cone && Sphere
+	radiusHollow = 0.0f;
 	baseRadius = 2.0f;
 	topRadius = 4.0f;
 	heigth = 3.0f;
 
 	//Box
 	boxPointsPositives = { 1,1,1 };
-	boxPointsNegative = { -1,-1,-1 };
+	boxPointsNegatives = { -1,-1,-1 };
 
 	//Life time
 	randomLT = false;
@@ -88,8 +89,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	particle->diesByDistance = hasDistanceLimit;
 	particle->distanceLimit = distanceLimit;
 	
-	//World rotation
-	//World rotation
+	//World rotation (changes the origin 
 	switch (rotacionBase)
 	{
 	case PAR_WORLD_MATRIX:
@@ -107,16 +107,14 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	}
 
-	
+	//Get rotated point from the world
+	Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
+	float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
 
 	switch (currentShape)
 	{
 	case PAR_POINT:
 	{
-		//Get rotated point from the world
-		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
-		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
-
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
 		if (cTra != nullptr)
 		{
@@ -125,7 +123,7 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			Quat rotation;
 			float3 escale;
 			matrix.Decompose(position, rotation, escale);
-			particle->position += position + emitterOrigin; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->position += position + originModified; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}
@@ -134,15 +132,15 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 	}
 		break;
 	case PAR_CONE:
-		break;
-	case PAR_BOX:
 	{
-		//Random values
+		//Get random radius size
+		float randomLength = Random::GenerateRandomFloat(radiusHollow, baseRadius);
+		float randomAngle = Random::GenerateRandomFloat(0.0f, pi * 2);
+		float randomHeigth = Random::GenerateRandomFloat(0, heigth);
 
-		float3 randPos;
-		randPos.x = Random::GenerateRandomFloat(boxPointsNegative.x, boxPointsPositives.x);
-		randPos.y = Random::GenerateRandomFloat(boxPointsNegative.y, boxPointsPositives.y);
-		randPos.z = Random::GenerateRandomFloat(boxPointsNegative.z, boxPointsPositives.z);
+		float baseTopDiference = topRadius - baseRadius;
+		float normalizedRefPos = randomLength / baseRadius;
+		float3 randPos = { cos(randomAngle )* ((1 - randomHeigth / heigth) * randomLength + (randomLength * (topRadius / baseRadius)) * randomHeigth / heigth), randomHeigth, -sin(randomAngle) * ((1 - randomHeigth/heigth) * randomLength + (randomLength * (topRadius/baseRadius)) * randomHeigth/heigth) };
 
 		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
 		if (cTra != nullptr)
@@ -152,7 +150,45 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			Quat rotation;
 			float3 escale;
 			matrix.Decompose(position, rotation, escale);
-			particle->position += position + emitterOrigin + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->position += position + originModified + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->worldRotation = rotation;
+			particle->size = escale;
+		}
+	}
+		break;
+	case PAR_BOX:
+	{
+		//Get rotated point from the world
+		Quat nuwDirQuat = particle->directionRotation.Mul(Quat(emitterOrigin.x, emitterOrigin.y, emitterOrigin.z, 0));
+		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+		
+		//Get rotated positives point from the world
+		Quat nuwDirPositives = particle->directionRotation.Mul(Quat(boxPointsPositives.x, boxPointsPositives.y, boxPointsPositives.z, 0));
+		float3 positivesModified = float3(nuwDirPositives.x, nuwDirPositives.y, nuwDirPositives.z);
+
+		//Get rotated negatives point from the world
+		Quat nuwDirNegative = particle->directionRotation.Mul(Quat(boxPointsNegatives.x, boxPointsNegatives.y, boxPointsNegatives.z, 0));
+		float3 negativesModified = float3(nuwDirNegative.x, nuwDirNegative.y, nuwDirNegative.z);
+
+		//Random values
+		float3 randPos;
+		if(negativesModified.x < positivesModified.x){ randPos.x = Random::GenerateRandomFloat(negativesModified.x, positivesModified.x); }
+		else{ randPos.x = Random::GenerateRandomFloat(positivesModified.x, negativesModified.x); }
+		if (negativesModified.y < positivesModified.y) { randPos.y = Random::GenerateRandomFloat(negativesModified.y, positivesModified.y); }
+		else { randPos.y = Random::GenerateRandomFloat(positivesModified.y, negativesModified.y); }
+		if (negativesModified.z < positivesModified.z) { randPos.z = Random::GenerateRandomFloat(negativesModified.z, positivesModified.z); }
+		else { randPos.z = Random::GenerateRandomFloat(positivesModified.z, negativesModified.z); }
+
+
+		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
+		if (cTra != nullptr)
+		{
+			float4x4 matrix = cTra->GetGlobalTransform();
+			float3 position;
+			Quat rotation;
+			float3 escale;
+			matrix.Decompose(position, rotation, escale);
+			particle->position += position + originModified + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}
@@ -162,7 +198,27 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		break;
 	case PAR_SPHERE:
 	{
-	
+		//Get random radius size
+		float randomLength = Random::GenerateRandomFloat(radiusHollow, baseRadius);
+
+		float3 randPos;
+		math::LCG lgc;
+		randPos = randPos.RandomSphere(lgc, originModified, randomLength);
+
+		CTransform* cTra = (CTransform*)emitter->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
+		if (cTra != nullptr)
+		{
+			float4x4 matrix = cTra->GetGlobalTransform();
+			float3 position;
+			Quat rotation;
+			float3 escale;
+			matrix.Decompose(position, rotation, escale);
+			particle->position += position + randPos; //Se inicializan desde 0,0,0 asi que no deberia haber problema en hacer += pero deberia ser lo mismo.
+			particle->worldRotation = rotation;
+			particle->size = escale;
+		}
+
+		particle->initialPosition = particle->position;
 	}
 		break;
 	case PAR_SHAPE_ENUM_END:
@@ -222,7 +278,7 @@ void EmitterBase::OnInspector()
 		ImGui::EndCombo();
 	}
 	ImGui::SameLine;
-	ImGui::Text("Shape");
+	ImGui::Text("Shape Mode");
 
 	switch (currentShape)
 	{
@@ -233,19 +289,25 @@ void EmitterBase::OnInspector()
 			break;
 		case SpawnAreaShape::PAR_CONE:
 		{
-
+			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
+			ImGui::DragFloat("Heigth ## BASE", &(this->heigth), 0.2f, 0.01f, 200.f);
+			ImGui::DragFloat("Base Radius ## BASE", &(this->baseRadius), 0.2f, radiusHollow+0.01f, 200.f);
+			ImGui::DragFloat("End Radius ## BASE", &(this->topRadius), 0.2f, 0.01f, 200.f);
+			ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius-0.01f);
 		};
 			break;
 		case SpawnAreaShape::PAR_BOX:
 		{
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
-			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f,0.001f);
-			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegative[0]), 0.1f,-200.0f,-0.0f);
+			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f, 0.001f,200.0f);
+			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegatives[0]), 0.1f,-200.0f,-0.0f);
 		}
 			break;
 		case SpawnAreaShape::PAR_SPHERE: 
 		{
-		
+			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
+			ImGui::DragFloat("Base Radius ## BASE", &(this->baseRadius), 0.2f, radiusHollow + 0.01f, 200.f);
+			ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius - 0.01f);
 		} 
 			break;
 		case SpawnAreaShape::PAR_SHAPE_ENUM_END:
@@ -607,16 +669,23 @@ void EmitterSpawner::OnInspector()
 
 EmitterPosition::EmitterPosition()
 {
+	//Normal direction
 	randomized = false; //Si la direccion es solo la uno o un numero random entre la 1 y la 2
 	direction1 = { 0,0,0 };
 	direction2 = { 0,0,0 };
+	normalizedSpeed = true;
+
+	//Normal acceleration
 	acceleration = false;
 	particleSpeed1 = 1.0f;
 	particleSpeed2 = 0.0f;
-	newDirection = { 0,0,0 };
+
+	//Direction change mid execution
 	actualSpeedChange = SpeedChangeMode::PAR_NO_SPEED_CHANGE;
+	newDirection = { 0,0,0 };
 	changeSpeed1 = 0.0f;
 	changeSpeed2 = 1.0f;
+	normalizedChange = true;
 
 }
 
@@ -676,23 +745,40 @@ void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 		float randomZ = ((float)rand()) / (float)RAND_MAX;
 		float rangeZ = maxZ - minZ;
 		float fZ = (randomZ * rangeZ) + minZ;
-
-		float newModul = GetModuleVec({ fX,fY,fZ });
-		particle->velocity.x += fX / newModul;
-		particle->velocity.y += fY / newModul;
-		particle->velocity.z += fZ / newModul;
+		if (normalizedSpeed) 
+		{
+			float newModul = GetModuleVec({ fX,fY,fZ });
+			particle->velocity.x += fX / newModul;
+			particle->velocity.y += fY / newModul;
+			particle->velocity.z += fZ / newModul;
+		}
+		else 
+		{
+			particle->velocity.x += fX;
+			particle->velocity.y += fY;
+			particle->velocity.z += fZ;
+		}
+		
 	}
 	else
 	{
-		float modul1 = GetModuleVec(direction1);
-		if (modul1 > 0)
+		if (normalizedSpeed)
 		{
-			particle->velocity.x += direction1.x / modul1;
-			particle->velocity.y += direction1.y / modul1;
-			particle->velocity.z += direction1.z / modul1;
+			float modul1 = GetModuleVec(direction1);
+			if (modul1 > 0)
+			{
+				particle->velocity.x += direction1.x / modul1;
+				particle->velocity.y += direction1.y / modul1;
+				particle->velocity.z += direction1.z / modul1;
+			}
+		}
+		else
+		{
+			particle->velocity.x += direction1.x;
+			particle->velocity.y += direction1.y;
+			particle->velocity.z += direction1.z;
 		}
 	}
-
 	particle->velocity.w += particleSpeed1;
 }
 
@@ -715,6 +801,23 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 		Quat nuwDirQuat = emitter->listParticles.at(i)->directionRotation.Mul(Quat(emitter->listParticles.at(i)->velocity.x, emitter->listParticles.at(i)->velocity.y, emitter->listParticles.at(i)->velocity.z, 0));
 		float3 directionParticle = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
 
+		float3 directionChange; // Se declara aqui para poder decidir si se normaliza o no;
+		if (normalizedChange)
+		{
+			float newModule = GetModuleVec(newDirection);
+			if (newModule == 0) { newModule = 1; } //Para evitar el NaN infinito
+			directionChange = { newDirection.x / newModule, newDirection.y / newModule , newDirection.z / newModule };
+		}
+		else 
+		{
+			directionChange = newDirection;
+		}
+
+		//Maybe aqui podrian haber casos en los que no se quiera usar esto. De momento lo dejo
+		Quat nuwDirQuat2 = emitter->listParticles.at(i)->directionRotation.Mul(Quat(directionChange.x, directionChange.y, directionChange.z, 0));
+		directionChange = float3(nuwDirQuat2.x, nuwDirQuat2.y, nuwDirQuat2.z);
+		 
+
 		switch (actualSpeedChange)
 		{
 		case SpeedChangeMode::PAR_NO_SPEED_CHANGE:
@@ -728,9 +831,9 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 		{
 			if (changeSpeed1<=actualLT && changeSpeed2 >= actualLT)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + directionChange.x) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + directionChange.y) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + directionChange.z) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -739,21 +842,21 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		case SpeedChangeMode::PAR_ADD_OVER_TIME:
 		{
 
 			if (changeSpeed1 <= actualLT && actualLT <= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + directionChange.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + directionChange.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + directionChange.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
-			else if(actualLT >= changeSpeed2)
+			else if (actualLT >= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x + newDirection.x) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y + newDirection.y) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z + newDirection.z) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x + directionChange.x) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y + directionChange.y) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z + directionChange.z) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -762,14 +865,14 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:
 		{
 			if (changeSpeed1 <= actualLT && changeSpeed2 >= actualLT)
 			{
-				emitter->listParticles.at(i)->position.x += newDirection.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += newDirection.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += newDirection.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionChange.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionChange.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionChange.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -778,20 +881,20 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:
 		{
 			if (changeSpeed1 <= actualLT && actualLT <= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += (directionParticle.x * (1- ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += (directionParticle.y * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += (directionParticle.z * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + newDirection.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += (directionParticle.x * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + directionChange.x * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += (directionParticle.y * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + directionChange.y * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += (directionParticle.z * (1 - ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) + directionChange.z * ((actualLT - changeSpeed1) / (changeSpeed2 - changeSpeed1))) * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else if (actualLT >= changeSpeed2)
 			{
-				emitter->listParticles.at(i)->position.x += newDirection.x * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.y += newDirection.y * emitter->listParticles.at(i)->velocity.w * dt;
-				emitter->listParticles.at(i)->position.z += newDirection.z * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.x += directionChange.x * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.y += directionChange.y * emitter->listParticles.at(i)->velocity.w * dt;
+				emitter->listParticles.at(i)->position.z += directionChange.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 			else
 			{
@@ -800,7 +903,7 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 				emitter->listParticles.at(i)->position.z += directionParticle.z * emitter->listParticles.at(i)->velocity.w * dt;
 			}
 		}
-			break;
+		break;
 		default:
 			break;
 		}
@@ -813,12 +916,31 @@ void EmitterPosition::OnInspector()
 	if (this->randomized)
 	{
 		ImGui::DragFloat3("Range 1 ##POSITION", &(this->direction1[0]), 0.1f);
+		if (normalizedSpeed)
+		{
+			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+		}
 		ImGui::DragFloat3("Range 2 ##POSITION", &(this->direction2[0]), 0.1f);
+		if (normalizedSpeed)
+		{
+			float newModul = GetModuleVec({ direction2[0],direction2[1],direction2[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(direction2[0] / newModul) + ", " + std::to_string(direction2[1] / newModul) + ", " + std::to_string(direction2[2] / newModul) + " )").c_str());
+		}
 	}
 	else
 	{
 		ImGui::DragFloat3("Position", &(this->direction1[0]), 0.1f);
+		if (normalizedSpeed)
+		{
+			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+		}
 	}
+	ImGui::Checkbox("Normalize Dir. ##POSITION", &this->normalizedSpeed);
 	ImGui::Checkbox("Acceleration ##POSITION", &this->acceleration);
 	if (this->acceleration)
 	{
@@ -834,11 +956,11 @@ void EmitterPosition::OnInspector()
 
 	switch (actualSpeedChange)
 	{
-	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None";break;
-	case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time";break;
-	case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time";break;
-	case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time";break;
-	case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time";break;
+	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None"; break;
+	case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time"; break;
+	case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time"; break;
+	case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time"; break;
+	case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time"; break;
 	default:break;
 	}
 
@@ -850,11 +972,11 @@ void EmitterPosition::OnInspector()
 
 			switch ((SpeedChangeMode)i)
 			{
-			case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None";break;
-			case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time";break;
-			case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time";break;
-			case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time";break;
-			case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time";break;
+			case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None"; break;
+			case SpeedChangeMode::PAR_IF_TIME_ADD:modeName = "Add during time"; break;
+			case SpeedChangeMode::PAR_ADD_OVER_TIME:modeName = "Add over time"; break;
+			case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:modeName = "Change during time"; break;
+			case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:modeName = "Change over time"; break;
 			default:break;
 			}
 			if (ImGui::Selectable(modeName.c_str()))
@@ -866,6 +988,8 @@ void EmitterPosition::OnInspector()
 		ImGui::EndCombo();
 	}
 
+	ImGui::Checkbox("Normalize Change Dir. ##POSITION", &this->normalizedChange);
+
 	switch (actualSpeedChange)
 	{
 	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:
@@ -873,21 +997,45 @@ void EmitterPosition::OnInspector()
 		break;
 	case SpeedChangeMode::PAR_IF_TIME_ADD:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Adding ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Adding ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
 	case SpeedChangeMode::PAR_ADD_OVER_TIME:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Change ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Change ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
 	case SpeedChangeMode::PAR_IF_TIME_SUBSTITUTE:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Adding ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Adding ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
 	case SpeedChangeMode::PAR_SUBSTITUTE_OVER_TIME:
 		ImGui::DragFloat3("New Direction", &(this->newDirection[0]), 0.1f);
+		if (normalizedChange)
+		{
+			float newModul = GetModuleVec({ newDirection[0],newDirection[1],newDirection[2] });
+			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+			ImGui::Text(("( " + std::to_string(newDirection[0] / newModul) + ", " + std::to_string(newDirection[1] / newModul) + ", " + std::to_string(newDirection[2] / newModul) + " )").c_str());
+		}
 		ImGui::SliderFloat("Start Change ##PositionsChange", &(this->changeSpeed1), 0.0f, (this->changeSpeed2 - 0.05f));
 		ImGui::SliderFloat("Stop Change ##PositionsChange", &(this->changeSpeed2), this->changeSpeed1 + 0.05f, 1.0f);
 		break;
@@ -908,7 +1056,7 @@ float EmitterPosition::GetModuleVec(float3 vec)
 EmitterRotation::EmitterRotation()
 {
 	horAlign = true;
-	currentAlignmentMode = BillboardType::PAR_LOOK_EDITOR_CAMERA;
+	currentAlignmentMode = BillboardType::PAR_LOOK_GAME_CAMERA;
 	orientationFromWorld = OrientationDirection::PAR_Y_AXIS;
 	orientationOfAxis = OrientationDirection::PAR_Y_AXIS;
 	freeWorldRotation = { 0,0,0 };
@@ -1112,6 +1260,27 @@ void EmitterRotation::OnInspector()
 	ImGui::Separator();
 }
 
+float4x4 EmitterRotation::LookAt(float3& Spot, float3& position) // https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function/framing-lookat-function.html
+{
+	//Z
+	float3 forward = (Spot - position).Normalized();
+
+	//X
+	float3 tmp(0, 1, 0);
+	float3 right = tmp.Cross(forward);//crossProduct(tmp, forward); //Order is important!!
+
+	//Y
+	float3 up = forward.Cross(right);//crossProduct(forward, right);
+	
+	float4x4 m;
+	m[0][0] = right.x, m[0][1] = right.y, m[0][2] = right.z;
+	m[1][0] = up.x, m[1][1] = up.y, m[1][2] = up.z;
+	m[2][0] = forward.x, m[2][1] = forward.y, m[2][2] = forward.z;
+	m[3][0] = position.x, m[3][1] = position.y, m[3][2] = position.z;
+
+	return float4x4();
+}
+
 void EmitterRotation::SetRotation(Quat rot)
 {
 	rotation = rot;
@@ -1197,20 +1366,10 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	Quat tempRot;
 	float3 tempSca;
 	camaraMatrix->Decompose(tempPos, tempRot, tempSca);
-
-	//Try
-	/*for (size_t i = 0; i < emitter->listParticles.size(); i++)
-	{
-		float3 posPart = emitter->listParticles.at(i)->position;
-		float3 dirToCamera = tempPos - posPart;
-		dirToCamera.Normalize();
-
-		float3 dirToLook;
-		dirToLook = math::Cross(dirToCamera, { 0,1,0 });
-
-		tempRot = emitter->listParticles.at(i)->worldRotation.AxisFromTo(tempRot);
-	}*/
 	
+	//We obtain the look at vector to create a matrix
+	float4x4 newMatrix = LookAt(tempPos, emitter->owner->mOwner->mTransform->GetGlobalPosition());
+
 	float3 newRot = tempRot.ToEulerXYZ();
 	switch (orientationOfAxis)
 	{
@@ -1565,4 +1724,20 @@ void EmitterShapeArea::OnInspector()
 		suffixLabel = "Set Angle##PaShapeCone";
 		ImGui::DragFloat(suffixLabel.c_str(), &angle);
 	}
+}
+
+Subemitter::Subemitter()
+{
+}
+
+void Subemitter::Spawn(ParticleEmitter* emitter, Particle* particle)
+{
+}
+
+void Subemitter::Update(float dt, ParticleEmitter* emitter)
+{
+}
+
+void Subemitter::OnInspector()
+{
 }
