@@ -305,7 +305,8 @@ void CAnimation::OnInspector() {
             ImGui::Spacing();
 
             if (ImGui::InputText("Name", &animator->animations[selectedAnimation].name)) {
-
+                //std::string assetsPath = External->fileSystem->assetsPath + animator->animations[selectedAnimation].name;
+                //External->fileSystem->SaveAnimationToFile(&animator->animations[selectedAnimation], assetsPath);
             }
 
             ImGui::Spacing();

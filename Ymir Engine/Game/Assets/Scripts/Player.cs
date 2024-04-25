@@ -1094,6 +1094,7 @@ public class Player : YmirComponent
     private void EndShooting()
     {
         // Reset del futuro autoapuntado
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
     private void StartReload()
     {
@@ -1113,9 +1114,13 @@ public class Player : YmirComponent
             //if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
-        //Particles
-        GameObject particles = GetParticles(gameObject, "ParticlesShoot");
+        //Particles FX
+        GameObject particles = GetParticles(gameObject, "ParticlesSmg");
         Particles.PlayEmitter(particles);
+
+        //Bullet
+        GameObject bulletParticles = GetParticles(gameObject, "ParticlesSmgBullet");
+        Particles.PlayEmitter(bulletParticles);
 
         Vector3 offset = new Vector3(0, 15, 0);
 
@@ -1163,6 +1168,9 @@ public class Player : YmirComponent
             //if (csBullets!= null){ csBullets.UseBullets(); }
         }
 
+        GameObject shotgunParticles = GetParticles(gameObject, "ParticlesShotgun");
+        Particles.PlayEmitter(shotgunParticles);
+
         Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
         float distance = 40.0f;
         Vector3 offset = new Vector3(0, 15, 0);
@@ -1179,6 +1187,9 @@ public class Player : YmirComponent
     {
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
 
+        GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
+        Particles.PlayEmitter(traceParticles);
+
         if (!godMode)
         {
             --ammo;
@@ -1186,7 +1197,6 @@ public class Player : YmirComponent
         }
 
         Vector3 offset = new Vector3(0, 15, 0);
-
 
         GameObject target;
         target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 30.0f);
@@ -1531,7 +1541,7 @@ public class Player : YmirComponent
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Walk", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Death", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Spin", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Shooting", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Shooting", 2.0f);
         //Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
 
         Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Idle", 5.0f);
@@ -1641,6 +1651,7 @@ public class Player : YmirComponent
         //StopPlayer();
         //Delete de la hitbox de la cola
         swipeCDTimer = swipeCD;
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
 
     public void LookAt(float angle)
