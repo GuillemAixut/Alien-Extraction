@@ -306,6 +306,7 @@
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
+                    "acidicTimer": 0,
                     "currentMenu": "",
                     "setHover": false
                 }
@@ -1128,7 +1129,7 @@
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 1,
+                                    "Lifetime": 10,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
@@ -1142,8 +1143,8 @@
                                         0,
                                         0
                                     ],
-                                    "DistanceLimit": 0,
-                                    "HasDistanceLimit": false,
+                                    "DistanceLimit": 50,
+                                    "HasDistanceLimit": true,
                                     "BaseRotation": 2,
                                     "BaseShape": 0,
                                     "RadiusHollow": 0,
@@ -1406,7 +1407,7 @@
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 1,
+                                    "Lifetime": 20,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
@@ -1420,8 +1421,8 @@
                                         0,
                                         0
                                     ],
-                                    "DistanceLimit": 0,
-                                    "HasDistanceLimit": false,
+                                    "DistanceLimit": 100,
+                                    "HasDistanceLimit": true,
                                     "BaseRotation": 0,
                                     "BaseShape": 0,
                                     "RadiusHollow": 0,
@@ -1435,7 +1436,7 @@
                                     "StartMode": 3,
                                     "NumParticles": 28,
                                     "SpawnRatio": 0.019999999552965164,
-                                    "NumParticlesToStop": 15
+                                    "NumParticlesToStop": 50
                                 },
                                 {
                                     "Type": 2,
@@ -1452,7 +1453,7 @@
                                     ],
                                     "NormalizedBaseDirection": true,
                                     "Accelerates": false,
-                                    "Speed1": 21.399999618530273,
+                                    "Speed1": 40,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -1626,8 +1627,8 @@
                                     "Type": 5,
                                     "Progressive": false,
                                     "Color1": [
-                                        0.1150442361831665,
                                         1,
+                                        0.63716810941696167,
                                         0,
                                         1
                                     ],
@@ -12128,7 +12129,8 @@
                     "Type": "Script",
                     "ScriptName": "Enemy_Test.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "life": 0
                 }
             ],
             "Children UID": [

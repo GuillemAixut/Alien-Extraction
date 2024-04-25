@@ -80,6 +80,7 @@ public class Player : YmirComponent
 
     //--------------------- GOD mode ---------------------\\
     public bool godMode = false;
+    #endregion
 
     #region DEFINE SHOOT VARS
 
@@ -148,7 +149,7 @@ public class Player : YmirComponent
     //float initRot;
 
     //--------------------- Acidic Spit ------------------------\\
-    private float acidicTimer;
+    public float acidicTimer;
     private float acidicDuration = 1.8f;
     private float acidicCDTimer;
     private float acidicCD = 7.0f;
