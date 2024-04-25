@@ -140,7 +140,7 @@ public class Player : YmirComponent
 
     //--------------------- Tail Swipe ---------------------\\
     public float swipeTimer;
-    private float swipeDuration = 3.0f;
+    private float swipeDuration = 2f;
     private float swipeCDTimer;
     private float swipeCD = 13.0f;
     private bool hasSwipe = false;
@@ -207,7 +207,7 @@ public class Player : YmirComponent
 
         //--------------------- Swipe ---------------------\\
         swipeTimer = 0;
-        swipeDuration = 1.0f;
+        swipeDuration = 0.5f;
         swipeCDTimer = 0;
         swipeCD = 2.0f; //Es 13.0f
         hasSwipe = false;
@@ -1169,7 +1169,24 @@ public class Player : YmirComponent
                 Audio.PlayAudio(gameObject, "W_FirearmSurf");
             }
             else {
-                Audio.PlayAudio(gameObject, "W_FirearmEnemy");
+
+                //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
+                FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
+
+                if(aux != null)
+                {
+                    aux.life -= 5;
+                }
+
+                DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
+                if (aux2 != null)
+                {
+                    aux2.life -= 5;
+                }
+                Debug.Log("[ERROR] HIT ENEMy");
+                //-----------------------------------------------------------------------------------
+                // Sparkle particle
+                // Play bullet hit wall SFX
             }
         }
 
@@ -1236,6 +1253,22 @@ public class Player : YmirComponent
             else
             {
                 Audio.PlayAudio(gameObject, "W_PlasmaEnemy");
+
+                //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
+                FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
+
+                if (aux != null)
+                {
+                    aux.life -= 10;
+                }
+
+                DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
+                if (aux2 != null)
+                {
+                    aux2.life -= 10;
+                }
+                Debug.Log("[ERROR] HIT ENEMy");
+                //-----------------------------------------------------------------------------------
             }
         }
         // List<GameObject> targets = new List<GameObject>();

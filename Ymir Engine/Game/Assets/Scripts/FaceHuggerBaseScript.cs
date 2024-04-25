@@ -29,7 +29,7 @@ public class FaceHuggerBaseScript : Enemy
 
     //private EnemyState state = EnemyState.Idle;
    
-
+    
     private float wanderTimer;
     public float wanderDuration = 5f;
 
@@ -56,9 +56,10 @@ public class FaceHuggerBaseScript : Enemy
         wanderTimer = wanderDuration;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
-        //Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
         agent = gameObject.GetComponent<PathFinding>();
         movementSpeed = 25f;
+        knockBackSpeed = 200;
+        knockBackTimer = 0.2f;
         stopedDuration = 1f;
         detectionRadius = 50f;
         wanderRange = 100f;
@@ -94,27 +95,41 @@ public class FaceHuggerBaseScript : Enemy
 
     public void Update()
     {
-        //Debug.Log("[ERROR] Vida " + healthScript.currentHealth);
+
+       
+        isDeath();
         CryTimer += Time.deltaTime;
         cumTimer2 -= Time.deltaTime;
         if (cumTimer2 <= 0)
         {
             switch (wanderState)
             {
+                case WanderState.DEATH:
+
+                    timePassed += Time.deltaTime;
+
+                    if (timePassed >= 1.2f)
+                    {
+                        Debug.Log("[ERROR] DEATH");
+
+                        //InternalCalls.Destroy(gameObject);
+                    }
+
+                    return;
                 case WanderState.REACHED:
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     wanderTimer = wanderDuration;
                     //Debug.Log("[ERROR] Current State: REACHED");
                     targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
-                    //Debug.Log("[ERROR] TargetPosition: " + targetPosition); 
+                    
                     wanderState = WanderState.GOING;
                     break;
 
                 case WanderState.GOING:
                     LookAt(agent.GetDestination());
-                    //Debug.Log("[ERROR] Speed" + agent.speed);
+                    
                     MoveToCalculatedPos(agent.speed);
-                    Debug.Log("[ERROR] Current State: GOING");
+                    //Debug.Log("[ERROR] Current State: GOING");
 
                     IsReached(gameObject.transform.globalPosition, targetPosition);
                     break;
@@ -128,7 +143,7 @@ public class FaceHuggerBaseScript : Enemy
 
                     MoveToCalculatedPos(agent.speed);
 
-                    Debug.Log("[ERROR] Current State: CHASING");
+                   
                     break;
 
                 case WanderState.STOPED:
@@ -143,10 +158,26 @@ public class FaceHuggerBaseScript : Enemy
 
                     break;
 
+                case WanderState.KNOCKBACK:
+
+                    KnockBack(knockBackSpeed);
+                    timePassed += Time.deltaTime;
+
+                    if(timePassed >= knockBackTimer)
+                    {
+                        Debug.Log("[ERROR] End KnockBack"); 
+                        wanderState = WanderState.REACHED;
+                        timePassed = 0f;
+                    }
+                    break;
+
                 case WanderState.ATTACK:
                     LookAt(player.transform.globalPosition);
                     Attack();
                     break;
+
+
+                   
             }
 
             ////Check if player is alive before chasing
@@ -156,7 +187,7 @@ public class FaceHuggerBaseScript : Enemy
                 if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
                 {
 
-                    if (wanderState != WanderState.HIT)
+                    if (wanderState != WanderState.KNOCKBACK && wanderState != WanderState.HIT)
                     {
                         
                         if (CryTimer >= 10) 
@@ -171,7 +202,7 @@ public class FaceHuggerBaseScript : Enemy
                     if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, AttackDistance))
                     {
 
-                        if (wanderState == WanderState.CHASING && wanderState != WanderState.ATTACK)
+                        if (wanderState == WanderState.CHASING && wanderState != WanderState.ATTACK && wanderState != WanderState.KNOCKBACK)
                         {
                             //Debug.Log("[ERROR] ATTACKING");
                             attackTimer = attackDuration;
@@ -204,7 +235,7 @@ public class FaceHuggerBaseScript : Enemy
                 wanderState = WanderState.REACHED;
             }
         }
-    }
+    }   
 
     private void ProcessStopped()
     {
@@ -244,14 +275,34 @@ public class FaceHuggerBaseScript : Enemy
     }
 
 
+    private void isDeath()
+    {
+        if(life <= 0)
+        {
+            Debug.Log("[ERROR] DEATH");
+            gameObject.SetVelocity(new Vector3(0, 0, 0));
+            wanderState = WanderState.DEATH;
+        }
+    }
+
 
     public void OnCollisionStay(GameObject other)
     {
-       if(other.Tag == "Tail" && wanderState != WanderState.HIT)
+       if(other.Tag == "Tail" && wanderState != WanderState.KNOCKBACK && wanderState != WanderState.DEATH)
         {
+            Debug.Log("[ERROR] HIT!!");
             life -= 80;
-            gameObject.SetImpulse(gameObject.transform.GetForward() * -50);
-            wanderState = WanderState.HIT;
+           
+            wanderState = WanderState.KNOCKBACK;
+        }
+    }
+
+
+    public void OnCollisionExit(GameObject other)
+    {
+        if (other.Tag == "Tail" )
+        {
+             
         }
     }
 }

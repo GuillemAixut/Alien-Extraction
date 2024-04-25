@@ -7,7 +7,7 @@
             "UID": 1765229486,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1056771548,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -15,7 +15,7 @@
                     "Translation": [
                         -0.63420295715332031,
                         0,
-                        0
+                        64.548736572265625
                     ],
                     "Rotation": [
                         -0,
@@ -23,23 +23,25 @@
                         0
                     ],
                     "Scale": [
+                        0.024999996647238731,
                         0.02500000037252903,
-                        0.02500000037252903,
-                        0.02500000037252903
+                        0.024999996647238731
                     ]
                 },
                 {
                     "Type": "Animation",
                     "Active": 1,
-                    "NumPaths": 5,
+                    "NumPaths": 6,
                     "Paths": [
                         "Assets\/Drone_Walk.yanim",
                         "Assets\/Drone_Tail_Attack.yanim",
                         "Assets\/Death.yanim",
                         "Assets\/Claw_Attack.yanim",
-                        "Assets\/Cry.yanim"
+                        "Assets\/Cry.yanim",
+                        "Assets\/Combat_Idle.yanim"
                     ],
                     "AssetsPath": [
+                        "",
                         "",
                         "",
                         "",
@@ -62,7 +64,7 @@
                         350
                     ],
                     "Physics Type": 0,
-                    "Mass": 1,
+                    "Mass": 100,
                     "Friction": 10,
                     "Angular Friction": 0,
                     "UseGravity": true,
@@ -94,7 +96,10 @@
                     "ScriptName": "DroneXenomorphBaseScript.cs",
                     "Active": 1,
                     "movementSpeed": 0,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
                     "wanderState": 0,
+                    "timePassed": 0,
                     "life": 100,
                     "armor": 0,
                     "rarity": 0,
@@ -126,6 +131,13 @@
                             "transparency": 1
                         }
                     ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "DroneXenomorph",
+                    "Event Name": "",
+                    "Event ID": 0
                 }
             ],
             "Children UID": [
@@ -153,8 +165,8 @@
                     ],
                     "Rotation": [
                         -0,
-                        0,
-                        -0
+                        -90,
+                        0
                     ],
                     "Scale": [
                         1,
