@@ -28,7 +28,7 @@
             "UID": 916391465,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1122639446,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -108,6 +108,11 @@
                     "Frustum Culling": 1,
                     "Draw Bounding Boxes": 1,
                     "Game Camera": true
+                },
+                {
+                    "Type": "Audio listener",
+                    "Active": 1,
+                    "Default Listener": 1
                 }
             ]
         },
@@ -145,8 +150,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1952,
-                    "Height": 1030,
+                    "Width": 1658,
+                    "Height": 1196,
                     "UI Type": 0,
                     "UI State": 5,
                     "Drag Limits": [
@@ -1043,8 +1048,8 @@
                     "Type": "Audio source",
                     "Active": 1,
                     "Bank Name": "UI_Sfx",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Event Name": "UI_MoveHover",
+                    "Event ID": 3300279817
                 }
             ]
         }

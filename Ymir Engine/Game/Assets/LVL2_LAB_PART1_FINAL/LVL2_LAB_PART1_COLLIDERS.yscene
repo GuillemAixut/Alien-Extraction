@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2072557615,
+            "Parent UID": 675653852,
             "Components": [
                 {
                     "Type": "Transform",
@@ -66,7 +66,8 @@
                 1904908806,
                 1827062016,
                 1676754095,
-                1806365249
+                1806365249,
+                1664525401
             ]
         },
         {
@@ -24763,9 +24764,9 @@
                         -148.91989135742188
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -18.257898330688477,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.2600536346435547,
@@ -27544,7 +27545,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.4422941207885742,
+                        9.442296028137207,
                         -0
                     ],
                     "Scale": [
@@ -31765,7 +31766,7 @@
                         -52.581008911132812
                     ],
                     "Rotation": [
-                        1.3512408969518219e-08,
+                        1.3512409857696639e-08,
                         90,
                         0
                     ],
@@ -32234,8 +32235,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 633,
-                    "Height": 389,
+                    "Width": 1658,
+                    "Height": 1196,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -46537,7 +46538,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.518014859262621e-06,
+                        5.5180144045152701e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],
@@ -47439,6 +47440,43 @@
                     "Intensity": 1,
                     "Light Type": 0,
                     "Radius": 1
+                }
+            ]
+        },
+        {
+            "Name": "UI Audio",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1664525401,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "UI_Sfx",
+                    "Event Name": "UI_Error",
+                    "Event ID": 1009189048
                 }
             ]
         }

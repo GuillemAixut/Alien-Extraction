@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 597673441,
+            "Parent UID": 596903334,
             "Components": [
                 {
                     "Type": "Transform",
@@ -59,7 +59,8 @@
                 2098616738,
                 869362369,
                 297696942,
-                1806365249
+                1806365249,
+                812841453
             ]
         },
         {
@@ -11058,8 +11059,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 633,
-                    "Height": 389,
+                    "Width": 1658,
+                    "Height": 1196,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -59234,7 +59235,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.518014859262621e-06,
+                        5.5180144045152701e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],
@@ -60136,6 +60137,43 @@
                     "Intensity": 1,
                     "Light Type": 0,
                     "Radius": 1
+                }
+            ]
+        },
+        {
+            "Name": "UI Audio",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 812841453,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "UI_Sfx",
+                    "Event Name": "UI_Error",
+                    "Event ID": 1009189048
                 }
             ]
         }
