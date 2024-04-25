@@ -36,6 +36,20 @@ public class BH_Shotgun : YmirComponent
         else
         {
             Audio.PlayAudio(gameObject, "W_FSADEnemy");
+            FaceHuggerBaseScript aux = other.GetComponent<FaceHuggerBaseScript>();
+
+            if (aux != null)
+            {
+                aux.life -= 110;
+            }
+
+            DroneXenomorphBaseScript aux2 = other.GetComponent<DroneXenomorphBaseScript>();
+            if (aux2 != null)
+            {
+                aux2.life -= 110;
+            }
+            Debug.Log("[ERROR] HIT ENEMy");
+           
         }
     }
 }
