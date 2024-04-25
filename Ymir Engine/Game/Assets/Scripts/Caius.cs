@@ -18,37 +18,262 @@ public class Caius : YmirComponent
         public string Code;
     }
     Dictionary<int, Dialogue> dialogue = new Dictionary<int, Dialogue>();
-    string juan;
+    string dialoguescsv;
+    bool active_Dialogue;
 
-    public GameObject line1_gameObject = null;
+    public GameObject canvas_Caius = null;
+    public GameObject name_Npc = null;
+    public GameObject dialogue_Npc = null;
+    public GameObject Ybutton = null;
+    public GameObject Bbutton = null;
+    public GameObject Abutton = null;
+    public GameObject Xbutton = null;
 
+    public enum Dialogue_id
+    {
+        ID_0,
+        ID_1, 
+        ID_2, 
+        ID_3, 
+        ID_4, 
+        ID_5, 
+        ID_6, 
+        ID_7, 
+        ID_8, 
+        ID_9, 
+        ID_10,
+        ID_11, 
+        ID_12, 
+        ID_13, 
+        ID_14, 
+        ID_15, 
+        ID_16, 
+        ID_17, 
+        ID_18, 
+        ID_19, 
+        ID_20, 
+        ID_21, 
+        ID_22, 
+        ID_23, 
+        ID_24, 
+        ID_25, 
+        ID_26
+    }
+
+    public Dialogue_id dialogue_;
     public void Start()
     {
-        line1_gameObject = InternalCalls.GetGameObjectByName("Callu");
-        juan = InternalCalls.CSVToString("Assets/Dialogue/asddasdf.csv");
-        LoadDialogues(juan);
+        active_Dialogue = false;
+        canvas_Caius = InternalCalls.GetGameObjectByName("Npc_Dialogue");
+        name_Npc = InternalCalls.GetGameObjectByName("Name_Npc");
+        dialogue_Npc = InternalCalls.GetGameObjectByName("dialogue_Npc");
+        dialoguescsv = InternalCalls.CSVToString("Assets/Dialogue/Caius_Dialogue.csv");
+        Ybutton = InternalCalls.GetGameObjectByName("buttonY");        
+        Bbutton = InternalCalls.GetGameObjectByName("buttonB");
+        Abutton = InternalCalls.GetGameObjectByName("buttonA");
+        Xbutton = InternalCalls.GetGameObjectByName("buttonX");
 
+        LoadDialogues(dialoguescsv);
+        dialogue_ = Dialogue_id.ID_1;
     }
 	public void Update()
 	{
-        if (Input.GetKey(YmirKeyCode.H) == KeyState.KEY_DOWN)
+       if(active_Dialogue)
         {
-            UI.TextEdit(line1_gameObject, dialogue[2].Name+":" + dialogue[2].Text);
-        }
-        if (Input.GetKey(YmirKeyCode.Z) == KeyState.KEY_DOWN)
-        {
-            line1_gameObject.SetActive(false);
+            canvas_Caius.SetActive(true);
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_1)
+            {
+                dialogue_ = Dialogue_id.ID_5;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_5)
+            {
+                dialogue_ = Dialogue_id.ID_7;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_5)
+            {
+                dialogue_ = Dialogue_id.ID_9;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_1)
+            {
+                dialogue_ = Dialogue_id.ID_10;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_10)
+            {
+                dialogue_ = Dialogue_id.ID_12;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_12)
+            {
+                dialogue_ = Dialogue_id.ID_14;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_12)
+            {
+                dialogue_ = Dialogue_id.ID_16;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_10)
+            {
+                dialogue_ = Dialogue_id.ID_18;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_18)
+            {
+                dialogue_ = Dialogue_id.ID_20;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_18)
+            {
+                dialogue_ = Dialogue_id.ID_22;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_10)
+            {
+                dialogue_ = Dialogue_id.ID_24;
+                return;
+            }
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_1)
+            {
+                dialogue_ = Dialogue_id.ID_26;
+                return;
+            }
+            DialogueManager();
         }
         return;
 	}
+    public void DialogueManager()
+    {
+        switch (dialogue_)
+        {
+            case Dialogue_id.ID_0:
 
+                break;
+
+            case Dialogue_id.ID_1:
+                UI.TextEdit(name_Npc, dialogue[1].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[1].Text);
+                UI.TextEdit(Ybutton, dialogue[2].Text);
+                UI.TextEdit(Bbutton, dialogue[3].Text);
+                UI.TextEdit(Abutton, dialogue[4].Text);
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_5:
+                UI.TextEdit(name_Npc, dialogue[5].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[5].Text);
+                UI.TextEdit(Ybutton, dialogue[6].Text);
+                UI.TextEdit(Bbutton, dialogue[8].Text);
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_7:
+                UI.TextEdit(name_Npc, dialogue[7].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[7].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_9:
+                UI.TextEdit(name_Npc, dialogue[9].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[9].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_10:
+                UI.TextEdit(name_Npc, dialogue[10].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[10].Text);
+                UI.TextEdit(Ybutton, dialogue[11].Text);
+                UI.TextEdit(Bbutton, dialogue[17].Text);
+                UI.TextEdit(Abutton, dialogue[23].Text);
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_12:
+                UI.TextEdit(name_Npc, dialogue[12].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[12].Text);
+                UI.TextEdit(Ybutton, dialogue[13].Text);
+                UI.TextEdit(Bbutton, dialogue[15].Text);
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_14:
+                UI.TextEdit(name_Npc, dialogue[14].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[14].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_16:
+                UI.TextEdit(name_Npc, dialogue[16].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[16].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_18:
+                UI.TextEdit(name_Npc, dialogue[18].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[18].Text);
+                UI.TextEdit(Ybutton, dialogue[19].Text);
+                UI.TextEdit(Bbutton, dialogue[21].Text);
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_20:
+                UI.TextEdit(name_Npc, dialogue[20].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[20].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_22:
+                UI.TextEdit(name_Npc, dialogue[22].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[22].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_24:
+                UI.TextEdit(name_Npc, dialogue[24].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[24].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_26:
+                UI.TextEdit(name_Npc, dialogue[26].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[26].Text);
+                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+
+        }
+    }
     public void OnCollisionStay(GameObject other)
     {
         if(other.Tag == "Player")
         {
-            line1_gameObject.SetActive(true);
-
-            UI.TextEdit(line1_gameObject, dialogue[1].Name + ":" + dialogue[1].Text);
+            active_Dialogue = true;
+        }
+    }
+    public void OnCollisionExit(GameObject other)
+    {
+        if (other.Tag == "Player")
+        {
+            active_Dialogue = false;
+            dialogue_ = Dialogue_id.ID_1; 
+            canvas_Caius.SetActive(false);
         }
     }
     public void LoadDialogues(string dialogueData)
@@ -59,7 +284,7 @@ public class Caius : YmirComponent
         {
             string[] dialogueParts = line.Split(';');
 
-            if (dialogueParts.Length >= 3)
+            if (dialogueParts.Length >= 4)
             {
                 Dialogue _dialogue = new Dialogue();
                 Debug.Log("[WARNING] 1");
@@ -77,6 +302,6 @@ public class Caius : YmirComponent
             }
         }
 
-        Debug.Log("[WARNING] GG Loading dialogue data" + lines[0]);
+        //Debug.Log("[WARNING] GG Loading dialogue data" + lines[0]);
     }
 }
