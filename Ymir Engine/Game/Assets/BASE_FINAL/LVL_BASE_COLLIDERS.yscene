@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 597673441,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11057,8 +11058,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 705,
-                    "Height": 592,
+                    "Width": 633,
+                    "Height": 389,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -58454,7 +58455,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 0,
+                    "Frustum Culling": 1,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
@@ -58474,9 +58475,9 @@
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Bank Name": "BaseMusic",
+                    "Event Name": "B_Basic",
+                    "Event ID": 3279702346
                 }
             ]
         },
@@ -59234,7 +59235,7 @@
                     ],
                     "Rotation": [
                         5.518014859262621e-06,
-                        -4.4419512050808407e-06,
+                        -4.4419521145755425e-06,
                         6.1662530899047852
                     ],
                     "Scale": [

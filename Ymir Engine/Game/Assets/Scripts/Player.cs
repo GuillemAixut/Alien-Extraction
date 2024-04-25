@@ -1183,6 +1183,12 @@ public class Player : YmirComponent
                 {
                     aux2.life -= 5;
                 }
+
+                QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
+                if (aux3 != null)
+                {
+                    aux3.life -= 5;
+                }
                 Debug.Log("[ERROR] HIT ENEMy");
                 //-----------------------------------------------------------------------------------
                 // Sparkle particle
@@ -1266,6 +1272,12 @@ public class Player : YmirComponent
                 if (aux2 != null)
                 {
                     aux2.life -= 10;
+                }
+
+                QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
+                if (aux3 != null)
+                {
+                    aux3.life -= 10;
                 }
                 Debug.Log("[ERROR] HIT ENEMy");
                 //-----------------------------------------------------------------------------------
