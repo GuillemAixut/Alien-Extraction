@@ -8,5 +8,8 @@ namespace YmirEngine
     {
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void PlayEmitter(object go);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void ParticleShoot(object go, object vec);
     }
 }

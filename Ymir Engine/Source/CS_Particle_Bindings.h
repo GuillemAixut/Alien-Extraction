@@ -30,3 +30,33 @@ void PlayEmitter(MonoObject* go) {
 		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
 	}
 }
+
+void ParticleShoot(MonoObject* go, MonoObject* vector)
+{
+	if (External == nullptr) return;
+
+	//Vector hacia el que mira el player
+	float3 directionShoot = External->moduleMono->UnboxVector(vector);
+
+	//Game object del player
+	//Se necesita para sacar el componente particula y por ende su EmitterPosition
+	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
+	if (GO == nullptr)
+	{
+		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
+		return;
+	}
+
+	CParticleSystem* particleSystem = dynamic_cast<CParticleSystem*>(GO->GetComponent(ComponentType::PARTICLE));
+
+	if (particleSystem != nullptr)
+	{
+		EmitterPosition* pos = (EmitterPosition*)particleSystem->allEmitters.at(0)->modules.at(2);
+
+		pos->direction1 = directionShoot;
+	}
+	else
+	{
+		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
+	}
+}

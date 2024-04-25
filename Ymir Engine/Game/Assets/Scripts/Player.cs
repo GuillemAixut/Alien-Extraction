@@ -1139,7 +1139,10 @@ public class Player : YmirComponent
 
         //Bullet
         GameObject bulletParticles = GetParticles(gameObject, "ParticlesSmgBullet");
+        Particles.ParticleShoot(bulletParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(bulletParticles);
+
+        Debug.Log("Forward: " + gameObject.transform.GetForward().normalized.x + " " + gameObject.transform.GetForward().normalized.y + " " + gameObject.transform.GetForward().normalized.z);
 
         Vector3 offset = new Vector3(0, 15, 0);
 
@@ -1213,6 +1216,7 @@ public class Player : YmirComponent
         }
 
         GameObject shotgunParticles = GetParticles(gameObject, "ParticlesShotgun");
+        Particles.ParticleShoot(shotgunParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(shotgunParticles);
 
         Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
@@ -1234,6 +1238,7 @@ public class Player : YmirComponent
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
 
         GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
+        Particles.ParticleShoot(traceParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(traceParticles);
 
         if (!godMode)
