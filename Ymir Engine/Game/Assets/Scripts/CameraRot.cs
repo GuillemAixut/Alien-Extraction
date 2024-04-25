@@ -84,7 +84,7 @@ public class CameraRot : YmirComponent
             }
         }
 
-        gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * distance * constDelay);
+        gameObject.SetPosition(Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * distance * constDelay));
     }
 }
 
