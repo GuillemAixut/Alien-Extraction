@@ -386,6 +386,9 @@ void ModuleScene::ClearScene()
 	isLocked = false;
 	SetSelected();
 
+	focusedUIGO = nullptr;
+	selectedUIGO = nullptr;
+
 	External->lightManager->ClearLights(); // Done Correctly
 
 	External->resourceManager->ClearResources(); // Done Correctly
