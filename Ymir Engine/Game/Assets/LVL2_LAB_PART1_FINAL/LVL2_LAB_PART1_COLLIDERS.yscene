@@ -28,7 +28,6 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -62,11 +61,11 @@
                 1410314394,
                 1673715312,
                 1658136279,
+                966905019,
                 1398847280,
                 1904908806,
-                1676754095,
-                1707342777,
-                966905019
+                1827062016,
+                1676754095
             ]
         },
         {
@@ -27544,7 +27543,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.4422950744628906,
+                        9.442296028137207,
                         -0
                     ],
                     "Scale": [
@@ -32281,7 +32280,7 @@
                         -52.581008911132812
                     ],
                     "Rotation": [
-                        1.3512401864090862e-08,
+                        1.351240541680454e-08,
                         90,
                         0
                     ],
@@ -32620,6 +32619,103 @@
             ]
         },
         {
+            "Name": "NavMesh_LVL2_Part1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 966905019,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1069382293
+            ]
+        },
+        {
+            "Name": "NavMesh_LVL2_Part1 (1)",
+            "Static": true,
+            "Tag": "Untagged",
+            "UID": 1069382293,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/NavMesh_LVL2_Part1.fbx",
+            "Parent UID": 966905019,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1391614747,
+                    "Vertex Count": 348,
+                    "Index Count": 1323
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                25.106229782104492,
+                                113.06605529785156,
+                                34.990203857421875
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 0
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
             "Name": "Game Canvas",
             "Static": false,
             "Tag": "Untagged",
@@ -32653,8 +32749,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 696,
-                    "Height": 563,
+                    "Width": 1914,
+                    "Height": 1101,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -33093,20 +33189,20 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 149,
+                    "Position X": 136,
                     "Position Y": 979,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        149,
+                        136,
                         1036.3974609375,
                         200,
                         50
                     ],
                     "Text": "35\/35",
-                    "Font name": "de-valencia-beta.otf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 15,
                     "Line Spacing": 0.5,
@@ -33188,7 +33284,8 @@
             "Children UID": [
                 1810944020,
                 118355006,
-                1749880555
+                1749880555,
+                1388662483
             ]
         },
         {
@@ -33381,6 +33478,68 @@
             ]
         },
         {
+            "Name": "Gp Text (5)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1388662483,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1883355782,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1708,
+                    "Position Y": 993,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1708,
+                        993,
+                        200,
+                        50
+                    ],
+                    "Text": "RB",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 8,
+                    "Line Spacing": 1,
+                    "Color": [
+                        -1,
+                        -1,
+                        -1,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
             "Name": "HUD",
             "Static": false,
             "Tag": "Untagged",
@@ -33504,8 +33663,7 @@
                 1746115142,
                 346795120,
                 833603155,
-                1843557112,
-                456066568
+                1843557112
             ]
         },
         {
@@ -33821,16 +33979,20 @@
                     "Type": "UI Transform",
                     "Component reference": 1
                 }
+            ],
+            "Children UID": [
+                456066568,
+                426264512
             ]
         },
         {
-            "Name": "Text (29)",
+            "Name": "Number Heals",
             "Static": false,
             "Tag": "Untagged",
             "UID": 456066568,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 664762359,
+            "Parent UID": 1843557112,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33868,14 +34030,76 @@
                         50
                     ],
                     "Text": "x2",
-                    "Font name": "arial.ttf",
+                    "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 18,
+                    "Font size": 15,
                     "Line Spacing": 1,
                     "Color": [
                         -0.98000001907348633,
                         0,
                         -0.98000001907348633,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Gp Text",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 426264512,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1843557112,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 707,
+                    "Position Y": 914,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        707,
+                        914,
+                        200,
+                        50
+                    ],
+                    "Text": "LB",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 8,
+                    "Line Spacing": 1,
+                    "Color": [
+                        -1,
+                        -1,
+                        -1,
                         0
                     ]
                 },
@@ -33963,7 +34187,8 @@
             ],
             "Children UID": [
                 1520941648,
-                1278031458
+                1278031458,
+                627738032
             ]
         },
         {
@@ -34093,6 +34318,68 @@
             ]
         },
         {
+            "Name": "Gp Text (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 627738032,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 794843613,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 870,
+                    "Position Y": 1007,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        870,
+                        1007,
+                        200,
+                        50
+                    ],
+                    "Text": "Y",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 10,
+                    "Line Spacing": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
             "Name": "Frame (2)",
             "Static": false,
             "Tag": "Untagged",
@@ -34170,7 +34457,8 @@
             ],
             "Children UID": [
                 348900005,
-                847052683
+                847052683,
+                998317707
             ]
         },
         {
@@ -34300,6 +34588,68 @@
             ]
         },
         {
+            "Name": "Gp Text (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 998317707,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1118421309,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 975,
+                    "Position Y": 1007,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        975,
+                        1007,
+                        200,
+                        50
+                    ],
+                    "Text": "B",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 10,
+                    "Line Spacing": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
             "Name": "Frame (3)",
             "Static": false,
             "Tag": "Untagged",
@@ -34377,7 +34727,8 @@
             ],
             "Children UID": [
                 450047155,
-                1039560090
+                1039560090,
+                156246151
             ]
         },
         {
@@ -34507,6 +34858,68 @@
             ]
         },
         {
+            "Name": "Gp Text (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 156246151,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 397458731,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1076,
+                    "Position Y": 1007,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1076,
+                        1007,
+                        200,
+                        50
+                    ],
+                    "Text": "X",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 10,
+                    "Line Spacing": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
             "Name": "Frame (4)",
             "Static": false,
             "Tag": "Untagged",
@@ -34584,7 +34997,8 @@
             ],
             "Children UID": [
                 1602915786,
-                825663870
+                825663870,
+                1875259030
             ]
         },
         {
@@ -34714,6 +35128,68 @@
             ]
         },
         {
+            "Name": "Gp Text (4)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1875259030,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 404505283,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1213,
+                    "Position Y": 1006,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1213,
+                        1006,
+                        200,
+                        50
+                    ],
+                    "Text": "LT",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 7,
+                    "Line Spacing": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
             "Name": "Inventory Menu",
             "Static": false,
             "Tag": "Untagged",
@@ -34747,8 +35223,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1923,
-                    "Height": 1050,
+                    "Width": 1914,
+                    "Height": 1101,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -44806,7 +45282,7 @@
                     "Text": "This is a text",
                     "Font name": "arial.ttf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 21,
+                    "Font size": 18,
                     "Line Spacing": 0,
                     "Color": [
                         0,
@@ -44825,7 +45301,7 @@
             "Name": "Death Canvas",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1676754095,
+            "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
             "Parent UID": 379278140,
@@ -44855,8 +45331,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1923,
-                    "Height": 1050,
+                    "Width": 1914,
+                    "Height": 1101,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -44868,9 +45344,7 @@
                 }
             ],
             "Children UID": [
-                1076335875,
-                604314097,
-                43054277,
+                521441229,
                 199456300
             ]
         },
@@ -44878,10 +45352,10 @@
             "Name": "Background (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1076335875,
+            "UID": 521441229,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1676754095,
+            "Parent UID": 1827062016,
             "Components": [
                 {
                     "Type": "Transform",
@@ -44918,7 +45392,7 @@
                         1920,
                         1080
                     ],
-                    "Path": "Assets\/UI\/Fondo.png",
+                    "Path": "Assets\/UI\/LoseScreenBase.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -44938,143 +45412,19 @@
             ]
         },
         {
-            "Name": "Text (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 604314097,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1676754095,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        44.292701721191406,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 494,
-                    "Position Y": 300,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        494,
-                        344.29269409179688,
-                        200,
-                        50
-                    ],
-                    "Text": "You Died",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 170,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Text (5)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 43054277,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1676754095,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 557,
-                    "Position Y": 549,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        557,
-                        549,
-                        200,
-                        50
-                    ],
-                    "Text": "Extraction failed. Inventory lost.",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 35,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Empty",
+            "Name": "Grid (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 199456300,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1676754095,
+            "Parent UID": 1827062016,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        660,
+                        636,
                         0,
                         0
                     ],
@@ -45088,6 +45438,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 2,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": false,
+                    "naviagteY": false,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -45128,16 +45497,16 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 709,
-                    "Width": 653,
-                    "Height": 148,
+                    "Position Y": 657,
+                    "Width": 600,
+                    "Height": 88,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
-                        709,
-                        653,
-                        148
+                        636,
+                        657,
+                        600,
+                        88
                     ],
                     "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
@@ -45167,7 +45536,7 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
+                        636,
                         0,
                         300,
                         50
@@ -45211,7 +45580,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS.yscene"
+                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS"
                 }
             ],
             "Children UID": [
@@ -45250,22 +45619,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 70,
-                    "Position Y": 803,
+                    "Position X": 82,
+                    "Position Y": 723,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        730,
-                        803,
+                        718,
+                        723,
                         300,
                         50
                     ],
                     "Text": "Transfer Conciousness",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 35,
+                    "Font size": 48.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
                         0,
@@ -45313,16 +45682,16 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 880,
-                    "Width": 653,
-                    "Height": 148,
+                    "Position Y": 819,
+                    "Width": 600,
+                    "Height": 88,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
-                        880,
-                        653,
-                        148
+                        636,
+                        819,
+                        600,
+                        88
                     ],
                     "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
@@ -45352,7 +45721,7 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
+                        636,
                         0,
                         300,
                         50
@@ -45404,7 +45773,7 @@
             ]
         },
         {
-            "Name": "Text",
+            "Name": "Text (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1500166531,
@@ -45435,22 +45804,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 158,
-                    "Position Y": 974,
+                    "Position X": 180,
+                    "Position Y": 883,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        818,
-                        974,
+                        816,
+                        883,
                         300,
                         50
                     ],
                     "Text": "Back To Menu",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 35,
+                    "Font size": 48.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
                         0,
@@ -45469,7 +45838,7 @@
             "Name": "Win Canvas",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1707342777,
+            "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
             "Parent UID": 379278140,
@@ -45499,8 +45868,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1923,
-                    "Height": 1050,
+                    "Width": 1914,
+                    "Height": 1101,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -45512,21 +45881,18 @@
                 }
             ],
             "Children UID": [
-                1572059548,
-                981002621,
-                2117321362,
-                122267471,
-                1984199107
+                1076335875,
+                505969807
             ]
         },
         {
             "Name": "Background",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1572059548,
+            "UID": 1076335875,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1707342777,
+            "Parent UID": 1676754095,
             "Components": [
                 {
                     "Type": "Transform",
@@ -45563,7 +45929,7 @@
                         1920,
                         1080
                     ],
-                    "Path": "Assets\/UI\/Fondo.png",
+                    "Path": "Assets\/UI\/WinScreen.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -45583,13 +45949,13 @@
             ]
         },
         {
-            "Name": "Extracted",
+            "Name": "Grid",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 981002621,
+            "UID": 505969807,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1707342777,
+            "Parent UID": 1676754095,
             "Components": [
                 {
                     "Type": "Transform",
@@ -45611,161 +45977,27 @@
                     ]
                 },
                 {
-                    "Type": "UI",
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
                     "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 780,
-                    "Position Y": 413,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        780,
-                        413,
-                        200,
-                        50
-                    ],
-                    "Text": "Extracted",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 80,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        -0.98000001907348633,
-                        0,
-                        -0.98000001907348633,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": false,
+                    "naviagteY": false,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
                 }
-            ]
-        },
-        {
-            "Name": "Extraction successful",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2117321362,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1707342777,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 802,
-                    "Position Y": 558,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        802,
-                        558,
-                        200,
-                        50
-                    ],
-                    "Text": "Extraction successful",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 30,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        -0.98000001907348633,
-                        0,
-                        -0.98000001907348633,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Raid time",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 122267471,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1707342777,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 802,
-                    "Position Y": 700,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        802,
-                        700,
-                        200,
-                        50
-                    ],
-                    "Text": "Raid time: ",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 30,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        -0.98000001907348633,
-                        0,
-                        -0.98000001907348633,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
+            ],
+            "Children UID": [
+                1984199107
             ]
         },
         {
@@ -45775,7 +46007,7 @@
             "UID": 1984199107,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1707342777,
+            "Parent UID": 505969807,
             "Components": [
                 {
                     "Type": "Transform",
@@ -45800,15 +46032,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 670,
-                    "Position Y": 738,
+                    "Position X": 696,
+                    "Position Y": 834,
                     "Width": 600,
                     "Height": 88,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        670,
-                        738,
+                        696,
+                        834,
                         600,
                         88
                     ],
@@ -45884,7 +46116,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/Scenes\/Start_scene.yscene"
+                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS"
                 }
             ],
             "Children UID": [
@@ -45892,7 +46124,7 @@
             ]
         },
         {
-            "Name": "Text (1)",
+            "Name": "Text",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1850778591,
@@ -45923,22 +46155,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 812,
-                    "Position Y": 870,
+                    "Position X": 922,
+                    "Position Y": 889,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        812,
-                        870,
+                        922,
+                        889,
                         300,
                         50
                     ],
                     "Text": "Back to base",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 40,
+                    "Font size": 33.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
                         0,
@@ -45950,103 +46182,6 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "NavMesh_LVL2_Part1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 966905019,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1069382293
-            ]
-        },
-        {
-            "Name": "NavMesh_LVL2_Part1 (1)",
-            "Static": true,
-            "Tag": "Untagged",
-            "UID": 1069382293,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL2_LAB_PART1_FINAL\/NavMesh_LVL2_Part1.fbx",
-            "Parent UID": 966905019,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1391614747,
-                    "Vertex Count": 348,
-                    "Index Count": 1323
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                25.106229782104492,
-                                113.06605529785156,
-                                34.990203857421875
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 0
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
                 }
             ]
         }
