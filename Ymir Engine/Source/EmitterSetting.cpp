@@ -99,7 +99,8 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 		particle->directionRotation = emitter->owner->mOwner->mTransform->GetLocalRotation();
 		break;
 	case PAR_PARENT_MATRIX:
-		particle->directionRotation = emitter->owner->mOwner->mParent->mTransform->GetGlobalRotation();
+		//particle->directionRotation = emitter->owner->mOwner->mParent->mTransform->GetGlobalRotation();
+		particle->directionRotation = Quat::identity;
 		break;
 	case PAR_INITIAL_ROTATION_END:
 		break;

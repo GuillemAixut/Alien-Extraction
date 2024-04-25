@@ -36,7 +36,7 @@ public class UI_Inventory_Grid : YmirComponent
 
     public void Start()
     {
-        audioSource = InternalCalls.GetGameObjectByName("Upgrade Station");
+        audioSource = InternalCalls.GetGameObjectByName("UI Audio");
         leftGrid = InternalCalls.GetGameObjectByName(leftGridName);
         rightGrid = InternalCalls.GetGameObjectByName(rightGridName);
         downGrid = InternalCalls.GetGameObjectByName(downGridName);
@@ -64,7 +64,10 @@ public class UI_Inventory_Grid : YmirComponent
 
         if ((Input.GetLeftAxisX() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN) && _canTab)
         {
-            Audio.PlayAudio(audioSource, "UI_MoveHover");
+            if (audioSource != null)
+            {
+                Audio.PlayAudio(audioSource, "UI_MoveHover");
+            }
 
             _canTab = false;
             UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteX, leftGrid, rightGrid, bounceX, childX, empty);
@@ -72,21 +75,33 @@ public class UI_Inventory_Grid : YmirComponent
 
         else if ((Input.GetLeftAxisX() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN) && _canTab)
         {
-            Audio.PlayAudio(audioSource, "UI_MoveHover");
+            if (audioSource != null)
+            {
+                Audio.PlayAudio(audioSource, "UI_MoveHover");
+            }
+
             _canTab = false;
             UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteX, leftGrid, rightGrid, bounceX, childX, empty);
         }
 
         else if ((Input.GetLeftAxisY() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_DOWN) == KeyState.KEY_DOWN) && _canTab)
         {
-            Audio.PlayAudio(audioSource, "UI_MoveHover");
+            if (audioSource != null)
+            {
+                Audio.PlayAudio(audioSource, "UI_MoveHover");
+            }
+
             _canTab = false;
             UI.NavigateGridVertical(gameObject, rows, cols, true, naviagteY, downGrid, upGrid, bounceY, childY, empty);
         }
 
         else if ((Input.GetLeftAxisY() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_UP) == KeyState.KEY_DOWN) && _canTab)
         {
-            Audio.PlayAudio(audioSource, "UI_MoveHover");
+            if (audioSource != null)
+            {
+                Audio.PlayAudio(audioSource, "UI_MoveHover");
+            }
+
             _canTab = false;
             UI.NavigateGridVertical(gameObject, rows, cols, false, naviagteY, downGrid, upGrid, bounceY, childY, empty);
         }

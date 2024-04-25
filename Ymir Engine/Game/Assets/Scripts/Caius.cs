@@ -21,7 +21,7 @@ public class Caius : YmirComponent
     string dialoguescsv;
     bool active_Dialogue;
 
-    //public Player player;
+    public Player player;
     public GameObject canvas_Caius = null;
     public GameObject name_Npc = null;
     public GameObject dialogue_Npc = null;
@@ -64,7 +64,7 @@ public class Caius : YmirComponent
     public Dialogue_id dialogue_;
     public void Start()
     {
-        //player = InternalCalls.GetGameObjectByName("Player").GetComponent<Player>();
+        player = InternalCalls.GetGameObjectByName("Player").GetComponent<Player>();
 
         active_Dialogue = false;
         canvas_Caius = InternalCalls.GetGameObjectByName("Npc_Dialogue");
@@ -83,7 +83,7 @@ public class Caius : YmirComponent
     {
         if (active_Dialogue)
         {
-            //player.PlayerStopState(true);
+            player.PlayerStopState(true);
             if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_1)
             {
                 dialogue_ = Dialogue_id.ID_5;
@@ -171,7 +171,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, dialogue[8].Text);
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
             case Dialogue_id.ID_7:
                 UI.TextEdit(name_Npc, dialogue[7].Name);
@@ -180,7 +180,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
             case Dialogue_id.ID_9:
                 UI.TextEdit(name_Npc, dialogue[9].Name);
@@ -213,7 +213,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                // player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
             case Dialogue_id.ID_16:
                 UI.TextEdit(name_Npc, dialogue[16].Name);
@@ -222,7 +222,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
             case Dialogue_id.ID_18:
                 UI.TextEdit(name_Npc, dialogue[18].Name);
@@ -239,7 +239,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
             case Dialogue_id.ID_22:
                 UI.TextEdit(name_Npc, dialogue[22].Name);
@@ -248,7 +248,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
             case Dialogue_id.ID_24:
                 UI.TextEdit(name_Npc, dialogue[24].Name);
@@ -257,7 +257,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
             case Dialogue_id.ID_26:
                 UI.TextEdit(name_Npc, dialogue[26].Name);
@@ -266,7 +266,7 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
                 break;
 
         }
@@ -277,7 +277,7 @@ public class Caius : YmirComponent
         {
             canvas_Caius.SetActive(true);
             active_Dialogue = true;
-            //player.PlayerStopState(true);
+            player.PlayerStopState(true);
         }
     }
     public void OnCollisionExit(GameObject other)
@@ -287,7 +287,7 @@ public class Caius : YmirComponent
             canvas_Caius.SetActive(false);
             active_Dialogue = false;
             dialogue_ = Dialogue_id.ID_1;
-            //player.PlayerStopState(false);
+            player.PlayerStopState(false);
         }
     }
     public void LoadDialogues(string dialogueData)
