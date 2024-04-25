@@ -29,11 +29,13 @@ public class BH_Shotgun : YmirComponent
     public void OnCollisionStay(GameObject other)
     {
 
-        Debug.Log("ShotgunHit");
-
-        if (other.Tag == "Enemy")
+        if (playerObject.Tag != "Enemy")
         {
-            Debug.Log("EnemyHIT!");
+            Audio.PlayAudio(gameObject, "W_FSADSurf");
+        }
+        else
+        {
+            Audio.PlayAudio(gameObject, "W_FSADEnemy");
         }
     }
 }

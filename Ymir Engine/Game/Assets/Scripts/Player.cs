@@ -1102,7 +1102,22 @@ public class Player : YmirComponent
     }
     private void StartReload()
     {
-        Audio.PlayAudio(gameObject, "W_FirearmReload");
+        switch (weaponType)
+        {
+            case WEAPON.SMG:
+                Audio.PlayAudio(gameObject, "W_FirearmReload");
+                break;
+            case WEAPON.SHOTGUN:
+                Audio.PlayAudio(gameObject, "W_FSADReload");
+                break;
+            case WEAPON.TRACE:
+                Audio.PlayAudio(gameObject, "W_PlasmaReload");
+                break;
+            default:
+                Audio.PlayAudio(gameObject, "W_FirearmReload");
+                break;
+        }
+
         isReloading = true;
         reloadTimer = reloadDuration;
     }
@@ -1150,12 +1165,11 @@ public class Player : YmirComponent
             Debug.Log(target.Name);
 
             if (target.Tag != "Enemy") {
-                // Damage enemy
-                // Blood particle
+
+                Audio.PlayAudio(gameObject, "W_FirearmSurf");
             }
             else {
-                // Sparkle particle
-                // Play bullet hit wall SFX
+                Audio.PlayAudio(gameObject, "W_FirearmEnemy");
             }
         }
 
@@ -1164,6 +1178,9 @@ public class Player : YmirComponent
 
     private void ShotgunShoot()
     {
+        Audio.PlayAudio(gameObject, "W_FSADShot");
+        Audio.PlayAudio(gameObject, "W_FSADCapRel");
+
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
 
         if (!godMode)
@@ -1189,6 +1206,8 @@ public class Player : YmirComponent
 
     private void TraceShoot()
     {
+        Audio.PlayAudio(gameObject, "W_PlasmaShot");
+
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
 
         GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
@@ -1212,13 +1231,11 @@ public class Player : YmirComponent
 
             if (target.Tag != "Enemy")
             {
-                // Damage enemy
-                // Blood particle
+                Audio.PlayAudio(gameObject, "W_PlasmaSurf");
             }
             else
             {
-                // Sparkle particle
-                // Play bullet hit wall SFX
+                Audio.PlayAudio(gameObject, "W_PlasmaEnemy");
             }
         }
         // List<GameObject> targets = new List<GameObject>();
