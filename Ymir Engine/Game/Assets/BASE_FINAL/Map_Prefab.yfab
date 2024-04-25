@@ -183,6 +183,48 @@
                     "Emissive_ID": 601,
                     "Emissive_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Fix Workstation Textures\/TEX_PROP_BaseWorkbench_E.png",
                     "Emissive_UID": 1366229549
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        17.299999237060547,
+                        14.399999618530273,
+                        17.600000381469727
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        170.10000610351562,
+                        7.6999998092651367,
+                        -17
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        -0.40000000596046448,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "goName": "Upgrade Station"
                 }
             ]
         },
@@ -686,6 +728,48 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        22.5,
+                        11.399999618530273,
+                        14.100000381469727
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        126.59999847412109,
+                        6.6999998092651367,
+                        25.399999618530273
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "goName": "Stash Canvas"
                 }
             ],
             "Children UID": [
@@ -927,6 +1011,48 @@
                     "Emissive_ID": 1059,
                     "Emissive_Path": "Assets\/BASE_FINAL\/Base_Textures\/Teleporter\/PROP_Base_Teleporter_E.png",
                     "Emissive_UID": 1193523371
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        40,
+                        40,
+                        40
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        -120.09999847412109,
+                        25.399999618530273,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "goName": "Level Selection Canvas"
                 }
             ]
         },

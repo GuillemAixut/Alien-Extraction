@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        133.8363037109375,
-        84.832115173339844,
-        13.298358917236328
+        101.01444244384766,
+        90.051910400390625,
+        75.259819030761719
     ],
     "Editor Camera Right (X)": [
-        -0.96508395671844482,
-        2.6077032089233398e-08,
-        -0.17690712213516235
+        0.9794318675994873,
+        3.7997961044311523e-07,
+        -0.047012250870466232
     ],
     "Editor Camera Up (Y)": [
-        -0.17044408619403839,
-        0.26549383997917175,
-        0.92982608079910278
+        -0.030054651200771332,
+        0.75535941123962402,
+        -0.62613886594772339
     ],
     "Editor Camera Front (Z)": [
-        -0.048715915530920029,
-        -0.96203601360321045,
-        0.26576048135757446
+        -0.036855343729257584,
+        -0.63794517517089844,
+        -0.76783263683319092
     ],
     "Hierarchy": [
         {
@@ -3101,8 +3101,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1664,
-                    "Height": 1088,
+                    "Width": 1908,
+                    "Height": 1057,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -49283,7 +49283,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 297696942,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 379278140,
             "Components": [
@@ -49312,8 +49312,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1930,
-                    "Height": 1059,
+                    "Width": 1908,
+                    "Height": 1057,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -49333,7 +49333,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1739948149,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 297696942,
             "Components": [
@@ -49396,7 +49396,11 @@
                 1379074657,
                 300149188,
                 829122760,
-                1268995095
+                1268995095,
+                663330962,
+                438435483,
+                1147536281,
+                2036120965
             ]
         },
         {
@@ -49404,7 +49408,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 700964825,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49466,7 +49470,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1342986595,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49528,7 +49532,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1379074657,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49590,7 +49594,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 300149188,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49652,7 +49656,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 829122760,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49714,7 +49718,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1268995095,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49758,6 +49762,254 @@
                     "Font path": "Assets\\Fonts",
                     "Font size": 23,
                     "Line Spacing": 1.3999999761581421,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Y",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 663330962,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1739948149,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1782,
+                    "Position Y": 287,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1782,
+                        287,
+                        200,
+                        50
+                    ],
+                    "Text": "Y",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "B",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 438435483,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1739948149,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1784,
+                    "Position Y": 427,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1784,
+                        427,
+                        200,
+                        50
+                    ],
+                    "Text": "B",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "A",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1147536281,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1739948149,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1782,
+                    "Position Y": 566,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1782,
+                        566,
+                        200,
+                        50
+                    ],
+                    "Text": "A",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "X",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2036120965,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1739948149,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1782,
+                    "Position Y": 705,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1782,
+                        705,
+                        200,
+                        50
+                    ],
+                    "Text": "X",
+                    "Font name": "arial.ttf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 1,
                     "Color": [
                         1,
                         1,
