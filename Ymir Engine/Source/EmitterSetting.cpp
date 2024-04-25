@@ -1260,6 +1260,21 @@ void EmitterRotation::OnInspector()
 	ImGui::Separator();
 }
 
+float4x4 EmitterRotation::LookAt(float3& Spot, float3& position) // https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/lookat-function/framing-lookat-function.html
+{
+	//Z
+	float3 foward = (Spot - position).Normalized();
+
+	//X
+	float3 tmp(0, 1, 0);
+	float3 right = tmp.Cross(foward);//crossProduct(tmp, forward); //Order is important!!
+
+	//Y
+	float3 up = foward.Cross(right);//crossProduct(forward, right);
+	
+	return float4x4();
+}
+
 void EmitterRotation::SetRotation(Quat rot)
 {
 	rotation = rot;
@@ -1345,20 +1360,10 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	Quat tempRot;
 	float3 tempSca;
 	camaraMatrix->Decompose(tempPos, tempRot, tempSca);
-
-	//Try
-	/*for (size_t i = 0; i < emitter->listParticles.size(); i++)
-	{
-		float3 posPart = emitter->listParticles.at(i)->position;
-		float3 dirToCamera = tempPos - posPart;
-		dirToCamera.Normalize();
-
-		float3 dirToLook;
-		dirToLook = math::Cross(dirToCamera, { 0,1,0 });
-
-		tempRot = emitter->listParticles.at(i)->worldRotation.AxisFromTo(tempRot);
-	}*/
 	
+	//We obtain the look at vector to create a matrix
+	float4x4 newMatrix = LookAt(tempPos, emitter->owner->mOwner->mTransform->GetGlobalPosition());
+
 	float3 newRot = tempRot.ToEulerXYZ();
 	switch (orientationOfAxis)
 	{
