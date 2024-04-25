@@ -24,7 +24,7 @@ public class UI_Upgrade_Button : YmirComponent
     {
         GameObject goText = InternalCalls.GetChildrenByName(gameObject, "Text");
         description = UI.GetUIText(goText);
-        audioSource = InternalCalls.GetGameObjectByName("Upgrade Station");
+        audioSource = InternalCalls.GetGameObjectByName("UI Audio");
 
 
         upgrade = new Upgrade(name, description, cost, isUnlocked);

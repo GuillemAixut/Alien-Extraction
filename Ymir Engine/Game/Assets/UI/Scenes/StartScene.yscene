@@ -28,6 +28,7 @@
             "UID": 916391465,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 1122639446,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51,11 +52,12 @@
             ],
             "Children UID": [
                 188443536,
-                2047246996
+                2047246996,
+                648214567
             ]
         },
         {
-            "Name": "Camera",
+            "Name": "Main Camera",
             "Static": false,
             "Tag": "Untagged",
             "UID": 188443536,
@@ -143,8 +145,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1880,
-                    "Height": 969,
+                    "Width": 1952,
+                    "Height": 1030,
                     "UI Type": 0,
                     "UI State": 5,
                     "Drag Limits": [
@@ -1006,6 +1008,43 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "UI Audio",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 648214567,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 916391465,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "UI_Sfx",
+                    "Event Name": "",
+                    "Event ID": 0
                 }
             ]
         }
