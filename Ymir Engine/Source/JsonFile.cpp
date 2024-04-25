@@ -2029,33 +2029,44 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		auto itr = External->resourceManager->resources.find(UID);
 
-		ResourceMesh* rMesh = nullptr;
-
 		if (itr == External->resourceManager->resources.end()) {
 
-			rMesh = (ResourceMesh*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID);
+			ResourceMesh* rMesh = (ResourceMesh*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID);
+
+			CMesh* cmesh = new CMesh(gameObject);
+
+			cmesh->active = json_object_get_number(componentObject, "Active");
+
+			cmesh->nVertices = json_object_get_number(componentObject, "Vertex Count");
+			cmesh->nIndices = json_object_get_number(componentObject, "Index Count");
+
+			cmesh->rMeshReference = rMesh;
+
+			cmesh->InitBoundingBoxes();
+
+			gameObject->AddComponent(cmesh);
 
 		}
 		else {
 
-			rMesh = static_cast<ResourceMesh*>(itr->second);
+			ResourceMesh* rMesh = static_cast<ResourceMesh*>(itr->second);
 
 			itr->second->IncreaseReferenceCount();
 
+			CMesh* cmesh = new CMesh(gameObject);
+
+			cmesh->active = json_object_get_number(componentObject, "Active");
+
+			cmesh->nVertices = json_object_get_number(componentObject, "Vertex Count");
+			cmesh->nIndices = json_object_get_number(componentObject, "Index Count");
+
+			cmesh->rMeshReference = rMesh;
+
+			cmesh->InitBoundingBoxes();
+
+			gameObject->AddComponent(cmesh);
+
 		}
-
-		CMesh* cmesh = new CMesh(gameObject);
-
-		cmesh->active = json_object_get_number(componentObject, "Active");
-
-		cmesh->nVertices = json_object_get_number(componentObject, "Vertex Count");
-		cmesh->nIndices = json_object_get_number(componentObject, "Index Count");
-
-		cmesh->rMeshReference = rMesh;
-
-		cmesh->InitBoundingBoxes();
-
-		gameObject->AddComponent(cmesh);
 
 	}
 	else if (type == "Material") {
