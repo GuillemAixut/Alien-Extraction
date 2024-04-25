@@ -7,7 +7,7 @@
             "UID": 1676754095,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1851754203,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 454,
-                    "Height": 489,
+                    "Width": 1778,
+                    "Height": 1097,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -241,7 +241,7 @@
             ]
         },
         {
-            "Name": "Empty",
+            "Name": "Grid",
             "Static": false,
             "Tag": "Untagged",
             "UID": 199456300,
@@ -267,6 +267,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 2,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": false,
+                    "naviagteY": false,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [

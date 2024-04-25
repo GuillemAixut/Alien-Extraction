@@ -197,6 +197,7 @@ struct EmitterRotation : EmitterSetting
 	void Update(float dt, ParticleEmitter* emitter);
 	void OnInspector();
 
+	float4x4 LookAt(float3& Spot, float3& position);
 	void SetRotation(Quat rot);
 
 	bool horAlign;
