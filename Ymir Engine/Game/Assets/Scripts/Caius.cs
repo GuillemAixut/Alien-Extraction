@@ -265,6 +265,8 @@ public class Caius : YmirComponent
         if(other.Tag == "Player")
         {
             active_Dialogue = true;
+            //other.SetVelocity(new Vector3(0, 0, 0));
+            //other.ClearForces();
         }
     }
     public void OnCollisionExit(GameObject other)
@@ -274,6 +276,7 @@ public class Caius : YmirComponent
             active_Dialogue = false;
             dialogue_ = Dialogue_id.ID_1; 
             canvas_Caius.SetActive(false);
+            
         }
     }
     public void LoadDialogues(string dialogueData)
