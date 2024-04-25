@@ -53,7 +53,20 @@ void ParticleShoot(MonoObject* go, MonoObject* vector)
 	{
 		EmitterPosition* pos = (EmitterPosition*)particleSystem->allEmitters.at(0)->modules.at(2);
 
-		pos->direction1 = directionShoot;
+		EmitterBase* base = (EmitterBase*)particleSystem->allEmitters.at(0)->modules.at(0);
+
+		if(base->currentShape == SpawnAreaShape::PAR_CONE)
+		{
+			float angulo = math::Atan2(-directionShoot.z, directionShoot.x);
+			pos->direction1 = { math::Cos(angulo + (5 / 9 * pi)),0.5, -math::Sin(angulo + (5 / 9 * pi)) };
+			pos->direction2 = { math::Cos(angulo - (5 / 9 * pi)),-0.5,-math::Sin(angulo - (5 / 9 * pi)) };
+		}
+		else
+		{
+			pos->direction1 = directionShoot;
+		}
+
+		
 	}
 	else
 	{
