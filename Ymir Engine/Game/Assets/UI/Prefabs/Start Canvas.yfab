@@ -7,7 +7,7 @@
             "UID": 2047246996,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1851754203,
+            "Parent UID": 916391465,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1778,
-                    "Height": 1097,
+                    "Width": 1914,
+                    "Height": 1101,
                     "UI Type": 0,
                     "UI State": 5,
                     "Drag Limits": [
@@ -44,6 +44,12 @@
                         658,
                         398
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Start.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ],
             "Children UID": [
@@ -128,7 +134,7 @@
                     "Active": 1,
                     "Translation": [
                         740,
-                        0,
+                        -27.299999237060547,
                         0
                     ],
                     "Rotation": [
@@ -209,11 +215,11 @@
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        592,
+                        564.70001220703125,
                         424,
                         152
                     ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -285,7 +291,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/VS2 Release.yscene"
+                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS"
                 }
             ],
             "Children UID": [
@@ -324,21 +330,21 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 180,
-                    "Position Y": 669,
+                    "Position X": 167,
+                    "Position Y": 664,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        920,
-                        669,
+                        907,
+                        636.70001220703125,
                         300,
                         50
                     ],
                     "Text": "Start",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -387,18 +393,18 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 693,
+                    "Position Y": 689,
                     "Width": 424,
                     "Height": 152,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        693,
+                        661.70001220703125,
                         424,
                         152
                     ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -502,21 +508,21 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 162,
-                    "Position Y": 764,
+                    "Position X": 144,
+                    "Position Y": 760,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        902,
-                        764,
+                        884,
+                        732.70001220703125,
                         300,
                         50
                     ],
                     "Text": "Settings",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -572,11 +578,11 @@
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        785,
+                        757.70001220703125,
                         424,
                         152
                     ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -680,21 +686,21 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 172,
+                    "Position X": 152,
                     "Position Y": 858,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        912,
-                        858,
+                        892,
+                        830.70001220703125,
                         300,
                         50
                     ],
                     "Text": "Credits",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -743,18 +749,18 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 879,
+                    "Position Y": 881,
                     "Width": 424,
                     "Height": 152,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        879,
+                        853.70001220703125,
                         424,
                         152
                     ],
-                    "Path": "Assets\/Baker_house.png",
+                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -864,21 +870,21 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 192,
-                    "Position Y": 960,
+                    "Position X": 184,
+                    "Position Y": 957,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        932,
-                        960,
+                        924,
+                        929.70001220703125,
                         300,
                         50
                     ],
                     "Text": "Exit",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 21,
                     "Line Spacing": 0.5,
                     "Color": [
