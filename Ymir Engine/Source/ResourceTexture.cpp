@@ -115,7 +115,7 @@ bool ResourceTexture::LoadInMemory()
 
 	// 4. Generate OpenGL Texture
 
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 	glGenTextures(1, &ID);
 	glBindTexture(GL_TEXTURE_2D, ID);
