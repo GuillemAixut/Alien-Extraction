@@ -84,26 +84,26 @@ public class QueenXenomorphBaseScript : YmirComponent
     private float clawAttackCooldown = 4f;
     private float clawTimer;
     private bool clawReady;
-    private float clawAniCounter = 0f;
+    public float clawAniCounter = 0f;
     private float clawAniDuration = 2.5f;
 
     private float acidSpitAttackCooldown = 20f;
     private float acidSpitTimer;
     private bool acidSpitReady;
-    private float acidSpitAniCounter = 0f;
+    public float acidSpitAniCounter = 0f;
     private float acidSpitAniDuration = 2f;
 
     private float axeAttackCooldown = 18f;
 	private float axeTimer;
 	private bool axeReady;
-    private float axeAniCounter = 0f;
-    private float axeAniDuration = 3.5f;
+    public float axeAniCounter = 0f;
+    private float axeAniDuration = 1.5f;
 
     private float dashAttackCooldown = 22f;
     private float dashTimer;
 	private bool dashReady;
     private float dashAniCounter1 = 0f;
-    private float dashAniDuration1 = 2.5f;
+    private float dashAniDuration1 = 1.3f;
     private float dashAniCounter2 = 0f;
     private float dashAniDuration2 = 2f;
     private bool dashDone = false;
@@ -257,6 +257,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     acidSpitTimer = acidSpitAttackCooldown;
                     Animation.SetBackward(gameObject, "Boss_Walk", false);
                     Animation.PlayAnimation(gameObject, "Boss_Cry");
+                    Audio.PlayAudio(gameObject, "QX_Cry");
                     queenState = QueenState.ACID_SPIT;
                 }
 
@@ -288,6 +289,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     acidSpitAniCounter = 0f;
                     baseAttacks++;
                     Animation.PlayAnimation(gameObject, "Boss_Idle");
+                    Audio.PlayAudio(gameObject, "QX_Acid");
                     queenState = QueenState.IDLE_PHASE_2;
                 }
 
@@ -317,7 +319,6 @@ public class QueenXenomorphBaseScript : YmirComponent
                 {
                     Debug.Log("[ERROR] BOSS STATE DASH");
                     dashAniCounter1 = 0f;
-                    Animation.PlayAnimation(gameObject, "Boss_Dash");
                     queenState = QueenState.DASH;
                 }
 
@@ -350,7 +351,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                         Debug.Log("[ERROR] BOSS STATE PREPARE SECOND DASH");
                         dashAniCounter2 = 0f;
                         dashDone = false;
-                        Animation.PlayAnimation(gameObject, "Boss_Cry");
+                        Animation.PlayAnimation(gameObject, "Boss_Dash");
                         queenState = QueenState.PREPARE_DASH;
                     }
                 }
@@ -388,6 +389,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     clawTimer = clawAttackCooldown;
                     baseAttacks++;
                     Animation.PlayAnimation(gameObject, "Boss_Claw_Attack");
+                    Audio.PlayAudio(gameObject, "QX_Claw");
                     queenState = QueenState.CLAW;
                 }
                 else
@@ -421,7 +423,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     Debug.Log("[ERROR] BOSS STATE PREPARE DASH");
                     dashReady = false;
                     dashTimer = dashAttackCooldown;
-                    Animation.PlayAnimation(gameObject, "Boss_Cry");
+                    Animation.PlayAnimation(gameObject, "Boss_Dash");
                     queenState = QueenState.PREPARE_DASH;
                 }
                 else
@@ -441,6 +443,7 @@ public class QueenXenomorphBaseScript : YmirComponent
             acidSpitReady = false;
             acidSpitTimer = acidSpitAttackCooldown;
             Animation.PlayAnimation(gameObject, "Boss_Cry");
+            Audio.PlayAudio(gameObject, "QX_Cry");
             queenState = QueenState.ACID_SPIT;
 
         }
