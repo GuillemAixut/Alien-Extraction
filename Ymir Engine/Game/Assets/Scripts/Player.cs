@@ -140,7 +140,7 @@ public class Player : YmirComponent
 
     //--------------------- Tail Swipe ---------------------\\
     public float swipeTimer;
-    private float swipeDuration = 3.0f;
+    private float swipeDuration = 3f;
     private float swipeCDTimer;
     private float swipeCD = 13.0f;
     private bool hasSwipe = false;
@@ -190,10 +190,10 @@ public class Player : YmirComponent
         //
         weaponType = WEAPON.SMG;
 
-        movementSpeed = 4000.0f;    //Antes 35
+        movementSpeed = 3000.0f;    //Antes 35
 
         //--------------------- Dash ---------------------\\
-        dashDistance = 500.0f;     //Antes 2 
+        dashDistance = 400.0f;     //Antes 2 
 
         dashTimer = 0f;
         dashDuration = 0.250f;
@@ -207,7 +207,7 @@ public class Player : YmirComponent
 
         //--------------------- Swipe ---------------------\\
         swipeTimer = 0;
-        swipeDuration = 1.0f;
+        swipeDuration = 1f;
         swipeCDTimer = 0;
         swipeCD = 2.0f; //Es 13.0f
         hasSwipe = false;
@@ -1139,7 +1139,10 @@ public class Player : YmirComponent
 
         //Bullet
         GameObject bulletParticles = GetParticles(gameObject, "ParticlesSmgBullet");
+        Particles.ParticleShoot(bulletParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(bulletParticles);
+
+        Debug.Log("Forward: " + gameObject.transform.GetForward().normalized.x + " " + gameObject.transform.GetForward().normalized.y + " " + gameObject.transform.GetForward().normalized.z);
 
         Vector3 offset = new Vector3(0, 15, 0);
 
@@ -1169,7 +1172,30 @@ public class Player : YmirComponent
                 Audio.PlayAudio(gameObject, "W_FirearmSurf");
             }
             else {
-                Audio.PlayAudio(gameObject, "W_FirearmEnemy");
+
+                //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
+                FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
+
+                if(aux != null)
+                {
+                    aux.life -= 5;
+                }
+
+                DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
+                if (aux2 != null)
+                {
+                    aux2.life -= 5;
+                }
+
+                QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
+                if (aux3 != null)
+                {
+                    aux3.life -= 5;
+                }
+                Debug.Log("[ERROR] HIT ENEMy");
+                //-----------------------------------------------------------------------------------
+                // Sparkle particle
+                // Play bullet hit wall SFX
             }
         }
 
@@ -1190,6 +1216,7 @@ public class Player : YmirComponent
         }
 
         GameObject shotgunParticles = GetParticles(gameObject, "ParticlesShotgun");
+        Particles.ParticleShoot(shotgunParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(shotgunParticles);
 
         Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
@@ -1211,6 +1238,7 @@ public class Player : YmirComponent
         Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
 
         GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
+        Particles.ParticleShoot(traceParticles, gameObject.transform.GetForward().normalized);
         Particles.PlayEmitter(traceParticles);
 
         if (!godMode)
@@ -1236,6 +1264,28 @@ public class Player : YmirComponent
             else
             {
                 Audio.PlayAudio(gameObject, "W_PlasmaEnemy");
+
+                //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
+                FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
+
+                if (aux != null)
+                {
+                    aux.life -= 10;
+                }
+
+                DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
+                if (aux2 != null)
+                {
+                    aux2.life -= 10;
+                }
+
+                QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
+                if (aux3 != null)
+                {
+                    aux3.life -= 10;
+                }
+                Debug.Log("[ERROR] HIT ENEMy");
+                //-----------------------------------------------------------------------------------
             }
         }
         // List<GameObject> targets = new List<GameObject>();
@@ -1686,8 +1736,9 @@ public class Player : YmirComponent
     {
         //StopPlayer();
         //Delete de la hitbox de la cola
-        swipeCDTimer = swipeCD;
         Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        swipeCDTimer = swipeCD;
+        
     }
 
     public void LookAt(float angle)

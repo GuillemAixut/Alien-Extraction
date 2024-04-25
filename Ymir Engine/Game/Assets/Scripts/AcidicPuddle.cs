@@ -16,7 +16,7 @@ public class AcidPuddle : YmirComponent
     private float tickDamage = 1.064f;
     //private bool addTick; //No se si los triggers suceden todos a la vez pero por si acaso me esperare 1 update
     private float lifeTimer;
-   // private float duration = 1.8f;
+    // private float duration = 1.8f;
 
 
     public void Start()
@@ -28,11 +28,11 @@ public class AcidPuddle : YmirComponent
         //Game object del player para interactuar sobre el
         playerObject = GetPlayer();
 
-        if(playerObject != null )
+        if (playerObject != null)
         {
             player = playerObject.GetComponent<Player>();
         }
-        
+
     }
 
     public void Update()
@@ -66,7 +66,7 @@ public class AcidPuddle : YmirComponent
     private GameObject GetPlayer()
     {
         GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-        
+
         if (gameObject != null)
         {
             return gameObject;

@@ -49,41 +49,43 @@ public class CameraRot : YmirComponent
     {
         // Follow Player (If unrelated stuff gets added, write above this comment)
 
-        Vector3 newpos = target.transform.globalPosition + difPos;
+        Vector3 newpos = target.transform.localPosition + difPos;
 
-        float distance = Vector3.Distance(gameObject.transform.globalPosition, newpos);
+        float distance = Vector3.Distance(gameObject.transform.localPosition, newpos);
 
-        //if (player.currentState == Player.STATE.IDLE)
-        //{
-        //    idleTimer += Time.deltaTime;
+        if (player.currentState == Player.STATE.IDLE)
+        {
+            idleTimer += Time.deltaTime;
 
-        //    if (idleTimer > idleTimerMax) {
+            if (idleTimer > idleTimerMax)
+            {
 
-        //        delay = true;
-        //    }
-        //}
-        //else
-        //{
-        //    idleTimer = 0.0f;
+                delay = true;
+            }
+        }
+        else
+        {
+            idleTimer = 0.0f;
 
-        //}
+        }
 
-        //if (delay)
-        //{
-        //    delayTimer += Time.deltaTime;
+        if (delay)
+        {
+            delayTimer += Time.deltaTime;
 
-        //    if (delayTimer < delayTimerMax)
-        //    {
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        delay = false;
-        //        delayTimer = 0.0f;
-        //    }
-        //}
+            if (delayTimer < delayTimerMax)
+            {
+                return;
+            }
+            else
+            {
+                delay = false;
+                delayTimer = 0.0f;
+            }
+        }
 
-        gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * distance * constDelay * 20); // <- Delete this (20)
+        gameObject.transform.localPosition = (Vector3.Lerp(gameObject.transform.localPosition, newpos, Time.deltaTime * distance * constDelay));
+        //gameObject.SetPosition(Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * distance * constDelay));
     }
 }
 

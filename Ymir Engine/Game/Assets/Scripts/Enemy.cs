@@ -21,6 +21,8 @@ public enum WanderState
     CHASING,
     ATTACK,
     HIT,
+    KNOCKBACK,
+    DEATH,
     STOPED
 }
 
@@ -32,8 +34,11 @@ public class Enemy: YmirComponent
 
         public Health healthScript;
         public float movementSpeed;
+        public float knockBackTimer;
+        public float knockBackSpeed;
 
         protected WanderState wanderState;
+        public float timePassed = 0f;
         public float life = 100f;
 
         //This may change depending on enemy rarity
@@ -48,6 +53,11 @@ public class Enemy: YmirComponent
 
         public float xSpeed = 0, ySpeed = 0;
 
+
+    public void TakeDmg(float dmg)
+    {
+        life -= dmg * armor;
+    }
 
     public void LookAt(Vector3 pointToLook)
         {
@@ -71,24 +81,33 @@ public class Enemy: YmirComponent
             gameObject.SetRotation(desiredRotation);
         }
 
+    public void KnockBack(float speed)
+    {
 
-        public void MoveToCalculatedPos(float speed)
-        {
-            Vector3 pos = gameObject.transform.globalPosition;
-            Vector3 destination = agent.GetDestination();
-            Vector3 direction = destination - pos;
+        Vector3 knockbackDirection = player.transform.globalPosition - gameObject.transform.globalPosition;
+        knockbackDirection = knockbackDirection.normalized;
+        knockbackDirection.y = 0f;
+        gameObject.SetVelocity(knockbackDirection * -speed);
 
-            gameObject.SetVelocity(direction.normalized * speed);
-        }
+    }
 
-        public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
-        {
-            float deltaX = Math.Abs(first.x - second.x);
-            float deltaY = Math.Abs(first.y - second.y);
-            float deltaZ = Math.Abs(first.z - second.z);
+    public void MoveToCalculatedPos(float speed)
+    {
+        Vector3 pos = gameObject.transform.globalPosition;
+        Vector3 destination = agent.GetDestination();
+        Vector3 direction = destination - pos;
 
-            return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
-        }
+        gameObject.SetVelocity(direction.normalized * speed);
+    }
+
+    public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
+    {
+        float deltaX = Math.Abs(first.x - second.x);
+        float deltaY = Math.Abs(first.y - second.y);
+        float deltaZ = Math.Abs(first.z - second.z);
+
+        return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
+    }
     public void DestroyEnemy()
     {
         Audio.PlayAudio(gameObject, "FH_Death");
