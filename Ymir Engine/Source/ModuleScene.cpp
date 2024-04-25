@@ -265,6 +265,7 @@ bool ModuleScene::CleanUp()
 	}
 	
 	RELEASE(mRootNode);
+	ClearScene();
 
 	return ret;
 }
@@ -273,7 +274,14 @@ GameObject* ModuleScene::CreateGameObject(std::string name, GameObject* parent)
 {
 	std::string newName = GetUniqueName(name);
 
+	// FRANCESC: MEMORY LEAK
 	GameObject* tempGameObject = new GameObject(newName, parent);
+
+	if (parent != nullptr) {
+
+		parent->AddChild(tempGameObject);
+
+	}
 
 	gameObjects.push_back(tempGameObject);
 

@@ -41,12 +41,9 @@ GameObject::GameObject(std::string name, GameObject* parent)
 
 	if (mParent != nullptr)
 	{
-		mParent->AddChild(this);
-
 		mTransform = new CTransform(this);
 		AddComponent(mTransform);
 	}
-
 }
 
 GameObject::~GameObject()
@@ -76,6 +73,7 @@ GameObject::~GameObject()
 		External->scene->gameObjects.erase(it);
 		
 	}
+
 }
 
 update_status GameObject::Update(float dt)
