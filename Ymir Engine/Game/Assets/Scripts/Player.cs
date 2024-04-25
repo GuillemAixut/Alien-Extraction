@@ -10,6 +10,7 @@ using YmirEngine;
 
 public class Player : YmirComponent
 {
+    #region DEFINE BASE VARS
     public enum STATE : int
     {
         NONE = -1,
@@ -80,6 +81,7 @@ public class Player : YmirComponent
 
     //--------------------- GOD mode ---------------------\\
     public bool godMode = false;
+    #endregion
 
     #region DEFINE SHOOT VARS
 
@@ -148,7 +150,7 @@ public class Player : YmirComponent
     //float initRot;
 
     //--------------------- Acidic Spit ------------------------\\
-    private float acidicTimer;
+    public float acidicTimer;
     private float acidicDuration = 1.8f;
     private float acidicCDTimer;
     private float acidicCD = 7.0f;
@@ -281,6 +283,7 @@ public class Player : YmirComponent
         }
 
         //Debug.Log("swipeCD = " + swipeCDTimer);
+
     }
 
     #region FSM
@@ -1521,6 +1524,7 @@ public class Player : YmirComponent
         Animation.SetLoop(gameObject, "Raisen_Dash", true);
 
         Animation.SetSpeed(gameObject, "Raisen_Dash", 4);
+        Animation.SetSpeed(gameObject, "Raisen_Spit", 0.1f);
 
         Animation.SetResetToZero(gameObject, "Raisen_Death", false);
 
@@ -1528,6 +1532,7 @@ public class Player : YmirComponent
         Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Death", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Spin", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Shooting", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Spit", 5.0f);
         //Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Dash", 5.0f);
 
 
@@ -1535,6 +1540,7 @@ public class Player : YmirComponent
         Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Death", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Spin", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Shooting", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Spit", 5.0f);
         //Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Dash", 5.0f);
 
 
@@ -1543,12 +1549,14 @@ public class Player : YmirComponent
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Death", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Spin", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Shooting", 2.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Spit", 2.0f);
         //Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
 
         Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Idle", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Walk", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Death", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Shooting", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Spit", 5.0f);
 
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Idle", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Run", 5.0f);
@@ -1556,6 +1564,13 @@ public class Player : YmirComponent
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Walk", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Spin", 5.0f);
         Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Shooting", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Spit", 5.0f);
+
+        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Death", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Spin", 5.0f);
+        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Shooting", 5.0f);
 
         Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
@@ -1683,6 +1698,8 @@ public class Player : YmirComponent
         //Trigger del sonido
         Audio.PlayAudio(gameObject, "P_AcidSpit");
 
+        Animation.PlayAnimation(gameObject, "Raisen_Shooting");
+
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
         Particles.PlayEmitter(acidicParticles);
 
@@ -1704,6 +1721,7 @@ public class Player : YmirComponent
 
     private void EndAcidicSpit()
     {
+        Animation.PlayAnimation(gameObject, "Raisen_Idle");
         acidicCDTimer = acidicCD;
     }
 

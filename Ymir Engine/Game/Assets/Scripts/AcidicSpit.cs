@@ -8,59 +8,59 @@ using YmirEngine;
 
 public class AcidicSpit : YmirComponent
 {
-    bool start = true;
-
-    public float maxDistance = 30.0f;
-    public float speed = 130.0f;
-    public float damage = 90.0f;
-    float time = 0.0f;
-    public bool piercing = false;
-    private Vector3 firstPosition;
+    private float maxDistance = 30.0f;
+    private float speed = 130.0f;
+    private float damage = 90.0f;
+    private float time = 0.0f;
     public GameObject acidPuddle;
     private Vector3 vSpeed;
 
+    public void Start()
+    {
+        time = 0;
+        damage = 90;
+        maxDistance = 60.0f;
+        speed = 130.0f;
+        vSpeed = GetDirection() * speed;
+    }
+
     public void Update()
     {
-        if (start)
-        {
-
-            firstPosition = gameObject.transform.globalPosition;
-            vSpeed = GetDirection() * speed;
-
-            start = false;
-        }
-
         time += Time.deltaTime;
 
-        //Mover bala
+        ////Mover bala
         gameObject.SetVelocity(vSpeed);
 
         if (time > (maxDistance / speed))
         {
             KillBullet();
         }
-
-        return;
     }
 
-    public void OnCollisionEnter(GameObject other)
+    public void OnCollisionStay(GameObject other)
     {
-        //if (other.Tag == "Wall" && start == false)
+        //if (other.Tag == "Wall")
         //{
         //    Debug.Log("Collision with Wall!");
         //    KillBullet();
         //}
-        //else if (other.Tag == "Enemy" && start == false)
-        //{
-        //    Debug.Log("Collision with Enemy!");
-        //    //Hace daño al enemigo
+        if (other.Tag == "Enemy")
+        {
+            Debug.Log("Collision with Enemy!");
+            //Hace daño al enemigo
 
-        //    KillBullet();
-        //}
-        //else 
-        //{
-        //    KillBullet(); 
-        //}
+            //other.GetComponent<Enemy>().life -= damage;
+            other.GetComponent<Enemy_Test>().life -= damage;
+            KillBullet();
+        }
+        else if (other.Tag == "Player")
+        {
+            //Evitar que el Player choque con el proyectil
+        }
+        else
+        {
+            KillBullet();
+        }
     }
 
     void KillBullet()

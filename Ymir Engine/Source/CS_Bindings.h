@@ -902,7 +902,7 @@ void CreateAcidicSpit(MonoObject* name, MonoObject* position)
 void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 {
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	float3 scaleVector = float3(6.0f, 1.0f, 6.0f);
+	float3 scaleVector = float3(3.0f, 1.0f, 3.0f);
 	char* p = mono_string_to_utf8(mono_object_to_string(name, NULL));
 
 	if (External == nullptr) return;
@@ -913,22 +913,6 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
 
-	uint UID = 1899531165; // UID of Cylinder.fbx mesh in meta (lo siento)
-	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
-
-	//Añade la mesh a la bullet
-	ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
-	CMesh* cmesh = new CMesh(go);
-	cmesh->rMeshReference = rMesh;
-	go->AddComponent(cmesh);
-
-	//Añade el material a la Bullet
-	CMaterial* cmaterial = new CMaterial(go);
-	cmaterial->shaderPath = "Assets/Shaders/LavaShader.glsl";
-	cmaterial->shader.LoadShader(cmaterial->shaderPath);
-	cmaterial->shaderDirtyFlag = false;
-	go->AddComponent(cmaterial);
-
 	//Antiguo
 	//Añade RigidBody a la bala
 	//CCollider* physBody = new CCollider(go);
@@ -937,7 +921,7 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 	//physBody->physBody->SetPosition(posVector);
 	//go->AddComponent(physBody);
 
-	CCollider* physBody = new CCollider(go);
+	CCollider* physBody = new CCollider(go, CYLINDER);
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->SetAsSensor(true);

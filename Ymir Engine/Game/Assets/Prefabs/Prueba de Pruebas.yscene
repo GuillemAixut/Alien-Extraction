@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        17.504518508911133,
-        19.076042175292969,
-        8.5883951187133789
+        -0.71660363674163818,
+        21.105792999267578,
+        18.169919967651367
     ],
     "Editor Camera Right (X)": [
-        0.5250508189201355,
-        -2.9802322387695312e-08,
-        -0.8510890007019043
+        0.99963748455047607,
+        6.7520886659622192e-07,
+        -0.028460113331675529
     ],
     "Editor Camera Up (Y)": [
-        -0.37958812713623047,
-        0.89503633975982666,
-        -0.23417419195175171
+        -0.0068343514576554298,
+        0.97076570987701416,
+        -0.24002780020236969
     ],
     "Editor Camera Front (Z)": [
-        -0.76174420118331909,
-        -0.44601044058799744,
-        -0.46993252635002136
+        -0.027626626193523407,
+        -0.24012984335422516,
+        -0.9703676700592041
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1223600824,
             "Components": [
                 {
                     "Type": "Transform",
@@ -206,7 +206,7 @@
                 {
                     "Type": "Animation",
                     "Active": 1,
-                    "NumPaths": 8,
+                    "NumPaths": 9,
                     "Paths": [
                         ".\/Assets\/Raisen_Idle.yanim",
                         ".\/Assets\/Raisen_BaseIdle.yanim",
@@ -215,9 +215,11 @@
                         ".\/Assets\/Raisen_Death.yanim",
                         ".\/Assets\/Raisen_Shooting.yanim",
                         ".\/Assets\/Raisen_Spin.yanim",
-                        ".\/Assets\/Raisen_Walk.yanim"
+                        ".\/Assets\/Raisen_Walk.yanim",
+                        "Assets\/Raisen_Spit.yanim"
                     ],
                     "AssetsPath": [
+                        "",
                         "",
                         "",
                         "",
@@ -322,7 +324,8 @@
                 483483436,
                 1132840640,
                 1981494492,
-                1383432455
+                1383432455,
+                127984506
             ]
         },
         {
@@ -369,14 +372,14 @@
                         {
                             "lightDir": [
                                 0,
-                                0,
-                                0
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -433,14 +436,14 @@
                         {
                             "lightDir": [
                                 0,
-                                0,
-                                0
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -497,14 +500,14 @@
                         {
                             "lightDir": [
                                 0,
-                                0,
-                                0
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -561,14 +564,14 @@
                         {
                             "lightDir": [
                                 0,
-                                0,
-                                0
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -756,14 +759,14 @@
                         {
                             "lightDir": [
                                 0,
-                                0,
-                                0
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
@@ -924,7 +927,7 @@
                     ],
                     "Rotation": [
                         5.518014859262621e-06,
-                        -4.4419498408387881e-06,
+                        -4.441950295586139e-06,
                         6.1662530899047852
                     ],
                     "Scale": [
@@ -941,14 +944,14 @@
                         {
                             "lightDir": [
                                 0,
-                                0,
-                                0
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
@@ -1128,7 +1131,7 @@
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 1,
+                                    "Lifetime": 10,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
@@ -1142,8 +1145,8 @@
                                         0,
                                         0
                                     ],
-                                    "DistanceLimit": 0,
-                                    "HasDistanceLimit": false,
+                                    "DistanceLimit": 50,
+                                    "HasDistanceLimit": true,
                                     "BaseRotation": 2,
                                     "BaseShape": 0,
                                     "RadiusHollow": 0,
@@ -1406,7 +1409,7 @@
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 1,
+                                    "Lifetime": 20,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
@@ -1420,8 +1423,8 @@
                                         0,
                                         0
                                     ],
-                                    "DistanceLimit": 0,
-                                    "HasDistanceLimit": false,
+                                    "DistanceLimit": 100,
+                                    "HasDistanceLimit": true,
                                     "BaseRotation": 0,
                                     "BaseShape": 0,
                                     "RadiusHollow": 0,
@@ -1435,7 +1438,7 @@
                                     "StartMode": 3,
                                     "NumParticles": 28,
                                     "SpawnRatio": 0.019999999552965164,
-                                    "NumParticlesToStop": 15
+                                    "NumParticlesToStop": 50
                                 },
                                 {
                                     "Type": 2,
@@ -1452,7 +1455,7 @@
                                     ],
                                     "NormalizedBaseDirection": true,
                                     "Accelerates": false,
-                                    "Speed1": 21.399999618530273,
+                                    "Speed1": 40,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -1626,8 +1629,8 @@
                                     "Type": 5,
                                     "Progressive": false,
                                     "Color1": [
-                                        0.1150442361831665,
                                         1,
+                                        0.63716810941696167,
                                         0,
                                         1
                                     ],
@@ -1786,6 +1789,49 @@
             ]
         },
         {
+            "Name": "Point Light",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 127984506,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1804673821,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        148.13751220703125,
+                        -4.9473600387573242
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        9.5785436630249023,
+                        9.5785436630249023,
+                        9.5785436630249023
+                    ]
+                },
+                {
+                    "Type": "Light",
+                    "Active": 1,
+                    "Debug": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "Intensity": 1,
+                    "Light Type": 0,
+                    "Radius": 1
+                }
+            ]
+        },
+        {
             "Name": "Game Canvas",
             "Static": false,
             "Tag": "Untagged",
@@ -1819,8 +1865,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 956,
-                    "Height": 755,
+                    "Width": 372,
+                    "Height": 640,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -12179,14 +12225,14 @@
                         {
                             "lightDir": [
                                 0,
-                                0,
-                                0
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
