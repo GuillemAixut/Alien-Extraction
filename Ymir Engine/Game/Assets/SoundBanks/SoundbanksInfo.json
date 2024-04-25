@@ -374,7 +374,6 @@
    {
     "Id": "357189188",
     "Language": "SFX",
-    "Hash": "2421818628",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music\\LV2Music",
     "ShortName": "LV2Music",
     "Path": "LV2Music.bnk",
@@ -535,7 +534,6 @@
    {
     "Id": "643931339",
     "Language": "SFX",
-    "Hash": "4240213759",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music\\BaseMusic",
     "ShortName": "BaseMusic",
     "Path": "BaseMusic.bnk",
@@ -589,7 +587,6 @@
    {
     "Id": "766715893",
     "Language": "SFX",
-    "Hash": "1279104580",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music\\LV1Music",
     "ShortName": "LV1Music",
     "Path": "LV1Music.bnk",
@@ -615,6 +612,7 @@
    {
     "Id": "978134277",
     "Language": "SFX",
+    "Hash": "498239050",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\DroneXenomorph",
     "ShortName": "DroneXenomorph",
     "Path": "DroneXenomorph.bnk",
@@ -1038,6 +1036,22 @@
       ]
      },
      {
+      "Id": "3833394957",
+      "Name": "W_FirearmEnemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Firearm\\W_FirearmEnemy",
+      "DurationType": "OneShot",
+      "DurationMin": "0.58351",
+      "DurationMax": "0.58351",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "486821775",
+        "Language": "SFX",
+        "ShortName": "EnemyHit.wav",
+        "Path": "SFX\\EnemyHit_10C4C929.wem"
+       }
+      ]
+     },
+     {
       "Id": "3437299232",
       "Name": "W_FirearmReload",
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Firearm\\W_FirearmReload",
@@ -1050,6 +1064,438 @@
         "Language": "SFX",
         "ShortName": "SFX_Weapon_FirearmReload.wav",
         "Path": "SFX\\SFX_Weapon_FirearmReload_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2776754476",
+      "Name": "W_FirearmShooting",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Firearm\\W_FirearmShooting",
+      "DurationType": "OneShot",
+      "DurationMin": "1.656",
+      "DurationMax": "1.656",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "89137871",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_FirearmShooting.wav",
+        "Path": "SFX\\SFX_Weapon_FirearmShooting_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2811600803",
+      "Name": "W_FirearmShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Firearm\\W_FirearmShot",
+      "DurationType": "OneShot",
+      "DurationMin": "0.458912",
+      "DurationMax": "0.458912",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "583374193",
+        "Language": "SFX",
+        "ShortName": "FirearmShot.wav",
+        "Path": "SFX\\FirearmShot_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2893664607",
+      "Name": "W_FirearmSurf",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Firearm\\W_FirearmSurf",
+      "DurationType": "OneShot",
+      "DurationMin": "2.365329",
+      "DurationMax": "2.365329",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "316221824",
+        "Language": "SFX",
+        "ShortName": "SurfaceHit.wav",
+        "Path": "SFX\\SurfaceHit_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "248456116",
+      "Name": "W_FirearmUp",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Firearm\\W_FirearmUp",
+      "DurationType": "OneShot",
+      "DurationMin": "0.229683",
+      "DurationMax": "0.229683",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "1008556014",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_FirearmUpgradeShot1.wav",
+        "Path": "SFX\\SFX_Weapon_FirearmUpgradeShot1_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "68498542",
+      "Name": "W_FirearmUp2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Firearm\\W_FirearmUp2",
+      "DurationType": "OneShot",
+      "DurationMin": "0.870363",
+      "DurationMax": "0.870363",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "576260854",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_FirearmUpgradeShot2.wav",
+        "Path": "SFX\\SFX_Weapon_FirearmUpgradeShot2_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "779644395",
+      "Name": "W_FSADEnemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADEnemy",
+      "DurationType": "OneShot",
+      "DurationMin": "0.58351",
+      "DurationMax": "0.58351",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "486821775",
+        "Language": "SFX",
+        "ShortName": "EnemyHit.wav",
+        "Path": "SFX\\EnemyHit_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2959608070",
+      "Name": "W_FSADReload",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADReload",
+      "DurationType": "OneShot",
+      "DurationMin": "0.603708",
+      "DurationMax": "0.603708",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "900068951",
+        "Language": "SFX",
+        "ShortName": "FSADReload.wav",
+        "Path": "SFX\\FSADReload_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "1950171510",
+      "Name": "W_FSADReloadCap",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADReloadCap",
+      "DurationType": "OneShot",
+      "DurationMin": "1.486145",
+      "DurationMax": "1.486145",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "522121485",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_FSADReloadWithCap.wav",
+        "Path": "SFX\\SFX_Weapon_FSADReloadWithCap_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "1530428297",
+      "Name": "W_FSADShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADShot",
+      "DurationType": "OneShot",
+      "DurationMin": "1.256168",
+      "DurationMax": "1.256168",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "724287722",
+        "Language": "SFX",
+        "ShortName": "FSADShot.wav",
+        "Path": "SFX\\FSADShot_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "585791641",
+      "Name": "W_FSADShot2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADShot2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.149388",
+      "DurationMax": "1.149388",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "78189267",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_FSADShot2.wav",
+        "Path": "SFX\\SFX_Weapon_FSADShot2_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "1760895991",
+      "Name": "W_FSADShotLongB",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADShotLongB",
+      "DurationType": "OneShot",
+      "DurationMin": "2.832",
+      "DurationMax": "2.832",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "61609410",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_FSADShotLongBarrel.wav",
+        "Path": "SFX\\SFX_Weapon_FSADShotLongBarrel_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "1753215977",
+      "Name": "W_FSADSurf",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADSurf",
+      "DurationType": "OneShot",
+      "DurationMin": "2.365329",
+      "DurationMax": "2.365329",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "316221824",
+        "Language": "SFX",
+        "ShortName": "SurfaceHit.wav",
+        "Path": "SFX\\SurfaceHit_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "3032687762",
+      "Name": "W_FSADUpShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\FSAD\\W_FSADUpShot",
+      "DurationType": "OneShot",
+      "DurationMin": "0.993084",
+      "DurationMax": "0.993084",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "414184268",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_FSADUpgradeShot1.wav",
+        "Path": "SFX\\SFX_Weapon_FSADUpgradeShot1_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "9152236",
+      "Name": "W_GrenadeExpl",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_GrenadeExpl",
+      "DurationType": "OneShot",
+      "DurationMin": "1.968005",
+      "DurationMax": "1.968005",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "1031933365",
+        "Language": "SFX",
+        "ShortName": "GranadeExpl.wav",
+        "Path": "SFX\\GranadeExpl_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "3352806838",
+      "Name": "W_GrenadeExpl2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_GrenadeExpl2",
+      "DurationType": "OneShot",
+      "DurationMin": "2.775193",
+      "DurationMax": "2.775193",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "784126376",
+        "Language": "SFX",
+        "ShortName": "SFX_Consumable_GranadeExplosion2.wav",
+        "Path": "SFX\\SFX_Consumable_GranadeExplosion2_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "3129002558",
+      "Name": "W_GrenadeToss",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_GrenadeToss",
+      "DurationType": "OneShot",
+      "DurationMin": "2.202766",
+      "DurationMax": "2.202766",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "536527461",
+        "Language": "SFX",
+        "ShortName": "SFX_Consumable_GrenadeToss.wav",
+        "Path": "SFX\\SFX_Consumable_GrenadeToss_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "3032531364",
+      "Name": "W_MolotovBurn",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_MolotovBurn",
+      "DurationType": "OneShot",
+      "DurationMin": "35.112564",
+      "DurationMax": "35.112564",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "100740524",
+        "Language": "SFX",
+        "ShortName": "SFX_Consumable_MolotovBurning.wav",
+        "Path": "SFX\\SFX_Consumable_MolotovBurning_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "258259792",
+      "Name": "W_MolotovExpl",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_MolotovExpl",
+      "DurationType": "OneShot",
+      "DurationMin": "2.659864",
+      "DurationMax": "2.659864",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "855203340",
+        "Language": "SFX",
+        "ShortName": "SFX_Consumable_MolotovExplosion1.wav",
+        "Path": "SFX\\SFX_Consumable_MolotovExplosion1_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2341658306",
+      "Name": "W_MolotovExpl2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_MolotovExpl2",
+      "DurationType": "OneShot",
+      "DurationMin": "1.469116",
+      "DurationMax": "1.469116",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "558001429",
+        "Language": "SFX",
+        "ShortName": "SFX_Consumable_MolotovExplosion2.wav",
+        "Path": "SFX\\SFX_Consumable_MolotovExplosion2_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2341658307",
+      "Name": "W_MolotovExpl3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_MolotovExpl3",
+      "DurationType": "OneShot",
+      "DurationMin": "3.52585",
+      "DurationMax": "3.52585",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "497626075",
+        "Language": "SFX",
+        "ShortName": "SFX_Consumable_MolotovExplosion3.wav",
+        "Path": "SFX\\SFX_Consumable_MolotovExplosion3_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2025074351",
+      "Name": "W_PlasmaEnemy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Plasma\\W_PlasmaEnemy",
+      "DurationType": "OneShot",
+      "DurationMin": "1.8",
+      "DurationMax": "1.8",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "100427288",
+        "Language": "SFX",
+        "ShortName": "PlasmaSurface&Enemy.wav",
+        "Path": "SFX\\PlasmaSurface&Enemy_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2182280754",
+      "Name": "W_PlasmaReload",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Plasma\\W_PlasmaReload",
+      "DurationType": "OneShot",
+      "DurationMin": "3.162062",
+      "DurationMax": "3.162062",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "655425766",
+        "Language": "SFX",
+        "ShortName": "PlasmaReload.wav",
+        "Path": "SFX\\PlasmaReload_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "3750281125",
+      "Name": "W_PlasmaShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Plasma\\W_PlasmaShot",
+      "DurationType": "OneShot",
+      "DurationMin": "2.056508",
+      "DurationMax": "2.056508",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "952771836",
+        "Language": "SFX",
+        "ShortName": "PlasmaShot.wav",
+        "Path": "SFX\\PlasmaShot_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2303045773",
+      "Name": "W_PlasmaShot2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Plasma\\W_PlasmaShot2",
+      "DurationType": "OneShot",
+      "DurationMin": "4.463125",
+      "DurationMax": "4.463125",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "426728128",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_PlasmaShot2.wav",
+        "Path": "SFX\\SFX_Weapon_PlasmaShot2_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "2303045772",
+      "Name": "W_PlasmaShot3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Plasma\\W_PlasmaShot3",
+      "DurationType": "OneShot",
+      "DurationMin": "2.124167",
+      "DurationMax": "2.124167",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "781339340",
+        "Language": "SFX",
+        "ShortName": "SFX_Weapon_PlasmaShot3.wav",
+        "Path": "SFX\\SFX_Weapon_PlasmaShot3_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "3835007941",
+      "Name": "W_PlasmaSurf",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Plasma\\W_PlasmaSurf",
+      "DurationType": "OneShot",
+      "DurationMin": "1.8",
+      "DurationMax": "1.8",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "100427288",
+        "Language": "SFX",
+        "ShortName": "PlasmaSurface&Enemy.wav",
+        "Path": "SFX\\PlasmaSurface&Enemy_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "1353162901",
+      "Name": "W_Throw",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Consumables\\W_Throw",
+      "DurationType": "OneShot",
+      "DurationMin": "0.841247",
+      "DurationMax": "0.841247",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "729796354",
+        "Language": "SFX",
+        "ShortName": "Throw.wav",
+        "Path": "SFX\\Throw_10C4C929.wem"
        }
       ]
      }
@@ -1511,7 +1957,6 @@
    {
     "Id": "2405688451",
     "Language": "SFX",
-    "Hash": "538201584",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music\\LV3Music",
     "ShortName": "LV3Music",
     "Path": "LV3Music.bnk",
@@ -1565,6 +2010,7 @@
    {
     "Id": "2692855564",
     "Language": "SFX",
+    "Hash": "1711770573",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\XenoSpitter",
     "ShortName": "XenoSpitter",
     "Path": "XenoSpitter.bnk",
@@ -1654,6 +2100,7 @@
    {
     "Id": "2982135181",
     "Language": "SFX",
+    "Hash": "700496941",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\QueenXenomorph",
     "ShortName": "QueenXenomorph",
     "Path": "QueenXenomorph.bnk",
@@ -2065,7 +2512,6 @@
    {
     "Id": "3402873772",
     "Language": "SFX",
-    "Hash": "2100095139",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music\\UIMusic",
     "ShortName": "UIMusic",
     "Path": "UIMusic.bnk",
@@ -2461,6 +2907,7 @@
    {
     "Id": "4095621880",
     "Language": "SFX",
+    "Hash": "1615030436",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\Facehugger",
     "ShortName": "Facehugger",
     "Path": "Facehugger.bnk",
