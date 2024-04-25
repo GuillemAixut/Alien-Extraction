@@ -1,43 +1,9 @@
 {
     "Prefab": [
         {
-            "Name": "Enemy-DroneXenomorph",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1056771548,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        95.151161193847656
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1765229486,
-                1977502411
-            ]
-        },
-        {
             "Name": "DroneXenomorph",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Enemy",
             "UID": 1765229486,
             "Active": true,
             "Element_Type": "Model",
@@ -163,7 +129,8 @@
                 }
             ],
             "Children UID": [
-                317641903
+                317641903,
+                1977502411
             ]
         },
         {
@@ -209,15 +176,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -234,31 +201,31 @@
             ]
         },
         {
-            "Name": "Sensor (1)",
+            "Name": "Sensor",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1977502411,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1056771548,
+            "Parent UID": 1765229486,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.17407417297363281,
-                        5.9831194877624512,
-                        0.06402587890625
+                        2.56103515625,
+                        239.32478332519531,
+                        -18.405149459838867
                     ],
                     "Rotation": [
-                        -0,
-                        0,
-                        -0
+                        -180,
+                        89.980216979980469,
+                        180
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        39.999992370605469,
+                        40,
+                        39.999992370605469
                     ]
                 },
                 {
