@@ -7,7 +7,7 @@
             "UID": 1676754095,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 651219073,
+            "Parent UID": 1851754203,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1906,
-                    "Height": 1051,
+                    "Width": 1778,
+                    "Height": 1097,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -51,7 +51,7 @@
                 981002621,
                 2117321362,
                 122267471,
-                1984199107
+                505969807
             ]
         },
         {
@@ -304,13 +304,65 @@
             ]
         },
         {
+            "Name": "Grid",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 505969807,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1676754095,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": false,
+                    "naviagteY": false,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
+                }
+            ],
+            "Children UID": [
+                1984199107
+            ]
+        },
+        {
             "Name": "Back to base",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1984199107,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1676754095,
+            "Parent UID": 505969807,
             "Components": [
                 {
                     "Type": "Transform",
