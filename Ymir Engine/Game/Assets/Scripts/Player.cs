@@ -190,10 +190,10 @@ public class Player : YmirComponent
         //
         weaponType = WEAPON.SMG;
 
-        movementSpeed = 4000.0f;    //Antes 35
+        movementSpeed = 3000.0f;    //Antes 35
 
         //--------------------- Dash ---------------------\\
-        dashDistance = 500.0f;     //Antes 2 
+        dashDistance = 400.0f;     //Antes 2 
 
         dashTimer = 0f;
         dashDuration = 0.250f;
