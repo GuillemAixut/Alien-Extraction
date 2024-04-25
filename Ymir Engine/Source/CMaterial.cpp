@@ -52,8 +52,7 @@ CMaterial::~CMaterial()
     {
         if (!(*it)->checkerLoaded) {
 
-            External->resourceManager->UnloadResource((*it)->GetUID());
-            
+            External->resourceManager->UnloadResource((*it)->GetUID());            
 
         }
         else {

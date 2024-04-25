@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        101.01444244384766,
-        90.051910400390625,
-        75.259819030761719
+        -67.313453674316406,
+        127.44144439697266,
+        26.581026077270508
     ],
     "Editor Camera Right (X)": [
-        0.9794318675994873,
-        3.7997961044311523e-07,
-        -0.047012250870466232
+        0.28594404458999634,
+        9.9837779998779297e-07,
+        0.93850892782211304
     ],
     "Editor Camera Up (Y)": [
-        -0.030054651200771332,
-        0.75535941123962402,
-        -0.62613886594772339
+        0.69434326887130737,
+        0.66120028495788574,
+        -0.21155259013175964
     ],
     "Editor Camera Front (Z)": [
-        -0.036855343729257584,
-        -0.63794517517089844,
-        -0.76783263683319092
+        0.64368355274200439,
+        -0.73869109153747559,
+        -0.1961161345243454
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1096179451,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2841,7 +2841,8 @@
                 674768309,
                 680428138,
                 2003545222,
-                2105473488
+                2105473488,
+                868086832
             ]
         },
         {
@@ -2887,15 +2888,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -2951,15 +2952,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -3015,15 +3016,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -0.088538646697998047,
+                                13.082799911499023,
+                                -1.4917325973510742
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
@@ -3068,6 +3069,49 @@
             ]
         },
         {
+            "Name": "Point Light",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 868086832,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 402787232,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -0.88537704944610596,
+                        122.52063751220703,
+                        -14.917336463928223
+                    ],
+                    "Rotation": [
+                        -5.008955213270383e-06,
+                        5.0089570322597865e-06,
+                        -5.0089556680177338e-06
+                    ],
+                    "Scale": [
+                        10,
+                        10,
+                        10
+                    ]
+                },
+                {
+                    "Type": "Light",
+                    "Active": 1,
+                    "Debug": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "Intensity": 1,
+                    "Light Type": 0,
+                    "Radius": 1
+                }
+            ]
+        },
+        {
             "Name": "Game Canvas",
             "Static": false,
             "Tag": "Untagged",
@@ -3101,8 +3145,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1908,
-                    "Height": 1057,
+                    "Width": 669,
+                    "Height": 667,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -49283,7 +49327,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 297696942,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 379278140,
             "Components": [
@@ -49312,8 +49356,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1908,
-                    "Height": 1057,
+                    "Width": 669,
+                    "Height": 667,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -49333,7 +49377,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1739948149,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 297696942,
             "Components": [
@@ -49408,7 +49452,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 700964825,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49470,7 +49514,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1342986595,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49532,7 +49576,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1379074657,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49594,7 +49638,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 300149188,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49656,7 +49700,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 829122760,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49718,7 +49762,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1268995095,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49780,7 +49824,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 663330962,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49842,7 +49886,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 438435483,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49904,7 +49948,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1147536281,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -49966,7 +50010,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 2036120965,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1739948149,
             "Components": [
@@ -50108,23 +50152,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -50172,23 +50222,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 613,
@@ -50290,23 +50346,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1153,
@@ -50442,23 +50504,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -50506,23 +50574,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -50570,23 +50644,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -50634,23 +50714,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -50698,23 +50784,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -50839,23 +50931,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1017,
@@ -50918,23 +51016,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1017,
@@ -50997,23 +51101,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1055,
@@ -51153,23 +51263,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1113,
@@ -51267,23 +51383,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1117,
@@ -51440,23 +51562,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 795,
@@ -51513,23 +51641,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 627,
@@ -51586,23 +51720,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 763,
@@ -51653,23 +51793,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 795,
@@ -51726,23 +51872,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 631,
@@ -51799,23 +51951,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 767,
@@ -51866,23 +52024,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 623,
@@ -51939,23 +52103,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 635,
@@ -52012,23 +52182,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 771,
@@ -52079,23 +52255,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 627,
@@ -52152,23 +52334,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 639,
@@ -52225,23 +52413,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 775,
@@ -52292,23 +52486,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 631,
@@ -52365,23 +52565,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 643,
@@ -52438,23 +52644,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 779,
@@ -52505,23 +52717,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 635,
@@ -52578,23 +52796,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 647,
@@ -52651,23 +52875,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 783,
@@ -52718,23 +52948,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 639,
@@ -52791,23 +53027,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 651,
@@ -52864,23 +53106,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 787,
@@ -52931,23 +53179,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 643,
@@ -53004,23 +53258,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 655,
@@ -53077,23 +53337,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 791,
@@ -53144,23 +53410,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 647,
@@ -53217,23 +53489,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 659,
@@ -53337,23 +53615,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53416,23 +53700,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53495,23 +53785,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53574,23 +53870,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53653,23 +53955,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53732,23 +54040,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53811,23 +54125,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53890,23 +54210,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -53969,23 +54295,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -54048,23 +54380,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -54127,23 +54465,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -54206,23 +54550,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -54285,23 +54635,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -54364,23 +54720,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 880,
@@ -54443,23 +54805,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1157,
@@ -54556,23 +54924,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1193,
@@ -54632,23 +55006,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1197,
@@ -54743,23 +55123,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1285,
@@ -54822,23 +55208,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1201,
@@ -54867,23 +55259,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1205,
@@ -54978,23 +55376,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1281,
@@ -55057,23 +55461,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1209,
@@ -55170,23 +55580,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -55234,23 +55650,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1325,
@@ -55310,23 +55732,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1345,
@@ -55426,23 +55854,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1389,
@@ -55502,23 +55936,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1393,
@@ -55578,23 +56018,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1397,
@@ -55654,23 +56100,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1401,
@@ -55730,23 +56182,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1405,
@@ -55806,23 +56264,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1409,
@@ -55882,23 +56346,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 1413,
@@ -56008,23 +56478,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56087,23 +56563,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56166,23 +56648,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56245,23 +56733,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56324,23 +56818,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56403,23 +56903,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56482,23 +56988,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56561,23 +57073,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56640,23 +57158,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56719,23 +57243,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56798,23 +57328,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56877,23 +57413,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -56956,23 +57498,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -57035,23 +57583,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -57114,23 +57668,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -57193,23 +57753,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -57272,23 +57838,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 875,
@@ -57464,23 +58036,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 763,
@@ -57540,23 +58118,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 763,
@@ -57616,23 +58200,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 763,
@@ -57692,23 +58282,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 763,
@@ -57768,23 +58364,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 763,
@@ -57844,23 +58446,29 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
                     "Uniforms": [
                         {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
                             "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "transparency": 1,
+                            "camPos": [
+                                -58.784080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
                         }
                     ],
                     "Diffuse_ID": 763,
