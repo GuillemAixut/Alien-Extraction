@@ -1,24 +1,24 @@
 {
-    "NavMesh": "",
+    "NavMesh": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_COLLIDERS.nav",
     "Editor Camera Position": [
-        57.362449645996094,
-        6.8434505462646484,
-        557.4075927734375
+        -109.77816009521484,
+        39.633735656738281,
+        611.0927734375
     ],
     "Editor Camera Right (X)": [
-        0.10932549089193344,
-        1.5087425708770752e-07,
-        0.99400460720062256
+        0.91801369190216064,
+        1.7881393432617188e-07,
+        0.39654603600502014
     ],
     "Editor Camera Up (Y)": [
-        0.2073855996131897,
-        0.97799277305603027,
-        -0.022809430956840515
+        0.092029601335525513,
+        0.97269684076309204,
+        -0.2130511999130249
     ],
     "Editor Camera Front (Z)": [
-        0.97213053703308105,
-        -0.20863547921180725,
-        -0.10691963881254196
+        0.3857194185256958,
+        -0.23207737505435944,
+        -0.89294964075088501
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -61,7 +62,8 @@
                 1904908806,
                 1676754095,
                 461471476,
-                484997781
+                484997781,
+                1493897338
             ]
         },
         {
@@ -12733,6 +12735,7 @@
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
+                    "currentMenu": "",
                     "setHover": true
                 }
             ],
@@ -13923,8 +13926,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 393,
-                    "Height": 445,
+                    "Width": 956,
+                    "Height": 387,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -14748,19 +14751,19 @@
                     "Pressed color": [
                         -1.5816255460782938e+38,
                         1.6815581571897805e-42,
-                        1.6815581571897805e-42,
-                        -1.5816255460782938e+38
+                        -1.5816255460782938e+38,
+                        1.6815581571897805e-42
                     ],
                     "Selected color": [
-                        1.6815581571897805e-42,
                         -1.5816255460782938e+38,
+                        1.6815581571897805e-42,
                         1.6815581571897805e-42,
                         -1.5816255460782938e+38
                     ],
                     "Disabled color": [
                         1.6815581571897805e-42,
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
+                        1.6815581571897805e-42,
                         -1.5816255460782938e+38
                     ]
                 },
@@ -27567,6 +27570,103 @@
                     "Diffuse_ID": 656,
                     "Diffuse_Path": "Assets\/Prefabs\/x_ps4_PROVISIONAL.png",
                     "Diffuse_UID": 962411016
+                }
+            ]
+        },
+        {
+            "Name": "NavMesh_LVL2_Part2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1493897338,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1104471209
+            ]
+        },
+        {
+            "Name": "NavMesh_LVL2_Part2 (1)",
+            "Static": true,
+            "Tag": "Untagged",
+            "UID": 1104471209,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL2_LAB_PART2_FINAL\/NavMesh_LVL2_Part2.fbx",
+            "Parent UID": 1493897338,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        -4.8351936340332031,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1315332172,
+                    "Vertex Count": 199,
+                    "Index Count": 894
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 0
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
                 }
             ]
         }
