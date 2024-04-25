@@ -464,16 +464,20 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
 	
-	for (int i = 0; i < gameObjects.size(); i++) {
-		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
-		ctrans->UpdateGlobalMatrix();
+	for (int i = 0; i < gameObjects.size(); ++i) 
+	{
+		gameObjects[i]->mTransform->UpdateGlobalMatrix();
 	}
 
 	LoadScriptsData();
 
 	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
-	if (navMeshPath != "")
+
+	if (navMeshPath != "") 
+	{
 		External->pathFinding->Load(navMeshPath);
+	}
+
 }
 
 void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName)
@@ -585,16 +589,20 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
 
-	for (int i = 0; i < gameObjects.size(); i++) {
-		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
-		ctrans->UpdateGlobalMatrix();
+	for (int i = 0; i < gameObjects.size(); ++i) 
+	{
+		gameObjects[i]->mTransform->UpdateGlobalMatrix();
 	}
 
 	LoadScriptsData();
 
 	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
-	if (navMeshPath != "")
+
+	if (navMeshPath != "") 
+	{
 		External->pathFinding->Load(navMeshPath);
+	}
+		
 }
 
 void ModuleScene::Destroy(GameObject* gm)

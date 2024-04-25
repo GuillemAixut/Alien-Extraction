@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1096179451,
+            "Parent UID": 125953553,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2697,7 +2697,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 0,
+                    "Frustum Culling": 1,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
@@ -2834,6 +2834,7 @@
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
+                    "currentMenu": "",
                     "setHover": true
                 }
             ],
@@ -3145,8 +3146,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 669,
-                    "Height": 667,
+                    "Width": 670,
+                    "Height": 675,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
