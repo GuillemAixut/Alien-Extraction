@@ -103,7 +103,7 @@ public class SelectLvl : YmirComponent
                     break;
                 case LEVELS.WAREHOUSE:
                     {
-                        UI.TextEdit(levelSelector.lvlText, "An unused warehouse under the name of\nWeyland-Yutani corp. It doesn't look like a dangerous\nplace, it smells a bit burnt.");
+                        UI.TextEdit(levelSelector.lvlText, "An unused warehouse under the name of\nWeyland-Yutani corp. It doesn't look like a\ndangerous place, it smells a bit burnt.");
                     }
                     break;
                 case LEVELS.LAB:
@@ -113,7 +113,7 @@ public class SelectLvl : YmirComponent
                     break;
                 case LEVELS.HATCHERY:
                     {
-                        UI.TextEdit(levelSelector.lvlText, "If this was once a laboratory, it is definitely no\nlonger one. All of it is covered in something\nblack and slimy.");
+                        UI.TextEdit(levelSelector.lvlText, "If this was once a laboratory, it is definitely\nno longer one. All of it is covered in something\nblack and slimy.");
                     }
                     break;
 

@@ -104,7 +104,7 @@ public class SelectWeapon : YmirComponent
                     break;
                 case WEAPON_TYPE.PLASMA:
                     {
-                        UI.TextEdit(levelSelector.weaponText, "The 'EM-MK2' is a plasma weapon capable of firing\na constant beam of lethal energy, ideal for\nsuppressing enemies in medium and long-range combat.");
+                        UI.TextEdit(levelSelector.weaponText, "The 'EM-MK2' is a plasma weapon capable of firing\na constant beam of lethal energy, ideal for\nsuppressing enemies in medium and long-range\ncombat.");
                     }
                     break;
 
