@@ -140,7 +140,7 @@ public class Player : YmirComponent
 
     //--------------------- Tail Swipe ---------------------\\
     public float swipeTimer;
-    private float swipeDuration = 2f;
+    private float swipeDuration = 3f;
     private float swipeCDTimer;
     private float swipeCD = 13.0f;
     private bool hasSwipe = false;
@@ -207,7 +207,7 @@ public class Player : YmirComponent
 
         //--------------------- Swipe ---------------------\\
         swipeTimer = 0;
-        swipeDuration = 0.5f;
+        swipeDuration = 1f;
         swipeCDTimer = 0;
         swipeCD = 2.0f; //Es 13.0f
         hasSwipe = false;
@@ -1731,8 +1731,9 @@ public class Player : YmirComponent
     {
         //StopPlayer();
         //Delete de la hitbox de la cola
-        swipeCDTimer = swipeCD;
         Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        swipeCDTimer = swipeCD;
+        
     }
 
     public void LookAt(float angle)
