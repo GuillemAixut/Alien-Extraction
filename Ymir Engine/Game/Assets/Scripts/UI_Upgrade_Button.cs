@@ -18,11 +18,14 @@ public class UI_Upgrade_Button : YmirComponent
 
     public UI_Upgrade_Station currentStation;
     private GameObject _parent;
+    private GameObject audioSource;
 
     public void Start()
     {
         GameObject goText = InternalCalls.GetChildrenByName(gameObject, "Text");
         description = UI.GetUIText(goText);
+        audioSource = InternalCalls.GetGameObjectByName("Upgrade Station");
+
 
         upgrade = new Upgrade(name, description, cost, isUnlocked);
 
@@ -53,6 +56,8 @@ public class UI_Upgrade_Button : YmirComponent
     {
         if (!upgrade.isUnlocked && currentStation.currentScore >= upgrade.cost)
         {
+            Audio.PlayAudio(audioSource, "UI_WeaponUpgrade");
+
             switch (cost)
             {
                 case 1:
