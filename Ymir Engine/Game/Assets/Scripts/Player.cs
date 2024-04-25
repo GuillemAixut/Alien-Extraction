@@ -158,7 +158,7 @@ public class Player : YmirComponent
 
     #region DEFINE MENUS
 
-    private string currentMenu = "";
+    public string currentMenu = "";
     public bool setHover = false; // Guarrada temporal
 
     #endregion
@@ -509,7 +509,8 @@ public class Player : YmirComponent
         }
 
         if (currentState != STATE.STOP)
-        {        //----------------- Joystic -----------------\\
+        {        
+            //----------------- Joystic -----------------\\
             if (JoystickMoving() == true)
             {
                 inputsList.Add(INPUT.I_MOVE);
