@@ -259,61 +259,9 @@ void C_UI::StateLogic()
 							}
 						}
 					}
-
-					External->scene->selectedUIGO = mOwner;
-
-					for (int i = 0; i < External->scene->selectedUIGO->mComponents.size(); i++)
-					{
-						if (External->scene->selectedUIGO->mComponents[i]->ctype == ComponentType::UI)
-						{
-							if (static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state != UI_STATE::SELECTED)
-							{
-								static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state = UI_STATE::SELECTED;
-							}
-						}
-					}
-
-					state = UI_STATE::RELEASE;
 				}
-
-				else if (External->scene->selectedUIGO == nullptr)
-				{
-					External->scene->selectedUIGO = mOwner;
-
-					for (int i = 0; i < External->scene->selectedUIGO->mComponents.size(); i++)
-					{
-						if (External->scene->selectedUIGO->mComponents[i]->ctype == ComponentType::UI)
-						{
-							if (static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state != UI_STATE::SELECTED)
-							{
-								static_cast<C_UI*>(External->scene->selectedUIGO->mComponents[i])->state = UI_STATE::SELECTED;
-							}
-						}
-					}
-
-					state = UI_STATE::RELEASE;
-				}
-
-				else
-				{
-					state = UI_STATE::FOCUSED;
-
-					for (int i = 0; i < mOwner->mComponents.size(); i++)
-					{
-						if (mOwner->mComponents[i]->ctype == ComponentType::UI)
-						{
-							if (static_cast<C_UI*>(mOwner->mComponents[i])->state != UI_STATE::FOCUSED)
-							{
-								static_cast<C_UI*>(mOwner->mComponents[i])->state = UI_STATE::FOCUSED;
-							}
-						}
-					}
-
-					External->scene->selectedUIGO = nullptr;
-				}
-
-				//External->scene->selectedUIGO = mOwner;
-				//state = UI_STATE::RELEASE;
+				External->scene->selectedUIGO = mOwner;
+				state = UI_STATE::RELEASE;
 			}
 		}
 
@@ -324,18 +272,7 @@ void C_UI::StateLogic()
 		//LOG("RELEASE");
 
 		OnRelease();
-
 		state = UI_STATE::SELECTED;
-
-		//if (External->scene->selectedUIGO != nullptr && External->scene->selectedUIGO->UID != mOwner->UID)
-		//{
-		//	state = UI_STATE::SELECTED;
-		//}
-		//else
-		//{
-		//	state = UI_STATE::NORMAL;
-		//	External->scene->selectedUIGO = nullptr;
-		//}
 	}
 	break;
 	case UI_STATE::SELECTED:
@@ -683,5 +620,3 @@ void UI_Bounds::DeleteBuffers()
 	//glDeleteBuffers(1, &id_tex_uvs);
 	//id_tex_uvs = 0;
 }
-
-

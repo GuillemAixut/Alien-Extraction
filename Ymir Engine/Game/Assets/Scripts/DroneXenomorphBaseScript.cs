@@ -229,6 +229,7 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter = 0f;
                 timeLimit = 5f;
                 aggro = false;
+                gameObject.SetVelocity(new Vector3(0, 0, 0));
                 droneState = DroneState.IDLE_NO_AGGRO;
             }
 
@@ -269,6 +270,7 @@ public class DroneXenomorphBaseScript : Enemy
 
         if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
         {
+            gameObject.SetVelocity(new Vector3(0, 0, 0));
             droneState = DroneState.IDLE_NO_AGGRO;
         }
     }
