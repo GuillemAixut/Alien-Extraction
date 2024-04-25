@@ -121,7 +121,8 @@ public class FaceHuggerBaseScript : Enemy
                     wanderTimer = wanderDuration;
                     //Debug.Log("[ERROR] Current State: REACHED");
                     targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
-                    
+
+                    Audio.PlayAudio(gameObject, "FH_Move");
                     wanderState = WanderState.GOING;
                     break;
 
@@ -281,6 +282,7 @@ public class FaceHuggerBaseScript : Enemy
         {
             Debug.Log("[ERROR] DEATH");
             gameObject.SetVelocity(new Vector3(0, 0, 0));
+            Audio.PlayAudio(gameObject, "FH_Death");
             wanderState = WanderState.DEATH;
         }
     }
