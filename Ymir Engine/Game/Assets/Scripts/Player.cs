@@ -1568,6 +1568,9 @@ public class Player : YmirComponent
         //trigger del sonido
         Audio.PlayAudio(gameObject, "P_PredRush");
 
+        GameObject predRushParticles = GetParticles(gameObject, "ParticlesPredRush");
+        Particles.PlayEmitter(predRushParticles);
+
         //trigger de la animacion
 
         //cambio de variables
@@ -1679,6 +1682,9 @@ public class Player : YmirComponent
     {
         //Trigger del sonido
         Audio.PlayAudio(gameObject, "P_AcidSpit");
+
+        GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
+        Particles.PlayEmitter(acidicParticles);
 
         //Trigger de la animación
 
