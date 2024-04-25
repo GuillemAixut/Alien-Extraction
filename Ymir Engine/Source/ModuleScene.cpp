@@ -506,7 +506,6 @@ GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& f
 	
 	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
 
-	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
 	std::vector<GameObject*> prefab = prefabToLoad->GetHierarchy("Prefab");
 
 	// Add the loaded prefab objects to the existing gameObjects vector
@@ -893,7 +892,6 @@ void ModuleScene::AddToReferenceMap(uint UID, SerializedField* fieldToAdd)
 
 void ModuleScene::LoadScriptsData(GameObject* rootObject)
 {
-	std::multimap<uint, SerializedField*> referenceMapCopy;
 	for (auto i = referenceMap.begin(); i != referenceMap.end(); ++i)
 	{
 		// Get the range of the current key
