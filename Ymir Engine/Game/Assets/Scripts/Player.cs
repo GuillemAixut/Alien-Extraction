@@ -10,7 +10,7 @@ using YmirEngine;
 
 public class Player : YmirComponent
 {
-    enum STATE : int
+    public enum STATE : int
     {
         NONE = -1,
 
@@ -63,7 +63,7 @@ public class Player : YmirComponent
     }
 
     //--------------------- State ---------------------\\
-    private STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
+    public STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
     private List<INPUT> inputsList = new List<INPUT>();
 
     //--------------------- Movement ---------------------\\

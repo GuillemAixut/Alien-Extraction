@@ -7,27 +7,39 @@ using System.Text;
 using System.Threading.Tasks;
 using YmirEngine;
 
+
 public class CameraRot : YmirComponent
 {
     //--------------------- Controller var ---------------------\\
 
     //position difference between camera and player
     public Vector3 difPos = new Vector3(-58, 111, 63);
-    //public Vector3 difPos = new Vector3(-120, 0, 0);
-
-    //camera velocity
-    private float followStrenght;
 
     private GameObject target;
+    private Player player;
 
-    //private bool scriptStart = true;
+    // Timers
+    private float idleTimer;
+    private float delayTimer;
+
+    private float idleTimerMax = 2.0f;
+    private float delayTimerMax = 0.6f;
+
+    private bool delay;
+
+    public const float constDelay = 0.3f;
 
     public void Start()
     {
+        idleTimer = 0.0f;
+        delayTimer = 0.0f;
+
+        delay = false;
+
         target = InternalCalls.GetGameObjectByName("Player");
         if (target != null)
         {
-            followStrenght = target.GetComponent<Player>().movementSpeed;
+            player = target.GetComponent<Player>();
         }
 
         Audio.PlayEmbedAudio(gameObject);
@@ -35,13 +47,43 @@ public class CameraRot : YmirComponent
 
     public void Update()
     {
-        //gameObject.transform.localRotation = Quaternion.Euler(120, 25, -142);
+        // Follow Player (If unrelated stuff gets added, write above this comment)
 
-        Vector3 newpos = target.transform.localPosition + difPos;
+        Vector3 newpos = target.transform.globalPosition + difPos;
 
-        float dis = Vector3.Distance(gameObject.transform.localPosition, newpos);
+        float distance = Vector3.Distance(gameObject.transform.globalPosition, newpos);
 
-        gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition, newpos, Time.deltaTime * followStrenght * dis);
+        if (player.currentState == Player.STATE.IDLE)
+        {
+            idleTimer += Time.deltaTime;
+
+            if (idleTimer > idleTimerMax) {
+
+                delay = true;
+            }
+        }
+        else
+        {
+            idleTimer = 0.0f;
+
+        }
+
+        if (delay)
+        {
+            delayTimer += Time.deltaTime;
+
+            if (delayTimer < delayTimerMax)
+            {
+                return;
+            }
+            else
+            {
+                delay = false;
+                delayTimer = 0.0f;
+            }
+        }
+
+        gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.globalPosition, newpos, Time.deltaTime * distance * constDelay);
     }
 }
 
