@@ -102,8 +102,8 @@ bool ModuleScene::Start()
 
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
-	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-	LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
+	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 
 #endif // _STANDALONE
 
@@ -1189,27 +1189,27 @@ void ModuleScene::CheckCurrentMap(const char* mapPath)
 {
 	// Hardcodeada para saber en que mapa estás 
 
-	if (strcmp(mapPath, "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene") == 0)
+	if (strcmp(mapPath, "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/BASE_FINAL//LVL_BASE_COLLIDERS.yscene") == 0)
 	{
 		External->scene->currentMap = MAP::LVL_BASE;
 	}
-	else if (strcmp(mapPath, "Assets/LVL1_FINAL/LVL1_FINAL_COLLIDERS.yscene") == 0)
+	else if (strcmp(mapPath, "Assets/LVL1_FINAL/LVL1_FINAL_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL1_FINAL//LVL1_FINAL_COLLIDERS.yscene") == 0)
 	{
 		External->scene->currentMap = MAP::LVL_1;
 	}
-	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene") == 0)
+	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL2_LAB_PART1_FINAL//LVL2_LAB_PART1_COLLIDERS.yscene") == 0)
 	{
 		External->scene->currentMap = MAP::LVL_2_PART_1;
 	}
-	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene") == 0)
+	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL2_LAB_PART2_FINAL//LVL2_LAB_PART2_COLLIDERS.yscene") == 0)
 	{
 		External->scene->currentMap = MAP::LVL_2_PART_2;
 	}
-	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene") == 0)
+	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL3_BlockOut//LVL3_PART1_COLLIDERS.yscene") == 0)
 	{
 		External->scene->currentMap = MAP::LVL_3_PART_1;
 	}
-	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene") == 0)
+	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL3_BlockOut//LVL3_BOSS_COLLDIERS.yscene") == 0)
 	{
 		External->scene->currentMap = MAP::LVL_3_PART_2;
 	}
