@@ -1,24 +1,24 @@
 {
     "NavMesh": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_LAB_PART1_COLLIDERS.nav",
     "Editor Camera Position": [
-        -19.68994140625,
-        208.6435546875,
-        131.91273498535156
+        166.77163696289062,
+        194.07672119140625,
+        -131.98919677734375
     ],
     "Editor Camera Right (X)": [
-        0.85821712017059326,
-        1.5646219253540039e-06,
-        0.51343262195587158
+        -0.62691760063171387,
+        -2.5331974029541016e-07,
+        0.77908408641815186
     ],
     "Editor Camera Up (Y)": [
-        0.19760249555110931,
-        0.92300498485565186,
-        -0.33030092716217041
+        0.39719465374946594,
+        0.8602789044380188,
+        0.31961700320243835
     ],
     "Editor Camera Front (Z)": [
-        0.47385960817337036,
-        -0.38490337133407593,
-        -0.7920684814453125
+        0.67023050785064697,
+        -0.50982290506362915,
+        0.53932452201843262
     ],
     "Hierarchy": [
         {
@@ -66,7 +66,20 @@
                 1827062016,
                 1676754095,
                 1806365249,
-                1664525401
+                1664525401,
+                1765229486,
+                1339668438,
+                1484304711,
+                1911428153,
+                1971051162,
+                1518592100,
+                1647162688,
+                183241903,
+                208637195,
+                220586118,
+                1488427221,
+                2107607493,
+                409677491
             ]
         },
         {
@@ -31765,7 +31778,7 @@
                         -52.581008911132812
                     ],
                     "Rotation": [
-                        1.3512411634053478e-08,
+                        1.3512421404016095e-08,
                         90,
                         0
                     ],
@@ -32234,8 +32247,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1658,
-                    "Height": 1196,
+                    "Width": 1004,
+                    "Height": 957,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -46537,7 +46550,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.5180139497679193e-06,
+                        5.5180116760311648e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],
@@ -47476,6 +47489,1982 @@
                     "Bank Name": "UI_Sfx",
                     "Event Name": "UI_Error",
                     "Event ID": 1009189048
+                }
+            ]
+        },
+        {
+            "Name": "DroneXenomorph",
+            "Static": false,
+            "Tag": "Enemy",
+            "UID": 1765229486,
+            "Active": false,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -0.63420295715332031,
+                        0,
+                        -301.00119018554688
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        0.024999996647238731,
+                        0.02500000037252903,
+                        0.024999996647238731
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 6,
+                    "Paths": [
+                        "Assets\/Drone_Walk.yanim",
+                        "Assets\/Drone_Tail_Attack.yanim",
+                        "Assets\/Death.yanim",
+                        "Assets\/Claw_Attack.yanim",
+                        "Assets\/Cry.yanim",
+                        "Assets\/Combat_Idle.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        350,
+                        1000,
+                        350
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 100,
+                    "Friction": 10,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        14,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "NavMesh",
+                    "Active": 1,
+                    "Speed": 0,
+                    "Angular Speed": 0,
+                    "Stopping Distance": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphBaseScript.cs",
+                    "Active": 1,
+                    "movementSpeed": 0,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
+                    "wanderState": 0,
+                    "timePassed": 0,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "wanderRange": 10,
+                    "detectionRadius": 60,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "timeCounter": 0
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "DroneXenomorph",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ],
+            "Children UID": [
+                317641903,
+                1977502411
+            ]
+        },
+        {
+            "Name": "Xenomorph",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 317641903,
+            "Active": false,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/Xeno_Combat_Idle.fbx",
+            "Parent UID": 1765229486,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1004726246,
+                    "Vertex Count": 5684,
+                    "Index Count": 17532
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                15.634078979492188,
+                                110.31334686279297,
+                                27.141382217407227
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 598,
+                    "Diffuse_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_D.png",
+                    "Diffuse_UID": 1916503047,
+                    "Normal_ID": 602,
+                    "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
+                    "Normal_UID": 788886931
+                }
+            ]
+        },
+        {
+            "Name": "Sensor",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1977502411,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1765229486,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        2.56103515625,
+                        239.32478332519531,
+                        -18.405149459838867
+                    ],
+                    "Rotation": [
+                        -180,
+                        89.980216979980469,
+                        180
+                    ],
+                    "Scale": [
+                        39.999992370605469,
+                        40,
+                        39.999992370605469
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        9.1000003814697266,
+                        10.399999618530273,
+                        18.100000381469727
+                    ],
+                    "Physics Type": 1,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        180,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphAttack.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "drone": 1765229486
+                }
+            ]
+        },
+        {
+            "Name": "Facehugger",
+            "Static": false,
+            "Tag": "Enemy",
+            "UID": 1339668438,
+            "Active": false,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        -308.47027587890625
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 7,
+                    "Paths": [
+                        ".\/Assets\/Idle_Facehugger.yanim",
+                        ".\/Assets\/Walk_Facehugger.yanim",
+                        ".\/Assets\/TailAttack_Facehugger.yanim",
+                        ".\/Assets\/Cry_Facehugger.yanim",
+                        ".\/Assets\/Death_Facehugger.yanim",
+                        ".\/Assets\/IdleCombat_Facehugger.yanim",
+                        ".\/Assets\/DeathFrame_Facehugger.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "Type": "NavMesh",
+                    "Active": 1,
+                    "Speed": 5,
+                    "Angular Speed": 10,
+                    "Stopping Distance": 2
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        13.100000381469727,
+                        29.5,
+                        12.600000381469727
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 1,
+                    "Friction": 10,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        15,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "FaceHuggerBaseScript.cs",
+                    "Active": 1,
+                    "movementSpeed": 20,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
+                    "wanderState": 0,
+                    "timePassed": 0,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "wanderRange": 0,
+                    "detectionRadius": 0,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "PlayerDetected": false,
+                    "wanderDuration": 5,
+                    "stopedDuration": 1,
+                    "cumDuration": 2,
+                    "cumDuration2": 5,
+                    "attackTimer": 0,
+                    "attackSensor": false
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Facehugger",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ],
+            "Children UID": [
+                644078744,
+                1251795386
+            ]
+        },
+        {
+            "Name": "Repo",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 644078744,
+            "Active": false,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger (2).fbx",
+            "Parent UID": 1339668438,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -180,
+                        0,
+                        -180
+                    ],
+                    "Scale": [
+                        1.0000061988830566,
+                        1,
+                        1.0000061988830566
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 901134564,
+                    "Vertex Count": 5688,
+                    "Index Count": 8340
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                15.634078979492188,
+                                110.31334686279297,
+                                27.141382217407227
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 309,
+                    "Diffuse_Path": "Assets\/Textures\/Textures Facehugger\/TEX_CHAR_Facehugger_D.png",
+                    "Diffuse_UID": 1823043176,
+                    "Normal_ID": 311,
+                    "Normal_Path": "Assets\/Textures\/Textures Facehugger\/TEX_CHAR_Facehugger_N.png",
+                    "Normal_UID": 122283368
+                }
+            ]
+        },
+        {
+            "Name": "Sensor (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1251795386,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1339668438,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        12.300000190734863,
+                        21.600000381469727,
+                        17.700000762939453
+                    ],
+                    "Physics Type": 1,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        9.3999996185302734,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "FaceHuggerAttack.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "facehugger": 1339668438
+                }
+            ]
+        },
+        {
+            "Name": "Spawner_Cylinder",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1484304711,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -145.07942199707031,
+                        101.21115112304688,
+                        157.16084289550781
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1.7599999904632568,
+                        1.7599999904632568,
+                        1.7599999904632568
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Spawner.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawn": false,
+                    "porcentajeFaceHugger": 0.5,
+                    "porcentajeDroneXenomorph": 0.5,
+                    "currentEnemies": 0,
+                    "typeOfEnemy": 0
+                }
+            ],
+            "Children UID": [
+                1060257251
+            ]
+        },
+        {
+            "Name": "Sensor (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1060257251,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1484304711,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        3.5886688232421875,
+                        0,
+                        2.716766357421875
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SpawnSensor.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawner": 1484304711
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 4,
+                    "Size": [
+                        48.200000762939453,
+                        5,
+                        1.25
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Spawner_Cylinder (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1911428153,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -200.83671569824219,
+                        105.36196899414062,
+                        268.88671875
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Spawner.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawn": false,
+                    "porcentajeFaceHugger": 0.5,
+                    "porcentajeDroneXenomorph": 0.5,
+                    "currentEnemies": 0,
+                    "typeOfEnemy": 0
+                }
+            ],
+            "Children UID": [
+                1765889781
+            ]
+        },
+        {
+            "Name": "Sensor (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1765889781,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1911428153,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        58.735107421875,
+                        0,
+                        -22.44256591796875
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SpawnSensor.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawner": 1484304711
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 4,
+                    "Size": [
+                        73.900001525878906,
+                        5,
+                        1.25
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "DroneXenomorph (1)",
+            "Static": false,
+            "Tag": "Enemy",
+            "UID": 1971051162,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        93.660163879394531,
+                        94.803398132324219,
+                        101.3477783203125
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        0.024999996647238731,
+                        0.02500000037252903,
+                        0.024999996647238731
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 6,
+                    "Paths": [
+                        "Assets\/Drone_Walk.yanim",
+                        "Assets\/Drone_Tail_Attack.yanim",
+                        "Assets\/Death.yanim",
+                        "Assets\/Claw_Attack.yanim",
+                        "Assets\/Cry.yanim",
+                        "Assets\/Combat_Idle.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        350,
+                        1000,
+                        350
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 100,
+                    "Friction": 10,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        14,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "NavMesh",
+                    "Active": 1,
+                    "Speed": 0,
+                    "Angular Speed": 0,
+                    "Stopping Distance": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphBaseScript.cs",
+                    "Active": 1,
+                    "movementSpeed": 0,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
+                    "wanderState": 0,
+                    "timePassed": 0,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "wanderRange": 10,
+                    "detectionRadius": 60,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "timeCounter": 0
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "DroneXenomorph",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ],
+            "Children UID": [
+                2010007060,
+                1707167092
+            ]
+        },
+        {
+            "Name": "Xenomorph (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2010007060,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/Xeno_Combat_Idle.fbx",
+            "Parent UID": 1971051162,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1004726246,
+                    "Vertex Count": 5684,
+                    "Index Count": 17532
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                15.634078979492188,
+                                110.31334686279297,
+                                27.141382217407227
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 598,
+                    "Diffuse_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_D.png",
+                    "Diffuse_UID": 1916503047,
+                    "Normal_ID": 602,
+                    "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
+                    "Normal_UID": 788886931
+                }
+            ]
+        },
+        {
+            "Name": "Sensor (4)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1707167092,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1971051162,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        2.56103515625,
+                        239.32478332519531,
+                        -18.405149459838867
+                    ],
+                    "Rotation": [
+                        180,
+                        89.980216979980469,
+                        -180
+                    ],
+                    "Scale": [
+                        39.999992370605469,
+                        40,
+                        39.999992370605469
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        9.1000003814697266,
+                        10.399999618530273,
+                        18.100000381469727
+                    ],
+                    "Physics Type": 1,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        180,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphAttack.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "drone": 1765229486
+                }
+            ]
+        },
+        {
+            "Name": "DroneXenomorph (2)",
+            "Static": false,
+            "Tag": "Enemy",
+            "UID": 1518592100,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        5.4539995193481445,
+                        93.991897583007812,
+                        94.510940551757812
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        0.024999996647238731,
+                        0.02500000037252903,
+                        0.024999996647238731
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 6,
+                    "Paths": [
+                        "Assets\/Drone_Walk.yanim",
+                        "Assets\/Drone_Tail_Attack.yanim",
+                        "Assets\/Death.yanim",
+                        "Assets\/Claw_Attack.yanim",
+                        "Assets\/Cry.yanim",
+                        "Assets\/Combat_Idle.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        350,
+                        1000,
+                        350
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 100,
+                    "Friction": 10,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        14,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "NavMesh",
+                    "Active": 1,
+                    "Speed": 0,
+                    "Angular Speed": 0,
+                    "Stopping Distance": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphBaseScript.cs",
+                    "Active": 1,
+                    "movementSpeed": 0,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
+                    "wanderState": 0,
+                    "timePassed": 0,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "wanderRange": 10,
+                    "detectionRadius": 60,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "timeCounter": 0
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "DroneXenomorph",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ],
+            "Children UID": [
+                270271976,
+                2097635140
+            ]
+        },
+        {
+            "Name": "Xenomorph (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 270271976,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/Xeno_Combat_Idle.fbx",
+            "Parent UID": 1518592100,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1004726246,
+                    "Vertex Count": 5684,
+                    "Index Count": 17532
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                15.634078979492188,
+                                110.31334686279297,
+                                27.141382217407227
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 598,
+                    "Diffuse_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_D.png",
+                    "Diffuse_UID": 1916503047,
+                    "Normal_ID": 602,
+                    "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
+                    "Normal_UID": 788886931
+                }
+            ]
+        },
+        {
+            "Name": "Sensor (5)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2097635140,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1518592100,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        2.56103515625,
+                        239.32478332519531,
+                        -18.405149459838867
+                    ],
+                    "Rotation": [
+                        180,
+                        89.980216979980469,
+                        -180
+                    ],
+                    "Scale": [
+                        39.999992370605469,
+                        40,
+                        39.999992370605469
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        9.1000003814697266,
+                        10.399999618530273,
+                        18.100000381469727
+                    ],
+                    "Physics Type": 1,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        180,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphAttack.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "drone": 1765229486
+                }
+            ]
+        },
+        {
+            "Name": "DroneXenomorph (3)",
+            "Static": false,
+            "Tag": "Enemy",
+            "UID": 1647162688,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        99.2491455078125,
+                        93.449913024902344,
+                        42.341644287109375
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        0.024999996647238731,
+                        0.02500000037252903,
+                        0.024999996647238731
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 6,
+                    "Paths": [
+                        "Assets\/Drone_Walk.yanim",
+                        "Assets\/Drone_Tail_Attack.yanim",
+                        "Assets\/Death.yanim",
+                        "Assets\/Claw_Attack.yanim",
+                        "Assets\/Cry.yanim",
+                        "Assets\/Combat_Idle.yanim"
+                    ],
+                    "AssetsPath": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        350,
+                        1000,
+                        350
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 100,
+                    "Friction": 10,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        14,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "NavMesh",
+                    "Active": 1,
+                    "Speed": 0,
+                    "Angular Speed": 0,
+                    "Stopping Distance": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphBaseScript.cs",
+                    "Active": 1,
+                    "movementSpeed": 0,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
+                    "wanderState": 0,
+                    "timePassed": 0,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "wanderRange": 10,
+                    "detectionRadius": 60,
+                    "xSpeed": 0,
+                    "ySpeed": 0,
+                    "timeCounter": 0
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "DroneXenomorph",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ],
+            "Children UID": [
+                1398331033,
+                1958579654
+            ]
+        },
+        {
+            "Name": "Xenomorph (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1398331033,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/Xeno_Combat_Idle.fbx",
+            "Parent UID": 1647162688,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        -90,
+                        0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1004726246,
+                    "Vertex Count": 5684,
+                    "Index Count": 17532
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                15.634078979492188,
+                                110.31334686279297,
+                                27.141382217407227
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 598,
+                    "Diffuse_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_D.png",
+                    "Diffuse_UID": 1916503047,
+                    "Normal_ID": 602,
+                    "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
+                    "Normal_UID": 788886931
+                }
+            ]
+        },
+        {
+            "Name": "Sensor (6)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1958579654,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1647162688,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        2.56103515625,
+                        239.32478332519531,
+                        -18.405149459838867
+                    ],
+                    "Rotation": [
+                        180,
+                        89.980216979980469,
+                        -180
+                    ],
+                    "Scale": [
+                        39.999992370605469,
+                        40,
+                        39.999992370605469
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        9.1000003814697266,
+                        10.399999618530273,
+                        18.100000381469727
+                    ],
+                    "Physics Type": 1,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        180,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "DroneXenomorphAttack.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "drone": 1765229486
+                }
+            ]
+        },
+        {
+            "Name": "Spawner",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 183241903,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        188.15476989746094,
+                        111.64036560058594,
+                        -175.85939025878906
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Spawner.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawn": false,
+                    "porcentajeFaceHugger": 1.4901161193847656e-08,
+                    "porcentajeDroneXenomorph": 1,
+                    "currentEnemies": 0,
+                    "typeOfEnemy": 0
+                }
+            ]
+        },
+        {
+            "Name": "SensorSpawn",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 208637195,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        233.88160705566406,
+                        110.51702117919922,
+                        -51.253639221191406
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        56.5,
+                        34.900001525878906,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SpawnSensor.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawner": 183241903
+                }
+            ]
+        },
+        {
+            "Name": "Spawner (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 220586118,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        237.52027893066406,
+                        106.47998809814453,
+                        -159.59791564941406
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Spawner.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawn": false,
+                    "porcentajeFaceHugger": 0,
+                    "porcentajeDroneXenomorph": 1,
+                    "currentEnemies": 0,
+                    "typeOfEnemy": 0
+                }
+            ]
+        },
+        {
+            "Name": "Spawner (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1488427221,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        291.83956909179688,
+                        121.86369323730469,
+                        -165.00169372558594
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Spawner.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawn": false,
+                    "porcentajeFaceHugger": 1,
+                    "porcentajeDroneXenomorph": 0,
+                    "currentEnemies": 0,
+                    "typeOfEnemy": 0
+                }
+            ]
+        },
+        {
+            "Name": "SensorSpawn (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2107607493,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        236.40899658203125,
+                        107.665283203125,
+                        -50.973133087158203
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        53.599998474121094,
+                        38.200000762939453,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SpawnSensor.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawner": 220586118
+                }
+            ]
+        },
+        {
+            "Name": "SensorSpawn (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 409677491,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 379278140,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        235.63771057128906,
+                        107.41069793701172,
+                        -52.409370422363281
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        49.799999237060547,
+                        36.5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SpawnSensor.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "spawner": 1488427221
                 }
             ]
         }
