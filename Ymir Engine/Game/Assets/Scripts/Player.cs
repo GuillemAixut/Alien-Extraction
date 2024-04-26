@@ -79,6 +79,9 @@ public class Player : YmirComponent
     Vector3 gamepadInput;
     //bool isMoving = false;
 
+    public bool deathAnimFinish;
+    private float deathTimer;
+
     //--------------------- GOD mode ---------------------\\
     public bool godMode = false;
     #endregion
@@ -188,6 +191,10 @@ public class Player : YmirComponent
         //angle = 0;
         //has360 = false;
         //
+
+        deathAnimFinish = false;
+        deathTimer = 3;
+
         weaponType = WEAPON.SMG;
 
         movementSpeed = 3000.0f;    //Antes 35
@@ -487,11 +494,11 @@ public class Player : YmirComponent
             }
         }
 
-        //--------------------- HP Detector ---------------------\\
-        //if (csHealth != null && !csHealth.isAlive)
-        //{
-        //    inputsList.Add(INPUT.I_DEAD);
-        //}
+        //--------------------- HP Detector-------------------- -\\
+        if (csHealth != null && csHealth.currentHealth <= 0)
+        {
+            inputsList.Add(INPUT.I_DEAD);
+        }
 
         //--------------------- Jump Timer (Useless) ---------------------\\
         if (jumpTimer > 0)
@@ -1039,6 +1046,7 @@ public class Player : YmirComponent
             case STATE.SHOOT:
                 break;
             case STATE.DEAD:
+                UpdateDeath();
                 break;
             default:
                 Debug.Log("No State? :(");
@@ -1522,6 +1530,20 @@ public class Player : YmirComponent
     private void StartDeath()
     {
         Animation.PlayAnimation(gameObject, "Raisen_Death");
+        deathTimer = 3;
+    }
+
+    private void UpdateDeath()
+    {
+        if (deathTimer > 0)
+        {
+            deathTimer -= Time.deltaTime;
+
+            if (deathTimer <= 0)
+            {
+                csHealth.DeathScreen();
+            }
+        }
     }
 
     public void PlayerStopState(bool stop)

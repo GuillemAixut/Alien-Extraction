@@ -82,6 +82,11 @@ public class Health : YmirComponent
             }
         }
 
+        //if (player != null && player.deathAnimFinish)
+        //{
+        //    DeathScreen();
+        //}
+
         return;
     }
 
@@ -99,7 +104,7 @@ public class Health : YmirComponent
             else if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                DeathScreen();
+                //DeathScreen();
             }
             if (healthBar != null)
             {
