@@ -85,6 +85,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::IsActive", IsActiveCS);
 
 	mono_add_internal_call("YmirEngine.GameObject::SetColliderSize", SetColliderSizeCS);
+	mono_add_internal_call("YmirEngine.GameObject::SetScale", SetGameObjectScaleCS);
 
 #pragma endregion
 

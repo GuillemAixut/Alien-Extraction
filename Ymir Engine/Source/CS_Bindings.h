@@ -637,8 +637,7 @@ void RecieveScale(MonoObject* obj, MonoObject* secObj)
 
 	if (workGO->mTransform)
 	{
-		//workGO->mTransform->SetTransformMatrix(workGO->mTransform->translation, workGO->mTransform->rotation, omgItWorks);
-		//workGO->mTransform->updateTransform = true; //TODO: No tenemos la variable esta "updateTransform"
+		workGO->mTransform->SetScale(omgItWorks);		
 	}
 }
 
@@ -1159,6 +1158,14 @@ void SetColliderSizeCS(MonoObject* go, MonoObject* vec)
 		RELEASE(physBody);
 	}
 
+}
+
+void SetGameObjectScaleCS(MonoObject* go, MonoObject* vec)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	float3 vector = External->moduleMono->UnboxVector(vec);
+
+	gameObject->mTransform->SetScale(vector);
 }
 
 #pragma endregion
