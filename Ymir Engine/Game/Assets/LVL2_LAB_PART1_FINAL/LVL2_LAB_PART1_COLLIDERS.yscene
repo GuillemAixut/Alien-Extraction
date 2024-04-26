@@ -1,24 +1,24 @@
 {
     "NavMesh": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_LAB_PART1_COLLIDERS.nav",
     "Editor Camera Position": [
-        166.77163696289062,
-        194.07672119140625,
-        -131.98919677734375
+        356.23367309570312,
+        243.29701232910156,
+        -52.28338623046875
     ],
     "Editor Camera Right (X)": [
-        -0.62691760063171387,
-        -2.5331974029541016e-07,
-        0.77908408641815186
+        0.57605761289596558,
+        -1.9371509552001953e-07,
+        -0.81740677356719971
     ],
     "Editor Camera Up (Y)": [
-        0.39719465374946594,
-        0.8602789044380188,
-        0.31961700320243835
+        -0.38835102319717407,
+        0.87993043661117554,
+        -0.27368593215942383
     ],
     "Editor Camera Front (Z)": [
-        0.67023050785064697,
-        -0.50982290506362915,
-        0.53932452201843262
+        -0.71926224231719971,
+        -0.47510117292404175,
+        -0.50689131021499634
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -73,13 +74,7 @@
                 1911428153,
                 1971051162,
                 1518592100,
-                1647162688,
-                183241903,
-                208637195,
-                220586118,
-                1488427221,
-                2107607493,
-                409677491
+                1647162688
             ]
         },
         {
@@ -24776,9 +24771,9 @@
                         -148.91989135742188
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -18.257898330688477,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.2600536346435547,
@@ -31778,7 +31773,7 @@
                         -52.581008911132812
                     ],
                     "Rotation": [
-                        1.3512421404016095e-08,
+                        1.3512425844908194e-08,
                         90,
                         0
                     ],
@@ -32248,7 +32243,7 @@
                     "Position X": 0,
                     "Position Y": 0,
                     "Width": 1004,
-                    "Height": 957,
+                    "Height": 941,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -45918,6 +45913,7 @@
                     "UID": 0,
                     "currentState": 0,
                     "movementSpeed": 35,
+                    "deathAnimFinish": true,
                     "godMode": false,
                     "fireRate": 0,
                     "reloadDuration": 1,
@@ -47722,9 +47718,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         89.980216979980469,
-                        180
+                        -180
                     ],
                     "Scale": [
                         39.999992370605469,
@@ -47925,9 +47921,9 @@
                         0
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         0,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -48507,9 +48503,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         39.999992370605469,
@@ -48557,7 +48553,7 @@
                     "ScriptName": "DroneXenomorphAttack.cs",
                     "Active": 1,
                     "UID": 0,
-                    "drone": 1765229486
+                    "drone": 1971051162
                 }
             ]
         },
@@ -48791,9 +48787,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         39.999992370605469,
@@ -48841,7 +48837,7 @@
                     "ScriptName": "DroneXenomorphAttack.cs",
                     "Active": 1,
                     "UID": 0,
-                    "drone": 1765229486
+                    "drone": 1518592100
                 }
             ]
         },
@@ -49075,9 +49071,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         39.999992370605469,
@@ -49125,346 +49121,7 @@
                     "ScriptName": "DroneXenomorphAttack.cs",
                     "Active": 1,
                     "UID": 0,
-                    "drone": 1765229486
-                }
-            ]
-        },
-        {
-            "Name": "Spawner",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 183241903,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        188.15476989746094,
-                        111.64036560058594,
-                        -175.85939025878906
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Spawner.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawn": false,
-                    "porcentajeFaceHugger": 1.4901161193847656e-08,
-                    "porcentajeDroneXenomorph": 1,
-                    "currentEnemies": 0,
-                    "typeOfEnemy": 0
-                }
-            ]
-        },
-        {
-            "Name": "SensorSpawn",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 208637195,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        233.88160705566406,
-                        110.51702117919922,
-                        -51.253639221191406
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        56.5,
-                        34.900001525878906,
-                        5
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SpawnSensor.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawner": 183241903
-                }
-            ]
-        },
-        {
-            "Name": "Spawner (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 220586118,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        237.52027893066406,
-                        106.47998809814453,
-                        -159.59791564941406
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Spawner.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawn": false,
-                    "porcentajeFaceHugger": 0,
-                    "porcentajeDroneXenomorph": 1,
-                    "currentEnemies": 0,
-                    "typeOfEnemy": 0
-                }
-            ]
-        },
-        {
-            "Name": "Spawner (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1488427221,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        291.83956909179688,
-                        121.86369323730469,
-                        -165.00169372558594
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Spawner.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawn": false,
-                    "porcentajeFaceHugger": 1,
-                    "porcentajeDroneXenomorph": 0,
-                    "currentEnemies": 0,
-                    "typeOfEnemy": 0
-                }
-            ]
-        },
-        {
-            "Name": "SensorSpawn (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2107607493,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        236.40899658203125,
-                        107.665283203125,
-                        -50.973133087158203
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        53.599998474121094,
-                        38.200000762939453,
-                        5
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SpawnSensor.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawner": 220586118
-                }
-            ]
-        },
-        {
-            "Name": "SensorSpawn (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 409677491,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        235.63771057128906,
-                        107.41069793701172,
-                        -52.409370422363281
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        49.799999237060547,
-                        36.5,
-                        5
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SpawnSensor.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawner": 1488427221
+                    "drone": 1647162688
                 }
             ]
         }
