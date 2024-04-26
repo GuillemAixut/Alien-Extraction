@@ -88,9 +88,9 @@ bool ModuleScene::Start()
 	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
-	//LoadSceneFromStart("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
+	LoadSceneFromStart("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
-	LoadSceneFromStart("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
+	//LoadSceneFromStart("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
 
 	//LoadSceneFromStart("Assets", "Pollo Loco");
 	//LoadSceneFromStart("Assets", "ParticleTest");

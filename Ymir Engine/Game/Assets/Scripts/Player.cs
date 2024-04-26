@@ -1529,6 +1529,8 @@ public class Player : YmirComponent
 
     private void StartDeath()
     {
+        gameObject.SetVelocity(new Vector3(0, 0, 0));
+        gameObject.ClearForces();
         Animation.PlayAnimation(gameObject, "Raisen_Death");
         deathTimer = 3;
     }
