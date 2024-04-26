@@ -1170,7 +1170,7 @@ public class Player : YmirComponent
         //InternalCalls.CreateBullet(pos, rot, scale);
 
         GameObject target;
-        target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 30.0f);
+        target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 100.0f);
 
         if (target != null) {
 
