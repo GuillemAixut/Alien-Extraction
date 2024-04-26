@@ -1273,13 +1273,12 @@ float4x4 EmitterRotation::LookAt(float3& Spot, float3& position) // https://www.
 	//Y
 	float3 up = forward.Cross(right);//crossProduct(forward, right);
 	
-	float4x4 m;
+	float4x4 m = float4x4::identity;
 	m[0][0] = right.x, m[0][1] = right.y, m[0][2] = right.z;
 	m[1][0] = up.x, m[1][1] = up.y, m[1][2] = up.z;
 	m[2][0] = forward.x, m[2][1] = forward.y, m[2][2] = forward.z;
 	m[3][0] = position.x, m[3][1] = position.y, m[3][2] = position.z;
-
-	return float4x4();
+	return m;
 }
 
 void EmitterRotation::SetRotation(Quat rot)
@@ -1370,6 +1369,7 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	
 	//We obtain the look at vector to create a matrix
 	float4x4 newMatrix = LookAt(tempPos, emitter->owner->mOwner->mTransform->GetGlobalPosition());
+	newMatrix.Decompose(tempPos, tempRot, tempSca);
 
 	float3 newRot = tempRot.ToEulerXYZ();
 	switch (orientationOfAxis)
@@ -1378,7 +1378,7 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	{
 		newRot.y = 0;
 		newRot.z = 0;
-		tempRot = tempRot.FromEulerXYZ(newRot.x,newRot.y,newRot.z);
+		//tempRot = tempRot.FromEulerXYZ(newRot.x,newRot.y,newRot.z);
 
 		//tempRot = Quat(math::Cross(tempRot.ToEulerXYZ(), {0,1,0}));
 	}
@@ -1387,14 +1387,14 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	{
 		newRot.x = 0;
 		newRot.z = 0;
-		tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
+		//tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
 	}
 	break;
 	case OrientationDirection::PAR_Z_AXIS:
 	{
 		newRot.x = 0;
 		newRot.y = 0;
-		tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
+		//tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
 	}
 	break;
 	case OrientationDirection::PAR_ORIENTATION_DIRECTION_END: break;
@@ -1402,6 +1402,7 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 		break;
 		
 	}
+	tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
 	SetRotation(tempRot);
 }
 
