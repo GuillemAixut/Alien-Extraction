@@ -8,16 +8,40 @@ using YmirEngine;
 
 public class Door : YmirComponent
 {
-//bool start = true;
+	bool opened = false;
+    float openTime = 0;
+    float crono_openTime = 0;
+    private Vector3 originalPosition;
 
-	public void Start()
+    private float autoCloseDelay = 5f;
+
+    public void Start()
 	{
-			Debug.Log("HelloWorld"); 
+        originalPosition = gameObject.transform.localPosition;
+		opened = false;
 	}
 
 	public void Update()
 	{
-		return;
+        //Debug.Log("openTime: " + openTime);
+
+		if (opened)
+        {
+            openTime = Time.time - openTime;
+
+            if (openTime >= autoCloseDelay + crono_openTime)
+            {
+                if (gameObject.transform.localPosition.y < originalPosition.y)
+                {
+                    gameObject.SetPosition(gameObject.transform.globalPosition + new Vector3(0, 5, 0));
+                }
+                else
+                {
+                    opened = false;
+                    openTime = 0f;
+                }
+            }
+        }
 	}
 
     public void OnCollisionStay(GameObject other)
@@ -25,9 +49,9 @@ public class Door : YmirComponent
         if (other.Tag == "Player")
         {
 			gameObject.SetPosition(gameObject.transform.globalPosition + new Vector3(0, -5, 0));
-			//gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-			//gameObject.SetActive(false);
-			
+			opened = true;
+            openTime = Time.time;
+            crono_openTime = Time.time;
         }
     }
 }

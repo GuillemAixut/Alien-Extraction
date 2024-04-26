@@ -113,11 +113,40 @@ void UI_Image::OnInspector()
 		}
 
 		ImGui::SeparatorText("States");
-		SetStateImg("Normal", UI_STATE::NORMAL); ImGui::SameLine();
-		SetStateImg("Focused", UI_STATE::FOCUSED); ImGui::SameLine();
+		SetStateImg("Normal", UI_STATE::NORMAL);
+		if (mapTextures.find(UI_STATE::NORMAL) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::NORMAL]->GetAssetsFilePath().c_str());
+		}
+
+		SetStateImg("Focused", UI_STATE::FOCUSED);
+		if (mapTextures.find(UI_STATE::FOCUSED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::FOCUSED]->GetAssetsFilePath().c_str());
+		}
+
 		SetStateImg("Pressed", UI_STATE::PRESSED);
-		SetStateImg("Selected", UI_STATE::SELECTED); ImGui::SameLine();
+		if (mapTextures.find(UI_STATE::PRESSED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::PRESSED]->GetAssetsFilePath().c_str());
+		}
+
+		SetStateImg("Selected", UI_STATE::SELECTED);
+		if (mapTextures.find(UI_STATE::SELECTED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::SELECTED]->GetAssetsFilePath().c_str());
+		}
+
 		SetStateImg("Disabled", UI_STATE::DISABLED);
+		if (mapTextures.find(UI_STATE::DISABLED) != mapTextures.end())
+		{
+			ImGui::SameLine();
+			ImGui::Text(mapTextures[UI_STATE::DISABLED]->GetAssetsFilePath().c_str());
+		}
 
 		ImGui::SeparatorText("Parameters");
 		if (ImGui::Button("Set Native Size", ImVec2(110, 30)))
@@ -295,6 +324,11 @@ void UI_Image::OnInspector()
 					ImGui::DragFloat4(label.c_str(), (float*)kt->value.get(), 0.1f);
 
 					mat->shader.SetUniformValue(kt->name, (float*)kt->value.get());
+
+					color.r = ((float*)kt->value.get())[0];
+					color.g = ((float*)kt->value.get())[1];
+					color.b = ((float*)kt->value.get())[2];
+					color.a = ((float*)kt->value.get())[3];
 
 					break;
 
@@ -474,31 +508,48 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 {
 	std::string metaFilePath = imgPath + ".meta"; // Assuming the meta file exists.
 
-	ResourceTexture* rTexTemp = new ResourceTexture();
-
-	JsonFile* metaFile = JsonFile::GetJSON(metaFilePath);
+	std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
 
 	if (metaFile == nullptr) {
 
-		ImporterTexture::Import(imgPath, rTexTemp);
+		// Chuekada para crear el meta en library :((((
+
+		ResourceTexture* rTexMeta = new ResourceTexture();
+		ImporterTexture::Import(imgPath, rTexMeta);
+		RELEASE(rTexMeta);
 
 		// Get meta
 
-		JsonFile* metaFile = JsonFile::GetJSON(imgPath + ".meta");
+		metaFile = JsonFile::GetJSON(imgPath + ".meta");
 
 		std::string libraryPath = metaFile->GetString("Library Path");
-		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
-
+		
 		uint UID = metaFile->GetInt("UID");
 		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
 
-		rTexTemp = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::TEXTURE, UID, type);
+		ResourceTexture* rTexTemp = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(imgPath, ResourceType::TEXTURE, UID, type);
+		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+		auto itr = mapTextures.find(state);
+		if (itr != mapTextures.end())
+		{
+			External->resourceManager->UnloadResource(itr->second->GetUID());
+			mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
+			mat->rTextures.shrink_to_fit();
+
+			mapTextures.erase(state);
+		}
+
+		mat->diffuse_path = imgPath;
+		mat->rTextures.push_back(rTexTemp);
+
+		mapTextures.insert({ state, rTexTemp });
 
 	}
 	else {
 
 		std::string libraryPath = metaFile->GetString("Library Path");
-		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+		
 
 		uint UID = metaFile->GetInt("UID");
 		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
@@ -511,32 +562,51 @@ void UI_Image::SetImg(std::string imgPath, UI_STATE state)
 
 			//rTexTemp = static_cast<ResourceTexture*>
 				//(CreateResourceFromLibrary(libraryPath.c_str(), ResourceType::TEXTURE, UID, type));
-			rTexTemp = static_cast<ResourceTexture*>
-				(External->resourceManager->CreateResourceFromLibrary(imgPath.c_str(), ResourceType::TEXTURE, UID, type));
+			ResourceTexture* rTexTemp = static_cast<ResourceTexture*>
+				(External->resourceManager->CreateResourceFromLibrary(imgPath, ResourceType::TEXTURE, UID, type));
+			rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+			auto itr = mapTextures.find(state);
+			if (itr != mapTextures.end())
+			{
+				External->resourceManager->UnloadResource(itr->second->GetUID());
+				mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
+				mat->rTextures.shrink_to_fit();
+
+				mapTextures.erase(state);
+			}
+
+			mat->diffuse_path = imgPath;
+			mat->rTextures.push_back(rTexTemp);
+
+			mapTextures.insert({ state, rTexTemp });
+
 		}
 		else
 		{
-			rTexTemp = static_cast<ResourceTexture*>(itr->second);
+			ResourceTexture* rTexTemp = static_cast<ResourceTexture*>(itr->second);
+			rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
 			rTexTemp->type = type;
 			itr->second->IncreaseReferenceCount();
+
+			auto itr = mapTextures.find(state);
+			if (itr != mapTextures.end())
+			{
+				External->resourceManager->UnloadResource(itr->second->GetUID());
+				mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
+				mat->rTextures.shrink_to_fit();
+
+				mapTextures.erase(state);
+			}
+
+			mat->diffuse_path = imgPath;
+			mat->rTextures.push_back(rTexTemp);
+
+			mapTextures.insert({ state, rTexTemp });
 		}
 
 	}
 
-	auto itr = mapTextures.find(state);
-	if (itr != mapTextures.end())
-	{
-		External->resourceManager->UnloadResource(itr->second->GetUID());
-		mat->rTextures.erase(std::find(mat->rTextures.begin(), mat->rTextures.end(), itr->second));
-		mat->rTextures.shrink_to_fit();
-
-		mapTextures.erase(state);
-	}
-
-	mat->diffuse_path = imgPath;
-	mat->rTextures.push_back(rTexTemp);
-
-	mapTextures.insert({ state, rTexTemp });
 }
 
 void UI_Image::SetStateImg(const char* label, UI_STATE s)

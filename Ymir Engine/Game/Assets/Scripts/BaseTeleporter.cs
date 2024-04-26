@@ -25,9 +25,14 @@ public class BaseTeleporter : YmirComponent
     public LEVELS selectedLvl = LEVELS.NONE;
     public WEAPON_TYPE selectedWeapon = WEAPON_TYPE.NONE;
 
-    public GameObject button, lvlText, weaponText;
+    public GameObject canvas, button, lvlText, weaponText;
+    Player csPlayer;
 
     private bool _setNormal = false;
+
+    private GameObject _grid;
+
+    private Player _player = null;
 
     //public string[] lvlDescriptions = new string[3];
     //public string[] weaponDescriptions = new string[3];
@@ -41,8 +46,21 @@ public class BaseTeleporter : YmirComponent
         lvlText = InternalCalls.GetGameObjectByName("Lvl description");
         weaponText = InternalCalls.GetGameObjectByName("Weapon description");
 
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            csPlayer = gameObject.GetComponent<Player>();
+        }
+
+        canvas = InternalCalls.GetGameObjectByName("Level Selection Canvas");
+
         selectedLvl = LEVELS.NONE;
         selectedWeapon = WEAPON_TYPE.NONE;
+
+        _grid = InternalCalls.GetGameObjectByName("Grid");
+
+        GetPlayerScript();
 
         //lvlDescriptions.Add("WAREHOUSE");
         //lvlDescriptions.Add("LAB");
@@ -58,37 +76,59 @@ public class BaseTeleporter : YmirComponent
 
     public void Update()
     {
+        if (_player == null)
+        {
+            GetPlayerScript();
+        }
+
+        //if (_player != null && _player.setHover)
+        //{
+        //    Debug.Log("set first");
+        //    UI.SetFirstFocused(gameObject);
+        //    _player.setHover = false;
+        //}
+
+        // TODO: delete this
+        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
+        {
+            UI.SetFirstFocused(gameObject);
+        }
+
+        if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
+        {
+            csPlayer.PlayerStopState(false);
+            canvas.SetActive(false);
+        }
+
         if (!_setNormal && selectedLvl != LEVELS.NONE && selectedWeapon != WEAPON_TYPE.NONE)
         {
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
             UI.SetUIState(button, (int)UI_STATE.NORMAL);
-            _setNormal = true;
+            _grid.GetComponent<UI_Inventory_Grid>().naviagteY = true;
 
-            string scene = "";
+            _setNormal = true;
 
             switch (selectedLvl)
             {
                 case LEVELS.WAREHOUSE:
                     {
-                        scene = "WAREHOUSE";
+                        button.GetComponent<Button_Navigation>().sceneName = "LVL1_FINAL/LVL1_FINAL_COLLIDERS";
                     }
                     break;
 
                 case LEVELS.LAB:
                     {
-                        scene = "LAB";
+                         button.GetComponent<Button_Navigation>().sceneName = "LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS";
                     }
                     break;
 
                 case LEVELS.HATCHERY:
                     {
-                        scene = "HATCHERY";
+                         button.GetComponent<Button_Navigation>().sceneName = "LVL3_BlockOut/LVL3_PART1_COLLIDERS";
                     }
                     break;
             }
-
-            button.GetComponent<Button_Navigation>().sceneName = "Assets/" + scene + ".yscene";
 
             Debug.Log("scene: " + button.GetComponent<Button_Navigation>().sceneName);
         }
@@ -98,9 +138,21 @@ public class BaseTeleporter : YmirComponent
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
             UI.SetUIState(button, (int)UI_STATE.DISABLED);
+            _grid.GetComponent<UI_Inventory_Grid>().naviagteY = false;
+
             _setNormal = false;
         }
 
         return;
+    }
+
+    private void GetPlayerScript()
+    {
+        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+        if (gameObject != null)
+        {
+            _player = gameObject.GetComponent<Player>();
+        }
     }
 }

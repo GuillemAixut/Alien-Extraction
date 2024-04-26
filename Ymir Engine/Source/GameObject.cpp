@@ -57,15 +57,19 @@ GameObject::~GameObject()
 	{
 		ClearVecPtr(mChildren);
 	}
+
 	for (size_t i = 0; i < csReferences.size(); i++)
 	{
 		mono_field_set_value(mono_gchandle_get_target(csReferences[i]->parentSC->noGCobject), csReferences[i]->field, NULL);
 		csReferences[i]->fiValue.goValue = nullptr;
 	}
+
 	csReferences.clear();
 
 	auto it = std::find(External->scene->gameObjects.begin(), External->scene->gameObjects.end(), this);
+
 	if (it != External->scene->gameObjects.end()) {
+
 		External->scene->gameObjects.erase(it);
 		
 	}
@@ -109,6 +113,7 @@ void GameObject::Disable()
 {
 	if (active) {
 		active = false;
+
 	}
 }
 
@@ -306,6 +311,14 @@ bool GameObject::AddComponent(ComponentType ctype, void* var)
 		}
 		else { ret = false; }
 		break;
+	case ComponentType::PARTICLE:
+		if (GetComponent(ComponentType::PARTICLE) == nullptr)
+		{
+			temp = new CParticleSystem(this);
+			mComponents.push_back(temp);
+		}
+		else { ret = false; }
+		break;
 	case ComponentType::NAVMESHAGENT:
 		if (GetComponent(ComponentType::NAVMESHAGENT) == nullptr) {
 			temp = new CNavMeshAgent(this);
@@ -372,6 +385,16 @@ std::vector<Component*> GameObject::GetAllComponentsByType(ComponentType type)
 	}
 	
 	return vec;
+}
+
+int GameObject::GetComponentPosition(Component* component)
+{
+	int ret = -1; //If not in the list
+	for (int i = 0; i < mComponents.size(); i++)
+	{
+		if (mComponents.at(i) == component) { ret = i; }
+	}
+	return ret;
 }
 
 void GameObject::RemoveComponent(Component* component)

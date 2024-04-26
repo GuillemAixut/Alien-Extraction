@@ -23,7 +23,7 @@ CLight::~CLight()
 
 	}
 
-	delete lightReference;
+	//RELEASE(lightReference); // Somehow crashes when closing the engine with lights.
 
 }
 

@@ -42,8 +42,7 @@ ModuleScene::ModuleScene(Application* app, bool start_enabled) : Module(app, sta
 
 ModuleScene::~ModuleScene()
 {
-	tags.clear();
-	delete mRootNode;
+
 }
 
 bool ModuleScene::Init()
@@ -74,14 +73,11 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
-	//LoadSceneFromStart("Assets/NewFolder", "newTeleport"); 
-	//LoadSceneFromStart("Assets/NewFolder", "Player Test"); 
-	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
+
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #ifdef _RELEASE
-
-	//LoadSceneFromStart("Assets", "VS2 Release");
-	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
+	
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
 	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets", "Enemigo player");
@@ -89,23 +85,32 @@ bool ModuleScene::Start()
 	/*LoadSceneFromStart("Assets", "Enemigo player"); */
 	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
+	LoadSceneFromStart("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
+	//LoadSceneFromStart("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
+	//LoadSceneFromStart("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
+
 	//LoadSceneFromStart("Assets", "Pollo Loco");
+	//LoadSceneFromStart("Assets", "ParticleTest");
+	//LoadSceneFromStart("Assets/Prefabs", "Prueba de Pruebas");
+	//LoadSceneFromStart("Assets/UI/Scenes", "StartScene");
 
 #endif // _RELEASE
 
 #ifdef _STANDALONE
 
 	//LoadSceneFromStart("Assets", "Alpha1_Level");
-	//LoadSceneFromStart("Assets/Scenes", "UI_scene");
-	//LoadSceneFromStart("Assets/Scenes", "GameUI");
 	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
-	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
+	//LoadSceneFromStart("Assets", "ParticleTest");
 
 	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
 	//LoadSceneFromStart("Assets", "Pollo Loco");
-	LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/UI/Scenes", "StartScene");
+	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
+	LoadSceneFromStart("Assets/UI/Scenes", "StartScene");
 
 #endif // _STANDALONE
 
@@ -183,7 +188,7 @@ update_status ModuleScene::Update(float dt)
 	}
 
 	// UI navigation
-	HandleUINavigation();
+	//HandleUINavigation();
 
 	return UPDATE_CONTINUE;
 }
@@ -221,7 +226,8 @@ update_status ModuleScene::PostUpdate(float dt)
 	{
 		for (const auto& tuple : pendingToAddPrefab)
 		{
-			LoadPrefab(std::get<0>(tuple), std::get<1>(tuple));
+			GameObject* go = LoadPrefab(std::get<0>(tuple), std::get<1>(tuple));
+			go->mTransform->SetPosition(std::get<2>(tuple));
 		}
 		pendingToAddPrefab.clear();
 	}
@@ -260,7 +266,13 @@ bool ModuleScene::CleanUp()
 
 	LOG("Deleting scene");
 
+	for (auto it = mFonts.rbegin(); it != mFonts.rend(); ++it)
+	{
+		RELEASE((*it));
+	}
+	
 	RELEASE(mRootNode);
+	ClearScene();
 
 	return ret;
 }
@@ -269,7 +281,7 @@ GameObject* ModuleScene::CreateGameObject(std::string name, GameObject* parent)
 {
 	std::string newName = GetUniqueName(name);
 
-	// TODO FRANCESC: Need a smart pointer to solve this memory leak;
+	// FRANCESC: MEMORY LEAK
 	GameObject* tempGameObject = new GameObject(newName, parent);
 
 	if (parent != nullptr) {
@@ -378,36 +390,39 @@ G_UI* ModuleScene::CreateGUI(UI_TYPE t, GameObject* pParent, int x, int y)
 
 void ModuleScene::ClearScene()
 {
-	//JsonFile::DeleteJSON(External->fileSystem->libraryScenesPath + std::to_string(mRootNode->UID) + ".yscene");
-
 	isLocked = false;
 	SetSelected();
 
-	// FRANCESC: Doing this RELEASE here makes the meshes disappear
-	// RELEASE(mRootNode);
+	focusedUIGO = nullptr;
+	selectedUIGO = nullptr;
 
-	External->resourceManager->resources.clear();
+	External->lightManager->ClearLights(); // Done Correctly
 
-	External->lightManager->lights.clear();
+	External->resourceManager->ClearResources(); // Done Correctly
 
-	External->physics->DeleteWorld(); // It was this or nothing :(
+	ClearVec(App->renderer3D->models); // Done Correctly
 
-	External->physics->CreateWorld();
-	ClearVec(gameObjects);
-	ClearVec(destroyList);
-	App->renderer3D->models.clear();
+	RELEASE(mRootNode); // Done Correctly
+	ClearVec(gameObjects); // Done Correctly
+	ClearVec(destroyList); // Done Correctly
+	ClearVec(tags); // Done Correctly
 
-	ClearVec(vTempComponents);
-	ClearVec(vCanvas);
+	// Recreate Physics World
+	External->physics->DeleteWorld(); // Done Correctly
+	External->physics->CreateWorld(); // Done Correctly
 
-	External->pathFinding->ClearNavMeshes();
+	ClearVec(vTempComponents); // Done Correctly
+	ClearVec(vCanvas); // Done Correctly
+
+	External->pathFinding->ClearNavMeshes(); // Done Correctly
 }
 
 void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 {
-	char str[20];
-	sprintf(str, "%u", App->pathFinding->Save(fileName.c_str()));
-	ysceneFile.SetString("NavMesh", str);
+	//char str[20];
+	//sprintf(str, "%u", App->pathFinding->Save((dir + "/" + fileName).c_str()));
+	std::string str = App->pathFinding->Save((dir + "/" + fileName).c_str());
+	ysceneFile.SetString("NavMesh", str.c_str());
 	ysceneFile.SetFloat3("Editor Camera Position", App->camera->editorCamera->GetPos());
 	ysceneFile.SetFloat3("Editor Camera Right (X)", App->camera->editorCamera->GetRight());
 	ysceneFile.SetFloat3("Editor Camera Up (Y)", App->camera->editorCamera->GetUp());
@@ -433,7 +448,6 @@ void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 
 void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 {
-	JSON_Value* scene = json_parse_file(fileName.c_str());
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
 		App->scene->currentSceneDir = dir;
@@ -442,7 +456,9 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
 	}
 
-	JsonFile* sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
+	CheckCurrentMap((dir + "/" + fileName + ".yscene").c_str());
+
+	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
 
 	App->camera->editorCamera->SetPos(sceneToLoad->GetFloat3("Editor Camera Position"));
 	App->camera->editorCamera->SetUp(sceneToLoad->GetFloat3("Editor Camera Up (Y)"));
@@ -458,19 +474,20 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
 	
-	for (int i = 0; i < gameObjects.size(); i++) {
-		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
-		ctrans->UpdateGlobalMatrix();
+	for (int i = 0; i < gameObjects.size(); ++i) 
+	{
+		gameObjects[i]->mTransform->UpdateGlobalMatrix();
 	}
 
 	LoadScriptsData();
 
+	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
 
-	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
-	if (navMeshId != -1)
-		External->pathFinding->Load(navMeshId);
+	if (navMeshPath != "") 
+	{
+		External->pathFinding->Load(navMeshPath);
+	}
 
-	RELEASE(sceneToLoad);
 }
 
 void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName)
@@ -491,11 +508,11 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 
 GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
 {
+	TimeManager::gameTimer.Pause();
 	ClearVec(vTempComponents);
+	
+	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
 
-	JsonFile* prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
-
-	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
 	std::vector<GameObject*> prefab = prefabToLoad->GetHierarchy("Prefab");
 
 	// Add the loaded prefab objects to the existing gameObjects vector
@@ -516,17 +533,17 @@ GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& f
 	LOG("Prefab '%s' loaded", fileName.c_str());
 
 	ClearVec(prefab);
-	RELEASE(prefabToLoad);
+	TimeManager::gameTimer.Resume();
 		
 	return rootObject;
 }
 
 
-GameObject* ModuleScene::LoadPrefab( char* path)
+GameObject* ModuleScene::LoadPrefab( const char* path)
 {
 	ClearVec(vTempComponents);
 
-	JsonFile* prefabToLoad = JsonFile::GetJSON( path);
+	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON( path);
 
 	// FRANCESC: Bug Hierarchy reimported GO when loading in Case 2
 	std::vector<GameObject*> prefab = prefabToLoad->GetHierarchy("Prefab");
@@ -549,7 +566,6 @@ GameObject* ModuleScene::LoadPrefab( char* path)
 	LOG("Prefab '%s' loaded", path);
 
 	ClearVec(prefab);
-	RELEASE(prefabToLoad);
 
 	return rootObject;
 }
@@ -564,29 +580,38 @@ void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& 
 		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
 	}
 
-	JsonFile* sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
+	CheckCurrentMap((dir + "/" + fileName + ".yscene").c_str());
+
+	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
 
 	App->camera->editorCamera->SetPos(sceneToLoad->GetFloat3("Editor Camera Position"));
 	App->camera->editorCamera->SetUp(sceneToLoad->GetFloat3("Editor Camera Up (Y)"));
 	App->camera->editorCamera->SetFront(sceneToLoad->GetFloat3("Editor Camera Front (Z)"));
 
+	uint deletedSceneUID = mRootNode->UID;
+
 	ClearScene();
+
+	mRootNode = CreateGameObject("Scene", nullptr);
+	mRootNode->UID = deletedSceneUID;
 
 	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
 	mRootNode = gameObjects[0];
 
-	for (int i = 0; i < gameObjects.size(); i++) {
-		CTransform* ctrans = (CTransform*)gameObjects[i]->GetComponent(ComponentType::TRANSFORM);
-		ctrans->UpdateGlobalMatrix();
+	for (int i = 0; i < gameObjects.size(); ++i) 
+	{
+		gameObjects[i]->mTransform->UpdateGlobalMatrix();
 	}
 
 	LoadScriptsData();
 
-	uint navMeshId = sceneToLoad->GetNavMeshID("NavMesh");
-	if (navMeshId != -1)
-		External->pathFinding->Load(navMeshId);
+	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
 
-	RELEASE(sceneToLoad);
+	if (navMeshPath != "") 
+	{
+		External->pathFinding->Load(navMeshPath);
+	}
+		
 }
 
 void ModuleScene::Destroy(GameObject* gm)
@@ -874,7 +899,6 @@ void ModuleScene::AddToReferenceMap(uint UID, SerializedField* fieldToAdd)
 
 void ModuleScene::LoadScriptsData(GameObject* rootObject)
 {
-	std::multimap<uint, SerializedField*> referenceMapCopy;
 	for (auto i = referenceMap.begin(); i != referenceMap.end(); ++i)
 	{
 		// Get the range of the current key
@@ -1114,3 +1138,90 @@ void ModuleScene::HandleUINavigation()
 	}
 }
 
+std::string ModuleScene::ComponentTypeToString(ComponentType type)
+{
+	switch (type) {
+	case NONE: return "NONE";
+	case TRANSFORM: return "TRANSFORM";
+	case MESH: return "MESH";
+	case MATERIAL: return "MATERIAL";
+	case SCRIPT: return "SCRIPT";
+	case AUDIO_SOURCE: return "AUDIO_SOURCE";
+	case AUDIO_LISTENER: return "AUDIO_LISTENER";
+	case CAMERA: return "CAMERA";
+	case RIGIDBODY: return "RIGIDBODY";
+	case PHYSICS: return "PHYSICS";
+	case ANIMATION: return "ANIMATION";
+	case PARTICLE: return "PARTICLE";
+	case UI_TRAMSFORM: return "UI_TRAMSFORM";
+	case UI: return "UI";
+	case LIGHT: return "LIGHT";
+	case NAVMESHAGENT: return "NAVMESHAGENT";
+	case ALL_TYPES: return "ALL_TYPES";
+	default: return "UNKNOWN";
+	}
+}
+
+ComponentType ModuleScene::StringToComponentType(const std::string& typeName) {
+	static std::unordered_map<std::string, ComponentType> typeMap = {
+		{"NONE", NONE},
+		{"TRANSFORM", TRANSFORM},
+		{"MESH", MESH},
+		{"MATERIAL", MATERIAL},
+		{"SCRIPT", SCRIPT},
+		{"AUDIO_SOURCE", AUDIO_SOURCE},
+		{"AUDIO_LISTENER", AUDIO_LISTENER},
+		{"CAMERA", CAMERA},
+		{"RIGIDBODY", RIGIDBODY},
+		{"PHYSICS", PHYSICS},
+		{"ANIMATION", ANIMATION},
+		{"PARTICLE", PARTICLE},
+		{"UI_TRAMSFORM", UI_TRAMSFORM},
+		{"UI", UI},
+		{"LIGHT", LIGHT},
+		{"NAVMESHAGENT", NAVMESHAGENT},
+		{"ALL_TYPES", ALL_TYPES}
+	};
+
+	auto it = typeMap.find(typeName);
+	if (it != typeMap.end()) {
+		return it->second;
+	}
+	else {
+		return NONE;
+	}
+}
+
+void ModuleScene::CheckCurrentMap(const char* mapPath)
+{
+	// Hardcodeada para saber en que mapa estás 
+
+	if (strcmp(mapPath, "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/BASE_FINAL//LVL_BASE_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_BASE;
+	}
+	else if (strcmp(mapPath, "Assets/LVL1_FINAL/LVL1_FINAL_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL1_FINAL//LVL1_FINAL_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_1;
+	}
+	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL2_LAB_PART1_FINAL//LVL2_LAB_PART1_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_2_PART_1;
+	}
+	else if (strcmp(mapPath, "Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL2_LAB_PART2_FINAL//LVL2_LAB_PART2_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_2_PART_2;
+	}
+	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL3_BlockOut//LVL3_PART1_COLLIDERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_3_PART_1;
+	}
+	else if (strcmp(mapPath, "Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene") == 0 || strcmp(mapPath, "Assets/LVL3_BlockOut//LVL3_BOSS_COLLDIERS.yscene") == 0)
+	{
+		External->scene->currentMap = MAP::LVL_3_PART_2;
+	}
+	else 
+	{
+		External->scene->currentMap = MAP::NO_MAP;
+	}
+}

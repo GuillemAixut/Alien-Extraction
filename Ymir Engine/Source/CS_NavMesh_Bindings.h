@@ -74,6 +74,8 @@ bool CS_CalculatePath(MonoObject* go, MonoObject* startPos, MonoObject* endPos)
 	if (comp == nullptr)
 		return false;
 
+
+	comp->path.clear();
 	std::vector<float3> possibleVector;
 
 	if (External->pathFinding->FindPath(External->moduleMono->UnboxVector(startPos), External->moduleMono->UnboxVector(endPos), possibleVector))

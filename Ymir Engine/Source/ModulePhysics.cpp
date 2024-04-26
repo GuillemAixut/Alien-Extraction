@@ -73,9 +73,9 @@ update_status ModulePhysics::PreUpdate(float dt)
 {
 	float fixedTimeStep = 1 / App->GetFPS();
 
-	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING) 
+	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING && !isWorldFirstFrame) 
 	{
-		world->stepSimulation(dt, 1, fixedTimeStep);
+		world->stepSimulation(dt);
 	}
 	else
 	{
@@ -210,6 +210,8 @@ update_status ModulePhysics::PostUpdate(float dt)
 
 	}
 
+	if (isWorldFirstFrame) isWorldFirstFrame = false;
+
 	return UPDATE_CONTINUE;
 }
 
@@ -225,16 +227,19 @@ bool ModulePhysics::CleanUp()
 // CREATE / DELETE WORLD --------------------------------------------------------------
 void ModulePhysics::CreateWorld()
 {
+	isWorldFirstFrame = true;
 	world = new btDiscreteDynamicsWorld(dispatcher, broadphase, constraintSolver, collisionConfig);
 }
 
 void ModulePhysics::DeleteWorld()
 {
-	External->physics->ClearBodiesList();
-	External->physics->motions.clear();
-	External->physics->world->clearForces();
+	ClearBodiesList();
+	ClearMotions();
+
+	world->clearForces();
 
 	delete world;
+	world = nullptr;
 }
 
 // ADDBODY ============================================================================================================
@@ -411,21 +416,39 @@ PhysBody* ModulePhysics::AddBody(CMesh* mesh, PhysicsType, float mass, bool useG
 // Destroy things (yey)
 void ModulePhysics::RemoveBody(PhysBody* b)
 {
-	if (b->body != nullptr)
+	if (b->body != nullptr) 
+	{
 		world->removeCollisionObject(b->body);
+	}
 
 	bodiesList.erase(std::find(bodiesList.begin(), bodiesList.end(), b));
 	bodiesList.shrink_to_fit();
+
+	delete b;
+	b = nullptr;
 }
 
 void ModulePhysics::ClearBodiesList()
 {
-	for (int i = 0; i < bodiesList.size(); i++)
+	for (int i = 0; i < bodiesList.size(); ++i)
 	{
 		RemoveBody(bodiesList[i]);
 	}
 
 	bodiesList.clear();
+	bodiesList.shrink_to_fit();
+}
+
+void ModulePhysics::ClearMotions()
+{
+	for (std::vector<btDefaultMotionState*>::iterator itr = motions.begin(); itr != motions.end(); ++itr)
+	{
+		delete (*itr);
+		(*itr) = nullptr;
+	}
+
+	motions.clear();
+	motions.shrink_to_fit();
 }
 
 void ModulePhysics::RecalculateInertia(PhysBody* pbody, float mass, bool useGravity)
@@ -536,21 +559,21 @@ btCollisionShape* ModulePhysics::CreateCollisionShape(const std::vector<Vertex>&
 }
 
 // RayCasts ========================================================================
-bool ModulePhysics::RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint)
-{
-	btCollisionWorld::ClosestRayResultCallback rayCallback(from, to);
-
-	// Realizar el raycast
-	world->rayTest(from, to, rayCallback);
-
-	// Comprobar si hubo una colisi�n
-	if (rayCallback.hasHit()) {
-		hitPoint = rayCallback.m_hitPointWorld; // Punto de impacto
-		return true;
-	}
-
-	return false;
-}
+//bool ModulePhysics::RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint)
+//{
+//	btCollisionWorld::ClosestRayResultCallback rayCallback(from, to);
+//
+//	// Realizar el raycast
+//	world->rayTest(from, to, rayCallback);
+//
+//	// Comprobar si hubo una colisi�n
+//	if (rayCallback.hasHit()) {
+//		hitPoint = rayCallback.m_hitPointWorld; // Punto de impacto
+//		return true;
+//	}
+//
+//	return false;
+//}
 
 bool ModulePhysics::VolumetricRayCast(const btVector3& origin, const btVector3& direction, int numRays, float rayLength, std::vector<btVector3>& hitPoints)
 {
@@ -591,6 +614,82 @@ bool ModulePhysics::DirectionalRayCast(const btVector3& origin, const btVector3&
 	if (rayCallback.hasHit()) {
 		hitPoint = rayCallback.m_hitPointWorld;
 		return true;
+	}
+
+	return false;
+}
+
+bool ModulePhysics::Raycast(btVector3 origin, btVector3 direction, float rayLength, std::vector<btVector3>& hitPoints, std::vector<GameObject*>& hits) {
+
+	btVector3 end = origin + direction.normalized() * rayLength;
+
+	//btCollisionWorld::ClosestRayResultCallback rayCallback(origin, end);
+	btCollisionWorld::AllHitsRayResultCallback rayCallback(origin, end);
+
+	world->rayTest(origin, end, rayCallback);
+
+	if (rayCallback.hasHit()) {
+
+		// Fill hitPoints array
+		for (int i = 0; i < rayCallback.m_hitPointWorld.size(); i++) {
+			hitPoints.push_back(rayCallback.m_hitPointWorld.at(i));
+		}
+
+		// Fill GameObject array
+		for (int i = 0; i < rayCallback.m_collisionObjects.size(); i++) {
+			PhysBody* physBody = (PhysBody*)rayCallback.m_collisionObjects.at(i)->getUserPointer();
+			hits.push_back(physBody->owner);
+		}
+
+		return true;
+	}
+
+	return false;
+}
+
+GameObject* ModulePhysics::RaycastHit(btVector3 origin, btVector3 direction, float rayLength) {
+
+	btVector3 end = origin + direction.normalized() * rayLength;
+
+	btCollisionWorld::ClosestRayResultCallback rayCallback(origin, end);
+
+	world->rayTest(origin, end, rayCallback);
+
+	LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
+	LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());
+
+	if (rayCallback.hasHit()) {
+
+		PhysBody* physBody = (PhysBody*)rayCallback.m_collisionObject->getUserPointer();
+
+		return physBody->owner;
+	}
+
+	return nullptr;
+}
+
+bool ModulePhysics::RaycastTest(btVector3 origin, btVector3 direction, float rayLength, GameObject* gameObject)
+{
+	btVector3 end = origin + direction.normalized() * rayLength;
+
+	//btCollisionWorld::ClosestRayResultCallback rayCallback(origin, end);
+	btCollisionWorld::AllHitsRayResultCallback rayCallback(origin, end);
+
+	world->rayTest(origin, end, rayCallback);
+
+	LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
+	LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());
+
+	if (rayCallback.hasHit()) {
+
+		for (int i = 0; i < rayCallback.m_collisionObjects.size(); i++) {
+			PhysBody* physBody = (PhysBody*)rayCallback.m_collisionObjects.at(i)->getUserPointer();
+
+			if (physBody->owner == gameObject) {
+
+				return true;
+			}
+		}
 	}
 
 	return false;

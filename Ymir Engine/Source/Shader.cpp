@@ -458,6 +458,11 @@ void Shader::SetShaderUniforms(float4x4* matrix, bool isSelected)
 	// Spot Lights (TODO: FRANCESC)
 
 	// Area Lights (TODO: FRANCESC)
+
+	// Baked Lights
+
+	this->SetInt("map", (int)External->scene->currentMap);
+	this->SetBool("enableLighting", External->editor->gl_Lighting);
 	
 }
 

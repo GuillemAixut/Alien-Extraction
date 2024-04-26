@@ -12,8 +12,13 @@ public class BH_Bullet : YmirComponent
     private bool hit = false;
 
     Vector3 vSpeed = Vector3.zero;
+    private GameObject particleSystem;
+
     public void Start()
     {
+        particleSystem = GetParticles();
+        Particles.PlayEmitter(particleSystem);
+
         vSpeed = GetDirection() * speed;
     }
 
@@ -52,6 +57,12 @@ public class BH_Bullet : YmirComponent
             return gameObject.transform.GetForward();
         }
         else return new Vector3(0, 0, 0);
+    }
+
+    private GameObject GetParticles()
+    {
+        GameObject particleSystem = InternalCalls.GetGameObjectByName("Paticle System");
+        return particleSystem;
     }
 
     public void OnCollisionStay(GameObject other)

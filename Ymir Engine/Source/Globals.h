@@ -65,7 +65,7 @@ enum update_status
 #define WARNING_COLOR ImVec4(0.9882, 0.7294, 0.0118, 1)
 
 // UI
-#define DEFAULT_FONT "arial.ttf"
+#define DEFAULT_FONT "NK57 Monospace Se Bd.otf"
 
 // Physics
 #define GRAVITY btVector3(0.0f, -10.0f, 0.0f) 

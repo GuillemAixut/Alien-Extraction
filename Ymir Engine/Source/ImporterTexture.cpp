@@ -81,7 +81,7 @@ void ImporterTexture::Import(std::string path, ResourceTexture* ourTexture)
 
 	// 0. Handle UID
 
-	JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+	std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 	if (tmpMetaFile) {
 
@@ -105,8 +105,6 @@ void ImporterTexture::Import(std::string path, ResourceTexture* ourTexture)
 		External->fileSystem->CreateMetaFileFromAsset(path, textureMetaFile);
 
 	}
-
-	delete tmpMetaFile;
 
 	// 1. Load DevIL Image
 

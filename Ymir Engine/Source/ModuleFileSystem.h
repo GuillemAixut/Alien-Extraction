@@ -36,6 +36,7 @@ public:
 	bool LoadMeshToFile(const std::string filename, ResourceMesh* ourMesh);
 	//bool LoadTextureToFile(const Texture* ourTexture, const std::string& filename);
 	
+	void CopyStandaloneBuild();
 
 public:
 
@@ -54,6 +55,7 @@ public:
 	std::string libraryScriptsPath;
 	std::string libraryPrefabsPath;
 	std::string libraryAnimationsPath; 
+	std::string libraryParticlesPath;
 	std::string libraryNavMeshPath;
 
 	JsonFile outputFile;

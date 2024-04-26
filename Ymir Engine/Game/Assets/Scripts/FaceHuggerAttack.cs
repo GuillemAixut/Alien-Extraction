@@ -48,11 +48,11 @@ public class FaceHuggerAttack : YmirComponent
             //gameObject.SetPosition(new Vector3(gameObject.transform.globalPosition.x, gameObject.transform.globalPosition.y, gameObject.transform.GetForward().z + 5));
             if (facehugger.GetComponent<FaceHuggerBaseScript>().CheckDistance(gameObject.transform.globalPosition, facehugger.transform.globalPosition, 10f))
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 100f);
+                gameObject.SetVelocity(facehugger.transform.GetForward() * 1000f * Time.deltaTime);
             }
             else
             {
-                gameObject.SetVelocity(gameObject.transform.GetForward() * 0f);
+                gameObject.SetVelocity(facehugger.transform.GetForward() * 0f);
             }
         }
 

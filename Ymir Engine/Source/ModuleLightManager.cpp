@@ -17,6 +17,37 @@ ModuleLightManager::~ModuleLightManager()
 
 }
 
+bool ModuleLightManager::Init()
+{
+    bool ret = true;
+
+    return ret;
+}
+
+update_status ModuleLightManager::PreUpdate(float dt)
+{
+    return UPDATE_CONTINUE;
+}
+
+update_status ModuleLightManager::Update(float dt)
+{
+    return UPDATE_CONTINUE;
+}
+
+update_status ModuleLightManager::PostUpdate(float dt)
+{
+    return UPDATE_CONTINUE;
+}
+
+bool ModuleLightManager::CleanUp()
+{
+    bool ret = true;
+
+    ClearLights();
+
+    return ret;
+}
+
 void ModuleLightManager::EnableLightDebug(bool enable)
 {
     debuglightsEnabled = enable;
@@ -90,4 +121,16 @@ Light* ModuleLightManager::CreateLight(LightType type)
 
     }
 
+}
+
+void ModuleLightManager::ClearLights()
+{
+    for (std::vector<Light*>::iterator itr = lights.begin(); itr != lights.end(); ++itr)
+    {
+        delete (*itr);
+        (*itr) = nullptr;
+    }
+
+    lights.clear();
+    lights.shrink_to_fit();
 }

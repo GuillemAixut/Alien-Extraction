@@ -161,13 +161,12 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 			currentNodeGO = External->scene->CreateGameObject(name, External->scene->mRootNode);
 			modelGO = currentNodeGO;
 
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile) {
 
 				// The meta file exists; it's not the first time we load the model.
 				modelGO->UID = tmpMetaFile->GetInt("UID");
-				delete tmpMetaFile;
 
 			}
 			else {
@@ -189,7 +188,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 			currentNodeGO->originPath = path;
 
 			// Model Meta File and Library File Creation
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile) {
 
@@ -210,8 +209,6 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 			
 			embeddedMeshesUID.push_back(currentNodeGO->UID);
 			resourcesUID.push_back(currentResourceUID);
-
-			delete tmpMetaFile;
 
 		}
 
@@ -243,7 +240,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 					for (int i = 0; i < scene->mNumAnimations; i++) {
 
 						//Animation* anim = new Animation(path, this, i);
-						ResourceAnimation* rAnim = new ResourceAnimation(modelGO->UID); 
+						ResourceAnimation* rAnim = new ResourceAnimation(modelGO->UID);
 						ImporterAnimation::Import(path, rAnim, this, i);
 
 						uint UID = modelGO->UID;
@@ -251,7 +248,6 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 						std::string filenameUID = std::to_string(UID) + ".yanim";
 						std::string libraryPath = External->fileSystem->libraryAnimationsPath + filenameUID;
 
-						
 						if (PhysfsEncapsule::FileExists(libraryPath)) {
 							UID = Random::Generate();
 							filenameUID = std::to_string(UID) + ".yanim";
@@ -269,8 +265,10 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 
 						External->fileSystem->SaveAnimationToFile(rAnim, assetsPath);
 
-						//ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::ANIMATION, UID);
-						cAnim->AddAnimation(*rAnim);
+						RELEASE(rAnim);
+
+						ResourceAnimation* rAnimation = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(assetsPath, ResourceType::ANIMATION, UID);
+						cAnim->AddAnimation(*rAnimation);
 					}
 				}
 			}
@@ -458,17 +456,19 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 			std::string path = directory + aiPath.C_Str();
 
-			JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
-
-			ResourceTexture* rTexTemp = new ResourceTexture();
+			std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (metaFile == nullptr) {
 
+				ResourceTexture* rTexTemp = new ResourceTexture();
+
 				ImporterTexture::Import(path, rTexTemp);
+
+				RELEASE(rTexTemp);
 
 				// Get meta
 
-				JsonFile* metaFile = JsonFile::GetJSON(path + ".meta");
+				std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(path + ".meta");
 
 				std::string libraryPath = metaFile->GetString("Library Path");
 				uint UID = metaFile->GetInt("UID");
@@ -524,8 +524,6 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 				cmaterial->rTextures.push_back(rTex);
 
-				delete metaFile;
-
 			}
 			else {
 
@@ -539,7 +537,9 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 				if (!PhysfsEncapsule::FileExists(libraryPath)) {
 
+					ResourceTexture* rTexTemp = new ResourceTexture();
 					ImporterTexture::Import(path, rTexTemp);
+					RELEASE(rTexTemp);
 
 				}
 
@@ -547,60 +547,101 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 				if (itr == External->resourceManager->resources.end())
 				{
-					rTexTemp = static_cast<ResourceTexture*>
+					ResourceTexture* rTexTemp = static_cast<ResourceTexture*>
 						(External->resourceManager->CreateResourceFromLibrary(libraryPath.c_str(), ResourceType::TEXTURE, UID, type));
+
+					switch (rTexTemp->type)
+					{
+					case TextureType::DIFFUSE:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					case TextureType::SPECULAR:
+						cmaterial->specular_UID = UID;
+						cmaterial->specular_path = libraryPath;
+						break;
+
+					case TextureType::AMBIENT:
+						cmaterial->ambient_UID = UID;
+						cmaterial->ambient_path = libraryPath;
+						break;
+
+					case TextureType::EMISSIVE:
+						cmaterial->emissive_UID = UID;
+						cmaterial->emissive_path = libraryPath;
+						break;
+
+					case TextureType::HEIGHT:
+						cmaterial->height_UID = UID;
+						cmaterial->height_path = libraryPath;
+						break;
+
+					case TextureType::NORMAL:
+						cmaterial->normal_UID = UID;
+						cmaterial->normal_path = libraryPath;
+						break;
+
+					default:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					}
+
+					cmaterial->rTextures.push_back(rTexTemp);
+
 				}
 				else
 				{
-					rTexTemp = static_cast<ResourceTexture*>(itr->second);
+					ResourceTexture* rTexTemp = static_cast<ResourceTexture*>(itr->second);
 					rTexTemp->type = type;
 					itr->second->IncreaseReferenceCount();
+
+					switch (rTexTemp->type)
+					{
+					case TextureType::DIFFUSE:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					case TextureType::SPECULAR:
+						cmaterial->specular_UID = UID;
+						cmaterial->specular_path = libraryPath;
+						break;
+
+					case TextureType::AMBIENT:
+						cmaterial->ambient_UID = UID;
+						cmaterial->ambient_path = libraryPath;
+						break;
+
+					case TextureType::EMISSIVE:
+						cmaterial->emissive_UID = UID;
+						cmaterial->emissive_path = libraryPath;
+						break;
+
+					case TextureType::HEIGHT:
+						cmaterial->height_UID = UID;
+						cmaterial->height_path = libraryPath;
+						break;
+
+					case TextureType::NORMAL:
+						cmaterial->normal_UID = UID;
+						cmaterial->normal_path = libraryPath;
+						break;
+
+					default:
+						cmaterial->diffuse_UID = UID;
+						cmaterial->diffuse_path = libraryPath;
+						break;
+
+					}
+
+					cmaterial->rTextures.push_back(rTexTemp);
+
 				}
-
-				switch (rTexTemp->type)
-				{
-				case TextureType::DIFFUSE:
-					cmaterial->diffuse_UID = UID;
-					cmaterial->diffuse_path = libraryPath;
-					break;
-
-				case TextureType::SPECULAR:
-					cmaterial->specular_UID = UID;
-					cmaterial->specular_path = libraryPath;
-					break;
-
-				case TextureType::AMBIENT:
-					cmaterial->ambient_UID = UID;
-					cmaterial->ambient_path = libraryPath;
-					break;
-
-				case TextureType::EMISSIVE:
-					cmaterial->emissive_UID = UID;
-					cmaterial->emissive_path = libraryPath;
-					break;
-
-				case TextureType::HEIGHT:
-					cmaterial->height_UID = UID;
-					cmaterial->height_path = libraryPath;
-					break;
-
-				case TextureType::NORMAL:
-					cmaterial->normal_UID = UID;
-					cmaterial->normal_path = libraryPath;
-					break;
-
-				default:
-					cmaterial->diffuse_UID = UID;
-					cmaterial->diffuse_path = libraryPath;
-					break;
-
-				}
-
-				cmaterial->rTextures.push_back(rTexTemp);
 
 			}
-
-			delete metaFile;
 			
 		}
 		else {

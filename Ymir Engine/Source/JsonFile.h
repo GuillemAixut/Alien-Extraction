@@ -31,7 +31,7 @@ public:
     void CreateJSON(std::string route, std::string fileName);
     void ModifyJSON(std::string route, std::string fileName);
 
-    static JsonFile* GetJSON(const std::string& route);
+    static std::unique_ptr<JsonFile> GetJSON(const std::string& route);
     static void DeleteJSON(const std::string& route);
 
     // -------------------------- Support functions --------------------------------
@@ -52,7 +52,7 @@ public:
     std::string GetString(const char* key) const;
 
     void SetIntArray(const char* key, const int* array, size_t size);
-    int* GetIntArray(const char* key) const;
+    std::unique_ptr<int[]> GetIntArray(const char* key) const;
 
     void SetFloatArray(const char* key, const float* array, size_t size);
     float* GetFloatArray(const char* key) const;
@@ -101,7 +101,7 @@ public:
     // ---------- Load Scene
 
     std::vector<GameObject*> GetHierarchy(const char* key) const;
-    uint GetNavMeshID(const char* key) const;
+    const char* GetNavMeshPath(const char* key) const;
     void GetGameObject(const std::vector<GameObject*>& gameObjects, const JSON_Object* gameObjectObject, G_UI& gameObject) const;
     void GetComponent(const JSON_Object* componentObject, G_UI* gameObject) const;
 

@@ -309,12 +309,19 @@ void ModuleEditor::DrawEditor()
 
 			LightsMenu();
 
+			CreateParticleSystemMenu();
+
 			ImGui::Separator();
 
 			if (ImGui::MenuItem("Clear Scene")) {
 
+				uint deletedSceneUID = App->scene->mRootNode->UID;
+
 				App->scene->ClearScene();
 
+				App->scene->mRootNode = App->scene->CreateGameObject("Scene", nullptr); // Recreate scene
+				App->scene->mRootNode->UID = deletedSceneUID;
+				
 				LOG("Scene cleared successfully");
 
 			}
@@ -1059,21 +1066,56 @@ void ModuleEditor::DrawEditor()
 	if (ImGui::Begin(" ", NULL, ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse)) {
 
 		float windowWidth = ImGui::GetWindowWidth();
+		float windowHeight = ImGui::GetWindowHeight();
+
 		float buttonWidth = 50.0f;
 		float posX = (windowWidth - (3 * buttonWidth + 2 * ImGui::GetStyle().ItemSpacing.x)) * 0.5f;
 
+		float posY = 5.0f;
+
 		ImGui::SameLine(20.0f);
+		ImGui::SetCursorPosY(posY);
 
 		ImGui::TextColored(ImVec4(0.7f, 0.7f, 1.0f, 1.0f), "Graphics Time: %.3f", TimeManager::graphicsTimer.ReadSec());
 
 		ImGui::SameLine();
 		ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 20.0f);
+		ImGui::SetCursorPosY(posY);
 
 		ImGui::TextColored(ImVec4(0.7f, 0.7f, 1.0f, 1.0f), "Frame Count: %d", TimeManager::FrameCount);
 
 		ImGui::SameLine();
+		ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 20.0f);
+		ImGui::SetCursorPosY(posY);
+
+		ImGui::PushItemWidth(100.0f);
+
+		static float targetFPS = App->GetTargetFPS();
+
+		if (ImGui::SliderFloat("Target FPS", &targetFPS, 30.0f, 144.0f, "%1.0f"))
+		{
+			App->SetTargetFPS(targetFPS);
+		}
+
+		ImGui::SameLine();
+		ImGui::SetCursorPosY(posY);
+
+		ImGui::PushItemWidth(-1);
+
+		if (ImGui::Button("Reset##1"))
+		{
+			targetFPS = 60.0f;
+			App->SetTargetFPS(targetFPS);
+		}
+
+		ImGui::SameLine();
+		ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 20.0f);
+		ImGui::SetCursorPosY(posY);
+
+		ImGui::TextColored(ImVec4(0.7f, 0.7f, 1.0f, 1.0f), "FPS: %.2f", 1 / TimeManager::DeltaTime);
 
 		ImGui::SetCursorPosX(posX);
+		ImGui::SetCursorPosY(posY);
 
 #ifdef _STANDALONE
 		static bool isPlaying = true;
@@ -1170,7 +1212,7 @@ void ModuleEditor::DrawEditor()
 
 		ImGui::SameLine();
 
-		if (ImGui::Button("Reset"))
+		if (ImGui::Button("Reset##2"))
 		{
 			scale = 1.0f;
 			TimeManager::gameTimer.SetTimeScale(scale);
@@ -1739,6 +1781,19 @@ void ModuleEditor::UIMenu()
 			}
 		}
 		ImGui::EndMenu();
+	}
+}
+
+void ModuleEditor::CreateParticleSystemMenu()
+{
+	if (ImGui::MenuItem("Particle System")) {
+
+		GameObject* empty = App->scene->CreateGameObject("Paticle System", App->scene->selectedGO != nullptr ? App->scene->selectedGO : App->scene->mRootNode);
+		empty->UID = Random::Generate();
+
+		//TONI: We dont need material in Particle System
+		//empty->AddComponent(ComponentType::MATERIAL);
+		empty->AddComponent(ComponentType::PARTICLE);
 	}
 }
 
@@ -3174,8 +3229,8 @@ void ModuleEditor::DrawInspector()
 					static char newTag[32];
 					ImGui::InputText("##Juan", newTag, IM_ARRAYSIZE(newTag));
 					bool estaVacio = (std::strlen(newTag) == 0);
-					
-					if(ImGui::Button("Save Tag")) 
+
+					if (ImGui::Button("Save Tag"))
 					{
 						if (!estaVacio)
 						{
@@ -3286,6 +3341,7 @@ void ModuleEditor::DrawInspector()
 							App->scene->selectedGO->AddComponent(ComponentType::MATERIAL);
 						}
 					}
+
 
 					//// --- Add component Camera ---
 
@@ -3506,7 +3562,7 @@ void ModuleEditor::DeleteFileAndRefs(const char* filePath)
 
 		if (PhysfsEncapsule::FileExists((path + ".meta").c_str()))
 		{
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile)
 			{
@@ -3521,11 +3577,11 @@ void ModuleEditor::DeleteFileAndRefs(const char* filePath)
 
 		if (PhysfsEncapsule::FileExists((path + ".meta").c_str()))
 		{
-			JsonFile* tmpMetaFile = JsonFile::GetJSON(path + ".meta");
+			std::unique_ptr<JsonFile> tmpMetaFile = JsonFile::GetJSON(path + ".meta");
 
 			if (tmpMetaFile)
 			{
-				int* ids = tmpMetaFile->GetIntArray("Meshes Embedded UID");
+				std::unique_ptr<int[]> ids = tmpMetaFile->GetIntArray("Meshes Embedded UID");
 
 				for (int i = 0; i < tmpMetaFile->GetInt("Meshes num"); i++)
 				{

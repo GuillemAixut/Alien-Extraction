@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 using YmirEngine;
 
 public class Loot_Chest : YmirComponent
@@ -12,24 +11,74 @@ public class Loot_Chest : YmirComponent
     public string path = "Assets/Loot Tables/loot_table.csv";
     public int numFields = 2;
 
+    public int spawnRange;
+
+    private float time = 0f;
+    private float animationTime = 1;
+
+    private bool isOpened = false;
+    private bool isOpening = false;
+
+    private float velocity = 30f;
+
+    private Vector3 pos = Vector3.zero;
+    Random random = new Random();
+
+    private GameObject popup;
+
     public void Start()
 	{
-		
+        pos = gameObject.transform.localPosition;
+        spawnRange = 15;
+        popup = InternalCalls.GetChildrenByName(gameObject, "Pop-Up");
+        
 	}
 
 	public void Update()
 	{
+        //Debug.Log("Time: " + time);
 
+        popup.SetAsBillboard();
+        if (!isOpened)
+        {
+            if (popup.IsActive())
+            {
+                popup.SetActive(false);
+            }
+
+            if (time > 0)
+            {
+                InternalCalls.CS_GetChild(gameObject, 0).transform.localRotation = Quaternion.Euler(180f, velocity * (animationTime - time), 0f);// GetGameObjectByName("PROP_Base_Chest_Lid").transform.localRotation = Quaternion.Euler(180f, velocity * time, 0f);
+                time -= Time.deltaTime;
+
+                if (time <= 0)
+                {
+                    isOpened = true;
+                }
+            }
+        }
+        else
+        {
+            popup.SetActive(false);
+        }
     }
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN))
+        if (other.Tag == "Player" && !isOpened)
         {
-            string output = InternalCalls.CSVToString(path, keys);
+            popup.SetActive(true);
+        }
+
+        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN) && !isOpened && !isOpening)
+        {
+            string output = InternalCalls.CSVToStringKeys(path, keys);
             //Debug.Log("Output :" + output);
 
             List<List<string>> result = DeconstructString(output, numFields);
+
+            time = animationTime;
+            isOpening = true;
 
             Debug.Log("Result:");
             foreach (var sublist in result)
@@ -59,6 +108,7 @@ public class Loot_Chest : YmirComponent
                     Debug.Log("[ERROR] Sublist does not contain enough elements: " + string.Join(", ", sublist));
                 }
             }
+
         }
     }
 
@@ -92,12 +142,22 @@ public class Loot_Chest : YmirComponent
 
     private void SpawnPrefab(string name, int probability)
     {
-        Random random = new Random();
         int randNum = random.Next(0, 101);  //Generate a random number between 0 and 100
-
+        Debug.Log("[WARNING] Rand Number: " + randNum);
         if (randNum <= probability)
         {
-            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", name);
+            //Spawn items in a range random position offset
+            float randPosX = random.Next(-spawnRange, spawnRange + 1);
+            float randPosZ = random.Next(-spawnRange, spawnRange + 1);
+            Debug.Log("[WARNING] PickUp offset: " + randPosX + ", " + randPosZ);
+
+            pos.x += randPosX;
+            pos.z += randPosZ;
+
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", name, pos);
+
+            //Clear the pos value
+            pos = gameObject.transform.localPosition;
         }
     }
 }

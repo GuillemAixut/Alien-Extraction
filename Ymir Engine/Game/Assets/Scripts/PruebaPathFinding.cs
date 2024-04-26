@@ -64,7 +64,7 @@ using YmirEngine;
 
         private WanderState wanderState;
 
-        RandomPointGenerator pointGenerator;
+       
         
 
         
@@ -83,7 +83,7 @@ using YmirEngine;
 
         public void Start()
         {
-            pointGenerator = new RandomPointGenerator();
+            
             wanderState = WanderState.REACHED;
             wanderDuration = 5f;
             wanderTimer = wanderDuration;
@@ -284,7 +284,7 @@ using YmirEngine;
     public virtual Vector3 CalculateNewPosition(float maxPos)
     {
         //Vector3 newPosition = new Vector3(0, 0, 0);
-        //Random random = new Random();
+        Random random = new Random();
 
         //newPosition.x = random.Next((int)maxPos);
         //newPosition.y = gameObject.transform.localPosition.y;

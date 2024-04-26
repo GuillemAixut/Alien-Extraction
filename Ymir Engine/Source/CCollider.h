@@ -52,8 +52,8 @@ public:
 
 	void AdaptSizeToShape(ColliderType prevType);
 	void SetDefaultValues(PhysicsType type);
-	void SetOBBSize();
 	void SetAsSensor(bool is_sensor);
+	void SetOBBSize();
 
 	void RemovePhysbody();
 
@@ -77,6 +77,7 @@ public:
 	float3 size;
 	btVector3 btSize;
 	float3 offset;
+	Quat offsetRotation;
 
 	float mass;
 	float friction;
@@ -100,4 +101,6 @@ public:
 	//TODO: crear variables: hull, mesh, sensor, edit collider, transform�?
 
 	bool isFirstTick;
+
+	bool isActive;
 };

@@ -29,6 +29,20 @@ class CCamera;
 
 class G_UI;
 
+
+enum MAP {
+
+	NO_MAP = -1,
+
+	LVL_BASE,
+	LVL_1,
+	LVL_2_PART_1,
+	LVL_2_PART_2,
+	LVL_3_PART_1,
+	LVL_3_PART_2,
+
+};
+
 class ModuleScene : public Module
 {
 public:
@@ -62,7 +76,7 @@ public:
 	void SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName);
 	GameObject* LoadPrefab(const std::string& dir, const std::string& fileName);
 
-	GameObject* LoadPrefab(char* path);
+	GameObject* LoadPrefab(const char* path);
 
 	// Start with a loaded scene from start
 	void LoadSceneFromStart(const std::string& dir, const std::string& fileName);
@@ -105,6 +119,11 @@ public:
 	// Handle both keyboard and gamepad control of all UI game objects
 	void HandleUINavigation();
 
+	std::string ComponentTypeToString(ComponentType type);  //Lo siento, era necesario :(
+	ComponentType StringToComponentType(const std::string& typeName);  //Lo siento, era necesario (x2) :(
+
+	void CheckCurrentMap(const char* mapPath); // Lo siento, era necesario (x3) :((((((
+
 public:
 
 	GameObject* mRootNode;
@@ -116,7 +135,7 @@ public:
 	std::map<GameObject*, GameObject*> swapList;
 	std::vector<GameObject*> gameObjects;
 	std::vector<GameObject*> pendingToAdd;
-	std::vector<std::tuple<std::string, std::string>> pendingToAddPrefab;
+	std::vector<std::tuple<std::string, std::string, float3>> pendingToAddPrefab;
 
 	std::vector<std::string> tags;
 
@@ -130,10 +149,13 @@ public:
 	std::string pendingToAddScene;
 
 	bool isLocked;
+	
+	// UI
 	GameObject* selectedGO;
 	std::vector<G_UI*> vCanvas;
 	int onHoverUI;
-	bool canNav;
+	bool canNav; 
+	std::vector<Font*> mFonts;
 
 	std::multimap<uint, SerializedField*> referenceMap;
 
@@ -141,6 +163,9 @@ public:
 	bool godMode;
 	GameObject* selectedUIGO;
 	GameObject* focusedUIGO;
+
+	//Current map
+	MAP currentMap;
 
 private:
 	G_UI* canvas;

@@ -25,6 +25,8 @@ extern Application* External = nullptr;
 
 Application::Application()
 {
+	targetFPS = 60.0f;
+
 	External = this;
 
 	window = new ModuleWindow(this);
@@ -106,8 +108,21 @@ void Application::PrepareUpdate()
 {
 	OPTICK_EVENT();
 
+	// Measure the time elapsed since the last frame
 	dt = (float)ms_timer.ReadMS() / 1000.0f;
 	ms_timer.Start();
+
+	const float targetFrameTime = 1.0f / targetFPS;
+
+	if (dt < targetFrameTime) {
+
+		/* If the time elapsed since the last frame is less than the target frame time,
+		introduce a delay to ensure we wait until the target frame time has elapsed. */
+
+		Sleep((targetFrameTime - dt) * 1000); // Convert to milliseconds
+
+		dt = targetFrameTime; // Update dt to match the target frame time.
+	}
 
 	TimeManager::DeltaTime = dt;
 	TimeManager::FrameCount++;
@@ -153,6 +168,16 @@ bool Application::CleanUp()
 		ret = (*it)->CleanUp();
 	}
 	return ret;
+}
+
+void Application::SetTargetFPS(float FPS)
+{
+	targetFPS = FPS;
+}
+
+float Application::GetTargetFPS()
+{
+	return targetFPS;
 }
 
 float Application::GetFPS()

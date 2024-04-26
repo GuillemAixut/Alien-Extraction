@@ -27,11 +27,11 @@ public class UI_Bullets : YmirComponent
     }
     public void Update()
     {
-        //if (Input.GetKey(YmirKeyCode.Z) == KeyState.KEY_DOWN)
-        //{
-        //    Debug.Log("Take debug dmg");
-        //    UseBullets();
-        //}
+        if (Input.GetKey(YmirKeyCode.V) == KeyState.KEY_DOWN)
+        {
+            Debug.Log("Debug Bullet");
+            UseBullets();
+        }
 
         return;
     }

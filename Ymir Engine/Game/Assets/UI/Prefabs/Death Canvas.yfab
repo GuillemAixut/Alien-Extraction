@@ -2,11 +2,12 @@
     "Prefab": [
         {
             "Name": "Death Canvas",
+            "Static": false,
             "Tag": "Untagged",
-            "UID": 1676754095,
+            "UID": 1827062016,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 747388617,
+            "Parent UID": 893261548,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 540,
-                    "Height": 351,
+                    "Width": 1909,
+                    "Height": 1082,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -46,19 +47,18 @@
                 }
             ],
             "Children UID": [
-                1076335875,
-                604314097,
-                43054277,
+                521441229,
                 199456300
             ]
         },
         {
-            "Name": "Background",
+            "Name": "Background (1)",
+            "Static": false,
             "Tag": "Untagged",
-            "UID": 1076335875,
+            "UID": 521441229,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1676754095,
+            "Parent UID": 1827062016,
             "Components": [
                 {
                     "Type": "Transform",
@@ -95,17 +95,17 @@
                         1920,
                         1080
                     ],
-                    "Path": "Assets\/UI\/Fondo.png",
+                    "Path": "Assets\/UI\/LoseScreenBase.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -115,140 +115,19 @@
             ]
         },
         {
-            "Name": "Text (1)",
-            "Tag": "Untagged",
-            "UID": 604314097,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1676754095,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        44.292701721191406,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 494,
-                    "Position Y": 300,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        494,
-                        344.29269409179688,
-                        200,
-                        50
-                    ],
-                    "Text": "You Died",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 170,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Text (2)",
-            "Tag": "Untagged",
-            "UID": 43054277,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1676754095,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 557,
-                    "Position Y": 549,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        557,
-                        549,
-                        200,
-                        50
-                    ],
-                    "Text": "Extraction failed. Inventory lost.",
-                    "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 35,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Empty",
+            "Name": "Grid (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 199456300,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1676754095,
+            "Parent UID": 1827062016,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        660,
+                        636,
                         0,
                         0
                     ],
@@ -262,6 +141,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 2,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": false,
+                    "naviagteY": false,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -271,6 +169,7 @@
         },
         {
             "Name": "Respawn",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1541707194,
             "Active": true,
@@ -301,16 +200,16 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 709,
-                    "Width": 653,
-                    "Height": 148,
+                    "Position Y": 657,
+                    "Width": 600,
+                    "Height": 88,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
-                        709,
-                        653,
-                        148
+                        636,
+                        657,
+                        600,
+                        88
                     ],
                     "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
@@ -319,10 +218,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -340,7 +239,7 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
+                        636,
                         0,
                         300,
                         50
@@ -384,7 +283,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/VS2 Release.yscene"
+                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS"
                 }
             ],
             "Children UID": [
@@ -392,7 +291,8 @@
             ]
         },
         {
-            "Name": "Text (3)",
+            "Name": "Text (6)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1641626881,
             "Active": true,
@@ -422,28 +322,28 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 70,
-                    "Position Y": 803,
+                    "Position X": 82,
+                    "Position Y": 723,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        730,
-                        803,
+                        718,
+                        723,
                         300,
                         50
                     ],
                     "Text": "Transfer Conciousness",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 35,
+                    "Font size": 48.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -454,6 +354,7 @@
         },
         {
             "Name": "Back To Menu",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 150558645,
             "Active": true,
@@ -484,16 +385,16 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 880,
-                    "Width": 653,
-                    "Height": 148,
+                    "Position Y": 819,
+                    "Width": 600,
+                    "Height": 88,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
-                        880,
-                        653,
-                        148
+                        636,
+                        819,
+                        600,
+                        88
                     ],
                     "Path": "Assets\/Baker_house.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
@@ -502,10 +403,10 @@
                     "Rows": 1,
                     "Columns": 1,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -523,7 +424,7 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        660,
+                        636,
                         0,
                         300,
                         50
@@ -567,7 +468,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "Assets\/Scenes\/Start_scene.yscene"
+                    "sceneName": "UI\/Scenes\/StartScene"
                 }
             ],
             "Children UID": [
@@ -575,7 +476,8 @@
             ]
         },
         {
-            "Name": "Text",
+            "Name": "Text (1)",
+            "Static": false,
             "Tag": "Untagged",
             "UID": 1500166531,
             "Active": true,
@@ -605,28 +507,28 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 158,
-                    "Position Y": 974,
+                    "Position X": 180,
+                    "Position Y": 883,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        818,
-                        974,
+                        816,
+                        883,
                         300,
                         50
                     ],
                     "Text": "Back To Menu",
                     "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 35,
+                    "Font size": 48.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
-                        1,
-                        1,
-                        1,
-                        1
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {

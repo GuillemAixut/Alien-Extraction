@@ -9,7 +9,7 @@
 
 #include "External/mmgr/mmgr.h"
 
-std::vector<Font*> Font::mFonts;
+std::vector<std::shared_ptr<Font>> Font::mFonts;
 
 UI_Text::UI_Text(GameObject* g, float x, float y, const char* t, float fs, float ls, std::string fontName, std::string fontPath, float w, float h, std::string shaderPath) : C_UI(UI_TYPE::TEXT, ComponentType::UI, g, "Text", x, y, w, h)
 {
@@ -120,6 +120,7 @@ UI_Text::~UI_Text()
 	//RELEASE_ARRAY(boundsGame->index);
 	RELEASE(boundsEditor);
 	RELEASE(boundsGame);
+	RELEASE(mat);
 }
 
 void UI_Text::OnInspector()
@@ -141,7 +142,7 @@ void UI_Text::OnInspector()
 
 		if (ImGui::BeginCombo("Font", font->name.c_str()))
 		{
-			for (std::vector<Font*>::const_iterator it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
+			for (std::vector<std::shared_ptr<Font>>::const_iterator it = Font::mFonts.begin(); it != Font::mFonts.end(); ++it)
 			{
 				bool isSelected = (font->name == (*it)->name);
 				if (ImGui::Selectable((*it)->name.c_str()))
@@ -362,6 +363,11 @@ void UI_Text::OnInspector()
 
 					mat->shader.SetUniformValue(kt->name, (float*)kt->value.get());
 
+					color.r = ((float*)kt->value.get())[0];
+					color.g = ((float*)kt->value.get())[1];
+					color.b = ((float*)kt->value.get())[2];
+					color.a = ((float*)kt->value.get())[3];
+
 					break;
 
 				}
@@ -459,7 +465,7 @@ void UI_Text::Draw(bool game)
 	UI_Bounds* boundsDrawn = nullptr;
 	space = 0;
 
-	float fs = fontSize * 1.5;
+	float fsDiv = fontSize / 100;
 	uint newLines = 0;
 
 	for (size_t i = 0; i < text.length(); ++i)
@@ -470,11 +476,13 @@ void UI_Text::Draw(bool game)
 
 		if (itr != font->mCharacters.end())
 		{
-			float sizeX = itr->second->size.x * (fs / 98);
-			float sizeY = itr->second->size.y * (fs / 98);
+			float sizeX = itr->second->size.x * fsDiv;
+			float sizeY = itr->second->bearing.y * fsDiv;
 
-			float nlOffsetE = (/*position.y +*/ sizeY + mOwner->mTransform->GetGlobalPosition().y + (fs * lineSpacing)) * newLines;
-			float nlOffsetG = (/*posY +*/ (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + (fs * lineSpacing)) / 2 * newLines;
+			float offY = itr->second->size.y * fsDiv;
+
+			float nlOffsetE = (/*position.y +*/ offY + mOwner->mTransform->GetGlobalPosition().y + (fontSize * lineSpacing)) * newLines;
+			float nlOffsetG = (/*posY +*/ (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + (fontSize * lineSpacing)) * newLines;
 
 			if (i != 0)
 			{
@@ -487,13 +495,13 @@ void UI_Text::Draw(bool game)
 
 				if (itr2->first != '\n')
 				{
-					space = space + itr2->second->size.x * (fs / 98) + (fs / 5);
+					space = space + itr2->second->size.x * fsDiv + (fontSize / 5);
 				}
 			}
 
 			if (itr->first == ' ')
 			{
-				space += (fs / 2);
+				space += (fontSize / 5);
 			}
 
 			if (itr->first == '\n')
@@ -509,8 +517,8 @@ void UI_Text::Draw(bool game)
 				boundsEditor->vertices[3].position = float3(position.x + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, position.y + mOwner->mTransform->GetGlobalPosition().y + nlOffsetE, 0);
 
 				// Bot left - Bot right - Top left - Top right
-				boundsGame->vertices[0].position = float3(posX + space + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
-				boundsGame->vertices[1].position = float3(posX + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
+				boundsGame->vertices[0].position = float3(posX + space + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + offY - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
+				boundsGame->vertices[1].position = float3(posX + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) + offY - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
 				boundsGame->vertices[2].position = float3(posX + space + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
 				boundsGame->vertices[3].position = float3(posX + space + (sizeX * scaleBounds.x * mOwner->mTransform->scale.x) + mOwner->mTransform->GetGlobalPosition().x, posY + (scaleBounds.y * mOwner->mTransform->scale.y) - sizeY + mOwner->mTransform->GetGlobalPosition().y + nlOffsetG, 0);
 
@@ -577,7 +585,8 @@ void UI_Text::SetFont(std::string name, std::string fontPath)
 
 	if (!isImported)
 	{
-		font = new Font(name, fontPath);
+		font = std::make_shared<Font>(name, fontPath);
+		Font::mFonts.push_back(font);
 	}
 }
 
@@ -640,16 +649,14 @@ Font::Font(std::string name, std::string fontPath)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		// TODO: MEMORY LEAK -> Smart pointers don't work here
-		Character* chara(new Character
-			{
-				texture,
-				float2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
-				float2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-				static_cast<unsigned int>(face->glyph->advance.x),
-			});
+		std::unique_ptr<Character> chara = std::make_unique<Character>();
 
-		mCharacters.insert(std::pair<GLchar, Character*>(c, chara));
+		chara->textureID = texture;
+		chara->size = float2(face->glyph->bitmap.width, face->glyph->bitmap.rows);
+		chara->bearing = float2(face->glyph->bitmap_left, face->glyph->bitmap_top);
+		chara->advance = static_cast<unsigned int>(face->glyph->advance.x);
+
+		mCharacters.insert(std::make_pair(c, std::move(chara)));
 	}
 
 	// destroy FreeType once we're finished
@@ -657,7 +664,11 @@ Font::Font(std::string name, std::string fontPath)
 	FT_Done_FreeType(ft);
 
 	LOG("Font loaded: %s", name.c_str());
-	Font::mFonts.push_back(this);
+}
+
+Font::~Font()
+{
+	mCharacters.clear();
 }
 
 bool Font::InitFont(std::string n, std::string fontPath)

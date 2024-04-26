@@ -24,6 +24,7 @@ public class Tp_To_Lvl2_Part1 : YmirComponent
         //TODO: Mostrat UI de que puede interactuar si pulsa el bot�n asignado
         if (other.Tag == "Player")
         {
+            Audio.StopAllAudios();
             InternalCalls.LoadScene("Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene");
         }
     }

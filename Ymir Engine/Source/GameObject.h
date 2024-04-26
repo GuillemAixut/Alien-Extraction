@@ -16,6 +16,7 @@
 #include "CCollider.h"
 #include "CAnimation.h"
 #include "CScript.h"
+#include "CParticleSystem.h"
 #include "CNavMeshAgent.h"
 #include "Component.h"
 
@@ -65,6 +66,7 @@ public:
 
 	bool CompareTag(std::string _tag);
 
+	int GetComponentPosition(Component* component);
 	// Clear references
 	void ClearReferences();
 	void RemoveReference(Component* comp);

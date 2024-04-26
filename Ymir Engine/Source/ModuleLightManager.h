@@ -18,10 +18,20 @@ public:
 	ModuleLightManager(Application* app, bool start_enabled = true);
 	virtual ~ModuleLightManager();
 
+	// Module Functions
+
+	bool Init() override;
+	update_status PreUpdate(float dt) override;
+	update_status Update(float dt) override;
+	update_status PostUpdate(float dt) override;
+	bool CleanUp() override;
+
 	void EnableLightDebug(bool enable);
 	bool IsLightDebugEnabled();
 
 	Light* CreateLight(LightType type);
+
+	void ClearLights();
 
 public:
 

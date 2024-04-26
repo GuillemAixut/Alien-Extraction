@@ -57,6 +57,7 @@ public:
 	void RemoveBody(PhysBody* b);
 
 	void ClearBodiesList();
+	void ClearMotions();
 
 	void RecalculateInertia(PhysBody* pbody, float mass, bool useGravity);
 
@@ -64,9 +65,14 @@ public:
 	btCollisionShape* CreateCollisionShape(const std::vector<Vertex>& vertices, const std::vector<GLuint>& indices);
 
 	// RayCast functions
-	bool RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint);
+	//bool RayCast(const btVector3& from, const btVector3& to, btVector3& hitPoint);
 	bool VolumetricRayCast(const btVector3& origin, const btVector3& direction, int numRays, float rayLength, std::vector<btVector3>& hitPoints);
 	bool DirectionalRayCast(const btVector3& origin, const btVector3& direction, float rayLength, btVector3& hitPoint);
+
+	// Script RayCast
+	bool Raycast(btVector3 origin, btVector3 direction, float rayLength, std::vector<btVector3>& hitPoints, std::vector<GameObject*>& hits);
+	GameObject* RaycastHit(btVector3 origin, btVector3 direction, float rayLength);
+	bool RaycastTest(btVector3 origin, btVector3 direction, float rayLength, GameObject* gameObject);
 
 	btScalar* getOpenGLMatrix(float4x4 matrix);
 
@@ -91,7 +97,7 @@ public:
 public:
 	// TODO: create 2 lists, one for rigidbodies and one for colliders	
 	std::vector<PhysBody*> bodiesList;
-	std::vector <btDefaultMotionState*> motions;
+	std::vector<btDefaultMotionState*> motions;
 
 	btDiscreteDynamicsWorld* world; // World se puede dejar en public si se requiere
 
@@ -111,6 +117,8 @@ public:
 	bool inCollision = false;
 	bool onExitCollision = false;
 	bool firstCollision = true;
+
+	bool isWorldFirstFrame = false;
 
 private:
 

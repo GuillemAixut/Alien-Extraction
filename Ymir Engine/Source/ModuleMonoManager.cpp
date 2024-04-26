@@ -17,7 +17,9 @@
 #include "CS_Bindings.h"
 #include "CS_Input_Bindings.h"
 #include "CS_Audio_Bindings.h"
+#include "CS_UI_Bindings.h"
 #include "CS_Animation_Bindings.h"
+#include "CS_Particle_Bindings.h"
 #include "CS_NavMesh_Bindings.h"
 
 #include "PhysfsEncapsule.h"
@@ -69,15 +71,26 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::Destroy", Destroy);
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CSVToString", CSVToString);
+	mono_add_internal_call("YmirEngine.InternalCalls::CSVToStringKeys", CSVToStringKeys);
+
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateGOFromPrefab", CreateGOFromPrefabCS);
+	
+	
+	mono_add_internal_call("YmirEngine.InternalCalls::DisableComponent", DisableComponentCS);
 
 #pragma region GameObject
 
 	mono_add_internal_call("YmirEngine.GameObject::SetActive", SetActive);
+	mono_add_internal_call("YmirEngine.GameObject::SetAsBillboard", SetGameObjectAsBillboardCS);
+	mono_add_internal_call("YmirEngine.GameObject::IsActive", IsActiveCS);
+
+	mono_add_internal_call("YmirEngine.GameObject::SetColliderSize", SetColliderSizeCS);
 
 #pragma endregion
 
-	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);	//TODO: Descomentar cuando est� el CreateBullet()
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateShotgunSensor", CreateShotgunSensor);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreatePrefab", CreatePrefab);	//TODO: Descomentar cuando est� el CreateBullet()
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateTailSensor", CreateTailSensor);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidicSpit", CreateAcidicSpit);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidPuddle", CreateAcidPuddle);
@@ -114,6 +127,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::SetColliderSize", SetColliderSize);
 	mono_add_internal_call("YmirEngine.GameObject::GetColliderSize", GetColliderSize);
 	mono_add_internal_call("YmirEngine.GameObject::ClearForces", ClearForces);
+	mono_add_internal_call("YmirEngine.GameObject::RaycastHit", RaycastHit);
+	mono_add_internal_call("YmirEngine.GameObject::RaycastTest", RaycastTest);
 
 #pragma endregion
 
@@ -121,6 +136,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 	mono_add_internal_call("YmirEngine.GameObject::set_Tag", SetTag);
 	mono_add_internal_call("YmirEngine.GameObject::get_Tag", GetTag);
+	mono_add_internal_call("YmirEngine.GameObject::GetChildrenByTag", GetChildrenByTag);
+
 
 #pragma region UI
 
@@ -146,6 +163,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 	// Text
 	mono_add_internal_call("YmirEngine.UI::TextEdit", TextEdit);
+	mono_add_internal_call("YmirEngine.UI::GetUIText", GetUIText);
 
 	// Slider
 	mono_add_internal_call("YmirEngine.UI::SliderEdit", SliderEdit);
@@ -157,10 +175,13 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.UI::GetSelected", GetSelected);
 	mono_add_internal_call("YmirEngine.UI::GetFocused", GetFocused);
 	mono_add_internal_call("YmirEngine.UI::SwitchPosition", SwitchPosition);
-	mono_add_internal_call("YmirEngine.UI::NavigateGrid", NavigateGrid);
+	mono_add_internal_call("YmirEngine.UI::NavigateGridHorizontal", NavigateGridHorizontal);
+	mono_add_internal_call("YmirEngine.UI::NavigateGridVertical", NavigateGridVertical);
 	mono_add_internal_call("YmirEngine.UI::CompareStringToName", CompareStringToName);
 	mono_add_internal_call("YmirEngine.UI::SetActiveAllUI", SetActiveAllUI);
-
+	mono_add_internal_call("YmirEngine.UI::SetFirstFocused", SetFirstFocused);
+	mono_add_internal_call("YmirEngine.UI::SetUIPosWithOther", SetUIPosWithOther);
+	mono_add_internal_call("YmirEngine.UI::CheckUI", CheckUI);
 
 
 #pragma endregion
@@ -220,6 +241,12 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Animation::AddBlendOption", AddBlendOption);
 	mono_add_internal_call("YmirEngine.Animation::SetResetToZero", SetResetToZero);
 	mono_add_internal_call("YmirEngine.Animation::AnimationHasFinished", HasFinished);
+#pragma endregion
+
+#pragma region Particles
+	mono_add_internal_call("YmirEngine.Particles::PlayEmitter", PlayEmitter);
+	mono_add_internal_call("YmirEngine.Particles::ParticleShoot", ParticleShoot);
+
 #pragma endregion
 
 

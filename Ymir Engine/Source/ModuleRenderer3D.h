@@ -33,7 +33,6 @@
 #include <vector>
 #include "Module.h"
 #include "Globals.h"
-#include "GL_Light.h"
 #include "Primitive.h"
 
 #include "Model.h"
@@ -42,10 +41,10 @@
 #include "UI_Text.h"
 #include "CMesh.h"
 
-#define MAX_GL_LIGHTS 8
-
 class GameObject;
 class CCamera;
+class CParticleSystem;
+class ParticleEmitter;
 
 struct LineRender
 {
@@ -126,11 +125,12 @@ public:
 
 	void DrawLightsDebug();
 
+	void DrawParticles(ParticleEmitter* emitter);
+	bool DrawParticlesShapeDebug(CParticleSystem* obj);
 	void DrawOutline(CMesh* cMeshReference, float4x4 transform);
 
 public:
 
-	GL_Light gl_lights[MAX_GL_LIGHTS];
 	SDL_GLContext context;
 
 	CPlane Grid;
@@ -143,6 +143,9 @@ public:
 	std::vector<C_UI*> listUI; // clean up 
 
 	bool texturingEnabled = true;
+
+	//std::vector<ParticleEmitter*> particleEmitters;
+	//bool initParticles = false;
 
 private:
 

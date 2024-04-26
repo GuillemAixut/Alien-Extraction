@@ -50,7 +50,6 @@ public class UI_Upgrade_Navigation : YmirComponent
             if (Input.GetLeftAxisX() > 0 && _canTab)
             {
                 NavigateRight();
-
                 _canTab = false;
             }
 
@@ -69,7 +68,6 @@ public class UI_Upgrade_Navigation : YmirComponent
 
         if (_focusedGO != null && InternalCalls.CompareGameObjectsByUID(InternalCalls.CS_GetParent(_focusedGO), gameObject))
         {
-
             if (InternalCalls.CompareGameObjectsByUID(_focusedGO, InternalCalls.GetChildrenByName(gameObject, "Upgrade 4")))
             {
                 GameObject go = InternalCalls.GetChildrenByName(gameObject, "Upgrade 3");
@@ -108,7 +106,6 @@ public class UI_Upgrade_Navigation : YmirComponent
 
     public void NavigateRight()
     {
-
         if (_focusedGO != null && InternalCalls.CompareGameObjectsByUID(InternalCalls.CS_GetParent(_focusedGO), gameObject))
         {
             if (InternalCalls.CompareGameObjectsByUID(_focusedGO, InternalCalls.GetChildrenByName(gameObject, "Upgrade 3")))
