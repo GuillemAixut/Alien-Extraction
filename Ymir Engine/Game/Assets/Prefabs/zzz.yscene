@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -87.038726806640625,
-        75.869300842285156,
-        54.305519104003906
+        -24.249744415283203,
+        8.6079750061035156,
+        37.709983825683594
     ],
     "Editor Camera Right (X)": [
-        0.54828917980194092,
-        2.1904706954956055e-06,
-        0.83141648769378662
+        0.70710670948028564,
+        0,
+        -0.70710670948028564
     ],
     "Editor Camera Up (Y)": [
-        0.61790323257446289,
-        0.66657090187072754,
-        -0.40748664736747742
+        -0.40824830532073975,
+        0.81649661064147949,
+        -0.40824830532073975
     ],
     "Editor Camera Front (Z)": [
-        0.55859589576721191,
-        -0.74295240640640259,
-        -0.3683718740940094
+        -0.5773501992225647,
+        -0.5773501992225647,
+        -0.5773501992225647
     ],
     "Hierarchy": [
         {
@@ -164,7 +164,8 @@
                     "Type": "Script",
                     "ScriptName": "CameraRot.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "constDelay": 0
                 }
             ]
         },
@@ -267,7 +268,9 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
+                    "currentState": 0,
                     "movementSpeed": 35,
+                    "deathAnimFinish": true,
                     "godMode": false,
                     "fireRate": 0,
                     "reloadDuration": 0,
@@ -281,6 +284,8 @@
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
+                    "acidicTimer": 0,
+                    "currentMenu": "",
                     "setHover": true
                 }
             ],
@@ -3096,16 +3101,16 @@
                     "NumEmitters": 1,
                     "Emitters": [
                         {
-                            "ModulesSize": 7,
+                            "ModulesSize": 6,
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 10,
+                                    "Lifetime": 8,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        0,
+                                        1.6000000238418579,
                                         0,
                                         0,
                                         0,
@@ -3117,32 +3122,32 @@
                                     "DistanceLimit": 0.10000000149011612,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
-                                    "BaseShape": 0,
+                                    "BaseShape": 1,
                                     "RadiusHollow": 0,
-                                    "RadiusBase": 0,
-                                    "RadiusTop": 0,
-                                    "Heigth": 0
+                                    "RadiusBase": 3.5999999046325684,
+                                    "RadiusTop": 7.5999999046325684,
+                                    "Heigth": 2.7999999523162842
                                 },
                                 {
                                     "Type": 1,
                                     "SpawnMode": 1,
                                     "StartMode": 0,
                                     "NumParticles": 5,
-                                    "SpawnRatio": 0.20000000298023224,
+                                    "SpawnRatio": 0.21799999475479126,
                                     "NumParticlesToStop": 100
                                 },
                                 {
                                     "Type": 5,
-                                    "Progressive": false,
+                                    "Progressive": true,
                                     "Color1": [
                                         1,
-                                        1,
-                                        1,
+                                        0.66371679306030273,
+                                        0,
                                         1
                                     ],
                                     "Color2": [
-                                        0,
-                                        0,
+                                        0.96460187435150146,
+                                        1,
                                         0,
                                         0
                                     ],
@@ -3164,7 +3169,7 @@
                                     ],
                                     "NormalizedBaseDirection": true,
                                     "Accelerates": false,
-                                    "Speed1": 1,
+                                    "Speed1": 4.1999998092651367,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -3179,8 +3184,8 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
-                                    "Size1": 4.9000000953674316,
-                                    "Size2": 1,
+                                    "Size1": 0.37999999523162842,
+                                    "Size2": 0.10000000149011612,
                                     "TimeStart": 0,
                                     "TimeStop": 1
                                 },
@@ -3194,9 +3199,6 @@
                                         0,
                                         0
                                     ]
-                                },
-                                {
-                                    "Type": 6
                                 }
                             ]
                         }
@@ -3946,7 +3948,7 @@
                     "Active": 1,
                     "Translation": [
                         0,
-                        0,
+                        0.056675314903259277,
                         0
                     ],
                     "Rotation": [
@@ -4013,7 +4015,7 @@
                                     "DistanceLimit": 0.10000000149011612,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
-                                    "BaseShape": 0,
+                                    "BaseShape": 1,
                                     "RadiusHollow": 0,
                                     "RadiusBase": 0,
                                     "RadiusTop": 0,
