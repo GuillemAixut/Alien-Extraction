@@ -149,7 +149,7 @@ public class QueenXenomorphBaseScript : YmirComponent
     public void Update()
 	{
 
-        isDeath();
+        if (queenState != QueenState.DEAD) { isDeath(); }
         //Dont rotate while doing dash
         if (queenState != QueenState.DASH)
         {
