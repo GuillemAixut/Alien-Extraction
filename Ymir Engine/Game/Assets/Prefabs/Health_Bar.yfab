@@ -7,14 +7,14 @@
             "UID": 1953913454,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1650915083,
+            "Parent UID": 1713579702,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
                         0,
-                        30,
+                        75,
                         0
                     ],
                     "Rotation": [
@@ -23,9 +23,9 @@
                         -0
                     ],
                     "Scale": [
-                        50,
                         1,
-                        1
+                        1,
+                        0.99999940395355225
                     ]
                 },
                 {
@@ -34,7 +34,8 @@
                     "Active": 1,
                     "UID": 0,
                     "HP": 500,
-                    "initialHP": 500
+                    "initialHP": 500,
+                    "enemy": 1934786796
                 }
             ],
             "Children UID": [
@@ -55,7 +56,7 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
+                        -21.895606994628906,
                         0,
                         0
                     ],
@@ -65,7 +66,7 @@
                         -0
                     ],
                     "Scale": [
-                        1,
+                        50,
                         1,
                         1
                     ]
@@ -80,23 +81,20 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
                     "Uniforms": [
                         {
                             "lightDir": [
                                 0,
+                                15.465556144714355,
+                                -0.51650440692901611
+                            ],
+                            "color": [
+                                1,
                                 0,
                                 0
                             ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "light": false
                         }
                     ],
                     "Diffuse_ID": 0,

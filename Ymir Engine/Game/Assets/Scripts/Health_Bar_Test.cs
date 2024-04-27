@@ -13,53 +13,48 @@ public class Health_Bar_Test : YmirComponent
     public float initialHP = 500;
     public Vector3 initialScale;
 
+    public GameObject enemy = null;
+    public GameObject plane = null;
+
+    private FaceHuggerBaseScript aux = null;
+    private DroneXenomorphBaseScript aux2 = null;
+
     public void Start()
     {
         HP = 500.0f;
         initialHP = HP;
-        initialScale = gameObject.transform.localScale;
-        Debug.Log("HelloWorld");
+        plane = InternalCalls.CS_GetChild(gameObject, 0);
+        initialScale = plane.transform.localScale;
+
+        aux = enemy.GetComponent<FaceHuggerBaseScript>();
+        aux2 = enemy.GetComponent<DroneXenomorphBaseScript>();
     }
 
     public void Update()
     {
+        gameObject.transform.localPosition = new Vector3(enemy.transform.localPosition.x, gameObject.transform.localPosition.y, enemy.transform.localPosition.z);
+
+
         gameObject.SetAsBillboard();
 
         float scaleX = Mathf.Max(0, initialScale.x * (HP / initialHP));
         Vector3 newScale = new Vector3(scaleX, initialScale.y, initialScale.z);
-        gameObject.SetScale(newScale);
+        plane.SetScale(newScale);
 
-        if (Input.GetKey(YmirKeyCode.H) == KeyState.KEY_DOWN)
+        //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
+        if (aux != null)
         {
-            GetHeal(25);
+            HP = aux.life;
         }
 
-        if (Input.GetKey(YmirKeyCode.J) == KeyState.KEY_DOWN)
+        if (aux2 != null)
         {
-            GetDamage(25);
+            HP = aux2.life;
         }
     }
-
-    public void GetDamage(int damage)
+    public void Destroy()
     {
-        if (HP >= damage)
-        {
-            HP -= damage;
-            Debug.Log("HP (damage): " + HP);
-        }
+        InternalCalls.Destroy(gameObject);
     }
 
-    public void GetHeal(int heal)
-    {
-        if (HP + heal < initialHP)
-        {
-            HP += heal;
-            Debug.Log("HP (heal): " + heal);
-        }
-        else
-        {
-            HP = initialHP;
-            Debug.Log("HP (heal): " + HP);
-        }
-    }
 }
