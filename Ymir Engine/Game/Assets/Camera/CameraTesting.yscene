@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -13.295072555541992,
-        144.33018493652344,
-        97.869384765625
+        -12.676851272583008,
+        148.25642395019531,
+        85.697235107421875
     ],
     "Editor Camera Right (X)": [
-        0.99944198131561279,
-        -1.4156103134155273e-07,
-        -0.033488500863313675
+        0.060964696109294891,
+        -2.6077032089233398e-07,
+        -0.99814563989639282
     ],
     "Editor Camera Up (Y)": [
-        -0.023610834032297134,
-        0.70916074514389038,
-        -0.70465260744094849
+        -0.7421754002571106,
+        0.66867506504058838,
+        -0.045330733060836792
     ],
     "Editor Camera Front (Z)": [
-        -0.023748787119984627,
-        -0.70504891872406006,
-        -0.7087637186050415
+        -0.66742950677871704,
+        -0.7435603141784668,
+        -0.040765035897493362
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 1254407493,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 967884778,
+            "Parent UID": 830976223,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1177,8 +1177,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 518,
-                    "Height": 522,
+                    "Width": 654,
+                    "Height": 547,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -3728,7 +3728,43 @@
                     "Active": 1,
                     "UID": 0,
                     "constDelay": 0,
-                    "cinematicTest": 0
+                    "followState": 0,
+                    "cinematics": 0
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        10,
+                        10,
+                        10
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
                 }
             ]
         },
@@ -4486,7 +4522,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.5180144045152701e-06,
+                        5.5180134950205684e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],
