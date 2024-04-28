@@ -263,36 +263,12 @@ struct EmitterImage : EmitterSetting
 	CMaterial* mat;
 };
 
-struct EmitterShape : EmitterSetting
+enum SpawnCondition
 {
-	EmitterShape(ParticleEmitter* parent);
-
-	void Spawn(ParticleEmitter* emitter, Particle* particle);
-	void Update(float dt, ParticleEmitter* emitter);
-	//void OnInspector();
-
-	//void CreateSpawnShape(typeShape shape);
-
-	EmitterShape* myShape;
-	CTransform* eTransform;
-	ParticleEmitter* shapeParent;
-};
-
-struct EmitterShapeArea : EmitterSetting
-{
-	EmitterShapeArea();
-	void Spawn(ParticleEmitter* emitter, Particle* particle);
-	void Update(float dt, ParticleEmitter* emitter);
-	void OnInspector();
-
-	float3 offset{ 0,0,0 };
-	bool hasInitialSpeed = true;
-	float speed;
-	float minRange = -1.0f;
-	float maxRange = 1.0f;
-	float3 direccion;
-	float angle;
-	bool useDirection = true;
+	PAR_LESS_THAN,
+	PAR_MORE_THAN,
+	PAR_INBETWEEN_OF,
+	PAR_END_SPAWN_CONDITION,
 };
 
 struct Subemitter : EmitterSetting
@@ -300,7 +276,14 @@ struct Subemitter : EmitterSetting
 	Subemitter();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
-	void OnInspector();
+	void OnInspector(ParticleEmitter* thisEmitter);
+
+	ParticleEmitter* pointing;
+	//ParticleEmitter* thisEmitter;
+
+	SpawnCondition conditionForSpawn;
+	float minimunLifetime;
+	float maximunLifetime;
 };
 
 #endif //__EMITTER_INSTANCE_H__
