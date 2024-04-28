@@ -374,13 +374,14 @@ EmitterSpawner::EmitterSpawner()
 {
 	startMode = ParticlesSpawnEnabeling::PAR_START_NON_STOP;
 	playTriggered = false;
+	subemitterTrigger = false;
 	spawnMode = ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY;
 	spawnRatio = 0.2f; //Dividir en current time por cuantas se spawnean 
 	currentTimer = 0.0f;
 	numParticlesToSpawn = 5;
 	numParticlesForStop = 100;
 	numParticlesSpawned = 0;
-
+	subemitterMode = false;
 }
 
 void EmitterSpawner::Spawn(ParticleEmitter* emitter, Particle* particle)
@@ -393,6 +394,13 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 	bool countParticles = false;
 	switch (startMode)
 	{
+
+	case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:
+	{
+		spawnFromStart = false;
+		countParticles = false;
+	}
+	break;
 	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
 	{
 		spawnFromStart = true;
@@ -423,7 +431,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 		break;
 	}
 
-	if((spawnFromStart || playTriggered) && numParticlesSpawned < numParticlesForStop)
+	if((spawnFromStart || playTriggered || subemitterTrigger) && numParticlesSpawned < numParticlesForStop)
 	{
 		switch (spawnMode)
 		{
@@ -582,46 +590,29 @@ void EmitterSpawner::OnInspector()
 	std::string modeName2;
 	switch (startMode)
 	{
-	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
-		modeName2 = "Start and NonStop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_START_STOP:
-		modeName2 = "Start with Stop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:
-		modeName2 = "Wait then NonStop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_WAIT_STOP:
-		modeName2 = "Init with Stop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:
-		break;
-	default:
-		break;
+	case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:modeName2 = "Wait Subemitter";break;
+	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:modeName2 = "Start and NonStop";break;
+	case ParticlesSpawnEnabeling::PAR_START_STOP:modeName2 = "Start with Stop";break;
+	case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:modeName2 = "Wait then NonStop";break;
+	case ParticlesSpawnEnabeling::PAR_WAIT_STOP:modeName2 = "Init with Stop";break;
+	case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:break;
+	default:break;
 	}
 
 	if (ImGui::BeginCombo("##InitMode", modeName2.c_str()))
 	{
-		for (int i = 0; i < ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END; i++)
+		for (int i = (subemitterMode) ? -1 : 0; i < ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END; i++)
 		{
 			/*std::string modeName;*/
 
 			switch (ParticlesSpawnEnabeling(i))
 			{
-			case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
-				modeName2 = "Start and NonStop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_START_STOP:
-				modeName2 = "Start with Stop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:
-				modeName2 = "Wait then NonStop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_WAIT_STOP:
-				modeName2 = "Wait with Stop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:
-				break;
+			case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:modeName2 = "Wait Subemitter";break;
+			case ParticlesSpawnEnabeling::PAR_START_NON_STOP:modeName2 = "Start and NonStop";break;
+			case ParticlesSpawnEnabeling::PAR_START_STOP:modeName2 = "Start with Stop";break;
+			case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:modeName2 = "Wait then NonStop";break;
+			case ParticlesSpawnEnabeling::PAR_WAIT_STOP:modeName2 = "Wait with Stop";break;
+			case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:break;
 			}
 			if (ImGui::Selectable(modeName2.c_str()))
 			{
@@ -636,6 +627,9 @@ void EmitterSpawner::OnInspector()
 
 	switch (startMode)
 	{
+	case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:
+		ImGui::Text(("Remaining Particles:" + std::to_string(numParticlesForStop - numParticlesSpawned)).c_str());
+		break;
 	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
 		//modeName2 = "Start and NonStop";
 		break;
@@ -663,7 +657,6 @@ void EmitterSpawner::OnInspector()
 	default:
 		break;
 	}
-	
 	
 	ImGui::Separator();
 }
@@ -1603,9 +1596,17 @@ void Subemitter::Spawn(ParticleEmitter* emitter, Particle* particle)
 }
 
 void Subemitter::Update(float dt, ParticleEmitter* emitter)
-{
+{ 
+	
 	if(pointing != nullptr)
-	{
+	{	
+		EmitterSpawner* eSpawn;
+		if (pointing->modules.at(1)->type == EmitterType::PAR_SPAWN) // Module spawn
+		{
+			eSpawn = (EmitterSpawner*)emitter->modules.at(1);
+			eSpawn->subemitterTrigger = false;
+		};
+
 		for(int i = 0;pointing->listParticles.size() > i; i++)
 		{
 			switch (conditionForSpawn)
@@ -1613,20 +1614,23 @@ void Subemitter::Update(float dt, ParticleEmitter* emitter)
 			case PAR_LESS_THAN:
 				if (pointing->listParticles.at(i)->lifetime < maximunLifetime) //Cumple condicion para spawn
 				{
-					//We access the spawn setting and we tell it to spawn a particle
+					eSpawn->subemitterTrigger = true;
 				}
+				else { /*eSpawn->subemitterTrigger = false;*/ }
 				break;
 			case PAR_MORE_THAN:
 				if (pointing->listParticles.at(i)->lifetime > minimunLifetime) //Cumple condicion para spawn
 				{
-					//We access the spawn setting and we tell it to spawn a particle
+					eSpawn->subemitterTrigger = true;
 				}
+				else { /*eSpawn->subemitterTrigger = false;*/ }
 				break;
 			case PAR_INBETWEEN_OF:
 				if (pointing->listParticles.at(i)->lifetime > minimunLifetime && pointing->listParticles.at(i)->lifetime < maximunLifetime) //Cumple condicion para spawn
 				{
-					//We access the spawn setting and we tell it to spawn a particle
+					eSpawn->subemitterTrigger = true;
 				}
+				else { /*eSpawn->subemitterTrigger = false;*/ }
 				break;
 			case PAR_END_SPAWN_CONDITION:
 				break;
@@ -1647,6 +1651,11 @@ void Subemitter::OnInspector(ParticleEmitter* thisEmitter)
 	else
 	{
 		actualEmitterName = pointing->name;
+		if (thisEmitter->modules.at(1)->type == EmitterType::PAR_SPAWN) // Module spawn
+		{
+			EmitterSpawner* eSpawn = (EmitterSpawner*)thisEmitter->modules.at(1);
+			eSpawn->subemitterMode = true;
+		};
 	}
 	
 

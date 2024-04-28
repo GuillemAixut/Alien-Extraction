@@ -104,6 +104,7 @@ enum ParticlesSpawnMode
 
 enum ParticlesSpawnEnabeling
 {
+	PAR_WAIT_SUBEMITTER = -	1,
 	PAR_START_NON_STOP, //Starts emittng and won´t stop
 	PAR_START_STOP, //Starts emitting but stops after X particles spawned
 	PAR_WAIT_NON_STOP, //Starts waiting for a Play then won't stop
@@ -122,12 +123,15 @@ struct EmitterSpawner : EmitterSetting
 	//Variable unica, ritmo de spawn
 	ParticlesSpawnMode spawnMode;
 	bool playTriggered;
+	bool subemitterTrigger;
 	ParticlesSpawnEnabeling startMode;
 	float spawnRatio; //Dividir en current time por cuantas se spawnean 
 	float currentTimer;
 	int numParticlesToSpawn;
 	int numParticlesForStop; //When played, if enabeling mode is stop once it spawn X particles it stops playing
 	int numParticlesSpawned;
+
+	bool subemitterMode;
 };
 
 //Enum of the modes as positions change after spawn
