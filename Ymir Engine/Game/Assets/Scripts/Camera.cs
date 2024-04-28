@@ -9,32 +9,58 @@ using YmirEngine;
 
 public struct Cinematic
 {
-    public List<TravelKey> keys;
-    public bool isPlaying;
+    public string _name;
+    public List<TravelKey> _keys;
+    public bool _isPlaying;
+
+    public  Cinematic(string name)
+    {
+        _name = name;
+        _keys = new List<TravelKey>();
+        _isPlaying = false;
+    }
+
+    public void PlayCinematic()
+    {
+        _isPlaying = true;
+
+        for (int i = 0; i < _keys.Count(); i++)
+        {
+
+        }
+    }
 }
 public struct TravelKey
 {
-    public Vector3 position;
-    public Vector3 rotation;
+    public Vector3 _position;
+    public Vector3 _rotation;
 
-    public float travelTime;
+    public float _travelTime;
+
+    public TravelKey(Vector3 position, Vector3 rotation, float time)
+    {
+        _position = position;
+        _rotation = rotation;
+        _travelTime = time;
+    }
 }
 public class Camera : YmirComponent
 {
-
-    enum FOLLOW : int
+    public enum FOLLOW : int
     {
         NULL = -1,
 
         PLAYER,
-        OTHER
+        CINEMATIC
     }
-    //--------------------- Controller var ---------------------\\
 
-    //position difference between camera and player
-    public Vector3 difPos = new Vector3(-58, 111, 63);
+    // Offset between camera/player
+    public Vector3 offset = new Vector3(-58, 111, 63);
+    public Vector3 rotationOffset = new Vector3(120, 25, -142);
+    //public Vector3 rotationOffset = new Vector3(120, 270, 0);
 
-    private GameObject target;
+    // Player
+    private GameObject playerObject;
     private Player player;
 
     // Timers
@@ -48,28 +74,36 @@ public class Camera : YmirComponent
 
     public const float constDelay = 0.3f;
 
-    FOLLOW followState = FOLLOW.PLAYER;
+    public FOLLOW followState = FOLLOW.PLAYER;
 
-    public Cinematic cinematicTest;
+    public List<Cinematic> cinematics;
 
     public void Start()
     {
         // Cinematics
 
-        cinematicTest = new Cinematic();
+        Cinematic testCinematic = new Cinematic("TestCinematic");
+        testCinematic._keys.Add(new TravelKey(new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), 3f));
 
-        //cinematicTest.keys.Add(SetKey(new Vector3(0f,0f,0f), new Vector3(0f,0f,0f), 3f));
-        //cinematicTest.keys.Add(SetKey(new Vector3(100f,0f,0f), new Vector3(90f,0f,0f), 3f));
+        cinematics.Add(testCinematic);
+
+        // ----------
+
+        //gameObject.transform.localRotation = Quaternion.Euler(rotationOffset.x, rotationOffset.y, rotationOffset.z);
+        gameObject.SetRotation(Quaternion.Euler(rotationOffset.x, rotationOffset.y, rotationOffset.z));
+
+        Debug.Log("Local Rotation: " + gameObject.transform.localRotation.ToString());
+        Debug.Log("Rotation Offset: " + Quaternion.Euler(rotationOffset.x, rotationOffset.y, rotationOffset.z).ToString());
 
         idleTimer = 0.0f;
         delayTimer = 0.0f;
 
         delay = false;
 
-        target = InternalCalls.GetGameObjectByName("Player");
-        if (target != null)
+        playerObject = InternalCalls.GetGameObjectByName("Player");
+        if (playerObject != null)
         {
-            player = target.GetComponent<Player>();
+            player = playerObject.GetComponent<Player>();
         }
 
         Audio.PlayEmbedAudio(gameObject);
@@ -77,9 +111,12 @@ public class Camera : YmirComponent
 
     public void Update()
     {
+
+
+
         // Follow Player (If unrelated stuff gets added, write above this comment)
 
-        Vector3 newpos = target.transform.localPosition + difPos;
+        Vector3 newpos = playerObject.transform.localPosition + offset;
 
         float distance = Vector3.Distance(gameObject.transform.localPosition, newpos);
 
@@ -91,7 +128,7 @@ public class Camera : YmirComponent
             {
 
                 delay = true;
-                followState = FOLLOW.OTHER;
+                followState = FOLLOW.CINEMATIC;
             }
         }
         else
@@ -120,26 +157,15 @@ public class Camera : YmirComponent
         {
             case FOLLOW.PLAYER:
 
-                gameObject.transform.localPosition = (Vector3.Lerp(gameObject.transform.localPosition, newpos, Time.deltaTime * distance * constDelay));
+                //gameObject.transform.localPosition = (Vector3.Lerp(gameObject.transform.localPosition, newpos, Time.deltaTime * distance * constDelay));
 
                 break;
-            case FOLLOW.OTHER:
+            case FOLLOW.CINEMATIC:
 
-                gameObject.transform.localPosition = (Vector3.Lerp(gameObject.transform.localPosition, new Vector3(0f, 0f, 0f), Time.deltaTime * delayTimerMax));
+                //gameObject.transform.localPosition = (Vector3.Lerp(gameObject.transform.localPosition, new Vector3(0f, 0f, 0f), Time.deltaTime * delayTimerMax));
 
                 break;
         }
-    }
-
-    private TravelKey SetKey(Vector3 position, Vector3 rotation, float time)
-    {
-        TravelKey key = new TravelKey();
-
-        key.position = position;
-        key.rotation = rotation;
-        key.travelTime = time;
-
-        return key;
     }
 }
 
