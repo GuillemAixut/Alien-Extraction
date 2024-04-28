@@ -1590,156 +1590,156 @@ void EmitterImage::OnInspector()
 	ImGui::Separator();
 }
 
-EmitterShape::EmitterShape(ParticleEmitter* parent)
-{
-	CTransform* parentTransform = (CTransform*)parent->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
-	eTransform = parentTransform;
-
-	shapeParent = parent;
-}
-
-void EmitterShape::Spawn(ParticleEmitter* emitter, Particle* particle)
-{
-
-}
-
-void EmitterShape::Update(float dt, ParticleEmitter* emitter)
-{
-
-}
-
-//void EmitterShape::OnInspector()
-//{
-//	ImGui::Text("Select shape");
-//
-//	ImGui::Spacing();
-//
-//	if (ImGui::Button("AREA"))
-//	{
-//		CreateSpawnShape(typeShape::AREA);
-//	}
-//
-//	if (ImGui::BeginCombo("NONE", "Select Shape", ImGuiComboFlags_PopupAlignLeft))
-//	{
-//
-//
-//		ImGui::EndCombo();
-//	}
-//
-//	ImGui::Separator();
-//}
-//
-//void EmitterShape::CreateSpawnShape(typeShape shape)
-//{
-//	EmitterShapeArea* newShape = nullptr;
-//
-//	switch (shape)
-//	{
-//	case typeShape::AREA:
-//		newShape = new EmitterShapeArea();
-//		shapeParent->modules.push_back(newShape);
-//		break;
-//	case typeShape::CONE:
-//		//newShape = new EmitterShapeCone();
-//		break;
-//	case typeShape::CIRCUMFERENCE:
-//		//newShape = new EmmiterShapeCircumference();
-//		break;
-//	case typeShape::SPHERE:
-//		//newShape = new EmitterShapeSphere();
-//		break;
-//	}
-//}
-
-EmitterShapeArea::EmitterShapeArea()
-{
-	angle = 0;
-	useDirection = false;
-}
-
-void EmitterShapeArea::Spawn(ParticleEmitter* emitter, Particle* particle)
-{
-
-	//Get a random spawn point inside of a quad defined by a point and a radius
-
-	float3 localPos;
-	localPos.x = offset.x + Random::GenerateRandomFloat(minRange, maxRange);
-	localPos.y = offset.y + Random::GenerateRandomFloat(minRange, maxRange);
-	localPos.z = offset.z + Random::GenerateRandomFloat(minRange, maxRange);
-	particle->position = localPos;
-
-	if (hasInitialSpeed)
-	{
-		float3 localSpeed = (localPos - float3(offset[0], offset[1], offset[2])).Normalized();
-		particle->velocity = float4(float3(emitter->owner->mOwner->mTransform->GetGlobalTransform().TransformDir(localSpeed).Normalized()), speed);	//TONI: estoy delirando
-
-		if (useDirection)
-		{
-			float3 direction = (localPos - float3(offset[0], offset[1], offset[2]));
-			direction = emitter->owner->mOwner->mTransform->GetGlobalTransform().TransformDir(direction).Normalized();
-
-#ifndef STANDALONE
-			float4x4 cameraView = External->camera->editorCamera->GetViewMatrix().Transposed();
-#else
-			float4x4 cameraView = External->moduleRenderer3D->GetGameRenderTarget()->ViewMatrixOpenGL().Transposed();
-#endif // !STANDALONE
-
-			direction = cameraView.TransformDir(direction);
-
-			float2 directionViewProj = float2(direction.x, direction.y).Normalized();
-			float2 xAxis = float2(1, 0);
-			float finalAngle = xAxis.AngleBetween(directionViewProj);
-			if (directionViewProj.y < 0)
-				finalAngle = 360 * DEGTORAD - finalAngle;
-			finalAngle += angle * DEGTORAD;
-
-			//particle->worldRotation = finalAngle;
-		}
-	}
-
-}
-
-void EmitterShapeArea::Update(float dt, ParticleEmitter* emitter)
-{
-	for (int i = 0; i < emitter->listParticles.size(); i++)
-	{
-		//Acceleration
-		float actualLT = emitter->listParticles.at(i)->lifetime;
-		emitter->listParticles.at(i)->velocity.w = speed + ((speed - speed) * (actualLT / 1.0f));
-
-		emitter->listParticles.at(i)->position.x += emitter->listParticles.at(i)->velocity.x * emitter->listParticles.at(i)->velocity.w * dt;
-		emitter->listParticles.at(i)->position.y += emitter->listParticles.at(i)->velocity.y * emitter->listParticles.at(i)->velocity.w * dt;
-		emitter->listParticles.at(i)->position.z += emitter->listParticles.at(i)->velocity.z * emitter->listParticles.at(i)->velocity.w * dt;
-	}
-}
-
-void EmitterShapeArea::OnInspector()
-{
-	std::string suffixLabel = "Dimensions##PaShapeArea";
-	ImGui::DragFloat3("Position", &(this->direccion[0]), 0.1f);
-
-	suffixLabel = "Face Direction##PaShapeCone";
-	ImGui::Checkbox(suffixLabel.c_str(), &useDirection);
-
-	if (useDirection)
-	{
-		suffixLabel = "Set Angle##PaShapeCone";
-		ImGui::DragFloat(suffixLabel.c_str(), &angle);
-	}
-}
-
 Subemitter::Subemitter()
 {
+	pointing = nullptr;
+	minimunLifetime = 0.0f;
+	maximunLifetime = 1.0f;
 }
 
 void Subemitter::Spawn(ParticleEmitter* emitter, Particle* particle)
 {
+
 }
 
 void Subemitter::Update(float dt, ParticleEmitter* emitter)
 {
+	if(pointing != nullptr)
+	{
+		for(int i = 0;pointing->listParticles.size() > i; i++)
+		{
+			switch (conditionForSpawn)
+			{
+			case PAR_LESS_THAN:
+				if (pointing->listParticles.at(i)->lifetime < maximunLifetime) //Cumple condicion para spawn
+				{
+					//We access the spawn setting and we tell it to spawn a particle
+				}
+				break;
+			case PAR_MORE_THAN:
+				if (pointing->listParticles.at(i)->lifetime > minimunLifetime) //Cumple condicion para spawn
+				{
+					//We access the spawn setting and we tell it to spawn a particle
+				}
+				break;
+			case PAR_INBETWEEN_OF:
+				if (pointing->listParticles.at(i)->lifetime > minimunLifetime && pointing->listParticles.at(i)->lifetime < maximunLifetime) //Cumple condicion para spawn
+				{
+					//We access the spawn setting and we tell it to spawn a particle
+				}
+				break;
+			case PAR_END_SPAWN_CONDITION:
+				break;
+			default:
+				break;
+			}
+		}
+	}
 }
 
-void Subemitter::OnInspector()
+void Subemitter::OnInspector(ParticleEmitter* thisEmitter)
 {
+	std::string actualEmitterName;
+	if(pointing == nullptr) 
+	{
+		actualEmitterName = "None";
+	}
+	else
+	{
+		actualEmitterName = pointing->name;
+	}
+	
+
+	if (ImGui::BeginCombo("##Change Emitter", actualEmitterName.c_str()))
+	{
+		for (auto it = thisEmitter->owner->allEmitters.begin(); it != thisEmitter->owner->allEmitters.end(); it++)
+		{
+			if ((*it)->UID != thisEmitter->UID)
+			{
+				actualEmitterName = (*it)->name;
+			}
+			else
+			{
+				actualEmitterName = "None";
+			}
+
+			if (actualEmitterName.c_str() == "None")
+			{
+				pointing = nullptr;
+			}
+			else if (ImGui::Selectable(actualEmitterName.c_str()))
+			{
+				pointing = (*it);
+				if(pointing == thisEmitter) 
+				{
+					pointing = nullptr;
+				}
+			}
+		}
+
+		ImGui::EndCombo();
+	}
+
+	if(pointing != nullptr)
+	{
+		std::string spawnCon;
+
+		switch (conditionForSpawn)
+		{
+		case SpawnCondition::PAR_LESS_THAN: spawnCon = "Less Than";	break;
+		case SpawnCondition::PAR_MORE_THAN: spawnCon = "More Than";	break;
+		case SpawnCondition::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
+		case SpawnCondition::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
+		default:
+			break;
+		}
+
+		if (ImGui::BeginCombo("##SpawnCondition", spawnCon.c_str()))
+		{
+			for (int i = 0; i < SpawnCondition::PAR_END_SPAWN_CONDITION; i++)
+			{
+				switch ((SpawnCondition)i)
+				{
+				case SpawnCondition::PAR_LESS_THAN: spawnCon = "Less Than";	break;
+				case SpawnCondition::PAR_MORE_THAN: spawnCon = "More Than";	break;
+				case SpawnCondition::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
+				case SpawnCondition::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
+				}
+				if (ImGui::Selectable(spawnCon.c_str()))
+				{
+					conditionForSpawn = (SpawnCondition)i;
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+
+		switch (conditionForSpawn)
+		{
+		case SpawnCondition::PAR_LESS_THAN:
+		{
+			ImGui::DragFloat("Maximun Time ## SUBEMITTER", &maximunLifetime, 0.05f, 0.0f, 1.0f);
+		}
+		break;
+		case SpawnCondition::PAR_MORE_THAN: 
+		{
+			ImGui::DragFloat("Minimun Time ## SUBEMITTER", &minimunLifetime, 0.05f, 0.0f, 1.0f);
+		}	
+		break;
+		case SpawnCondition::PAR_INBETWEEN_OF: 
+		{
+			if (minimunLifetime > maximunLifetime) { minimunLifetime = maximunLifetime; } //Protection against errors
+			ImGui::DragFloat("Minimun Time ## SUBEMITTER", &minimunLifetime, 0.05f, 0.0f, Min(maximunLifetime,1.0f));
+			ImGui::DragFloat("Maximun Time ## SUBEMITTER", &maximunLifetime, 0.05f, Max(minimunLifetime,0.0f), 1.0f);
+		}	
+		break;
+		case SpawnCondition::PAR_END_SPAWN_CONDITION: 
+		{
+			spawnCon = "";
+		}	
+		break;
+		default:
+			break;
+		}
+	}
 }

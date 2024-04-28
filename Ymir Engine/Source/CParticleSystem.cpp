@@ -142,17 +142,16 @@ void CParticleSystem::OnInspector()
 				std::string nameEmitter;
 				if (std::strcmp(allEmitters.at(i)->name.c_str(), "") == 0)
 				{
-
 					//ImGui::Text("ParticleEmmiter %i", i);
 					nameEmitter.append("Particle Emitter ");
 					nameEmitter.append(std::to_string(i + 1));
+					allEmitters.at(i)->name = nameEmitter;
 				}
 				else
 				{
 					nameEmitter += allEmitters.at(i)->name;
 					nameEmitter.append(" ## ");
 					nameEmitter.append(std::to_string(i + 1));
-
 				}
 
 				//Delete emmiter
@@ -177,6 +176,10 @@ void CParticleSystem::OnInspector()
 						case EmitterType::PAR_SUBEMITTER:
 						{
 							ImGui::SeparatorText("SUBEMITTER");
+
+							Subemitter* eSub = (Subemitter*)listModule.at(j);
+
+							eSub->OnInspector(allEmitters.at(i));
 							break;
 						}
 						case EmitterType::PAR_BASE:
