@@ -282,15 +282,12 @@ void CParticleSystem::OnInspector()
 				std::string CEid;
 				if (ImGui::CollapsingHeader(CEid.append("Emitter Options ##").append(std::to_string(i)).c_str()))
 				{
-					for (int k = (i > 0) ? -1 : 0; k < EmitterType::PARTICLES_MAX; k++)
+					for (int k = 0; k < EmitterType::PARTICLES_MAX; k++)
 					{
 						std::string emitterType;
 
 						switch (k)
 						{
-						case EmitterType::PAR_SUBEMITTER:
-							emitterType.assign("Subemitter ##");
-							break;
 						case EmitterType::PAR_BASE:
 							emitterType.assign("Base Emitter ##");
 							break;
@@ -457,6 +454,12 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "SpawnRatio", eSpawn->spawnRatio);
 				//Particles until stop (depends of Start Mode)
 				json_object_set_number(child_object, "NumParticlesToStop", eSpawn->numParticlesForStop);
+
+				//Emitter things
+				//eSpawn->pointingEmitter; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
+				json_object_set_number(child_object, "ConditionForSpawn", eSpawn->conditionForSpawn);
+				json_object_set_number(child_object, "SubemitterMaxLifetime", eSpawn->subMaxLifetime);
+				json_object_set_number(child_object, "SubemitterMinLifetime", eSpawn->subMinLifetime);
 
 				break;
 			}
@@ -657,6 +660,14 @@ ParticleEmitter* CParticleSystem::LoadEmitterFromMeta(const char* pathMeta)
 			//eSpawn->basedTimeSpawn = json_object_get_boolean(modulo, "TimeBased");
 			eSpawn->numParticlesToSpawn = json_object_get_number(modulo, "NumParticles");
 			eSpawn->spawnRatio = (float)json_object_get_number(modulo, "SpawnRatio");
+			eSpawn->spawnMode = (ParticlesSpawnMode)json_object_get_number(modulo, "SpawnMode");
+			eSpawn->startMode = (ParticlesSpawnEnabeling)json_object_get_number(modulo, "startMode");
+
+			//Emitter things
+			eSpawn->pointingEmitter; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
+			eSpawn->conditionForSpawn = (SpawnConditionSubemitter)json_object_get_number(modulo, "ConditionForSpawn");
+			eSpawn->subMaxLifetime = json_object_get_number(modulo, "SubemitterMaxLifetime");
+			eSpawn->subMinLifetime = json_object_get_number(modulo, "SubemitterMinLifetime");
 
 			break;
 		}
