@@ -16,6 +16,7 @@ public class DroneXenomorphAttack : YmirComponent
 
     private float clawDamage;
     private float tailDamage;
+    private float attackSpeed;
 
     private float attackRange;
 
@@ -30,7 +31,8 @@ public class DroneXenomorphAttack : YmirComponent
         damageTimer = 0f;
         clawDamage = 150f;
         tailDamage = 200f;
-        attackRange = 10f;
+        attackRange = 100f;
+        attackSpeed = 1f;
     }
 
     public void Update()
@@ -42,15 +44,17 @@ public class DroneXenomorphAttack : YmirComponent
         if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() != DroneState.CLAW && drone.GetComponent<DroneXenomorphBaseScript>().GetState() != DroneState.TAIL)
         {
             gameObject.SetPosition(drone.transform.globalPosition);
+            gameObject.SetVelocity(drone.transform.GetForward() * 0f * Time.deltaTime);
         }
         else if (drone.GetComponent<DroneXenomorphBaseScript>().timeCounter > 0.5f)
         {
-            if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.CLAW) attackRange = 10f;
-            else attackRange = 20f;
+            if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.CLAW) attackRange = 100f;
+            else attackRange = 150f;
 
             if (drone.GetComponent<DroneXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, drone.transform.globalPosition, attackRange))
             {
-                gameObject.SetVelocity(drone.transform.GetForward() * 3000f * Time.deltaTime);
+                Debug.Log("[ERROR] ATTACK222222222222222222222");
+                gameObject.SetVelocity(drone.transform.GetForward() * 3000f * attackSpeed * Time.deltaTime);
             }
             else
             {
