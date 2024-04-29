@@ -495,6 +495,8 @@ void C_UI::FadeUI(float dt)
 	if (color.a <= 0)
 	{
 		mOwner->active = false;
+
+		//static_cast<CScript*>(mOwner->GetComponent(ComponentType::SCRIPT))->isStarting= true;
 		//External->scene->crossHair = true;
 	}
 	else

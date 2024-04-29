@@ -648,6 +648,15 @@ void SetActive(MonoObject* obj, bool active)
 
 	GameObject* go = External->moduleMono->GameObject_From_CSGO(obj);
 	go->active = active;
+	if (!go->active) {
+		active = false;
+		CScript* aux = static_cast<CScript*>(go->GetComponent(ComponentType::SCRIPT));
+
+		if (aux) {
+			aux->isStarting = true;
+		}
+
+	}
 	External->scene->SetActiveRecursively(go, active);
 }
 

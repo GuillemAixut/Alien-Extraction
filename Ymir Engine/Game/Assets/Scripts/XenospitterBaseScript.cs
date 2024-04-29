@@ -71,7 +71,7 @@ public class XenospitterBaseScript : Enemy
         aggro = false;
         detectionRadius = 120f;
         wanderRange = 100f;
-        backwardsCooldownTime = 0f;
+        //backwardsCooldownTime = 0f;
 
         //Acid spit
         acidSpitCooldown = 4f;

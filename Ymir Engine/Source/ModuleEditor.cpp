@@ -3167,6 +3167,13 @@ void ModuleEditor::DrawInspector()
 			if (ImGui::Checkbox("##Active", &App->scene->selectedGO->active)) {
 
 				App->scene->SetActiveRecursively(App->scene->selectedGO, App->scene->selectedGO->active);
+				if (!App->scene->selectedGO->active) {
+					CScript* aux = static_cast<CScript*>(App->scene->selectedGO->GetComponent(ComponentType::SCRIPT));
+
+					if (aux) {
+						aux->isStarting = true;
+					}
+				}
 
 			}
 

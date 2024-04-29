@@ -113,6 +113,11 @@ void GameObject::Disable()
 {
 	if (active) {
 		active = false;
+		CScript* aux = static_cast<CScript*>(GetComponent(ComponentType::SCRIPT));
+
+		if (aux) {
+			aux->isStarting = true;
+		}
 
 	}
 }
