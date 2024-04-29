@@ -93,6 +93,10 @@ public class DroneXenomorphBaseScript : Enemy
 
         life = 300f;
 
+        //Drop items
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/loot_table.csv";
+        numFields = 2; 
 
         Animation.SetLoop(gameObject, "Combat_Idle", true);
         Animation.SetLoop(gameObject, "Drone_Walk", true);
@@ -123,10 +127,11 @@ public class DroneXenomorphBaseScript : Enemy
             case DroneState.DEAD:
 
                 timePassed += Time.deltaTime;
-
+                
                 if (timePassed >= 1.4f)
                 {
                     //Debug.Log("[ERROR] DEATH");
+                    DropItem();
                     InternalCalls.Destroy(gameObject);
                 }
 

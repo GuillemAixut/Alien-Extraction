@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using YmirEngine;
 
 
@@ -26,32 +29,42 @@ public enum WanderState
     STOPED
 }
 
-public class Enemy: YmirComponent 
+public class Enemy : YmirComponent
 {
 
-        protected PathFinding agent;
-        public GameObject player = null;
+    protected PathFinding agent;
+    public GameObject player = null;
 
-        public Health healthScript;
-        public float movementSpeed;
-        public float knockBackTimer;
-        public float knockBackSpeed;
+    public Health healthScript;
+    public float movementSpeed;
+    public float knockBackTimer;
+    public float knockBackSpeed;
 
-        protected WanderState wanderState;
-        public float timePassed = 0f;
-        public float life = 100f;
+    protected WanderState wanderState;
+    public float timePassed = 0f;
+    public float life = 100f;
 
-        //This may change depending on enemy rarity
-        public float armor = 0;
+    //This may change depending on enemy rarity
+    public float armor = 0;
 
-        //0 = Common, 1 = Rare, 2 = Elite
-        public int rarity = 0;
+    //0 = Common, 1 = Rare, 2 = Elite
+    public int rarity = 0;
 
-        public float wanderRange = 10f;
+    public float wanderRange = 10f;
 
-        public float detectionRadius = 60f;
+    public float detectionRadius = 60f;
 
-        public float xSpeed = 0, ySpeed = 0;
+    public float xSpeed = 0, ySpeed = 0;
+
+    //Drop items
+    public string keys;
+    public string path;
+    public int numFields;
+    public int spawnRange;
+
+    private Vector3 itemPos = Vector3.zero;
+    Random random = new Random();
+
 
 
     public void TakeDmg(float dmg)
@@ -60,26 +73,26 @@ public class Enemy: YmirComponent
     }
 
     public void LookAt(Vector3 pointToLook)
-        {
+    {
 
-            Vector3 direction = pointToLook - gameObject.transform.globalPosition;
-            direction = direction.normalized;
-            float angle = (float)Math.Atan2(direction.x, direction.z);
+        Vector3 direction = pointToLook - gameObject.transform.globalPosition;
+        direction = direction.normalized;
+        float angle = (float)Math.Atan2(direction.x, direction.z);
 
-            //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
+        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
 
-            if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-                return;
+        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
+            return;
 
-            Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
+        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
 
-            float rotationSpeed = Time.deltaTime * agent.angularSpeed;
+        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
 
 
-            Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
+        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
 
-            gameObject.SetRotation(desiredRotation);
-        }
+        gameObject.SetRotation(desiredRotation);
+    }
 
     public void KnockBack(float speed)
     {
@@ -127,12 +140,97 @@ public class Enemy: YmirComponent
 
         if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
         {
-            wanderState = WanderState.REACHED;  
+            wanderState = WanderState.REACHED;
             Debug.Log("Reached!!!!");
 
         }
     }
-        
+
+    public void DropItem()
+    {
+        string output = InternalCalls.CSVToStringKeys(path, keys);
+
+        List<List<string>> result = DeconstructString(output, numFields);
+
+        Debug.Log("Result:");
+        foreach (var sublist in result)
+        {
+            Debug.Log("(" + string.Join(", ", sublist) + ")");
+
+            // Check if sublist has at least two values
+            if (sublist.Count >= 2)
+            {
+                // Extract the first two values
+                string name = sublist[0];
+                int probability;
+
+                // Try parsing the probability value
+                if (int.TryParse(sublist[1], out probability))
+                {
+                    // Call SpawnPrefab with extracted values
+                    SpawnPrefab(name, probability);
+                }
+                else
+                {
+                    Debug.Log("[ERROR] Invalid probability value in sublist: " + string.Join(", ", sublist));
+                }
+            }
+            else
+            {
+                Debug.Log("[ERROR] Sublist does not contain enough elements: " + string.Join(", ", sublist));
+            }
+        }
+    }
+
+    private static List<List<string>> DeconstructString(string input, int numberOfFields)
+    {
+        List<List<string>> output = new List<List<string>>();
+        string[] parts = input.Split(';');
+
+        List<string> currentList = new List<string>();
+
+        for (int i = 0; i < parts.Length; i++)
+        {
+            currentList.Add(parts[i]);
+
+            // Check if currentList has reached the desired number of fields
+            if (currentList.Count == numberOfFields)
+            {
+                output.Add(currentList);
+                currentList = new List<string>(); // Reset currentList for next set of fields
+            }
+        }
+
+        // If there are any remaining elements in currentList, add them as a last incomplete sublist
+        if (currentList.Count > 0)
+        {
+            output.Add(currentList);
+        }
+
+        return output;
+    }
+
+    private void SpawnPrefab(string name, int probability)
+    {
+        int randNum = random.Next(0, 101);  //Generate a random number between 0 and 100
+        Debug.Log("[WARNING] Rand Number: " + randNum);
+        if (randNum <= probability)
+        {
+            //Spawn items in a range random position offset
+            float randPosX = random.Next(-spawnRange, spawnRange + 1);
+            float randPosZ = random.Next(-spawnRange, spawnRange + 1);
+            Debug.Log("[WARNING] PickUp offset: " + randPosX + ", " + randPosZ);
+
+            itemPos.x += randPosX;
+            itemPos.z += randPosZ;
+
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", name, itemPos);
+
+            //Clear the pos value
+            itemPos = gameObject.transform.localPosition;
+        }
+    }
+
 
 }
 
