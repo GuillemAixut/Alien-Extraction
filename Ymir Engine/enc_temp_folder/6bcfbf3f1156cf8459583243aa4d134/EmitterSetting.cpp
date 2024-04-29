@@ -414,21 +414,21 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 				switch (conditionForSpawn)
 				{
 				case PAR_LESS_THAN:
-					if (pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
+					if (pointingEmitter->listParticles.at(i)->lifetime < subMaxLifetime) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
 						emitter->SpawnParticle(1);
 					}
 					break;
 				case PAR_MORE_THAN:
-					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime) //Cumple condicion para spawn
+					if (pointingEmitter->listParticles.at(i)->lifetime > subMinLifetime) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
 						emitter->SpawnParticle(1);
 					}
 					break;
 				case PAR_INBETWEEN_OF:
-					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime && pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
+					if (pointingEmitter->listParticles.at(i)->lifetime > subMinLifetime && pointingEmitter->listParticles.at(i)->lifetime < subMaxLifetime) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
 						emitter->SpawnParticle(1);

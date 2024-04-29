@@ -3502,12 +3502,6 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eSpawn->spawnRatio = (float)json_object_get_number(modulo, "SpawnRatio");
 					eSpawn->numParticlesForStop = json_object_get_number(modulo, "NumParticlesToStop");
 
-					//Emitter things
-					eSpawn->pointingEmitter; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
-					eSpawn->conditionForSpawn = (SpawnConditionSubemitter)json_object_get_number(modulo, "ConditionForSpawn");
-					eSpawn->subMaxLifetime = json_object_get_number(modulo, "SubemitterMaxLifetime");
-					eSpawn->subMinLifetime = json_object_get_number(modulo, "SubemitterMinLifetime");
-
 					break;
 				}
 				case PAR_POSITION:
