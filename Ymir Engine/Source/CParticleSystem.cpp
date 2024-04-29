@@ -173,15 +173,6 @@ void CParticleSystem::OnInspector()
 
 						switch (listModule.at(j)->type)
 						{
-						case EmitterType::PAR_SUBEMITTER:
-						{
-							ImGui::SeparatorText("SUBEMITTER");
-
-							Subemitter* eSub = (Subemitter*)listModule.at(j);
-
-							eSub->OnInspector(allEmitters.at(i));
-							break;
-						}
 						case EmitterType::PAR_BASE:
 						{
 							ImGui::SeparatorText(("BASE ##" + std::to_string(i)).c_str());
@@ -195,7 +186,7 @@ void CParticleSystem::OnInspector()
 							ImGui::SeparatorText(("SPAWN ##" + std::to_string(i)).c_str());
 
 							EmitterSpawner* eSpawner = (EmitterSpawner*)listModule.at(j);
-							eSpawner->OnInspector();
+							eSpawner->OnInspector(allEmitters.at(i));
 							break;
 						}
 						case EmitterType::PAR_POSITION:

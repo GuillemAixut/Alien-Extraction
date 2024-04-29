@@ -112,18 +112,26 @@ enum ParticlesSpawnEnabeling
 	PAR_ENABLE_MODES_END
 };
 
+enum SpawnConditionSubemitter
+{
+	PAR_LESS_THAN,
+	PAR_MORE_THAN,
+	PAR_INBETWEEN_OF,
+	PAR_END_SPAWN_CONDITION,
+};
+
 struct EmitterSpawner : EmitterSetting
 {
 	EmitterSpawner();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
 	bool PlayTrigger(bool val = true);
-	void OnInspector();
+	void OnInspector(ParticleEmitter* thisEmitter);
 
 	//Variable unica, ritmo de spawn
 	ParticlesSpawnMode spawnMode;
 	bool playTriggered;
-	bool subemitterTrigger;
+	
 	ParticlesSpawnEnabeling startMode;
 	float spawnRatio; //Dividir en current time por cuantas se spawnean 
 	float currentTimer;
@@ -131,7 +139,12 @@ struct EmitterSpawner : EmitterSetting
 	int numParticlesForStop; //When played, if enabeling mode is stop once it spawn X particles it stops playing
 	int numParticlesSpawned;
 
-	bool subemitterMode;
+	//Cosas de subemitter
+	ParticleEmitter* pointingEmitter;
+	SpawnConditionSubemitter conditionForSpawn;
+	float subMaxLifetime;
+	float subMinLifetime;
+	float3 positionParticleForSub;
 };
 
 //Enum of the modes as positions change after spawn
@@ -265,29 +278,6 @@ struct EmitterImage : EmitterSetting
 
 	//CMaterial que tendrá la particula
 	CMaterial* mat;
-};
-
-enum SpawnCondition
-{
-	PAR_LESS_THAN,
-	PAR_MORE_THAN,
-	PAR_INBETWEEN_OF,
-	PAR_END_SPAWN_CONDITION,
-};
-
-struct Subemitter : EmitterSetting
-{
-	Subemitter();
-	void Spawn(ParticleEmitter* emitter, Particle* particle);
-	void Update(float dt, ParticleEmitter* emitter);
-	void OnInspector(ParticleEmitter* thisEmitter);
-
-	ParticleEmitter* pointing;
-	//ParticleEmitter* thisEmitter;
-
-	SpawnCondition conditionForSpawn;
-	float minimunLifetime;
-	float maximunLifetime;
 };
 
 #endif //__EMITTER_INSTANCE_H__

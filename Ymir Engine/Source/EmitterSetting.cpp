@@ -374,18 +374,26 @@ EmitterSpawner::EmitterSpawner()
 {
 	startMode = ParticlesSpawnEnabeling::PAR_START_NON_STOP;
 	playTriggered = false;
-	subemitterTrigger = false;
 	spawnMode = ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY;
 	spawnRatio = 0.2f; //Dividir en current time por cuantas se spawnean 
 	currentTimer = 0.0f;
 	numParticlesToSpawn = 5;
 	numParticlesForStop = 100;
 	numParticlesSpawned = 0;
-	subemitterMode = false;
+
+	pointingEmitter = nullptr;
+	conditionForSpawn = SpawnConditionSubemitter::PAR_INBETWEEN_OF;
+	subMaxLifetime = 1.0f;
+	subMinLifetime = 0.0f;
+	positionParticleForSub = { 0,0,0 };
 }
 
 void EmitterSpawner::Spawn(ParticleEmitter* emitter, Particle* particle)
 {
+	if(pointingEmitter != nullptr)
+	{
+		particle->position = positionParticleForSub; //Valor guardado de posicion;
+	}
 }
 
 void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
@@ -399,6 +407,38 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 	{
 		spawnFromStart = false;
 		countParticles = false;
+
+		for (int i = 0; pointingEmitter->listParticles.size() > i; i++)
+		{
+			switch (conditionForSpawn)
+			{
+			case PAR_LESS_THAN:
+				if (pointingEmitter->listParticles.at(i)->lifetime < subMaxLifetime) //Cumple condicion para spawn
+				{
+					positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
+					emitter->SpawnParticle(1);
+				}
+				break;
+			case PAR_MORE_THAN:
+				if (pointingEmitter->listParticles.at(i)->lifetime > subMinLifetime) //Cumple condicion para spawn
+				{
+					positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
+					emitter->SpawnParticle(1);
+				}
+				break;
+			case PAR_INBETWEEN_OF:
+				if (pointingEmitter->listParticles.at(i)->lifetime > subMinLifetime && pointingEmitter->listParticles.at(i)->lifetime < subMaxLifetime) //Cumple condicion para spawn
+				{
+					positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
+					emitter->SpawnParticle(1);
+				}
+				break;
+			case PAR_END_SPAWN_CONDITION:
+				break;
+			default:
+				break;
+			}
+		}
 	}
 	break;
 	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
@@ -431,7 +471,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 		break;
 	}
 
-	if((spawnFromStart || playTriggered || subemitterTrigger) && numParticlesSpawned < numParticlesForStop)
+	if((spawnFromStart || playTriggered) && numParticlesSpawned < numParticlesForStop)
 	{
 		switch (spawnMode)
 		{
@@ -503,9 +543,13 @@ bool EmitterSpawner::PlayTrigger(bool val) //Stats play or pause
 	return playTriggered;
 }
 
-void EmitterSpawner::OnInspector()
+void EmitterSpawner::OnInspector(ParticleEmitter* thisEmitter)
 {
 	int numParticles = this->numParticlesToSpawn;
+	if(thisEmitter->owner->allEmitters.size()<=1 && startMode == ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER)
+	{
+		startMode = ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP;
+	}
 
 	//Spawn types
 	std::string modeName;
@@ -601,9 +645,8 @@ void EmitterSpawner::OnInspector()
 
 	if (ImGui::BeginCombo("##InitMode", modeName2.c_str()))
 	{
-		for (int i = (subemitterMode) ? -1 : 0; i < ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END; i++)
+		for (int i = (thisEmitter->owner->allEmitters.size()>1) ? -1 : 0; i < ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END; i++)
 		{
-			/*std::string modeName;*/
 
 			switch (ParticlesSpawnEnabeling(i))
 			{
@@ -628,7 +671,112 @@ void EmitterSpawner::OnInspector()
 	switch (startMode)
 	{
 	case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:
-		ImGui::Text(("Remaining Particles:" + std::to_string(numParticlesForStop - numParticlesSpawned)).c_str());
+	{
+		std::string actualEmitterName;
+		if (pointingEmitter == nullptr)
+		{
+			actualEmitterName = "None";
+		}
+		else
+		{
+			actualEmitterName = pointingEmitter->name;
+		}
+		if (ImGui::BeginCombo("##Change Emitter", actualEmitterName.c_str()))
+		{
+			for (auto it = thisEmitter->owner->allEmitters.begin(); it != thisEmitter->owner->allEmitters.end(); it++)
+			{
+				if ((*it)->UID != thisEmitter->UID)
+				{
+					actualEmitterName = (*it)->name;
+				}
+				else
+				{
+					actualEmitterName = "None";
+				}
+
+				if (actualEmitterName.c_str() == "None")
+				{
+					pointingEmitter = nullptr;
+				}
+				else if (ImGui::Selectable(actualEmitterName.c_str()))
+				{
+					pointingEmitter = (*it);
+					if (pointingEmitter == thisEmitter)
+					{
+						pointingEmitter = nullptr;
+					}
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+		ImGui::SameLine();
+		ImGui::Text("Emitter Being Observed");
+
+		if (pointingEmitter != nullptr) //If we have a pointing emitter spawn conditions
+		{
+			ImGui::Text("Subemitter Conditions");
+			std::string spawnCon;
+
+			switch (conditionForSpawn)
+			{
+			case SpawnConditionSubemitter::PAR_LESS_THAN: spawnCon = "Less Than";	break;
+			case SpawnConditionSubemitter::PAR_MORE_THAN: spawnCon = "More Than";	break;
+			case SpawnConditionSubemitter::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
+			case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
+			default:
+				break;
+			}
+
+			if (ImGui::BeginCombo("##SpawnCondition", spawnCon.c_str()))
+			{
+				for (int i = 0; i < SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION; i++)
+				{
+					switch ((SpawnConditionSubemitter)i)
+					{
+					case SpawnConditionSubemitter::PAR_LESS_THAN: spawnCon = "Less Than";	break;
+					case SpawnConditionSubemitter::PAR_MORE_THAN: spawnCon = "More Than";	break;
+					case SpawnConditionSubemitter::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
+					case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
+					}
+					if (ImGui::Selectable(spawnCon.c_str()))
+					{
+						conditionForSpawn = (SpawnConditionSubemitter)i;
+					}
+				}
+
+				ImGui::EndCombo();
+			}
+
+			switch (conditionForSpawn)
+			{
+			case SpawnConditionSubemitter::PAR_LESS_THAN:
+			{
+				ImGui::DragFloat("Maximun Time ## SUBEMITTER", &subMaxLifetime, 0.05f, 0.0f, 1.0f);
+			}
+			break;
+			case SpawnConditionSubemitter::PAR_MORE_THAN:
+			{
+				ImGui::DragFloat("Minimun Time ## SUBEMITTER", &subMinLifetime, 0.05f, 0.0f, 1.0f);
+			}
+			break;
+			case SpawnConditionSubemitter::PAR_INBETWEEN_OF:
+			{
+				if (subMinLifetime > subMaxLifetime) { subMinLifetime = subMaxLifetime; } //Protection against errors
+				ImGui::DragFloat("Minimun Time ## SUBEMITTER", &subMinLifetime, 0.05f, 0.0f, Min(subMaxLifetime, 1.0f));
+				ImGui::DragFloat("Maximun Time ## SUBEMITTER", &subMaxLifetime, 0.05f, Max(subMinLifetime, 0.0f), 1.0f);
+			}
+			break;
+			case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION:
+			{
+				spawnCon = "";
+			}
+			break;
+			default:
+				break;
+			}
+		}
+	}
 		break;
 	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
 		//modeName2 = "Start and NonStop";
@@ -1583,172 +1731,4 @@ void EmitterImage::OnInspector()
 	ImGui::Separator();
 }
 
-Subemitter::Subemitter()
-{
-	pointing = nullptr;
-	minimunLifetime = 0.0f;
-	maximunLifetime = 1.0f;
-}
 
-void Subemitter::Spawn(ParticleEmitter* emitter, Particle* particle)
-{
-
-}
-
-void Subemitter::Update(float dt, ParticleEmitter* emitter)
-{ 
-	
-	if(pointing != nullptr)
-	{	
-		EmitterSpawner* eSpawn;
-		if (pointing->modules.at(1)->type == EmitterType::PAR_SPAWN) // Module spawn
-		{
-			eSpawn = (EmitterSpawner*)emitter->modules.at(1);
-			eSpawn->subemitterTrigger = false;
-		};
-
-		for(int i = 0;pointing->listParticles.size() > i; i++)
-		{
-			switch (conditionForSpawn)
-			{
-			case PAR_LESS_THAN:
-				if (pointing->listParticles.at(i)->lifetime < maximunLifetime) //Cumple condicion para spawn
-				{
-					eSpawn->subemitterTrigger = true;
-				}
-				else { /*eSpawn->subemitterTrigger = false;*/ }
-				break;
-			case PAR_MORE_THAN:
-				if (pointing->listParticles.at(i)->lifetime > minimunLifetime) //Cumple condicion para spawn
-				{
-					eSpawn->subemitterTrigger = true;
-				}
-				else { /*eSpawn->subemitterTrigger = false;*/ }
-				break;
-			case PAR_INBETWEEN_OF:
-				if (pointing->listParticles.at(i)->lifetime > minimunLifetime && pointing->listParticles.at(i)->lifetime < maximunLifetime) //Cumple condicion para spawn
-				{
-					eSpawn->subemitterTrigger = true;
-				}
-				else { /*eSpawn->subemitterTrigger = false;*/ }
-				break;
-			case PAR_END_SPAWN_CONDITION:
-				break;
-			default:
-				break;
-			}
-		}
-	}
-}
-
-void Subemitter::OnInspector(ParticleEmitter* thisEmitter)
-{
-	std::string actualEmitterName;
-	if(pointing == nullptr) 
-	{
-		actualEmitterName = "None";
-	}
-	else
-	{
-		actualEmitterName = pointing->name;
-		if (thisEmitter->modules.at(1)->type == EmitterType::PAR_SPAWN) // Module spawn
-		{
-			EmitterSpawner* eSpawn = (EmitterSpawner*)thisEmitter->modules.at(1);
-			eSpawn->subemitterMode = true;
-		};
-	}
-	
-
-	if (ImGui::BeginCombo("##Change Emitter", actualEmitterName.c_str()))
-	{
-		for (auto it = thisEmitter->owner->allEmitters.begin(); it != thisEmitter->owner->allEmitters.end(); it++)
-		{
-			if ((*it)->UID != thisEmitter->UID)
-			{
-				actualEmitterName = (*it)->name;
-			}
-			else
-			{
-				actualEmitterName = "None";
-			}
-
-			if (actualEmitterName.c_str() == "None")
-			{
-				pointing = nullptr;
-			}
-			else if (ImGui::Selectable(actualEmitterName.c_str()))
-			{
-				pointing = (*it);
-				if(pointing == thisEmitter) 
-				{
-					pointing = nullptr;
-				}
-			}
-		}
-
-		ImGui::EndCombo();
-	}
-
-	if(pointing != nullptr)
-	{
-		std::string spawnCon;
-
-		switch (conditionForSpawn)
-		{
-		case SpawnCondition::PAR_LESS_THAN: spawnCon = "Less Than";	break;
-		case SpawnCondition::PAR_MORE_THAN: spawnCon = "More Than";	break;
-		case SpawnCondition::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
-		case SpawnCondition::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
-		default:
-			break;
-		}
-
-		if (ImGui::BeginCombo("##SpawnCondition", spawnCon.c_str()))
-		{
-			for (int i = 0; i < SpawnCondition::PAR_END_SPAWN_CONDITION; i++)
-			{
-				switch ((SpawnCondition)i)
-				{
-				case SpawnCondition::PAR_LESS_THAN: spawnCon = "Less Than";	break;
-				case SpawnCondition::PAR_MORE_THAN: spawnCon = "More Than";	break;
-				case SpawnCondition::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
-				case SpawnCondition::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
-				}
-				if (ImGui::Selectable(spawnCon.c_str()))
-				{
-					conditionForSpawn = (SpawnCondition)i;
-				}
-			}
-
-			ImGui::EndCombo();
-		}
-
-		switch (conditionForSpawn)
-		{
-		case SpawnCondition::PAR_LESS_THAN:
-		{
-			ImGui::DragFloat("Maximun Time ## SUBEMITTER", &maximunLifetime, 0.05f, 0.0f, 1.0f);
-		}
-		break;
-		case SpawnCondition::PAR_MORE_THAN: 
-		{
-			ImGui::DragFloat("Minimun Time ## SUBEMITTER", &minimunLifetime, 0.05f, 0.0f, 1.0f);
-		}	
-		break;
-		case SpawnCondition::PAR_INBETWEEN_OF: 
-		{
-			if (minimunLifetime > maximunLifetime) { minimunLifetime = maximunLifetime; } //Protection against errors
-			ImGui::DragFloat("Minimun Time ## SUBEMITTER", &minimunLifetime, 0.05f, 0.0f, Min(maximunLifetime,1.0f));
-			ImGui::DragFloat("Maximun Time ## SUBEMITTER", &maximunLifetime, 0.05f, Max(minimunLifetime,0.0f), 1.0f);
-		}	
-		break;
-		case SpawnCondition::PAR_END_SPAWN_CONDITION: 
-		{
-			spawnCon = "";
-		}	
-		break;
-		default:
-			break;
-		}
-	}
-}

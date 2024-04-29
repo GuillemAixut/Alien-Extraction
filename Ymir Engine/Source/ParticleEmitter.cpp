@@ -33,14 +33,6 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 	EmitterSetting* nuevoEmitter = nullptr;
 	switch ((EmitterType)type)
 	{
-	case EmitterType::PAR_SUBEMITTER:
-	{
-		nuevoEmitter = new Subemitter;
-		nuevoEmitter->type = EmitterType::PAR_SUBEMITTER;
-		nuevoEmitter->unique = true;
-
-		break;
-	}
 	case EmitterType::PAR_BASE:
 	{
 		nuevoEmitter = new EmitterBase;
