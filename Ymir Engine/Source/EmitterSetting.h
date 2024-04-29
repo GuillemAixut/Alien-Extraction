@@ -140,6 +140,7 @@ struct EmitterSpawner : EmitterSetting
 
 	//Cosas de subemitter
 	ParticleEmitter* pointingEmitter;
+	uint32_t pointingUID; //Es una variable temporal solo usada para el save y load.
 	SpawnConditionSubemitter conditionForSpawn;
 	float subMaxLifetime;
 	float subMinLifetime;

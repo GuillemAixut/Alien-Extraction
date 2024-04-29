@@ -382,6 +382,7 @@ EmitterSpawner::EmitterSpawner()
 	numParticlesSpawned = 0;
 
 	pointingEmitter = nullptr;
+	pointingUID = 0;
 	conditionForSpawn = SpawnConditionSubemitter::PAR_INBETWEEN_OF;
 	subMaxLifetime = 1.0f;
 	subMinLifetime = 0.0f;
@@ -407,6 +408,18 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 	{
 		spawnFromStart = false;
 		countParticles = false;
+
+		if (pointingUID != 0)
+		{
+			for (int u = 0; u < emitter->owner->allEmitters.size(); u++) 
+			{
+				if(emitter->owner->allEmitters.at(u)->UID == pointingUID)
+				{
+					pointingEmitter = emitter->owner->allEmitters.at(u);
+				}
+			}
+			pointingUID = 0;
+		}
 		if(pointingEmitter != nullptr)
 		{
 			for (int i = 0; pointingEmitter->listParticles.size() > i; i++)
@@ -552,6 +565,17 @@ void EmitterSpawner::OnInspector(ParticleEmitter* thisEmitter)
 	if(thisEmitter->owner->allEmitters.size()<=1 && startMode == ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER)
 	{
 		startMode = ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP;
+	}
+	if (pointingUID != 0)
+	{
+		for (int u = 0; u < thisEmitter->owner->allEmitters.size(); u++)
+		{
+			if (thisEmitter->owner->allEmitters.at(u)->UID == pointingUID)
+			{
+				pointingEmitter = thisEmitter->owner->allEmitters.at(u);
+			}
+		}
+		pointingUID = 0;
 	}
 
 	//Spawn types

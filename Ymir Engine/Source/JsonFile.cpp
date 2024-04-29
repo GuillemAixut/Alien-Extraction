@@ -3413,7 +3413,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		cparticleSystem->active = json_object_get_boolean(componentObject, "Active");
 
 		int numEmitters = json_object_get_number(componentObject, "NumEmitters");
-
+		
 		for (int i = cparticleSystem->allEmitters.size(); i < numEmitters; i = cparticleSystem->allEmitters.size())
 		{
 			cparticleSystem->CreateEmitter();
@@ -3429,7 +3429,10 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 			//Get cuantos settings tiene el emitter
 			int numSettings = json_object_get_number(json_array_get_object(emittersArray, i), "ModulesSize");
-
+			
+			//Get cuantos settings tiene el emitter
+			uint32_t UIDofEmitter = json_object_get_number(json_array_get_object(emittersArray, i), "EmitterUID");
+			pEmmiter->UID = UIDofEmitter;
 			for (int j = 0; j < numSettings; j++)
 			{
 				JSON_Object* modulo = json_array_get_object(settingsArray, j);
@@ -3508,7 +3511,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eSpawn->numParticlesForStop = json_object_get_number(modulo, "NumParticlesToStop");
 
 					//Emitter things
-					eSpawn->pointingEmitter; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
+					eSpawn->pointingEmitter = nullptr; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
+					eSpawn->pointingUID = json_object_get_number(modulo, "PointingUID");
 					eSpawn->conditionForSpawn = (SpawnConditionSubemitter)json_object_get_number(modulo, "ConditionForSpawn");
 					eSpawn->subMaxLifetime = json_object_get_number(modulo, "SubemitterMaxLifetime");
 					eSpawn->subMinLifetime = json_object_get_number(modulo, "SubemitterMinLifetime");

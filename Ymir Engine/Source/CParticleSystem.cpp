@@ -365,7 +365,8 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 		char* serialized_string = NULL;
 
 		json_object_set_number(root_object, "ModulesSize", emitter->modules.size());
-		//json_object_set_number(root_object, "OwnerID", mOwner->UID);
+		//json_object_set_number(root_object, "OwnerID", UID);
+		json_object_set_number(root_object, "EmitterUID", emitter->UID);
 
 		//Create array of all modules info
 		JSON_Array* arr;
@@ -457,6 +458,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Emitter things
 				//eSpawn->pointingEmitter; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
+				json_object_set_number(child_object, "PointingUID", (eSpawn->pointingEmitter != nullptr) ? eSpawn->pointingEmitter->UID : 0);
 				json_object_set_number(child_object, "ConditionForSpawn", eSpawn->conditionForSpawn);
 				json_object_set_number(child_object, "SubemitterMaxLifetime", eSpawn->subMaxLifetime);
 				json_object_set_number(child_object, "SubemitterMinLifetime", eSpawn->subMinLifetime);
@@ -615,162 +617,6 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 		}
 	}
 	return root_value;
-}
-
-ParticleEmitter* CParticleSystem::LoadEmitterFromMeta(const char* pathMeta)
-{
-	ParticleEmitter* pE = new ParticleEmitter(this);
-	pE->owner = this;
-	JSON_Value* root_value = json_parse_file(pathMeta);
-	JSON_Object* root_object = json_value_get_object(root_value);
-
-	int numEmitters = json_object_get_number(root_object, "ModulesSize");
-
-	JSON_Array* arr = json_object_get_array(root_object, "Settings");
-	for (int i = 0; i < numEmitters; i++)
-	{
-		JSON_Object* modulo = json_array_get_object(arr, i);
-
-		EmitterType type = (EmitterType)json_object_get_number(modulo, "Type");
-
-		EmitterSetting* instancia = pE->CreateEmitterSettingByType(type);
-
-		switch ((EmitterType)type)
-		{
-		case EmitterType::PAR_BASE:
-		{
-			EmitterBase* eBase = (EmitterBase*)instancia;
-			eBase->particlesLifeTime1 = (float)json_object_get_number(modulo, "Lifetime");
-
-			//Get position array
-			JSON_Array* posArr = json_object_get_array(modulo, "Position");
-
-			//Get elements of position
-			float posX = json_array_get_number(posArr, 0);
-			float posY = json_array_get_number(posArr, 1);
-			float posZ = json_array_get_number(posArr, 2);
-			eBase->emitterOrigin = { posX,posY,posZ };
-
-			break;
-		}
-		case EmitterType::PAR_SPAWN:
-		{
-			EmitterSpawner* eSpawn = (EmitterSpawner*)instancia;
-
-			//eSpawn->basedTimeSpawn = json_object_get_boolean(modulo, "TimeBased");
-			eSpawn->numParticlesToSpawn = json_object_get_number(modulo, "NumParticles");
-			eSpawn->spawnRatio = (float)json_object_get_number(modulo, "SpawnRatio");
-			eSpawn->spawnMode = (ParticlesSpawnMode)json_object_get_number(modulo, "SpawnMode");
-			eSpawn->startMode = (ParticlesSpawnEnabeling)json_object_get_number(modulo, "startMode");
-
-			//Emitter things
-			eSpawn->pointingEmitter; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
-			eSpawn->conditionForSpawn = (SpawnConditionSubemitter)json_object_get_number(modulo, "ConditionForSpawn");
-			eSpawn->subMaxLifetime = json_object_get_number(modulo, "SubemitterMaxLifetime");
-			eSpawn->subMinLifetime = json_object_get_number(modulo, "SubemitterMinLifetime");
-
-			break;
-		}
-		case EmitterType::PAR_POSITION:
-		{
-			EmitterPosition* ePos = (EmitterPosition*)instancia;
-
-			ePos->randomized = json_object_get_boolean(modulo, "Random");
-			ePos->particleSpeed1 = json_object_get_number(modulo, "Speed1");
-			ePos->particleSpeed2 = json_object_get_number(modulo, "Speed2");
-			ePos->acceleration = json_object_get_boolean(modulo, "Accelerates");
-
-			//Get position array
-			JSON_Array* dirArr1 = json_object_get_array(modulo, "Direction1");
-
-			//Get elements of position
-			float posX1 = json_array_get_number(dirArr1, 0);
-			float posY1 = json_array_get_number(dirArr1, 1);
-			float posZ1 = json_array_get_number(dirArr1, 2);
-			ePos->direction1 = { posX1,posY1,posZ1 };
-
-			//Get position array
-			JSON_Array* dirArr2 = json_object_get_array(modulo, "Direction2");
-
-			//Get elements of position
-			float posX2 = json_array_get_number(dirArr2, 0);
-			float posY2 = json_array_get_number(dirArr2, 1);
-			float posZ2 = json_array_get_number(dirArr2, 2);
-			ePos->direction2 = { posX2,posY2,posZ2 };
-
-			break;
-		}
-		case EmitterType::PAR_ROTATION:
-		{
-			break;
-		}
-		case EmitterType::PAR_SIZE:
-		{
-			EmitterSize* eSize = (EmitterSize*)instancia;
-
-			eSize->progresive = json_object_get_boolean(modulo, "Progressive");
-			eSize->sizeMultiplier1 = (float)json_object_get_number(modulo, "Size1");
-			eSize->sizeMultiplier2 = (float)json_object_get_number(modulo, "Size2");
-			eSize->startChange = (float)json_object_get_number(modulo, "TimeStart");
-			eSize->stopChange = (float)json_object_get_number(modulo, "TimeStop");
-			break;
-		}
-		case EmitterType::PAR_COLOR:
-		{
-			EmitterColor* eColor = (EmitterColor*)instancia;
-
-			eColor->progresive = json_object_get_boolean(modulo, "Progressive");
-
-			eColor->startChange = (float)json_object_get_number(modulo, "TimeStart");
-			eColor->stopChange = (float)json_object_get_number(modulo, "TimeStop");
-
-			//Get COLOR array
-			JSON_Array* colArr1 = json_object_get_array(modulo, "Color1");
-
-			//Get elements of position
-			eColor->color1.r = (float)json_array_get_number(colArr1, 0);
-			eColor->color1.g = (float)json_array_get_number(colArr1, 1);
-			eColor->color1.b = (float)json_array_get_number(colArr1, 2);
-			eColor->color1.a = (float)json_array_get_number(colArr1, 3);
-
-			//Get COLOR array
-			JSON_Array* colArr2 = json_object_get_array(modulo, "Color2");
-
-			//Get elements of position
-			eColor->color2.r = (float)json_array_get_number(colArr2, 0);
-			eColor->color2.g = (float)json_array_get_number(colArr2, 1);
-			eColor->color2.b = (float)json_array_get_number(colArr2, 2);
-			eColor->color2.a = (float)json_array_get_number(colArr2, 3);
-
-			break;
-		}
-		case EmitterType::PARTICLES_MAX:
-			break;
-		default:
-			break;
-		}
-	}
-	return pE;
-}
-
-void CParticleSystem::LoadAllEmmitersJSON(const char* path)
-{
-	JSON_Value* root_value = json_parse_file(path);
-	JSON_Object* root_object = json_value_get_object(root_value);
-
-	int numEmitters = json_object_get_number(root_object, "NumEmitters");
-
-	JSON_Array* arr = json_object_get_array(root_object, "Emitters");
-	for (int i = 0; i < numEmitters; i++)
-	{
-		uint32_t emmiterID = json_array_get_number(arr, i);
-
-		std::string pathEmitter;
-		//pathEmitter += PARTICLES_PATH;
-		pathEmitter += std::to_string(emmiterID);
-		//pathEmitter += PAR;
-		this->allEmitters.push_back(LoadEmitterFromMeta(pathEmitter.c_str()));
-	}
 }
 
 void CParticleSystem::Play()
