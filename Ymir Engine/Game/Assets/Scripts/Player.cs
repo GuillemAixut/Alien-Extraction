@@ -261,7 +261,7 @@ public class Player : YmirComponent
     {
         //Debug.Log(currentState.ToString());
         // New Things WIP
-        //Debug.Log("State: " + currentState);
+        Debug.Log("State: " + currentState);
         UpdateControllerInputs();
 
         ProcessInternalInput();
