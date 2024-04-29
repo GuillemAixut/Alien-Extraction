@@ -3414,6 +3414,11 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 		int numEmitters = json_object_get_number(componentObject, "NumEmitters");
 
+		for (int i = cparticleSystem->allEmitters.size(); i < numEmitters; i = cparticleSystem->allEmitters.size())
+		{
+			cparticleSystem->CreateEmitter();
+		}
+
 		JSON_Array* emittersArray = json_object_get_array(componentObject, "Emitters");
 		for (int i = 0; i < numEmitters; i++)
 		{
