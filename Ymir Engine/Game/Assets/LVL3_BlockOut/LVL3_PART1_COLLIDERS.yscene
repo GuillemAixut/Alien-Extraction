@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1400288949,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3070,7 +3070,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.55461567640304565,
+                        0.55461573600769043,
                         -0
                     ],
                     "Scale": [
@@ -17562,9 +17562,9 @@
                         153.09422302246094
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -47.532154083251953,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000399351119995,
@@ -17915,9 +17915,9 @@
                         292.640625
                     ],
                     "Rotation": [
-                        180,
-                        -1.3964537382125854,
-                        180
+                        -180,
+                        -1.3964540958404541,
+                        -180
                     ],
                     "Scale": [
                         0.050005152821540833,
@@ -18268,9 +18268,9 @@
                         751.5816650390625
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -89.295562744140625,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.050000187009572983,
@@ -20324,8 +20324,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 677,
-                    "Height": 573,
+                    "Width": 629,
+                    "Height": 673,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -22798,8 +22798,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1839,
-                    "Height": 1108,
+                    "Width": 629,
+                    "Height": 673,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -23734,7 +23734,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CHIP1",
+                    "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -24210,7 +24210,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CHIP2",
+                    "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -24686,7 +24686,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE1",
+                    "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -25162,7 +25162,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE2",
+                    "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -28247,7 +28247,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "CHIP1",
+                    "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -30367,7 +30367,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "CHIP2",
+                    "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -33995,6 +33995,7 @@
                     "UID": 0,
                     "currentState": 0,
                     "movementSpeed": 35,
+                    "deathAnimFinish": true,
                     "godMode": false,
                     "fireRate": 0,
                     "reloadDuration": 1,
@@ -34639,7 +34640,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.5180144045152701e-06,
+                        5.5180139497679193e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],

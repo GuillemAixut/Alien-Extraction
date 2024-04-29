@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 535720368,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10409,9 +10409,9 @@
                         619.72198486328125
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -5.0089561227650847e-06,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -10514,9 +10514,9 @@
                         618.6265869140625
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -5.0089561227650847e-06,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -10619,9 +10619,9 @@
                         618.6087646484375
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -5.0089561227650847e-06,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -14386,9 +14386,9 @@
                         556.00042724609375
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -88.209434509277344,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.050000157207250595,
@@ -14858,8 +14858,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 678,
-                    "Height": 688,
+                    "Width": 629,
+                    "Height": 673,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -18166,7 +18166,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.5180125855258666e-06,
+                        5.5180121307785157e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],
@@ -19105,8 +19105,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1839,
-                    "Height": 1108,
+                    "Width": 629,
+                    "Height": 673,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -20041,7 +20041,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CHIP1",
+                    "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -20517,7 +20517,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CHIP2",
+                    "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -20993,7 +20993,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE1",
+                    "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -21469,7 +21469,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE2",
+                    "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -24554,7 +24554,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "CHIP1",
+                    "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -26674,7 +26674,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "CHIP2",
+                    "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -30253,9 +30253,9 @@
                         0
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         0,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -30522,9 +30522,9 @@
                         0
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         0,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -30797,9 +30797,9 @@
                         0
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -89.980216979980469,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.02500000037252903,
@@ -30886,6 +30886,7 @@
                     "detectionRadius": 60,
                     "xSpeed": 0,
                     "ySpeed": 0,
+                    "droneState": 0,
                     "timeCounter": 0
                 },
                 {
@@ -31009,9 +31010,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         89.980216979980469,
-                        180
+                        -180
                     ],
                     "Scale": [
                         39.999992370605469,
