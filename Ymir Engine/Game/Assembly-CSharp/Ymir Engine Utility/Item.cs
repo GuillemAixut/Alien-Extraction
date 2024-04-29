@@ -21,10 +21,8 @@ namespace YmirEngine
     public enum ITEM_SLOT
     {
         ARMOR,
-        CHIP1,
-        CHIP2,
-        CONSUMABLE1,
-        CONSUMABLE2,
+        CHIP,
+        CONSUMABLE,
         SAVE,
         NONE
     }

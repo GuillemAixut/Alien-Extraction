@@ -71,17 +71,11 @@ public class UI_Item_Button : YmirComponent
             case "ARMOR":
                 elementChanged = ITEM_SLOT.ARMOR;
                 break;
-            case "CHIP1":
-                elementChanged = ITEM_SLOT.CHIP1;
+            case "CHIP":
+                elementChanged = ITEM_SLOT.CHIP;
                 break;
-            case "CHIP2":
-                elementChanged = ITEM_SLOT.CHIP2;
-                break;
-            case "CONSUMABLE1":
-                elementChanged = ITEM_SLOT.CONSUMABLE1;
-                break;
-            case "CONSUMABLE2":
-                elementChanged = ITEM_SLOT.CONSUMABLE2;
+            case "CONSUMABLE":
+                elementChanged = ITEM_SLOT.CONSUMABLE;
                 break;
             case "SAVE":
                 elementChanged = ITEM_SLOT.SAVE;
