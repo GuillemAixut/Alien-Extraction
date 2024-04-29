@@ -250,6 +250,8 @@ public class DroneXenomorphBaseScript : Enemy
                     Audio.PlayAudio(gameObject, "DX_Claw");
                     droneState = DroneState.IDLE_AGGRO;
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
+                    //To fix claw to tail attack bug
+                    tailCooldownTime = 5.5f;
                 }
 
                 break;
@@ -269,6 +271,9 @@ public class DroneXenomorphBaseScript : Enemy
                     Audio.PlayAudio(gameObject, "DX_Tail");
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                     droneState = DroneState.IDLE_AGGRO;
+                    //To fix tail to claw attack bug
+                    clawCooldownTime = 1f;
+
                 }
 
                 break;
