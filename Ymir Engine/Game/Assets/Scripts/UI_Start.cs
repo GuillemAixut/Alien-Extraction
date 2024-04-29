@@ -8,7 +8,6 @@ using YmirEngine;
 
 public class UI_Start : YmirComponent
 {
-
 	public void Start()
 	{
 		UI.SetFirstFocused(gameObject); // Script to set first UI when loading scene

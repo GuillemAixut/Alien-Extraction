@@ -167,15 +167,12 @@ void Animator::UpdateCurrentTime(ResourceAnimation* animation) {
 
 		ResetAnimation(animation);
 	}
-		
-		
 }
 
 void Animator::PlayAnimation(ResourceAnimation* animation)
 {
 	if (previousAnimation) {
 		lastCurrentTime = previousAnimation->currentTime;
-		LOG("PrevAnim Time: %f", lastCurrentTime);
 	}
 
 	previousAnimation = currentAnimation;

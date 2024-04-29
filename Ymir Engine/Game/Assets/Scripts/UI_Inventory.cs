@@ -11,8 +11,10 @@ public class UI_Inventory : YmirComponent
 {
     private GameObject _selectedGO, _textHP, _textArmor, _textSpeed, _textReload, _textDamage, _textRate, _textResin;
     public GameObject focusedGO, goDescription, goText;
+
     public bool _droppable = true, _disable = false;
     private bool _show;
+
     public Player player = null;
     public Health health = null;
 
@@ -25,7 +27,7 @@ public class UI_Inventory : YmirComponent
         goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goDescription.SetActive(false);// TODO: when menu opened
         goText.SetActive(false);
-       
+
         _disable = false;
         _show = false;
 
@@ -43,9 +45,29 @@ public class UI_Inventory : YmirComponent
             _textResin = InternalCalls.GetGameObjectByName("Text Resin");
         }
 
-        //UpdateTextStats();
+        //Debug.Log("ffffffff " + player.itemsList.Count.ToString());
+        //for (int i = 0; i < player.itemsList.Count; i++)
+        //{
+        //    Debug.Log("ccccccc " + player.itemsList[i].itemType.ToString());
 
-        //UI.SetFirstFocused(gameObject); // TODO: MissingMethodException WHY?
+        //    int size = InternalCalls.CS_GetChildrenSize(gameObject);
+        //    Debug.Log("jjjjjjj " + size.ToString());
+
+        //    for (int j = 0; j < InternalCalls.CS_GetChildrenSize(gameObject); j++)
+        //    {
+        //        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+        //        GameObject go = InternalCalls.CS_GetChild(gameObject, j);
+
+        //        if (gameObject != null)
+        //        {
+        //            Debug.Log("bbbb" + go.Name);
+        //            if (go.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+        //            {
+        //                break;
+        //            }
+        //        }
+        //    }
+        //}
     }
 
     public void Update()
@@ -66,6 +88,8 @@ public class UI_Inventory : YmirComponent
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
+        UI_Item_Button cs_UI_Item_Button = focusedGO.GetComponent<UI_Item_Button>();
+
         if (focusedGO != null)
         {
             if (Input.GetGamepadButton(GamePadButton.RIGHTSHOULDER) == KeyState.KEY_REPEAT)
@@ -77,7 +101,7 @@ public class UI_Inventory : YmirComponent
                 }
 
                 UpdateTextPos();
-                focusedGO.GetComponent<UI_Item_Button>().UpdateInfo();
+                cs_UI_Item_Button.UpdateInfo();
             }
 
             else if (Input.GetGamepadButton(GamePadButton.RIGHTSHOULDER) == KeyState.KEY_UP)
@@ -99,21 +123,20 @@ public class UI_Inventory : YmirComponent
                 UI.SetFirstFocused(gameObject);
             }
 
-            if (focusedGO.GetComponent<UI_Item_Button>() != null && _droppable)
+            if (cs_UI_Item_Button != null && _droppable)
             {
-                Debug.Log(" " + focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
-                Debug.Log(" " + focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+                // Si se quita peta xd
+                cs_UI_Item_Button.item.itemType.ToString();
+                //cs_UI_Item_Button.item.currentSlot.ToString();
+                //
 
-                if (((focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE ||
-                                focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.SAVE) &&
-                                focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE) &&
+                if (((cs_UI_Item_Button.item.itemType != ITEM_SLOT.NONE ||
+                                cs_UI_Item_Button.item.itemType != ITEM_SLOT.SAVE) &&
+                                cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
                                 Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
                 {
-                    Debug.Log("333333");
-                    focusedGO.GetComponent<UI_Item_Button>().item.currentSlot = ITEM_SLOT.NONE;
-                    Debug.Log("444444444");
-                    focusedGO.GetComponent<UI_Item_Button>().item.itemType = ITEM_SLOT.NONE;
-                    Debug.Log("66666666666");
+                    cs_UI_Item_Button.item.currentSlot = ITEM_SLOT.NONE;
+                    cs_UI_Item_Button.item.itemType = ITEM_SLOT.NONE;
 
                     // Add real art and other stuff
 
@@ -121,13 +144,13 @@ public class UI_Inventory : YmirComponent
 
                     UI.ChangeImageUI(imageItem, "Assets/UI/Inventory Buttons/New Buttons/Unselected.png", (int)UI_STATE.NORMAL);
 
-                    focusedGO.GetComponent<UI_Item_Button>().descriptionText = "Empty";
-                    focusedGO.GetComponent<UI_Item_Button>().UpdateInfo();
+                    cs_UI_Item_Button.descriptionText = "Empty";
+                    cs_UI_Item_Button.UpdateInfo();
                 }
             }
 
-            //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
-            //Debug.Log(_focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+            //Debug.Log(_cs_UI_Item_Button.item.itemType.ToString());
+            //Debug.Log(_cs_UI_Item_Button.item.currentSlot.ToString());
         }
 
         //if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN)
@@ -150,7 +173,7 @@ public class UI_Inventory : YmirComponent
             if ((_selectedGO.GetComponent<UI_Item_Button>().item.itemType == focusedGO.GetComponent<UI_Item_Button>().item.currentSlot &&
                 _selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && focusedGO.GetComponent<UI_Item_Button>().item.itemType == ITEM_SLOT.NONE) ||
-                (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.SAVE && _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE)||
+                (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.SAVE && _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE))
             {
                 UI.SwitchPosition(_selectedGO.parent, focusedGO.parent);
@@ -213,8 +236,8 @@ public class UI_Inventory : YmirComponent
         {
             player = gameObject.GetComponent<Player>();
         }
-    }   
-    
+    }
+
     private void GetHealthScript()
     {
         GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
@@ -242,6 +265,5 @@ public class UI_Inventory : YmirComponent
             UI.TextEdit(_textArmor, health.armor.ToString());
         }
     }
-
 }
 

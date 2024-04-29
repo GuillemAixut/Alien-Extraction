@@ -165,6 +165,7 @@ public class Player : YmirComponent
 
     public string currentMenu = "";
     public bool setHover = false; // Guarrada temporal
+    public List<Item> itemsList;
 
     #endregion
 
@@ -245,6 +246,21 @@ public class Player : YmirComponent
         GetWeaponVars();
 
         //--------------------- Menus ---------------------\\
+        itemsList = new List<Item>();
+
+        // TODO: Sara --> cosas pa probar items
+        for (int i = 0; i < 5; i++)
+        {
+            Random random = new Random();
+
+            ITEM_SLOT a = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
+            ITEM_SLOT b = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
+
+            Item item = new Item(a, b,
+                random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100));
+
+            itemsList.Add(item);
+        }
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -520,7 +536,7 @@ public class Player : YmirComponent
         }
 
         if (currentState != STATE.STOP)
-        {        
+        {
             //----------------- Joystic -----------------\\
             if (JoystickMoving() == true)
             {
@@ -663,6 +679,7 @@ public class Player : YmirComponent
         //    Input.Rumble_Controller(50);
         //}
     }
+
     private void ProcessState()
     {
         while (inputsList.Count > 0)
@@ -1075,7 +1092,8 @@ public class Player : YmirComponent
         StopPlayer();
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
         //Logica del disparo depende del arma equipada
-        switch (weaponType) {
+        switch (weaponType)
+        {
             case WEAPON.SMG:
                 SmgShoot();
                 break;
@@ -1172,20 +1190,23 @@ public class Player : YmirComponent
         GameObject target;
         target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 100.0f);
 
-        if (target != null) {
+        if (target != null)
+        {
 
             Debug.Log(target.Name);
 
-            if (target.Tag != "Enemy") {
+            if (target.Tag != "Enemy")
+            {
 
                 Audio.PlayAudio(gameObject, "W_FirearmSurf");
             }
-            else {
+            else
+            {
                 Audio.PlayAudio(gameObject, "W_FirearmEnemy");
                 //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
                 FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
 
-                if(aux != null)
+                if (aux != null)
                 {
                     aux.life -= 5;
                 }
@@ -1445,8 +1466,6 @@ public class Player : YmirComponent
         y = Input.GetLeftAxisY();
 
         gamepadInput = new Vector3(x, y, 0f);
-
-        //Debug.Log("sdsad" + x);
     }
     #endregion
 
@@ -1489,7 +1508,7 @@ public class Player : YmirComponent
 
     private void StopPlayer()
     {
-        Debug.Log("Stopping");
+        //Debug.Log("Stopping");
         gameObject.SetVelocity(new Vector3(0, 0, 0));
         gameObject.ClearForces();
     }
@@ -1713,7 +1732,7 @@ public class Player : YmirComponent
         Audio.PlayAudio(gameObject, "P_TailSweep");
 
         GameObject particles = GetParticles(gameObject, "Tail Particles");
-        Particles.PlayEmitter(particles);   
+        Particles.PlayEmitter(particles);
 
         //trigger de la animacion
         //Setup de todo lo necesario
@@ -1763,7 +1782,7 @@ public class Player : YmirComponent
         //Delete de la hitbox de la cola
         Animation.PlayAnimation(gameObject, "Raisen_Idle");
         swipeCDTimer = swipeCD;
-        
+
     }
 
     public void LookAt(float angle)

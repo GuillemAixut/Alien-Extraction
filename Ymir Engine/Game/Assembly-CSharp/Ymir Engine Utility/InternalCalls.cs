@@ -131,6 +131,13 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern GameObject CS_GetChild(object go, int numberChild);
 
+        // TODO: PONER EN GAMEOBJECT.CS
+        /// <summary>
+        /// Get child in numberChild position in mchildren.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int CS_GetChildrenSize(object go);
+
         /// <summary>
         /// Compare GameObjects by UID.
         /// </summary>

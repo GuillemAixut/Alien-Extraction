@@ -24,6 +24,17 @@ namespace YmirEngine
         CHIP,
         CONSUMABLE,
         SAVE,
+        NONE, 
+
+        SIZE
+    }
+
+    public enum ITEM_RARITY
+    {
+        COMMON,
+        RARE,
+        EPIC,
+
         NONE
     }
 
@@ -32,9 +43,18 @@ namespace YmirEngine
     {
         public ITEM_SLOT currentSlot;
         public ITEM_SLOT itemType;
+        public ITEM_RARITY itemRarity;
+
         public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
 
-        public Item(ITEM_SLOT currentSlot, ITEM_SLOT itemType, float HP = 0, float armor = 0, float speed = 0, float fireRate = 0, float reloadSpeed = 0, float damageMultiplier = 0)
+        public string imagePath = "";
+        public string name = "";
+        public string description = "";
+        public bool isEquipped = false;
+
+        public Item(ITEM_SLOT currentSlot = ITEM_SLOT.NONE, ITEM_SLOT itemType = ITEM_SLOT.NONE,
+            float HP = 0, float armor = 0, float speed = 0, float fireRate = 0, float reloadSpeed = 0, float damageMultiplier = 0,
+            string imagePath = "", ITEM_RARITY itemRarity = ITEM_RARITY.COMMON, bool isEquipped = false)
         {
             this.currentSlot = currentSlot;
             this.itemType = itemType;
@@ -44,6 +64,9 @@ namespace YmirEngine
             this.fireRate = fireRate;
             this.reloadSpeed = reloadSpeed;
             this.damageMultiplier = damageMultiplier;
+            this.imagePath = imagePath;
+            this.itemRarity = itemRarity;
+            this.isEquipped = isEquipped;
         }
     }
 

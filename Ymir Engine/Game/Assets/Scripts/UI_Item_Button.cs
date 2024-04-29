@@ -9,8 +9,7 @@ using YmirEngine;
 public class UI_Item_Button : YmirComponent
 {
     public Item item;
-    public ITEM_SLOT currentSlot;
-    public ITEM_SLOT itemType;
+    public ITEM_SLOT currentSlot;   // Slot type --> type of item that can be placed
 
     public string enumItem = "";
     public string enumSlot = "";
@@ -19,6 +18,10 @@ public class UI_Item_Button : YmirComponent
 
     private GameObject _inventoryReference;
     public bool updateStats;
+
+
+    // Debug
+    public ITEM_SLOT itemType;
     public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
 
     public void Start()
@@ -33,9 +36,6 @@ public class UI_Item_Button : YmirComponent
         currentSlot = SetType(enumSlot);
 
         item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
-        
-        //Debug.Log(item.currentSlot.ToString());
-        //Debug.Log(item.itemType.ToString());
     }
 
     public void Update()
@@ -94,13 +94,28 @@ public class UI_Item_Button : YmirComponent
     {
         if (_inventoryReference != null)
         {
-            _inventoryReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;        
-            _inventoryReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;        
-            _inventoryReference.GetComponent<UI_Inventory>().health.armor += item.armor;        
-            _inventoryReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;        
-            _inventoryReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;        
-            _inventoryReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;        
-            _inventoryReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;        
+            _inventoryReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;
+            _inventoryReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;
+            _inventoryReference.GetComponent<UI_Inventory>().health.armor += item.armor;
+            _inventoryReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;
+            _inventoryReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;
+            _inventoryReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;
+            _inventoryReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;
         }
+    }
+
+    public bool SetItem(Item item)
+    {
+        bool ret = false;
+
+        if (item.isEquipped && item.itemType == currentSlot || item != null && currentSlot == ITEM_SLOT.NONE)
+        {
+            this.item = item;
+            ret = true;
+
+            Debug.Log("aaa " + currentSlot.ToString() + "item: " + item.itemType.ToString());
+        }
+
+        return ret;
     }
 }

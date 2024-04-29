@@ -142,7 +142,6 @@ int MouseY()
 	return 0;
 }
 
-
 MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
 {
 	if (prefabPath == nullptr)
@@ -321,6 +320,11 @@ MonoObject* CS_GetChild(MonoObject* obj, int numberChild)
 	GameObject* go = External->moduleMono->GameObject_From_CSGO(obj);
 
 	return External->moduleMono->GoToCSGO(go->mChildren[numberChild]);
+}
+
+int CS_GetChildrenSize(MonoObject* obj)
+{
+	return External->moduleMono->GameObject_From_CSGO(obj)->mChildren.size();
 }
 
 bool CompareGameObjectsByUID(MonoObject* obj1, MonoObject* obj2)

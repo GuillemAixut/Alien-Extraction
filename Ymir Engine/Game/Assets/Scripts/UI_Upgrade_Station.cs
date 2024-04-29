@@ -20,9 +20,9 @@ public class UI_Upgrade_Station : YmirComponent
         description = InternalCalls.GetChildrenByName(gameObject, "Description");
         cost = InternalCalls.GetChildrenByName(gameObject, "Cost");        
         coins = InternalCalls.GetChildrenByName(gameObject, "Coins");
+
         UI.TextEdit(coins, currentScore.ToString());
         GetPlayerScript();
-
     }
 
     public void Update()
