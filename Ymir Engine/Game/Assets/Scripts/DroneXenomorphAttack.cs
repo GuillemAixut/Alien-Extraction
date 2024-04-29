@@ -46,14 +46,25 @@ public class DroneXenomorphAttack : YmirComponent
             gameObject.SetPosition(drone.transform.globalPosition);
             gameObject.SetVelocity(drone.transform.GetForward() * 0f * Time.deltaTime);
         }
-        else if (drone.GetComponent<DroneXenomorphBaseScript>().timeCounter > 0.5f)
+        else if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.CLAW && drone.GetComponent<DroneXenomorphBaseScript>().timeCounter > 0.6f)
         {
-            if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.CLAW) attackRange = 100f;
-            else attackRange = 150f;
+            attackSpeed = 0.8f;
 
             if (drone.GetComponent<DroneXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, drone.transform.globalPosition, attackRange))
             {
-                Debug.Log("[ERROR] ATTACK222222222222222222222");
+                gameObject.SetVelocity(drone.transform.GetForward() * 3000f * attackSpeed * Time.deltaTime);
+            }
+            else
+            {
+                gameObject.SetVelocity(drone.transform.GetForward() * 0f * Time.deltaTime);
+            }
+        }
+        else if (drone.GetComponent<DroneXenomorphBaseScript>().GetState() == DroneState.TAIL && drone.GetComponent<DroneXenomorphBaseScript>().timeCounter > 0.35f)
+        {
+            attackSpeed = 1.8f;
+
+            if (drone.GetComponent<DroneXenomorphBaseScript>().CheckDistance(gameObject.transform.globalPosition, drone.transform.globalPosition, attackRange) && drone.GetComponent<DroneXenomorphBaseScript>().timeCounter < 0.6f)
+            {
                 gameObject.SetVelocity(drone.transform.GetForward() * 3000f * attackSpeed * Time.deltaTime);
             }
             else

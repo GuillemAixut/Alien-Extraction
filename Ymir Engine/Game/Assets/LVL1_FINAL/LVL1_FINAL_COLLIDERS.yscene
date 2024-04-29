@@ -1,24 +1,24 @@
 {
     "NavMesh": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.nav",
     "Editor Camera Position": [
-        -254.364013671875,
-        678.215576171875,
-        236.3759765625
+        -444.68954467773438,
+        2012.7166748046875,
+        -1053.704833984375
     ],
     "Editor Camera Right (X)": [
-        0.66301935911178589,
-        -8.9406967163085938e-08,
-        0.74860304594039917
+        -0.89202535152435303,
+        1.4901161193847656e-08,
+        0.37645679712295532
     ],
     "Editor Camera Up (Y)": [
-        0.67980831861495972,
-        0.41874855756759644,
-        -0.602089524269104
+        0.32745051383972168,
+        0.47855070233345032,
+        0.77590346336364746
     ],
     "Editor Camera Front (Z)": [
-        0.31347563862800598,
-        -0.90810239315032959,
-        -0.27763780951499939
+        0.19200810790061951,
+        -0.86905103921890259,
+        0.45496881008148193
     ],
     "Hierarchy": [
         {
@@ -28,6 +28,7 @@
             "UID": 1968864687,
             "Active": true,
             "Element_Type": "None",
+            "Parent UID": 897979802,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52088,7 +52089,7 @@
                     ],
                     "Rotation": [
                         180,
-                        0.092366710305213928,
+                        0.092366740107536316,
                         180
                     ],
                     "Scale": [
@@ -59483,7 +59484,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.5000121593475342,
+                        2.5000138282775879,
                         -0
                     ],
                     "Scale": [
@@ -60098,7 +60099,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327005386352539,
+                        31.327001571655273,
                         -0
                     ],
                     "Scale": [
@@ -69291,6 +69292,7 @@
                     "detectionRadius": 60,
                     "xSpeed": 0,
                     "ySpeed": 0,
+                    "droneState": 0,
                     "timeCounter": 0
                 },
                 {
@@ -69793,8 +69795,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1658,
-                    "Height": 1196,
+                    "Width": 1673,
+                    "Height": 800,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -72267,8 +72269,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1839,
-                    "Height": 1108,
+                    "Width": 1673,
+                    "Height": 800,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -73203,7 +73205,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CHIP1",
+                    "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -73679,7 +73681,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CHIP2",
+                    "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -74155,7 +74157,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE1",
+                    "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -74631,7 +74633,7 @@
                     "currentSlot": 0,
                     "itemType": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "CONSUMABLE2",
+                    "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
@@ -77716,7 +77718,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "CHIP1",
+                    "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -79836,7 +79838,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "itemType": 0,
-                    "enumItem": "CHIP2",
+                    "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
@@ -83464,6 +83466,7 @@
                     "UID": 0,
                     "currentState": 0,
                     "movementSpeed": 35,
+                    "deathAnimFinish": true,
                     "godMode": false,
                     "fireRate": 0,
                     "reloadDuration": 1,
@@ -84096,7 +84099,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.5180144045152701e-06,
+                        5.5180125855258666e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],

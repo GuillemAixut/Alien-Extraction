@@ -25,7 +25,7 @@ public class FaceHuggerBaseScript : Enemy
     public bool PlayerDetected = false;
 
     
-    private float AttackDistance = 20f;
+    private float AttackDistance = 15f;
 
     //private EnemyState state = EnemyState.Idle;
    
@@ -61,7 +61,7 @@ public class FaceHuggerBaseScript : Enemy
         knockBackSpeed = 200;
         knockBackTimer = 0.2f;
         stopedDuration = 1f;
-        detectionRadius = 50f;
+        detectionRadius = 80f;
         wanderRange = 100f;
         cumDuration = 2f;
         cumDuration2 = 5f;

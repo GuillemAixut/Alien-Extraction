@@ -51,7 +51,6 @@ public class DroneXenomorphBaseScript : Enemy
 	private float timeLimit;
 
     private float outOfRangeTimer;
-
 	public void Start()
 	{
 		//MAIN STUFF
@@ -59,7 +58,6 @@ public class DroneXenomorphBaseScript : Enemy
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         agent = gameObject.GetComponent<PathFinding>();
-
 
         knockBackSpeed = 200;
         knockBackTimer = 0.5f;
@@ -77,13 +75,11 @@ public class DroneXenomorphBaseScript : Enemy
         wanderRange = 100f;
 
         //Claw
-        //clawDamage = 150f;
 		clawCooldown = 2f;
         clawCooldownTime = 0f;
         clawRange = 20f;
 
 		//Tail
-		//tailDamage = 200f;
 		tailCooldown = 6f;
         tailCooldownTime = 0f;
         tailRange = 30f;
@@ -125,6 +121,7 @@ public class DroneXenomorphBaseScript : Enemy
 		{
 
             case DroneState.DEAD:
+
                 timePassed += Time.deltaTime;
 
                 if (timePassed >= 1.4f)
@@ -132,7 +129,6 @@ public class DroneXenomorphBaseScript : Enemy
                     //Debug.Log("[ERROR] DEATH");
                     InternalCalls.Destroy(gameObject);
                 }
-
 
                 return;
             case DroneState.KNOCKBACK:
@@ -250,6 +246,8 @@ public class DroneXenomorphBaseScript : Enemy
                     Audio.PlayAudio(gameObject, "DX_Claw");
                     droneState = DroneState.IDLE_AGGRO;
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
+                    //To fix claw to tail attack bug
+                    tailCooldownTime = 5.5f;
                 }
 
                 break;
@@ -269,6 +267,9 @@ public class DroneXenomorphBaseScript : Enemy
                     Audio.PlayAudio(gameObject, "DX_Tail");
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                     droneState = DroneState.IDLE_AGGRO;
+                    //To fix tail to claw attack bug
+                    clawCooldownTime = 1f;
+
                 }
 
                 break;
@@ -306,16 +307,10 @@ public class DroneXenomorphBaseScript : Enemy
 
     }
 
-    //SHOULD BE ON ENEMY BASE SCRIPT!!!!!
-    //LookAt, CheckDistance, MoveToPosition, DestroyEnemy, IsReached
-    //Check distance between two gameobjects world position
-
     public void OnCollisionStay(GameObject other)
     {
         if (other.Tag == "Tail" && droneState != DroneState.KNOCKBACK && droneState != DroneState.DEAD)
         {
-            //Debug.Log("[ERROR] CURRENTSTATE2: " + droneState);
-            //Debug.Log("[ERROR] HIT!!");
             life -= 80;
 
             droneState = DroneState.KNOCKBACK;
@@ -346,13 +341,11 @@ public class DroneXenomorphBaseScript : Enemy
         {
             Audio.PlayAudio(gameObject, "DX_Death");
             Animation.PlayAnimation(gameObject, "Death");
-            //Debug.Log("[ERROR] CURRENTSTATE2: " + droneState);
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             droneState = DroneState.DEAD;
             timePassed = 0;
         }
     }
-    //REMOVE functions on top------------------------------------------------------------------------
 
     //CHECK ATTACKS
     private void CheckAttack()
@@ -394,6 +387,4 @@ public class DroneXenomorphBaseScript : Enemy
     {
         return droneState;
     }
-
-
 }
