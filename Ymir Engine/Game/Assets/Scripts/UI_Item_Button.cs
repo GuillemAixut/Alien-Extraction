@@ -107,11 +107,14 @@ public class UI_Item_Button : YmirComponent
     {
         item = new Item(currentSlot, ITEM_SLOT.NONE, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
 
+        Debug.Log("salacatunga: " + currentSlot);
+        Debug.Log("name go " + gameObject.Name);
+
         bool ret = false;
         Debug.Log("item currentSlot: " + item.currentSlot.ToString());
         Debug.Log("itemType: " + item.itemType.ToString());
 
-        Debug.Log("item que le pasas: " + _item.itemType.ToString());
+        Debug.Log("itemType que le pasas: " + _item.itemType.ToString());
         Debug.Log("isEquipped: " + _item.isEquipped.ToString());
 
 

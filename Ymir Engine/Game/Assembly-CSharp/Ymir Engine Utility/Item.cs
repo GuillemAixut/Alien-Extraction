@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YmirEngine
 {
-    enum UI_STATE
+    public enum UI_STATE
     {
         DISABLED,
         NORMAL,

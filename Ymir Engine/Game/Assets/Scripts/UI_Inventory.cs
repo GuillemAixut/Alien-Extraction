@@ -40,7 +40,7 @@ public class UI_Inventory : YmirComponent
         _textRate = InternalCalls.GetGameObjectByName("Text Rate");
         _textResin = InternalCalls.GetGameObjectByName("Text Resin");
 
-        //SetSlots();
+        SetSlots();
     }
 
     public void Update()
@@ -241,33 +241,42 @@ public class UI_Inventory : YmirComponent
 
     private void SetSlots()
     {
+        bool isInventory;
+
         for (int i = 0; i < player.itemsList.Count; i++)
         {
+            isInventory = true;
+
             GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
             GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
 
             for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
             {
                 GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 0), 2);  // (Grid (Slot (Button)))
+                Debug.Log("button name " + button.Name);
 
-                if (gameObject != null)
+                if (button != null)
                 {
                     if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
                     {
+                        isInventory = false;
                         break;
                     }
                 }
             }
 
-            for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
+            if (isInventory)
             {
-                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
-
-                if (gameObject != null)
+                for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
                 {
-                    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+
+                    if (button != null)
                     {
-                        break;
+                        if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                        {
+                            break;
+                        }
                     }
                 }
             }
