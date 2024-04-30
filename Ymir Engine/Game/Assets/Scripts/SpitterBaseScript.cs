@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 using YmirEngine;
 
-public enum XenoState
+enum XenoState
 {
     IDLE,
     IDLE_AGGRO,
@@ -20,13 +20,13 @@ public enum XenoState
     DEAD
 }
 
-public class XenospitterBaseScript : Enemy
+public class Spitter : Enemy
 {
     public GameObject thisReference = null;
 
     protected Vector3 targetPosition = null;
 
-    public XenoState xenoState;
+    private XenoState xenoState;
 
     //Attacks variables
 
@@ -54,7 +54,7 @@ public class XenospitterBaseScript : Enemy
     private float outOfRangeTimer;
 
     public void Start()
-	{
+    {
         //Base stuff
         xenoState = XenoState.IDLE;
         player = InternalCalls.GetGameObjectByName("Player");
@@ -97,12 +97,12 @@ public class XenospitterBaseScript : Enemy
     }
 
     public void Update()
-	{
+    {
         //backwardsCooldownTime += Time.deltaTime;
 
         if (xenoState != XenoState.DEAD) { isDeath(); }
 
-        switch (xenoState) 
+        switch (xenoState)
         {
             case XenoState.IDLE:
 
@@ -356,11 +356,4 @@ public class XenospitterBaseScript : Enemy
         }
 
     }
-
-    //State getter
-    public XenoState GetState()
-    {
-        return xenoState;
-    }
-
 }
