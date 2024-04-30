@@ -71,7 +71,7 @@ void CScript::Update()
 	{
 		if (strcmp(mono_class_get_name(mono_object_get_class(exec)), "NullReferenceException") == 0)
 		{
-			LOG("[WARNING] Null reference exception detected");
+			LOG("[WARNING] Null reference exception detected at %s", name.c_str());
 		}
 		else
 		{

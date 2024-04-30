@@ -8,7 +8,7 @@ using YmirEngine;
 
 public class UI_Item_Button : YmirComponent
 {
-    public Item item;
+    public Item item = null;
     public ITEM_SLOT currentSlot;   // Slot type --> type of item that can be placed
 
     public string enumItem = "";
@@ -34,7 +34,7 @@ public class UI_Item_Button : YmirComponent
         itemType = SetType(enumItem);
         currentSlot = SetType(enumSlot);
 
-        item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        //item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
     }
 
     public void Update()
@@ -103,17 +103,32 @@ public class UI_Item_Button : YmirComponent
         }
     }
 
-    public bool SetItem(Item item)
+    public bool SetItem(Item _item)
     {
-        bool ret = false;
+        item = new Item(currentSlot, ITEM_SLOT.NONE, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
 
-        if (item.isEquipped && item.itemType == currentSlot || item != null && currentSlot == ITEM_SLOT.NONE)
+        bool ret = false;
+        Debug.Log("item currentSlot: " + item.currentSlot.ToString());
+        Debug.Log("itemType: " + item.itemType.ToString());
+
+        Debug.Log("item que le pasas: " + _item.itemType.ToString());
+        Debug.Log("isEquipped: " + _item.isEquipped.ToString());
+
+
+        Debug.Log("item.itemType == ITEM_SLOT.NONE: " + (item.itemType == ITEM_SLOT.NONE).ToString());
+
+        // is empty // is equipped // can be placed
+        if (item.itemType == ITEM_SLOT.NONE &&
+            ((_item.isEquipped && _item.itemType == item.currentSlot) ||
+            item.currentSlot == ITEM_SLOT.NONE))
         {
-            this.item = item;
+            item = _item;
             ret = true;
 
-            Debug.Log("aaa " + currentSlot.ToString() + "item: " + item.itemType.ToString());
+            Debug.Log("aaa " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
         }
+
+        Debug.Log("return: " + ret.ToString());
 
         return ret;
     }

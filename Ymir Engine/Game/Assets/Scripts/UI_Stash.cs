@@ -31,29 +31,7 @@ public class UI_Stash : YmirComponent
         GetPlayerScript();
         GetHealthScript();
 
-        //Debug.Log("ffffffff " + player.itemsList.Count.ToString());
-        //for (int i = 0; i < player.itemsList.Count; i++)
-        //{
-        //    Debug.Log("ccccccc " + player.itemsList[i].itemType.ToString());
-
-        //    int size = InternalCalls.CS_GetChildrenSize(gameObject);
-        //    Debug.Log("jjjjjjj " + size.ToString());
-
-        //    for (int j = 0; j < InternalCalls.CS_GetChildrenSize(gameObject); j++)
-        //    {
-        //        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
-        //        GameObject go = InternalCalls.CS_GetChild(gameObject, j);
-
-        //        if (gameObject != null)
-        //        {
-        //            Debug.Log("bbbb" + go.Name);
-        //            if (go.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
-        //            {
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
+        //SetSlots();
     }
 
     public void Update()
@@ -188,6 +166,7 @@ public class UI_Stash : YmirComponent
         goDescription.SetActive(isActive);
         goText.SetActive(isActive);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
     }
+
     private void GetPlayerScript()
     {
         GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
@@ -205,6 +184,50 @@ public class UI_Stash : YmirComponent
         if (gameObject != null)
         {
             health = gameObject.GetComponent<Health>();
+        }
+    }
+
+    private void SetSlots()
+    {
+        Debug.Log("ffffffff " + player.itemsList.Count.ToString());
+        for (int i = 0; i < player.itemsList.Count; i++)
+        {
+            Debug.Log("ccccccc " + player.itemsList[i].itemType.ToString());
+
+            GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
+            GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+
+            for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
+            {
+                Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 0), 2);  // (Grid (Slot (Button)))
+
+                if (gameObject != null)
+                {
+                    Debug.Log("bbbb " + button.Name);
+                    Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
+                    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                    {
+                        break;
+                    }
+                }
+            }
+
+            for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
+            {
+                Debug.Log("iiiiiiiiiiii");
+                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+
+                if (gameObject != null)
+                {
+                    Debug.Log("jiji " + button.Name);
+                    Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
+                    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                    {
+                        break;
+                    }
+                }
+            }
         }
     }
 }
