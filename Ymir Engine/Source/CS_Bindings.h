@@ -951,6 +951,38 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 
 }
 
+void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("AcidSpit", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "SpitterAcidSpit";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = Quat(0, 0, 0, 0);
+	float3 scaleVector = float3(50, 50, 50);
+
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+	//Change in the future
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector.Normalized());
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "SpitterAcidSpit";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+
 //---------- GLOBAL GETTERS ----------//
 MonoObject* SendGlobalPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
 {
