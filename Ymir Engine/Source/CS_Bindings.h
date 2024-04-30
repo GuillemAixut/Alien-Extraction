@@ -637,11 +637,11 @@ void RecieveScale(MonoObject* obj, MonoObject* secObj)
 		return;
 
 	float3 omgItWorks = External->moduleMono->UnboxVector(secObj);
-	GameObject* workGO = External->moduleMono->GameObject_From_CSGO(obj); //TODO IMPORTANT: First parameter is the object reference, use that to find UID
+	CTransform* transform = CS_CompToComp<CTransform*>(obj); //TODO IMPORTANT: First parameter is the object reference, use that to find UID
 
-	if (workGO->mTransform)
+	if (transform)
 	{
-		workGO->mTransform->SetScale(omgItWorks);		
+		transform->SetScale(omgItWorks);
 	}
 }
 
