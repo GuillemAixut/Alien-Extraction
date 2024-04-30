@@ -16,9 +16,8 @@ public class UI_Item_Button : YmirComponent
     public string descriptionText = "";
     public string menuName = "";
 
-    private GameObject _inventoryReference;
+    private GameObject _menuReference;
     public bool updateStats;
-
 
     // Debug
     public ITEM_SLOT itemType;
@@ -30,7 +29,7 @@ public class UI_Item_Button : YmirComponent
         GameObject goText = InternalCalls.GetChildrenByName(goDescription, "Text");
         descriptionText = UI.GetUIText(goText);
 
-        _inventoryReference = InternalCalls.GetGameObjectByName(menuName);
+        _menuReference = InternalCalls.GetGameObjectByName(menuName);
 
         itemType = SetType(enumItem);
         currentSlot = SetType(enumSlot);
@@ -40,12 +39,12 @@ public class UI_Item_Button : YmirComponent
 
     public void Update()
     {
-        if (updateStats && _inventoryReference.GetComponent<UI_Inventory>()._droppable)
+        if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null)
         {
             if (item.currentSlot != ITEM_SLOT.NONE)
             {
                 UpdateStats();
-                _inventoryReference.GetComponent<UI_Inventory>().UpdateTextStats();
+                _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
             }
 
             updateStats = false;
@@ -56,9 +55,9 @@ public class UI_Item_Button : YmirComponent
 
     public void UpdateInfo()
     {
-        if (_inventoryReference.GetComponent<UI_Inventory>().goDescription != null)
+        if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
         {
-            UI.TextEdit(_inventoryReference.GetComponent<UI_Inventory>().goText, descriptionText);
+            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, descriptionText);
         }
     }
 
@@ -92,15 +91,15 @@ public class UI_Item_Button : YmirComponent
 
     private void UpdateStats() // TODO: cambiar cuando items funcionen en player
     {
-        if (_inventoryReference != null)
+        if (_menuReference != null)
         {
-            _inventoryReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;
-            _inventoryReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;
-            _inventoryReference.GetComponent<UI_Inventory>().health.armor += item.armor;
-            _inventoryReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;
-            _inventoryReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;
-            _inventoryReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;
-            _inventoryReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;
+            _menuReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;
+            _menuReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;
+            _menuReference.GetComponent<UI_Inventory>().health.armor += item.armor;
+            _menuReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;
+            _menuReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;
+            _menuReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;
+            _menuReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;
         }
     }
 

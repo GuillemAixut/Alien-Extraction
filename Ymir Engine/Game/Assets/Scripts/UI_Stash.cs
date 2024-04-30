@@ -2,14 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 
 using YmirEngine;
 
-public class UI_Inventory : YmirComponent
+public class UI_Stash : YmirComponent
 {
-    private GameObject _selectedGO, _textHP, _textArmor, _textSpeed, _textReload, _textDamage, _textRate, _textResin;
+    private GameObject _selectedGO;
     public GameObject focusedGO, goDescription, goText;
 
     private bool _show;
@@ -31,14 +30,6 @@ public class UI_Inventory : YmirComponent
 
         GetPlayerScript();
         GetHealthScript();
-
-        _textHP = InternalCalls.GetGameObjectByName("Text HP");
-        _textArmor = InternalCalls.GetGameObjectByName("Text Armor");
-        _textSpeed = InternalCalls.GetGameObjectByName("Text Speed");
-        _textReload = InternalCalls.GetGameObjectByName("Text Reload");
-        _textDamage = InternalCalls.GetGameObjectByName("Text Damage");
-        _textRate = InternalCalls.GetGameObjectByName("Text Rate");
-        _textResin = InternalCalls.GetGameObjectByName("Text Resin");
 
         //Debug.Log("ffffffff " + player.itemsList.Count.ToString());
         //for (int i = 0; i < player.itemsList.Count; i++)
@@ -116,32 +107,6 @@ public class UI_Inventory : YmirComponent
             if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
             {
                 UI.SetFirstFocused(gameObject);
-            }
-
-            if (cs_UI_Item_Button != null)
-            {
-                // Si se quita peta xd
-                cs_UI_Item_Button.item.itemType.ToString();
-                //cs_UI_Item_Button.item.currentSlot.ToString();
-                //
-
-                if (((cs_UI_Item_Button.item.itemType != ITEM_SLOT.NONE ||
-                                cs_UI_Item_Button.item.itemType != ITEM_SLOT.SAVE) &&
-                                cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
-                                Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
-                {
-                    cs_UI_Item_Button.item.currentSlot = ITEM_SLOT.NONE;
-                    cs_UI_Item_Button.item.itemType = ITEM_SLOT.NONE;
-
-                    // Add real art and other stuff
-
-                    GameObject imageItem = InternalCalls.GetChildrenByName(focusedGO.parent, "Image Item");
-
-                    UI.ChangeImageUI(imageItem, "Assets/UI/Inventory Buttons/New Buttons/Unselected.png", (int)UI_STATE.NORMAL);
-
-                    cs_UI_Item_Button.descriptionText = "Empty";
-                    cs_UI_Item_Button.UpdateInfo();
-                }
             }
 
             //Debug.Log(_cs_UI_Item_Button.item.itemType.ToString());
@@ -242,23 +207,4 @@ public class UI_Inventory : YmirComponent
             health = gameObject.GetComponent<Health>();
         }
     }
-
-    public void UpdateTextStats()
-    {
-        if (player != null)
-        {
-            UI.TextEdit(_textSpeed, player.movementSpeed.ToString());
-            UI.TextEdit(_textRate, player.fireRate.ToString());
-            UI.TextEdit(_textReload, player.reloadDuration.ToString());
-            UI.TextEdit(_textDamage, player.damageMultiplier.ToString());
-            UI.TextEdit(_textResin, player.resin.ToString());
-        }
-
-        if (health != null)
-        {
-            UI.TextEdit(_textHP, health.currentHealth.ToString());
-            UI.TextEdit(_textArmor, health.armor.ToString());
-        }
-    }
 }
-
