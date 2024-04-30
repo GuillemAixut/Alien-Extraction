@@ -273,6 +273,11 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::GetWalkablePointAround", GetWalkablePointAround);
 #pragma endregion
 
+#pragma region Enemies
+
+	mono_add_internal_call("YmirEngine.PathFinding::CreateSpitterAcidSpit", CreateSpitterAcidSpit);
+
+#pragma endregion
 
 	mono_add_internal_call("YmirEngine.Time::get_deltaTime", GetDT);
 	mono_add_internal_call("YmirEngine.Time::get_time", GetTimeCS);
