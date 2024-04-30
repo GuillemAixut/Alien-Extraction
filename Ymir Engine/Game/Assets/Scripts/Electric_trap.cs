@@ -14,13 +14,12 @@ public class Electric_trap : YmirComponent
     private bool activate = true;
     private bool hitPlayer = false;
     private Vector3 originalPosition;
-    public float damage = 1;
+    public float damage = 220;
     //public string toParticle = ""; electricidad
     //int aux = 0;
 
     public void Start()
     {
-        Debug.Log("HelloWorld");
         originalPosition = gameObject.transform.globalPosition;
     }
 
@@ -78,8 +77,6 @@ public class Electric_trap : YmirComponent
                 // Debug.Log("" + aux);
                 // aux++;
             }
-
-
         }
     }
 
