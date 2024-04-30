@@ -6,8 +6,7 @@
 #include "ImporterTexture.h"
 #include "ModuleScene.h"
 
-//SHAPES
-//#include "EmitterShapeArea.h"
+#include "External/mmgr/mmgr.h"
 
 EmitterSetting::EmitterSetting()
 {
@@ -844,6 +843,9 @@ EmitterPosition::EmitterPosition()
 	direction2 = { 0,0,0 };
 	normalizedSpeed = true;
 
+	//Use shape for movement
+	useBaseShape = false;
+
 	//Normal acceleration
 	acceleration = false;
 	particleSpeed1 = 1.0f;
@@ -860,94 +862,210 @@ EmitterPosition::EmitterPosition()
 
 void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 {
-	if (randomized)
+	if (!useBaseShape)
 	{
-		float3 dir1, dir2;
-
-		dir1 = { direction1.x ,direction1.y ,direction1.z };
-		dir2 = { direction2.x ,direction2.y ,direction2.z };
-
-		float maxX, minX;
-		if (dir1.x > dir2.x)
+		if (randomized)
 		{
-			maxX = dir1.x;
-			minX = dir2.x;
+			float3 dir1, dir2;
+
+			dir1 = { direction1.x ,direction1.y ,direction1.z };
+			dir2 = { direction2.x ,direction2.y ,direction2.z };
+
+			float maxX, minX;
+			if (dir1.x > dir2.x)
+			{
+				maxX = dir1.x;
+				minX = dir2.x;
+			}
+			else
+			{
+				maxX = dir2.x;
+				minX = dir1.x;
+			}
+
+			float maxY, minY;
+			if (dir1.y > dir2.y)
+			{
+				maxY = dir1.y;
+				minY = dir2.y;
+			}
+			else
+			{
+				maxY = dir2.y;
+				minY = dir1.y;
+			}
+
+			float maxZ, minZ;
+			if (dir1.z > dir2.z)
+			{
+				maxZ = dir1.z;
+				minZ = dir2.z;
+			}
+			else
+			{
+				maxZ = dir2.z;
+				minZ = dir1.z;
+			}
+
+			float randomX = ((float)rand()) / (float)RAND_MAX;
+			float rangeX = maxX - minX;
+			float fX = (randomX * rangeX) + minX;
+
+			float randomY = ((float)rand()) / (float)RAND_MAX;
+			float rangeY = maxY - minY;
+			float fY = (randomY * rangeY) + minY;
+
+			float randomZ = ((float)rand()) / (float)RAND_MAX;
+			float rangeZ = maxZ - minZ;
+			float fZ = (randomZ * rangeZ) + minZ;
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ fX,fY,fZ });
+				particle->velocity.x += fX / newModul;
+				particle->velocity.y += fY / newModul;
+				particle->velocity.z += fZ / newModul;
+			}
+			else
+			{
+				particle->velocity.x += fX;
+				particle->velocity.y += fY;
+				particle->velocity.z += fZ;
+			}
+
 		}
 		else
 		{
-			maxX = dir2.x;
-			minX = dir1.x;
+			if (normalizedSpeed)
+			{
+				float modul1 = GetModuleVec(direction1);
+				if (modul1 > 0)
+				{
+					particle->velocity.x += direction1.x / modul1;
+					particle->velocity.y += direction1.y / modul1;
+					particle->velocity.z += direction1.z / modul1;
+				}
+			}
+			else
+			{
+				particle->velocity.x += direction1.x;
+				particle->velocity.y += direction1.y;
+				particle->velocity.z += direction1.z;
+			}
 		}
-
-		float maxY, minY;
-		if (dir1.y > dir2.y)
-		{
-			maxY = dir1.y;
-			minY = dir2.y;
-		}
-		else
-		{
-			maxY = dir2.y;
-			minY = dir1.y;
-		}
-
-		float maxZ, minZ;
-		if (dir1.z > dir2.z)
-		{
-			maxZ = dir1.z;
-			minZ = dir2.z;
-		}
-		else
-		{
-			maxZ = dir2.z;
-			minZ = dir1.z;
-		}
-
-		float randomX = ((float)rand()) / (float)RAND_MAX;
-		float rangeX = maxX - minX;
-		float fX = (randomX * rangeX) + minX;
-
-		float randomY = ((float)rand()) / (float)RAND_MAX;
-		float rangeY = maxY - minY;
-		float fY = (randomY * rangeY) + minY;
-
-		float randomZ = ((float)rand()) / (float)RAND_MAX;
-		float rangeZ = maxZ - minZ;
-		float fZ = (randomZ * rangeZ) + minZ;
-		if (normalizedSpeed) 
-		{
-			float newModul = GetModuleVec({ fX,fY,fZ });
-			particle->velocity.x += fX / newModul;
-			particle->velocity.y += fY / newModul;
-			particle->velocity.z += fZ / newModul;
-		}
-		else 
-		{
-			particle->velocity.x += fX;
-			particle->velocity.y += fY;
-			particle->velocity.z += fZ;
-		}
-		
 	}
 	else
 	{
-		if (normalizedSpeed)
+		if (emitter->modules.at(0)->type == EmitterType::PAR_BASE) //Check of security
 		{
-			float modul1 = GetModuleVec(direction1);
-			if (modul1 > 0)
+			EmitterBase* eBase = (EmitterBase*)emitter->modules.at(0);
+
+			switch (eBase->currentShape)
 			{
-				particle->velocity.x += direction1.x / modul1;
-				particle->velocity.y += direction1.y / modul1;
-				particle->velocity.z += direction1.z / modul1;
+			case SpawnAreaShape::PAR_POINT:
+			{
+				if (normalizedSpeed)
+				{
+					float modul1 = GetModuleVec(eBase->emitterOrigin);
+					if (modul1 > 0)
+					{
+						particle->velocity.x = eBase->emitterOrigin.x / modul1;
+						particle->velocity.y = eBase->emitterOrigin.y / modul1;
+						particle->velocity.z = eBase->emitterOrigin.z / modul1;
+					}
+				}
+				else
+				{
+					particle->velocity.x = eBase->emitterOrigin.x;
+					particle->velocity.y = eBase->emitterOrigin.y;
+					particle->velocity.z = eBase->emitterOrigin.z;
+				}
+			}
+				break;
+			case SpawnAreaShape::PAR_CONE:
+			{
+				if (normalizedSpeed)
+				{
+					float modul1 = GetModuleVec(eBase->emitterOrigin);
+					if (modul1 > 0)
+					{
+						particle->velocity.x = eBase->emitterOrigin.x / modul1;
+						particle->velocity.y = eBase->emitterOrigin.y / modul1;
+						particle->velocity.z = eBase->emitterOrigin.z / modul1;
+					}
+				}
+				else
+				{
+					particle->velocity.x = eBase->emitterOrigin.x;
+					particle->velocity.y = eBase->emitterOrigin.y;
+					particle->velocity.z = eBase->emitterOrigin.z;
+				}
+			}
+			break;
+			case SpawnAreaShape::PAR_BOX:
+			{
+				float3 vecDire = particle->initialPosition - eBase->emitterOrigin;
+				float3 finalDire = {0,0,0};
+
+				if (vecDire.x > vecDire.y && vecDire.x > vecDire.z) //If its X is away enough from the center make it count for movement 
+				{
+					finalDire.x = vecDire.x/Abs(vecDire.x);
+				}
+				else if (vecDire.y > vecDire.z) //If its Y is away enough from the center make it count for movement 
+				{
+					finalDire.y = vecDire.y / Abs(vecDire.y);
+				}
+				else //If its Z is away enough from the center make it count for movement 
+				{
+					finalDire.z = vecDire.z / Abs(vecDire.z);
+				}
+				if (normalizedSpeed)
+				{
+					particle->velocity.x = finalDire.x;
+					particle->velocity.y = finalDire.y;
+					particle->velocity.z = finalDire.z;
+				}
+				else
+				{
+					particle->velocity.x = finalDire.x * (finalDire.x > 0) ? eBase->boxPointsPositives.x : eBase->boxPointsNegatives.x;
+					particle->velocity.y = finalDire.y * (finalDire.y > 0) ? eBase->boxPointsPositives.y : eBase->boxPointsNegatives.y;
+					particle->velocity.z = finalDire.z * (finalDire.z > 0) ? eBase->boxPointsPositives.z : eBase->boxPointsNegatives.z;
+				}
+			}
+			break;
+			case SpawnAreaShape::PAR_SPHERE:
+			{
+				float3 vecDire = particle->initialPosition - eBase->emitterOrigin;
+				if (normalizedSpeed)
+				{
+
+					float modul1 = GetModuleVec(vecDire);
+					if (modul1 > 0)
+					{
+						particle->velocity.x = vecDire.x / modul1;
+						particle->velocity.y = vecDire.y / modul1;
+						particle->velocity.z = vecDire.z / modul1;
+					}
+				}
+				else
+				{
+					particle->velocity.x = vecDire.x;
+					particle->velocity.y = vecDire.y;
+					particle->velocity.z = vecDire.z;
+				}
+			}
+			break;
+			case SpawnAreaShape::PAR_SHAPE_ENUM_END:
+			{
+				//Nothing
+			}
+				break;
+			default:
+				break;
 			}
 		}
-		else
-		{
-			particle->velocity.x += direction1.x;
-			particle->velocity.y += direction1.y;
-			particle->velocity.z += direction1.z;
-		}
+
 	}
+	
 	particle->velocity.w += particleSpeed1;
 }
 
@@ -1081,34 +1199,43 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 
 void EmitterPosition::OnInspector()
 {
-	ImGui::Checkbox("Random Movement ##POSITION", &this->randomized);
-	if (this->randomized)
+	ImGui::Checkbox("Use Shape ##POSITION", &this->useBaseShape);
+	if(useBaseShape)
 	{
-		ImGui::DragFloat3("Range 1 ##POSITION", &(this->direction1[0]), 0.1f);
-		if (normalizedSpeed)
-		{
-			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
-			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
-			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
-		}
-		ImGui::DragFloat3("Range 2 ##POSITION", &(this->direction2[0]), 0.1f);
-		if (normalizedSpeed)
-		{
-			float newModul = GetModuleVec({ direction2[0],direction2[1],direction2[2] });
-			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
-			ImGui::Text(("( " + std::to_string(direction2[0] / newModul) + ", " + std::to_string(direction2[1] / newModul) + ", " + std::to_string(direction2[2] / newModul) + " )").c_str());
-		}
+		ImGui::Text("Using the Base Shape");
 	}
 	else
 	{
-		ImGui::DragFloat3("Position", &(this->direction1[0]), 0.1f);
-		if (normalizedSpeed)
+		ImGui::Checkbox("Random Movement ##POSITION", &this->randomized);
+		if (this->randomized)
 		{
-			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
-			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
-			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+			ImGui::DragFloat3("Range 1 ##POSITION", &(this->direction1[0]), 0.1f);
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+				if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+				ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+			}
+			ImGui::DragFloat3("Range 2 ##POSITION", &(this->direction2[0]), 0.1f);
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ direction2[0],direction2[1],direction2[2] });
+				if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+				ImGui::Text(("( " + std::to_string(direction2[0] / newModul) + ", " + std::to_string(direction2[1] / newModul) + ", " + std::to_string(direction2[2] / newModul) + " )").c_str());
+			}
+		}
+		else
+		{
+			ImGui::DragFloat3("Position", &(this->direction1[0]), 0.1f);
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+				if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+				ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+			}
 		}
 	}
+	
 	ImGui::Checkbox("Normalize Dir. ##POSITION", &this->normalizedSpeed);
 	ImGui::Checkbox("Acceleration ##POSITION", &this->acceleration);
 	if (this->acceleration)
@@ -1122,7 +1249,6 @@ void EmitterPosition::OnInspector()
 	}
 
 	std::string modeName;
-
 	switch (actualSpeedChange)
 	{
 	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None"; break;

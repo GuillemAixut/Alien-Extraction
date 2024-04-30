@@ -172,6 +172,8 @@ struct EmitterPosition : EmitterSetting
 	float3 direction2;
 	bool normalizedSpeed;
 
+	bool useBaseShape;
+
 	bool acceleration;
 	float particleSpeed1;
 	float particleSpeed2;

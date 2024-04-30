@@ -10,6 +10,8 @@
 #include "ImporterTexture.h"
 #include "ModuleScene.h"
 
+#include "External/mmgr/mmgr.h"
+
 ParticleEmitter::ParticleEmitter(CParticleSystem* cParticleParent) //TODO: Solo se puede crear un emiiter funcional por game object, en el segundo no funciona el tree node de ImGui
 {
 	//Quiza haya que meterle alguna info? IDK

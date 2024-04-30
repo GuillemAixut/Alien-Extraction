@@ -13,6 +13,8 @@
 #include "EmitterSetting.h"
 #include "ParticleEmitter.h"
 
+#include "External/mmgr/mmgr.h"
+
 //#include "parson-master/parson.h" //For JSONs
 
 CParticleSystem::CParticleSystem()
