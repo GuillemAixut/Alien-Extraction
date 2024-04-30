@@ -154,6 +154,8 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}
+
+		particle->initialPosition = particle->position;
 	}
 		break;
 	case PAR_BOX:
@@ -983,34 +985,38 @@ void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 				break;
 			case SpawnAreaShape::PAR_CONE:
 			{
+				float3 vecDire = (particle->initialPosition - emitter->owner->mOwner->mTransform->GetGlobalPosition()) - eBase->emitterOrigin; //Here we can extract 
+				float progressOfHeigth = vecDire.y / eBase->heigth; //Value in reference of heigth to base between 0-1
+				float progressOfRadius = (vecDire.x * vecDire.x + vecDire.z * vecDire.z) / ((eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)) * (eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)));
+				float3 finalDir = { (eBase->topRadius - eBase->baseRadius) * (vecDire.x) * (eBase->baseRadius * (1 - progressOfRadius) + (eBase->topRadius * progressOfRadius)) , eBase->heigth, (eBase->topRadius - eBase->baseRadius) * (vecDire.z) * (eBase->baseRadius * (1 - progressOfRadius) + (eBase->topRadius * progressOfRadius)) };
 				if (normalizedSpeed)
 				{
-					float modul1 = GetModuleVec(eBase->emitterOrigin);
+					float modul1 = GetModuleVec(finalDir);
 					if (modul1 > 0)
 					{
-						particle->velocity.x = eBase->emitterOrigin.x / modul1;
-						particle->velocity.y = eBase->emitterOrigin.y / modul1;
-						particle->velocity.z = eBase->emitterOrigin.z / modul1;
+						particle->velocity.x = finalDir.x / modul1;
+						particle->velocity.y = finalDir.y / modul1;
+						particle->velocity.z = finalDir.z / modul1;
 					}
 				}
 				else
 				{
-					particle->velocity.x = eBase->emitterOrigin.x;
-					particle->velocity.y = eBase->emitterOrigin.y;
-					particle->velocity.z = eBase->emitterOrigin.z;
+					particle->velocity.x = finalDir.x;
+					particle->velocity.y = finalDir.y;
+					particle->velocity.z = finalDir.z;
 				}
 			}
 			break;
 			case SpawnAreaShape::PAR_BOX:
 			{
-				float3 vecDire = particle->initialPosition - eBase->emitterOrigin;
+				float3 vecDire = (particle->initialPosition - emitter->owner->mOwner->mTransform->GetGlobalPosition()) - eBase->emitterOrigin;
 				float3 finalDire = {0,0,0};
 
-				if (vecDire.x > vecDire.y && vecDire.x > vecDire.z) //If its X is away enough from the center make it count for movement 
+				if (Abs(vecDire.x) > Abs(vecDire.y) && Abs(vecDire.x) > Abs(vecDire.z)) //If its X is away enough from the center make it count for movement 
 				{
 					finalDire.x = vecDire.x/Abs(vecDire.x);
 				}
-				else if (vecDire.y > vecDire.z) //If its Y is away enough from the center make it count for movement 
+				else if (Abs(vecDire.y) > Abs(vecDire.z)) //If its Y is away enough from the center make it count for movement 
 				{
 					finalDire.y = vecDire.y / Abs(vecDire.y);
 				}
@@ -1026,15 +1032,15 @@ void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 				}
 				else
 				{
-					particle->velocity.x = finalDire.x * (finalDire.x > 0) ? eBase->boxPointsPositives.x : eBase->boxPointsNegatives.x;
-					particle->velocity.y = finalDire.y * (finalDire.y > 0) ? eBase->boxPointsPositives.y : eBase->boxPointsNegatives.y;
-					particle->velocity.z = finalDire.z * (finalDire.z > 0) ? eBase->boxPointsPositives.z : eBase->boxPointsNegatives.z;
+					particle->velocity.x = finalDire.x * ((finalDire.x > 0.0f) ? eBase->boxPointsPositives.x : eBase->boxPointsNegatives.x);
+					particle->velocity.y = finalDire.y * ((finalDire.y > 0.0f) ? eBase->boxPointsPositives.y : eBase->boxPointsNegatives.y);
+					particle->velocity.z = finalDire.z * ((finalDire.z > 0.0f) ? eBase->boxPointsPositives.z : eBase->boxPointsNegatives.z);
 				}
 			}
 			break;
 			case SpawnAreaShape::PAR_SPHERE:
 			{
-				float3 vecDire = particle->initialPosition - eBase->emitterOrigin;
+				float3 vecDire = (particle->initialPosition - emitter->owner->mOwner->mTransform->GetGlobalPosition()) - eBase->emitterOrigin;
 				if (normalizedSpeed)
 				{
 
