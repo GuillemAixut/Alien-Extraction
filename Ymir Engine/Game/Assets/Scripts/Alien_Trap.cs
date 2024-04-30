@@ -25,9 +25,6 @@ public class Alien_Trap : YmirComponent
 
     public void Update()
     {
-
-
-
         if (!axisZ)
         {
             if (time < 0.3f)
@@ -61,7 +58,6 @@ public class Alien_Trap : YmirComponent
                 {
                     active = false;
                 }
-
             }
             if (time > 0.3f)
             {
@@ -73,10 +69,8 @@ public class Alien_Trap : YmirComponent
             }
         }
 
-
         return;
     }
-
 
     public void OnCollisionStay(GameObject other)
     {
@@ -88,9 +82,6 @@ public class Alien_Trap : YmirComponent
                 hitPlayer = true;
                 // Debug.Log("" + other.GetComponent<Health>().currentHealth);
             }
-
-
-
         }
     }
 

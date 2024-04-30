@@ -12,20 +12,20 @@ public class Door_Horizontal : YmirComponent
     float animDuration = 3f;
     float velocity = 20f;
 
-    bool inMovment;
+    bool inMovement;
     bool closing;
 
     public bool inverted;
 
     public void Start()
     {
-        inMovment = false;
+        inMovement = false;
         closing = false;
     }
 
     public void Update()
     {
-        if(inverted)
+        if (inverted)
         {
             velocity = -velocity;
             inverted = false;
@@ -36,7 +36,7 @@ public class Door_Horizontal : YmirComponent
             timer -= Time.deltaTime; //Ejemplo: El timer inicia valiendo 6
         }
 
-        if (timer > (animDuration/3)*2) //Ejemplo: Hasta el segundo 4 (6 a 4 segundos)
+        if (timer > (animDuration / 3) * 2) //Ejemplo: Hasta el segundo 4 (6 a 4 segundos)
         {
             gameObject.SetVelocity(gameObject.transform.GetForward() * velocity);
             Debug.Log("1. Opening: Time remaining " + timer);
@@ -55,22 +55,21 @@ public class Door_Horizontal : YmirComponent
         }
         else if (timer < 0f)
         {
-            inMovment = false;
+            inMovement = false;
             closing = false;
             gameObject.SetVelocity(Vector3.zero);
             gameObject.ClearForces();
         }
-
     }
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player" && !inMovment)
+        if (other.Tag == "Player" && !inMovement)
         {
             timer = animDuration;
-            inMovment = true;
+            inMovement = true;
         }
-        else if(other.Tag == "Player" &&  inMovment && closing)
+        else if (other.Tag == "Player" && inMovement && closing)
         {
             timer = animDuration - timer;
             closing = false;

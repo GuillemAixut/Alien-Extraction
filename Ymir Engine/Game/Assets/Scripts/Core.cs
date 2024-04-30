@@ -84,16 +84,13 @@ public class Core : YmirComponent
             Vector3 pos = new Vector3(0, 1, 0);
 
             InternalCalls.CreateGameObject(name, pos);
-
         }
-
 
         if (this.reference == null)
         {
             Debug.Log("[ERROR] Reference on Core.cs was 'null'");
             return;
         }
-
 
         //if (Input.GetKey(YmirKeyCode.W) == KeyState.KEY_REPEAT)
         //    gameObject.transform.localPosition += gameObject.GetForward() * movementSpeed * Time.deltaTime;
@@ -125,7 +122,6 @@ public class Core : YmirComponent
             InternalCalls.LoadScene("Assets/Scenes/Blockout.yscene");
         }
 
-
         //if (Input.GetMouseX() != 0 && turret != null)
         //    turret.localRotation = Quaternion.RotateAroundAxis(Vector3.up, -Input.GetMouseX() * mouseSens * Time.deltaTime) * turret.localRotation;
 
@@ -142,7 +138,6 @@ public class Core : YmirComponent
             Vector3 scale = new Vector3(1, 1, 1);
             InternalCalls.CreateBullet(pos, rot, scale);
         }
-
 
         if (Input.GetKey(YmirKeyCode.I) == KeyState.KEY_DOWN)
         {
@@ -169,7 +164,6 @@ public class Core : YmirComponent
         Debug.Log("[WARNING] InputX " + gamepadInput.x);
         Debug.Log("[WARNING] InputY " + gamepadInput.y);
 
-
         //if (gamepadInput.x > 0)
         //{
         //    gameObject.transform.localPosition += gameObject.GetRight() * movementSpeed * Time.deltaTime;
@@ -187,7 +181,6 @@ public class Core : YmirComponent
         //    gameObject.transform.localPosition += gameObject.GetForward() * movementSpeed * Time.deltaTime;
         //}
 
-
         Debug.Log("[WARNING] PosicionX " + gameObject.transform.localPosition.x);
         Debug.Log("[WARNING] PosicionY " + gameObject.transform.localPosition.y);
         Debug.Log("[WARNING] PosicionZ " + gameObject.transform.localPosition.z);
@@ -196,9 +189,6 @@ public class Core : YmirComponent
 
     private void GameMovement()
     {
-
-
-
         //Debug.Log("[WARNING] PosicionX: " + x + "PosicionY: " + y);
 
         //if (x < 0)
@@ -360,10 +350,12 @@ public class Core : YmirComponent
     {
         // Play Audio and SetAnimation;
     }
+
     private void Dash()
     {
         // Play Audio and SetAnimation;
     }
+
     private void Shoot()
     {
         // Play Audio and SetAnimation;
