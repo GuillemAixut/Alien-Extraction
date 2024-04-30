@@ -34,7 +34,7 @@ public class UI_Item_Button : YmirComponent
         itemType = SetType(enumItem);
         currentSlot = SetType(enumSlot);
 
-        //item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
     }
 
     public void Update()
@@ -105,10 +105,8 @@ public class UI_Item_Button : YmirComponent
 
     public bool SetItem(Item _item)
     {
+        currentSlot = SetType(enumSlot);
         item = new Item(currentSlot, ITEM_SLOT.NONE, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
-
-        Debug.Log("salacatunga: " + currentSlot);
-        Debug.Log("name go " + gameObject.Name);
 
         bool ret = false;
         Debug.Log("item currentSlot: " + item.currentSlot.ToString());
@@ -116,9 +114,6 @@ public class UI_Item_Button : YmirComponent
 
         Debug.Log("itemType que le pasas: " + _item.itemType.ToString());
         Debug.Log("isEquipped: " + _item.isEquipped.ToString());
-
-
-        Debug.Log("item.itemType == ITEM_SLOT.NONE: " + (item.itemType == ITEM_SLOT.NONE).ToString());
 
         // is empty // is equipped // can be placed
         if (item.itemType == ITEM_SLOT.NONE &&

@@ -31,7 +31,7 @@ public class UI_Stash : YmirComponent
         GetPlayerScript();
         GetHealthScript();
 
-        //SetSlots();
+        SetSlots();
     }
 
     public void Update()
@@ -196,11 +196,12 @@ public class UI_Stash : YmirComponent
 
             GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
             GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+            GameObject save = InternalCalls.CS_GetChild(gameObject, 3);
 
             for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
             {
                 Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
-                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 0), 2);  // (Grid (Slot (Button)))
+                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 2);  // (Grid (Slot (Button)))
 
                 if (gameObject != null)
                 {
@@ -228,6 +229,18 @@ public class UI_Stash : YmirComponent
                     }
                 }
             }
+
+            //GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+
+            //if (gameObject != null)
+            //{
+            //    Debug.Log("jiji " + button.Name);
+            //    Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
+            //    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+            //    {
+            //        break;
+            //    }
+            //}
         }
     }
 }

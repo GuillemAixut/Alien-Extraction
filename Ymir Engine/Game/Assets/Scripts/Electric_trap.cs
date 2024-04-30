@@ -14,14 +14,14 @@ public class Electric_trap : YmirComponent
     private bool activate = true;
     private bool hitPlayer = false;
     private Vector3 originalPosition;
-    public float damage = 1;
-    //public string toParticle = ""; electricidad
+    public float damage = 220;
+    private GameObject toParticle;
     //int aux = 0;
 
     public void Start()
     {
-        Debug.Log("HelloWorld");
         originalPosition = gameObject.transform.globalPosition;
+        toParticle = InternalCalls.CS_GetChild(gameObject, 1);
     }
 
     public void Update()
@@ -34,6 +34,15 @@ public class Electric_trap : YmirComponent
             {
                 gameObject.SetPosition(Vector3.negativeInfinity * Time.deltaTime * 1f);
                 //InternalCalls.GetGameObjectByName(toParticle).SetActive(false);
+                Particles.PlayEmitter(toParticle);
+
+                if (hitPlayer)
+                {
+                    activate = true;
+                    hitPlayer = false;
+                    time = 0f;
+                    //Debug.Log("Hit Player");
+                }
             }
             else
             {
@@ -46,14 +55,7 @@ public class Electric_trap : YmirComponent
             if (time < 3f)
             {
                 gameObject.SetPosition(originalPosition);
-                // InternalCalls.GetGameObjectByName(toParticle).SetActive(true);
-                if (hitPlayer)
-                {
-                    activate = true;
-                    hitPlayer = false;
-                    time = 0f;
-                    //Debug.Log("Hit Player");
-                }
+                
             }
             else
             {
@@ -70,7 +72,7 @@ public class Electric_trap : YmirComponent
     {
         if (other.Tag == "Player")
         {
-            if (!activate)
+            if (activate)
             {
                 other.GetComponent<Health>().TakeDmg(damage);
                 hitPlayer = true;
@@ -78,8 +80,6 @@ public class Electric_trap : YmirComponent
                 // Debug.Log("" + aux);
                 // aux++;
             }
-
-
         }
     }
 

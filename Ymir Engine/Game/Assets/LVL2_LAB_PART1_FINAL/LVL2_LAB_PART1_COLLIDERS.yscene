@@ -1,24 +1,24 @@
 {
     "NavMesh": "Assets\/LVL2_LAB_PART1_FINAL\/LVL2_LAB_PART1_COLLIDERS.nav",
     "Editor Camera Position": [
-        356.23367309570312,
-        243.29701232910156,
-        -52.28338623046875
+        86.201988220214844,
+        209.31488037109375,
+        116.60040283203125
     ],
     "Editor Camera Right (X)": [
-        0.57605761289596558,
-        -1.9371509552001953e-07,
-        -0.81740677356719971
+        0.31546652317047119,
+        -7.4505805969238281e-08,
+        -0.94893562793731689
     ],
     "Editor Camera Up (Y)": [
-        -0.38835102319717407,
-        0.87993043661117554,
-        -0.27368593215942383
+        -0.63441437482833862,
+        0.74366408586502075,
+        -0.21090634167194366
     ],
     "Editor Camera Front (Z)": [
-        -0.71926224231719971,
-        -0.47510117292404175,
-        -0.50689131021499634
+        -0.70568954944610596,
+        -0.66855311393737793,
+        -0.23460112512111664
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 379278140,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1408318397,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -24771,9 +24771,9 @@
                         -148.91989135742188
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -18.257898330688477,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.2600536346435547,
@@ -27552,7 +27552,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.4422941207885742,
+                        9.442296028137207,
                         -0
                     ],
                     "Scale": [
@@ -30036,7 +30036,7 @@
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
-                    "IsSensor": false,
+                    "IsSensor": true,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
@@ -30172,7 +30172,7 @@
                     "Friction": 0,
                     "Angular Friction": 0,
                     "UseGravity": false,
-                    "IsSensor": false,
+                    "IsSensor": true,
                     "LockX": false,
                     "LockY": false,
                     "LockZ": false,
@@ -30865,6 +30865,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 7,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -30897,7 +30898,11 @@
                                     "StartMode": 0,
                                     "NumParticles": 5,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 100
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 5,
@@ -31773,7 +31778,7 @@
                         -52.581008911132812
                     ],
                     "Rotation": [
-                        1.3512427621265033e-08,
+                        1.3512429397621872e-08,
                         90,
                         0
                     ],
@@ -32242,8 +32247,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 629,
-                    "Height": 673,
+                    "Width": 643,
+                    "Height": 616,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -46239,6 +46244,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -46271,7 +46277,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 109,
                                     "SpawnRatio": 0.56400001049041748,
-                                    "NumParticlesToStop": 100
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -46401,6 +46411,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -46433,7 +46444,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 65,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 47
+                                    "NumParticlesToStop": 47,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -46586,6 +46601,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -46618,7 +46634,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 30,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 25
+                                    "NumParticlesToStop": 25,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -46748,6 +46768,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -46780,7 +46801,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 1,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 1
+                                    "NumParticlesToStop": 1,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -46887,6 +46912,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -46919,7 +46945,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 55,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 55
+                                    "NumParticlesToStop": 55,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -47026,6 +47056,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -47058,7 +47089,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 28,
                                     "SpawnRatio": 0.019999999552965164,
-                                    "NumParticlesToStop": 50
+                                    "NumParticlesToStop": 50,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -47165,6 +47200,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -47197,7 +47233,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 59,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 100
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -47304,6 +47344,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -47336,7 +47377,11 @@
                                     "StartMode": 3,
                                     "NumParticles": 107,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 91
+                                    "NumParticlesToStop": 91,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
@@ -47719,9 +47764,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         89.980216979980469,
-                        180
+                        -180
                     ],
                     "Scale": [
                         39.999992370605469,
@@ -47922,9 +47967,9 @@
                         0
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         0,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -48505,9 +48550,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         39.999992370605469,
@@ -48790,9 +48835,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         39.999992370605469,
@@ -49075,9 +49120,9 @@
                         -18.405149459838867
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         39.999992370605469,
