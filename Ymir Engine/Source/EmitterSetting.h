@@ -68,6 +68,7 @@ struct EmitterBase : EmitterSetting
 	float particlesLifeTime1;
 	bool randomLT;
 	float particlesLifeTime2;
+	bool inmortal;
 
 	bool hasDistanceLimit;
 	float distanceLimit;
@@ -90,6 +91,7 @@ struct EmitterBase : EmitterSetting
 	//Box Parameters
 	float3 boxPointsPositives;
 	float3 boxPointsNegatives;
+	bool scaleAll;
 };
 
 //EnumS of types of spawn of the spawn setting

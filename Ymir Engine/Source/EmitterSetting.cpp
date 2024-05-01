@@ -47,6 +47,7 @@ EmitterBase::EmitterBase()
 	randomLT = false;
 	particlesLifeTime1 = 1.0f;
 	particlesLifeTime2 = 2.0f;
+	inmortal = false;
 
 	//Die by distance
 	hasDistanceLimit = false;
@@ -236,11 +237,15 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 void EmitterBase::Update(float dt, ParticleEmitter* emitter)
 {
-	for (int i = 0; i < emitter->listParticles.size(); i++)
+	if(!inmortal)
 	{
-		//Actualizamos el tiempo de vida de cada particula
-		emitter->listParticles.at(i)->lifetime += emitter->listParticles.at(i)->oneOverMaxLifetime * dt;
+		for (int i = 0; i < emitter->listParticles.size(); i++)
+		{
+			//Actualizamos el tiempo de vida de cada particula
+			emitter->listParticles.at(i)->lifetime += emitter->listParticles.at(i)->oneOverMaxLifetime * dt;
+		}
 	}
+	
 }
 
 void EmitterBase::OnInspector()
@@ -303,6 +308,17 @@ void EmitterBase::OnInspector()
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
 			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f, 0.001f,200.0f);
 			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegatives[0]), 0.1f,-200.0f,-0.0f);
+			if(ImGui::Checkbox("Scale All", &scaleAll))
+			{
+				if (ImGui::DragFloat("Box Size ## BASE", &this->boxPointsPositives[0], 0.1F, 0.01F, 100.0F)) 
+				{
+					boxPointsPositives[1] = boxPointsPositives[0];
+					boxPointsPositives[2] = boxPointsPositives[0];
+					boxPointsNegatives[0] = boxPointsPositives[0];
+					boxPointsNegatives[1] = boxPointsPositives[0];
+					boxPointsNegatives[2] = boxPointsPositives[0];
+				}
+			}
 		}
 			break;
 		case SpawnAreaShape::PAR_SPHERE: 
@@ -666,7 +682,7 @@ void EmitterSpawner::OnInspector(ParticleEmitter* thisEmitter)
 	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:modeName2 = "Start and NonStop";break;
 	case ParticlesSpawnEnabeling::PAR_START_STOP:modeName2 = "Start with Stop";break;
 	case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:modeName2 = "Wait then NonStop";break;
-	case ParticlesSpawnEnabeling::PAR_WAIT_STOP:modeName2 = "Init with Stop";break;
+	case ParticlesSpawnEnabeling::PAR_WAIT_STOP:modeName2 = "Wait with Stop";break;
 	case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:break;
 	default:break;
 	}
