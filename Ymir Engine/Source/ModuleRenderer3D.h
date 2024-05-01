@@ -40,6 +40,7 @@
 #include "Shader.h"
 #include "UI_Text.h"
 #include "CMesh.h"
+#include "Log.h"
 
 class GameObject;
 class CCamera;
@@ -64,6 +65,9 @@ struct DebugPoint
 	DebugPoint(float3& _position, float3& _color) : position(_position), color(_color) {}
 	float3 position, color;
 };
+
+void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity,
+	GLsizei length, const GLchar* message, const void* userParam);
 
 class ModuleRenderer3D : public Module
 {
