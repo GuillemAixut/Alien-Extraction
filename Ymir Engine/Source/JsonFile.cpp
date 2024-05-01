@@ -3524,6 +3524,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					EmitterPosition* ePos = (EmitterPosition*)instancia;
 
 					ePos->randomized = json_object_get_boolean(modulo, "Random");
+					ePos->useBaseShape = json_object_get_boolean(modulo, "UseShapeBase");
+
 					ePos->particleSpeed1 = json_object_get_number(modulo, "Speed1");
 					ePos->particleSpeed2 = json_object_get_number(modulo, "Speed2");
 					ePos->acceleration = json_object_get_boolean(modulo, "Accelerates");

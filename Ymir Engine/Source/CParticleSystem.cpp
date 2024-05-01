@@ -474,6 +474,9 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				//Random
 				json_object_set_boolean(child_object, "Random", ePosition->randomized);
 
+				//Use shape
+				json_object_set_boolean(child_object, "UseShapeBase", ePosition->useBaseShape);
+
 				//Directions
 				//InitialDirection
 				JSON_Array* arrInitialDir1;

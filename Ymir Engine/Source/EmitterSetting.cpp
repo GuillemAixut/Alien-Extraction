@@ -987,8 +987,7 @@ void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 			{
 				float3 vecDire = (particle->initialPosition - emitter->owner->mOwner->mTransform->GetGlobalPosition()) - eBase->emitterOrigin; //Here we can extract 
 				float progressOfHeigth = vecDire.y / eBase->heigth; //Value in reference of heigth to base between 0-1
-				float progressOfRadius = (vecDire.x * vecDire.x + vecDire.z * vecDire.z) / ((eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)) * (eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)));
-				float3 finalDir = { (eBase->topRadius - eBase->baseRadius) * (vecDire.x) * (eBase->baseRadius * (1 - progressOfRadius) + (eBase->topRadius * progressOfRadius)) , eBase->heigth, (eBase->topRadius - eBase->baseRadius) * (vecDire.z) * (eBase->baseRadius * (1 - progressOfRadius) + (eBase->topRadius * progressOfRadius)) };
+				float3 finalDir = { (eBase->topRadius - eBase->baseRadius) * (vecDire.x) / (eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)) , eBase->heigth, (eBase->topRadius - eBase->baseRadius) * (vecDire.z) / (eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)) };
 				if (normalizedSpeed)
 				{
 					float modul1 = GetModuleVec(finalDir);
