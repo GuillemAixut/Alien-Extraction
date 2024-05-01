@@ -88,6 +88,34 @@ public class UI_Item_Button : YmirComponent
 
         return elementChanged;
     }
+    
+    private string SetInspectorType(ITEM_SLOT type) // Set values inspector when item is set
+    {
+        string elementChanged = " ";
+
+        switch (type)
+        {
+            case ITEM_SLOT.ARMOR:
+                elementChanged = "ARMOR";
+                break;
+            case ITEM_SLOT.CHIP:
+                elementChanged = "CHIP";
+                break;
+            case ITEM_SLOT.CONSUMABLE:
+                elementChanged = "CONSUMABLE";
+                break;
+            case ITEM_SLOT.SAVE:
+                elementChanged = "SAVE";
+                break;
+            case ITEM_SLOT.NONE:
+                elementChanged = "NONE";
+                break;
+            default:
+                break;
+        }
+
+        return elementChanged;
+    }
 
     private void UpdateStats() // TODO: cambiar cuando items funcionen en player
     {
@@ -106,7 +134,8 @@ public class UI_Item_Button : YmirComponent
     public bool SetItem(Item _item)
     {
         currentSlot = SetType(enumSlot);
-        item = new Item(currentSlot, ITEM_SLOT.NONE, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        itemType = SetType(enumItem);
+        item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
 
         bool ret = false;
         Debug.Log("item currentSlot: " + item.currentSlot.ToString());
@@ -114,6 +143,7 @@ public class UI_Item_Button : YmirComponent
 
         Debug.Log("itemType que le pasas: " + _item.itemType.ToString());
         Debug.Log("isEquipped: " + _item.isEquipped.ToString());
+        Debug.Log("Rarity: " + _item.itemRarity.ToString());
 
         // is empty // is equipped // can be placed
         if (item.itemType == ITEM_SLOT.NONE &&
@@ -121,13 +151,35 @@ public class UI_Item_Button : YmirComponent
             item.currentSlot == ITEM_SLOT.NONE))
         {
             item = _item;
+            enumSlot = SetInspectorType(item.currentSlot);
+            enumItem = SetInspectorType(item.itemType);
+
             ret = true;
+
+            UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), item.imagePath, (int)UI_STATE.NORMAL);
+
+            switch (item.itemRarity) // TODO: Rarity image crashes, error with meta file
+            {
+                case ITEM_RARITY.COMMON:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Inventory Buttons/New Buttons/Icons/AcidVesicleIconColor.png", (int)UI_STATE.NORMAL); ;
+                    break;
+                case ITEM_RARITY.RARE:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Inventory Buttons/New Buttons/Icons/ExocraniumIconColor.png", (int)UI_STATE.NORMAL); 
+                    break;
+                case ITEM_RARITY.EPIC:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Inventory Buttons/New Buttons/Icons/BoneIconColor.png", (int)UI_STATE.NORMAL); 
+                    break;                
+                case ITEM_RARITY.NONE:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Item Slots/Unselected.png", (int)UI_STATE.NORMAL); 
+                    break;
+                default:
+                    break;
+            }
 
             Debug.Log("aaa " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
         }
 
         Debug.Log("return: " + ret.ToString());
-
         return ret;
     }
 }
