@@ -87,6 +87,8 @@ struct EmitterBase : EmitterSetting
 	float baseRadius; //Radius/face positioned on 0,0,0
 	float topRadius; // Radius/face projected after the length
 	float heigth; //Heigth of the cone.
+	bool useAngle;
+	float angle;
 
 	//Box Parameters
 	float3 boxPointsPositives;
