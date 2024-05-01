@@ -298,6 +298,7 @@ void ModuleAudio::ResumeEvent(unsigned int id, std::string& eventName) const
 	AK::SoundEngine::ExecuteActionOnEvent(eventName.c_str(), AK::SoundEngine::AkActionOnEventType::AkActionOnEventType_Resume, id);
 }
 
+// Usar esta funcion para cambiar el estado del jugador (Exploracion / Combate...)
 void ModuleAudio::SetState(std::string& groupState, std::string& state)
 {
 	AK::SoundEngine::SetState(groupState.c_str(), state.c_str());
