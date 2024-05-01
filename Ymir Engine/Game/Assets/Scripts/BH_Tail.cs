@@ -53,7 +53,8 @@ public class BH_Tail : YmirComponent
 
         if (player.swipeTimer <= 0 && !destroyed)
         {
-            InternalCalls.Destroy(gameObject);
+            //Todo:Fransis
+            //InternalCalls.Destroy(gameObject);
             destroyed = true;
         }
     }
