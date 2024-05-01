@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -3.6965677738189697,
-        7.0599203109741211,
-        12.198343276977539
+        -21.322986602783203,
+        22.342433929443359,
+        35.829654693603516
     ],
     "Editor Camera Right (X)": [
-        0.98517882823944092,
-        -1.0430812835693359e-07,
-        0.17170166969299316
+        0.91892755031585693,
+        -5.5134296417236328e-07,
+        0.39452612400054932
     ],
     "Editor Camera Up (Y)": [
-        0.075896374881267548,
-        0.89701324701309204,
-        -0.43547281622886658
+        0.20303203165531158,
+        0.85742908716201782,
+        -0.47289958596229553
     ],
     "Editor Camera Front (Z)": [
-        0.15401408076286316,
-        -0.4420369565486908,
-        -0.88369232416152954
+        0.33826404809951782,
+        -0.51464152336120605,
+        -0.78788298368453979
     ],
     "Hierarchy": [
         {
@@ -68,9 +68,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -40,
-                        29,
-                        54
+                        -8.9128007888793945,
+                        1.4173874855041504,
+                        11.511133193969727
                     ],
                     "Rotation": [
                         -180,
@@ -235,7 +235,7 @@
                     "Mass": 1,
                     "Friction": 0,
                     "Angular Friction": 0,
-                    "UseGravity": true,
+                    "UseGravity": false,
                     "IsSensor": false,
                     "LockX": false,
                     "LockY": false,
@@ -280,9 +280,9 @@
                         -0
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        4,
+                        4,
+                        4
                     ]
                 },
                 {
@@ -322,12 +322,12 @@
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 610,
+                                    "Lifetime": 2,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        0,
+                                        2.0999999046325684,
                                         0,
                                         0,
                                         0,
@@ -339,7 +339,7 @@
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
-                                    "BaseShape": 1,
+                                    "BaseShape": 0,
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 4,
@@ -347,9 +347,9 @@
                                 },
                                 {
                                     "Type": 1,
-                                    "SpawnMode": 1,
+                                    "SpawnMode": 0,
                                     "StartMode": 0,
-                                    "NumParticles": 5,
+                                    "NumParticles": 2,
                                     "SpawnRatio": 0.20000000298023224,
                                     "NumParticlesToStop": 100,
                                     "PointingUID": 0,

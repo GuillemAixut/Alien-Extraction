@@ -261,7 +261,7 @@ public class Player : YmirComponent
             bool d = true;
             Item item = new Item(a, b,
                 random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100),
-                "", c, d);
+                "Assets/UI/Inventory Buttons/New Buttons/Icons/GrenadeIcon2Color.png", c, d);
 
             itemsList.Add(item);
         }
