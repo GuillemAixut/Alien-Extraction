@@ -349,7 +349,7 @@ void EmitterBase::OnInspector()
 		{
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
 			ImGui::DragFloat("Base Radius ## BASE", &(this->baseRadius), 0.2f, radiusHollow + 0.01f, 200.f);
-			ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius - 0.01f);
+			//ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius - 0.01f);
 		} 
 			break;
 		case SpawnAreaShape::PAR_SHAPE_ENUM_END:
