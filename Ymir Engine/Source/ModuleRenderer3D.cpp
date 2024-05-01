@@ -10,7 +10,6 @@
 #include "ModulePathfinding.h"
 
 #include "Globals.h"
-#include "Log.h"
 #include "GameObject.h"
 #include "G_UI.h"
 
@@ -19,6 +18,66 @@
 #include "External/Optick/include/optick.h"
 
 #include "External/mmgr/mmgr.h"
+
+void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
+{
+	// Ignoring the following WARNING: Buffer detailed info: Buffer objects will use VIDEO memory as the source for buffer object operations.
+	if (id == 131185) return;
+	
+	std::string logMessage = "[ERROR] OPENGL CALLBACK: ";
+
+	switch (type) {
+
+		case GL_DEBUG_TYPE_ERROR:
+			logMessage += "Type: ERROR, ";
+			break;
+
+		case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
+			logMessage += "Type: DEPRECATED_BEHAVIOR, ";
+			break;
+
+		case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
+			logMessage += "Type: UNDEFINED_BEHAVIOR, ";
+			break;
+
+		case GL_DEBUG_TYPE_PORTABILITY:
+			logMessage += "Type: PORTABILITY, ";
+			break;
+
+		case GL_DEBUG_TYPE_PERFORMANCE:
+			logMessage += "Type: PERFORMANCE, ";
+			break;
+
+		case GL_DEBUG_TYPE_OTHER:
+			logMessage += "Type: OTHER, ";
+			break;
+
+	}
+
+	switch (severity) {
+
+		case GL_DEBUG_SEVERITY_LOW:
+			logMessage += "Severity: LOW, ";
+			break;
+
+		case GL_DEBUG_SEVERITY_MEDIUM:
+			logMessage += "Severity: MEDIUM, ";
+			break;
+
+		case GL_DEBUG_SEVERITY_HIGH:
+			logMessage += "Severity: HIGH, ";
+			break;
+
+	}
+
+	logMessage += "ID: " + std::to_string(id) + ", ";
+
+	logMessage += "MESSAGE: " + std::string(("%s", message));
+
+	logMessage += "\n";
+
+	LOG(logMessage.c_str());
+}
 
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -71,6 +130,10 @@ bool ModuleRenderer3D::Init()
 		LOG("Successfully using Glew %s", glewGetString(GLEW_VERSION));
 	}
 
+	// OpenGL Debug Callback
+	glEnable(GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(MessageCallback, 0);
+
 	// Initializing DevIL
 	ilInit();
 	ILenum ILerror = ilGetError();
@@ -85,30 +148,8 @@ bool ModuleRenderer3D::Init()
 	{
 		// Use Vsync
 		if (VSYNC && SDL_GL_SetSwapInterval(1) < 0)
+		{
 			LOG("[WARNING] Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-
-		// Initialize Projection Matrix
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-
-		// Check for errors
-		GLenum error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("[ERROR] Could not initialize OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
-
-		// Initialize Modelview Matrix
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-
-		// Check for errors
-		error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("[ERROR] Could not initialize OpenGL! %s\n", gluErrorString(error));
-			ret = false;
 		}
 
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
@@ -118,14 +159,6 @@ bool ModuleRenderer3D::Init()
 		glClearColor(0.f, 0.f, 0.f, 1.f);
 
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-		//Check for error
-		error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("[ERROR] Could not initialize OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
 
 		// Enable OpenGL initial configurations
 
@@ -144,7 +177,6 @@ bool ModuleRenderer3D::Init()
 		// Additional OpenGL configurations (starting disabled)
 
 		glDisable(GL_TEXTURE_3D);
-
 		glDisable(GL_MULTISAMPLE);
 		glDisable(GL_SCISSOR_TEST);
 		glDisable(GL_POINT_SPRITE);
@@ -159,7 +191,7 @@ bool ModuleRenderer3D::Init()
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	}
-
+	
 	SDL_MaximizeWindow(App->window->window);
 
 	LOG("OpenGL initialized successfully.");
@@ -1214,7 +1246,6 @@ void ModuleRenderer3D::DrawGameObjects(bool isGame)
 			}
 
 		}
-
 
 		if(particleComponent != nullptr && particleComponent->active)
 		{
