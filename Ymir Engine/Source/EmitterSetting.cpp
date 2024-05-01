@@ -334,6 +334,7 @@ void EmitterBase::OnInspector()
 			break;
 	}
 	
+	ImGui::Checkbox("Inmortal Particle ##BASE", &this->inmortal);
 	ImGui::Checkbox("Random Lifetime ##BASE", &this->randomLT);
 	if (this->randomLT)
 	{
