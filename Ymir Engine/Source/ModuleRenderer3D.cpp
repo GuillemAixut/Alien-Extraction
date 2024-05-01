@@ -131,8 +131,10 @@ bool ModuleRenderer3D::Init()
 	}
 
 	// OpenGL Debug Callback
+#ifdef _DEBUG
 	glEnable(GL_DEBUG_OUTPUT);
 	glDebugMessageCallback(MessageCallback, 0);
+#endif // _DEBUG
 
 	// Initializing DevIL
 	ilInit();
