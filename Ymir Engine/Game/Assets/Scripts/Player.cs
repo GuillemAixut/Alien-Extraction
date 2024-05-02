@@ -259,9 +259,8 @@ public class Player : YmirComponent
             ITEM_RARITY c = (ITEM_RARITY)random.Next((int)ITEM_RARITY.NONE);
             //bool d = (random.NextDouble() < 0.5 ? false : true);
             bool d = true;
-            Item item = new Item(a, b,
-                random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100),
-                "Assets/UI/Inventory Buttons/New Buttons/Icons/GrenadeIcon2Color.png", c, d);
+            Item item = new Item(a, b, random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100),
+                "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png", c, d, "Item " + i.ToString(), "This is: Item " + i.ToString());
 
             itemsList.Add(item);
         }

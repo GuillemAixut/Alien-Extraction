@@ -54,8 +54,10 @@ namespace YmirEngine
 
         public Item(ITEM_SLOT currentSlot = ITEM_SLOT.NONE, ITEM_SLOT itemType = ITEM_SLOT.NONE,
             float HP = 0, float armor = 0, float speed = 0, float fireRate = 0, float reloadSpeed = 0, float damageMultiplier = 0,
-            string imagePath = "", ITEM_RARITY itemRarity = ITEM_RARITY.COMMON, bool isEquipped = false)
+            string imagePath = "", ITEM_RARITY itemRarity = ITEM_RARITY.COMMON, bool isEquipped = false, string name = "Empty", string description = "Empty")
         {
+            this.name = name;
+            this.description = description;
             this.currentSlot = currentSlot;
             this.itemType = itemType;
             this.HP = HP;

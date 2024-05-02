@@ -13,7 +13,6 @@ public class UI_Item_Button : YmirComponent
 
     public string enumItem = "";
     public string enumSlot = "";
-    public string descriptionText = "";
     public string menuName = "";
 
     private GameObject _menuReference;
@@ -25,10 +24,6 @@ public class UI_Item_Button : YmirComponent
 
     public void Start()
     {
-        GameObject goDescription = InternalCalls.GetChildrenByName(gameObject, "Description");
-        GameObject goText = InternalCalls.GetChildrenByName(goDescription, "Text");
-        descriptionText = UI.GetUIText(goText);
-
         _menuReference = InternalCalls.GetGameObjectByName(menuName);
 
         itemType = SetType(enumItem);
@@ -57,8 +52,13 @@ public class UI_Item_Button : YmirComponent
     {
         if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
         {
-            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, descriptionText);
-        }
+            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
+        }        
+        
+        if (_menuReference.GetComponent<UI_Inventory>().goName != null)
+        {
+            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
+        }        
     }
 
     private ITEM_SLOT SetType(string type)
@@ -161,16 +161,16 @@ public class UI_Item_Button : YmirComponent
             switch (item.itemRarity) // TODO: Rarity image crashes, error with meta file
             {
                 case ITEM_RARITY.COMMON:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Inventory Buttons/New Buttons/Icons/AcidVesicleIconColor.png", (int)UI_STATE.NORMAL); ;
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png", (int)UI_STATE.NORMAL); ;
                     break;
                 case ITEM_RARITY.RARE:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Inventory Buttons/New Buttons/Icons/ExocraniumIconColor.png", (int)UI_STATE.NORMAL); 
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png", (int)UI_STATE.NORMAL); 
                     break;
                 case ITEM_RARITY.EPIC:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Inventory Buttons/New Buttons/Icons/BoneIconColor.png", (int)UI_STATE.NORMAL); 
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/BoneIconColor.png", (int)UI_STATE.NORMAL); 
                     break;                
                 case ITEM_RARITY.NONE:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Item Slots/Unselected.png", (int)UI_STATE.NORMAL); 
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL); 
                     break;
                 default:
                     break;
