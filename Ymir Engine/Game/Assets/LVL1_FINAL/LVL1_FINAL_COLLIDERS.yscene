@@ -28,7 +28,7 @@
             "UID": 1968864687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 897979802,
+            "Parent UID": 907965264,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52088,9 +52088,9 @@
                         61.056671142578125
                     ],
                     "Rotation": [
-                        180,
-                        0.092366740107536316,
-                        180
+                        -180,
+                        0.092366747558116913,
+                        -180
                     ],
                     "Scale": [
                         1.000218391418457,
@@ -54670,10 +54670,7 @@
             "Children UID": [
                 1699364660,
                 754710897,
-                2054861601,
-                2063663470,
-                826405756,
-                2113740402
+                2054861601
             ]
         },
         {
@@ -54892,414 +54889,6 @@
                     "Ambient_ID": 714,
                     "Ambient_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Electric Trap\/Texturas\/PROP_Lvl1_ElectricTrap_A.png",
                     "Ambient_UID": 21012711
-                }
-            ]
-        },
-        {
-            "Name": "Electric_Trap (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2063663470,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 1092854789,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        508.1458740234375,
-                        0,
-                        -180.35374450683594
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        10,
-                        10,
-                        10
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 4,
-                    "Size": [
-                        0.55000001192092896,
-                        2.5,
-                        1.25
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Electric_trap.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "damage": 220
-                }
-            ],
-            "Children UID": [
-                1899531165
-            ]
-        },
-        {
-            "Name": "Cylinder (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1899531165,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Primitives\/Cylinder.fbx",
-            "Parent UID": 2063663470,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1690959163,
-                    "Vertex Count": 90,
-                    "Index Count": 240
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                15.465556144714355,
-                                -0.51650440692901611
-                            ],
-                            "color": [
-                                1,
-                                0,
-                                0
-                            ],
-                            "light": true
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Electric_Trap (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 826405756,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 1092854789,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        721.3248291015625,
-                        0,
-                        -122.08769989013672
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        10,
-                        10,
-                        10
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 4,
-                    "Size": [
-                        0.55000001192092896,
-                        2.5,
-                        1.25
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Electric_trap.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "damage": 220
-                }
-            ],
-            "Children UID": [
-                201618196
-            ]
-        },
-        {
-            "Name": "Cylinder (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 201618196,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Primitives\/Cylinder.fbx",
-            "Parent UID": 826405756,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1690959163,
-                    "Vertex Count": 90,
-                    "Index Count": 240
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                15.465556144714355,
-                                -0.51650440692901611
-                            ],
-                            "color": [
-                                1,
-                                0,
-                                0
-                            ],
-                            "light": true
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Electric_Trap (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2113740402,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 1092854789,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        834.8336181640625,
-                        0,
-                        2.4794244766235352
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        10,
-                        10,
-                        10
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 4,
-                    "Size": [
-                        0.55000001192092896,
-                        2.5,
-                        1.25
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Electric_trap.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "damage": 220
-                }
-            ],
-            "Children UID": [
-                1365119731
-            ]
-        },
-        {
-            "Name": "Cylinder (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1365119731,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Primitives\/Cylinder.fbx",
-            "Parent UID": 2113740402,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1690959163,
-                    "Vertex Count": 90,
-                    "Index Count": 240
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                15.465556144714355,
-                                -0.51650440692901611
-                            ],
-                            "color": [
-                                1,
-                                0,
-                                0
-                            ],
-                            "light": true
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
                 }
             ]
         },
@@ -59484,7 +59073,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.5000138282775879,
+                        2.5000143051147461,
                         -0
                     ],
                     "Scale": [
@@ -60099,7 +59688,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327001571655273,
+                        31.327007293701172,
                         -0
                     ],
                     "Scale": [
@@ -60164,7 +59753,7 @@
                     ],
                     "Rotation": [
                         0,
-                        -31.649332046508789,
+                        -31.649328231811523,
                         0
                     ],
                     "Scale": [
@@ -60294,7 +59883,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        29.194099426269531,
+                        29.194103240966797,
                         -0
                     ],
                     "Scale": [
@@ -60424,7 +60013,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        27.591022491455078,
+                        27.591020584106445,
                         -0
                     ],
                     "Scale": [
@@ -61269,7 +60858,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        32.775012969970703,
+                        32.775016784667969,
                         -0
                     ],
                     "Scale": [
@@ -62439,7 +62028,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        33.035991668701172,
+                        33.035987854003906,
                         -0
                     ],
                     "Scale": [
@@ -63682,9 +63271,9 @@
                         -96.881149291992188
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         0,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.91000956296920776,
@@ -63716,9 +63305,9 @@
                         16.260398864746094
                     ],
                     "Rotation": [
-                        -1.239207176695345e-05,
+                        -1.2392070857458748e-05,
                         43.000034332275391,
-                        3.9892507629701868e-05
+                        3.9892503991723061e-05
                     ],
                     "Scale": [
                         7.4380626678466797,
@@ -63791,9 +63380,9 @@
                         -95.504554748535156
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -44.999961853027344,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.91000056266784668,
@@ -64751,6 +64340,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 7,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -64783,7 +64373,11 @@
                                     "StartMode": 0,
                                     "NumParticles": 5,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 100
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 5,
@@ -64806,6 +64400,7 @@
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         0,
                                         0,
@@ -64902,9 +64497,9 @@
                         -58.960765838623047
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -46.375835418701172,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000566989183426,
@@ -65249,9 +64844,9 @@
                         -224.14338684082031
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -44.601146697998047,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000213086605072,
@@ -65943,9 +65538,9 @@
                         271.76446533203125
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -46.605636596679688,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000283867120743,
@@ -69292,6 +68887,10 @@
                     "detectionRadius": 60,
                     "xSpeed": 0,
                     "ySpeed": 0,
+                    "keys": "",
+                    "path": "",
+                    "numFields": 0,
+                    "spawnRange": 0,
                     "droneState": 0,
                     "timeCounter": 0
                 },
@@ -69605,6 +69204,10 @@
                     "detectionRadius": 0,
                     "xSpeed": 0,
                     "ySpeed": 0,
+                    "keys": "",
+                    "path": "",
+                    "numFields": 0,
+                    "spawnRange": 0,
                     "PlayerDetected": false,
                     "wanderDuration": 5,
                     "stopedDuration": 1,
@@ -69644,9 +69247,9 @@
                         0
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         0,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1.0000061988830566,
@@ -69795,8 +69398,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1673,
-                    "Height": 800,
+                    "Width": 801,
+                    "Height": 561,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -72284,9 +71887,7 @@
                     "Type": "Script",
                     "ScriptName": "UI_Inventory.cs",
                     "Active": 1,
-                    "UID": 0,
-                    "_droppable": true,
-                    "_disable": true
+                    "UID": 0
                 }
             ],
             "Children UID": [
@@ -72727,12 +72328,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "ARMOR",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -73203,12 +72804,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -73679,12 +73280,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -74155,12 +73756,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -74631,12 +74232,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -75107,12 +74708,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -75597,12 +75198,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "ARMOR",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 50,
                     "speed": 0,
@@ -76021,12 +75622,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -76445,12 +76046,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -76869,12 +76470,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -77293,12 +76894,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -77717,12 +77318,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 5,
                     "armor": 5,
                     "speed": 0,
@@ -78141,12 +77742,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -78565,12 +78166,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -78989,12 +78590,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -79413,12 +79014,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -79837,12 +79438,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "CHIP",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -80261,12 +79862,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -80685,12 +80286,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -81109,12 +80710,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -81533,12 +81134,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "descriptionText": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
@@ -83482,7 +83083,8 @@
                     "swipeTimer": 0,
                     "acidicTimer": 0,
                     "currentMenu": "",
-                    "setHover": false
+                    "setHover": false,
+                    "itemsList": 0
                 }
             ],
             "Children UID": [
@@ -83792,6 +83394,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -83824,11 +83427,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 109,
                                     "SpawnRatio": 0.56400001049041748,
-                                    "NumParticlesToStop": 100
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         -5,
                                         0,
@@ -83954,6 +83562,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -83986,11 +83595,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 65,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 47
+                                    "NumParticlesToStop": 47,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         -1,
                                         -1,
@@ -84099,7 +83713,7 @@
                         32.223670959472656
                     ],
                     "Rotation": [
-                        5.5180125855258666e-06,
+                        5.5180121307785157e-06,
                         -4.4419521145755425e-06,
                         6.1662530899047852
                     ],
@@ -84139,6 +83753,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -84171,11 +83786,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 30,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 25
+                                    "NumParticlesToStop": 25,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         -5.6999998092651367,
                                         -4.6999998092651367,
@@ -84301,6 +83921,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -84333,11 +83954,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 1,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 1
+                                    "NumParticlesToStop": 1,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": false,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         0,
                                         0,
@@ -84440,6 +84066,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -84472,11 +84099,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 55,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 55
+                                    "NumParticlesToStop": 55,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         -1,
                                         -1,
@@ -84579,6 +84211,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -84611,11 +84244,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 28,
                                     "SpawnRatio": 0.019999999552965164,
-                                    "NumParticlesToStop": 50
+                                    "NumParticlesToStop": 50,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": false,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         0,
                                         0,
@@ -84718,6 +84356,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -84750,11 +84389,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 59,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 100
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         -0.5,
                                         0.20000000298023224,
@@ -84857,6 +84501,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
+                            "EmitterUID": 0,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -84889,11 +84534,16 @@
                                     "StartMode": 3,
                                     "NumParticles": 107,
                                     "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 91
+                                    "NumParticlesToStop": 91,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 0,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 0
                                 },
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         -1,
                                         0,
