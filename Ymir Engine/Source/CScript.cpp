@@ -217,6 +217,31 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 		break;
 	}
 
+	case MonoTypeEnum::MONO_TYPE_SZARRAY:
+	{
+		MonoArray* arr = nullptr;
+		mono_field_get_value(mono_gchandle_get_target(noGCobject), field.field, &arr);
+
+		MonoClass* arrClass = mono_class_from_name(External->moduleMono->image, YMIR_SCRIPTS_NAMESPACE, field.displayName.c_str());
+
+		
+		int arrayLength = mono_array_length(arr);
+
+
+		for (int i = 0; i < arrayLength; ++i) {
+			
+			int element = mono_array_get(arr, int, i);
+
+			field.fiValue.arrValue[i] = element;
+
+			if (ImGui::InputInt(field.displayName.c_str(), &field.fiValue.arrValue[i])) {
+
+				arr = mono_array_new(External->moduleMono->domain, arrClass, arrayLength);
+				mono_field_set_value(mono_gchandle_get_target(noGCobject), field.field, arr);
+			}
+		}
+		break;
+	}
 	case MonoTypeEnum::MONO_TYPE_STRING:
 	{
 		MonoString* str = nullptr;

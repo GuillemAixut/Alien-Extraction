@@ -25,6 +25,7 @@ union FieldValue
 	float fValue;
 	bool bValue;
 	char strValue[50];
+	int arrValue[];
 	GameObject* goValue;
 };
 
@@ -54,6 +55,8 @@ public:
 	static Quat UnboxQuat(MonoObject* _obj);
 	void DebugAllFields(const char* className, std::vector<SerializedField>& _data, MonoObject* obj, CScript* script, const char* namespace_name);
 	static float3 UnboxVector(MonoObject* _obj);
+
+	std::vector<GameObject> UnboxList(MonoObject* _obj);
 
 	static void LoadFieldData(SerializedField& _field, MonoObject* _object);
 	static void DebugAllMethods(const char* nsName, const char* className, std::vector<std::string>& _data);

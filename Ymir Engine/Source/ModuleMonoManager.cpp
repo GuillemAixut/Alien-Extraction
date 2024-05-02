@@ -371,6 +371,18 @@ float3 ModuleMonoManager::UnboxVector(MonoObject* _obj)
 	return static_cast<float3>(ret);
 }
 
+std::vector<GameObject> ModuleMonoManager::UnboxList(MonoObject* _obj)
+{
+	std::vector<GameObject> ret;
+
+	//MonoClass* klass = mono_object_get_class(_obj);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "x"), &ret.);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "y"), &ret.y);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "z"), &ret.z);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "w"), &ret.w);
+	return ret;
+}
+
 //ASK: Is this the worst idea ever? TOO SLOW
 Quat ModuleMonoManager::UnboxQuat(MonoObject* _obj)
 {
