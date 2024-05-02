@@ -46,6 +46,8 @@ public class FaceHuggerBaseScript : Enemy
     private float attackDuration = 0.8f;
     public bool attackSensor = false;
 
+    
+
     //Audio
     private float CryTimer = 10f;
 
@@ -65,6 +67,11 @@ public class FaceHuggerBaseScript : Enemy
         wanderRange = 100f;
         cumDuration = 2f;
         cumDuration2 = 5f;
+
+        //Drop items
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/facehugger_loot.csv";
+        numFields = 2;
 
         attackTimer = attackDuration;
 
@@ -112,7 +119,7 @@ public class FaceHuggerBaseScript : Enemy
                     if (timePassed >= 1.2f)
                     {
                         Debug.Log("[ERROR] DEATH");
-
+                        //DropItem();
                         InternalCalls.Destroy(gameObject);
                     }
 
