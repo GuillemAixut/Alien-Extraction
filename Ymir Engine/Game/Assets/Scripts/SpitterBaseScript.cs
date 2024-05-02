@@ -94,6 +94,11 @@ public class Spitter : Enemy
         //Life
         life = 450f;
 
+        //Drop items
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/spitter_loot.csv";
+        numFields = 2;
+
     }
 
     public void Update()
@@ -247,6 +252,7 @@ public class Spitter : Enemy
 
                 if (timePassed >= 1.4f)
                 {
+                   // DropItem();
                     InternalCalls.Destroy(gameObject);
                 }
 
