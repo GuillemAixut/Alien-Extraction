@@ -1,24 +1,24 @@
 {
     "NavMesh": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.nav",
     "Editor Camera Position": [
-        404.38653564453125,
-        237.44342041015625,
-        -34.541904449462891
+        44.448707580566406,
+        49.387935638427734,
+        4.1029520034790039
     ],
     "Editor Camera Right (X)": [
-        0.69336235523223877,
-        -1.4901161193847656e-08,
-        -0.72058916091918945
+        0.1885446310043335,
+        -2.9802322387695312e-08,
+        -0.98206520080566406
     ],
     "Editor Camera Up (Y)": [
-        -0.66487246751785278,
-        0.38556903600692749,
-        -0.63975083827972412
+        -0.57079148292541504,
+        0.81374949216842651,
+        -0.10958507657051086
     ],
     "Editor Camera Front (Z)": [
-        -0.27783688902854919,
-        -0.92267906665802002,
-        -0.26733905076980591
+        -0.79915511608123779,
+        -0.58121597766876221,
+        -0.15342807769775391
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 1968864687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1336196296,
+            "Parent UID": 379278140,
             "Components": [
                 {
                     "Type": "Transform",
@@ -60,8 +60,6 @@
                 142531611,
                 1768177679,
                 2061990119,
-                1056771548,
-                1079439365,
                 1398847280,
                 1904908806,
                 1827062016,
@@ -52062,9 +52060,9 @@
                         61.056671142578125
                     ],
                     "Rotation": [
-                        180,
-                        0.09236675500869751,
-                        180
+                        -180,
+                        0.092366762459278107,
+                        -180
                     ],
                     "Scale": [
                         1.000218391418457,
@@ -59047,7 +59045,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.5000147819519043,
+                        2.5000152587890625,
                         -0
                     ],
                     "Scale": [
@@ -59662,7 +59660,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327005386352539,
+                        31.327001571655273,
                         -0
                     ],
                     "Scale": [
@@ -59727,7 +59725,7 @@
                     ],
                     "Rotation": [
                         0,
-                        -31.649332046508789,
+                        -31.649328231811523,
                         0
                     ],
                     "Scale": [
@@ -59857,7 +59855,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        29.194099426269531,
+                        29.194103240966797,
                         -0
                     ],
                     "Scale": [
@@ -59987,7 +59985,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        27.591018676757812,
+                        27.591024398803711,
                         -0
                     ],
                     "Scale": [
@@ -60832,7 +60830,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        32.775012969970703,
+                        32.775016784667969,
                         -0
                     ],
                     "Scale": [
@@ -62002,7 +62000,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        33.035991668701172,
+                        33.035987854003906,
                         -0
                     ],
                     "Scale": [
@@ -63491,9 +63489,9 @@
                         -58.960765838623047
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -46.375835418701172,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000566989183426,
@@ -63838,9 +63836,9 @@
                         -224.14338684082031
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -44.601146697998047,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000213086605072,
@@ -64532,9 +64530,9 @@
                         271.76446533203125
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -46.605636596679688,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000283867120743,
@@ -64959,622 +64957,6 @@
             ]
         },
         {
-            "Name": "Enemy-DroneXenomorph",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1056771548,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1968864687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -193.74432373046875,
-                        -2.2783737222198397e-05,
-                        204.17022705078125
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1765229486,
-                1977502411
-            ]
-        },
-        {
-            "Name": "DroneXenomorph",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1765229486,
-            "Active": false,
-            "Element_Type": "Model",
-            "Parent UID": 1056771548,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -0.63420295715332031,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        -90,
-                        0
-                    ],
-                    "Scale": [
-                        0.02500000037252903,
-                        0.02500000037252903,
-                        0.02500000037252903
-                    ]
-                },
-                {
-                    "Type": "Animation",
-                    "Active": 1,
-                    "NumPaths": 5,
-                    "Paths": [
-                        "Assets\/Drone_Walk.yanim",
-                        "Assets\/Drone_Tail_Attack.yanim",
-                        "Assets\/Death.yanim",
-                        "Assets\/Claw_Attack.yanim",
-                        "Assets\/Cry.yanim"
-                    ],
-                    "AssetsPath": [
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        350,
-                        1000,
-                        350
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 10,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": false,
-                    "LockX": true,
-                    "LockY": false,
-                    "LockZ": true,
-                    "Offset": [
-                        0,
-                        14,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "NavMesh",
-                    "Active": 1,
-                    "Speed": 0,
-                    "Angular Speed": 0,
-                    "Stopping Distance": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "DroneXenomorphBaseScript.cs",
-                    "Active": 1,
-                    "movementSpeed": 0,
-                    "knockBackTimer": 0,
-                    "knockBackSpeed": 0,
-                    "wanderState": 0,
-                    "timePassed": 0,
-                    "life": 100,
-                    "armor": 0,
-                    "rarity": 0,
-                    "wanderRange": 10,
-                    "detectionRadius": 60,
-                    "xSpeed": 0,
-                    "ySpeed": 0,
-                    "keys": "",
-                    "path": "",
-                    "numFields": 0,
-                    "spawnRange": 0,
-                    "droneState": 0,
-                    "timeCounter": 0
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ]
-                }
-            ],
-            "Children UID": [
-                317641903
-            ]
-        },
-        {
-            "Name": "Xenomorph",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 317641903,
-            "Active": false,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/FBX\/Xeno_Combat_Idle.fbx",
-            "Parent UID": 1765229486,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1004726246,
-                    "Vertex Count": 5684,
-                    "Index Count": 17532
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                15.465556144714355,
-                                -0.51650440692901611
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 598,
-                    "Diffuse_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_D.png",
-                    "Diffuse_UID": 1916503047,
-                    "Normal_ID": 602,
-                    "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
-                    "Normal_UID": 788886931
-                }
-            ]
-        },
-        {
-            "Name": "Sensor (24)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1977502411,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1056771548,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -0.17407417297363281,
-                        5.9831194877624512,
-                        0.06402587890625
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        9.1000003814697266,
-                        10.399999618530273,
-                        18.100000381469727
-                    ],
-                    "Physics Type": 1,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        180,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "DroneXenomorphAttack.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "drone": 1765229486
-                }
-            ]
-        },
-        {
-            "Name": "Enemy-Facehugger",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1079439365,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1968864687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -190.74734497070312,
-                        1.8185374736785889,
-                        174.09666442871094
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1339668438,
-                1251795386
-            ]
-        },
-        {
-            "Name": "Facehugger",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1339668438,
-            "Active": false,
-            "Element_Type": "Model",
-            "Parent UID": 1079439365,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Animation",
-                    "Active": 1,
-                    "NumPaths": 7,
-                    "Paths": [
-                        ".\/Assets\/Idle_Facehugger.yanim",
-                        ".\/Assets\/Walk_Facehugger.yanim",
-                        ".\/Assets\/TailAttack_Facehugger.yanim",
-                        ".\/Assets\/Cry_Facehugger.yanim",
-                        ".\/Assets\/Death_Facehugger.yanim",
-                        ".\/Assets\/IdleCombat_Facehugger.yanim",
-                        ".\/Assets\/DeathFrame_Facehugger.yanim"
-                    ],
-                    "AssetsPath": [
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
-                    ]
-                },
-                {
-                    "Type": "NavMesh",
-                    "Active": 1,
-                    "Speed": 5,
-                    "Angular Speed": 10,
-                    "Stopping Distance": 2
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        13.100000381469727,
-                        29.5,
-                        12.600000381469727
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 10,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": false,
-                    "LockX": true,
-                    "LockY": false,
-                    "LockZ": true,
-                    "Offset": [
-                        0,
-                        13.800000190734863,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "FaceHuggerBaseScript.cs",
-                    "Active": 1,
-                    "movementSpeed": 20,
-                    "knockBackTimer": 0,
-                    "knockBackSpeed": 0,
-                    "wanderState": 0,
-                    "timePassed": 0,
-                    "life": 100,
-                    "armor": 0,
-                    "rarity": 0,
-                    "wanderRange": 0,
-                    "detectionRadius": 0,
-                    "xSpeed": 0,
-                    "ySpeed": 0,
-                    "keys": "",
-                    "path": "",
-                    "numFields": 0,
-                    "spawnRange": 0,
-                    "PlayerDetected": false,
-                    "wanderDuration": 5,
-                    "stopedDuration": 1,
-                    "cumDuration": 2,
-                    "cumDuration2": 5,
-                    "attackTimer": 0,
-                    "attackSensor": false
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Facehugger",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ],
-            "Children UID": [
-                644078744
-            ]
-        },
-        {
-            "Name": "Repo",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 644078744,
-            "Active": false,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/FBX\/ANIM_CHAR_Facehugger (2).fbx",
-            "Parent UID": 1339668438,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        180,
-                        0,
-                        180
-                    ],
-                    "Scale": [
-                        1.0000061988830566,
-                        1,
-                        1.0000061988830566
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 901134564,
-                    "Vertex Count": 5688,
-                    "Index Count": 8340
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                15.465556144714355,
-                                -0.51650440692901611
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Sensor (25)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1251795386,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1079439365,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        12.300000190734863,
-                        21.600000381469727,
-                        17.700000762939453
-                    ],
-                    "Physics Type": 1,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        9.3999996185302734,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "FaceHuggerAttack.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "facehugger": 1339668438
-                }
-            ]
-        },
-        {
             "Name": "Game Canvas",
             "Static": false,
             "Tag": "Untagged",
@@ -65608,8 +64990,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 312,
-                    "Height": 561,
+                    "Width": 1004,
+                    "Height": 681,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -83904,7 +83286,7 @@
                         -144.62565612792969
                     ],
                     "Rotation": [
-                        5.2373811740835663e-06,
+                        5.2373807193362154e-06,
                         -47.000064849853516,
                         2.3910420168249402e-06
                     ],
@@ -84285,9 +83667,9 @@
                         -96.881149291992188
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         0,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.91000956296920776,
@@ -84319,9 +83701,9 @@
                         16.260398864746094
                     ],
                     "Rotation": [
-                        -1.239207176695345e-05,
+                        -1.2392070857458748e-05,
                         43.000034332275391,
-                        3.9892507629701868e-05
+                        3.9892503991723061e-05
                     ],
                     "Scale": [
                         7.4380626678466797,
@@ -84394,9 +83776,9 @@
                         -95.504554748535156
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -44.999961853027344,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.91000056266784668,
