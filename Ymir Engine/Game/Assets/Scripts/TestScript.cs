@@ -9,7 +9,7 @@ using YmirEngine;
        public void Update()
        {
 
-        Debug.Log("Hola");
+        Debug.Log("Hola " + prueba[0]);
 
 
        }

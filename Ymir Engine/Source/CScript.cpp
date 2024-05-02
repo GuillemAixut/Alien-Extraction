@@ -234,9 +234,8 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 
 			field.fiValue.arrValue[i] = element;
 
-			if (ImGui::InputInt(field.displayName.c_str(), &field.fiValue.arrValue[i])) {
-
-				arr = mono_array_new(External->moduleMono->domain, arrClass, arrayLength);
+			if (ImGui::InputInt(field.displayName.c_str(), &element, 1 , 10)) {
+				mono_array_set(arr, int, i, element);
 				mono_field_set_value(mono_gchandle_get_target(noGCobject), field.field, arr);
 			}
 		}
