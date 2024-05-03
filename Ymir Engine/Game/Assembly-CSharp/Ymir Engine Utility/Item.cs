@@ -46,12 +46,13 @@ namespace YmirEngine
         public ITEM_SLOT itemType;
         public ITEM_RARITY itemRarity;
 
-        public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
-
         public string imagePath = "";
         public string name = "";
         public string description = "";
         public bool isEquipped = false;
+
+        public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
+        public float dmg, range;
 
         public Item(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
@@ -61,26 +62,38 @@ namespace YmirEngine
             string name = "Empty",
             string description = "Empty",
             string imagePath = "",
+
+            // Equippables
             float HP = 0,
             float armor = 0,
             float speed = 0,
             float fireRate = 0,
             float reloadSpeed = 0,
-            float damageMultiplier = 0)
+            float damageMultiplier = 0, // skill dmg
+
+            // Consumables
+            float dmg = 0,
+            float range = 0)
         {
-            this.name = name;
-            this.description = description;
             this.currentSlot = currentSlot;
             this.itemType = itemType;
+            this.itemRarity = itemRarity;
+            this.isEquipped = isEquipped;
+            this.name = name;
+            this.description = description;
+            this.imagePath = imagePath;
+
+            // Equippables
             this.HP = HP;
             this.armor = armor;
             this.speed = speed;
             this.fireRate = fireRate;
             this.reloadSpeed = reloadSpeed;
             this.damageMultiplier = damageMultiplier;
-            this.imagePath = imagePath;
-            this.itemRarity = itemRarity;
-            this.isEquipped = isEquipped;
+
+            // Consumables
+            this.dmg = dmg;
+            this.range = range;
         }
     }
 
