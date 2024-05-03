@@ -21,6 +21,15 @@ ParticleEmitter::ParticleEmitter(CParticleSystem* cParticleParent) //TODO: Solo 
 ParticleEmitter::~ParticleEmitter()
 {
 	KillAllParticles();
+	if(!modules.empty())
+	{
+		for (uint i = 0; i < modules.size(); i++)
+		{
+			delete(modules.at(i));
+			modules.at(i) = nullptr;
+		}
+		modules.clear();
+	}
 }
 
 EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
