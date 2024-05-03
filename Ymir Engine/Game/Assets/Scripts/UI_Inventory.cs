@@ -207,6 +207,7 @@ public class UI_Inventory : YmirComponent
         goText.SetActive(isActive);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
         goName.SetActive(isActive);
     }
+
     private void GetPlayerScript()
     {
         GameObject gameObject = InternalCalls.GetGameObjectByName("Player");

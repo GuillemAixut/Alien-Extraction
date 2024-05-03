@@ -13,6 +13,7 @@ public class UI_Item_Button : YmirComponent
 
     public string enumItem = "";
     public string enumSlot = "";
+    public string enumRarity = "";
     public string menuName = "";
 
     private GameObject _menuReference;
@@ -20,7 +21,9 @@ public class UI_Item_Button : YmirComponent
 
     // Debug
     public ITEM_SLOT itemType;
+    public ITEM_RARITY itemRarity;
     public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
+    public bool isEquipped = false;
 
     public void Start()
     {
@@ -28,8 +31,13 @@ public class UI_Item_Button : YmirComponent
 
         itemType = SetType(enumItem);
         currentSlot = SetType(enumSlot);
+        itemRarity = SetRarity(enumRarity);
 
-        item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/"Empty",
+            /*description*/ "Empty",
+            /*imagePath*/ "",
+            HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
     }
 
     public void Update()
@@ -88,6 +96,39 @@ public class UI_Item_Button : YmirComponent
 
         return elementChanged;
     }
+
+    private ITEM_RARITY SetRarity(string type)
+    {
+        ITEM_RARITY elementChanged = ITEM_RARITY.NONE;
+
+        switch (type)
+        {
+            case "COMMON":
+                {
+                    elementChanged = ITEM_RARITY.COMMON;
+                }
+                break;
+            case "RARE":
+                {
+                    elementChanged = ITEM_RARITY.RARE;
+                }
+                break;
+            case "EPIC":
+                {
+                    elementChanged = ITEM_RARITY.EPIC;
+                }
+                break;
+            case "NONE":
+                {
+                    elementChanged = ITEM_RARITY.NONE;
+                }
+                break;
+            default:
+                break;
+        }
+
+        return elementChanged;
+    }
     
     private string SetInspectorType(ITEM_SLOT type) // Set values inspector when item is set
     {
@@ -135,7 +176,11 @@ public class UI_Item_Button : YmirComponent
     {
         currentSlot = SetType(enumSlot);
         itemType = SetType(enumItem);
-        item = new Item(currentSlot, itemType, HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/"Empty",
+            /*description*/ "Empty",
+            /*imagePath*/ "",
+            HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
 
         bool ret = false;
         Debug.Log("item currentSlot: " + item.currentSlot.ToString());
