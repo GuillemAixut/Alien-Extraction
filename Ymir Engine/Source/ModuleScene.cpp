@@ -397,6 +397,9 @@ void ModuleScene::ClearScene()
 	focusedUIGO = nullptr;
 	selectedUIGO = nullptr;
 
+	External->physics->currentCollisions.clear();
+	External->physics->previousCollisions.clear();
+
 	External->lightManager->ClearLights(); // Done Correctly
 
 	External->resourceManager->ClearResources(); // Done Correctly
@@ -466,11 +469,8 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 	App->camera->editorCamera->SetFront(sceneToLoad->GetFloat3("Editor Camera Front (Z)"));
 
 	uint deletedSceneUID = mRootNode->UID;
-	External->physics->currentCollisions.clear();
-	External->physics->previousCollisions.clear();
 
 	ClearScene();
-	
 
 	mRootNode = CreateGameObject("Scene", nullptr); // Recreate scene
 	mRootNode->UID = deletedSceneUID;
