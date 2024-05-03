@@ -161,12 +161,12 @@ update_status ModulePhysics::PostUpdate(float dt)
 				auto& collision = currentCollisions[i];
 				if (collision.first != nullptr)
 				{
-					scriptA = dynamic_cast<CScript*>(collision.first->owner->GetComponent(ComponentType::SCRIPT));
+					//scriptA = dynamic_cast<CScript*>(collision.first->owner->GetComponent(ComponentType::SCRIPT));
 				}
 				
 				if (collision.second != nullptr)
 				{
-					scriptB = dynamic_cast<CScript*>(collision.second->owner->GetComponent(ComponentType::SCRIPT));
+					//scriptB = dynamic_cast<CScript*>(collision.second->owner->GetComponent(ComponentType::SCRIPT));
 				}
 				if (scriptA != nullptr && scriptB != nullptr) {
 					scriptA->CollisionExitCallback(false, collision.second->owner);
