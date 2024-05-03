@@ -141,9 +141,20 @@ public class QueenXenomorphBaseScript : YmirComponent
         randomMovSelected = true;
 
         //Animations
-        Animation.PlayAnimation(gameObject, "Boss_Idle");
         Animation.SetLoop(gameObject, "Boss_Idle", true);
         Animation.SetLoop(gameObject, "Boss_Walk", true);
+
+        Animation.SetResetToZero(gameObject, "Boss_Die", false);
+        //Animation.SetResetToZero(gameObject, "Boss_Dash", false);
+
+        Animation.AddBlendOption(gameObject, "", "Boss_Idle", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Walk", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Cry", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Dash", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Claw_Attack", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Die", 10f);
+
+        Animation.PlayAnimation(gameObject, "Boss_Idle");
     }
 
     public void Update()
@@ -591,6 +602,7 @@ public class QueenXenomorphBaseScript : YmirComponent
     {
         if (life <= 0)
         {
+            Animation.PlayAnimation(gameObject, "Boss_Die");
             Debug.Log("[ERROR] DEATH");
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             Audio.PlayAudio(gameObject, "QX_Death");

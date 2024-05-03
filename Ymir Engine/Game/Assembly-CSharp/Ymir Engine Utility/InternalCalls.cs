@@ -55,7 +55,7 @@ namespace YmirEngine
         /// Creates spitter acid spit.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void CreateSpitterAcidSpit(object name, object position);
+        public static extern void CreateSpitterAcidSpit(object position, object rotation);
 
         /// <summary>
         /// Destroys a game object.

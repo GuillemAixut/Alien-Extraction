@@ -11,11 +11,11 @@ public class SpitterAcidSpit : YmirComponent
 
 	public void Start()
 	{
-		Debug.Log("HelloWorld"); 
+
 	}
 
 	public void Update()
 	{
-		return;
+
 	}
 }
