@@ -959,8 +959,9 @@ void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
 	go->tag = "SpitterAcidSpit";
 
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	Quat rotVector = Quat(0, 0, 0, 0);
-	float3 scaleVector = float3(3, 3, 3);
+	//Quat rotVector = Quat(0, 0, 0, 0);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(2.5f, 2.5f, 2.5f);
 
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);

@@ -23,6 +23,7 @@ namespace YmirEngine
         ARMOR,
         CHIP,
         CONSUMABLE,
+        MATERIAL,
         SAVE,
         NONE, 
 
@@ -52,9 +53,20 @@ namespace YmirEngine
         public string description = "";
         public bool isEquipped = false;
 
-        public Item(ITEM_SLOT currentSlot = ITEM_SLOT.NONE, ITEM_SLOT itemType = ITEM_SLOT.NONE,
-            float HP = 0, float armor = 0, float speed = 0, float fireRate = 0, float reloadSpeed = 0, float damageMultiplier = 0,
-            string imagePath = "", ITEM_RARITY itemRarity = ITEM_RARITY.COMMON, bool isEquipped = false, string name = "Empty", string description = "Empty")
+        public Item(
+            ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
+            ITEM_SLOT itemType = ITEM_SLOT.NONE,
+            ITEM_RARITY itemRarity = ITEM_RARITY.COMMON,
+            bool isEquipped = false,
+            string name = "Empty",
+            string description = "Empty",
+            string imagePath = "",
+            float HP = 0,
+            float armor = 0,
+            float speed = 0,
+            float fireRate = 0,
+            float reloadSpeed = 0,
+            float damageMultiplier = 0)
         {
             this.name = name;
             this.description = description;

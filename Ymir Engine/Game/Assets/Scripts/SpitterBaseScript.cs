@@ -361,7 +361,9 @@ public class SpitterBaseScript : YmirComponent
                 //ANIMATION DURATION HERE!!!
                 timeLimit = 0.8f;
                 xenoState = XenoState.ACID_SPIT;
-                InternalCalls.CreateSpitterAcidSpit(gameObject.transform.globalPosition, gameObject.transform.globalRotation);
+                Vector3 pos = gameObject.transform.globalPosition;
+                pos.y += 15;
+                InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
                 LookAt(player.transform.globalPosition);
             }
         }
@@ -374,7 +376,9 @@ public class SpitterBaseScript : YmirComponent
                 //ANIMATION DURATION HERE!!!
                 timeLimit = 0.8f;
                 xenoState = XenoState.ACID_REBOUND;
-                InternalCalls.CreateSpitterAcidSpit(gameObject.transform.globalPosition, gameObject.transform.globalRotation);
+                Vector3 pos = gameObject.transform.globalPosition;
+                pos.y += 15;
+                InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
                 LookAt(player.transform.globalPosition);
             }
         }
