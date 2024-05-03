@@ -954,14 +954,16 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
 {
 	if (External == nullptr) return;
-	GameObject* go = External->scene->PostUpdateCreateGameObject("AcidSpit", External->scene->mRootNode);
+	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidSpit", External->scene->mRootNode);
 	go->UID = Random::Generate();
 	go->tag = "SpitterAcidSpit";
 
 	float3 posVector = External->moduleMono->UnboxVector(position);
 	Quat rotVector = Quat(0, 0, 0, 0);
-	float3 scaleVector = float3(50, 50, 50);
+	float3 scaleVector = float3(3, 3, 3);
 
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
