@@ -275,7 +275,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma region Enemies
 
-	mono_add_internal_call("YmirEngine.PathFinding::CreateSpitterAcidSpit", CreateSpitterAcidSpit);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidSpit", CreateSpitterAcidSpit);
 
 #pragma endregion
 
