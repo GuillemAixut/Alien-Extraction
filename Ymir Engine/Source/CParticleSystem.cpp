@@ -43,6 +43,7 @@ CParticleSystem::~CParticleSystem()
 		delete (*it);
 		(*it) = nullptr;
 	}
+	allEmitters.clear();
 }
 
 void CParticleSystem::Update()
@@ -181,6 +182,7 @@ void CParticleSystem::OnInspector()
 
 							EmitterBase* eBase = (EmitterBase*)listModule.at(j);
 							eBase->OnInspector();
+							eBase = nullptr;
 							break;
 						}
 						case EmitterType::PAR_SPAWN:
@@ -189,6 +191,7 @@ void CParticleSystem::OnInspector()
 
 							EmitterSpawner* eSpawner = (EmitterSpawner*)listModule.at(j);
 							eSpawner->OnInspector(allEmitters.at(i));
+							eSpawner = nullptr;
 							break;
 						}
 						case EmitterType::PAR_POSITION:
@@ -204,6 +207,7 @@ void CParticleSystem::OnInspector()
 
 							EmitterPosition* ePosition = (EmitterPosition*)listModule.at(j);
 							ePosition->OnInspector();
+							ePosition = nullptr;
 							break;
 						}
 						case EmitterType::PAR_ROTATION:
@@ -219,6 +223,7 @@ void CParticleSystem::OnInspector()
 
 							EmitterRotation* eRotation = (EmitterRotation*)listModule.at(j);
 							eRotation->OnInspector();
+							eRotation = nullptr;
 							break;
 						}
 						case EmitterType::PAR_SIZE:
@@ -234,6 +239,7 @@ void CParticleSystem::OnInspector()
 
 							EmitterSize* eSize = (EmitterSize*)listModule.at(j);
 							eSize->OnInspector();
+							eSize = nullptr;
 							break;
 						}
 						case EmitterType::PAR_COLOR:
@@ -249,7 +255,7 @@ void CParticleSystem::OnInspector()
 
 							EmitterColor* eColor = (EmitterColor*)listModule.at(j);
 							eColor->OnInspector();
-
+							eColor = nullptr;
 							break;
 						}
 						case EmitterType::PAR_IMAGE:
@@ -265,7 +271,7 @@ void CParticleSystem::OnInspector()
 
 							EmitterImage* eImage = (EmitterImage*)listModule.at(j);
 							eImage->OnInspector();
-
+							eImage = nullptr;
 							break;
 						}
 						case EmitterType::PARTICLES_MAX:
@@ -441,6 +447,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "RadiusTop", eBase->topRadius);
 				json_object_set_number(child_object, "Heigth", eBase->heigth);
 
+				eBase = nullptr;
 				break;
 			}
 			case EmitterType::PAR_SPAWN:
@@ -465,6 +472,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "SubemitterMaxLifetime", eSpawn->subMaxLifetime);
 				json_object_set_number(child_object, "SubemitterMinLifetime", eSpawn->subMinLifetime);
 
+				eSpawn = nullptr;
 				break;
 			}
 			case EmitterType::PAR_POSITION:
@@ -527,7 +535,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				json_object_set_boolean(child_object, "NormalizedChange", ePosition->normalizedChange);
 
-
+				ePosition = nullptr;
 				break;
 			}
 			case EmitterType::PAR_ROTATION:
@@ -547,7 +555,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_array_append_number(arrFreeWorldRotation, eRotation->freeWorldRotation.y);
 				json_array_append_number(arrFreeWorldRotation, eRotation->freeWorldRotation.z);
 
-
+				eRotation = nullptr;
 				break;
 			}
 			case EmitterType::PAR_SIZE:
@@ -565,6 +573,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "TimeStart", eSize->startChange);
 				json_object_set_number(child_object, "TimeStop", eSize->stopChange);
 
+				eSize = nullptr;
 				break;
 			}
 			case EmitterType::PAR_COLOR:
@@ -605,11 +614,12 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "TimeStart", eColor->startChange);
 				json_object_set_number(child_object, "TimeStop", eColor->stopChange);
 
+				eColor = nullptr;
 				break;
 			}
 			case EmitterType::PAR_IMAGE:
 			{
-				//The material already saves all the necesary information
+				//The material already saves all the necesary information //TOSO ERIC Y TONI
 				break;
 			}
 			case EmitterType::PARTICLES_MAX:

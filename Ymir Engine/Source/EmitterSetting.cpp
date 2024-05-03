@@ -1111,11 +1111,14 @@ void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 			default:
 				break;
 			}
+
+			eBase = nullptr;
 		}
 
 	}
 	
 	particle->velocity.w += particleSpeed1;
+	
 }
 
 void EmitterPosition::Update(float dt, ParticleEmitter* emitter)

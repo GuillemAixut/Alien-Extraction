@@ -23,10 +23,10 @@ ParticleEmitter::~ParticleEmitter()
 	KillAllParticles();
 	if(!modules.empty())
 	{
-		for (uint i = 0; i < modules.size(); i++)
+		for (auto it = modules.rbegin(); it != modules.rend(); ++it)
 		{
-			delete(modules.at(i));
-			modules.at(i) = nullptr;
+			delete (*it);
+			(*it) = nullptr;
 		}
 		modules.clear();
 	}

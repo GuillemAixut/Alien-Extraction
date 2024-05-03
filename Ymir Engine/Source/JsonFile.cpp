@@ -3542,6 +3542,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eBase->topRadius = (float)json_object_get_number(modulo, "RadiusTop");
 					eBase->heigth = (float)json_object_get_number(modulo, "Heigth");
 
+					eBase = nullptr;
 					break;
 				}
 				case PAR_SPAWN:
@@ -3562,6 +3563,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eSpawn->subMaxLifetime = json_object_get_number(modulo, "SubemitterMaxLifetime");
 					eSpawn->subMinLifetime = json_object_get_number(modulo, "SubemitterMinLifetime");
 
+					eSpawn = nullptr;
 					break;
 				}
 				case PAR_POSITION:
@@ -3612,6 +3614,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 					ePos->normalizedChange = json_object_get_boolean(modulo, "NormalizedChange");
 
+					ePos = nullptr;
 					break;
 				}
 				case PAR_ROTATION:
@@ -3632,6 +3635,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					float posZN = json_array_get_number(arrFreeDir, 2);
 					eRot->freeWorldRotation = { posXN,posYN,posZN };
 
+					eRot = nullptr;
 					break;
 				}
 				case PAR_SIZE:
@@ -3643,6 +3647,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eSize->sizeMultiplier2 = (float)json_object_get_number(modulo, "Size2");
 					eSize->startChange = (float)json_object_get_number(modulo, "TimeStart");
 					eSize->stopChange = (float)json_object_get_number(modulo, "TimeStop");
+
+					eSize = nullptr;
 					break;
 				}
 				case PAR_COLOR:
@@ -3672,6 +3678,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eColor->color2.b = (float)json_array_get_number(colArr2, 2);
 					eColor->color2.a = (float)json_array_get_number(colArr2, 3);
 
+					eColor = nullptr;
 					break;
 				}
 				case PARTICLES_MAX:

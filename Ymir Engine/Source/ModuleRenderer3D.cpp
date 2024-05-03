@@ -890,8 +890,6 @@ bool ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 	}
 	for (uint i = 0; i < pSystem->allEmitters.size(); i++)
 	{
-
-
 		EmitterBase* eBase = (EmitterBase*)pSystem->allEmitters.at(i)->modules.at(0); //We create the referemce to accces more easily
 
 		Quat rotacion;
@@ -1100,6 +1098,8 @@ bool ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 		default:
 			break;
 		}
+
+		eBase = nullptr;
 	}
 	return ret;
 }
