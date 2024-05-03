@@ -69,9 +69,9 @@ public class FaceHuggerBaseScript : Enemy
         cumDuration2 = 5f;
 
         //Drop items
-        keys = "Nombre:,Probabilidad:";
-        path = "Assets/Loot Tables/facehugger_loot.csv";
-        numFields = 2;
+        //keys = "Nombre:,Probabilidad:";
+        //path = "Assets/Loot Tables/facehugger_loot.csv";
+        //numFields = 2;
 
         attackTimer = attackDuration;
 
@@ -98,6 +98,22 @@ public class FaceHuggerBaseScript : Enemy
         agent.angularSpeed = 10f;
 
 
+        // Animations
+
+        Animation.SetLoop(gameObject, "Idle_Facehugger");
+        Animation.SetLoop(gameObject, "IdleCombat_Facehugger");
+        Animation.SetLoop(gameObject, "Walk_Facehugger");
+
+        Animation.SetResetToZero(gameObject, "Death_Facehugger", false);
+
+        Animation.AddBlendOption(gameObject, "", "Idle_Facehugger", 10f);
+        Animation.AddBlendOption(gameObject, "", "IdleCombat_Facehugger", 10f);
+        Animation.AddBlendOption(gameObject, "", "IdleCombat_Facehugger", 10f);
+        Animation.AddBlendOption(gameObject, "", "Walk_Facehugger", 10f);
+        Animation.AddBlendOption(gameObject, "", "TailAttack_Facehugger", 10f);
+        Animation.AddBlendOption(gameObject, "", "Death_Facehugger", 10f);
+
+        Animation.PlayAnimation(gameObject, "Idle_Facehugger");
     }
 
     public void Update()

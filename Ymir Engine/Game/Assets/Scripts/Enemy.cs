@@ -57,10 +57,10 @@ public class Enemy : YmirComponent
     public float xSpeed = 0, ySpeed = 0;
 
     //Drop items
-    public string keys;
-    public string path;
-    public int numFields;
-    public int spawnRange;
+    //public string keys;
+    //public string path;
+    //public int numFields;
+    //public int spawnRange;
 
     private Vector3 itemPos = Vector3.zero;
     Random random = new Random();
@@ -146,90 +146,90 @@ public class Enemy : YmirComponent
         }
     }
 
-    public void DropItem()
-    {
-        string output = InternalCalls.CSVToStringKeys(path, keys);
+    //public void DropItem()
+    //{
+    //    string output = InternalCalls.CSVToStringKeys(path, keys);
 
-        List<List<string>> result = DeconstructString(output, numFields);
+    //    List<List<string>> result = DeconstructString(output, numFields);
 
-        Debug.Log("Result:");
-        foreach (var sublist in result)
-        {
-            Debug.Log("(" + string.Join(", ", sublist) + ")");
+    //    Debug.Log("Result:");
+    //    foreach (var sublist in result)
+    //    {
+    //        Debug.Log("(" + string.Join(", ", sublist) + ")");
 
-            // Check if sublist has at least two values
-            if (sublist.Count >= 2)
-            {
-                // Extract the first two values
-                string name = sublist[0];
-                int probability;
+    //        // Check if sublist has at least two values
+    //        if (sublist.Count >= 2)
+    //        {
+    //            // Extract the first two values
+    //            string name = sublist[0];
+    //            int probability;
 
-                // Try parsing the probability value
-                if (int.TryParse(sublist[1], out probability))
-                {
-                    // Call SpawnPrefab with extracted values
-                    SpawnPrefab(name, probability);
-                }
-                else
-                {
-                    Debug.Log("[ERROR] Invalid probability value in sublist: " + string.Join(", ", sublist));
-                }
-            }
-            else
-            {
-                Debug.Log("[ERROR] Sublist does not contain enough elements: " + string.Join(", ", sublist));
-            }
-        }
-    }
+    //            // Try parsing the probability value
+    //            if (int.TryParse(sublist[1], out probability))
+    //            {
+    //                // Call SpawnPrefab with extracted values
+    //                SpawnPrefab(name, probability);
+    //            }
+    //            else
+    //            {
+    //                Debug.Log("[ERROR] Invalid probability value in sublist: " + string.Join(", ", sublist));
+    //            }
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("[ERROR] Sublist does not contain enough elements: " + string.Join(", ", sublist));
+    //        }
+    //    }
+    //}
 
-    private static List<List<string>> DeconstructString(string input, int numberOfFields)
-    {
-        List<List<string>> output = new List<List<string>>();
-        string[] parts = input.Split(';');
+    //private static List<List<string>> DeconstructString(string input, int numberOfFields)
+    //{
+    //    List<List<string>> output = new List<List<string>>();
+    //    string[] parts = input.Split(';');
 
-        List<string> currentList = new List<string>();
+    //    List<string> currentList = new List<string>();
 
-        for (int i = 0; i < parts.Length; i++)
-        {
-            currentList.Add(parts[i]);
+    //    for (int i = 0; i < parts.Length; i++)
+    //    {
+    //        currentList.Add(parts[i]);
 
-            // Check if currentList has reached the desired number of fields
-            if (currentList.Count == numberOfFields)
-            {
-                output.Add(currentList);
-                currentList = new List<string>(); // Reset currentList for next set of fields
-            }
-        }
+    //        // Check if currentList has reached the desired number of fields
+    //        if (currentList.Count == numberOfFields)
+    //        {
+    //            output.Add(currentList);
+    //            currentList = new List<string>(); // Reset currentList for next set of fields
+    //        }
+    //    }
 
-        // If there are any remaining elements in currentList, add them as a last incomplete sublist
-        if (currentList.Count > 0)
-        {
-            output.Add(currentList);
-        }
+    //    // If there are any remaining elements in currentList, add them as a last incomplete sublist
+    //    if (currentList.Count > 0)
+    //    {
+    //        output.Add(currentList);
+    //    }
 
-        return output;
-    }
+    //    return output;
+    //}
 
-    private void SpawnPrefab(string name, int probability)
-    {
-        int randNum = random.Next(0, 101);  //Generate a random number between 0 and 100
-        Debug.Log("[WARNING] Rand Number: " + randNum);
-        if (randNum <= probability)
-        {
-            //Spawn items in a range random position offset
-            float randPosX = random.Next(-spawnRange, spawnRange + 1);
-            float randPosZ = random.Next(-spawnRange, spawnRange + 1);
-            Debug.Log("[WARNING] PickUp offset: " + randPosX + ", " + randPosZ);
+    //private void SpawnPrefab(string name, int probability)
+    //{
+    //    int randNum = random.Next(0, 101);  //Generate a random number between 0 and 100
+    //    Debug.Log("[WARNING] Rand Number: " + randNum);
+    //    if (randNum <= probability)
+    //    {
+    //        //Spawn items in a range random position offset
+    //        float randPosX = random.Next(-spawnRange, spawnRange + 1);
+    //        float randPosZ = random.Next(-spawnRange, spawnRange + 1);
+    //        Debug.Log("[WARNING] PickUp offset: " + randPosX + ", " + randPosZ);
 
-            itemPos.x += randPosX;
-            itemPos.z += randPosZ;
+    //        itemPos.x += randPosX;
+    //        itemPos.z += randPosZ;
 
-            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", name, itemPos);
+    //        InternalCalls.CreateGOFromPrefab("Assets/Prefabs", name, itemPos);
 
-            //Clear the pos value
-            itemPos = gameObject.transform.localPosition;
-        }
-    }
+    //        //Clear the pos value
+    //        itemPos = gameObject.transform.localPosition;
+    //    }
+    //}
 
 
 }
