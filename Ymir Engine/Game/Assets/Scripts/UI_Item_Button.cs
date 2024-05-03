@@ -33,11 +33,12 @@ public class UI_Item_Button : YmirComponent
         currentSlot = SetType(enumSlot);
         itemRarity = SetRarity(enumRarity);
 
-        item = new Item(currentSlot, itemType, itemRarity, isEquipped,
-            /*name*/"Empty",
-            /*description*/ "Empty",
-            /*imagePath*/ "",
-            HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        item = CreateItemBase();
+        //item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+        //    /*name*/"Empty",
+        //    /*description*/ "Empty",
+        //    /*imagePath*/ "",
+        //    HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
     }
 
     public void Update()
@@ -61,12 +62,12 @@ public class UI_Item_Button : YmirComponent
         if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
         {
             UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
-        }        
-        
-        if (_menuReference.GetComponent<UI_Inventory>().goName != null)
-        {
-            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
-        }        
+        }
+
+        //if (_menuReference.GetComponent<UI_Inventory>().goName != null)
+        //{
+        //    UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
+        //}
     }
 
     private ITEM_SLOT SetType(string type)
@@ -129,7 +130,7 @@ public class UI_Item_Button : YmirComponent
 
         return elementChanged;
     }
-    
+
     private string SetInspectorType(ITEM_SLOT type) // Set values inspector when item is set
     {
         string elementChanged = " ";
@@ -160,27 +161,30 @@ public class UI_Item_Button : YmirComponent
 
     private void UpdateStats() // TODO: cambiar cuando items funcionen en player
     {
-        if (_menuReference != null)
-        {
-            _menuReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;
-            _menuReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;
-            _menuReference.GetComponent<UI_Inventory>().health.armor += item.armor;
-            _menuReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;
-            _menuReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;
-            _menuReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;
-            _menuReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;
-        }
+        //if (_menuReference != null)
+        //{
+        //    _menuReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;
+        //    _menuReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;
+        //    _menuReference.GetComponent<UI_Inventory>().health.armor += item.armor;
+        //    _menuReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;
+        //    _menuReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;
+        //    _menuReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;
+        //    _menuReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;
+        //}
     }
 
     public bool SetItem(Item _item)
     {
         currentSlot = SetType(enumSlot);
         itemType = SetType(enumItem);
-        item = new Item(currentSlot, itemType, itemRarity, isEquipped,
-            /*name*/"Empty",
-            /*description*/ "Empty",
-            /*imagePath*/ "",
-            HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+
+        item = CreateItemBase();
+
+        //item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+        //    /*name*/"Empty",
+        //    /*description*/ "Empty",
+        //    /*imagePath*/ "",
+        //    HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
 
         bool ret = false;
         Debug.Log("item currentSlot: " + item.currentSlot.ToString());
@@ -209,13 +213,13 @@ public class UI_Item_Button : YmirComponent
                     UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png", (int)UI_STATE.NORMAL); ;
                     break;
                 case ITEM_RARITY.RARE:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png", (int)UI_STATE.NORMAL); 
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png", (int)UI_STATE.NORMAL);
                     break;
                 case ITEM_RARITY.EPIC:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/BoneIconColor.png", (int)UI_STATE.NORMAL); 
-                    break;                
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/BoneIconColor.png", (int)UI_STATE.NORMAL);
+                    break;
                 case ITEM_RARITY.NONE:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL); 
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL);
                     break;
                 default:
                     break;
@@ -226,5 +230,36 @@ public class UI_Item_Button : YmirComponent
 
         Debug.Log("return: " + ret.ToString());
         return ret;
+    }
+
+    public Item CreateItemBase()
+    {
+        Item _item;
+        Debug.Log("CreateItemBase: " + item.currentSlot.ToString());
+
+        if (itemType == ITEM_SLOT.ARMOR || itemType == ITEM_SLOT.CHIP)
+        {
+            _item = new I_Equippable(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/"Empty",
+            /*description*/ "Empty",
+            /*imagePath*/ "",
+            HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        }
+        else if (itemType == ITEM_SLOT.CONSUMABLE)
+        {
+            _item = new I_Consumables(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/"Empty",
+            /*description*/ "Empty",
+            /*imagePath*/ "");
+        }
+        else
+        {
+            _item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/"Empty",
+            /*description*/ "Empty",
+            /*imagePath*/ "");
+        }
+
+        return _item;
     }
 }

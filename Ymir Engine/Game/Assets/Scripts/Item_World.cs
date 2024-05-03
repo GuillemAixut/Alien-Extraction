@@ -84,18 +84,12 @@ public class Item_World : YmirComponent
             /*isEquipped*/      false,
             /*name*/            "Empty",
             /*description*/     "Empty",
-            /*imagePath*/       "",
-            /*HP*/                  0,
-            /*armor*/               0,
-            /*speed*/               0,
-            /*fireRate*/            0,
-            /*reloadSpeed*/         0,
-            /*damageMultiplier*/    0
+            /*imagePath*/       ""
                 ));
 
         // Item Name: 
         itemsDictionary.Add(new SearchItem("hola", ITEM_RARITY.EPIC), new
-            Item(
+            I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.NONE,
             /*itemRarity*/      ITEM_RARITY.COMMON,
@@ -109,11 +103,11 @@ public class Item_World : YmirComponent
             /*fireRate*/            0,
             /*reloadSpeed*/         0,
             /*damageMultiplier*/    0
-                ));
+            ));
 
         // Item Name: 
         itemsDictionary.Add(new SearchItem("hola", ITEM_RARITY.EPIC), new
-            Item(
+            I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.NONE,
             /*itemRarity*/      ITEM_RARITY.COMMON,
@@ -121,31 +115,9 @@ public class Item_World : YmirComponent
             /*name*/            "Empty",
             /*description*/     "Empty",
             /*imagePath*/       "",
-            /*HP*/                  0,
-            /*armor*/               0,
-            /*speed*/               0,
-            /*fireRate*/            0,
-            /*reloadSpeed*/         0,
-            /*damageMultiplier*/    0
-                ));
-
-        // Item Name: 
-        itemsDictionary.Add(new SearchItem("hola", ITEM_RARITY.EPIC), new
-            Item(
-            /*always none*/     ITEM_SLOT.NONE,
-            /*item type*/       ITEM_SLOT.NONE,
-            /*itemRarity*/      ITEM_RARITY.COMMON,
-            /*isEquipped*/      false,
-            /*name*/            "Empty",
-            /*description*/     "Empty",
-            /*imagePath*/       "",
-            /*HP*/                  0,
-            /*armor*/               0,
-            /*speed*/               0,
-            /*fireRate*/            0,
-            /*reloadSpeed*/         0,
-            /*damageMultiplier*/    0
-                ));
+            /*dmg*/                 0,
+            /*range*/               0
+            ));
     }
 
     private void GetPlayerScript()

@@ -10,7 +10,7 @@ using YmirEngine;
 public class UI_Inventory : YmirComponent
 {
     private GameObject _selectedGO, _textHP, _textArmor, _textSpeed, _textReload, _textDamage, _textRate, _textResin;
-    public GameObject focusedGO, goDescription, goText, goName;
+    public GameObject focusedGO, goDescription, goText/*, goName*/;
 
     private bool _show;
 
@@ -22,12 +22,15 @@ public class UI_Inventory : YmirComponent
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();
 
+        Debug.Log("123: ");
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
-        goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
-        goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
+
+        Debug.Log("543: "); goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
+        //goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
         goDescription.SetActive(false);// TODO: when menu opened
-        goText.SetActive(false);
-        goName.SetActive(false);
+
+        Debug.Log("6543: "); goText.SetActive(false);
+        //goName.SetActive(false);
 
         _show = false;
 
@@ -57,7 +60,7 @@ public class UI_Inventory : YmirComponent
             Debug.Log("set first");
             goDescription.SetActive(false);// TODO: when menu opened
             goText.SetActive(false);
-            goName.SetActive(false);
+            //goName.SetActive(false);
 
             player.setHover = false;
         }
@@ -198,14 +201,14 @@ public class UI_Inventory : YmirComponent
     {
         UI.SetUIPosWithOther(goDescription, focusedGO.parent);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
         UI.SetUIPosWithOther(goText, focusedGO.parent);
-        UI.SetUIPosWithOther(goName, focusedGO.parent);
+        //UI.SetUIPosWithOther(goName, focusedGO.parent);
     }
 
     public void ShowText(bool isActive)
     {
         goDescription.SetActive(isActive);
         goText.SetActive(isActive);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
-        goName.SetActive(isActive);
+        //goName.SetActive(isActive);
     }
 
     private void GetPlayerScript()
@@ -248,7 +251,9 @@ public class UI_Inventory : YmirComponent
 
     private void SetSlots()
     {
-        bool isInventory;
+        bool isInventory; 
+        Debug.Log("SetSlots: ");
+
 
         for (int i = 0; i < player.itemsList.Count; i++)
         {
