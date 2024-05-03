@@ -73,13 +73,11 @@ public:
 	void SaveScene(const std::string& dir = External->fileSystem->libraryScenesPath, const std::string& fileName = "");
 	void LoadScene(const std::string& dir = External->fileSystem->libraryScenesPath, const std::string& fileName = "");
 
+	void LoadSceneNoMemoryLeaks(const std::string& dir = External->fileSystem->libraryScenesPath, const std::string& fileName = "");
+
 	void SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName);
 	GameObject* LoadPrefab(const std::string& dir, const std::string& fileName);
-
 	GameObject* LoadPrefab(const char* path);
-
-	// Start with a loaded scene from start
-	void LoadSceneFromStart(const std::string& dir, const std::string& fileName);
 	
 	void Destroy(GameObject* gm);
 

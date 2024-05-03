@@ -1780,6 +1780,51 @@ void JsonFile::SetReference(JSON_Object* componentObject, GameObject& pointer, c
 
 // ---------- Load Scene
 
+void JsonFile::GetHierarchyNoMemoryLeaks(const char* key) const
+{
+	JSON_Value* hierarchyValue = json_object_get_value(rootObject, key);
+
+	if (hierarchyValue != nullptr && json_value_get_type(hierarchyValue) == JSONArray) {
+
+		JSON_Array* hierarchyArray = json_value_get_array(hierarchyValue);
+
+		size_t numGameObjects = json_array_get_count(hierarchyArray);
+
+		External->scene->gameObjects.reserve(numGameObjects);
+
+		for (size_t i = 0; i < numGameObjects; ++i) {
+
+			JSON_Value* gameObjectValue = json_array_get_value(hierarchyArray, i);
+
+			if (json_value_get_type(gameObjectValue) == JSONObject) {
+
+				JSON_Object* gameObjectObject = json_value_get_object(gameObjectValue);
+
+				// Create a new GameObject
+				// TODO: Preguntar monica
+				//GameObject* gameObject = new GameObject();	// asi deberia estar
+				G_UI* gameObject = new G_UI();
+
+				// Call a function to extract individual GameObject properties
+				GetGameObject(External->scene->gameObjects, gameObjectObject, *gameObject);
+
+				// Add the GameObject to the vector
+				External->scene->gameObjects.push_back(gameObject);
+
+			}
+
+		}
+
+		External->scene->mRootNode->mParent = nullptr;
+
+		for (auto it = External->scene->vTempComponents.begin(); it != External->scene->vTempComponents.end(); ++it)
+		{
+			(*it)->SetReference();
+		}
+
+	}
+}
+
 std::vector<GameObject*> JsonFile::GetHierarchy(const char* key) const
 {
 	std::vector<GameObject*> gameObjects;
