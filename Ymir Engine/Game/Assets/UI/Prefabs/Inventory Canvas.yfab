@@ -49,7 +49,8 @@
                     "Type": "Script",
                     "ScriptName": "UI_Inventory.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "itemsDictionary": 0
                 }
             ],
             "Children UID": [
@@ -291,7 +292,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -301,7 +302,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -451,7 +452,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 104690399,
+                    "Text": 4294967295,
                     "Image": 1526688955,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -504,137 +505,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                675538117
-            ]
-        },
-        {
-            "Name": "Description (7)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 675538117,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1526688955,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        336,
-                        312,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                104690399
-            ]
-        },
-        {
-            "Name": "Text  (15)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 104690399,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 675538117,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        448,
-                        359,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -769,7 +639,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -779,7 +649,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -929,7 +799,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 349769866,
+                    "Text": 4294967295,
                     "Image": 1075309958,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -982,137 +852,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1788726401
-            ]
-        },
-        {
-            "Name": "Description (8)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1788726401,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1075309958,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        224.29998779296875,
-                        457,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                349769866
-            ]
-        },
-        {
-            "Name": "Text  (16)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 349769866,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1788726401,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        336.29998779296875,
-                        504,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -1247,7 +986,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1257,7 +996,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -1407,7 +1146,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 59919531,
+                    "Text": 4294967295,
                     "Image": 1909444103,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -1460,137 +1199,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                70487839
-            ]
-        },
-        {
-            "Name": "Description (9)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 70487839,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1909444103,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        446,
-                        457,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                59919531
-            ]
-        },
-        {
-            "Name": "Text  (17)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 59919531,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 70487839,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        558,
-                        504,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -1725,7 +1333,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1735,7 +1343,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -1885,7 +1493,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1174508890,
+                    "Text": 4294967295,
                     "Image": 674213253,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -1938,137 +1546,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                181265107
-            ]
-        },
-        {
-            "Name": "Description (10)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 181265107,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 674213253,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        89,
-                        613,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1174508890
-            ]
-        },
-        {
-            "Name": "Text  (18)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1174508890,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 181265107,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        201,
-                        660,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -2203,7 +1680,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2213,7 +1690,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -2363,7 +1840,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1948689617,
+                    "Text": 4294967295,
                     "Image": 691207892,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -2416,137 +1893,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                533253997
-            ]
-        },
-        {
-            "Name": "Description (11)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 533253997,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 691207892,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        89,
-                        734,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1948689617
-            ]
-        },
-        {
-            "Name": "Text  (19)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1948689617,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 533253997,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        201,
-                        781,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -2681,7 +2027,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2691,7 +2037,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -2841,7 +2187,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 2020606884,
+                    "Text": 4294967295,
                     "Image": 1649937173,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -2894,137 +2240,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                845761666
-            ]
-        },
-        {
-            "Name": "Description (12)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 845761666,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1649937173,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        705,
-                        191,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                2020606884
-            ]
-        },
-        {
-            "Name": "Text  (20)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2020606884,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 845761666,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        817,
-                        238,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -3173,7 +2388,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3183,7 +2398,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -3333,7 +2548,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 838864476,
+                    "Text": 4294967295,
                     "Image": 1110638304,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -3386,137 +2601,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1592071889
-            ]
-        },
-        {
-            "Name": "Description (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1592071889,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1110638304,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        708,
-                        387,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                838864476
-            ]
-        },
-        {
-            "Name": "Text ",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 838864476,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1592071889,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        820,
-                        434,
-                        300,
-                        50
-                    ],
-                    "Text": "Armor\n",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -3599,7 +2683,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3609,7 +2693,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -3759,7 +2843,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1813686006,
+                    "Text": 4294967295,
                     "Image": 1438247965,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -3812,137 +2896,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                671523609
-            ]
-        },
-        {
-            "Name": "Description (22)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 671523609,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1438247965,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        708,
-                        500,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1813686006
-            ]
-        },
-        {
-            "Name": "Text  (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1813686006,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 671523609,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        820,
-                        547,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -4025,7 +2978,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4035,7 +2988,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -4185,7 +3138,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 510366502,
+                    "Text": 4294967295,
                     "Image": 891142994,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -4238,137 +3191,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1127385546
-            ]
-        },
-        {
-            "Name": "Description (23)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1127385546,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 891142994,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        708,
-                        613,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                510366502
-            ]
-        },
-        {
-            "Name": "Text  (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 510366502,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1127385546,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        820,
-                        660,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -4451,7 +3273,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4461,7 +3283,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -4611,7 +3433,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1405848881,
+                    "Text": 4294967295,
                     "Image": 222697088,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -4664,137 +3486,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                360747609
-            ]
-        },
-        {
-            "Name": "Description (24)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 360747609,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 222697088,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        708,
-                        726,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1405848881
-            ]
-        },
-        {
-            "Name": "Text  (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1405848881,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 360747609,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        820,
-                        773,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -4877,7 +3568,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4887,7 +3578,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -5037,7 +3728,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 995408340,
+                    "Text": 4294967295,
                     "Image": 153205893,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -5090,137 +3781,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                2061231098
-            ]
-        },
-        {
-            "Name": "Description (25)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2061231098,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 153205893,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        708,
-                        839,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                995408340
-            ]
-        },
-        {
-            "Name": "Text  (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 995408340,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 2061231098,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        820,
-                        886,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -5303,7 +3863,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5313,7 +3873,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -5463,7 +4023,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 986053325,
+                    "Text": 4294967295,
                     "Image": 1107674453,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -5516,137 +4076,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1994282529
-            ]
-        },
-        {
-            "Name": "Description (26)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1994282529,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1107674453,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        819,
-                        387,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                986053325
-            ]
-        },
-        {
-            "Name": "Text  (5)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 986053325,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1994282529,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        931,
-                        434,
-                        300,
-                        50
-                    ],
-                    "Text": "Defensive chip\n",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -5729,7 +4158,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5739,7 +4168,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -5889,7 +4318,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 2418068,
+                    "Text": 4294967295,
                     "Image": 29787513,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -5942,137 +4371,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1042896838
-            ]
-        },
-        {
-            "Name": "Description (27)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1042896838,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 29787513,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        819,
-                        500,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                2418068
-            ]
-        },
-        {
-            "Name": "Text  (6)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2418068,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1042896838,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        931,
-                        547,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -6155,7 +4453,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -6165,7 +4463,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -6315,7 +4613,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1693267698,
+                    "Text": 4294967295,
                     "Image": 2075923172,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -6368,137 +4666,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                211613814
-            ]
-        },
-        {
-            "Name": "Description (28)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 211613814,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 2075923172,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        819,
-                        613,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1693267698
-            ]
-        },
-        {
-            "Name": "Text  (7)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1693267698,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 211613814,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        931,
-                        660,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -6581,7 +4748,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -6591,7 +4758,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -6741,7 +4908,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 2006813040,
+                    "Text": 4294967295,
                     "Image": 72487199,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -6794,137 +4961,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1681838119
-            ]
-        },
-        {
-            "Name": "Description (29)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1681838119,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 72487199,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        819,
-                        726,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                2006813040
-            ]
-        },
-        {
-            "Name": "Text  (8)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2006813040,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1681838119,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        931,
-                        773,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -7007,7 +5043,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -7017,7 +5053,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -7167,7 +5203,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 837438217,
+                    "Text": 4294967295,
                     "Image": 97847292,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -7220,137 +5256,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1752070839
-            ]
-        },
-        {
-            "Name": "Description (30)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1752070839,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 97847292,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        819,
-                        839,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                837438217
-            ]
-        },
-        {
-            "Name": "Text  (9)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 837438217,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1752070839,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        931,
-                        886,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -7433,7 +5338,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -7443,7 +5348,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -7593,7 +5498,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 807315596,
+                    "Text": 4294967295,
                     "Image": 2024698984,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -7646,137 +5551,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1102774052
-            ]
-        },
-        {
-            "Name": "Description (31)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1102774052,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 2024698984,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        930,
-                        387,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                807315596
-            ]
-        },
-        {
-            "Name": "Text  (10)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 807315596,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1102774052,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1042,
-                        434,
-                        300,
-                        50
-                    ],
-                    "Text": "Offensive chip\n",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -7859,7 +5633,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -7869,7 +5643,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -8019,7 +5793,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1732115115,
+                    "Text": 4294967295,
                     "Image": 2126575841,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -8072,137 +5846,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                544258555
-            ]
-        },
-        {
-            "Name": "Description (32)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 544258555,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 2126575841,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        930,
-                        500,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1732115115
-            ]
-        },
-        {
-            "Name": "Text  (11)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1732115115,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 544258555,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1042,
-                        547,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -8285,7 +5928,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -8295,7 +5938,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -8445,7 +6088,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1132692536,
+                    "Text": 4294967295,
                     "Image": 840519761,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -8498,137 +6141,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                938216427
-            ]
-        },
-        {
-            "Name": "Description (33)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 938216427,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 840519761,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        930,
-                        613,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1132692536
-            ]
-        },
-        {
-            "Name": "Text  (12)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1132692536,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 938216427,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1042,
-                        660,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -8711,7 +6223,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -8721,7 +6233,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -8871,7 +6383,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 1127256076,
+                    "Text": 4294967295,
                     "Image": 903527461,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -8924,137 +6436,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                1487810846
-            ]
-        },
-        {
-            "Name": "Description (34)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1487810846,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 903527461,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        930,
-                        726,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                1127256076
-            ]
-        },
-        {
-            "Name": "Text  (13)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1127256076,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1487810846,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1042,
-                        773,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
@@ -9137,7 +6518,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Items Slots\/Rarities\/EpicRarity.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -9147,7 +6528,7 @@
                         0,
                         0,
                         0,
-                        0
+                        0.5
                     ]
                 },
                 {
@@ -9297,7 +6678,7 @@
                         50
                     ],
                     "Is interactable": true,
-                    "Text": 454778844,
+                    "Text": 4294967295,
                     "Image": 1290362077,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
@@ -9350,137 +6731,6 @@
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
                     "isEquipped": true
-                }
-            ],
-            "Children UID": [
-                949192785
-            ]
-        },
-        {
-            "Name": "Description (35)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 949192785,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1290362077,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -439,
-                    "Position Y": 0,
-                    "Width": 336,
-                    "Height": 277,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        930,
-                        839,
-                        336,
-                        277
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/SpecialSlotHover.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ],
-            "Children UID": [
-                454778844
-            ]
-        },
-        {
-            "Name": "Text  (14)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 454778844,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 949192785,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": -327,
-                    "Position Y": 47,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1042,
-                        886,
-                        300,
-                        50
-                    ],
-                    "Text": "Empty",
-                    "Font name": "arial.ttf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 0.5,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -1
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         },
