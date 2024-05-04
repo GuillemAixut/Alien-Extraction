@@ -81,7 +81,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Alien Skin",
+            /*name*/            "Alien Skin",
             /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                 ));
@@ -91,7 +91,7 @@ public class Item_World : YmirComponent
            /*item type*/       ITEM_SLOT.MATERIAL,
            /*itemRarity*/      ITEM_RARITY.RARE,
            /*isEquipped*/      false,
-           /*name*/            "Rare Alien Skin",
+           /*name*/            "Alien Skin",
            /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
            /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                ));
@@ -101,7 +101,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Alien Skin",
+            /*name*/            "Alien Skin",
             /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                 ));
@@ -112,7 +112,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Alien Claw",
+            /*name*/            "Alien Claw",
             /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
@@ -122,7 +122,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Alien Claw",
+            /*name*/            "Alien Claw",
             /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
@@ -132,7 +132,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Alien Claw",
+            /*name*/            "Alien Claw",
             /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
@@ -143,7 +143,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Alien Tail Tip",
+            /*name*/            "Alien Tail Tip",
             /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
@@ -153,7 +153,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Alien Tail Tip",
+            /*name*/            "Alien Tail Tip",
             /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
@@ -163,7 +163,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Alien Tail Tip",
+            /*name*/            "Alien Tail Tip",
             /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
@@ -174,7 +174,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Alien Acid Vesicle",
+            /*name*/            "Alien Acid Vesicle",
             /*description*/     "Acid-filled organic bags, can be useful for some crafts",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
@@ -184,7 +184,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Alien Acid Vesicle",
+            /*name*/            "Alien Acid Vesicle",
             /*description*/     "Acid-filled organic bags, can be useful for some crafts",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
@@ -194,7 +194,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Alien Acid Vesicle",
+            /*name*/            "Alien Acid Vesicle",
             /*description*/     "Acid-filled organic bags, can be useful for some crafts",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
@@ -205,7 +205,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Alien Exocranium",
+            /*name*/            "Alien Exocranium",
             /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
@@ -215,7 +215,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Alien Exocranium",
+            /*name*/            "Alien Exocranium",
             /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
@@ -225,7 +225,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Alien Exocranium",
+            /*name*/            "Alien Exocranium",
             /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
@@ -236,7 +236,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Alien Aluminum Bone",
+            /*name*/            "Alien Aluminum Bone",
             /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
@@ -246,7 +246,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Alien Aluminum Bone",
+            /*name*/            "Alien Aluminum Bone",
             /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
@@ -256,7 +256,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Alien Aluminum Bone",
+            /*name*/            "Alien Aluminum Bone",
             /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
@@ -267,7 +267,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.MATERIAL,
             /*itemRarity*/      ITEM_RARITY.MYTHIC,
             /*isEquipped*/      false,
-            /*name*/            "Mythical Alien Core",
+            /*name*/            "Alien Core",
             /*description*/     "An amazing but unknown part of the alien, it can be used to upgrade your weapon",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AlienCoreIconColor.png"
                 ));
@@ -291,7 +291,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.ARMOR,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Exo-Armor",
+            /*name*/            "Exo-Armor",
             /*description*/     "An exo-armor that will help you withstand the blows of Xenomorphs. It's light and tough, much better than marine tech",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ArmorIconColor.png",
             /*HP*/                  0,
@@ -307,7 +307,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.ARMOR,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Exo-Armor",
+            /*name*/            "Exo-Armor",
             /*description*/     "An exo-armor that will help you withstand the blows of Xenomorphs. It's light and tough, much better than marine tech",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ArmorIconColor.png",
             /*HP*/                  0,
@@ -323,7 +323,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.ARMOR,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Exo-Armor",
+            /*name*/            "Exo-Armor",
             /*description*/     "An exo-armor that will help you withstand the blows of Xenomorphs. It's light and tough, much better than marine tech",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ArmorIconColor.png",
             /*HP*/                  0,
@@ -340,7 +340,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CHIP,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Offensive Chip",
+            /*name*/            "Offensive Chip",
             /*description*/     "A thin layer made of aluminum bone with thin and sharp canals. Boosts the offensive capabilities",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/OffensiveChipIcon2Color.png",
             /*HP*/                  0,
@@ -356,7 +356,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CHIP,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Offensive Chip",
+            /*name*/            "Offensive Chip",
             /*description*/     "A thin layer made of aluminum bone with thin and sharp canals. Boosts the offensive capabilities",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/OffensiveChipIcon2Color.png",
             /*HP*/                  0,
@@ -372,7 +372,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CHIP,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Offensive Chip",
+            /*name*/            "Offensive Chip",
             /*description*/     "A thin layer made of aluminum bone with thin and sharp canals. Boosts the offensive capabilities",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/OffensiveChipIcon2Color.png",
             /*HP*/                  0,
@@ -389,7 +389,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CHIP,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Defensive Chip",
+            /*name*/            "Defensive Chip",
             /*description*/     "A thick layer made of aluminum bone with many thin canals spread around various layers. Boosts the defensive capabilities",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/DefensiveChipIcon2Color.png",
             /*HP*/                  0,
@@ -405,7 +405,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CHIP,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Defensive Chip",
+            /*name*/            "Defensive Chip",
             /*description*/     "A thick layer made of aluminum bone with many thin canals spread around various layers. Boosts the defensive capabilities",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/DefensiveChipIcon2Color.png",
             /*HP*/                  0,
@@ -421,7 +421,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CHIP,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Defensive Chip",
+            /*name*/            "Defensive Chip",
             /*description*/     "A thick layer made of aluminum bone with many thin canals spread around various layers. Boosts the defensive capabilities",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/DefensiveChipIcon2Color.png",
             /*HP*/                  0,
@@ -440,7 +440,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CONSUMABLE,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Grenade",
+            /*name*/            "Grenade",
             /*description*/     "High damage explosive grenade that contains “Spitter” acid",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/GrenadeIcon2Color.png",
             /*dmg*/             200,
@@ -453,7 +453,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CONSUMABLE,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Grenade",
+            /*name*/            "Grenade",
             /*description*/     "High damage explosive grenade that contains “Spitter” acid",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/GrenadeIcon2Color.png",
             /*dmg*/             360,
@@ -466,7 +466,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CONSUMABLE,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Grenade",
+            /*name*/            "Grenade",
             /*description*/     "High damage explosive grenade that contains “Spitter” acid",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/GrenadeIcon2Color.png",
             /*dmg*/             450,
@@ -480,7 +480,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CONSUMABLE,
             /*itemRarity*/      ITEM_RARITY.COMMON,
             /*isEquipped*/      false,
-            /*name*/            "Common Baker House",
+            /*name*/            "Baker House",
             /*description*/     "Miniature of a legendary baker house. It has a mechanism that attracts enemies with a peculiar noise for a few seconds",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BakerHouseIconColor.png",
             /*dmg*/             0,
@@ -493,7 +493,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CONSUMABLE,
             /*itemRarity*/      ITEM_RARITY.RARE,
             /*isEquipped*/      false,
-            /*name*/            "Rare Baker House",
+            /*name*/            "Baker House",
             /*description*/     "Miniature of a legendary baker house. It has a mechanism that attracts enemies with a peculiar noise for a few seconds",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BakerHouseIconColor.png",
             /*dmg*/             0,
@@ -506,7 +506,7 @@ public class Item_World : YmirComponent
             /*item type*/       ITEM_SLOT.CONSUMABLE,
             /*itemRarity*/      ITEM_RARITY.EPIC,
             /*isEquipped*/      false,
-            /*name*/            "Epic Baker House",
+            /*name*/            "Baker House",
             /*description*/     "Miniature of a legendary baker house. It has a mechanism that attracts enemies with a peculiar noise for a few seconds",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BakerHouseIconColor.png",
             /*dmg*/             0,
