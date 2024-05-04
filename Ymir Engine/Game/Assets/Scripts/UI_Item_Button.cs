@@ -63,10 +63,10 @@ public class UI_Item_Button : YmirComponent
             UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
         }
 
-        //if (_menuReference.GetComponent<UI_Inventory>().goName != null)
-        //{
-        //    UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
-        //}
+        if (_menuReference.GetComponent<UI_Inventory>().goName != null)
+        {
+            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
+        }
     }
 
     private ITEM_SLOT SetType(string type)
