@@ -260,8 +260,7 @@ public class Player : YmirComponent
             //bool d = (random.NextDouble() < 0.5 ? false : true);
             bool d = true;
             Item item = new Item(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-                "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png",
-                random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100));
+                "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
 
             itemsList.Add(item);
         }

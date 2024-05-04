@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1839,
-                    "Height": 1108,
+                    "Width": 1775,
+                    "Height": 955,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -49,9 +49,7 @@
                     "Type": "Script",
                     "ScriptName": "UI_Inventory.cs",
                     "Active": 1,
-                    "UID": 0,
-                    "_droppable": true,
-                    "_disable": true
+                    "UID": 0
                 }
             ],
             "Children UID": [
@@ -492,18 +490,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "ARMOR",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -968,18 +968,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -1444,18 +1446,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -1920,18 +1924,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -2396,18 +2402,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -2872,18 +2880,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -3226,7 +3236,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/ArmorIconColor.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3362,18 +3372,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "ARMOR",
+                    "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
-                    "armor": 50,
+                    "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -3786,18 +3798,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -4210,18 +4224,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -4634,18 +4650,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -5058,18 +5076,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -5346,7 +5366,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/DefensiveChipIcon2Color.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5482,18 +5502,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "CHIP",
+                    "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
-                    "HP": 5,
-                    "armor": 5,
+                    "itemType": 0,
+                    "itemRarity": 0,
+                    "HP": 0,
+                    "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -5906,18 +5928,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -6330,18 +6354,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -6754,18 +6780,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -7178,18 +7206,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -7466,7 +7496,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Icons\/OffensiveChipIcon2Color.png",
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -7602,18 +7632,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
-                    "enumItem": "CHIP",
+                    "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
-                    "fireRate": 1.0000001192092896,
-                    "reloadSpeed": 0.5,
-                    "damageMultiplier": 0
+                    "fireRate": 0,
+                    "reloadSpeed": 0,
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -8026,18 +8058,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -8450,18 +8484,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -8874,18 +8910,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -9298,18 +9336,20 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "itemType": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
-                    "descriptionText": "",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -9483,7 +9523,8 @@
                 432873557,
                 1667167596,
                 1010645615,
-                563983283
+                563983283,
+                1182401491
             ]
         },
         {
@@ -10079,14 +10120,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 20,
-                    "Position Y": 30,
+                    "Position Y": 80,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
                         27.399999618530273,
-                        26.700000762939453,
+                        76.699996948242188,
                         200,
                         50
                     ],
@@ -10094,6 +10135,68 @@
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 18,
+                    "Line Spacing": 0,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Item Description Name",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1182401491,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 413940744,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 20,
+                    "Position Y": 40,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        27.399999618530273,
+                        36.700000762939453,
+                        200,
+                        50
+                    ],
+                    "Text": "This is a text",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 20,
                     "Line Spacing": 0,
                     "Color": [
                         0,

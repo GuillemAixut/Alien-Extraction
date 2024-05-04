@@ -33,12 +33,11 @@ public class UI_Item_Button : YmirComponent
         currentSlot = SetType(enumSlot);
         itemRarity = SetRarity(enumRarity);
 
-        item = CreateItemBase();
-        //item = new Item(currentSlot, itemType, itemRarity, isEquipped,
-        //    /*name*/"Empty",
-        //    /*description*/ "Empty",
-        //    /*imagePath*/ "",
-        //    HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        //item = CreateItemBase();
+        item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/"Empty",
+            /*description*/ "Empty",
+            /*imagePath*/ "");
     }
 
     public void Update()
@@ -178,13 +177,12 @@ public class UI_Item_Button : YmirComponent
         currentSlot = SetType(enumSlot);
         itemType = SetType(enumItem);
 
-        item = CreateItemBase();
+        //item = CreateItemBase();
 
-        //item = new Item(currentSlot, itemType, itemRarity, isEquipped,
-        //    /*name*/"Empty",
-        //    /*description*/ "Empty",
-        //    /*imagePath*/ "",
-        //    HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
+        item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/"Empty",
+            /*description*/ "Empty",
+            /*imagePath*/ "");
 
         bool ret = false;
         Debug.Log("item currentSlot: " + item.currentSlot.ToString());

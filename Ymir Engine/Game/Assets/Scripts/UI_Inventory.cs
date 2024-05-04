@@ -10,7 +10,7 @@ using YmirEngine;
 public class UI_Inventory : YmirComponent
 {
     private GameObject _selectedGO, _textHP, _textArmor, _textSpeed, _textReload, _textDamage, _textRate, _textResin;
-    public GameObject focusedGO, goDescription, goText/*, goName*/;
+    public GameObject focusedGO, goDescription, goText, goName;
 
     private bool _show;
 
@@ -26,11 +26,12 @@ public class UI_Inventory : YmirComponent
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
 
         Debug.Log("543: "); goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
-        //goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
+        goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
         goDescription.SetActive(false);// TODO: when menu opened
 
-        Debug.Log("6543: "); goText.SetActive(false);
-        //goName.SetActive(false);
+        Debug.Log("6543: "); 
+        goText.SetActive(false);
+        goName.SetActive(false);
 
         _show = false;
 
@@ -60,7 +61,7 @@ public class UI_Inventory : YmirComponent
             Debug.Log("set first");
             goDescription.SetActive(false);// TODO: when menu opened
             goText.SetActive(false);
-            //goName.SetActive(false);
+            goName.SetActive(false);
 
             player.setHover = false;
         }
@@ -197,18 +198,18 @@ public class UI_Inventory : YmirComponent
         }
     }
 
-    void UpdateTextPos()
+    void UpdateTextPos() // Place the descrition game object on the selected GO
     {
         UI.SetUIPosWithOther(goDescription, focusedGO.parent);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
         UI.SetUIPosWithOther(goText, focusedGO.parent);
-        //UI.SetUIPosWithOther(goName, focusedGO.parent);
+        UI.SetUIPosWithOther(goName, focusedGO.parent);
     }
 
-    public void ShowText(bool isActive)
+    public void ShowText(bool isActive) // Show description of item when pressing R1
     {
         goDescription.SetActive(isActive);
         goText.SetActive(isActive);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
-        //goName.SetActive(isActive);
+        goName.SetActive(isActive);
     }
 
     private void GetPlayerScript()
@@ -231,7 +232,7 @@ public class UI_Inventory : YmirComponent
         }
     }
 
-    public void UpdateTextStats()
+    public void UpdateTextStats() // Print player info on the screen
     {
         if (player != null)
         {
@@ -249,7 +250,7 @@ public class UI_Inventory : YmirComponent
         }
     }
 
-    private void SetSlots()
+    private void SetSlots() // Place the items from player to inventory
     {
         bool isInventory; 
         Debug.Log("SetSlots: ");
