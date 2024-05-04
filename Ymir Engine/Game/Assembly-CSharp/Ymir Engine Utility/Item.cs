@@ -125,7 +125,7 @@ namespace YmirEngine
             this.itemRarity = itemRarity;
             this.isEquipped = isEquipped;
             this.name = name;
-            this.description = description;
+            this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
             this.imagePath = imagePath;
         }
 
@@ -162,7 +162,7 @@ namespace YmirEngine
             this.itemRarity = itemRarity;
             this.isEquipped = isEquipped;
             this.name = name;
-            this.description = description;
+            this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
             this.imagePath = imagePath;
 
             // Equippables
@@ -215,7 +215,7 @@ namespace YmirEngine
             this.itemRarity = itemRarity;
             this.isEquipped = isEquipped;
             this.name = name;
-            this.description = description;
+            this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
             this.imagePath = imagePath;
 
             // Consumables

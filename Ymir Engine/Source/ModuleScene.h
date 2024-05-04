@@ -29,7 +29,6 @@ class CCamera;
 
 class G_UI;
 
-
 enum MAP {
 
 	NO_MAP = -1,
