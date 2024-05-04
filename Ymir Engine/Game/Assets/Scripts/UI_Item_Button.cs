@@ -84,6 +84,9 @@ public class UI_Item_Button : YmirComponent
             case "CONSUMABLE":
                 elementChanged = ITEM_SLOT.CONSUMABLE;
                 break;
+            case "MATERIAL":
+                elementChanged = ITEM_SLOT.MATERIAL;
+                break;
             case "SAVE":
                 elementChanged = ITEM_SLOT.SAVE;
                 break;
@@ -145,9 +148,12 @@ public class UI_Item_Button : YmirComponent
             case ITEM_SLOT.CONSUMABLE:
                 elementChanged = "CONSUMABLE";
                 break;
+            case ITEM_SLOT.MATERIAL:
+                elementChanged = "MATERIAL";
+                break;
             case ITEM_SLOT.SAVE:
                 elementChanged = "SAVE";
-                break;
+                break;            
             case ITEM_SLOT.NONE:
                 elementChanged = "NONE";
                 break;
@@ -208,13 +214,16 @@ public class UI_Item_Button : YmirComponent
             switch (item.itemRarity) // TODO: Rarity image crashes, error with meta file
             {
                 case ITEM_RARITY.COMMON:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png", (int)UI_STATE.NORMAL); ;
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/CommonRarity.png", (int)UI_STATE.NORMAL); ;
                     break;
                 case ITEM_RARITY.RARE:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png", (int)UI_STATE.NORMAL);
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/RareRarity.png", (int)UI_STATE.NORMAL);
                     break;
                 case ITEM_RARITY.EPIC:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Iconos/BoneIconColor.png", (int)UI_STATE.NORMAL);
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/EpicRarity.png", (int)UI_STATE.NORMAL);
+                    break;                
+                case ITEM_RARITY.MYTHIC:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/MythicRarity.png", (int)UI_STATE.NORMAL);
                     break;
                 case ITEM_RARITY.NONE:
                     UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL);
