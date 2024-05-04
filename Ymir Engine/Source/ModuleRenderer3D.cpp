@@ -864,7 +864,7 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		glTexCoord2f(0.0f, 1.0f);
 		glVertex3f(-.5f, .5f, .0f);
 
-		if (par->pTexture)
+		if (par->pTexture != nullptr)
 		{
 			par->pTexture->BindTexture(false, 0);
 		}
