@@ -116,8 +116,8 @@ namespace YmirEngine
             ITEM_SLOT itemType = ITEM_SLOT.NONE,
             ITEM_RARITY itemRarity = ITEM_RARITY.COMMON,
             bool isEquipped = false,
-            string name = "Empty",
-            string description = "Empty",
+            string name = "",
+            string description = "",
             string imagePath = "")
         {
             this.currentSlot = currentSlot;
@@ -125,7 +125,7 @@ namespace YmirEngine
             this.itemRarity = itemRarity;
             this.isEquipped = isEquipped;
             this.name = name;
-            this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
+            this.description = (itemRarity != ITEM_RARITY.NONE) ? ("Rarity: " + itemRarity.ToString() + "\n" + description) : "";
             this.imagePath = imagePath;
         }
 
