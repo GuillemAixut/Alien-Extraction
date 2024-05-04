@@ -7,7 +7,11 @@
 
 Bone::Bone()
 {
+	id = 0;
 
+	numPositions = 0;
+	numRotations = 0;
+	numScales = 0;
 }
 
 Bone::Bone(const std::string& name, int id, const aiNodeAnim* channel) : name(name), id(id)

@@ -27,7 +27,6 @@ CAnimation::CAnimation(GameObject* owner) : Component(owner, ComponentType::ANIM
             cMat->shader.LoadShader(cMat->shaderPath);
         }
     }
-    
 
     active = true;
 
@@ -35,15 +34,12 @@ CAnimation::CAnimation(GameObject* owner) : Component(owner, ComponentType::ANIM
 
 CAnimation::~CAnimation()
 {
-    delete animator;
+    RELEASE(animator);
 }
 
-void CAnimation::Update() {
-    
-    
+void CAnimation::Update() 
+{
     animator->UpdateAnimation(External->GetDT());
-
-
 }
 
 void CAnimation::AddAnimation(ResourceAnimation&newAnimation) {

@@ -62,10 +62,6 @@ public:
 
 	bool HasFinished(std::string animationName);
 
-
-
-
-
 private:
 
 	void YAnimDragDropTarget();

@@ -73,7 +73,7 @@ bool ModuleResourceManager::CleanUp()
 
 	LOG("Deleting Resource Manager");
 
-	ClearResources();
+	//ClearResources();
 
 	return ret;
 }

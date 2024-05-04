@@ -10,6 +10,10 @@ Animator::Animator()
 	for (int i = 0; i < 100; i++) {
 		finalBoneMatrices.push_back(identity.identity);
 	}
+
+	deltaTime = 0;
+	transitionTime = 0;
+	lastCurrentTime = 0;
 }
 
 Animator::Animator(ResourceAnimation* animation)
@@ -19,9 +23,14 @@ Animator::Animator(ResourceAnimation* animation)
 	for (int i = 0; i < 100; i++) {
 		finalBoneMatrices.push_back(identity.identity);
 	}
+
+	deltaTime = 0;
+	transitionTime = 0;
+	lastCurrentTime = 0;
 }
 
-Animator::~Animator() {
+Animator::~Animator()
+{
 
 }
 
