@@ -46,7 +46,7 @@ public class Item_World : YmirComponent
                 break;
         }
 
-        item = UI_Inventory.SearchItemInDictionary(gameObject.Name, itemRarity);
+        item = UI_Inventory.SearchItemInDictionary(gameObject.Name);
         player.itemsList.Add(item);
     }
 

@@ -18,19 +18,7 @@ public class UI_Inventory : YmirComponent
     public Health health = null;
 
     // Items dictionary
-    public struct SearchItem
-    {
-        string name;
-        ITEM_RARITY rarity;
-
-        public SearchItem(string _name, ITEM_RARITY _rarity)
-        {
-            name = _name;
-            rarity = _rarity;
-        }
-    }
-
-    static public Dictionary<SearchItem, Item> itemsDictionary = new Dictionary<SearchItem, Item>();
+    static public Dictionary<string, Item> itemsDictionary = new Dictionary<string, Item>();
 
     public void Start()
     {
@@ -314,7 +302,7 @@ public class UI_Inventory : YmirComponent
 
     private void CreateItemDictionary()
     {
-        itemsDictionary.Add(new SearchItem("skin_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("skin_common", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -325,7 +313,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("skin_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("skin_rare", new
            Item(
            /*always none*/     ITEM_SLOT.NONE,
            /*item type*/       ITEM_SLOT.MATERIAL,
@@ -336,7 +324,7 @@ public class UI_Inventory : YmirComponent
            /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                ));
 
-        itemsDictionary.Add(new SearchItem("skin_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("skin_epic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -347,7 +335,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("claw_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("claw_common", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -358,7 +346,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("claw_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("claw_rare", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -369,7 +357,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("claw_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("claw_epic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -380,7 +368,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("tailtip_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("tailtip_common", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -391,7 +379,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("tailtip_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("tailtip_rare", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -402,7 +390,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("tailtip_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("tailtip_epic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -413,7 +401,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("acidvesicle_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("acidvesicle_common", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -424,7 +412,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("acidvesicle_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("acidvesicle_rare", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -435,7 +423,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("acidvesicle_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("acidvesicle_epic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -446,7 +434,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("exocranium_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("exocranium_common", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -457,7 +445,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("exocranium_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("exocranium_rare", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -468,7 +456,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("exocranium_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("exocranium_epic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -479,7 +467,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("bone_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("bone_common", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -490,7 +478,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("bone_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("bone_rare", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -501,7 +489,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("bone_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("bone_epic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -512,7 +500,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("core_mythic", ITEM_RARITY.MYTHIC), new
+        itemsDictionary.Add("core_mythic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -523,7 +511,7 @@ public class UI_Inventory : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AlienCoreIconColor.png"
                 ));
 
-        itemsDictionary.Add(new SearchItem("upgradevessel_mythic", ITEM_RARITY.MYTHIC), new
+        itemsDictionary.Add("upgradevessel_mythic", new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.MATERIAL,
@@ -535,7 +523,7 @@ public class UI_Inventory : YmirComponent
                 ));
 
         // Item Name: 
-        itemsDictionary.Add(new SearchItem("armor_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("armor_common", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.ARMOR,
@@ -552,7 +540,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    0
             ));
 
-        itemsDictionary.Add(new SearchItem("armor_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("armor_rare", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.ARMOR,
@@ -569,7 +557,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    0
             ));
 
-        itemsDictionary.Add(new SearchItem("armor_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("armor_epic", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.ARMOR,
@@ -586,7 +574,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    0
             ));
 
-        itemsDictionary.Add(new SearchItem("ofChip_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("ofChip_common", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CHIP,
@@ -603,7 +591,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    12.5f
             ));
 
-        itemsDictionary.Add(new SearchItem("ofChip_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("ofChip_rare", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CHIP,
@@ -620,7 +608,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    24f
             ));
 
-        itemsDictionary.Add(new SearchItem("ofChip_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("ofChip_epic", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CHIP,
@@ -637,7 +625,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    45f
             ));
 
-        itemsDictionary.Add(new SearchItem("defChip_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("defChip_common", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CHIP,
@@ -654,7 +642,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    0
             ));
 
-        itemsDictionary.Add(new SearchItem("defChip_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("defChip_rare", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CHIP,
@@ -671,7 +659,7 @@ public class UI_Inventory : YmirComponent
             /*damageMultiplier*/    0
             ));
 
-        itemsDictionary.Add(new SearchItem("defChip_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("defChip_epic", new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CHIP,
@@ -689,7 +677,7 @@ public class UI_Inventory : YmirComponent
             ));
 
         // Item Name: 
-        itemsDictionary.Add(new SearchItem("grenade_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("grenade_common", new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CONSUMABLE,
@@ -703,7 +691,7 @@ public class UI_Inventory : YmirComponent
             /*time*/            0
             ));
 
-        itemsDictionary.Add(new SearchItem("grenade_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("grenade_rare", new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CONSUMABLE,
@@ -717,7 +705,7 @@ public class UI_Inventory : YmirComponent
             /*time*/            0
             ));
 
-        itemsDictionary.Add(new SearchItem("grenade_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("grenade_epic", new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CONSUMABLE,
@@ -731,7 +719,7 @@ public class UI_Inventory : YmirComponent
             /*time*/            0
             ));
 
-        itemsDictionary.Add(new SearchItem("bakerhouse_common", ITEM_RARITY.COMMON), new
+        itemsDictionary.Add("bakerhouse_common", new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CONSUMABLE,
@@ -745,7 +733,7 @@ public class UI_Inventory : YmirComponent
             /*time*/            3
             ));
 
-        itemsDictionary.Add(new SearchItem("bakerhouse_rare", ITEM_RARITY.RARE), new
+        itemsDictionary.Add("bakerhouse_rare", new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CONSUMABLE,
@@ -759,7 +747,7 @@ public class UI_Inventory : YmirComponent
             /*time*/            4
             ));
 
-        itemsDictionary.Add(new SearchItem("bakerhouse_epic", ITEM_RARITY.EPIC), new
+        itemsDictionary.Add("bakerhouse_epic", new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
             /*item type*/       ITEM_SLOT.CONSUMABLE,
@@ -774,11 +762,10 @@ public class UI_Inventory : YmirComponent
             ));
     }
 
-    static public Item SearchItemInDictionary(string name, ITEM_RARITY itemRarity)
+    static public Item SearchItemInDictionary(string name)
     {
-        SearchItem searchItem = new SearchItem(name, itemRarity);
-        Debug.Log("hola " + itemsDictionary[searchItem].name);
-        return itemsDictionary[searchItem];
+        Debug.Log("hola " + itemsDictionary[name].name);
+        return itemsDictionary[name];
     }
     #endregion
 }
