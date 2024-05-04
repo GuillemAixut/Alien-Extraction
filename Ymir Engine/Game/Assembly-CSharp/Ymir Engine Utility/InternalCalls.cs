@@ -162,6 +162,12 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern bool DisableComponent(object go, string name, bool includeChildren);
 
+        /// <summary>
+        /// Spawns an item prefab with name and position.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SpawnItem(string name, Vector3 pos);
+
     }
 
     /// <summary>

@@ -1216,4 +1216,93 @@ void SetGameObjectScaleCS(MonoObject* go, MonoObject* vec)
 	gameObject->mTransform->SetScale(vector);
 }
 
+void SpawnItemCS(MonoString* name, MonoObject* pos)
+{
+	{
+		//float3 vectorPos = External->moduleMono->UnboxVector(pos);
+		//std::string goName = mono_string_to_utf8(name);
+
+		//GameObject* gameObject = External->scene->PostUpdateCreateGameObject(goName, External->scene->mRootNode);
+		//gameObject->UID = Random::Generate();
+		////Set the position of the GameObject
+		//gameObject->mTransform->SetPosition(vectorPos);
+
+		////Add mesh
+
+		//uint UID = 621813214;//1728623793; // UID of Cube.fbx (Shpere.fbx) mesh in meta (lo siento)
+
+		//std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
+
+		//if (!PhysfsEncapsule::FileExists(libraryPath)) {
+
+		//	External->resourceManager->ImportFile("Assets/Primitives/Shpere.fbx", true);
+		//}
+
+		//ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
+		//CMesh* cmesh = new CMesh(gameObject);
+		//cmesh->rMeshReference = rMesh;
+		//gameObject->AddComponent(cmesh);
+
+
+		////TODO: Eric Añadir el switch con los diferentes nombres
+
+		////Add the particle emmiter (Children)
+		//GameObject* particleObject = External->scene->PostUpdateCreateGameObject(goName + "Particle System", gameObject);
+		//CParticleSystem* particles = new CParticleSystem(particleObject);
+		//EmitterRotation* emitterRot = (EmitterRotation*)particles->allEmitters.at(0)->CreateEmitterSettingByType(3);
+		//emitterRot->currentAlignmentMode = BillboardType::PAR_LOOK_GAME_CAMERA;
+
+		//EmitterImage* emitterImage = (EmitterImage*)particles->allEmitters.at(0)->CreateEmitterSettingByType(6);
+		////emitterImage->SetImage(path);		//TODO: Eric & Xavi Falta añadir la imagen con el nombre y el path a la imagen
+
+		//EmitterBase* emitterBase = (EmitterBase*)particles->allEmitters.at(0)->modules.at(0);
+		//emitterBase->inmortal = true;
+
+		//EmitterSpawner* emitterSpawn = (EmitterSpawner*)particles->allEmitters.at(0)->modules.at(1);
+		//emitterSpawn->spawnMode = ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST;
+		//emitterSpawn->numParticlesToSpawn = 1;
+
+		//particleObject->AddComponent(particles);
+
+
+
+		////Add material Part 1 (Meter en el switch)
+		//uint mat_UID = 366441211; //TODO Eric: UID of (BakerHouse) in meta (lo siento)
+
+		//std::string mat_libraryPath = External->fileSystem->assetsPath + "Item Textures" + std::to_string(mat_UID) + ".dds";
+
+		//if (!PhysfsEncapsule::FileExists(mat_libraryPath)) {
+
+		//	External->resourceManager->ImportFile("Assets/Item Textures/BakerHouse.png", true);
+		//}
+
+		//ResourceTexture* rText = (ResourceTexture*)(External->resourceManager->CreateResourceFromLibrary(mat_libraryPath, ResourceType::TEXTURE, mat_UID, TextureType::DIFFUSE));
+
+		////Add material Part 2 (No meter en el switch)
+		//CMaterial* cmaterial = new CMaterial(gameObject);
+		//cmaterial->shaderPath = SHADER_VS_FS;
+		//cmaterial->shader.LoadShader(cmaterial->shaderPath);
+		//cmaterial->shaderDirtyFlag = false;
+
+		//cmaterial->rTextures.emplace_back(rText);
+		//gameObject->AddComponent(cmaterial);
+
+		////Add physics
+		//CCollider* physBody;
+		//physBody = new CCollider(gameObject);
+		//physBody->useGravity = false;
+		//physBody->SetOBBSize();
+		//physBody->offset.y = 0;
+		//physBody->physBody->SetPosition(vectorPos);
+		//physBody->isSensor = true;
+		//physBody->physType = PhysicsType::KINEMATIC;
+		//gameObject->AddComponent(physBody);
+
+		////Return the MonoObject
+		//return External->moduleMono->GoToCSGO(gameObject);
+	}
+
+	//TODO pocho: Hacer un switch con todos los prefabs en relación al nombre
+
+}
 #pragma endregion
