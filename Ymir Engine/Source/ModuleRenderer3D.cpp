@@ -566,6 +566,7 @@ void ModuleRenderer3D::ApplyCheckerTexture()
 
 }
 
+
 void ModuleRenderer3D::ClearActualTexture()
 {
 	for (auto it = models.begin(); it != models.end(); ++it) {
@@ -830,7 +831,7 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 {
 	for (int i = 0; i < emitter->listParticles.size(); i++)
 	{
-		auto par = emitter->listParticles.at(i);
+		Particle* par = emitter->listParticles.at(i);
 
 		//Matrix transform de la particula
 		float4x4 m = float4x4::FromTRS(par->position, par->worldRotation, par->size).Transposed();
@@ -841,7 +842,7 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		//TODO TONI: ... this works, im sorry
 		glColor4f(par->color.r * 4, par->color.g * 4, par->color.b * 4, par->color.a * 4);
 
-		if (par->pTexture)
+		if (par->pTexture != nullptr)
 		{
 			par->pTexture->BindTexture(true, 0);
 		}
@@ -871,6 +872,8 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		glEnd();
 		glPopMatrix();
 		glBindTexture(GL_TEXTURE_2D, 0);
+
+		par = nullptr;
 
 	}
 }
