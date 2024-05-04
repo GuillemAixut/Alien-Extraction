@@ -85,6 +85,7 @@ public class Item_World : YmirComponent
             /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("skin_rare", ITEM_RARITY.RARE), new
            Item(
            /*always none*/     ITEM_SLOT.NONE,
@@ -95,6 +96,7 @@ public class Item_World : YmirComponent
            /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
            /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png"
                ));
+
         itemsDictionary.Add(new SearchItem("skin_epic", ITEM_RARITY.EPIC), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -116,6 +118,7 @@ public class Item_World : YmirComponent
             /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("claw_rare", ITEM_RARITY.RARE), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -126,6 +129,7 @@ public class Item_World : YmirComponent
             /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("claw_epic", ITEM_RARITY.EPIC), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -147,6 +151,7 @@ public class Item_World : YmirComponent
             /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("tailtip_rare", ITEM_RARITY.RARE), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -157,6 +162,7 @@ public class Item_World : YmirComponent
             /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("tailtip_epic", ITEM_RARITY.EPIC), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -178,6 +184,7 @@ public class Item_World : YmirComponent
             /*description*/     "Acid-filled organic bags, can be useful for some crafts",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("acidvesicle_rare", ITEM_RARITY.RARE), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -188,6 +195,7 @@ public class Item_World : YmirComponent
             /*description*/     "Acid-filled organic bags, can be useful for some crafts",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("acidvesicle_epic", ITEM_RARITY.EPIC), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -209,6 +217,7 @@ public class Item_World : YmirComponent
             /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("exocranium_rare", ITEM_RARITY.RARE), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -219,6 +228,7 @@ public class Item_World : YmirComponent
             /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("exocranium_epic", ITEM_RARITY.EPIC), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -240,6 +250,7 @@ public class Item_World : YmirComponent
             /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("bone_rare", ITEM_RARITY.RARE), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -250,6 +261,7 @@ public class Item_World : YmirComponent
             /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png"
                 ));
+
         itemsDictionary.Add(new SearchItem("bone_epic", ITEM_RARITY.EPIC), new
             Item(
             /*always none*/     ITEM_SLOT.NONE,
@@ -283,7 +295,6 @@ public class Item_World : YmirComponent
             /*imagePath*/       "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png"
                 ));
 
-
         // Item Name: 
         itemsDictionary.Add(new SearchItem("armor_common", ITEM_RARITY.COMMON), new
             I_Equippable(
@@ -301,6 +312,7 @@ public class Item_World : YmirComponent
             /*reloadSpeed*/         0,
             /*damageMultiplier*/    0
             ));
+
         itemsDictionary.Add(new SearchItem("armor_rare", ITEM_RARITY.RARE), new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
@@ -317,6 +329,7 @@ public class Item_World : YmirComponent
             /*reloadSpeed*/         0,
             /*damageMultiplier*/    0
             ));
+
         itemsDictionary.Add(new SearchItem("armor_epic", ITEM_RARITY.EPIC), new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
@@ -350,6 +363,7 @@ public class Item_World : YmirComponent
             /*reloadSpeed*/         5,
             /*damageMultiplier*/    12.5f
             ));
+
         itemsDictionary.Add(new SearchItem("ofChip_rare", ITEM_RARITY.RARE), new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
@@ -366,6 +380,7 @@ public class Item_World : YmirComponent
             /*reloadSpeed*/         9,
             /*damageMultiplier*/    24f
             ));
+
         itemsDictionary.Add(new SearchItem("ofChip_epic", ITEM_RARITY.EPIC), new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
@@ -399,6 +414,7 @@ public class Item_World : YmirComponent
             /*reloadSpeed*/         0,
             /*damageMultiplier*/    0
             ));
+
         itemsDictionary.Add(new SearchItem("defChip_rare", ITEM_RARITY.RARE), new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
@@ -415,6 +431,7 @@ public class Item_World : YmirComponent
             /*reloadSpeed*/         0,
             /*damageMultiplier*/    0
             ));
+
         itemsDictionary.Add(new SearchItem("defChip_epic", ITEM_RARITY.EPIC), new
             I_Equippable(
             /*always none*/     ITEM_SLOT.NONE,
@@ -432,7 +449,6 @@ public class Item_World : YmirComponent
             /*damageMultiplier*/    0
             ));
 
-
         // Item Name: 
         itemsDictionary.Add(new SearchItem("grenade_common", ITEM_RARITY.COMMON), new
             I_Consumables(
@@ -447,6 +463,7 @@ public class Item_World : YmirComponent
             /*area*/            6,
             /*time*/            0
             ));
+
         itemsDictionary.Add(new SearchItem("grenade_rare", ITEM_RARITY.RARE), new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
@@ -460,6 +477,7 @@ public class Item_World : YmirComponent
             /*area*/            7,
             /*time*/            0
             ));
+
         itemsDictionary.Add(new SearchItem("grenade_epic", ITEM_RARITY.EPIC), new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
@@ -487,6 +505,7 @@ public class Item_World : YmirComponent
             /*area*/            10,
             /*time*/            3
             ));
+
         itemsDictionary.Add(new SearchItem("bakerhouse_rare", ITEM_RARITY.RARE), new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,
@@ -500,6 +519,7 @@ public class Item_World : YmirComponent
             /*area*/            12,
             /*time*/            4
             ));
+
         itemsDictionary.Add(new SearchItem("bakerhouse_epic", ITEM_RARITY.EPIC), new
             I_Consumables(
             /*always none*/     ITEM_SLOT.NONE,

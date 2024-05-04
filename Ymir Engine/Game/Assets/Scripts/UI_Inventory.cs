@@ -22,14 +22,12 @@ public class UI_Inventory : YmirComponent
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();
 
-        Debug.Log("123: ");
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
 
-        Debug.Log("543: "); goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
+        goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
         goDescription.SetActive(false);// TODO: when menu opened
 
-        Debug.Log("6543: "); 
         goText.SetActive(false);
         goName.SetActive(false);
 
@@ -254,7 +252,6 @@ public class UI_Inventory : YmirComponent
     {
         bool isInventory; 
         Debug.Log("SetSlots: ");
-
 
         for (int i = 0; i < player.itemsList.Count; i++)
         {
