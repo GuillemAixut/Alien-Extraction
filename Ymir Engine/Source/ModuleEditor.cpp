@@ -1135,7 +1135,7 @@ void ModuleEditor::DrawEditor()
 				isPlaying = false;
 				isPaused = false;
 
-				App->scene->LoadSceneNoMemoryLeaks();
+				App->scene->LoadScene();
 			}
 
 		}

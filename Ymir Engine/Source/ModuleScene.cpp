@@ -83,14 +83,13 @@ bool ModuleScene::Start()
 	/*LoadScene("Assets", "Enemigo player"); */
 	//LoadScene("Assets/Test_Francesc", "TestPrefabs");
 	//LoadScene("Assets", "Prueba enemigo lvl2");
-	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
 
-	LoadSceneNoMemoryLeaks("Assets/BASE_FINAL", "PruebaMemoryLeaks");
+	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 	//LoadScene("Assets", "Pollo Loco");
 	//LoadScene("Assets", "ParticleTest");
@@ -449,50 +448,6 @@ void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 }
 
 void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
-{
-	if (dir != External->fileSystem->libraryScenesPath)
-	{
-		App->scene->currentSceneDir = dir;
-		App->scene->currentSceneFile = (fileName == "" ? std::to_string(mRootNode->UID) : fileName);
-
-		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
-	}
-
-	CheckCurrentMap((dir + "/" + fileName + ".yscene").c_str());
-
-	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
-
-	App->camera->editorCamera->SetPos(sceneToLoad->GetFloat3("Editor Camera Position"));
-	App->camera->editorCamera->SetUp(sceneToLoad->GetFloat3("Editor Camera Up (Y)"));
-	App->camera->editorCamera->SetFront(sceneToLoad->GetFloat3("Editor Camera Front (Z)"));
-
-	uint deletedSceneUID = mRootNode->UID;
-
-	ClearScene();
-
-	mRootNode = CreateGameObject("Scene", nullptr); // Recreate scene
-	mRootNode->UID = deletedSceneUID;
-
-	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
-	mRootNode = gameObjects[0];
-	
-	for (int i = 0; i < gameObjects.size(); ++i) 
-	{
-		gameObjects[i]->mTransform->UpdateGlobalMatrix();
-	}
-
-	LoadScriptsData();
-
-	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
-
-	if (navMeshPath != "") 
-	{
-		External->pathFinding->Load(navMeshPath);
-	}
-
-}
-
-void ModuleScene::LoadSceneNoMemoryLeaks(const std::string& dir, const std::string& fileName)
 {
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
