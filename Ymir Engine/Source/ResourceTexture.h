@@ -74,6 +74,6 @@ private:
     uint width; 
     uint height; 
 
-    GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4];
+    GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4] = { {{0}} };
 
 };

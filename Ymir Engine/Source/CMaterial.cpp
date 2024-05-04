@@ -50,18 +50,20 @@ CMaterial::~CMaterial()
 
     for (auto& it = rTextures.begin(); it != rTextures.end(); ++it)
     {
-        if (!(*it)->checkerLoaded) {
+        if ((*it) != nullptr) 
+        {
+            if (!(*it)->checkerLoaded) 
+            {
+                External->resourceManager->UnloadResource((*it)->GetUID());
+            }
+            else 
+            {
+                delete (*it);
+            }
 
-            External->resourceManager->UnloadResource((*it)->GetUID());            
+            (*it) = nullptr;
 
         }
-        else {
-
-            delete (*it);
-
-        }
-
-        (*it) = nullptr;
 
     }
 
