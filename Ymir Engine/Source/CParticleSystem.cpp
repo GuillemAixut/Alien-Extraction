@@ -619,7 +619,9 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 			}
 			case EmitterType::PAR_IMAGE:
 			{
-				//The material already saves all the necesary information //TOSO ERIC Y TONI
+				EmitterImage* eImage = (EmitterImage*)emitter->modules.at(i);
+				json_object_set_string(child_object, "Path", eImage->imgPath.c_str());
+				eImage = nullptr;
 				break;
 			}
 			case EmitterType::PARTICLES_MAX:

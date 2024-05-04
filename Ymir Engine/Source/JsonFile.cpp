@@ -3681,6 +3681,13 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eColor = nullptr;
 					break;
 				}
+				case PAR_IMAGE:
+				{
+					EmitterImage* eImage = (EmitterImage*)instancia;
+					eImage->SetImage(json_object_get_string(modulo, "Path"));
+					eImage = nullptr;
+					break;
+				}
 				case PARTICLES_MAX:
 					break;
 				default:

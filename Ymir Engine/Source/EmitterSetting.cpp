@@ -1885,6 +1885,8 @@ void EmitterImage::SetImage(std::string imgPath)
 
 	mat->diffuse_path = imgPath;
 	mat->rTextures.push_back(rTexTemp);
+
+	this->imgPath = imgPath;
 }
 
 void EmitterImage::Spawn(ParticleEmitter* emitter, Particle* particle)
