@@ -73,7 +73,7 @@ namespace YmirEngine
 
         public virtual void UpdateStats(GameObject menu)
         {
-
+            Debug.Log("1234567 " + isEquipped.ToString());
         }
     }
 
@@ -120,6 +120,8 @@ namespace YmirEngine
         {
             int e = (isEquipped) ? 1 : -1;
 
+            Debug.Log("algo1 " + isEquipped.ToString());
+
             if (menu != null)
             {
                 menu.GetComponent<UI_Inventory>().health.currentHealth += (HP * e);
@@ -165,7 +167,10 @@ namespace YmirEngine
             this.area = area;
             this.time = time;
         }
-    }
+
+        public override void UpdateStats(GameObject menu)
+        {
+        }
 
     #endregion
 

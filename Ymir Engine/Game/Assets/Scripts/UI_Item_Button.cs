@@ -46,7 +46,7 @@ public class UI_Item_Button : YmirComponent
         {
             if (item.currentSlot != ITEM_SLOT.NONE)
             {
-                UpdateStats();
+                item.UpdateStats(_menuReference);
                 _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
             }
 
@@ -58,14 +58,14 @@ public class UI_Item_Button : YmirComponent
 
     public void UpdateInfo()
     {
-        if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
-        {
-            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
-        }
-
         if (_menuReference.GetComponent<UI_Inventory>().goName != null)
         {
             UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
+        }
+
+        if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
+        {
+            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
         }
     }
 
@@ -153,7 +153,7 @@ public class UI_Item_Button : YmirComponent
                 break;
             case ITEM_SLOT.SAVE:
                 elementChanged = "SAVE";
-                break;            
+                break;
             case ITEM_SLOT.NONE:
                 elementChanged = "NONE";
                 break;
@@ -221,7 +221,7 @@ public class UI_Item_Button : YmirComponent
                     break;
                 case ITEM_RARITY.EPIC:
                     UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/EpicRarity.png", (int)UI_STATE.NORMAL);
-                    break;                
+                    break;
                 case ITEM_RARITY.MYTHIC:
                     UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/MythicRarity.png", (int)UI_STATE.NORMAL);
                     break;

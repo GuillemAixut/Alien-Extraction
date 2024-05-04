@@ -259,8 +259,36 @@ public class Player : YmirComponent
             ITEM_RARITY c = (ITEM_RARITY)random.Next((int)ITEM_RARITY.NONE);
             //bool d = (random.NextDouble() < 0.5 ? false : true);
             bool d = true;
-            Item item = new Item(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-                "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
+
+            Item item = null;
+
+            int x = random.Next(0, 3);
+            Debug.Log("Random: " + x.ToString());
+
+            switch (x)
+            {
+                case 0:
+                    {
+                        item = new Item(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
+                       "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
+                    }
+                    break;
+                case 1:
+                    {
+                        item = new I_Equippable(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
+                "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png",
+                random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100));
+                    }
+                    break;
+                case 2:
+                    {
+                        item = new I_Consumables(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
+                       "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png", random.Next(100), random.Next(100), random.Next(100));
+                    }
+                    break;
+                default:
+                    break;
+            }
 
             itemsList.Add(item);
         }
