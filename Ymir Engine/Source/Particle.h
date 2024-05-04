@@ -30,7 +30,7 @@ public:
 
 	//Material 
 	Color color;
-	CMaterial* mat = nullptr;
+	ResourceTexture* pTexture;
 
 private:
 };

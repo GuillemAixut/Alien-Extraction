@@ -841,12 +841,9 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		//TODO TONI: ... this works, im sorry
 		glColor4f(par->color.r * 4, par->color.g * 4, par->color.b * 4, par->color.a * 4);
 
-		if (par->mat)
+		if (par->pTexture)
 		{
-			for (auto& textures : par->mat->rTextures) {
-
-				textures->BindTexture(true, 0);
-			}
+			par->pTexture->BindTexture(true, 0);
 		}
 		
 		//Drawing to tris in direct mode
@@ -866,12 +863,9 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		glTexCoord2f(0.0f, 1.0f);
 		glVertex3f(-.5f, .5f, .0f);
 
-		if (par->mat)
+		if (par->pTexture)
 		{
-			for (auto& textures : par->mat->rTextures) {
-
-				textures->BindTexture(false, 0);
-			}
+			par->pTexture->BindTexture(false, 0);
 		}
 
 		glEnd();

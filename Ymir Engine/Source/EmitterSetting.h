@@ -283,7 +283,7 @@ struct EmitterImage : EmitterSetting
 	std::string imgPath;
 
 	//CMaterial que tendrá la particula
-	CMaterial* mat;
+	//CMaterial* mat;
 };
 
 #endif //__EMITTER_INSTANCE_H__

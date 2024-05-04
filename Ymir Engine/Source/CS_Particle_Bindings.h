@@ -31,6 +31,7 @@ void PlayEmitter(MonoObject* go) {
 	}
 }
 
+//Esta funcion se utiliza para el disparo, recibe el vector hacia que el player está mirando y hace que las particulas se muevan hacia esa dirección
 void ParticleShoot(MonoObject* go, MonoObject* vector)
 {
 	if (External == nullptr) return;
@@ -65,8 +66,6 @@ void ParticleShoot(MonoObject* go, MonoObject* vector)
 		{
 			pos->direction1 = directionShoot;
 		}
-
-		
 	}
 	else
 	{

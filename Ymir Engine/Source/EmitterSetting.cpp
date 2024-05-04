@@ -1861,7 +1861,7 @@ void EmitterColor::OnInspector()
 EmitterImage::EmitterImage(ParticleEmitter* parent)
 {
 	//TONI: Check if particle system GO has component material
-	if (parent->owner->mOwner->GetComponent(ComponentType::MATERIAL))
+	/*if (parent->owner->mOwner->GetComponent(ComponentType::MATERIAL))
 	{
 		mat = (CMaterial*)parent->owner->mOwner->GetComponent(ComponentType::MATERIAL);
 	}
@@ -1870,7 +1870,7 @@ EmitterImage::EmitterImage(ParticleEmitter* parent)
 		CMaterial* cMat = new CMaterial(parent->owner->mOwner);
 		parent->owner->mOwner->AddComponent(cMat);
 		mat = cMat;
-	}
+	}*/
 
 	rTexTemp = new ResourceTexture();
 	imgPath = "Assets/Particles/particleExample.png";
@@ -1883,15 +1883,15 @@ void EmitterImage::SetImage(std::string imgPath)
 	rTexTemp->type = TextureType::DIFFUSE;
 	rTexTemp->UID = Random::Generate();
 
-	mat->diffuse_path = imgPath;
-	mat->rTextures.push_back(rTexTemp);
+	//mat->diffuse_path = imgPath;
+	//mat->rTextures.push_back(rTexTemp);
 
 	this->imgPath = imgPath;
 }
 
 void EmitterImage::Spawn(ParticleEmitter* emitter, Particle* particle)
 {
-	particle->mat = mat;
+	particle->pTexture = rTexTemp;
 }
 
 void EmitterImage::Update(float dt, ParticleEmitter* emitter)
