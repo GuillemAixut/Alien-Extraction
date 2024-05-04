@@ -402,8 +402,6 @@ void ModuleScene::ClearScene()
 
 	External->lightManager->ClearLights(); // Done Correctly
 
-	External->resourceManager->ClearResources(); // Done Correctly
-
 	ClearVec(App->renderer3D->models); // Done Correctly
 
 	RELEASE(mRootNode); // Done Correctly

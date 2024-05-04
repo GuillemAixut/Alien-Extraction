@@ -532,20 +532,14 @@ void ModuleResourceManager::ReleaseResource(Resource* resource)
 
 	resources.erase(resource->GetUID());
 
-	delete resource;
+	RELEASE(resource);
 }
 
 void ModuleResourceManager::ClearResources()
 {
 	for (std::map<uint, Resource*>::iterator itr = resources.begin(); itr != resources.end(); ++itr)
 	{
-		if ((*itr).second->GetType() != ResourceType::TEXTURE) {
-
-			delete (itr->second);
-			(itr->second) = nullptr;
-
-		}
-		
+		External->resourceManager->ReleaseResource((*itr).second);
 	}
 
 	resources.clear();
