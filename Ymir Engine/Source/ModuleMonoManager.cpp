@@ -79,6 +79,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	
 	mono_add_internal_call("YmirEngine.InternalCalls::DisableComponent", DisableComponentCS);
 
+	mono_add_internal_call("YmirEngine.InternalCalls::SpawnItem", SpawnItemCS);
+
 #pragma region GameObject
 
 	mono_add_internal_call("YmirEngine.GameObject::SetActive", SetActive);
@@ -92,7 +94,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateShotgunSensor", CreateShotgunSensor);
-	mono_add_internal_call("YmirEngine.InternalCalls::CreatePrefab", CreatePrefab);	//TODO: Descomentar cuando est� el CreateBullet()
+	mono_add_internal_call("YmirEngine.InternalCalls::CreatePrefab", CreatePrefab);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateTailSensor", CreateTailSensor);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidicSpit", CreateAcidicSpit);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidPuddle", CreateAcidPuddle);

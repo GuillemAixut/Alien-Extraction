@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -30.223712921142578,
-        8.4526729583740234,
-        94.826034545898438
+        -60.834163665771484,
+        82.441146850585938,
+        1.3086616992950439
     ],
     "Editor Camera Right (X)": [
-        0.20583003759384155,
-        4.4424086809158325e-07,
-        0.97859519720077515
+        -0.036514710634946823,
+        7.152557373046875e-07,
+        0.99934029579162598
     ],
     "Editor Camera Up (Y)": [
-        0.0095350015908479691,
-        0.99995672702789307,
-        -0.0020059715025126934
+        0.6912720799446106,
+        0.72215878963470459,
+        0.025257745757699013
     ],
     "Editor Camera Front (Z)": [
-        0.97854459285736084,
-        -0.0097431605681777,
-        -0.20581939816474915
+        0.72167640924453735,
+        -0.69173240661621094,
+        0.026369696483016014
     ],
     "Hierarchy": [
         {
@@ -28,28 +28,7 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
+            "Components": [],
             "Children UID": [
                 366680627,
                 1398847280,
@@ -57,7 +36,6 @@
                 484997781,
                 232432059,
                 561936188,
-                1650915083,
                 2063663470
             ]
         },
@@ -598,6 +576,7 @@
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         -3,
                                         2.9000000953674316,
@@ -1288,17 +1267,17 @@
                         -1.5816255460782938e+38,
                         1.6815581571897805e-42,
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44
+                        1.6815581571897805e-42
                     ],
                     "Pressed color": [
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
+                        1.6815581571897805e-42,
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44
+                        1.6815581571897805e-42
                     ],
                     "Selected color": [
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
+                        1.6815581571897805e-42,
                         -1.5816255460782938e+38,
                         1.4012984643248171e-44
                     ],
@@ -2414,9 +2393,9 @@
                         0
                     ],
                     "Rotation": [
-                        -44.565959930419922,
-                        -32.741508483886719,
-                        -28.04498291015625
+                        -44.565986633300781,
+                        -32.741519927978516,
+                        -28.045000076293945
                     ],
                     "Scale": [
                         150,
@@ -2521,6 +2500,48 @@
                         0.09000001847743988,
                         0.090000629425048828
                     ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        500,
+                        250,
+                        250
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Door_Horizontal.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "inverted": false
                 }
             ],
             "Children UID": [
@@ -2616,9 +2637,9 @@
                     "Active": true,
                     "Collider Type": 0,
                     "Size": [
-                        150,
+                        12.979124069213867,
                         333.10858154296875,
-                        400
+                        185.51686096191406
                     ],
                     "Physics Type": 1,
                     "Mass": 1,
@@ -2640,13 +2661,6 @@
                         0,
                         1
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "inverted": false
                 }
             ]
         },
@@ -2737,9 +2751,9 @@
                     "Active": true,
                     "Collider Type": 0,
                     "Size": [
-                        150,
-                        333,
-                        400
+                        12.979127883911133,
+                        332.93222045898438,
+                        197.6943359375
                     ],
                     "Physics Type": 1,
                     "Mass": 1,
@@ -2761,13 +2775,6 @@
                         0,
                         1
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "inverted": false
                 }
             ]
         },
@@ -2847,41 +2854,6 @@
                     "Emissive_ID": 310,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
                     "Emissive_UID": 1442365833
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        20,
-                        401.18994140625,
-                        419.99996948242188
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": false,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        -1.2628132914360712e-11
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
                 }
             ]
         },
@@ -3377,416 +3349,6 @@
             ]
         },
         {
-            "Name": "BakerHouse",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1650915083,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 1192284687,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -35.802787780761719,
-                        0,
-                        16.998395919799805
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "PickUp.cs",
-                    "Active": 1,
-                    "UID": 0
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        5,
-                        5,
-                        5
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "MapInteractionLV1",
-                    "Event Name": "LV1_CollectItem",
-                    "Event ID": 2518039338
-                }
-            ],
-            "Children UID": [
-                108945139,
-                215124175,
-                1593727294
-            ]
-        },
-        {
-            "Name": "Chimney",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 108945139,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/Pick Up WIP\/BakerHouse.fbx",
-            "Parent UID": 1650915083,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1534554927,
-                    "Vertex Count": 160,
-                    "Index Count": 324
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/1955580875.dds",
-                    "Diffuse_UID": 1955580875
-                }
-            ]
-        },
-        {
-            "Name": "Baker_house",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 215124175,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Prefabs\/Meshes\/Pick Up WIP\/BakerHouse.fbx",
-            "Parent UID": 1650915083,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 694593550,
-                    "Vertex Count": 1641,
-                    "Index Count": 2751
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": ".\/Library\/Textures\/1955580875.dds",
-                    "Diffuse_UID": 1955580875
-                }
-            ]
-        },
-        {
-            "Name": "Key Paticle System (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1593727294,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1650915083,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0.056675314903259277,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        3.3216001987457275,
-                        3.3216001987457275,
-                        3.3216001987457275
-                    ]
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Assets\/Particles\/particleExample.png",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "ParticleSystem",
-                    "Active": 1,
-                    "NumEmitters": 1,
-                    "Emitters": [
-                        {
-                            "ModulesSize": 7,
-                            "EmitterUID": 0,
-                            "Settings": [
-                                {
-                                    "Type": 0,
-                                    "Lifetime": 10,
-                                    "Lifetime2": 2,
-                                    "RandomLT": false,
-                                    "Position": [
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0
-                                    ],
-                                    "DistanceLimit": 0.10000000149011612,
-                                    "HasDistanceLimit": false,
-                                    "BaseRotation": 0,
-                                    "BaseShape": 1,
-                                    "RadiusHollow": 0,
-                                    "RadiusBase": 0,
-                                    "RadiusTop": 0,
-                                    "Heigth": 0
-                                },
-                                {
-                                    "Type": 1,
-                                    "SpawnMode": 1,
-                                    "StartMode": 0,
-                                    "NumParticles": 5,
-                                    "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 100,
-                                    "PointingUID": 0,
-                                    "ConditionForSpawn": 0,
-                                    "SubemitterMaxLifetime": 0,
-                                    "SubemitterMinLifetime": 0
-                                },
-                                {
-                                    "Type": 5,
-                                    "Progressive": false,
-                                    "Color1": [
-                                        1,
-                                        1,
-                                        1,
-                                        1
-                                    ],
-                                    "Color2": [
-                                        0,
-                                        0,
-                                        0,
-                                        0
-                                    ],
-                                    "TimeStart": 0,
-                                    "TimeStop": 1
-                                },
-                                {
-                                    "Type": 2,
-                                    "Random": true,
-                                    "Direction1": [
-                                        0,
-                                        0,
-                                        0
-                                    ],
-                                    "Direction2": [
-                                        0,
-                                        5,
-                                        0
-                                    ],
-                                    "NormalizedBaseDirection": true,
-                                    "Accelerates": false,
-                                    "Speed1": 1,
-                                    "Speed2": 0,
-                                    "ChangeSpeedMode": 0,
-                                    "NewDirection": [
-                                        0,
-                                        0,
-                                        0
-                                    ],
-                                    "ChangeSpeed1": 0,
-                                    "ChangeSpeed2": 1,
-                                    "NormalizedChange": true
-                                },
-                                {
-                                    "Type": 4,
-                                    "Progressive": false,
-                                    "Size1": 4.9000000953674316,
-                                    "Size2": 1,
-                                    "TimeStart": 0,
-                                    "TimeStop": 1
-                                },
-                                {
-                                    "Type": 3,
-                                    "AligmentMode": 1,
-                                    "WorldOrientation": 3,
-                                    "AxisOrientation": 3,
-                                    "FreeRotation": [
-                                        0,
-                                        0,
-                                        0
-                                    ]
-                                },
-                                {
-                                    "Type": 6
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Assets\/Particles\/particleExample.png",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
             "Name": "Electric_Trap (1)",
             "Static": false,
             "Tag": "Untagged",
@@ -3974,7 +3536,7 @@
                         }
                     ],
                     "Diffuse_ID": 0,
-                    "Diffuse_Path": "Assets\/Particles\/rayos_PROVISIONAL.png",
+                    "Diffuse_Path": "Assets\/Particles\/particleExample.png",
                     "Diffuse_UID": 0
                 },
                 {
@@ -4026,6 +3588,7 @@
                                 {
                                     "Type": 2,
                                     "Random": true,
+                                    "UseShapeBase": true,
                                     "Direction1": [
                                         3,
                                         1,

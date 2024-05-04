@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -36,
-        48,
-        100
+        -105.27308654785156,
+        112.29144287109375,
+        49.568347930908203
     ],
     "Editor Camera Right (X)": [
-        0.94088733196258545,
-        0,
-        0.33871945738792419
+        -0.10433774441480637,
+        -7.8231096267700195e-08,
+        0.99455654621124268
     ],
     "Editor Camera Up (Y)": [
-        0.13941577076911926,
-        0.91136610507965088,
-        -0.38726601004600525
+        0.71133619546890259,
+        0.69888722896575928,
+        0.074625484645366669
     ],
     "Editor Camera Front (Z)": [
-        0.30869746208190918,
-        -0.41159659624099731,
-        -0.85749292373657227
+        0.695076584815979,
+        -0.715240478515625,
+        0.072919599711894989
     ],
     "Hierarchy": [
         {
@@ -28,12 +28,34 @@
             "UID": 1575064073,
             "Active": true,
             "Element_Type": "None",
-            "Components": [],
+            "Parent UID": 338908844,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
             "Children UID": [
                 1522841663,
                 1806365249,
                 1398847280,
-                728359170
+                728359170,
+                1484304711
             ]
         },
         {
@@ -1939,8 +1961,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 690,
-                    "Height": 591,
+                    "Width": 780,
+                    "Height": 847,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4413,8 +4435,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 690,
-                    "Height": 591,
+                    "Width": 780,
+                    "Height": 847,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4461,17 +4483,17 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 200,
+                    "Position X": 640,
+                    "Position Y": 250,
                     "Width": 640,
-                    "Height": 200,
+                    "Height": 150,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        200,
                         640,
-                        200
+                        250,
+                        640,
+                        150
                     ],
                     "Path": "Assets\/UI\/FondoRedondeado.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
@@ -4527,15 +4549,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 100,
-                    "Position Y": 300,
+                    "Position X": 779,
+                    "Position Y": 330,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        100,
-                        300,
+                        779,
+                        330,
                         200,
                         50
                     ],
@@ -4545,15 +4567,154 @@
                     "Font size": 15.800000190734863,
                     "Line Spacing": 1,
                     "Color": [
+                        -0.98000001907348633,
                         0,
-                        0,
-                        0,
+                        -0.98000001907348633,
                         0
                     ]
                 },
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Cube",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1484304711,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1575064073,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        5.5949664115905762,
+                        10.39896297454834,
+                        44.211635589599609
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        11.59999942779541,
+                        11.59999942779541,
+                        11.59999942779541
+                    ]
+                }
+            ],
+            "Children UID": [
+                1981179967
+            ]
+        },
+        {
+            "Name": "1981179967",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1981179967,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "",
+            "Parent UID": 1484304711,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1728623793,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "TextPopUp.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "PopUpCanvas": 728359170
                 }
             ]
         }
