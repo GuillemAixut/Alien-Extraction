@@ -35,6 +35,7 @@ namespace YmirEngine
         COMMON,
         RARE,
         EPIC,
+        MYTHIC,
 
         NONE
     }
@@ -192,7 +193,7 @@ namespace YmirEngine
 
     public class I_Consumables : Item
     {
-        public float dmg, range;
+        public float dmg, area, time;
 
         public I_Consumables(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
@@ -205,7 +206,8 @@ namespace YmirEngine
 
             // Consumables
             float dmg = 0,
-            float range = 0
+            float area = 0,
+            float time = 0
             )
         {
             this.currentSlot = currentSlot;
@@ -218,7 +220,8 @@ namespace YmirEngine
 
             // Consumables
             this.dmg = dmg;
-            this.range = range;
+            this.area = area;
+            this.time = time;
         }
     }
 
