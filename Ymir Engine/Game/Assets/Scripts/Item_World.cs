@@ -8,8 +8,6 @@ using YmirEngine;
 
 public class Item_World : YmirComponent
 {
-    //Dictionary<SearchItem, Item> itemsDictionary = new Dictionary<SearchItem, Item>();
-
     private Item item = null;
     private Player player = null;
 
@@ -49,7 +47,6 @@ public class Item_World : YmirComponent
         }
 
         item = UI_Inventory.SearchItemInDictionary(gameObject.Name, itemRarity);
-
         player.itemsList.Add(item);
     }
 
