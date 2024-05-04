@@ -175,7 +175,7 @@ public class UI_Inventory : YmirComponent
             }
 
             UI.SetUIState(_selectedGO, (int)UI_STATE.NORMAL);
-            UI.SetUIState(focusedGO, (int)UI_STATE.NORMAL);
+            //UI.SetUIState(focusedGO, (int)UI_STATE.NORMAL);
         }
     }
 

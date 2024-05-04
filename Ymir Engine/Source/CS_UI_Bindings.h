@@ -32,6 +32,25 @@ void SetUIState(MonoObject* object, int uiState)
 		//{
 		((C_UI*)(*it))->SetState((UI_STATE)uiState);
 
+		// TODO: if menus do not work delete this, is for inventory
+		if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::NORMAL)
+		{
+			if (External->scene->selectedGO != nullptr && External->scene->selectedGO->UID == go->UID)
+			{
+				std::vector<Component*> listComponents = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
+				for (auto it = listComponents.begin(); it != listComponents.end(); ++it)
+				{
+					if (((C_UI*)(*it))->tabNav_)
+					{
+						((C_UI*)(*it))->SetState((UI_STATE)uiState);
+					}
+				}
+
+				External->scene->selectedGO = nullptr;
+				External->scene->SetSelected();
+			}
+		}
+		
 		if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::FOCUSED)
 		{
 			int offset = 0;

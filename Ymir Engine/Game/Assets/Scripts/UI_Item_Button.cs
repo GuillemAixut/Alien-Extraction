@@ -195,7 +195,7 @@ public class UI_Item_Button : YmirComponent
         // is empty // is equipped // can be placed
         if (item.itemType == ITEM_SLOT.NONE &&
             ((_item.isEquipped && _item.itemType == item.currentSlot) ||
-            item.currentSlot == ITEM_SLOT.NONE))
+            item.currentSlot == ITEM_SLOT.NONE || item.currentSlot == ITEM_SLOT.MATERIAL))
         {
             item = _item;
             enumSlot = SetInspectorType(item.currentSlot);
