@@ -117,7 +117,7 @@ namespace YmirEngine
 
         public static Vector3 Lerp(Vector3 a, Vector3 b, float t)
         {
-            t = (t < 0f) ? 0f : (t > 1f) ? 1f : t;
+            t = Mathf.Clamp01(t);
             return a * (1 - t) + b * t;
         }
 

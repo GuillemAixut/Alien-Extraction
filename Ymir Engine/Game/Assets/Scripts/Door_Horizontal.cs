@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -15,55 +16,71 @@ public class Door_Horizontal : YmirComponent
     bool inMovement;
     bool closing;
 
-    public bool inverted;
+    private GameObject lDoor;
+    private GameObject rDoor;
+
+    private bool onCollision;
 
     public void Start()
     {
+        lDoor = InternalCalls.CS_GetChild(gameObject, 0);
+        rDoor = InternalCalls.CS_GetChild(gameObject, 1);
+
+        onCollision = false;
         inMovement = false;
         closing = false;
     }
 
     public void Update()
     {
-        if (inverted)
-        {
-            velocity = -velocity;
-            inverted = false;
-        }
-
-        if (timer > -0.1)
-        {
-            timer -= Time.deltaTime; //Ejemplo: El timer inicia valiendo 6
-        }
 
         if (timer > (animDuration / 3) * 2) //Ejemplo: Hasta el segundo 4 (6 a 4 segundos)
         {
-            gameObject.SetVelocity(gameObject.transform.GetForward() * velocity);
-            Debug.Log("1. Opening: Time remaining " + timer);
+            lDoor.SetVelocity(lDoor.transform.GetForward() * velocity);
+            rDoor.SetVelocity(rDoor.transform.GetForward() * -velocity);
+            //Debug.Log("1. Opening: Time remaining " + timer);
         }
         else if (timer > (animDuration / 3)) //Ejemplo: Desde el segundo 4 al segundo 2 (4 a 2 segundos)
         {
-            gameObject.SetVelocity(Vector3.zero);
-            gameObject.ClearForces();
-            Debug.Log("2. Waiting: Time remaining " + timer);
+            lDoor.SetVelocity(Vector3.zero);
+            rDoor.SetVelocity(Vector3.zero);
+            lDoor.ClearForces();
+            rDoor.ClearForces();
+            //Debug.Log("2. Waiting: Time remaining " + timer);
+        }
+        else if(onCollision)
+        {
+            
         }
         else if (timer > 0f) //Ejemplo: Del segundo 2 al final (2 a 0 segundos)
         {
             closing = true;
-            gameObject.SetVelocity(gameObject.transform.GetForward() * -velocity);
-            Debug.Log("3. Closing: Time remaining " + timer);
+            lDoor.SetVelocity(lDoor.transform.GetForward() * -velocity);
+            rDoor.SetVelocity(rDoor.transform.GetForward() * velocity);
+            //Debug.Log("3. Closing: Time remaining " + timer);
         }
         else if (timer < 0f)
         {
             inMovement = false;
             closing = false;
-            gameObject.SetVelocity(Vector3.zero);
-            gameObject.ClearForces();
+            lDoor.SetVelocity(Vector3.zero);
+            rDoor.SetVelocity(Vector3.zero);
+            lDoor.ClearForces();
+            rDoor.ClearForces();
         }
+        
+        timer -= Time.deltaTime; //Ejemplo: El timer inicia valiendo 6 
+        
+        Debug.Log("onCollision: " + onCollision);
     }
 
     public void OnCollisionStay(GameObject other)
     {
+        if (other.Tag == "Player")
+        {
+            onCollision = true;
+        }
+
         if (other.Tag == "Player" && !inMovement)
         {
             timer = animDuration;
@@ -73,6 +90,14 @@ public class Door_Horizontal : YmirComponent
         {
             timer = animDuration - timer;
             closing = false;
+        }
+    }
+
+    public void OnCollisionExit(GameObject other) 
+    {
+        if(other.Tag == "Player")
+        {
+            onCollision = false;
         }
     }
 }
