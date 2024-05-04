@@ -1792,7 +1792,7 @@ void JsonFile::GetHierarchyNoMemoryLeaks(const char* key) const
 
 		External->scene->gameObjects.reserve(numGameObjects);
 
-		for (size_t i = 0; i < numGameObjects; ++i) {
+		for (size_t i = 1; i < numGameObjects; ++i) {
 
 			JSON_Value* gameObjectValue = json_array_get_value(hierarchyArray, i);
 
