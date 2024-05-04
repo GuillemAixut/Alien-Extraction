@@ -1,0 +1,124 @@
+{
+    "Prefab": [
+        {
+            "Name": "Paticle System",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 800107456,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 2033323082,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "ParticleSystem",
+                    "Active": 1,
+                    "NumEmitters": 1,
+                    "Emitters": [
+                        {
+                            "ModulesSize": 5,
+                            "EmitterUID": 22863297,
+                            "Settings": [
+                                {
+                                    "Type": 0,
+                                    "Lifetime": 1,
+                                    "Lifetime2": 2,
+                                    "RandomLT": false,
+                                    "Position": [
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "DistanceLimit": 0,
+                                    "HasDistanceLimit": false,
+                                    "BaseRotation": 0,
+                                    "BaseShape": 1,
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 2,
+                                    "RadiusTop": 4,
+                                    "Heigth": 3
+                                },
+                                {
+                                    "Type": 1,
+                                    "SpawnMode": 1,
+                                    "StartMode": 0,
+                                    "NumParticles": 5,
+                                    "SpawnRatio": 0.20000000298023224,
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 2,
+                                    "SubemitterMaxLifetime": 1,
+                                    "SubemitterMinLifetime": 0
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/rayos_PROVISIONAL.png"
+                                },
+                                {
+                                    "Type": 4,
+                                    "Progressive": false,
+                                    "Size1": 10,
+                                    "Size2": 1,
+                                    "TimeStart": 0,
+                                    "TimeStop": 1
+                                },
+                                {
+                                    "Type": 2,
+                                    "Random": false,
+                                    "UseShapeBase": true,
+                                    "Direction1": [
+                                        8.1000003814697266,
+                                        0,
+                                        0
+                                    ],
+                                    "Direction2": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NormalizedBaseDirection": true,
+                                    "Accelerates": false,
+                                    "Speed1": 4.8000001907348633,
+                                    "Speed2": 0,
+                                    "ChangeSpeedMode": 0,
+                                    "NewDirection": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "ChangeSpeed1": 0,
+                                    "ChangeSpeed2": 1,
+                                    "NormalizedChange": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
