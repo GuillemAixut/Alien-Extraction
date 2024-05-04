@@ -36,6 +36,7 @@ class ResourceTexture : public Resource {
 public:
 
 	ResourceTexture(uint UID = 0);
+    ~ResourceTexture();
 
 	bool LoadInMemory() override;
 	bool UnloadFromMemory() override;

@@ -19,6 +19,12 @@ ResourceTexture::ResourceTexture(uint UID) : Resource(UID, ResourceType::TEXTURE
 	height = 0;
 }
 
+ResourceTexture::~ResourceTexture()
+{
+	glDeleteTextures(1, &ID);
+	ID = 0; // Reset the texture ID to indicate it's no longer valid
+}
+
 bool ResourceTexture::LoadInMemory()
 {
 	bool ret = true;
@@ -150,7 +156,12 @@ bool ResourceTexture::LoadInMemory()
 
 bool ResourceTexture::UnloadFromMemory()
 {
-	return false;
+	bool ret = true;
+
+	glDeleteTextures(1, &ID);
+	ID = 0; // Reset the texture ID to indicate it's no longer valid
+
+	return ret;
 }
 
 void ResourceTexture::BindTexture(bool bind, GLuint unit)
