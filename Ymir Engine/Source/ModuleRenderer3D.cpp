@@ -874,7 +874,6 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		glBindTexture(GL_TEXTURE_2D, 0);
 
 		par = nullptr;
-
 	}
 }
 
