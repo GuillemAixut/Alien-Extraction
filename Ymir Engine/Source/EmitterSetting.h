@@ -281,9 +281,6 @@ struct EmitterImage : EmitterSetting
 
 	ResourceTexture* rTexTemp;
 	std::string imgPath;
-
-	//CMaterial que tendrá la particula
-	//CMaterial* mat;
 };
 
 #endif //__EMITTER_INSTANCE_H__
