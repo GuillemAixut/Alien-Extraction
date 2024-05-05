@@ -30,28 +30,28 @@ public class UI_Crafting : YmirComponent
 
         _show = false;
 
-        GetPlayerScript();
-        GetHealthScript();
+        //GetPlayerScript();
+        //GetHealthScript();
 
         //SetSlots();
     }
 
 	public void Update()
 	{
-        if (player == null)
-        {
-            GetPlayerScript();
-        }
+        //if (player == null)
+        //{
+        //    GetPlayerScript();
+        //}
 
-        if (player != null && player.setHover)
-        {
-            Debug.Log("set first");
-            goDescription.SetActive(false);// TODO: when menu opened
-            goText.SetActive(false);
-            goName.SetActive(false);
+        //if (player != null && player.setHover)
+        //{
+        //    Debug.Log("set first");
+        //    goDescription.SetActive(false);// TODO: when menu opened
+        //    goText.SetActive(false);
+        //    goName.SetActive(false);
 
-            player.setHover = false;
-        }
+        //    player.setHover = false;
+        //}
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
