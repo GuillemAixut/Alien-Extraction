@@ -11,7 +11,7 @@ FrameBuffer::FrameBuffer()
 	TCB = 0; // Texture Color Buffer
 	RBO = 0; // Render Buffer Object
 
-	framebufferShader = nullptr;
+	postProcessingShader = nullptr;
 
 	loaded = false;
 }
@@ -53,15 +53,15 @@ void FrameBuffer::Load()
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	//framebufferShader->LoadShader("Assets/Shaders/Framebuffer.glsl");
+	//postProcessingShader->LoadShader("Assets/Shaders/Framebuffer.glsl");
 
 	loaded = true;
 }
 
 void FrameBuffer::Render(bool toggle)
 {
-	//framebufferShader->UseShader(toggle);
-	//framebufferShader->SetSampler2D("screenTexture", 0);
+	//postProcessingShader->UseShader(toggle);
+	//postProcessingShader->SetSampler2D("screenTexture", 0);
 
 	if (toggle) 
 	{
@@ -96,7 +96,7 @@ void FrameBuffer::RenderToScreen()
 
 void FrameBuffer::Delete()
 {
-	RELEASE(framebufferShader);
+	RELEASE(postProcessingShader);
 
 	glDeleteRenderbuffers(1, &RBO);
 	glDeleteTextures(1, &TCB);

@@ -31,7 +31,7 @@ public:
 	GLuint TCB; // Texture Color Buffer
 	GLuint RBO; // Render Buffer Object
 
-	Shader* framebufferShader;
+	Shader* postProcessingShader;
 
 	bool loaded;
 
