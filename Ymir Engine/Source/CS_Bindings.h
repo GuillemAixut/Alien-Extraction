@@ -1005,11 +1005,9 @@ void CreateSpitterAcidRebound(MonoObject* position, MonoObject* rotation)
 	physBody->useGravity = true;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
-	physBody->mass = 0.01f;
-
 	//It bounces off
-	physBody->physBody->body->setRestitution(1.0f);
-	//physBody->SetAsSensor(true);
+	//physBody->physBody->body->setRestitution(1.0f);
+	physBody->SetAsSensor(true);
 
 	go->AddComponent(physBody);
 	physBody->physBody->body->activate(true);

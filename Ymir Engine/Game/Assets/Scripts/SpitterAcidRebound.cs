@@ -23,7 +23,7 @@ public class SpitterAcidRebound : YmirComponent
 
     public void Start()
     {
-        movementSpeed = 50f;
+        movementSpeed = 6000f;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
