@@ -45,11 +45,11 @@ namespace YmirEngine
     public class Item
     {
         public ITEM_SLOT currentSlot; // Where is the item placed in the inventory (manage inventory navigation/switch items), when picked up it should be NONE
-        public ITEM_SLOT itemType; 
+        public ITEM_SLOT itemType;
         public ITEM_RARITY itemRarity;
 
         public string imagePath = ""; // Path to the image of the item itself, must include Assets/ 
-        public string name = ""; 
+        public string name = "";
         public string description = ""; // item description, name not included so that the font of the name can be different from the description, include stats
         public bool isEquipped = false;
 
@@ -170,16 +170,14 @@ namespace YmirEngine
 
         public override void UpdateStats(GameObject menu)
         {
-        }
-
+        } 
+    }
     #endregion
-
     public class Upgrade
     {
         public string name, description;
         public int cost;
         public bool isUnlocked;
-
         public Upgrade(string name, string description, int cost, bool isUnlocked)
         {
             this.name = name;

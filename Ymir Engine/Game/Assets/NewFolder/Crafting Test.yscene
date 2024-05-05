@@ -25,30 +25,10 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 25326872,
+            "UID": 2013757,
             "Active": true,
             "Element_Type": "None",
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
+            "Components": [],
             "Children UID": [
                 173788554,
                 1904908806
@@ -61,7 +41,7 @@
             "UID": 173788554,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 25326872,
+            "Parent UID": 2013757,
             "Components": [
                 {
                     "Type": "Transform",
@@ -72,9 +52,9 @@
                         54
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         40.000007629394531,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
@@ -99,17 +79,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        1.4361705780174816e-07,
+                        -1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         1,
-                        -1.4361705780174816e-07
+                        1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        -6.696972576492044e-08,
+                        6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -128,7 +108,7 @@
             "UID": 1904908806,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 25326872,
+            "Parent UID": 2013757,
             "Components": [
                 {
                     "Type": "Transform",
@@ -155,8 +135,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1797,
-                    "Height": 1045,
+                    "Width": 1895,
+                    "Height": 1033,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -165,13 +145,6 @@
                         1213,
                         618
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "itemsDictionary": 0
                 }
             ],
             "Children UID": [
@@ -310,6 +283,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 4,
+                    "leftGridName": " ",
+                    "rightGridName": "Inventory",
+                    "downGridName": "Grenade Grid",
+                    "upGridName": "Resin Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": true,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -332,8 +324,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        413,
+                        166,
                         0
                     ],
                     "Rotation": [
@@ -393,8 +385,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        166,
                         100,
                         100
                     ],
@@ -456,8 +448,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        166,
                         100,
                         100
                     ],
@@ -519,8 +511,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        166,
                         100,
                         100
                     ],
@@ -552,8 +544,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        1377,
-                        255,
+                        413,
+                        166,
                         300,
                         50
                     ],
@@ -627,8 +619,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        568,
+                        166,
                         0
                     ],
                     "Rotation": [
@@ -688,8 +680,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        166,
                         100,
                         100
                     ],
@@ -751,8 +743,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        166,
                         100,
                         100
                     ],
@@ -814,8 +806,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        166,
                         100,
                         100
                     ],
@@ -847,8 +839,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        166,
                         300,
                         50
                     ],
@@ -922,8 +914,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        726,
+                        166,
                         0
                     ],
                     "Rotation": [
@@ -983,8 +975,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        166,
                         100,
                         100
                     ],
@@ -1046,8 +1038,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        166,
                         100,
                         100
                     ],
@@ -1109,8 +1101,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        166,
                         100,
                         100
                     ],
@@ -1142,8 +1134,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        166,
                         300,
                         50
                     ],
@@ -1217,8 +1209,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1006,
+                        166,
                         0
                     ],
                     "Rotation": [
@@ -1278,8 +1270,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        166,
                         100,
                         100
                     ],
@@ -1341,8 +1333,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        166,
                         100,
                         100
                     ],
@@ -1404,8 +1396,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        166,
                         100,
                         100
                     ],
@@ -1437,8 +1429,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        166,
                         300,
                         50
                     ],
@@ -1526,6 +1518,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 3,
+                    "leftGridName": " ",
+                    "rightGridName": "Inventory",
+                    "downGridName": "Baker Grid",
+                    "upGridName": "Armor Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": true,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -1547,8 +1558,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        568,
+                        302,
                         0
                     ],
                     "Rotation": [
@@ -1608,8 +1619,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        302,
                         100,
                         100
                     ],
@@ -1671,8 +1682,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        302,
                         100,
                         100
                     ],
@@ -1734,8 +1745,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        302,
                         100,
                         100
                     ],
@@ -1767,8 +1778,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        302,
                         300,
                         50
                     ],
@@ -1842,8 +1853,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        726,
+                        302,
                         0
                     ],
                     "Rotation": [
@@ -1903,8 +1914,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        302,
                         100,
                         100
                     ],
@@ -1966,8 +1977,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        302,
                         100,
                         100
                     ],
@@ -2029,8 +2040,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        302,
                         100,
                         100
                     ],
@@ -2062,8 +2073,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        302,
                         300,
                         50
                     ],
@@ -2137,8 +2148,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1006,
+                        303,
                         0
                     ],
                     "Rotation": [
@@ -2198,8 +2209,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        303,
                         100,
                         100
                     ],
@@ -2261,8 +2272,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        303,
                         100,
                         100
                     ],
@@ -2324,8 +2335,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        303,
                         100,
                         100
                     ],
@@ -2357,8 +2368,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        303,
                         300,
                         50
                     ],
@@ -2446,6 +2457,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 3,
+                    "leftGridName": " ",
+                    "rightGridName": "Inventory",
+                    "downGridName": "Offensive Grid",
+                    "upGridName": "Grenade Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": true,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -2467,8 +2497,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        568,
+                        439,
                         0
                     ],
                     "Rotation": [
@@ -2528,8 +2558,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        439,
                         100,
                         100
                     ],
@@ -2591,8 +2621,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        439,
                         100,
                         100
                     ],
@@ -2654,8 +2684,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        439,
                         100,
                         100
                     ],
@@ -2687,8 +2717,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        439,
                         300,
                         50
                     ],
@@ -2762,8 +2792,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        726,
+                        439,
                         0
                     ],
                     "Rotation": [
@@ -2823,8 +2853,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        439,
                         100,
                         100
                     ],
@@ -2886,8 +2916,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        439,
                         100,
                         100
                     ],
@@ -2949,8 +2979,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        439,
                         100,
                         100
                     ],
@@ -2982,8 +3012,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        439,
                         300,
                         50
                     ],
@@ -3057,8 +3087,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1006,
+                        438,
                         0
                     ],
                     "Rotation": [
@@ -3118,8 +3148,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        438,
                         100,
                         100
                     ],
@@ -3181,8 +3211,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        438,
                         100,
                         100
                     ],
@@ -3244,8 +3274,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        438,
                         100,
                         100
                     ],
@@ -3277,8 +3307,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        438,
                         300,
                         50
                     ],
@@ -3366,6 +3396,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 4,
+                    "leftGridName": " ",
+                    "rightGridName": "Inventory",
+                    "downGridName": "Defensive Grid",
+                    "upGridName": "Baker Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": true,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -3388,8 +3437,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        413,
+                        574,
                         0
                     ],
                     "Rotation": [
@@ -3449,8 +3498,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        574,
                         100,
                         100
                     ],
@@ -3512,8 +3561,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        574,
                         100,
                         100
                     ],
@@ -3575,8 +3624,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        574,
                         100,
                         100
                     ],
@@ -3608,8 +3657,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        574,
                         300,
                         50
                     ],
@@ -3683,8 +3732,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        568,
+                        574,
                         0
                     ],
                     "Rotation": [
@@ -3744,8 +3793,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        574,
                         100,
                         100
                     ],
@@ -3807,8 +3856,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        574,
                         100,
                         100
                     ],
@@ -3870,8 +3919,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        574,
                         100,
                         100
                     ],
@@ -3903,8 +3952,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        574,
                         300,
                         50
                     ],
@@ -3978,8 +4027,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        727,
+                        574,
                         0
                     ],
                     "Rotation": [
@@ -4039,8 +4088,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        574,
                         100,
                         100
                     ],
@@ -4102,8 +4151,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        574,
                         100,
                         100
                     ],
@@ -4165,8 +4214,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        574,
                         100,
                         100
                     ],
@@ -4198,8 +4247,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        574,
                         300,
                         50
                     ],
@@ -4273,8 +4322,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1006,
+                        574,
                         0
                     ],
                     "Rotation": [
@@ -4334,8 +4383,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        574,
                         100,
                         100
                     ],
@@ -4397,8 +4446,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        574,
                         100,
                         100
                     ],
@@ -4460,8 +4509,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        574,
                         100,
                         100
                     ],
@@ -4493,8 +4542,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        574,
                         300,
                         50
                     ],
@@ -4582,6 +4631,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 4,
+                    "leftGridName": " ",
+                    "rightGridName": "Inventory",
+                    "downGridName": "Resin Grid",
+                    "upGridName": "Offensive Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": true,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -4604,8 +4672,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        413,
+                        714,
                         0
                     ],
                     "Rotation": [
@@ -4665,8 +4733,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        714,
                         100,
                         100
                     ],
@@ -4728,8 +4796,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        714,
                         100,
                         100
                     ],
@@ -4791,8 +4859,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        714,
                         100,
                         100
                     ],
@@ -4824,8 +4892,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        413,
+                        714,
                         300,
                         50
                     ],
@@ -4899,8 +4967,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        569,
+                        714,
                         0
                     ],
                     "Rotation": [
@@ -4960,8 +5028,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        569,
+                        714,
                         100,
                         100
                     ],
@@ -5023,8 +5091,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        569,
+                        714,
                         100,
                         100
                     ],
@@ -5086,8 +5154,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        569,
+                        714,
                         100,
                         100
                     ],
@@ -5119,8 +5187,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        569,
+                        714,
                         300,
                         50
                     ],
@@ -5194,8 +5262,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        727,
+                        714,
                         0
                     ],
                     "Rotation": [
@@ -5255,8 +5323,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        714,
                         100,
                         100
                     ],
@@ -5318,8 +5386,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        714,
                         100,
                         100
                     ],
@@ -5381,8 +5449,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        714,
                         100,
                         100
                     ],
@@ -5414,8 +5482,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        727,
+                        714,
                         300,
                         50
                     ],
@@ -5489,8 +5557,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1006,
+                        711,
                         0
                     ],
                     "Rotation": [
@@ -5550,8 +5618,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        711,
                         100,
                         100
                     ],
@@ -5613,8 +5681,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        711,
                         100,
                         100
                     ],
@@ -5676,8 +5744,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        711,
                         100,
                         100
                     ],
@@ -5709,8 +5777,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        711,
                         300,
                         50
                     ],
@@ -5798,6 +5866,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 5,
+                    "leftGridName": " ",
+                    "rightGridName": "Inventory",
+                    "downGridName": "Armor Grid",
+                    "upGridName": "Defensive Grid",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": true,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -5821,8 +5908,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        261,
+                        849,
                         0
                     ],
                     "Rotation": [
@@ -5882,8 +5969,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        261,
+                        849,
                         100,
                         100
                     ],
@@ -5945,8 +6032,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        261,
+                        849,
                         100,
                         100
                     ],
@@ -6008,8 +6095,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        261,
+                        849,
                         100,
                         100
                     ],
@@ -6041,8 +6128,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        261,
+                        849,
                         300,
                         50
                     ],
@@ -6116,8 +6203,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        412,
+                        849,
                         0
                     ],
                     "Rotation": [
@@ -6177,8 +6264,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        412,
+                        849,
                         100,
                         100
                     ],
@@ -6240,8 +6327,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        412,
+                        849,
                         100,
                         100
                     ],
@@ -6303,8 +6390,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        412,
+                        849,
                         100,
                         100
                     ],
@@ -6336,8 +6423,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        412,
+                        849,
                         300,
                         50
                     ],
@@ -6411,8 +6498,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        568,
+                        849,
                         0
                     ],
                     "Rotation": [
@@ -6472,8 +6559,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        849,
                         100,
                         100
                     ],
@@ -6535,8 +6622,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        849,
                         100,
                         100
                     ],
@@ -6598,8 +6685,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        849,
                         100,
                         100
                     ],
@@ -6631,8 +6718,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        568,
+                        849,
                         300,
                         50
                     ],
@@ -6706,8 +6793,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        726,
+                        849,
                         0
                     ],
                     "Rotation": [
@@ -6767,8 +6854,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        849,
                         100,
                         100
                     ],
@@ -6830,8 +6917,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        849,
                         100,
                         100
                     ],
@@ -6893,8 +6980,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        849,
                         100,
                         100
                     ],
@@ -6926,8 +7013,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        726,
+                        849,
                         300,
                         50
                     ],
@@ -7001,8 +7088,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1006,
+                        847,
                         0
                     ],
                     "Rotation": [
@@ -7062,8 +7149,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        847,
                         100,
                         100
                     ],
@@ -7125,8 +7212,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        847,
                         100,
                         100
                     ],
@@ -7188,8 +7275,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        847,
                         100,
                         100
                     ],
@@ -7221,8 +7308,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1006,
+                        847,
                         300,
                         50
                     ],
@@ -7318,7 +7405,7 @@
                     "UID": 0,
                     "rows": 5,
                     "cols": 3,
-                    "leftGridName": "Grid Chip 2",
+                    "leftGridName": "Armor Grid",
                     "rightGridName": "",
                     "downGridName": " ",
                     "upGridName": "Grid Save",
@@ -11775,7 +11862,7 @@
             ]
         },
         {
-            "Name": "Save Grid",
+            "Name": "Grid Save",
             "Static": false,
             "Tag": "Untagged",
             "UID": 17448215,
@@ -11801,6 +11888,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": "Inventory",
+                    "upGridName": " ",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": true,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -11820,8 +11926,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        1374,
+                        103,
                         0
                     ],
                     "Rotation": [
@@ -11881,8 +11987,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1374,
+                        103,
                         100,
                         100
                     ],
@@ -11944,8 +12050,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1374,
+                        103,
                         100,
                         100
                     ],
@@ -12007,8 +12113,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1374,
+                        103,
                         100,
                         100
                     ],
@@ -12040,8 +12146,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        1374,
+                        103,
                         300,
                         50
                     ],
@@ -12086,7 +12192,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "SAVE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
