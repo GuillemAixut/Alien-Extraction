@@ -273,9 +273,9 @@ void Animator::CalculateBoneTransform(const AssimpNodeData* node, float4x4 paren
 			prevTransform = prevTransform;
 		}
 
-		float3 translate = float3(.0f, .0f, .0f);;
-		Quat rotation = Quat::identity;;
-		float3 scale = float3(1, 1, 1);;
+		float3 translate = float3(.0f, .0f, .0f);
+		Quat rotation = Quat::identity;
+		float3 scale = float3(1, 1, 1);
 
 		float3 prevTranslate = float3(.0f,.0f,.0f);
 		Quat prevRotation = Quat::identity;

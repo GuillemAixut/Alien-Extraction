@@ -182,7 +182,9 @@ public class SpitterBaseScript : YmirComponent
             case XenoState.IDLE_AGGRO:
 
                 agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
-                LookAt(agent.GetDestination());
+                //Rather look at player? May cause to do weird rotations
+                //LookAt(agent.GetDestination());
+                LookAt(player.transform.globalPosition);
 
                 if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange))
                 {
@@ -234,6 +236,7 @@ public class SpitterBaseScript : YmirComponent
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+                LookAt(player.transform.globalPosition);
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
@@ -250,6 +253,7 @@ public class SpitterBaseScript : YmirComponent
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+                LookAt(player.transform.globalPosition);
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
@@ -378,7 +382,8 @@ public class SpitterBaseScript : YmirComponent
                 xenoState = XenoState.ACID_REBOUND;
                 Vector3 pos = gameObject.transform.globalPosition;
                 pos.y += 15;
-                InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
+                pos.z -= 10;
+                InternalCalls.CreateSpitterAcidRebound(pos, gameObject.transform.globalRotation);
                 LookAt(player.transform.globalPosition);
             }
         }

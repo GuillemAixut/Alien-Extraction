@@ -10,6 +10,7 @@
 
 #include "Globals.h"
 #include "Log.h"
+#include "Shader.h"
 
 class FrameBuffer {
 public:
@@ -29,6 +30,8 @@ public:
 	GLuint FBO; // Frame Buffer Object
 	GLuint TCB; // Texture Color Buffer
 	GLuint RBO; // Render Buffer Object
+
+	Shader* postProcessingShader;
 
 	bool loaded;
 

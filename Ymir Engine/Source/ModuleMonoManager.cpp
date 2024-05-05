@@ -278,6 +278,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma region Enemies
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidSpit", CreateSpitterAcidSpit);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidRebound", CreateSpitterAcidRebound);
 
 #pragma endregion
 

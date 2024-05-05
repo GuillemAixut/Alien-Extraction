@@ -1756,6 +1756,7 @@ EmitterSize::EmitterSize()
 {
 	originalSize = { 1,1,1 };
 	progresive = false;
+	loop = false;
 	startChange = 0.0f; //Range from 0 to 1 as lifetime
 	stopChange = 1.0f; //Range from 0 to 1 as lifetime
 	sizeMultiplier1 = 1.0f;
@@ -1772,16 +1773,38 @@ void EmitterSize::Update(float dt, ParticleEmitter* emitter)
 	float3 base = originalSize;
 	if (progresive)
 	{
-		float timeForLerp = stopChange - startChange;
-		for (int i = 0; i < emitter->listParticles.size(); i++)
+		if(loop)
 		{
-			float actualLT = emitter->listParticles.at(i)->lifetime;
-
-			if (startChange <= actualLT && actualLT <= stopChange)
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
 			{
-				emitter->listParticles.at(i)->size = base * (sizeMultiplier1 + ((sizeMultiplier2 - sizeMultiplier1) * ((actualLT - startChange) / timeForLerp))); //Lerp size multiplication
+				float actualLT = emitter->listParticles.at(i)->lifetime;
+
+				if (actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->size = base * (sizeMultiplier1 + ((sizeMultiplier2 - sizeMultiplier1) * ((actualLT - startChange) / timeForLerp))); //Lerp size multiplication
+				}
+				else
+				{
+					timeForLerp = 1.0f - stopChange;
+					emitter->listParticles.at(i)->size = base * (sizeMultiplier2 + ((sizeMultiplier1 - sizeMultiplier2) * ((actualLT - stopChange) / timeForLerp))); //Lerp size multiplication
+				}
 			}
 		}
+		else
+		{
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
+			{
+				float actualLT = emitter->listParticles.at(i)->lifetime;
+
+				if (startChange <= actualLT && actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->size = base * (sizeMultiplier1 + ((sizeMultiplier2 - sizeMultiplier1) * ((actualLT - startChange) / timeForLerp))); //Lerp size multiplication
+				}
+			}
+		}
+		
 	}
 	else
 	{
@@ -1794,11 +1817,12 @@ void EmitterSize::Update(float dt, ParticleEmitter* emitter)
 
 void EmitterSize::OnInspector()
 {
-	ImGui::Checkbox("Progresive Scaling", &(this->progresive));
-	ImGui::SliderFloat("First Scale", &(this->sizeMultiplier1), 0.1f, 10.0f);
+	ImGui::Checkbox("Progresive Scaling ## SCALE", &(this->progresive));
+	ImGui::SliderFloat("First Scale ## SCALE", &(this->sizeMultiplier1), 0.1f, 10.0f);
 	if (this->progresive)
 	{
-		ImGui::SliderFloat("End Scale", &(this->sizeMultiplier2), 0.1f, 10.0f);
+		ImGui::Checkbox("Loop ## SCALE", &this->loop); ImGui::SameLine();
+		ImGui::SliderFloat("End Scale ## SCALE", &(this->sizeMultiplier2), 0.1f, 10.0f);
 		ImGui::SliderFloat("Start Change ##SCALE", &(this->startChange), 0.0f, (this->stopChange - 0.05f));
 		ImGui::SliderFloat("Stop Change ##SCALE", &(this->stopChange), this->startChange + 0.05f, 1.0f);
 	}	
@@ -1809,6 +1833,7 @@ void EmitterSize::OnInspector()
 EmitterColor::EmitterColor()
 {
 	progresive = false;
+	loop = false;
 	startChange = 0.0f; //Range from 0 to 1 as lifetime
 	stopChange = 1.0f; //Range from 0 to 1 as lifetime
 	color1 = { 1,1,1,1 };
@@ -1824,33 +1849,63 @@ void EmitterColor::Update(float dt, ParticleEmitter* emitter)
 {
 	if (progresive)
 	{
-		float timeForLerp = stopChange - startChange;
-		for (int i = 0; i < emitter->listParticles.size(); i++)
+		if(loop) 
 		{
-			float actualLT = emitter->listParticles.at(i)->lifetime;
-
-			if (startChange <= actualLT && actualLT <= stopChange)
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
 			{
-				emitter->listParticles.at(i)->color.r = color1.r + ((color2.r - color1.r) * ((actualLT - startChange) / timeForLerp)); //Lerp red
-				emitter->listParticles.at(i)->color.g = color1.g + ((color2.g - color1.g) * ((actualLT - startChange) / timeForLerp)); //Lerp green
-				emitter->listParticles.at(i)->color.b = color1.b + ((color2.b - color1.b) * ((actualLT - startChange) / timeForLerp)); //Lerp blue
-				emitter->listParticles.at(i)->color.a = color1.a + ((color2.a - color1.a) * ((actualLT - startChange) / timeForLerp)); //Lerp alpha
+				float actualLT = emitter->listParticles.at(i)->lifetime;
 
+				if (actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->color.r = color1.r + ((color2.r - color1.r) * ((actualLT - startChange) / timeForLerp)); //Lerp red
+					emitter->listParticles.at(i)->color.g = color1.g + ((color2.g - color1.g) * ((actualLT - startChange) / timeForLerp)); //Lerp green
+					emitter->listParticles.at(i)->color.b = color1.b + ((color2.b - color1.b) * ((actualLT - startChange) / timeForLerp)); //Lerp blue
+					emitter->listParticles.at(i)->color.a = color1.a + ((color2.a - color1.a) * ((actualLT - startChange) / timeForLerp)); //Lerp alpha
+
+				}
+				else
+				{
+					timeForLerp = 1.0f - stopChange;
+					emitter->listParticles.at(i)->color.r = color2.r + ((color1.r - color2.r) * ((actualLT - stopChange) / timeForLerp)); //Lerp red
+					emitter->listParticles.at(i)->color.g = color2.g + ((color1.g - color2.g) * ((actualLT - stopChange) / timeForLerp)); //Lerp green
+					emitter->listParticles.at(i)->color.b = color2.b + ((color1.b - color2.b) * ((actualLT - stopChange) / timeForLerp)); //Lerp blue
+					emitter->listParticles.at(i)->color.a = color2.a + ((color1.a - color2.a) * ((actualLT - stopChange) / timeForLerp)); //Lerp alpha
+				}
 			}
 		}
+		else
+		{
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
+			{
+				float actualLT = emitter->listParticles.at(i)->lifetime;
+
+				if (startChange <= actualLT && actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->color.r = color1.r + ((color2.r - color1.r) * ((actualLT - startChange) / timeForLerp)); //Lerp red
+					emitter->listParticles.at(i)->color.g = color1.g + ((color2.g - color1.g) * ((actualLT - startChange) / timeForLerp)); //Lerp green
+					emitter->listParticles.at(i)->color.b = color1.b + ((color2.b - color1.b) * ((actualLT - startChange) / timeForLerp)); //Lerp blue
+					emitter->listParticles.at(i)->color.a = color1.a + ((color2.a - color1.a) * ((actualLT - startChange) / timeForLerp)); //Lerp alpha
+
+				}
+			}
+		}
+		
 	}
 }
 
 void EmitterColor::OnInspector()
 {
-	ImGui::Checkbox("Progresive Color", &(this->progresive));
-	ImGui::ColorEdit4("First Color", &(this->color1));
+	ImGui::Checkbox("Progresive Color  ##COLOR", &(this->progresive));
+	ImGui::ColorEdit4("First Color  ##COLOR", &(this->color1));
 	if (this->progresive)
 	{
-		if (ImGui::ColorEdit4("End Color", &(this->color2)));
+		if (ImGui::ColorEdit4("End Color  ##COLOR", &(this->color2)));
 		{
 			this->color2 = this->color2;
 		}
+		ImGui::Checkbox("Loop ##COLOR", &this->loop);
 		ImGui::SliderFloat("Start Change ##COLOR", &(this->startChange), 0.0f, (this->stopChange - 0.05f));
 		ImGui::SliderFloat("End Change ##COLOR", &(this->stopChange), this->startChange + 0.05f, 1.0f);
 	}

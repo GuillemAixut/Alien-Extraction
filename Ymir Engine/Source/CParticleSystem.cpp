@@ -564,6 +564,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Bool size increases progresivly
 				json_object_set_boolean(child_object, "Progressive", eSize->progresive);
+				json_object_set_boolean(child_object, "Loop", eSize->loop);
 
 				//Scaling Factor
 				json_object_set_number(child_object, "Size1", eSize->sizeMultiplier1);
@@ -582,6 +583,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Bool size increases progresivly
 				json_object_set_boolean(child_object, "Progressive", eColor->progresive);
+				json_object_set_boolean(child_object, "Loop", eColor->loop);
 
 				//Colors
 				//InitialColor

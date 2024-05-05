@@ -248,6 +248,7 @@ struct EmitterSize : EmitterSetting
 
 	float3 originalSize; //Para gestionar si se escala el GameObject
 	bool progresive;
+	bool loop;
 	float startChange; //Range from 0 to 1 as lifetime
 	float stopChange; //Range from 0 to 1 as lifetime
 	float sizeMultiplier1;
@@ -264,6 +265,7 @@ struct EmitterColor : EmitterSetting
 	void OnInspector();
 
 	bool progresive;
+	bool loop;
 	float startChange; //Range from 0 to 1 as lifetime
 	float stopChange; //Range from 0 to 1 as lifetime
 	Color color1;

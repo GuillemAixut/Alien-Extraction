@@ -958,19 +958,19 @@ void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
 	go->tag = "SpitterAcidSpit";
 
 	float3 posVector = External->moduleMono->UnboxVector(position);
-	//Quat rotVector = Quat(0, 0, 0, 0);
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
 	float3 scaleVector = float3(2.5f, 2.5f, 2.5f);
 
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
 
 	CCollider* physBody;
-	physBody = new CCollider(go, BOX);
+	physBody = new CCollider(go, SPHERE);
 	//Change in the future
 	physBody->useGravity = true;
 	physBody->physBody->SetPosition(posVector);
-	physBody->physBody->SetRotation(rotVector.Normalized());
+	physBody->physBody->SetRotation(rotVector);
 	physBody->SetAsSensor(true);
 
 	go->AddComponent(physBody);
@@ -979,6 +979,42 @@ void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
 	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
 	const char* t = "SpitterAcidSpit";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateSpitterAcidRebound(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidRebound", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "SpitterAcidRebound";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(2.5f, 2.5f, 2.5f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+	//Change in the future
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	//It bounces off
+	//physBody->physBody->body->setRestitution(1.0f);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "SpitterAcidRebound";
 	Component* c = nullptr;
 	c = new CScript(go, t);
 	go->AddComponent(c);
