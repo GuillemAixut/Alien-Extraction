@@ -71,7 +71,7 @@ public class Door_Horizontal : YmirComponent
         
         timer -= Time.deltaTime; //Ejemplo: El timer inicia valiendo 6 
         
-        Debug.Log("onCollision: " + onCollision);
+        //Debug.Log("onCollision: " + onCollision);
     }
 
     public void OnCollisionStay(GameObject other)
