@@ -159,15 +159,35 @@ update_status ModulePhysics::PostUpdate(float dt)
 				CScript* scriptB = nullptr;
 
 				auto& collision = currentCollisions[i];
-				if (collision.first != nullptr)
-				{
-					//scriptA = dynamic_cast<CScript*>(collision.first->owner->GetComponent(ComponentType::SCRIPT));
+				
+				for (const auto& gameObject : App->scene->gameObjects) {
+					if (gameObject == collision.first->owner) {
+						if (collision.first != nullptr)
+						{
+							scriptA = dynamic_cast<CScript*>(collision.first->owner->GetComponent(ComponentType::SCRIPT));
+						}
+						else
+						{
+							continue;
+						}
+					}
+
 				}
 				
-				if (collision.second != nullptr)
-				{
-					//scriptB = dynamic_cast<CScript*>(collision.second->owner->GetComponent(ComponentType::SCRIPT));
+				for (const auto& gameObject : App->scene->gameObjects) {
+					if (gameObject == collision.second->owner) {
+						if (collision.second != nullptr)
+						{
+							scriptB = dynamic_cast<CScript*>(collision.second->owner->GetComponent(ComponentType::SCRIPT));
+						}
+						else
+						{
+							continue;
+						}
+					}
+
 				}
+							
 				if (scriptA != nullptr && scriptB != nullptr) {
 					scriptA->CollisionExitCallback(false, collision.second->owner);
 					scriptB->CollisionExitCallback(false, collision.first->owner);
