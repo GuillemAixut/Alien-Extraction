@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -60.834163665771484,
-        82.441146850585938,
-        1.3086616992950439
+        -58.728191375732422,
+        52.751602172851562,
+        -6.2452530860900879
     ],
     "Editor Camera Right (X)": [
-        -0.036514710634946823,
-        7.152557373046875e-07,
-        0.99934029579162598
+        -0.088208265602588654,
+        2.0563602447509766e-06,
+        0.99611204862594604
     ],
     "Editor Camera Up (Y)": [
-        0.6912720799446106,
-        0.72215878963470459,
-        0.025257745757699013
+        0.48689693212509155,
+        0.8724018931388855,
+        0.043114166706800461
     ],
     "Editor Camera Front (Z)": [
-        0.72167640924453735,
-        -0.69173240661621094,
-        0.026369696483016014
+        0.86899912357330322,
+        -0.48880070447921753,
+        0.076953098177909851
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,28 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
-            "Components": [],
+            "Parent UID": 1703030369,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
             "Children UID": [
                 366680627,
                 1398847280,
@@ -36,7 +57,8 @@
                 484997781,
                 232432059,
                 561936188,
-                2063663470
+                2063663470,
+                165934810
             ]
         },
         {
@@ -1279,13 +1301,13 @@
                         -1.5816255460782938e+38,
                         1.6815581571897805e-42,
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44
+                        1.6815581571897805e-42
                     ],
                     "Disabled color": [
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44,
+                        1.6815581571897805e-42,
                         -1.5816255460782938e+38,
-                        1.4012984643248171e-44
+                        1.6815581571897805e-42
                     ]
                 },
                 {
@@ -2393,8 +2415,8 @@
                         0
                     ],
                     "Rotation": [
-                        -44.565986633300781,
-                        -32.741519927978516,
+                        -44.565982818603516,
+                        -32.74151611328125,
                         -28.045000076293945
                     ],
                     "Scale": [
@@ -2541,13 +2563,15 @@
                     "ScriptName": "Door_Horizontal.cs",
                     "Active": 1,
                     "UID": 0,
-                    "inverted": false
+                    "fraction": 0
                 }
             ],
             "Children UID": [
                 1163680921,
                 902427818,
-                1106644159
+                1106644159,
+                326945755,
+                391482570
             ]
         },
         {
@@ -2566,10 +2590,10 @@
                     "Translation": [
                         0,
                         0,
-                        -3.5527136788005009e-15
+                        0
                     ],
                     "Rotation": [
-                        3.8302676585999507e-09,
+                        3.8302663263323211e-09,
                         0,
                         -0
                     ],
@@ -2680,7 +2704,7 @@
                     "Translation": [
                         0,
                         0,
-                        -9.6633812063373625e-13
+                        0
                     ],
                     "Rotation": [
                         -1.17295962809294e-06,
@@ -2854,6 +2878,66 @@
                     "Emissive_ID": 310,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
                     "Emissive_UID": 1442365833
+                }
+            ]
+        },
+        {
+            "Name": "End_Door2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 326945755,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 232432059,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        190
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "End_Door1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 391482570,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 232432059,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        -200
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
                 }
             ]
         },
@@ -3682,6 +3766,266 @@
                     "Diffuse_ID": 1849,
                     "Diffuse_Path": "Assets\/Particles\/rayos_PROVISIONAL.png",
                     "Diffuse_UID": 1744663689
+                }
+            ]
+        },
+        {
+            "Name": "PROP_LOW_AlienTrap",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 165934810,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1192284687,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        47.894058227539062,
+                        7.3423571586608887,
+                        50.4564208984375
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.040000021457672119,
+                        0.040000021457672119,
+                        0.040000021457672119
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Alien_Head_Trap.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "fraction": 0,
+                    "damage": 0
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        100,
+                        5,
+                        1000
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1235571974,
+                947326569,
+                1744201128
+            ]
+        },
+        {
+            "Name": "Head",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1235571974,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/PROP_LOW_AlienTrap.fbx",
+            "Parent UID": 165934810,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -9.0584575218599639e-07,
+                        -27.84956169128418,
+                        35.404155731201172
+                    ],
+                    "Rotation": [
+                        -90.000007629394531,
+                        0,
+                        0
+                    ],
+                    "Scale": [
+                        100,
+                        100,
+                        100
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1762183897,
+                    "Vertex Count": 1721,
+                    "Index Count": 5640
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1238,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_D.png",
+                    "Diffuse_UID": 1416381545,
+                    "Specular_ID": 1249,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_S.png",
+                    "Specular_UID": 1546459188,
+                    "Normal_ID": 1245,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_N.png",
+                    "Normal_UID": 1927410773,
+                    "Height_ID": 1241,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_H.png",
+                    "Height_UID": 1666073495,
+                    "Ambient_ID": 1234,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_A.png",
+                    "Ambient_UID": 1598381237
+                }
+            ]
+        },
+        {
+            "Name": "Tounge",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 947326569,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/PROP_LOW_AlienTrap.fbx",
+            "Parent UID": 165934810,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        -78.197463989257812,
+                        79.1025390625
+                    ],
+                    "Rotation": [
+                        -90.000007629394531,
+                        0,
+                        0
+                    ],
+                    "Scale": [
+                        99.999992370605469,
+                        99.999984741210938,
+                        99.999984741210938
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1240057372,
+                    "Vertex Count": 237,
+                    "Index Count": 468
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1238,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_D.png",
+                    "Diffuse_UID": 1416381545,
+                    "Specular_ID": 1249,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_S.png",
+                    "Specular_UID": 1546459188,
+                    "Normal_ID": 1245,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_N.png",
+                    "Normal_UID": 1927410773,
+                    "Height_ID": 1241,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_H.png",
+                    "Height_UID": 1666073495,
+                    "Ambient_ID": 1234,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Alien Head Trap\/TEX_PROP_AlienHeadTrap_A.png",
+                    "Ambient_UID": 1598381237
+                }
+            ]
+        },
+        {
+            "Name": "End Position",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1744201128,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 165934810,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        -78,
+                        291.405517578125
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
                 }
             ]
         }

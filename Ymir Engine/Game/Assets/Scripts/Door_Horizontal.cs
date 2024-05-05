@@ -9,95 +9,93 @@ using YmirEngine;
 
 public class Door_Horizontal : YmirComponent
 {
+    public enum DoorState
+    {
+        OPENING,
+        WAITING,
+        CLOSING,
+        CLOSED
+    }
+
+    private DoorState currentState;
+
+    public float fraction = 0f;
+
     float timer = 0;
     float animDuration = 3f;
-    float velocity = 20f;
-
-    bool inMovement;
-    bool closing;
 
     private GameObject lDoor;
+    private Vector3 initialPos_lDoor;
+    private GameObject end_lDoor;
     private GameObject rDoor;
-
-    private bool onCollision;
+    private Vector3 initialPos_rDoor;
+    private GameObject end_rDoor;
 
     public void Start()
     {
         lDoor = InternalCalls.CS_GetChild(gameObject, 0);
+        end_lDoor = InternalCalls.CS_GetChild(gameObject, 3);
         rDoor = InternalCalls.CS_GetChild(gameObject, 1);
+        end_rDoor = InternalCalls.CS_GetChild(gameObject, 4);
 
-        onCollision = false;
-        inMovement = false;
-        closing = false;
+        initialPos_lDoor = lDoor.transform.localPosition;
+        initialPos_rDoor = rDoor.transform.localPosition;
+
+        currentState = DoorState.CLOSED;
     }
 
     public void Update()
     {
-
-        if (timer > (animDuration / 3) * 2) //Ejemplo: Hasta el segundo 4 (6 a 4 segundos)
+        switch (currentState)
         {
-            lDoor.SetVelocity(lDoor.transform.GetForward() * velocity);
-            rDoor.SetVelocity(rDoor.transform.GetForward() * -velocity);
-            //Debug.Log("1. Opening: Time remaining " + timer);
+            case DoorState.OPENING:
+                timer += Time.deltaTime;
+                float fraction = timer / animDuration;
+                lDoor.transform.localPosition = Vector3.Lerp(initialPos_lDoor, end_lDoor.transform.localPosition, fraction);
+                rDoor.transform.localPosition = Vector3.Lerp(initialPos_rDoor, end_rDoor.transform.localPosition, fraction);
+                if (timer >= animDuration)
+                {
+                    currentState = DoorState.WAITING;
+                    timer = 0;
+                }
+                break;
+            case DoorState.WAITING:
+                timer += Time.deltaTime;
+                lDoor.transform.localPosition = end_lDoor.transform.localPosition;
+                rDoor.transform.localPosition = end_rDoor.transform.localPosition;
+                if (timer >= animDuration)
+                {
+                    currentState = DoorState.CLOSING;
+                    timer = 0;
+                }
+                break;
+            case DoorState.CLOSING:
+                timer += Time.deltaTime;
+                fraction = timer / animDuration;
+                lDoor.transform.localPosition = Vector3.Lerp(end_lDoor.transform.localPosition, initialPos_lDoor, fraction);
+                rDoor.transform.localPosition = Vector3.Lerp(end_rDoor.transform.localPosition, initialPos_rDoor, fraction);
+                if (timer >= animDuration)
+                {
+                    currentState = DoorState.CLOSED;
+                }
+                break;
+            case DoorState.CLOSED:
+                // Puerta cerrada, no hay acción necesaria
+                break;
         }
-        else if (timer > (animDuration / 3)) //Ejemplo: Desde el segundo 4 al segundo 2 (4 a 2 segundos)
-        {
-            lDoor.SetVelocity(Vector3.zero);
-            rDoor.SetVelocity(Vector3.zero);
-            lDoor.ClearForces();
-            rDoor.ClearForces();
-            //Debug.Log("2. Waiting: Time remaining " + timer);
-        }
-        else if(onCollision)
-        {
-            
-        }
-        else if (timer > 0f) //Ejemplo: Del segundo 2 al final (2 a 0 segundos)
-        {
-            closing = true;
-            lDoor.SetVelocity(lDoor.transform.GetForward() * -velocity);
-            rDoor.SetVelocity(rDoor.transform.GetForward() * velocity);
-            //Debug.Log("3. Closing: Time remaining " + timer);
-        }
-        else if (timer < 0f)
-        {
-            inMovement = false;
-            closing = false;
-            lDoor.SetVelocity(Vector3.zero);
-            rDoor.SetVelocity(Vector3.zero);
-            lDoor.ClearForces();
-            rDoor.ClearForces();
-        }
-        
-        timer -= Time.deltaTime; //Ejemplo: El timer inicia valiendo 6 
-        
-        Debug.Log("onCollision: " + onCollision);
     }
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")
+        if (other.Tag == "Player" && currentState == DoorState.CLOSED)
         {
-            onCollision = true;
+            currentState = DoorState.OPENING;
+            timer = 0;
         }
-
-        if (other.Tag == "Player" && !inMovement)
+        else if (other.Tag == "Player" && currentState == DoorState.CLOSING)
         {
-            timer = animDuration;
-            inMovement = true;
-        }
-        else if (other.Tag == "Player" && inMovement && closing)
-        {
-            timer = animDuration - timer;
-            closing = false;
-        }
-    }
-
-    public void OnCollisionExit(GameObject other) 
-    {
-        if(other.Tag == "Player")
-        {
-            onCollision = false;
+            currentState = DoorState.WAITING;
+            timer = 0;
         }
     }
 }
