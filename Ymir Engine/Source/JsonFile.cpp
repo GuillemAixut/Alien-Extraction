@@ -3642,6 +3642,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					EmitterSize* eSize = (EmitterSize*)instancia;
 
 					eSize->progresive = json_object_get_boolean(modulo, "Progressive");
+					eSize->loop = json_object_get_boolean(modulo, "Loop");
 					eSize->sizeMultiplier1 = (float)json_object_get_number(modulo, "Size1");
 					eSize->sizeMultiplier2 = (float)json_object_get_number(modulo, "Size2");
 					eSize->startChange = (float)json_object_get_number(modulo, "TimeStart");
@@ -3655,6 +3656,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					EmitterColor* eColor = (EmitterColor*)instancia;
 
 					eColor->progresive = json_object_get_boolean(modulo, "Progressive");
+					eColor->loop = json_object_get_boolean(modulo, "Loop");
 
 					eColor->startChange = (float)json_object_get_number(modulo, "TimeStart");
 					eColor->stopChange = (float)json_object_get_number(modulo, "TimeStop");
