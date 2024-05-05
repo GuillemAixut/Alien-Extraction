@@ -21,6 +21,7 @@
 #include "CS_Animation_Bindings.h"
 #include "CS_Particle_Bindings.h"
 #include "CS_NavMesh_Bindings.h"
+#include "CS_SaveLoad_Bindings.h"
 
 #include "PhysfsEncapsule.h"
 #include "ModuleEditor.h"
@@ -142,6 +143,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::get_Tag", GetTag);
 	mono_add_internal_call("YmirEngine.GameObject::GetChildrenByTag", GetChildrenByTag);
 
+#pragma endregion
 
 #pragma region UI
 
@@ -212,7 +214,6 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma endregion
 
-
 #pragma region GamePad
 
 	mono_add_internal_call("YmirEngine.Input::GetGamepadButton", GetGamepadButton);
@@ -253,7 +254,6 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma endregion
 
-
 #pragma region Pathfinder
 	mono_add_internal_call("YmirEngine.PathFinding::CalculateRandomPath", CS_CalculateRandomPath);
 	mono_add_internal_call("YmirEngine.PathFinding::CalculatePath", CS_CalculatePath);
@@ -278,6 +278,25 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma region Enemies
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidSpit", CreateSpitterAcidSpit);
+
+#pragma endregion
+
+#pragma region SaveLoad
+
+	mono_add_internal_call("YmirEngine.SaveLoad::CreateSaveGameFile", CreateSaveGameFile);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveInt", SaveGameInt);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveFloat", SaveGameFloat);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveBool", SaveGameBool);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveString", SaveGameString);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveIntArray", SaveGameIntArray);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveFloatArray", SaveGameFloatArray);
+
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadInt", LoadGameInt);
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadFloat", LoadGameFloat);
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadBool", LoadGameBool);
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadString", LoadGameString);
+	//mono_add_internal_call("YmirEngine.SaveLoad::LoadIntArray", LoadGameIntArray);
+	//mono_add_internal_call("YmirEngine.SaveLoad::LoadFloatArray", LoadGameFloatArray);
 
 #pragma endregion
 

@@ -445,7 +445,6 @@ void ClearForces(MonoObject* obj) {
 		rigidbody->physBody->body->setAngularVelocity(btVector3(0, 0, 0));
 	}
 
-
 }
 
 //bool Raycast(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, std::vector<float3> hitPoints, std::vector<MonoObject*> hits) {

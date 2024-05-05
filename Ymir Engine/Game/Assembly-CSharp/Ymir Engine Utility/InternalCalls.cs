@@ -336,6 +336,19 @@ namespace YmirEngine
         public static extern bool CheckUI(object goTarget, object goOrigin);
     }
 
+
+    /// <summary>
+    /// Provides methods for Save and Load operations.
+    /// </summary>
+    public class SaveLoad
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void Save();
+    }
+
     /// <summary>
     /// Provides methods for handling input.
     /// </summary>
