@@ -52,10 +52,16 @@ namespace YmirEngine
         public static extern void CreateAcidPuddle(object name, object position);
 
         /// <summary>
-        /// Creates spitter acid spit.
+        /// Creates spitter acid spit attack.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void CreateSpitterAcidSpit(object position, object rotation);
+
+        /// <summary>
+        /// Creates spitter acid rebound attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateSpitterAcidRebound(object position, object rotation);
 
         /// <summary>
         /// Destroys a game object.

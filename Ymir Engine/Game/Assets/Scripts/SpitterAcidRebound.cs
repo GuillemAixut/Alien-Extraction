@@ -5,13 +5,13 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using YmirEngine;
 
-public class SpitterAcidSpit : YmirComponent
+public class SpitterAcidRebound : YmirComponent
 {
     public GameObject thisReference = null;
 
     private float movementSpeed;
 
-	private float damage = 300f;
+    private float damage = 275f;
 
     private GameObject player;
 
@@ -22,20 +22,20 @@ public class SpitterAcidSpit : YmirComponent
     private float destroyTimer;
 
     public void Start()
-	{
-		movementSpeed = 7000f;
+    {
+        movementSpeed = 50f;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
         destroyed = false;
         destroyTimer = 0f;
-	}
+    }
 
-	public void Update()
-	{
+    public void Update()
+    {
         destroyTimer += Time.deltaTime;
 
-        if (destroyed || destroyTimer >= 3f) 
+        if (destroyed || destroyTimer >= 3f)
         {
             InternalCalls.Destroy(gameObject);
         }
