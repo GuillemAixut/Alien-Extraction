@@ -22,7 +22,7 @@ public class Door_Horizontal : YmirComponent
     public float fraction = 0f;
 
     float timer = 0;
-    float animDuration = 3f;
+    float animDuration = 1f;
 
     private GameObject lDoor;
     private Vector3 initialPos_lDoor;
@@ -50,7 +50,7 @@ public class Door_Horizontal : YmirComponent
         {
             case DoorState.OPENING:
                 timer += Time.deltaTime;
-                float fraction = timer / animDuration;
+                float fraction = Mathf.Clamp01(timer / animDuration);
                 lDoor.transform.localPosition = Vector3.Lerp(initialPos_lDoor, end_lDoor.transform.localPosition, fraction);
                 rDoor.transform.localPosition = Vector3.Lerp(initialPos_rDoor, end_rDoor.transform.localPosition, fraction);
                 if (timer >= animDuration)
@@ -71,7 +71,7 @@ public class Door_Horizontal : YmirComponent
                 break;
             case DoorState.CLOSING:
                 timer += Time.deltaTime;
-                fraction = timer / animDuration;
+                fraction = Mathf.Clamp01(timer / animDuration);
                 lDoor.transform.localPosition = Vector3.Lerp(end_lDoor.transform.localPosition, initialPos_lDoor, fraction);
                 rDoor.transform.localPosition = Vector3.Lerp(end_rDoor.transform.localPosition, initialPos_rDoor, fraction);
                 if (timer >= animDuration)
@@ -94,8 +94,8 @@ public class Door_Horizontal : YmirComponent
         }
         else if (other.Tag == "Player" && currentState == DoorState.CLOSING)
         {
-            currentState = DoorState.WAITING;
-            timer = 0;
+            currentState = DoorState.OPENING;
+            timer = animDuration - timer;
         }
     }
 }
