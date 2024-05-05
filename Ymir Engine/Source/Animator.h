@@ -60,7 +60,7 @@ private:
 public:
 
 	// List of animations
-	std::vector<ResourceAnimation> animations;
+	std::vector<ResourceAnimation*> animations;
 
 	ResourceAnimation* currentAnimation = nullptr;
 	ResourceAnimation* previousAnimation = nullptr;

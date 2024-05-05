@@ -1,5 +1,6 @@
 #include "Animator.h"
 #include "Log.h"
+#include "ModuleResourceManager.h"
 
 #include "External/mmgr/mmgr.h"
 
@@ -31,7 +32,13 @@ Animator::Animator(ResourceAnimation* animation)
 
 Animator::~Animator()
 {
+	for (auto& it = animations.begin(); it != animations.end(); ++it) 
+	{
+		External->resourceManager->UnloadResource((*it)->GetUID());
+		(*it) = nullptr;
+	}
 
+	ClearVec(animations);
 }
 
 void Animator::UpdateAnimation(float dt)
@@ -307,8 +314,8 @@ void Animator::CalculateBoneTransform(const AssimpNodeData* node, float4x4 paren
 bool Animator::FindAnimation(std::string aniationName) {
 
 	for (int i = 0; i < animations.size(); i++) {
-		if (animations[i].name == aniationName) {
-			return true;;
+		if (animations[i]->name == aniationName) {
+			return true;
 		} 
 	}
 

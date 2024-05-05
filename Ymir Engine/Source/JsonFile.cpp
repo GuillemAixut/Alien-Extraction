@@ -1257,7 +1257,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		JSON_Array* sizeArray = json_value_get_array(sizeArrayValue);
 
 		for (int i = 0; i < cAnimation->animator->animations.size(); i++) {
-			json_array_append_string(sizeArray, cAnimation->animator->animations[i].GetLibraryFilePath().c_str());
+			json_array_append_string(sizeArray, cAnimation->animator->animations[i]->GetLibraryFilePath().c_str());
 		}
 		json_object_set_value(componentObject, "Paths", sizeArrayValue);
 
@@ -1265,7 +1265,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		JSON_Array* sizeArrayAssets = json_value_get_array(sizeArrayValueAssets);
 
 		for (int i = 0; i < cAnimation->animator->animations.size(); i++) {
-			json_array_append_string(sizeArrayAssets, cAnimation->animator->animations[i].GetAssetsFilePath().c_str());
+			json_array_append_string(sizeArrayAssets, cAnimation->animator->animations[i]->GetAssetsFilePath().c_str());
 		}
 		json_object_set_value(componentObject, "AssetsPath", sizeArrayValueAssets);
 

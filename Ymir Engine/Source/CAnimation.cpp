@@ -44,12 +44,12 @@ void CAnimation::Update()
 
 void CAnimation::AddAnimation(ResourceAnimation&newAnimation) {
     for (int i = 0; i < animator->animations.size(); i++) {
-        if (newAnimation.name == animator->animations[i].name) {
+        if (newAnimation.name == animator->animations[i]->name) {
             newAnimation.name.append("_Copy");
         }
     }
 
-    animator->animations.push_back(newAnimation);
+    animator->animations.push_back(&newAnimation);
 
     if (animator->GetCurrentAnimation() == nullptr)
         animator->SetCurrentAnimation(&newAnimation);
@@ -67,8 +67,8 @@ void CAnimation::PlayAnimation(std::string animationName)
     ResourceAnimation* animationToPlay = nullptr;
 
     for (int i = 0; i < animator->animations.size(); i++) {
-        if (animator->animations[i].name == animationName) {
-            animationToPlay = &animator->animations[i];
+        if (animator->animations[i]->name == animationName) {
+            animationToPlay = animator->animations[i];
             break;
         }
     }
@@ -100,15 +100,15 @@ void CAnimation::SetLoop(std::string animationName, bool loop) {
 
     if (animationName != "") {
         for (int i = 0; i < animator->animations.size(); i++) {
-            if (animator->animations[i].name == animationName) {
-                animator->animations[i].loop = loop;
+            if (animator->animations[i]->name == animationName) {
+                animator->animations[i]->loop = loop;
                 return;
             }
         }
     }
     else {
         for (int i = 0; i < animator->animations.size(); i++) {
-            animator->animations[i].loop = loop;
+            animator->animations[i]->loop = loop;
         }
     }
 }
@@ -117,15 +117,15 @@ void CAnimation::SetBackwards(std::string animationName, bool backwards) {
 
     if (animationName != "") {
         for (int i = 0; i < animator->animations.size(); i++) {
-            if (animator->animations[i].name == animationName) {
-                animator->animations[i].backwards = backwards;
+            if (animator->animations[i]->name == animationName) {
+                animator->animations[i]->backwards = backwards;
                 return;
             }
         }
     }
     else {
         for (int i = 0; i < animator->animations.size(); i++) {
-            animator->animations[i].backwards = backwards;
+            animator->animations[i]->backwards = backwards;
         }
     }
 }
@@ -134,15 +134,15 @@ void CAnimation::SetPingPong(std::string animationName, bool pingPong) {
 
     if (animationName != "") {
         for (int i = 0; i < animator->animations.size(); i++) {
-            if (animator->animations[i].name == animationName) {
-                animator->animations[i].pingPong = pingPong;
+            if (animator->animations[i]->name == animationName) {
+                animator->animations[i]->pingPong = pingPong;
                 return;
             }
         }
     }
     else {
         for (int i = 0; i < animator->animations.size(); i++) {
-            animator->animations[i].pingPong = pingPong;
+            animator->animations[i]->pingPong = pingPong;
         }
     }
 }
@@ -151,15 +151,15 @@ void CAnimation::SetSpeed(std::string animationName, float speed) {
 
     if (animationName != "") {
         for (int i = 0; i < animator->animations.size(); i++) {
-            if (animator->animations[i].name == animationName) {
-                animator->animations[i].speed = speed;
+            if (animator->animations[i]->name == animationName) {
+                animator->animations[i]->speed = speed;
                 return;
             }
         }
     }
     else {
         for (int i = 0; i < animator->animations.size(); i++) {
-            animator->animations[i].speed = speed;
+            animator->animations[i]->speed = speed;
         }
     }
 }
@@ -170,15 +170,15 @@ void CAnimation::AddBlendOption(std::string animationName, std::string blendName
 
     if (animationName != "") {
         for (int i = 0; i < animator->animations.size(); i++) {
-            if (animator->animations[i].name == animationName) {
-                animator->animations[i].blendMap.insert(std::make_pair(blendName, frames));
+            if (animator->animations[i]->name == animationName) {
+                animator->animations[i]->blendMap.insert(std::make_pair(blendName, frames));
                 return;
             }
         }
     }
     else {
         for (int i = 0; i < animator->animations.size(); i++) {
-            animator->animations[i].blendMap.insert(std::make_pair(blendName, frames));;
+            animator->animations[i]->blendMap.insert(std::make_pair(blendName, frames));;
         }
     }
 }
@@ -187,15 +187,15 @@ void CAnimation::SetResetToZero(std::string animationName, bool resetToZero) {
 
     if (animationName != "") {
         for (int i = 0; i < animator->animations.size(); i++) {
-            if (animator->animations[i].name == animationName) {
-                animator->animations[i].resetToZero = resetToZero;
+            if (animator->animations[i]->name == animationName) {
+                animator->animations[i]->resetToZero = resetToZero;
                 return;
             }
         }
     }
     else {
         for (int i = 0; i < animator->animations.size(); i++) {
-            animator->animations[i].resetToZero = resetToZero;
+            animator->animations[i]->resetToZero = resetToZero;
         }
     }
 }
@@ -252,7 +252,7 @@ void CAnimation::OnInspector() {
 
         std::string animationName;
 
-        animationName = (selectedAnimation == -1) ? "None (Select animation)" : animator->animations[selectedAnimation].name;
+        animationName = (selectedAnimation == -1) ? "None (Select animation)" : animator->animations[selectedAnimation]->name;
 
         ImGui::Button("Drop .yanim to Add animation", ImVec2(200, 50));
         YAnimDragDropTarget();
@@ -264,7 +264,7 @@ void CAnimation::OnInspector() {
 
                 isSelected = (selectedAnimation == i) ? true : false;
 
-                ImGui::Checkbox(animator->animations[i].name.c_str(), &isSelected);
+                ImGui::Checkbox(animator->animations[i]->name.c_str(), &isSelected);
                 ImGui::SameLine(); 
 
                 if (ImGui::IsItemClicked()) {
@@ -300,7 +300,7 @@ void CAnimation::OnInspector() {
             ImGui::Spacing();
             ImGui::Spacing();
 
-            if (ImGui::InputText("Name", &animator->animations[selectedAnimation].name)) {
+            if (ImGui::InputText("Name", &animator->animations[selectedAnimation]->name)) {
                 //std::string assetsPath = External->fileSystem->assetsPath + animator->animations[selectedAnimation].name;
                 //External->fileSystem->SaveAnimationToFile(&animator->animations[selectedAnimation], assetsPath);
             }
@@ -309,7 +309,7 @@ void CAnimation::OnInspector() {
             ImGui::Separator();
             ImGui::Spacing();
 
-            if (ImGui::SliderFloat("Playback Time", &animator->animations[selectedAnimation].currentTime, .0f, animator->animations[selectedAnimation].GetDuration())) {
+            if (ImGui::SliderFloat("Playback Time", &animator->animations[selectedAnimation]->currentTime, .0f, animator->animations[selectedAnimation]->GetDuration())) {
 
             }
 
@@ -317,14 +317,14 @@ void CAnimation::OnInspector() {
             ImGui::Separator();
             ImGui::Spacing();
 
-            if (ImGui::DragFloat("Speed", &animator->animations[selectedAnimation].speed, 1.0f, .0f, 100.0f)) {
+            if (ImGui::DragFloat("Speed", &animator->animations[selectedAnimation]->speed, 1.0f, .0f, 100.0f)) {
 
             }
 
-            ImGui::Checkbox("Loop", &animator->animations[selectedAnimation].loop);
+            ImGui::Checkbox("Loop", &animator->animations[selectedAnimation]->loop);
 
             if (ImGui::IsItemClicked()) {
-                !animator->animations[selectedAnimation].loop;
+                !animator->animations[selectedAnimation]->loop;
             }
 
             ImGui::SameLine();
@@ -337,10 +337,10 @@ void CAnimation::OnInspector() {
                 ImGui::EndTooltip();
             }
 
-            ImGui::Checkbox("PingPong", &animator->animations[selectedAnimation].pingPong);
+            ImGui::Checkbox("PingPong", &animator->animations[selectedAnimation]->pingPong);
 
             if (ImGui::IsItemClicked()) {
-                !animator->animations[selectedAnimation].pingPong;
+                !animator->animations[selectedAnimation]->pingPong;
             }
 
             ImGui::SameLine();
@@ -353,10 +353,10 @@ void CAnimation::OnInspector() {
                 ImGui::EndTooltip();
             }
 
-            ImGui::Checkbox("Backwards", &animator->animations[selectedAnimation].backwards);
+            ImGui::Checkbox("Backwards", &animator->animations[selectedAnimation]->backwards);
 
             if (ImGui::IsItemClicked()) {
-                !animator->animations[selectedAnimation].backwards;
+                !animator->animations[selectedAnimation]->backwards;
             }
 
             ImGui::SameLine();
@@ -371,10 +371,10 @@ void CAnimation::OnInspector() {
 
             ImGui::Spacing();
 
-            ImGui::Checkbox("Ease-In", &animator->animations[selectedAnimation].easeIn);
+            ImGui::Checkbox("Ease-In", &animator->animations[selectedAnimation]->easeIn);
 
             if (ImGui::IsItemClicked()) {
-                !animator->animations[selectedAnimation].easeIn;
+                !animator->animations[selectedAnimation]->easeIn;
             }
 
             ImGui::SameLine();
@@ -389,13 +389,13 @@ void CAnimation::OnInspector() {
 
             ImGui::SameLine();
 
-            ImGui::InputFloat("Factor", &animator->animations[selectedAnimation].easeInMultiplier);
+            ImGui::InputFloat("Factor", &animator->animations[selectedAnimation]->easeInMultiplier);
 
 
-            ImGui::Checkbox("Ease-Out", &animator->animations[selectedAnimation].easeOut);
+            ImGui::Checkbox("Ease-Out", &animator->animations[selectedAnimation]->easeOut);
 
             if (ImGui::IsItemClicked()) {
-                !animator->animations[selectedAnimation].easeOut;
+                !animator->animations[selectedAnimation]->easeOut;
             }
 
             ImGui::SameLine();
@@ -410,7 +410,7 @@ void CAnimation::OnInspector() {
 
             ImGui::SameLine();
 
-            ImGui::InputFloat("Factor", &animator->animations[selectedAnimation].easeOutMultiplier);
+            ImGui::InputFloat("Factor", &animator->animations[selectedAnimation]->easeOutMultiplier);
 
             ImGui::Spacing();
             ImGui::Separator();
@@ -419,7 +419,7 @@ void CAnimation::OnInspector() {
             ImGui::Unindent();
 
             if (ImGui::Button("Play")) {
-                animator->PlayAnimation(&animator->animations[selectedAnimation]);
+                animator->PlayAnimation(animator->animations[selectedAnimation]);
 
             }
 
