@@ -1,9 +1,9 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -35.269416809082031,
-        47.025890350341797,
-        97.970596313476562
+        -35.374374389648438,
+        47.16583251953125,
+        98.26214599609375
     ],
     "Editor Camera Right (X)": [
         0.94088733196258545,
@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2013757,
+            "UID": 1218771738,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -41,7 +41,7 @@
             "UID": 173788554,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2013757,
+            "Parent UID": 1218771738,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52,9 +52,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -79,17 +79,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        -1.4361705780174816e-07,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361705780174816e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -108,7 +108,7 @@
             "UID": 1904908806,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2013757,
+            "Parent UID": 1218771738,
             "Components": [
                 {
                     "Type": "Transform",
@@ -145,6 +145,12 @@
                         1213,
                         618
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Crafting.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ],
             "Children UID": [
@@ -312,7 +318,7 @@
             ]
         },
         {
-            "Name": "Item (2)",
+            "Name": "Alien Skin (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1127923513,
@@ -590,9 +596,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -607,7 +613,7 @@
             ]
         },
         {
-            "Name": "Item (3)",
+            "Name": "Alien Skin (2)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1941586841,
@@ -885,9 +891,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -902,7 +908,7 @@
             ]
         },
         {
-            "Name": "Item (4)",
+            "Name": "Alien Exocranium (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 589203257,
@@ -1180,9 +1186,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -1197,7 +1203,7 @@
             ]
         },
         {
-            "Name": "Item (5)",
+            "Name": "Armor",
             "Static": false,
             "Tag": "Untagged",
             "UID": 73809675,
@@ -1475,9 +1481,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -1546,7 +1552,7 @@
             ]
         },
         {
-            "Name": "Item (6)",
+            "Name": "Alien Skin (3)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 883046283,
@@ -1824,9 +1830,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -1841,7 +1847,7 @@
             ]
         },
         {
-            "Name": "Item (7)",
+            "Name": "Alien Acid Vesicle (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1792022099,
@@ -2119,9 +2125,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -2136,7 +2142,7 @@
             ]
         },
         {
-            "Name": "Item (8)",
+            "Name": "Grenade",
             "Static": false,
             "Tag": "Untagged",
             "UID": 388383255,
@@ -2414,9 +2420,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -2485,7 +2491,7 @@
             ]
         },
         {
-            "Name": "Item (9)",
+            "Name": "Alien Claw (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 584613517,
@@ -2763,9 +2769,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -2780,7 +2786,7 @@
             ]
         },
         {
-            "Name": "Item (10)",
+            "Name": "Alien Tail tip (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1312694946,
@@ -3058,9 +3064,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -3075,7 +3081,7 @@
             ]
         },
         {
-            "Name": "Item (11)",
+            "Name": "Baker House",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1838336280,
@@ -3353,9 +3359,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -3425,7 +3431,7 @@
             ]
         },
         {
-            "Name": "Item (12)",
+            "Name": "Alien Claw (2)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 312764288,
@@ -3703,9 +3709,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -3720,7 +3726,7 @@
             ]
         },
         {
-            "Name": "Item (27)",
+            "Name": "Alien Claw",
             "Static": false,
             "Tag": "Untagged",
             "UID": 774948004,
@@ -3998,9 +4004,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4015,7 +4021,7 @@
             ]
         },
         {
-            "Name": "Item (28)",
+            "Name": "Alien Aluminium Bone (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 358711418,
@@ -4293,9 +4299,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4310,7 +4316,7 @@
             ]
         },
         {
-            "Name": "Item (29)",
+            "Name": "Offensive Chip",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1000002366,
@@ -4588,9 +4594,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4660,7 +4666,7 @@
             ]
         },
         {
-            "Name": "Item (30)",
+            "Name": "Alien Exocranium (2)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1965830013,
@@ -4938,9 +4944,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4955,7 +4961,7 @@
             ]
         },
         {
-            "Name": "Item (31)",
+            "Name": "Alien Exocranium",
             "Static": false,
             "Tag": "Untagged",
             "UID": 314169173,
@@ -5233,9 +5239,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -5250,7 +5256,7 @@
             ]
         },
         {
-            "Name": "Item (32)",
+            "Name": "Alien Aluminium Bone",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1817038436,
@@ -5528,9 +5534,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -5545,7 +5551,7 @@
             ]
         },
         {
-            "Name": "Item (33)",
+            "Name": "Defensive Chip",
             "Static": false,
             "Tag": "Untagged",
             "UID": 18267580,
@@ -5823,9 +5829,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -5896,7 +5902,7 @@
             ]
         },
         {
-            "Name": "Item (34)",
+            "Name": "Alien Skin (4)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1558854855,
@@ -6174,9 +6180,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -6191,7 +6197,7 @@
             ]
         },
         {
-            "Name": "Item (35)",
+            "Name": "Alien Skin",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1804950507,
@@ -6469,9 +6475,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -6486,7 +6492,7 @@
             ]
         },
         {
-            "Name": "Item (36)",
+            "Name": "Alien Acid Vesicle",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1534675276,
@@ -6764,9 +6770,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -6781,7 +6787,7 @@
             ]
         },
         {
-            "Name": "Item (37)",
+            "Name": "Alien Tail tip",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1514810658,
@@ -7059,9 +7065,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -7076,7 +7082,7 @@
             ]
         },
         {
-            "Name": "Item (38)",
+            "Name": "Resin Vessel",
             "Static": false,
             "Tag": "Untagged",
             "UID": 838884383,
@@ -7354,9 +7360,9 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "MATERIAL",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -7717,7 +7723,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -8012,7 +8018,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -8307,7 +8313,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -8602,7 +8608,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -8897,7 +8903,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -9192,7 +9198,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -9487,7 +9493,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -9782,7 +9788,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -10077,7 +10083,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -10372,7 +10378,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -10667,7 +10673,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -10962,7 +10968,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -11257,7 +11263,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -11552,7 +11558,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -11847,7 +11853,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
@@ -12194,7 +12200,7 @@
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
                     "enumRarity": "",
-                    "menuName": "Inventory Menu",
+                    "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "itemType": 0,
                     "itemRarity": 0,
