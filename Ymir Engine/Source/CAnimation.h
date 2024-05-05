@@ -26,7 +26,7 @@ public:
 	void OnInspector() override;
 	
 	// Add animation to animations list
-	void AddAnimation(ResourceAnimation &newAnimation);
+	void AddAnimation(ResourceAnimation* newAnimation);
 
 	void RemoveAnimation(int ID);
 

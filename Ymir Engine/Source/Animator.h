@@ -36,13 +36,13 @@ public:
 
 	void CalculateBoneTransform(const AssimpNodeData* node, float4x4 parentTransform);
 
-	std::vector<float4x4> GetFinalBoneMatrices() { return finalBoneMatrices; }
+	std::vector<float4x4> GetFinalBoneMatrices();
 
-	void SetCurrentAnimation(ResourceAnimation* animation) { currentAnimation = animation; }
-	ResourceAnimation* GetCurrentAnimation() { return currentAnimation; }
+	void SetCurrentAnimation(ResourceAnimation* animation);
+	ResourceAnimation* GetCurrentAnimation();
 
-	void SetPreviousAnimation(ResourceAnimation* animation) { previousAnimation = animation; }
-	ResourceAnimation* GetPreviousAnimation() { return previousAnimation; }
+	void SetPreviousAnimation(ResourceAnimation* animation);
+	ResourceAnimation* GetPreviousAnimation();
 
 	bool FindAnimation(std::string aniationName);
 

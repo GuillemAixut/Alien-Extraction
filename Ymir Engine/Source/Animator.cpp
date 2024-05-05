@@ -296,8 +296,6 @@ void Animator::CalculateBoneTransform(const AssimpNodeData* node, float4x4 paren
 
 	float4x4 globalTransform = parentTransform * nodeTransform;
 	
-	
-
 	std::map<std::string, BoneInfo> boneInfoMap = currentAnimation->GetBoneIDMap();
 	if (boneInfoMap.find(nodeName) != boneInfoMap.end()) {
 		int index = boneInfoMap[nodeName].id;
@@ -309,6 +307,31 @@ void Animator::CalculateBoneTransform(const AssimpNodeData* node, float4x4 paren
 
 		CalculateBoneTransform(&node->children[i], globalTransform);
 	}
+}
+
+std::vector<float4x4> Animator::GetFinalBoneMatrices()
+{
+	return finalBoneMatrices;
+}
+
+void Animator::SetCurrentAnimation(ResourceAnimation* animation)
+{
+	currentAnimation = animation;
+}
+
+ResourceAnimation* Animator::GetCurrentAnimation()
+{
+	return currentAnimation;
+}
+
+void Animator::SetPreviousAnimation(ResourceAnimation* animation)
+{
+	previousAnimation = animation;
+}
+
+ResourceAnimation* Animator::GetPreviousAnimation()
+{
+	return previousAnimation;
 }
 
 bool Animator::FindAnimation(std::string aniationName) {

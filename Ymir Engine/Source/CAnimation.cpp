@@ -42,17 +42,17 @@ void CAnimation::Update()
     animator->UpdateAnimation(External->GetDT());
 }
 
-void CAnimation::AddAnimation(ResourceAnimation&newAnimation) {
+void CAnimation::AddAnimation(ResourceAnimation* newAnimation) {
     for (int i = 0; i < animator->animations.size(); i++) {
-        if (newAnimation.name == animator->animations[i]->name) {
-            newAnimation.name.append("_Copy");
+        if (newAnimation->name == animator->animations[i]->name) {
+            newAnimation->name.append("_Copy");
         }
     }
 
-    animator->animations.push_back(&newAnimation);
+    animator->animations.push_back(newAnimation);
 
     if (animator->GetCurrentAnimation() == nullptr)
-        animator->SetCurrentAnimation(&newAnimation);
+        animator->SetCurrentAnimation(newAnimation);
 }
 
 void CAnimation::RemoveAnimation(int ID) {
@@ -228,7 +228,7 @@ void CAnimation::YAnimDragDropTarget() {
             LOG("File path: %s", libraryFilePathDrop.c_str());
 
             ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(libraryFilePathDrop, ResourceType::ANIMATION, mOwner->UID);
-            AddAnimation(*rAnim);
+            AddAnimation(rAnim);
         }
         ImGui::EndDragDropTarget();
     }

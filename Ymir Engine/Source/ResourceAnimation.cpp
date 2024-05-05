@@ -45,6 +45,10 @@ bool ResourceAnimation::LoadInMemory()
 
 bool ResourceAnimation::UnloadFromMemory()
 {
+	blendMap.clear();
+	boneInfoMap.clear();
+	ClearVec(bones);
+
 	return false;
 }
 

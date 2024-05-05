@@ -268,7 +268,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 						RELEASE(rAnim);
 
 						ResourceAnimation* rAnimation = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(assetsPath, ResourceType::ANIMATION, UID);
-						cAnim->AddAnimation(*rAnimation);
+						cAnim->AddAnimation(rAnimation);
 					}
 				}
 			}
