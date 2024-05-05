@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -55.340080261230469,
-        13.827469825744629,
-        34.148757934570312
+        -58.728191375732422,
+        52.751602172851562,
+        -6.2452530860900879
     ],
     "Editor Camera Right (X)": [
-        0.01784350723028183,
-        1.73225998878479e-06,
-        0.99984920024871826
+        -0.088208265602588654,
+        2.0563602447509766e-06,
+        0.99611204862594604
     ],
     "Editor Camera Up (Y)": [
-        0.31027087569236755,
-        0.9506373405456543,
-        -0.0055388025939464569
+        0.48689693212509155,
+        0.8724018931388855,
+        0.043114166706800461
     ],
     "Editor Camera Front (Z)": [
-        0.95048457384109497,
-        -0.31031951308250427,
-        -0.016961997374892235
+        0.86899912357330322,
+        -0.48880070447921753,
+        0.076953098177909851
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 1192284687,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 655059263,
+            "Parent UID": 1703030369,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2562,13 +2562,16 @@
                     "Type": "Script",
                     "ScriptName": "Door_Horizontal.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "fraction": 0
                 }
             ],
             "Children UID": [
                 1163680921,
                 902427818,
-                1106644159
+                1106644159,
+                326945755,
+                391482570
             ]
         },
         {
@@ -2587,10 +2590,10 @@
                     "Translation": [
                         0,
                         0,
-                        -3.5527136788005009e-15
+                        0
                     ],
                     "Rotation": [
-                        3.8302676585999507e-09,
+                        3.8302663263323211e-09,
                         0,
                         -0
                     ],
@@ -2701,7 +2704,7 @@
                     "Translation": [
                         0,
                         0,
-                        -9.6633812063373625e-13
+                        0
                     ],
                     "Rotation": [
                         -1.17295962809294e-06,
@@ -2875,6 +2878,66 @@
                     "Emissive_ID": 310,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
                     "Emissive_UID": 1442365833
+                }
+            ]
+        },
+        {
+            "Name": "End_Door2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 326945755,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 232432059,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        190
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "End_Door1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 391482570,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 232432059,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        -200
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
                 }
             ]
         },
@@ -3719,9 +3782,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -31.651346206665039,
-                        7.3423080444335938,
-                        20.879337310791016
+                        47.894058227539062,
+                        7.3423571586608887,
+                        50.4564208984375
                     ],
                     "Rotation": [
                         -0,
@@ -3739,7 +3802,8 @@
                     "ScriptName": "Alien_Head_Trap.cs",
                     "Active": 1,
                     "UID": 0,
-                    "fraction": 0
+                    "fraction": 0,
+                    "damage": 0
                 },
                 {
                     "World gravity": [
