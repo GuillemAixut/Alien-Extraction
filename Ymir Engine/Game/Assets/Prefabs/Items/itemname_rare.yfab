@@ -1,132 +1,10 @@
 {
-    "NavMesh": "",
-    "Editor Camera Position": [
-        -3.2487821578979492,
-        3.7520461082458496,
-        6.0201992988586426
-    ],
-    "Editor Camera Right (X)": [
-        0.91314542293548584,
-        -6.4074993133544922e-07,
-        0.40778744220733643
-    ],
-    "Editor Camera Up (Y)": [
-        0.17446550726890564,
-        0.9038841724395752,
-        -0.39067363739013672
-    ],
-    "Editor Camera Front (Z)": [
-        0.36856552958488464,
-        -0.42786049842834473,
-        -0.82531768083572388
-    ],
-    "Hierarchy": [
+    "Prefab": [
         {
-            "Name": "Scene",
+            "Name": "itemname_rare",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1661175982,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1135718885,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1236412811,
-                103971677
-            ]
-        },
-        {
-            "Name": "Main Camera",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1236412811,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1661175982,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -8.9128007888793945,
-                        1.4173874855041504,
-                        11.511133193969727
-                    ],
-                    "Rotation": [
-                        180,
-                        40.000007629394531,
-                        180
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Audio listener",
-                    "Active": 1,
-                    "Default Listener": 1
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
-                },
-                {
-                    "Type": "Camera",
-                    "Active": 1,
-                    "Right": [
-                        0.76604437828063965,
-                        1.4361705780174816e-07,
-                        0.64278769493103027
-                    ],
-                    "Up": [
-                        -6.696972576492044e-08,
-                        1,
-                        -1.4361705780174816e-07
-                    ],
-                    "Front": [
-                        0.64278769493103027,
-                        -6.696972576492044e-08,
-                        -0.76604437828063965
-                    ],
-                    "FOV": 60.000003814697266,
-                    "Near Plane": 1,
-                    "Far Plane": 1000,
-                    "Frustum Culling": 1,
-                    "Draw Bounding Boxes": 1,
-                    "Game Camera": true
-                }
-            ]
-        },
-        {
-            "Name": "Sphere (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 103971677,
+            "UID": 1693919521,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1661175982,
@@ -152,18 +30,18 @@
                 }
             ],
             "Children UID": [
-                826872905
+                84358118
             ]
         },
         {
-            "Name": "Sphere (2)",
+            "Name": "Sphere (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 826872905,
+            "UID": 84358118,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 103971677,
+            "Parent UID": 1693919521,
             "Components": [
                 {
                     "Type": "Transform",
@@ -194,7 +72,7 @@
                 {
                     "Type": "Material",
                     "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
                     "Uniforms": [
                         {
                             "lightDir": [
@@ -202,15 +80,12 @@
                                 0,
                                 0
                             ],
-                            "lightInt": 1,
-                            "lightColor": [
+                            "color": [
                                 0,
-                                0,
-                                0
+                                0.20000000298023224,
+                                1
                             ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
+                            "light": false
                         }
                     ],
                     "Diffuse_ID": 0,
@@ -254,17 +129,17 @@
                 }
             ],
             "Children UID": [
-                171358476
+                1939391334
             ]
         },
         {
-            "Name": "Paticle System",
+            "Name": "Paticle System (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 171358476,
+            "UID": 1939391334,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 826872905,
+            "Parent UID": 84358118,
             "Components": [
                 {
                     "Type": "Transform",
