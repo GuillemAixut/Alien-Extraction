@@ -11,6 +11,8 @@ FrameBuffer::FrameBuffer()
 	TCB = 0; // Texture Color Buffer
 	RBO = 0; // Render Buffer Object
 
+	framebufferShader = nullptr;
+
 	loaded = false;
 }
 
@@ -40,45 +42,46 @@ void FrameBuffer::Load()
 
 	// Check Framebuffer Completeness
 
-	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
+	GLenum FBOstatus = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 
-		LOG("Framebuffer is not complete");
-
+	if (FBOstatus != GL_FRAMEBUFFER_COMPLETE) 
+	{
+		LOG("[ERROR] Framebuffer error: %s\n", FBOstatus);
 	}
 
 	// Bind the Default Framebuffer
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	loaded = true;
+	//framebufferShader->LoadShader("Assets/Shaders/Framebuffer.glsl");
 
+	loaded = true;
 }
 
 void FrameBuffer::Render(bool toggle)
 {
-	if (toggle) {
+	//framebufferShader->UseShader(toggle);
+	//framebufferShader->SetSampler2D("screenTexture", 0);
 
+	if (toggle) 
+	{
 		glBindFramebuffer(GL_FRAMEBUFFER, FBO);
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	}
-	else {
-
+	else 
+	{
 		glBindFramebuffer(GL_FRAMEBUFFER, 0); 
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	}
-	
 }
 
 void FrameBuffer::RenderToScreen()
 {
-	if (!loaded) {
-
+	if (!loaded) 
+	{
 		Load();
-
 	}
 		
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
@@ -89,11 +92,12 @@ void FrameBuffer::RenderToScreen()
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
 
 	glViewport(0, 0, External->window->width, External->window->height);
-
 }
 
 void FrameBuffer::Delete()
 {
+	RELEASE(framebufferShader);
+
 	glDeleteRenderbuffers(1, &RBO);
 	glDeleteTextures(1, &TCB);
 	glDeleteFramebuffers(1, &FBO);
