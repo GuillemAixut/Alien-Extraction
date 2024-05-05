@@ -39,6 +39,9 @@ Animator::~Animator()
 	}
 
 	ClearVec(animations);
+	ClearVec(finalBoneMatrices);
+	currentAnimation = nullptr;
+	previousAnimation = nullptr; 
 }
 
 void Animator::UpdateAnimation(float dt)

@@ -70,7 +70,9 @@ Bone::Bone(const std::string& name, int id, const aiNodeAnim* channel) : name(na
 
 Bone::~Bone()
 {
-
+	positions.clear();
+	rotations.clear(); 
+	scales.clear();
 }
 
 void Bone::Update(float animTime)
