@@ -1084,14 +1084,6 @@ void Rumble_Controller(int time, int intenisty)
 	}
 }
 
-bool CompareStringToName(MonoObject* go, MonoString* name)
-{
-	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
-	std::string nameCompare = mono_string_to_utf8(name);
-
-	return nameCompare.compare(gameObject->name) == 0;
-}
-
 MonoString* CSVToString(MonoString* _filePath) {
 
 	std::string filename = mono_string_to_utf8(_filePath); // File name to process

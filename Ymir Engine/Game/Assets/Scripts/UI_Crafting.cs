@@ -23,8 +23,8 @@ public class UI_Crafting : YmirComponent
 
         goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
-        goDescription.SetActive(false);// TODO: when menu opened
 
+        goDescription.SetActive(false);// TODO: when menu opened
         goText.SetActive(false);
         goName.SetActive(false);
 
@@ -38,20 +38,25 @@ public class UI_Crafting : YmirComponent
 
 	public void Update()
 	{
-        //if (player == null)
-        //{
-        //    GetPlayerScript();
-        //}
+        if (player == null)
+        {
+            GetPlayerScript();
+        }
 
-        //if (player != null && player.setHover)
-        //{
-        //    Debug.Log("set first");
-        //    goDescription.SetActive(false);// TODO: when menu opened
-        //    goText.SetActive(false);
-        //    goName.SetActive(false);
+        if (player != null && player.setHover)
+        {
+            goDescription.SetActive(false);// TODO: when menu opened
+            goText.SetActive(false);
+            goName.SetActive(false);
 
-        //    player.setHover = false;
-        //}
+            player.setHover = false;
+        }
+
+        // TODO: treure
+        if (focusedGO == null)
+        {
+            UI.SetFirstFocused(gameObject);
+        }
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
@@ -90,8 +95,14 @@ public class UI_Crafting : YmirComponent
                 UI.SetFirstFocused(gameObject);
             }
 
-            //Debug.Log(_cs_UI_Item_Button.item.itemType.ToString());
-            //Debug.Log(_cs_UI_Item_Button.item.currentSlot.ToString());
+            Debug.Log(cs_UI_Item_Button.item.itemType.ToString());
+            Debug.Log(cs_UI_Item_Button.item.currentSlot.ToString());
+
+            if (UI.GetSelected() != null)
+            {
+                Debug.Log(UI.GetSelected().GetComponent<UI_Item_Button>().item.itemType.ToString());
+                Debug.Log(UI.GetSelected().GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+            }
         }
 
         return;
@@ -106,7 +117,7 @@ public class UI_Crafting : YmirComponent
             //Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
             //Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
 
-            if ((InternalCalls.CompareStringToName(focusedGO.parent, _selectedGO.GetComponent<UI_Item_Button>().item.name)) ||
+            if ((UI.CompareStringToName(focusedGO.parent, _selectedGO.GetComponent<UI_Item_Button>().item.name)) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && focusedGO.GetComponent<UI_Item_Button>().item.itemType == ITEM_SLOT.NONE) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.SAVE && _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE))

@@ -155,12 +155,6 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern bool CompareGameObjectsByUID(object go1, object go2);          
-        
-        /// <summary>
-        /// Compare string to go name.
-        /// </summary>
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool CompareStringToName(object go, string name);
 
         /// <summary>
         /// Disable the component with name.
@@ -340,6 +334,12 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern bool CheckUI(object goTarget, object goOrigin);
+
+        /// <summary>
+        /// Compare string to go name.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool CompareStringToName(object go, string name);
     }
 
 
