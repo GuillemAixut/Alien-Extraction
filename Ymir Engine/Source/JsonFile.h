@@ -35,6 +35,7 @@ public:
     static void DeleteJSON(const std::string& route);
 
     // -------------------------- Support functions --------------------------------
+    void UpdateJSON_File(const char* key);
 
     void SetInt(const char* key, int value);
     int GetInt(const char* key) const;

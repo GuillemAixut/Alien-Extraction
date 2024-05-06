@@ -1900,7 +1900,7 @@ public class Player : YmirComponent
         SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
 
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
-        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Ammo", ammo);
+        SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
 
         // Items
         for (int i = 0; i < itemsListTest.Count; i++)

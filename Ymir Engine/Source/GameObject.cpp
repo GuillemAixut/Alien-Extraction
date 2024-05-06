@@ -351,12 +351,20 @@ Component* GameObject::GetComponent(ComponentType ctype)
 
 	return nullptr;
 }
-Component* GameObject::GetComponent(ComponentType ctype,char* scriptname)
+Component* GameObject::GetComponent(ComponentType ctype, char* scriptname)
 {
-	 // Suponiendo que ya tienes asignado un valor a scriptname
-	char* concatenatedName = new char[strlen(scriptname) + 4]; // +4 para ".cs" y el terminador nulo
-	strcpy(concatenatedName, scriptname);
-	strcat(concatenatedName, ".cs");
+	// Using std::string for dynamic memory management
+	std::string concatenatedName = scriptname + (std::string)".cs";
+
+	// Using smart pointers
+	auto concatenatedNamePtr = std::make_unique<char[]>(concatenatedName.length() + 1);
+	std::strcpy(concatenatedNamePtr.get(), concatenatedName.c_str());
+
+	//// Suponiendo que ya tienes asignado un valor a scriptname
+	//char* concatenatedName = new char[strlen(scriptname) + 4]; // +4 para ".cs" y el terminador nulo
+	//strcpy(concatenatedName, scriptname);
+	//strcat(concatenatedName, ".cs");
+
 	for (size_t i = 0; i < mComponents.size(); i++)
 	{
 		if (mComponents[i] && mComponents[i]->ctype == ctype)
@@ -364,8 +372,10 @@ Component* GameObject::GetComponent(ComponentType ctype,char* scriptname)
 			if (ctype == ComponentType::SCRIPT)
 			{
 				CScript* a = dynamic_cast<CScript*>(mComponents[i]);
-				if (scriptname != nullptr && strcmp(a->name.c_str(), concatenatedName) == 0)
+				if (scriptname != nullptr && strcmp(a->name.c_str(), concatenatedName.c_str()) == 0)
+				{
 					return mComponents[i];
+				}
 			}
 			else
 			{
