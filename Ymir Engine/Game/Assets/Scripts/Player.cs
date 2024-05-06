@@ -111,6 +111,7 @@ public class Player : YmirComponent
     private int shootRumbleDuration;
 
     private WEAPON weaponType = WEAPON.NONE;
+    private Weapon currentWeapon = null;
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
@@ -188,6 +189,30 @@ public class Player : YmirComponent
 
     #endregion
 
+    #region WEAPON GAMEOBJECTS
+
+    public GameObject w_SMG_0;
+    //public GameObject w_SMG_1;
+    //public GameObject w_SMG_2;
+    //public GameObject w_SMG_3a;
+    //public GameObject w_SMG_3b;
+
+    public GameObject w_Shotgun_0;
+    //public GameObject w_Shotgun_1;
+    //public GameObject w_Shotgun_2;
+    //public GameObject w_Shotgun_3a;
+    //public GameObject w_Shotgun_3b;
+
+    public GameObject w_Plasma_0;
+    //public GameObject w_Plasma_1;
+    //public GameObject w_Plasma_2;
+    //public GameObject w_Plasma_3a;
+    //public GameObject w_Plasma_3b;
+
+    List<GameObject> weapons = new List<GameObject>();
+
+    #endregion
+
     //Hay que dar valor a las variables en el start
 
     public void Start()
@@ -246,7 +271,16 @@ public class Player : YmirComponent
         GetSkillsScripts();
 
         //--------------------- Shoot ---------------------\\
+
+        //--------- Weapons List -----------\\
+
+        weapons.Add(w_SMG_0);
+        weapons.Add(w_Shotgun_0);
+        weapons.Add(w_Plasma_0);
+
         GetWeaponVars();
+
+        currentWeapon = w_SMG_0.GetComponent<SMG>();
 
         //--------------------- Menus ---------------------\\
         itemsList = new List<Item>();
@@ -301,6 +335,7 @@ public class Player : YmirComponent
 
         //--------------------- Set Animation Parameters ---------------------\\
         SetAnimParameters();
+
 
         currentState = STATE.IDLE;
 
@@ -1411,6 +1446,14 @@ public class Player : YmirComponent
 
                 shootRumbleIntensity = 5;
                 shootRumbleDuration = 50;
+
+                //for (int i = 0; i < weapons.Count(); i++)
+                //{
+                //    weapons[i].SetActive(false);
+                //}
+
+                //w_SMG_0.SetActive(true);
+                
                 break;
 
             case WEAPON.SHOTGUN:
@@ -1424,6 +1467,13 @@ public class Player : YmirComponent
 
                 shootRumbleIntensity = 10;
                 shootRumbleDuration = 200;
+
+                //for (int i = 0; i < weapons.Count(); i++)
+                //{
+                //    weapons[i].SetActive(false);
+                //}
+
+                //w_Shotgun_0.SetActive(true);
                 break;
 
             case WEAPON.TRACE:
@@ -1434,6 +1484,13 @@ public class Player : YmirComponent
                 //dmg = ?
                 fireRate = 0.03f;
                 //range = ?
+
+                //for (int i = 0; i < weapons.Count(); i++)
+                //{
+                //    weapons[i].SetActive(false);
+                //}
+
+                //w_Plasma_0.SetActive(true);
                 break;
         }
 

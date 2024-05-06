@@ -38,6 +38,11 @@ public abstract class Weapon : YmirComponent
     public float reloadTime;
     public float range;
 
+    protected int currentAmmo;
+    protected float fireRateTimer;
+    protected float reloadTimer;
+
+
     public Player player;
     public Weapon(WEAPON_TYPE type = WEAPON_TYPE.NONE, UPGRADE upgrade = UPGRADE.NONE)
     {
@@ -51,11 +56,40 @@ public abstract class Weapon : YmirComponent
         damage = 0;
         reloadTime = 0;
         range = 0;
+
+        currentAmmo = 0;
+        fireRateTimer = 0;
+        reloadTimer = 0;
     }
 
     public string Name { get { return _name; } }
     public WEAPON_TYPE Type { get { return _type; } }
     public UPGRADE Upgrade { get { return _upgrade; } }
     public abstract void Shoot();
+
+    public bool ShootAvailable()
+    {
+        if (reloadTimer <= 0)
+        {
+
+            reloadTimer = reloadTime;
+            return true;
+        }
+
+        fireRateTimer -= Time.deltaTime;
+        return false;
+    }
+
+    public bool ReloadAvailable()
+    {
+        if (reloadTimer <= 0) {
+
+            reloadTimer = reloadTime;
+            return true;
+        }
+
+        reloadTimer -= Time.deltaTime;
+        return false;
+    }
 
 }
