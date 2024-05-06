@@ -165,8 +165,8 @@ public class Player : YmirComponent
 
     public string currentMenu = "";
     public bool setHover = false; // Guarrada temporal
-    public List<string> itemsList;
-    public List<Item> itemsListTest;
+    public List<string> itemsListTest;
+    public List<Item> itemsList;
 
     #endregion
 
@@ -247,7 +247,7 @@ public class Player : YmirComponent
         GetWeaponVars();
 
         //--------------------- Menus ---------------------\\
-        itemsListTest = new List<Item>();
+        itemsList = new List<Item>();
 
         // TODO: Sara --> cosas pa probar items
         for (int i = 0; i < 5; i++)
@@ -291,7 +291,7 @@ public class Player : YmirComponent
                     break;
             }
 
-            itemsListTest.Add(item);
+            itemsList.Add(item);
         }
 
         //--------------------- Get Camera GameObject ---------------------\\
