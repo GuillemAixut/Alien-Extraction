@@ -304,8 +304,6 @@ public class Player : YmirComponent
             Item item = null;
 
             int x = random.Next(0, 3);
-            Debug.Log("Random: " + x.ToString());
-
             switch (x)
             {
                 case 0:

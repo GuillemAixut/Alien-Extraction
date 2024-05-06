@@ -17,19 +17,11 @@ public class BaseTeleporter : YmirComponent
     public WEAPON_TYPE selectedWeapon = WEAPON_TYPE.NONE;
 
     public GameObject canvas, button, lvlText, weaponText;
-    Player csPlayer;
+    private Player csPlayer = null;
 
     private bool _setNormal = false;
 
     private GameObject _grid;
-
-    private Player _player = null;
-
-    //public string[] lvlDescriptions = new string[3];
-    //public string[] weaponDescriptions = new string[3];
-
-    //public List<string> lvlDescriptions = new List<string>();
-    //public List<string> weaponDescriptions = new List<string>();
 
     public void Start()
     {
@@ -37,12 +29,7 @@ public class BaseTeleporter : YmirComponent
         lvlText = InternalCalls.GetGameObjectByName("Lvl description");
         weaponText = InternalCalls.GetGameObjectByName("Weapon description");
 
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            csPlayer = gameObject.GetComponent<Player>();
-        }
+        GetPlayerScript();
 
         canvas = InternalCalls.GetGameObjectByName("Level Selection Canvas");
 
@@ -50,35 +37,10 @@ public class BaseTeleporter : YmirComponent
         selectedWeapon = WEAPON_TYPE.NONE;
 
         _grid = InternalCalls.GetGameObjectByName("Grid");
-
-        GetPlayerScript();
-
-        //lvlDescriptions.Add("WAREHOUSE");
-        //lvlDescriptions.Add("LAB");
-        //lvlDescriptions.Add("HATCHERY");
-
-        //weaponDescriptions.Add("SHOTGUN");
-        //weaponDescriptions.Add("SMG");
-        //weaponDescriptions.Add("PLASMA");
-
-        //Debug.Log("aaa" + lvlDescriptions.ElementAt(0));
-        //Debug.Log("bbb" + weaponDescriptions.ElementAt(0));
     }
 
     public void Update()
     {
-        if (_player == null)
-        {
-            GetPlayerScript();
-        }
-
-        //if (_player != null && _player.setHover)
-        //{
-        //    Debug.Log("set first");
-        //    UI.SetFirstFocused(gameObject);
-        //    _player.setHover = false;
-        //}
-
         // TODO: delete this
         if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
         {
@@ -143,7 +105,7 @@ public class BaseTeleporter : YmirComponent
 
         if (gameObject != null)
         {
-            _player = gameObject.GetComponent<Player>();
+            csPlayer = gameObject.GetComponent<Player>();
         }
     }
 }

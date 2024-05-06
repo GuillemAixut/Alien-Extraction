@@ -8,11 +8,17 @@ using YmirEngine;
 
 public class Tp_To_Lvl2_Part1 : YmirComponent
 {
+    private GameObject loadSceneImg;
 
-	public void Start()
+    public void Start()
 	{
-		Debug.Log("HelloWorld"); 
-	}
+        loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
+
+        if (loadSceneImg != null)
+        {
+            loadSceneImg.SetActive(false);
+        }
+    }
 
 	public void Update()
 	{
@@ -21,10 +27,15 @@ public class Tp_To_Lvl2_Part1 : YmirComponent
 
     public void OnCollisionEnter(GameObject other)
     {
-        //TODO: Mostrat UI de que puede interactuar si pulsa el bot�n asignado
+        //TODO: Mostrat UI de que puede interactuar si pulsa el boton asignado
         if (other.Tag == "Player")
         {
-            Audio.StopAllAudios();
+            Audio.StopAllAudios(); 
+            if (loadSceneImg != null)
+            {
+                loadSceneImg.SetActive(true);
+            }
+
             InternalCalls.LoadScene("Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene");
         }
     }
