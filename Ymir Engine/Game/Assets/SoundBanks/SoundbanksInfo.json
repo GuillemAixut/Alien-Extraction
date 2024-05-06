@@ -5,11 +5,11 @@
   "SchemaVersion": "12",
   "SoundbankVersion": "135",
   "RootPaths": {
-   "ProjectRoot": "E:\\Github Windjammers\\Wwise-Project\\Ymir-Project\\",
-   "SourceFilesRoot": "E:\\Github Windjammers\\Wwise-Project\\Ymir-Project\\.cache\\Windows\\",
-   "SoundBanksRoot": "E:\\Github Windjammers\\Project-Clapcom\\Ymir Engine\\Game\\Assets\\SoundBanks\\",
+   "ProjectRoot": "C:\\Users\\Mario\\Documents\\GitHub\\Wwise-Project\\Ymir-Project\\",
+   "SourceFilesRoot": "C:\\Users\\Mario\\Documents\\GitHub\\Wwise-Project\\Ymir-Project\\.cache\\Windows\\",
+   "SoundBanksRoot": "C:\\Users\\Mario\\Documents\\GitHub\\Project-Clapcom\\Ymir Engine\\Game\\Assets\\SoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "E:\\Github Windjammers\\Wwise-Project\\Ymir-Project\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "C:\\Users\\Mario\\Documents\\GitHub\\Wwise-Project\\Ymir-Project\\GeneratedSoundBanks\\Windows"
   },
   "DialogueEvents": [],
   "StreamedFiles": [],
@@ -393,6 +393,54 @@
       "DurationType": "OneShot",
       "DurationMin": "200.784363",
       "DurationMax": "200.784363"
+     },
+     {
+      "Id": "886520485",
+      "Name": "LvL2_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\LV2Music\\LvL2_Music",
+      "DurationType": "Infinite",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "138445343",
+        "Language": "SFX",
+        "ShortName": "LV2_Combat.wav",
+        "Path": "SFX\\LV2_Combat_D79FB2B7.wem"
+       },
+       {
+        "Id": "535715354",
+        "Language": "SFX",
+        "ShortName": "Intersection.wav",
+        "Path": "SFX\\Intersection_D79FB2B7.wem"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}",
+          "Media": [
+           {
+            "Id": "535715354"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}",
+          "Media": [
+           {
+            "Id": "138445343"
+           }
+          ]
+         }
+        ]
+       }
+      ]
      }
     ],
     "IncludedMemoryFiles": [
@@ -400,13 +448,67 @@
       "Id": "138445343",
       "Language": "SFX",
       "ShortName": "LV2_Combat.wav",
-      "Path": "SFX\\LV2_Combat_9EDFC787.wem"
+      "Path": "SFX\\LV2_Combat_D79FB2B7.wem"
      },
      {
       "Id": "535715354",
       "Language": "SFX",
       "ShortName": "Intersection.wav",
-      "Path": "SFX\\Intersection_9EDFC787.wem"
+      "Path": "SFX\\Intersection_D79FB2B7.wem"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1071758680",
+      "Name": "CombatState",
+      "ObjectPath": "\\States\\Default Work Unit\\CombatState",
+      "GUID": "{3FCC83BE-5B44-436D-A491-2A6029F4D972}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\None",
+        "GUID": "{37F4224A-09D0-4C45-9207-5DC4D5367BFE}"
+       },
+       {
+        "Id": "2582085496",
+        "Name": "Exploration",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Exploration",
+        "GUID": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}"
+       },
+       {
+        "Id": "514064485",
+        "Name": "Fight",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Fight",
+        "GUID": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}"
+       }
+      ]
+     },
+     {
+      "Id": "3285234865",
+      "Name": "PlayerState",
+      "ObjectPath": "\\States\\Default Work Unit\\PlayerState",
+      "GUID": "{D167B25A-720E-41E6-A1E1-76065C0EF388}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\None",
+        "GUID": "{78998AA7-B492-4BAB-AF6D-4A8B91703BE0}"
+       },
+       {
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Alive",
+        "GUID": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}"
+       },
+       {
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Dead",
+        "GUID": "{56CB7A9B-DE74-440B-B979-43D07C062F60}"
+       }
+      ]
      }
     ]
    },
@@ -561,6 +663,54 @@
       "DurationType": "OneShot",
       "DurationMin": "38.638607",
       "DurationMax": "38.638607"
+     },
+     {
+      "Id": "2462702937",
+      "Name": "B_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\BaseMusic\\B_Music",
+      "DurationType": "Infinite",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "71106101",
+        "Language": "SFX",
+        "ShortName": "B_Basic(WWISE).wav",
+        "Path": "SFX\\B_Basic(WWISE)_D79FB2B7.wem"
+       },
+       {
+        "Id": "299318387",
+        "Language": "SFX",
+        "ShortName": "Departing.wav",
+        "Path": "SFX\\Departing_D79FB2B7.wem"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}",
+          "Media": [
+           {
+            "Id": "71106101"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}",
+          "Media": [
+           {
+            "Id": "299318387"
+           }
+          ]
+         }
+        ]
+       }
+      ]
      }
     ],
     "IncludedMemoryFiles": [
@@ -568,19 +718,73 @@
       "Id": "71106101",
       "Language": "SFX",
       "ShortName": "B_Basic(WWISE).wav",
-      "Path": "SFX\\B_Basic(WWISE)_9EDFC787.wem"
+      "Path": "SFX\\B_Basic(WWISE)_D79FB2B7.wem"
      },
      {
       "Id": "299318387",
       "Language": "SFX",
       "ShortName": "Departing.wav",
-      "Path": "SFX\\Departing_9EDFC787.wem"
+      "Path": "SFX\\Departing_D79FB2B7.wem"
      },
      {
       "Id": "681656794",
       "Language": "SFX",
       "ShortName": "Caius.wav",
-      "Path": "SFX\\Caius_9EDFC787.wem"
+      "Path": "SFX\\Caius_D79FB2B7.wem"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1071758680",
+      "Name": "CombatState",
+      "ObjectPath": "\\States\\Default Work Unit\\CombatState",
+      "GUID": "{3FCC83BE-5B44-436D-A491-2A6029F4D972}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\None",
+        "GUID": "{37F4224A-09D0-4C45-9207-5DC4D5367BFE}"
+       },
+       {
+        "Id": "2582085496",
+        "Name": "Exploration",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Exploration",
+        "GUID": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}"
+       },
+       {
+        "Id": "514064485",
+        "Name": "Fight",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Fight",
+        "GUID": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}"
+       }
+      ]
+     },
+     {
+      "Id": "3285234865",
+      "Name": "PlayerState",
+      "ObjectPath": "\\States\\Default Work Unit\\PlayerState",
+      "GUID": "{D167B25A-720E-41E6-A1E1-76065C0EF388}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\None",
+        "GUID": "{78998AA7-B492-4BAB-AF6D-4A8B91703BE0}"
+       },
+       {
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Alive",
+        "GUID": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}"
+       },
+       {
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Dead",
+        "GUID": "{56CB7A9B-DE74-440B-B979-43D07C062F60}"
+       }
+      ]
      }
     ]
    },
@@ -598,6 +802,48 @@
       "DurationType": "OneShot",
       "DurationMin": "364.799988",
       "DurationMax": "364.799988"
+     },
+     {
+      "Id": "266958530",
+      "Name": "LvL1_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\LV1Music\\LvL1_Music",
+      "DurationType": "Infinite",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "1035668829",
+        "Language": "SFX",
+        "ShortName": "LV1_Combat.wav",
+        "Path": "SFX\\LV1_Combat_D79FB2B7.wem"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}",
+          "Media": [
+           {
+            "Id": "1035668829"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}",
+          "Media": [
+           {
+            "Id": "1035668829"
+           }
+          ]
+         }
+        ]
+       }
+      ]
      }
     ],
     "IncludedMemoryFiles": [
@@ -605,14 +851,67 @@
       "Id": "1035668829",
       "Language": "SFX",
       "ShortName": "LV1_Combat.wav",
-      "Path": "SFX\\LV1_Combat_9EDFC787.wem"
+      "Path": "SFX\\LV1_Combat_D79FB2B7.wem"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1071758680",
+      "Name": "CombatState",
+      "ObjectPath": "\\States\\Default Work Unit\\CombatState",
+      "GUID": "{3FCC83BE-5B44-436D-A491-2A6029F4D972}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\None",
+        "GUID": "{37F4224A-09D0-4C45-9207-5DC4D5367BFE}"
+       },
+       {
+        "Id": "2582085496",
+        "Name": "Exploration",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Exploration",
+        "GUID": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}"
+       },
+       {
+        "Id": "514064485",
+        "Name": "Fight",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Fight",
+        "GUID": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}"
+       }
+      ]
+     },
+     {
+      "Id": "3285234865",
+      "Name": "PlayerState",
+      "ObjectPath": "\\States\\Default Work Unit\\PlayerState",
+      "GUID": "{D167B25A-720E-41E6-A1E1-76065C0EF388}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\None",
+        "GUID": "{78998AA7-B492-4BAB-AF6D-4A8B91703BE0}"
+       },
+       {
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Alive",
+        "GUID": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}"
+       },
+       {
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Dead",
+        "GUID": "{56CB7A9B-DE74-440B-B979-43D07C062F60}"
+       }
+      ]
      }
     ]
    },
    {
     "Id": "978134277",
     "Language": "SFX",
-    "Hash": "498239050",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\DroneXenomorph",
     "ShortName": "DroneXenomorph",
     "Path": "DroneXenomorph.bnk",
@@ -807,7 +1106,6 @@
    {
     "Id": "1069431850",
     "Language": "SFX",
-    "Hash": "2262759344",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Characters\\Player",
     "ShortName": "Player",
     "Path": "Player.bnk",
@@ -1562,7 +1860,7 @@
    {
     "Id": "1355168291",
     "Language": "SFX",
-    "Hash": "3791779620",
+    "Hash": "3137137942",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk"
@@ -1570,6 +1868,7 @@
    {
     "Id": "1430525660",
     "Language": "SFX",
+    "Hash": "2491968115",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level3\\MapInteractionLV3",
     "ShortName": "MapInteractionLV3",
     "Path": "MapInteractionLV3.bnk",
@@ -1639,6 +1938,22 @@
       ]
      },
      {
+      "Id": "2758019366",
+      "Name": "LV3_GrabResin",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level3\\MapInteractionLV3\\LV3_GrabResin",
+      "DurationType": "OneShot",
+      "DurationMin": "0.598708",
+      "DurationMax": "0.598708",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "601297124",
+        "Language": "SFX",
+        "ShortName": "resinPickUp.wav",
+        "Path": "SFX\\resinPickUp_10C4C929.wem"
+       }
+      ]
+     },
+     {
       "Id": "861924392",
       "Name": "LV3_OpenChest",
       "ObjectPath": "\\Events\\Default Work Unit\\Level3\\MapInteractionLV3\\LV3_OpenChest",
@@ -1691,6 +2006,7 @@
    {
     "Id": "1430525661",
     "Language": "SFX",
+    "Hash": "2156071199",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level2\\MapInteractionLV2",
     "ShortName": "MapInteractionLV2",
     "Path": "MapInteractionLV2.bnk",
@@ -1760,6 +2076,22 @@
       ]
      },
      {
+      "Id": "3715372583",
+      "Name": "LV2_GrabResin",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level2\\MapInteractionLV2\\LV2_GrabResin",
+      "DurationType": "OneShot",
+      "DurationMin": "0.598708",
+      "DurationMax": "0.598708",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "601297124",
+        "Language": "SFX",
+        "ShortName": "resinPickUp.wav",
+        "Path": "SFX\\resinPickUp_10C4C929.wem"
+       }
+      ]
+     },
+     {
       "Id": "442070525",
       "Name": "LV2_OpenChest",
       "ObjectPath": "\\Events\\Default Work Unit\\Level2\\MapInteractionLV2\\LV2_OpenChest",
@@ -1812,6 +2144,7 @@
    {
     "Id": "1430525662",
     "Language": "SFX",
+    "Hash": "1477689469",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level1\\MapInteractionLV1",
     "ShortName": "MapInteractionLV1",
     "Path": "MapInteractionLV1.bnk",
@@ -1877,6 +2210,22 @@
         "Language": "SFX",
         "ShortName": "GrabKey.wav",
         "Path": "SFX\\GrabKey_10C4C929.wem"
+       }
+      ]
+     },
+     {
+      "Id": "1988943920",
+      "Name": "LV1_GrabResin",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level1\\MapInteractionLV1\\LV1_GrabResin",
+      "DurationType": "OneShot",
+      "DurationMin": "0.598708",
+      "DurationMax": "0.598708",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "601297124",
+        "Language": "SFX",
+        "ShortName": "resinPickUp.wav",
+        "Path": "SFX\\resinPickUp_10C4C929.wem"
        }
       ]
      },
@@ -1985,6 +2334,54 @@
       "DurationType": "OneShot",
       "DurationMin": "132.689835",
       "DurationMax": "132.689835"
+     },
+     {
+      "Id": "761846308",
+      "Name": "LvL3_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\LV3Music\\LvL3_Music",
+      "DurationType": "Infinite",
+      "IncludedMemoryFiles": [
+       {
+        "Id": "269906067",
+        "Language": "SFX",
+        "ShortName": "LV3_Combat.wav",
+        "Path": "SFX\\LV3_Combat_D79FB2B7.wem"
+       },
+       {
+        "Id": "452460163",
+        "Language": "SFX",
+        "ShortName": "LV3_Basic.wav",
+        "Path": "SFX\\LV3_Basic_D79FB2B7.wem"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}",
+          "Media": [
+           {
+            "Id": "452460163"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}",
+        "Children": [
+         {
+          "SwitchValue": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}",
+          "Media": [
+           {
+            "Id": "269906067"
+           }
+          ]
+         }
+        ]
+       }
+      ]
      }
     ],
     "IncludedMemoryFiles": [
@@ -1992,26 +2389,79 @@
       "Id": "269906067",
       "Language": "SFX",
       "ShortName": "LV3_Combat.wav",
-      "Path": "SFX\\LV3_Combat_9EDFC787.wem"
+      "Path": "SFX\\LV3_Combat_D79FB2B7.wem"
      },
      {
       "Id": "452460163",
       "Language": "SFX",
       "ShortName": "LV3_Basic.wav",
-      "Path": "SFX\\LV3_Basic_9EDFC787.wem"
+      "Path": "SFX\\LV3_Basic_D79FB2B7.wem"
      },
      {
       "Id": "603436014",
       "Language": "SFX",
       "ShortName": "LV3_Boss.wav",
-      "Path": "SFX\\LV3_Boss_9EDFC787.wem"
+      "Path": "SFX\\LV3_Boss_D79FB2B7.wem"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1071758680",
+      "Name": "CombatState",
+      "ObjectPath": "\\States\\Default Work Unit\\CombatState",
+      "GUID": "{3FCC83BE-5B44-436D-A491-2A6029F4D972}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\None",
+        "GUID": "{37F4224A-09D0-4C45-9207-5DC4D5367BFE}"
+       },
+       {
+        "Id": "2582085496",
+        "Name": "Exploration",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Exploration",
+        "GUID": "{17A4D492-3F5D-4B38-98D4-3E0A9910F8C4}"
+       },
+       {
+        "Id": "514064485",
+        "Name": "Fight",
+        "ObjectPath": "\\States\\Default Work Unit\\CombatState\\Fight",
+        "GUID": "{B4CB94E4-B136-4469-A75B-D53ADD4F7977}"
+       }
+      ]
+     },
+     {
+      "Id": "3285234865",
+      "Name": "PlayerState",
+      "ObjectPath": "\\States\\Default Work Unit\\PlayerState",
+      "GUID": "{D167B25A-720E-41E6-A1E1-76065C0EF388}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\None",
+        "GUID": "{78998AA7-B492-4BAB-AF6D-4A8B91703BE0}"
+       },
+       {
+        "Id": "655265632",
+        "Name": "Alive",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Alive",
+        "GUID": "{3FA67D12-0264-4C71-BC58-ED0182200A9D}"
+       },
+       {
+        "Id": "2044049779",
+        "Name": "Dead",
+        "ObjectPath": "\\States\\Default Work Unit\\PlayerState\\Dead",
+        "GUID": "{56CB7A9B-DE74-440B-B979-43D07C062F60}"
+       }
+      ]
      }
     ]
    },
    {
     "Id": "2692855564",
     "Language": "SFX",
-    "Hash": "1711770573",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\XenoSpitter",
     "ShortName": "XenoSpitter",
     "Path": "XenoSpitter.bnk",
@@ -2101,7 +2551,6 @@
    {
     "Id": "2982135181",
     "Language": "SFX",
-    "Hash": "700496941",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\QueenXenomorph",
     "ShortName": "QueenXenomorph",
     "Path": "QueenXenomorph.bnk",
@@ -2908,7 +3357,6 @@
    {
     "Id": "4095621880",
     "Language": "SFX",
-    "Hash": "1615030436",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Enemies\\Facehugger",
     "ShortName": "Facehugger",
     "Path": "Facehugger.bnk",
