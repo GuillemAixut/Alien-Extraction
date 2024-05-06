@@ -112,7 +112,7 @@ public class Player : YmirComponent
     private int shootRumbleDuration;
 
     private WEAPON weaponType = WEAPON.NONE;
-    private Weapon currentWeapon = null;
+    //private Weapon currentWeapon = null;
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
@@ -210,7 +210,7 @@ public class Player : YmirComponent
     //public GameObject w_Plasma_3a;
     //public GameObject w_Plasma_3b;
 
-    List<GameObject> weapons = new List<GameObject>();
+    //List<GameObject> weapons = new List<GameObject>();
 
     #endregion
 
@@ -277,13 +277,13 @@ public class Player : YmirComponent
 
         //--------- Weapons List -----------\\
 
-        weapons.Add(w_SMG_0);
-        weapons.Add(w_Shotgun_0);
-        weapons.Add(w_Plasma_0);
+        //weapons.Add(w_SMG_0);
+        //weapons.Add(w_Shotgun_0);
+        //weapons.Add(w_Plasma_0);
 
         GetWeaponVars();
 
-        currentWeapon = w_SMG_0.GetComponent<SMG>();
+        //currentWeapon = w_SMG_0.GetComponent<SMG>();
 
         //--------------------- Menus ---------------------\\
         itemsList = new List<Item>();
