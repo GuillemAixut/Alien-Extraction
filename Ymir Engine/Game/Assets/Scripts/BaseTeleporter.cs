@@ -11,15 +11,6 @@ public enum LEVELS
     NONE
 }
 
-public enum WEAPON_TYPE
-{
-    SMG,
-    SHOTGUN,
-    PLASMA,
-
-    NONE
-}
-
 public class BaseTeleporter : YmirComponent
 {
     public LEVELS selectedLvl = LEVELS.NONE;

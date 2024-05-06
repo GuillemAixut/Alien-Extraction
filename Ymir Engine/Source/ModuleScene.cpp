@@ -89,13 +89,14 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
 
-	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 	//LoadScene("Assets", "Pollo Loco");
 	//LoadScene("Assets", "ParticleTest");
 	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
 	//LoadScene("Assets/UI/Scenes", "StartScene");
 	//LoadScene("Assets/Camera", "CameraTesting");
+	LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
 
 #endif // _RELEASE
 
