@@ -46,21 +46,15 @@ public class SpitterAcidExplosion : YmirComponent
             //DO EXPLOSION
             rotation = gameObject.transform.globalRotation;
             InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
-            float angle = (float)(180.0f * Math.PI / 180.0f);
-            rotation = Quaternion.RotateAroundAxis(new Vector3(0,1,0), angle);
+            float angle = 90.0f;
+            rotation = Quaternion.RotateQuaternionY(rotation, angle);
             InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
-            //angle = (float)(180.0f * Math.PI / 180.0f);
-            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
-            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
-            //angle = (float)(270.0f * Math.PI / 180.0f);
-            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
-            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
-            //angle = (float)(360.0f * Math.PI / 180.0f);
-            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
-            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
-            //angle = (float)(450.0f * Math.PI / 180.0f);
-            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
-            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            angle = 180.0f;
+            rotation = Quaternion.RotateQuaternionY(rotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            angle = 270.0f;
+            rotation = Quaternion.RotateQuaternionY(rotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
 
             InternalCalls.Destroy(gameObject);
         }
