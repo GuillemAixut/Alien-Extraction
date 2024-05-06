@@ -1,0 +1,258 @@
+{
+    "Prefab": [
+        {
+            "Name": "BacZone_Door",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1232909408,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 925275612,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        34.780998229980469,
+                        15.100000381469727,
+                        -36.659000396728516
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1286755141,
+                1913182118,
+                2068941488
+            ]
+        },
+        {
+            "Name": "MarcoPuerta",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1286755141,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
+            "Parent UID": 1232909408,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -867.41339111328125,
+                        -15.099994659423828,
+                        103.54393005371094
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1375069341,
+                    "Vertex Count": 536,
+                    "Index Count": 882
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                6.46160888671875,
+                                15.465556144714355,
+                                -1.7969037294387817
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 619,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_D.png",
+                    "Diffuse_UID": 1946035116,
+                    "Normal_ID": 647,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_N.png",
+                    "Normal_UID": 408711432,
+                    "Height_ID": 635,
+                    "Height_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_H.png",
+                    "Height_UID": 971804801,
+                    "Emissive_ID": 623,
+                    "Emissive_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_E.png",
+                    "Emissive_UID": 1728151501
+                }
+            ]
+        },
+        {
+            "Name": "Puerta_R",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1913182118,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
+            "Parent UID": 1232909408,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -867.41339111328125,
+                        -15.099994659423828,
+                        103.54393005371094
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 726581002,
+                    "Vertex Count": 44,
+                    "Index Count": 78
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                6.46160888671875,
+                                15.465556144714355,
+                                -1.7969037294387817
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 619,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_D.png",
+                    "Diffuse_UID": 1946035116,
+                    "Normal_ID": 647,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_N.png",
+                    "Normal_UID": 408711432,
+                    "Height_ID": 635,
+                    "Height_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_H.png",
+                    "Height_UID": 971804801,
+                    "Emissive_ID": 623,
+                    "Emissive_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_E.png",
+                    "Emissive_UID": 1728151501
+                }
+            ]
+        },
+        {
+            "Name": "Puerta_L",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2068941488,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
+            "Parent UID": 1232909408,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -867.41339111328125,
+                        -15.099994659423828,
+                        103.54393005371094
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 84239815,
+                    "Vertex Count": 44,
+                    "Index Count": 78
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                6.46160888671875,
+                                15.465556144714355,
+                                -1.7969037294387817
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 619,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_D.png",
+                    "Diffuse_UID": 1946035116,
+                    "Normal_ID": 647,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_N.png",
+                    "Normal_UID": 408711432,
+                    "Height_ID": 635,
+                    "Height_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_H.png",
+                    "Height_UID": 971804801,
+                    "Emissive_ID": 623,
+                    "Emissive_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/All Clean\/TEX_PROP_BackZoneDoor_E.png",
+                    "Emissive_UID": 1728151501
+                }
+            ]
+        }
+    ]
+}
