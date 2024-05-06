@@ -428,18 +428,18 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				JSON_Value* jValuePositiveCube = json_value_init_array();
 				JSON_Array* arrInitialPositiveCube = json_value_get_array(jValuePositiveCube);
 
-				json_object_dotset_value(child_object, "PositiveBoxPoints", jValuePos);
-				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.x);
-				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.y);
-				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.z);
+				json_object_dotset_value(child_object, "PositiveBoxPoints", jValuePositiveCube);
+				json_array_append_number(arrInitialPositiveCube, eBase->boxPointsPositives.x);
+				json_array_append_number(arrInitialPositiveCube, eBase->boxPointsPositives.y);
+				json_array_append_number(arrInitialPositiveCube, eBase->boxPointsPositives.z);
 
 				JSON_Value* jValueNegativeCube = json_value_init_array();
 				JSON_Array* arrInitialNegativeCube = json_value_get_array(jValueNegativeCube);
 
-				json_object_dotset_value(child_object, "NegativeBoxPoints", jValuePos);
-				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.x);
-				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.y);
-				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.z);
+				json_object_dotset_value(child_object, "NegativeBoxPoints", jValueNegativeCube);
+				json_array_append_number(arrInitialNegativeCube, eBase->boxPointsNegatives.x);
+				json_array_append_number(arrInitialNegativeCube, eBase->boxPointsNegatives.y);
+				json_array_append_number(arrInitialNegativeCube, eBase->boxPointsNegatives.z);
 
 				//Cone & Sphere parameters
 				json_object_set_number(child_object, "RadiusHollow", eBase->radiusHollow);
