@@ -21,7 +21,7 @@ public class PickUp : YmirComponent
 
     }
 
-    public void OnCollisionExit(GameObject other)
+    public void OnCollisionEnter(GameObject other)
     {
         if (other.Tag == "Player" && !picked)
         {

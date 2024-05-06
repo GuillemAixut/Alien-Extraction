@@ -1,55 +1,21 @@
 {
-    "NavMesh": "",
-    "Editor Camera Position": [
-        0.93723690509796143,
-        17.45536994934082,
-        -5.1496858596801758
-    ],
-    "Editor Camera Right (X)": [
-        -0.99984061717987061,
-        -1.0961666703224182e-06,
-        -0.022629853338003159
-    ],
-    "Editor Camera Up (Y)": [
-        -0.017692083492875099,
-        0.62355095148086548,
-        0.78164798021316528
-    ],
-    "Editor Camera Front (Z)": [
-        -0.014109016396105289,
-        -0.78182780742645264,
-        0.62340766191482544
-    ],
-    "Hierarchy": [
+    "Prefab": [
         {
-            "Name": "Scene",
+            "Name": "acidvesicle_common",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 438488077,
-            "Active": true,
-            "Element_Type": "None",
-            "Components": [],
-            "Children UID": [
-                103971677,
-                208765390
-            ]
-        },
-        {
-            "Name": "skin_common",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 103971677,
+            "UID": 714613891,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 438488077,
+            "Parent UID": 1006551309,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
-                        4.530637264251709
+                        -13.742246627807617,
+                        2.3112101554870605,
+                        7.9663877487182617
                     ],
                     "Rotation": [
                         -0,
@@ -57,86 +23,73 @@
                         -0
                     ],
                     "Scale": [
-                        1,
-                        1,
+                        2.5,
+                        2.5,
+                        2.5
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        3,
+                        3,
+                        3
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "PickUp.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "MapInteractionLV1",
+                    "Event Name": "LV1_CollectItem",
+                    "Event ID": 2518039338
                 }
             ],
             "Children UID": [
-                826872905,
-                942788824
+                1687817008,
+                1165925450
             ]
         },
         {
-            "Name": "Sphere (1)",
+            "Name": "Paticle System (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 826872905,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 103971677,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 621813214,
-                    "Vertex Count": 439,
-                    "Index Count": 2280
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "color": [
-                                0,
-                                0.89999997615814209,
-                                0
-                            ],
-                            "light": false
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Paticle System",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 942788824,
+            "UID": 1687817008,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 103971677,
+            "Parent UID": 714613891,
             "Components": [
                 {
                     "Type": "Transform",
@@ -152,9 +105,9 @@
                         -0
                     ],
                     "Scale": [
-                        6,
-                        6,
-                        6
+                        7,
+                        7,
+                        0
                     ]
                 },
                 {
@@ -173,7 +126,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        2.5,
+                                        7.5,
                                         0
                                     ],
                                     "DistanceLimit": 0,
@@ -209,11 +162,11 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/SkinItemName.png"
+                                    "Path": "Assets\/Particles\/AcidVesicleItemName.png"
                                 },
                                 {
                                     "Type": 3,
-                                    "AligmentMode": 0,
+                                    "AligmentMode": 1,
                                     "WorldOrientation": 3,
                                     "AxisOrientation": 3,
                                     "FreeRotation": [
@@ -229,21 +182,22 @@
             ]
         },
         {
-            "Name": "Main Camera",
+            "Name": "Sphere (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 208765390,
+            "UID": 1165925450,
             "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 438488077,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
+            "Parent UID": 714613891,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
                         0,
-                        0.021677851676940918,
-                        -3.1065306663513184
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -251,35 +205,40 @@
                         -0
                     ],
                     "Scale": [
-                        0.9999956488609314,
                         1,
-                        0.9999956488609314
+                        1,
+                        1
                     ]
                 },
                 {
-                    "Type": "Camera",
+                    "Type": "Mesh",
                     "Active": 1,
-                    "Right": [
-                        -1,
-                        0,
-                        0
+                    "UID": 621813214,
+                    "Vertex Count": 439,
+                    "Index Count": 2280
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                15.465556144714355,
+                                -0.51650440692901611
+                            ],
+                            "color": [
+                                0,
+                                0.89999997615814209,
+                                0
+                            ],
+                            "light": false
+                        }
                     ],
-                    "Up": [
-                        0,
-                        1,
-                        0
-                    ],
-                    "Front": [
-                        0,
-                        0,
-                        1
-                    ],
-                    "FOV": 60.000003814697266,
-                    "Near Plane": 1,
-                    "Far Plane": 1000,
-                    "Frustum Culling": 1,
-                    "Draw Bounding Boxes": 1,
-                    "Game Camera": true
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
                 }
             ]
         }
