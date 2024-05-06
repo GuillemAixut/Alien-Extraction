@@ -252,7 +252,6 @@ public class DroneXenomorphBaseScript : Enemy
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
-                    Audio.PlayAudio(gameObject, "DX_Claw");
                     droneState = DroneState.IDLE_AGGRO;
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                     //To fix claw to tail attack bug
@@ -264,6 +263,7 @@ public class DroneXenomorphBaseScript : Enemy
                     pos.y += 10;
                     pos.z -= 6;
                     InternalCalls.CreateDroneClawAttack(pos, gameObject.transform.globalRotation);
+                    Audio.PlayAudio(gameObject, "DX_Claw");
                     clawDone = true;
                 }
 
@@ -281,19 +281,19 @@ public class DroneXenomorphBaseScript : Enemy
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
-                    Audio.PlayAudio(gameObject, "DX_Tail");
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                     droneState = DroneState.IDLE_AGGRO;
                     //To fix tail to claw attack bug
                     clawCooldownTime = 1f;
 
                 }
-                else if (timeCounter >= 0.75f && tailDone == false)
+                else if (timeCounter >= 0.5f && tailDone == false)
                 {
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 10;
                     pos.z -= 6;
                     InternalCalls.CreateDroneTailAttack(pos, gameObject.transform.globalRotation);
+                    Audio.PlayAudio(gameObject, "DX_Tail");
                     tailDone = true;
                 }
                 break;
