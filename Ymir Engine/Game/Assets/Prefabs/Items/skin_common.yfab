@@ -1,13 +1,13 @@
 {
     "Prefab": [
         {
-            "Name": "itemname_rare",
+            "Name": "skin_common",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1693919521,
+            "UID": 103971677,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1661175982,
+            "Parent UID": 438488077,
             "Components": [
                 {
                     "Type": "Transform",
@@ -15,7 +15,7 @@
                     "Translation": [
                         0,
                         0,
-                        0
+                        4.530637264251709
                     ],
                     "Rotation": [
                         -0,
@@ -30,18 +30,19 @@
                 }
             ],
             "Children UID": [
-                84358118
+                826872905,
+                942788824
             ]
         },
         {
-            "Name": "Sphere (3)",
+            "Name": "Sphere (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 84358118,
+            "UID": 826872905,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 1693919521,
+            "Parent UID": 103971677,
             "Components": [
                 {
                     "Type": "Transform",
@@ -82,8 +83,8 @@
                             ],
                             "color": [
                                 0,
-                                0.20000000298023224,
-                                1
+                                0.89999997615814209,
+                                0
                             ],
                             "light": false
                         }
@@ -91,55 +92,17 @@
                     "Diffuse_ID": 0,
                     "Diffuse_Path": "Checker Image",
                     "Diffuse_UID": 0
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        2.0000002384185791,
-                        2,
-                        2.0000004768371582
-                    ],
-                    "Physics Type": 0,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": false,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        -1.1920928955078125e-07,
-                        0,
-                        -1.7881393432617188e-07
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
                 }
-            ],
-            "Children UID": [
-                1939391334
             ]
         },
         {
-            "Name": "Paticle System (1)",
+            "Name": "Paticle System",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1939391334,
+            "UID": 942788824,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 84358118,
+            "Parent UID": 103971677,
             "Components": [
                 {
                     "Type": "Transform",
@@ -155,36 +118,10 @@
                         -0
                     ],
                     "Scale": [
-                        4,
-                        4,
-                        4
+                        6,
+                        6,
+                        6
                     ]
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Assets\/Particles\/particleExample.png",
-                    "Diffuse_UID": 0
                 },
                 {
                     "Type": "ParticleSystem",
@@ -193,28 +130,32 @@
                     "Emitters": [
                         {
                             "ModulesSize": 4,
-                            "EmitterUID": 730784582,
+                            "EmitterUID": 2069915912,
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 2,
+                                    "Lifetime": 1,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        2.0999999046325684,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
+                                        2.5,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
                                     "BaseShape": 0,
+                                    "PositiveBoxPoints": [
+                                        1,
+                                        1,
+                                        1
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        -1,
+                                        -1,
+                                        -1
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 4,
@@ -233,11 +174,12 @@
                                     "SubemitterMinLifetime": 0
                                 },
                                 {
-                                    "Type": 6
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/SkinItemName.png"
                                 },
                                 {
                                     "Type": 3,
-                                    "AligmentMode": 1,
+                                    "AligmentMode": 0,
                                     "WorldOrientation": 3,
                                     "AxisOrientation": 3,
                                     "FreeRotation": [
@@ -249,32 +191,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Assets\/Particles\/particleExample.png",
-                    "Diffuse_UID": 0
                 }
             ]
         }
