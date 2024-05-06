@@ -12,7 +12,7 @@ public class SpitterAcidShrapnel : YmirComponent
 
     private float movementSpeed;
 
-    //private float damage = 100f;
+    private float damage = 100f;
 
     private GameObject player;
 
@@ -47,8 +47,8 @@ public class SpitterAcidShrapnel : YmirComponent
     {
         if (other.Name == "Player" && destroyed == false)
         {
-            //healthScript.TakeDmg(damage);
-            //destroyed = true;
+            healthScript.TakeDmg(damage);
+            destroyed = true;
         }
     }
 }
