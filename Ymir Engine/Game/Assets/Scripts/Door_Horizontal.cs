@@ -22,7 +22,7 @@ public class Door_Horizontal : YmirComponent
     public float fraction = 0f;
 
     float timer = 0;
-    float animDuration = 1f;
+    float animDuration = 0.75f;
 
     private GameObject lDoor;
     private Vector3 initialPos_lDoor;
