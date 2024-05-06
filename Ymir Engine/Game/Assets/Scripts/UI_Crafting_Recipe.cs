@@ -9,7 +9,6 @@ using YmirEngine;
 public class UI_Crafting_Recipe : YmirComponent
 {
     public int itemNumber;
-    //private List<UI_Item_Button> _itemButtonList; // Don't trust reference
     private Player player = null;
 
     public void Start()
@@ -32,23 +31,32 @@ public class UI_Crafting_Recipe : YmirComponent
 
     public void Check() // Check if all slots are filled to craft item
     {
-        int count = InternalCalls.CS_GetChildrenSize(gameObject) - 1; // Don't check last element(item to create)
+        int count = 0; 
 
         for (int i = 0; i < InternalCalls.CS_GetChildrenSize(gameObject) - 1; i++) // Don't check last element (item to create)
         {
             GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2); // (Slot(Button))
+            Debug.Log(button.Name);
+            Debug.Log(button.GetComponent<UI_Item_Button>().itemType.ToString());
+            Debug.Log(button.GetComponent<UI_Item_Button>().currentSlot.ToString());
 
             if (button.GetComponent<UI_Item_Button>().itemType != ITEM_SLOT.NONE) // Check if it's empty
             {
-                count--;
+                count++;
+                Debug.Log(count.ToString());
             }
         }
 
-        if (count == 0) // If all slots are filled, craft item
+        if (count == InternalCalls.CS_GetChildrenSize(gameObject) - 1) // If all slots are filled, craft item
         {
             Craft();
+            Debug.Log("CRAFT");
         }
 
+        else
+        {
+            Debug.Log("NO CRAFT");
+        }
     }
 
     private void Craft()

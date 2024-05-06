@@ -14,6 +14,9 @@ public class UI_Crafting : YmirComponent
 
     public Player player = null;
     public Health health = null;
+
+    private bool _startCheck = false;
+
     public void Start()
 	{
         focusedGO = UI.GetFocused();
@@ -29,6 +32,9 @@ public class UI_Crafting : YmirComponent
         goName.SetActive(false);
 
         _show = false;
+
+        // TODO: Very bad postupdate, fix
+        _startCheck = false;
 
         //GetPlayerScript();
         //GetHealthScript();
@@ -59,6 +65,12 @@ public class UI_Crafting : YmirComponent
         }
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
+
+        if (_startCheck)
+        {
+            focusedGO.parent.parent.GetComponent<UI_Crafting_Recipe>().Check();
+            _startCheck = false;
+        }
 
         UI_Item_Button cs_UI_Item_Button = focusedGO.GetComponent<UI_Item_Button>();
 
@@ -95,7 +107,8 @@ public class UI_Crafting : YmirComponent
                 UI.SetFirstFocused(gameObject);
             }
 
-
+            //Debug.Log(focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
+            //Debug.Log(focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
         }
 
         return;
@@ -107,10 +120,8 @@ public class UI_Crafting : YmirComponent
 
         if (_selectedGO != null)
         {
-            Debug.Log(focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
-            Debug.Log(focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
-            Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
-            Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+            //Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
+            //Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
 
             if ((UI.CompareStringToName(focusedGO.parent, _selectedGO.GetComponent<UI_Item_Button>().item.name)) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && focusedGO.GetComponent<UI_Item_Button>().item.itemType == ITEM_SLOT.NONE) ||
@@ -126,6 +137,12 @@ public class UI_Crafting : YmirComponent
                 ITEM_SLOT aux = _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot;
                 _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot = focusedGO.GetComponent<UI_Item_Button>().item.currentSlot;
                 focusedGO.GetComponent<UI_Item_Button>().item.currentSlot = aux;
+
+                // Check item craft
+                if (_selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.MATERIAL)
+                {
+                    _startCheck = true;
+                }
 
                 focusedGO.GetComponent<UI_Item_Button>().updateStats = true;
                 _selectedGO.GetComponent<UI_Item_Button>().updateStats = true;

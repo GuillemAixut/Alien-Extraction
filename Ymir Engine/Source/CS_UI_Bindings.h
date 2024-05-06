@@ -276,6 +276,11 @@ void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
 	}
 
 	External->scene->swapList.insert(std::pair<GameObject*, GameObject*>(selectedgo, targetgo));
+
+	// Switch name required for crafting, doesn't affect rest of scripts
+	std::string aux = selectedgo->name;
+	selectedgo->name = targetgo->name;
+	targetgo->name = aux;
 	//selectedgo->SwapChildren(targetgo);
 
 	External->scene->focusedUIGO = External->scene->selectedUIGO;
