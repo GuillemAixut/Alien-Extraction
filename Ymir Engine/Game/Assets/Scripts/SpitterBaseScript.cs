@@ -383,7 +383,7 @@ public class SpitterBaseScript : YmirComponent
                 Vector3 pos = gameObject.transform.globalPosition;
                 pos.y += 15;
                 pos.z -= 10;
-                InternalCalls.CreateSpitterAcidRebound(pos, gameObject.transform.globalRotation);
+                InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
                 LookAt(player.transform.globalPosition);
             }
         }

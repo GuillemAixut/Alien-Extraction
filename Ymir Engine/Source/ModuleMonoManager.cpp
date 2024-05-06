@@ -278,7 +278,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma region Enemies
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidSpit", CreateSpitterAcidSpit);
-	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidRebound", CreateSpitterAcidRebound);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidExplosive", CreateSpitterAcidExplosive);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateFaceHuggerTailAttack", CreateFaceHuggerTailAttack);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateDroneClawAttack", CreateDroneClawAttack);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateDroneTailAttack", CreateDroneTailAttack);

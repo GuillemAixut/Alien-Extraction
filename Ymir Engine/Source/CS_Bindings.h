@@ -984,12 +984,12 @@ void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
 	go->AddComponent(c);
 }
 
-void CreateSpitterAcidRebound(MonoObject* position, MonoObject* rotation)
+void CreateSpitterAcidExplosive(MonoObject* position, MonoObject* rotation)
 {
 	if (External == nullptr) return;
-	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidRebound", External->scene->mRootNode);
+	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidExplosion", External->scene->mRootNode);
 	go->UID = Random::Generate();
-	go->tag = "SpitterAcidRebound";
+	go->tag = "SpitterAcidExplosion";
 
 	float3 posVector = External->moduleMono->UnboxVector(position);
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
@@ -1014,7 +1014,7 @@ void CreateSpitterAcidRebound(MonoObject* position, MonoObject* rotation)
 	physBody->size = scaleVector;
 	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
-	const char* t = "SpitterAcidRebound";
+	const char* t = "SpitterAcidExplosion";
 	Component* c = nullptr;
 	c = new CScript(go, t);
 	go->AddComponent(c);
