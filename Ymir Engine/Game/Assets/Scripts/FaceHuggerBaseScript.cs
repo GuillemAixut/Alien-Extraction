@@ -233,6 +233,10 @@ public class FaceHuggerBaseScript : Enemy
                             attackTimer = attackDuration;
                             gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
                             Audio.PlayAudio(gameObject, "FH_Tail");
+                            Vector3 pos = gameObject.transform.globalPosition;
+                            pos.y += 10;
+                            pos.z -= 5;
+                            InternalCalls.CreateFaceHuggerTailAttack(pos, gameObject.transform.globalRotation);
                             wanderState = WanderState.ATTACK;
                         }
                     }

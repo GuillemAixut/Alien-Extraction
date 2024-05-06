@@ -7,7 +7,7 @@
             "UID": 315874151,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 1992011394,
             "Components": [
                 {
                     "Type": "Transform",
@@ -15,7 +15,7 @@
                     "Translation": [
                         5.4377498626708984,
                         0,
-                        309.77297973632812
+                        45.154525756835938
                     ],
                     "Rotation": [
                         -0,
@@ -155,9 +155,9 @@
                         0
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -89.980216979980469,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.02500000037252903,
@@ -244,6 +244,7 @@
                     "detectionRadius": 60,
                     "xSpeed": 0,
                     "ySpeed": 0,
+                    "droneState": 0,
                     "timeCounter": 0
                 },
                 {
@@ -278,8 +279,7 @@
                 }
             ],
             "Children UID": [
-                317641903,
-                1977502411
+                317641903
             ]
         },
         {
@@ -346,78 +346,6 @@
                     "Normal_ID": 602,
                     "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
                     "Normal_UID": 788886931
-                }
-            ]
-        },
-        {
-            "Name": "Sensor",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1977502411,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1765229486,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        2.56103515625,
-                        239.32478332519531,
-                        -18.405149459838867
-                    ],
-                    "Rotation": [
-                        180,
-                        89.980216979980469,
-                        -180
-                    ],
-                    "Scale": [
-                        39.999992370605469,
-                        40,
-                        39.999992370605469
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        9.1000003814697266,
-                        10.399999618530273,
-                        18.100000381469727
-                    ],
-                    "Physics Type": 1,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        180,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "DroneXenomorphAttack.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "drone": 1765229486
                 }
             ]
         }

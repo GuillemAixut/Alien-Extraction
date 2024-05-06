@@ -39,12 +39,14 @@ public class DroneXenomorphBaseScript : Enemy
 	private float clawCooldown;
     private float clawCooldownTime;
     private float clawRange;
+    private bool clawDone;
 
 	//Tail
 	//private float tailDamage;
 	private float tailCooldown;
     private float tailCooldownTime;
     private float tailRange;
+    private bool tailDone;
 
 	//FOR GENERAL TIME MANAGEMENT
 	public float timeCounter;
@@ -78,11 +80,13 @@ public class DroneXenomorphBaseScript : Enemy
 		clawCooldown = 2f;
         clawCooldownTime = 0f;
         clawRange = 20f;
+        clawDone = false;
 
 		//Tail
 		tailCooldown = 6f;
         tailCooldownTime = 0f;
         tailRange = 30f;
+        tailDone = false;
 
 		//Time
 		timeCounter = 0f;
@@ -254,6 +258,14 @@ public class DroneXenomorphBaseScript : Enemy
                     //To fix claw to tail attack bug
                     tailCooldownTime = 5.5f;
                 }
+                else if (timeCounter >= 0.65f && clawDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 10;
+                    pos.z -= 6;
+                    InternalCalls.CreateDroneClawAttack(pos, gameObject.transform.globalRotation);
+                    clawDone = true;
+                }
 
                 break;
 			case DroneState.TAIL :
@@ -276,12 +288,15 @@ public class DroneXenomorphBaseScript : Enemy
                     clawCooldownTime = 1f;
 
                 }
-
+                else if (timeCounter >= 0.75f && tailDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 10;
+                    pos.z -= 6;
+                    InternalCalls.CreateDroneTailAttack(pos, gameObject.transform.globalRotation);
+                    tailDone = true;
+                }
                 break;
-
-
-
-
 		}
 
         //Check attack posiblilities and count cooldowns
@@ -366,6 +381,7 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter = 0f;
                 //ANIMATION DURATION HERE!!!
                 timeLimit = 1f;
+                clawDone = false;
                 droneState = DroneState.CLAW;
                 LookAt(player.transform.globalPosition);
                 Animation.PlayAnimation(gameObject, "Claw_Attack");
@@ -379,6 +395,7 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter = 0f;
                 //ANIMATION DURATION HERE!!!
                 timeLimit = 0.8f;
+                tailDone = false;
                 droneState = DroneState.TAIL;
                 LookAt(player.transform.globalPosition);
                 Animation.PlayAnimation(gameObject, "Drone_Tail_Attack");

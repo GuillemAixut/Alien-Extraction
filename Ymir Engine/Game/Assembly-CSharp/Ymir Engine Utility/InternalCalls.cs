@@ -64,6 +64,26 @@ namespace YmirEngine
         public static extern void CreateSpitterAcidRebound(object position, object rotation);
 
         /// <summary>
+        /// Creates facehugger tail attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateFaceHuggerTailAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates drone claw attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateDroneClawAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates drone tail attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateDroneTailAttack(object position, object rotation);
+
+
+
+        /// <summary>
         /// Destroys a game object.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
