@@ -85,7 +85,7 @@ public class UI_Crafting : YmirComponent
                 }
             }
 
-            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN || Input.GetKey(YmirKeyCode.RETURN) == KeyState.KEY_DOWN)
             {
                 SwitchItems();
             }
@@ -95,14 +95,7 @@ public class UI_Crafting : YmirComponent
                 UI.SetFirstFocused(gameObject);
             }
 
-            Debug.Log(cs_UI_Item_Button.item.itemType.ToString());
-            Debug.Log(cs_UI_Item_Button.item.currentSlot.ToString());
 
-            if (UI.GetSelected() != null)
-            {
-                Debug.Log(UI.GetSelected().GetComponent<UI_Item_Button>().item.itemType.ToString());
-                Debug.Log(UI.GetSelected().GetComponent<UI_Item_Button>().item.currentSlot.ToString());
-            }
         }
 
         return;
@@ -114,8 +107,10 @@ public class UI_Crafting : YmirComponent
 
         if (_selectedGO != null)
         {
-            //Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
-            //Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+            Debug.Log(focusedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
+            Debug.Log(focusedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
+            Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.itemType.ToString());
+            Debug.Log(_selectedGO.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
 
             if ((UI.CompareStringToName(focusedGO.parent, _selectedGO.GetComponent<UI_Item_Button>().item.name)) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && focusedGO.GetComponent<UI_Item_Button>().item.itemType == ITEM_SLOT.NONE) ||
