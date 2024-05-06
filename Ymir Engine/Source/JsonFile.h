@@ -114,7 +114,7 @@ public:
 
     void SetPrefab(const char* key, const GameObject& gameObject);
 
-private:
+//private:
 
     JSON_Value* rootValue; // Private member to store JSON value
     JSON_Object* rootObject; // Private member to store JSON object

@@ -362,7 +362,6 @@ namespace YmirEngine
         public static extern bool CompareStringToName(object go, string name);
     }
 
-
     /// <summary>
     /// Provides methods for Save and Load operations.
     /// </summary>
@@ -372,7 +371,81 @@ namespace YmirEngine
         /// 
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void Save();
+        public static extern void CreateSaveGameFile(string dir, string name);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveInt(string dir, string name, string saveAs, int val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveFloat(string dir, string name, string saveAs, double val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveBool(string dir, string name, string saveAs, bool val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveString(string dir, string name, string saveAs, string val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveIntArray(string dir, string name, string saveAs, int[] val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveFloatArray(string dir, string name, string saveAs, double[] val);
+
+        //
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int LoadInt();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern double LoadFloat();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool LoadBool();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern string LoadString();
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //public static extern void LoadIntArray();
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //public static extern void LoadFloatArray();
     }
 
     /// <summary>
