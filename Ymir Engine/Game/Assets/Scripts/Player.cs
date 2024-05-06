@@ -1533,7 +1533,8 @@ public class Player : YmirComponent
 
         HandleRotation();
 
-        gameObject.SetVelocity(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
+        Vector3 gravity = new Vector3(0, -15, 0);
+        gameObject.SetVelocity((gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity);
 
         //if (gamepadInput.x > 0)
         //{
