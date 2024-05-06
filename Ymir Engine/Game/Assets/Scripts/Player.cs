@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -192,6 +193,8 @@ public class Player : YmirComponent
 
     public void Start()
     {
+        saveName = "Player";
+
         //angle = 0;
         //has360 = false;
         //
@@ -250,6 +253,7 @@ public class Player : YmirComponent
 
         //--------------------- Menus ---------------------\\
         itemsList = new List<Item>();
+        itemsListTest = new List<string>();
 
         // TODO: Sara --> cosas pa probar items
         for (int i = 0; i < 5; i++)
@@ -294,6 +298,7 @@ public class Player : YmirComponent
             }
 
             itemsList.Add(item);
+            itemsListTest.Add(item.name);
         }
 
         //--------------------- Get Camera GameObject ---------------------\\
@@ -1896,16 +1901,26 @@ public class Player : YmirComponent
 
     public void SavePlayer()
     {
-        saveName = "Player";
         SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
 
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
 
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Items num", itemsListTest.Count);
+
         // Items
         for (int i = 0; i < itemsListTest.Count; i++)
         {
-            SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item" + i.ToString(), itemsListTest[i]);
+            SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsListTest[i]);
+        }
+    }
+
+    public void LoadItems()
+    {
+        for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num"); i++)
+        {
+            string item = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
+            itemsListTest.Add(item);
         }
     }
 }

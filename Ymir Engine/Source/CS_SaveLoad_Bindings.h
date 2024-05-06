@@ -16,6 +16,8 @@
 
 #include "Component.h"
 
+#define SAVE_GAME_EXT ".ygame"
+
 #pragma region Save
 
 void CreateSaveGameFile(MonoString* dir, MonoString* name)
@@ -24,9 +26,9 @@ void CreateSaveGameFile(MonoString* dir, MonoString* name)
 	std::string fileName = mono_string_to_utf8(name);
 
 	JsonFile ygameFile;
-	ygameFile.CreateJSON(fileDir + "/", fileName + ".ygame");
+	ygameFile.CreateJSON(fileDir + "/", fileName + SAVE_GAME_EXT);
 
-	LOG("Game file created: %s", (fileDir + "/", fileName + ".ygame").c_str());
+	LOG("Game file created: %s", (fileDir + "/", fileName + SAVE_GAME_EXT).c_str());
 }
 
 void SaveGameInt(MonoString* dir, MonoString* name, MonoString* saveAs, int val)
@@ -34,10 +36,10 @@ void SaveGameInt(MonoString* dir, MonoString* name, MonoString* saveAs, int val)
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
 	ygameFilePtr->SetInt(mono_string_to_utf8(saveAs), val);
 
-	ygameFilePtr->UpdateJSON_File((fileDir + "/" + fileName + ".ygame").c_str());
+	ygameFilePtr->UpdateJSON_File((fileDir + "/" + fileName + SAVE_GAME_EXT).c_str());
 }
 
 void SaveGameFloat(MonoString* dir, MonoString* name, MonoString* saveAs, double val)
@@ -45,8 +47,10 @@ void SaveGameFloat(MonoString* dir, MonoString* name, MonoString* saveAs, double
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
 	ygameFilePtr->SetFloat(mono_string_to_utf8(saveAs), val);
+
+	ygameFilePtr->UpdateJSON_File((fileDir + "/" + fileName + SAVE_GAME_EXT).c_str());
 }
 
 void SaveGameBool(MonoString* dir, MonoString* name, MonoString* saveAs, bool val)
@@ -54,8 +58,10 @@ void SaveGameBool(MonoString* dir, MonoString* name, MonoString* saveAs, bool va
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
 	ygameFilePtr->SetBoolean(mono_string_to_utf8(saveAs), val);
+
+	ygameFilePtr->UpdateJSON_File((fileDir + "/" + fileName + SAVE_GAME_EXT).c_str());
 }
 
 void SaveGameString(MonoString* dir, MonoString* name, MonoString* saveAs, MonoString* val)
@@ -63,8 +69,10 @@ void SaveGameString(MonoString* dir, MonoString* name, MonoString* saveAs, MonoS
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
 	ygameFilePtr->SetString(mono_string_to_utf8(saveAs), mono_string_to_utf8(val));
+
+	ygameFilePtr->UpdateJSON_File((fileDir + "/" + fileName + SAVE_GAME_EXT).c_str());
 }
 
 void SaveGameIntArray(MonoString* dir, MonoString* name, MonoString* saveAs, int* val, int size)
@@ -72,8 +80,10 @@ void SaveGameIntArray(MonoString* dir, MonoString* name, MonoString* saveAs, int
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
 	ygameFilePtr->SetIntArray(mono_string_to_utf8(saveAs), val, size);
+
+	ygameFilePtr->UpdateJSON_File((fileDir + "/" + fileName + SAVE_GAME_EXT).c_str());
 }
 
 void SaveGameFloatArray(MonoString* dir, MonoString* name, MonoString* saveAs, float* val, int size)
@@ -81,8 +91,10 @@ void SaveGameFloatArray(MonoString* dir, MonoString* name, MonoString* saveAs, f
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
 	ygameFilePtr->SetFloatArray(mono_string_to_utf8(saveAs), val, size);
+
+	ygameFilePtr->UpdateJSON_File((fileDir + "/" + fileName + SAVE_GAME_EXT).c_str());
 }
 #pragma endregion
 
@@ -92,52 +104,52 @@ int LoadGameInt(MonoString* dir, MonoString* name, MonoString* saveAs)
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
 	return ygameFilePtr->GetInt(mono_string_to_utf8(saveAs));
 }
 
-double LoadGameFloat(MonoString* dir, MonoString* name, MonoString* saveAs)
+double LoadGameFloat(MonoString* dir, MonoString* name, MonoString* loadFrom)
 {
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
-	return ygameFilePtr->GetFloat(mono_string_to_utf8(saveAs));
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
+	return ygameFilePtr->GetFloat(mono_string_to_utf8(loadFrom));
 }
 
-bool LoadGameBool(MonoString* dir, MonoString* name, MonoString* saveAs, bool val)
+bool LoadGameBool(MonoString* dir, MonoString* name, MonoString* loadFrom, bool val)
 {
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
-	return ygameFilePtr->GetBoolean(mono_string_to_utf8(saveAs));
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
+	return ygameFilePtr->GetBoolean(mono_string_to_utf8(loadFrom));
 }
 
-MonoString* LoadGameString(MonoString* dir, MonoString* name, MonoString* saveAs)
+MonoString* LoadGameString(MonoString* dir, MonoString* name, MonoString* loadFrom)
 {
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
 
-	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
-	return mono_string_new(External->moduleMono->domain, (ygameFilePtr->GetString(mono_string_to_utf8(saveAs)).c_str()));
+	std::unique_ptr<JsonFile> ygameFilePtr = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
+	return mono_string_new(External->moduleMono->domain, (ygameFilePtr->GetString(mono_string_to_utf8(loadFrom)).c_str()));
 }
 
-//int* LoadGameIntArray(MonoString* dir, MonoString* name, MonoString* saveAs)
+//int* LoadGameIntArray(MonoString* dir, MonoString* name, MonoString* loadFrom)
 //{
 //	std::string fileDir = mono_string_to_utf8(dir);
 //	std::string fileName = mono_string_to_utf8(name);
 //
-//	ygameFile = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
-//	return ygameFile->GetIntArray(mono_string_to_utf8(saveAs));
+//	ygameFile = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
+//	return ygameFile->GetIntArray(mono_string_to_utf8(loadFrom));
 //}
 //
-//void LoadGameFloatArray(MonoString* dir, MonoString* name, MonoString* saveAs)
+//void LoadGameFloatArray(MonoString* dir, MonoString* name, MonoString* loadFrom)
 //{
 //	std::string fileDir = mono_string_to_utf8(dir);
 //	std::string fileName = mono_string_to_utf8(name);
 //
-//	ygameFile = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
-//	return ygameFile->GetFloatArray(mono_string_to_utf8(saveAs));
+//	ygameFile = JsonFile::GetJSON(fileDir + "/" + fileName + SAVE_GAME_EXT);
+//	return ygameFile->GetFloatArray(mono_string_to_utf8(loadFrom));
 //}
 #pragma endregion
