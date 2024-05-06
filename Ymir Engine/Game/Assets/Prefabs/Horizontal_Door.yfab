@@ -28,12 +28,56 @@
                         0.09000001847743988,
                         0.090000629425048828
                     ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        500,
+                        250,
+                        250
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Door_Horizontal.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "fraction": 0
                 }
             ],
             "Children UID": [
                 1163680921,
                 902427818,
-                1106644159
+                1106644159,
+                326945755,
+                391482570
             ]
         },
         {
@@ -52,12 +96,12 @@
                     "Translation": [
                         0,
                         0,
-                        -3.5527136788005009e-15
+                        0
                     ],
                     "Rotation": [
-                        -1.5902773592947552e-15,
+                        3.8302663263323211e-09,
                         0,
-                        0
+                        -0
                     ],
                     "Scale": [
                         1,
@@ -123,9 +167,9 @@
                     "Active": true,
                     "Collider Type": 0,
                     "Size": [
-                        150,
+                        12.979124069213867,
                         333.10858154296875,
-                        750
+                        185.51686096191406
                     ],
                     "Physics Type": 1,
                     "Mass": 1,
@@ -147,13 +191,6 @@
                         0,
                         1
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "inverted": false
                 }
             ]
         },
@@ -173,12 +210,12 @@
                     "Translation": [
                         0,
                         0,
-                        -9.6633812063373625e-13
+                        0
                     ],
                     "Rotation": [
-                        -4.1514290387567598e-06,
-                        3.6398560326081002e-19,
-                        1.044093460222939e-05
+                        -1.17295962809294e-06,
+                        7.6578588576684675e-14,
+                        2.9596376407425851e-06
                     ],
                     "Scale": [
                         0.99999910593032837,
@@ -244,9 +281,9 @@
                     "Active": true,
                     "Collider Type": 0,
                     "Size": [
-                        150,
-                        333,
-                        750
+                        12.979127883911133,
+                        332.93222045898438,
+                        197.6943359375
                     ],
                     "Physics Type": 1,
                     "Mass": 1,
@@ -268,13 +305,6 @@
                         0,
                         1
                     ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "inverted": true
                 }
             ]
         },
@@ -294,10 +324,10 @@
                     "Translation": [
                         0,
                         0,
-                        0
+                        -1.2768347490421661e-10
                     ],
                     "Rotation": [
-                        -0,
+                        3.8302685467783704e-09,
                         0,
                         -0
                     ],
@@ -354,6 +384,66 @@
                     "Emissive_ID": 310,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Door\/TEX_PROP_Door_E.png",
                     "Emissive_UID": 1442365833
+                }
+            ]
+        },
+        {
+            "Name": "End_Door2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 326945755,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 232432059,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        190
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "End_Door1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 391482570,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 232432059,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        -200
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
                 }
             ]
         }

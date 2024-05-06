@@ -1020,6 +1020,108 @@ void CreateSpitterAcidRebound(MonoObject* position, MonoObject* rotation)
 	go->AddComponent(c);
 }
 
+void CreateFaceHuggerTailAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("FaceHuggerTailAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "FaceHuggerTailAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.3f, 3.3f, 5.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+	//Change in the future
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "FaceHuggerTailAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateDroneClawAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("DroneClawAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "DroneClawAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.3f, 3.3f, 4.2f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+	//Change in the future
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "DroneXenomorphClawAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateDroneTailAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("DroneTailAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "DroneTailAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.3f, 3.3f, 6.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+	//Change in the future
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "DroneXenomorphTailAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
 
 //---------- GLOBAL GETTERS ----------//
 MonoObject* SendGlobalPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
