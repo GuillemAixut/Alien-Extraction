@@ -25,10 +25,14 @@ public class Flesh_Door : YmirComponent
 
     private GameObject lDoor;
     private Vector3 initialPos_lDoor;
+    private Vector3 initialScale_lDoor;
     private GameObject end_lDoor;
+
     private GameObject rDoor;
     private Vector3 initialPos_rDoor;
+    private Vector3 initialScale_rDoor;
     private GameObject end_rDoor;
+
     private GameObject upDoor;
     private Vector3 initialPos_upDoor;
     private GameObject end_upDoor;
@@ -43,7 +47,9 @@ public class Flesh_Door : YmirComponent
         end_upDoor = InternalCalls.CS_GetChild(gameObject, 5);
 
         initialPos_lDoor = lDoor.transform.localPosition;
+        initialScale_lDoor = lDoor.transform.localScale;
         initialPos_rDoor = rDoor.transform.localPosition;
+        initialScale_rDoor = rDoor.transform.localScale;
         initialPos_upDoor = upDoor.transform.localPosition;
 
         currentState = DoorState.CLOSED;
@@ -56,8 +62,13 @@ public class Flesh_Door : YmirComponent
             case DoorState.OPENING:
                 timer += Time.deltaTime;
                 float fraction = Mathf.Clamp01(timer / animDuration);
+
                 lDoor.transform.localPosition = Vector3.Lerp(initialPos_lDoor, end_lDoor.transform.localPosition, fraction);
+                lDoor.transform.localScale = Vector3.Lerp(initialScale_lDoor, end_lDoor.transform.localScale, fraction);
+
                 rDoor.transform.localPosition = Vector3.Lerp(initialPos_rDoor, end_rDoor.transform.localPosition, fraction);
+                rDoor.transform.localScale = Vector3.Lerp(initialScale_lDoor, end_rDoor.transform.localScale, fraction);
+
                 upDoor.transform.localPosition = Vector3.Lerp(initialPos_upDoor, end_upDoor.transform.localPosition, fraction);
                 if (timer >= animDuration)
                 {
@@ -80,7 +91,11 @@ public class Flesh_Door : YmirComponent
                 timer += Time.deltaTime;
                 fraction = Mathf.Clamp01(timer / animDuration);
                 lDoor.transform.localPosition = Vector3.Lerp(end_lDoor.transform.localPosition, initialPos_lDoor, fraction);
+                lDoor.transform.localScale = Vector3.Lerp(end_lDoor.transform.localScale, initialScale_lDoor, fraction);
+
                 rDoor.transform.localPosition = Vector3.Lerp(end_rDoor.transform.localPosition, initialPos_rDoor, fraction);
+                rDoor.transform.localScale = Vector3.Lerp(end_rDoor.transform.localScale, initialScale_rDoor, fraction);
+
                 upDoor.transform.localPosition = Vector3.Lerp(end_upDoor.transform.localPosition, initialPos_upDoor, fraction);
                 if (timer >= animDuration)
                 {
