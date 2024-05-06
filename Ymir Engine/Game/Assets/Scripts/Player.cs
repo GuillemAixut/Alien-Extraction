@@ -218,6 +218,9 @@ public class Player : YmirComponent
 
     public void Start()
     {
+        Audio.SetState("PlayerState", "Alive");
+        Audio.SetState("CombatState", "Exploration");
+
         saveName = "Player";
 
         //angle = 0;
@@ -357,6 +360,16 @@ public class Player : YmirComponent
         ProcessState();
 
         UpdateState();
+
+        if (Input.GetKey(YmirKeyCode.K) == KeyState.KEY_DOWN)
+        {
+            Audio.SetState("CombatState", "Exploration");
+        }
+
+        if (Input.GetKey(YmirKeyCode.L) == KeyState.KEY_DOWN)
+        {
+            Audio.SetState("CombatState", "Fight");
+        }
 
         if (Input.GetKey(YmirKeyCode.F1) == KeyState.KEY_DOWN)
         {
@@ -1989,5 +2002,25 @@ public class Player : YmirComponent
         }
     }
 
+    #endregion
+    #region AUDIO
+    public void SetCombatAudioState()
+    {
+        Audio.SetState("CombatState", "Fight");
+    }
+
+    public void SetExplorationAudioState()
+    {
+        Audio.SetState("CombatState", "Exploration");
+    }
+    public void SetAliveAudioState()
+    {
+        Audio.SetState("PlayerState", "Alive");
+    }
+
+    public void SetDeadAudioState()
+    {
+        Audio.SetState("PlayerState", "Dead");
+    }
     #endregion
 }
