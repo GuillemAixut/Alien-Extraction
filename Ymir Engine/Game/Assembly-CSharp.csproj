@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
 	<PropertyGroup>
@@ -44,6 +44,7 @@
 	<ItemGroup>
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Animation.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Audio.cs" />
+    <Compile Include="Assembly-CSharp\Ymir Engine Utility\Globals.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Item.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Mathf.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\PathFinding.cs" />
@@ -135,6 +136,9 @@
 		<Compile Include="Assets\Scripts\SMG.cs" />
 		<Compile Include="Assets\Scripts\Shotgun.cs" />
 		<Compile Include="Assets\Scripts\Plasma.cs" />
+    <Compile Include="Assets\Scripts\DroneXenomorphTailAttack.cs" />
+    <Compile Include="Assets\Scripts\DroneXenomorphClawAttack.cs" />
+    <Compile Include="Assets\Scripts\FaceHuggerTailAttack.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Assets\Scripts\Enemies\" />

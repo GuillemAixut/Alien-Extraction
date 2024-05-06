@@ -32,9 +32,15 @@ void SaveGameInt(MonoString* dir, MonoString* name, MonoString* saveAs, int val)
 {
 	std::string fileDir = mono_string_to_utf8(dir);
 	std::string fileName = mono_string_to_utf8(name);
+	std::string fileSaveAs = mono_string_to_utf8(saveAs);
 
 	std::unique_ptr<JsonFile> ygameFile = JsonFile::GetJSON(fileDir + "/" + fileName + ".ygame");
 	ygameFile->SetInt(mono_string_to_utf8(saveAs), val);
+
+	JSON_Value* hierarchyValue = json_value_init_array();
+	JSON_Array* hierarchyArray = json_value_get_array(hierarchyValue);
+
+	json_object_set_value(ygameFile->rootObject, fileSaveAs.c_str(), hierarchyValue);
 }
 
 void SaveGameFloat(MonoString* dir, MonoString* name, MonoString* saveAs, double val)

@@ -1,24 +1,24 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -3.0629382133483887,
-        9.206390380859375,
-        11.916875839233398
+        -3.2487821578979492,
+        3.7520461082458496,
+        6.0201992988586426
     ],
     "Editor Camera Right (X)": [
-        0.98043882846832275,
-        -7.5995922088623047e-07,
-        0.19704572856426239
+        0.91314542293548584,
+        -6.4074993133544922e-07,
+        0.40778744220733643
     ],
     "Editor Camera Up (Y)": [
-        0.081572167575359344,
-        0.91030615568161011,
-        -0.40587446093559265
+        0.17446550726890564,
+        0.9038841724395752,
+        -0.39067363739013672
     ],
     "Editor Camera Front (Z)": [
-        0.1793634295463562,
-        -0.41399043798446655,
-        -0.89245873689651489
+        0.36856552958488464,
+        -0.42786049842834473,
+        -0.82531768083572388
     ],
     "Hierarchy": [
         {
@@ -28,7 +28,7 @@
             "UID": 1661175982,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1661175982,
+            "Parent UID": 1135718885,
             "Components": [
                 {
                     "Type": "Transform",
@@ -317,7 +317,7 @@
                     "NumEmitters": 1,
                     "Emitters": [
                         {
-                            "ModulesSize": 3,
+                            "ModulesSize": 4,
                             "EmitterUID": 730784582,
                             "Settings": [
                                 {
@@ -349,7 +349,7 @@
                                     "Type": 1,
                                     "SpawnMode": 0,
                                     "StartMode": 0,
-                                    "NumParticles": 2,
+                                    "NumParticles": 1,
                                     "SpawnRatio": 0.20000000298023224,
                                     "NumParticlesToStop": 100,
                                     "PointingUID": 0,
@@ -359,6 +359,17 @@
                                 },
                                 {
                                     "Type": 6
+                                },
+                                {
+                                    "Type": 3,
+                                    "AligmentMode": 1,
+                                    "WorldOrientation": 3,
+                                    "AxisOrientation": 3,
+                                    "FreeRotation": [
+                                        0,
+                                        0,
+                                        0
+                                    ]
                                 }
                             ]
                         }

@@ -10,6 +10,8 @@ using YmirEngine;
 
 public class Player : YmirComponent
 {
+    public string saveName = "Player";
+
     #region DEFINE BASE VARS
     public enum STATE : int
     {
@@ -165,6 +167,7 @@ public class Player : YmirComponent
 
     public string currentMenu = "";
     public bool setHover = false; // Guarrada temporal
+    public List<string> itemsListTest;
     public List<Item> itemsList;
 
     #endregion
@@ -335,6 +338,11 @@ public class Player : YmirComponent
         if (Input.GetKey(YmirKeyCode.KP_3) == KeyState.KEY_DOWN)
         {
             SwapWeapon(WEAPON.TRACE);
+        }
+
+        if (Input.GetKey(YmirKeyCode.F8) == KeyState.KEY_DOWN)
+        {
+            SavePlayer();
         }
 
         //Debug.Log("swipeCD = " + swipeCDTimer);
@@ -1884,4 +1892,19 @@ public class Player : YmirComponent
     }
 
     #endregion
+
+    public void SavePlayer()
+    {
+        saveName = "Player";
+        SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
+
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Ammo", ammo);
+
+        // Items
+        for (int i = 0; i < itemsListTest.Count; i++)
+        {
+            SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item" + i.ToString(), itemsListTest[i]);
+        }
+    }
 }

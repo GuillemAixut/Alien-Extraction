@@ -46,6 +46,8 @@ public class FaceHuggerBaseScript : Enemy
     private float attackDuration = 0.8f;
     public bool attackSensor = false;
 
+    private bool walkPlaying = false;
+    private bool attackDone = false;
     
 
     //Audio
@@ -100,9 +102,9 @@ public class FaceHuggerBaseScript : Enemy
 
         // Animations
 
-        Animation.SetLoop(gameObject, "Idle_Facehugger");
-        Animation.SetLoop(gameObject, "IdleCombat_Facehugger");
-        Animation.SetLoop(gameObject, "Walk_Facehugger");
+        Animation.SetLoop(gameObject, "Idle_Facehugger", true);
+        Animation.SetLoop(gameObject, "IdleCombat_Facehugger", true);
+        Animation.SetLoop(gameObject, "Walk_Facehugger", true);
 
         Animation.SetResetToZero(gameObject, "Death_Facehugger", false);
 
@@ -147,6 +149,8 @@ public class FaceHuggerBaseScript : Enemy
                     targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
 
                     Audio.PlayAudio(gameObject, "FH_Move");
+                    Animation.PlayAnimation(gameObject, "Walk_Facehugger");
+                    walkPlaying = true;
                     wanderState = WanderState.GOING;
                     break;
 
@@ -214,11 +218,16 @@ public class FaceHuggerBaseScript : Enemy
 
                     if (wanderState != WanderState.KNOCKBACK && wanderState != WanderState.HIT)
                     {
-                        
-                        if (CryTimer >= 10) 
+
+                        if (CryTimer >= 10)
                         {
                             Audio.PlayAudio(gameObject, "FH_Cry");
                             CryTimer = 0;
+                        }
+                        if (walkPlaying == false)
+                        {
+                            Animation.PlayAnimation(gameObject, "Walk_Facehugger");
+                            walkPlaying = true;
                         }
                         wanderState = WanderState.CHASING;
                         
@@ -233,6 +242,8 @@ public class FaceHuggerBaseScript : Enemy
                             attackTimer = attackDuration;
                             gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
                             Audio.PlayAudio(gameObject, "FH_Tail");
+                            Animation.PlayAnimation(gameObject, "TailAttack_Facehugger");
+                            walkPlaying = false;
                             wanderState = WanderState.ATTACK;
                         }
                     }
@@ -258,6 +269,8 @@ public class FaceHuggerBaseScript : Enemy
             {
                 //Debug.Log("[ERROR] Reached");
                 wanderState = WanderState.REACHED;
+                Animation.PlayAnimation(gameObject, "Idle_Facehugger");
+                walkPlaying = false;
             }
         }
     }   
@@ -270,6 +283,8 @@ public class FaceHuggerBaseScript : Enemy
             if (stopedTimer <= 0)
             {
                 wanderState = WanderState.REACHED;
+                Animation.PlayAnimation(gameObject, "Idle_Facehugger");
+                walkPlaying = false;
             }
         }
     }
@@ -286,15 +301,22 @@ public class FaceHuggerBaseScript : Enemy
 
             if (attackTimer <= 0)
             {
-                ////IF HIT, Do damage
-                //healthScript.TakeDmg(3);
-                //Debug.Log("[ERROR] DID DAMAGE");
                 attackSensor = true;
                 attackTimer = attackDuration;
                 
                 stopedTimer = stopedDuration;
                 wanderState = WanderState.STOPED;
-
+                Animation.PlayAnimation(gameObject, "Idle_Facehugger");
+                walkPlaying = false;
+                attackDone = false;
+            }
+            else if (attackTimer <= 0.2f && attackDone == false)
+            {
+                Vector3 pos = gameObject.transform.globalPosition;
+                pos.y += 10;
+                pos.z -= 5;
+                InternalCalls.CreateFaceHuggerTailAttack(pos, gameObject.transform.globalRotation);
+                attackDone = true;
             }
         }
     }
@@ -307,6 +329,7 @@ public class FaceHuggerBaseScript : Enemy
             Debug.Log("[ERROR] DEATH");
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             Audio.PlayAudio(gameObject, "FH_Death");
+            Animation.PlayAnimation(gameObject, "Death_Facehugger");
             wanderState = WanderState.DEATH;
             timePassed = 0;
         }
@@ -319,7 +342,9 @@ public class FaceHuggerBaseScript : Enemy
         {
             Debug.Log("[ERROR] HIT!!");
             life -= 80;
-           
+
+            Animation.PlayAnimation(gameObject, "Idle_Facehugger");
+            walkPlaying = false;
             wanderState = WanderState.KNOCKBACK;
         }
     }

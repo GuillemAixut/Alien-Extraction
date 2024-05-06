@@ -50,7 +50,7 @@ void SetUIState(MonoObject* object, int uiState)
 				External->scene->SetSelected();
 			}
 		}
-		
+
 		if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::FOCUSED)
 		{
 			int offset = 0;
@@ -274,7 +274,7 @@ void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
 			}
 		}
 	}
-	
+
 	External->scene->swapList.insert(std::pair<GameObject*, GameObject*>(selectedgo, targetgo));
 	//selectedgo->SwapChildren(targetgo);
 
@@ -404,7 +404,7 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 								}
 							}
 						}
-						
+
 						else if (bounce)
 						{
 							if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
@@ -510,7 +510,7 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 								}
 							}
 						}
-						
+
 						else if (bounce)
 						{
 							if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
@@ -606,7 +606,7 @@ void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bo
 				}
 			}
 		}
-		
+
 		else
 		{
 
@@ -940,7 +940,7 @@ void SetUIPosWithOther(MonoObject* goSource, MonoObject* goDestination)
 	GameObject* targetgo = External->moduleMono->GameObject_From_CSGO(goDestination);
 	CTransform* targetTransform = targetgo->mTransform;
 
-	selectedTransform->SetPosition(float3(targetTransform->translation.x, targetTransform->translation.y,0));
+	selectedTransform->SetPosition(float3(targetTransform->translation.x, targetTransform->translation.y, 0));
 
 	//selectedTransform->UpdateUITransformChilds();
 	//selectedTransform->componentReference->dirty_ = true;
@@ -961,6 +961,19 @@ bool CheckUI(MonoObject* goTarget, MonoObject* goOrigin)
 		{
 			return true;
 		}
+	}
+
+	return false;
+}
+
+bool CompareStringToName(MonoObject* go, MonoString* name)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	std::string nameCompare = mono_string_to_utf8(name);
+
+	if (gameObject->name.find(nameCompare) != std::string::npos) 
+	{
+		return true;
 	}
 
 	return false;

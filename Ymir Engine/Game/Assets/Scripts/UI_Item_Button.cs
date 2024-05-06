@@ -20,6 +20,7 @@ public class UI_Item_Button : YmirComponent
     public bool updateStats;
 
     // Debug
+    public string name = "";
     public ITEM_SLOT itemType;
     public ITEM_RARITY itemRarity;
     public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
@@ -251,6 +252,7 @@ public class UI_Item_Button : YmirComponent
             /*imagePath*/ "",
             HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
         }
+
         else if (itemType == ITEM_SLOT.CONSUMABLE)
         {
             _item = new I_Consumables(currentSlot, itemType, itemRarity, isEquipped,
@@ -258,6 +260,17 @@ public class UI_Item_Button : YmirComponent
             /*description*/ "Empty",
             /*imagePath*/ "");
         }
+
+        else if (itemType == ITEM_SLOT.MATERIAL) // TODO: DEBUG MATERIAL, delete when crafting finished
+        {
+            _item = new Item(currentSlot, itemType, itemRarity, isEquipped,
+            /*name*/name,
+            /*description*/ "Empty",
+            /*imagePath*/ "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
+
+            UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), _item.imagePath, (int)UI_STATE.NORMAL);
+        }
+
         else
         {
             _item = new Item(currentSlot, itemType, itemRarity, isEquipped,

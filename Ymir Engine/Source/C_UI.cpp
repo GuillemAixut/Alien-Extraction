@@ -227,7 +227,7 @@ void C_UI::StateLogic()
 		//LOG("FOCUSED");
 
 		OnFocused();
-		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_DOWN))
+		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_DOWN) || External->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
 		{
 			state = UI_STATE::PRESSED;
 		}
@@ -239,7 +239,7 @@ void C_UI::StateLogic()
 
 		OnPressed();
 
-		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_UP))
+		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_UP) || External->input->GetKey(SDL_SCANCODE_RETURN) == KEY_UP)
 		{
 			if (External->scene->focusedUIGO != nullptr && External->scene->focusedUIGO->UID != mOwner->UID)
 			{
@@ -280,7 +280,7 @@ void C_UI::StateLogic()
 		//LOG("SELECTED");
 
 		OnSelected();
-		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_DOWN))
+		if (External->input->IsGamepadButtonPressed(SDL_CONTROLLER_BUTTON_A, KEY_DOWN) || External->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN)
 		{
 			if (External->scene->focusedUIGO != nullptr && External->scene->focusedUIGO->UID != mOwner->UID)
 			{
