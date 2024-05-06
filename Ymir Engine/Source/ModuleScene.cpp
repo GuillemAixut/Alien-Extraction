@@ -73,6 +73,8 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
+	//LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
+	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #ifdef _RELEASE
 	
@@ -96,7 +98,6 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
 	//LoadScene("Assets/UI/Scenes", "StartScene");
 	//LoadScene("Assets/Camera", "CameraTesting");
-	LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
 
 #endif // _RELEASE
 

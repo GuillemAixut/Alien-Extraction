@@ -21,6 +21,7 @@ public class SpitterAcidExplosion : YmirComponent
 
     private float destroyTimer;
 
+
     public void Start()
     {
         movementSpeed = 4000f;
@@ -35,8 +36,37 @@ public class SpitterAcidExplosion : YmirComponent
     {
         destroyTimer += Time.deltaTime;
 
-        if (destroyed || destroyTimer >= 1.3f)
+        if (destroyed)
         {
+            InternalCalls.Destroy(gameObject);
+        }
+        else if (destroyTimer >= 1.3f)
+        {
+            //DO EXPLOSION
+            Quaternion rotation;
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            float angle = 45.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            //angle = 90.0f;
+            //rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            angle = 135.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            //angle = 180.0f;
+            //rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            angle = 225.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            //angle = 270.0f;
+            //rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            angle = 315.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+
             InternalCalls.Destroy(gameObject);
         }
 
@@ -46,8 +76,8 @@ public class SpitterAcidExplosion : YmirComponent
     {
         if (other.Name == "Player" && destroyed == false)
         {
-            //healthScript.TakeDmg(damage);
-            //destroyed = true;
+            healthScript.TakeDmg(damage);
+            destroyed = true;
         }
     }
 

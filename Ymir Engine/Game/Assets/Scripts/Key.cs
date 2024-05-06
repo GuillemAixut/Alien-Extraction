@@ -8,10 +8,17 @@ using YmirEngine;
 
 public class Key : YmirComponent
 {
-	public GameObject door;
+	public GameObject door1;
+    public GameObject door2;
+    public GameObject door3;
+
+    private List<GameObject> doorList = new List<GameObject>();
+
 	public void Start()
 	{
-		
+        doorList.Add(door1);
+        doorList.Add(door2);
+        doorList.Add(door3);
 	}
 
 	public void Update()
@@ -25,9 +32,15 @@ public class Key : YmirComponent
         {
             Audio.PlayEmbedAudio(gameObject);
 
-            InternalCalls.Destroy(door);
-            InternalCalls.Destroy(gameObject);
+            foreach (GameObject go in doorList)
+            {
+                if (go != null)
+                {
+                    InternalCalls.Destroy(go);
+                }
+            }
 
+            InternalCalls.Destroy(gameObject);
         }
     }
 }

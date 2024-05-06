@@ -176,6 +176,24 @@ namespace YmirEngine
 
             return new Quaternion(qx, qy, qz, qw);
         }
+        public static Quaternion RotateQuaternionY(Quaternion originalQuaternion, float angle)
+        {
+            // Convert the angle to radians
+            float radians = angle * Mathf.Deg2Rad;
+
+            // Calculate half angle and its sin and cos
+            float halfAngle = radians * 0.5f;
+            float sinHalfAngle = (float)Math.Sin(halfAngle);
+            float cosHalfAngle = (float)Math.Cos(halfAngle);
+
+            // Construct the quaternion representing rotation around the y-axis
+            Quaternion rotationQuaternion = new Quaternion(0, sinHalfAngle, 0, cosHalfAngle);
+
+            // Multiply the original quaternion by the rotation quaternion
+            Quaternion rotatedQuaternion = rotationQuaternion * originalQuaternion;
+
+            return rotatedQuaternion;
+        }
 
         // Helper method to convert Quaternion to Euler angles in degrees
         private static Vector3 QuaternionToEulerAngles(Quaternion q)

@@ -6,50 +6,29 @@
         22.575868606567383
     ],
     "Editor Camera Right (X)": [
-        -0.82576429843902588,
-        -1.1920928955078125e-07,
-        0.56331557035446167
+        -0.10889104008674622,
+        -1.7136335372924805e-07,
+        0.99365675449371338
     ],
     "Editor Camera Up (Y)": [
-        0.36724609136581421,
-        0.75797474384307861,
-        0.53834617137908936
+        0.46841961145401001,
+        0.88156664371490479,
+        0.051332462579011917
     ],
     "Editor Camera Front (Z)": [
-        0.42731577157974243,
-        -0.65193617343902588,
-        0.62640202045440674
+        0.87666577100753784,
+        -0.47140955924987793,
+        0.096070364117622375
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 379278140,
+            "UID": 938085723,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
+            "Components": [],
             "Children UID": [
                 456674892,
                 1462968092,
@@ -70,7 +49,7 @@
             "UID": 456674892,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13578,7 +13557,7 @@
             "UID": 1462968092,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13666,9 +13645,9 @@
                         619.72198486328125
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -13730,9 +13709,9 @@
                         618.6265869140625
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -13794,9 +13773,9 @@
                         618.6087646484375
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -14294,7 +14273,7 @@
             "UID": 1406784881,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14590,7 +14569,7 @@
             "UID": 505858485,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -16237,7 +16216,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -16264,8 +16243,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 816,
-                    "Height": 935,
+                    "Width": 466,
+                    "Height": 681,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -17653,7 +17632,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -18297,13 +18276,13 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
+                        49.550201416015625,
                         0,
                         0
                     ],
@@ -18509,8 +18488,10 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
+                    "saveName": "",
                     "currentState": 0,
                     "movementSpeed": 35,
+                    "deathAnimFinish": true,
                     "godMode": false,
                     "fireRate": 0,
                     "reloadDuration": 0,
@@ -18526,7 +18507,9 @@
                     "swipeTimer": 0,
                     "acidicTimer": 0,
                     "currentMenu": "",
-                    "setHover": true
+                    "setHover": true,
+                    "itemsListTest": 0,
+                    "itemsList": 0
                 }
             ],
             "Children UID": [
@@ -18766,7 +18749,7 @@
             "UID": 208637195,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -18905,7 +18888,7 @@
             "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -19013,7 +18996,7 @@
             "UID": 1339668438,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 938085723,
             "Components": [
                 {
                     "Type": "Transform",
@@ -19100,40 +19083,31 @@
                     ]
                 },
                 {
-                    "Type": "Script",
-                    "ScriptName": "FaceHuggerBaseScript.cs",
-                    "Active": 1,
-                    "movementSpeed": 20,
-                    "knockBackTimer": 0,
-                    "knockBackSpeed": 0,
-                    "wanderState": 0,
-                    "timePassed": 0,
-                    "life": 100,
-                    "armor": 0,
-                    "rarity": 0,
-                    "wanderRange": 0,
-                    "detectionRadius": 0,
-                    "xSpeed": 0,
-                    "ySpeed": 0,
-                    "PlayerDetected": false,
-                    "wanderDuration": 5,
-                    "stopedDuration": 1,
-                    "cumDuration": 2,
-                    "cumDuration2": 5,
-                    "attackTimer": 0,
-                    "attackSensor": false
-                },
-                {
                     "Type": "Audio source",
                     "Active": 1,
                     "Bank Name": "Facehugger",
                     "Event Name": "",
                     "Event ID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SpitterBaseScript.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "timeCounter": 0,
+                    "movementSpeed": 0,
+                    "knockBackTimer": 0,
+                    "knockBackSpeed": 0,
+                    "timePassed": 0,
+                    "life": 100,
+                    "armor": 0,
+                    "rarity": 0,
+                    "wanderRange": 10,
+                    "detectionRadius": 60
                 }
             ],
             "Children UID": [
-                644078744,
-                1251795386
+                644078744
             ]
         },
         {
@@ -19200,78 +19174,6 @@
                     "Normal_ID": 311,
                     "Normal_Path": "Assets\/Textures\/Textures Facehugger\/TEX_CHAR_Facehugger_N.png",
                     "Normal_UID": 122283368
-                }
-            ]
-        },
-        {
-            "Name": "Sensor",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1251795386,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1339668438,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        12.300000190734863,
-                        21.600000381469727,
-                        17.700000762939453
-                    ],
-                    "Physics Type": 1,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        9.3999996185302734,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "FaceHuggerAttack.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "facehugger": 1339668438
                 }
             ]
         }
