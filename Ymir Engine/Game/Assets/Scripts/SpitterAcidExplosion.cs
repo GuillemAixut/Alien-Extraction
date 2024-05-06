@@ -11,7 +11,7 @@ public class SpitterAcidExplosion : YmirComponent
 
     private float movementSpeed;
 
-    private float damage = 275f;
+    //private float damage = 275f;
 
     private GameObject player;
 
@@ -20,6 +20,8 @@ public class SpitterAcidExplosion : YmirComponent
     private bool destroyed;
 
     private float destroyTimer;
+
+    Quaternion rotation;
 
     public void Start()
     {
@@ -35,8 +37,31 @@ public class SpitterAcidExplosion : YmirComponent
     {
         destroyTimer += Time.deltaTime;
 
-        if (destroyed || destroyTimer >= 1.3f)
+        if (destroyed)
         {
+            InternalCalls.Destroy(gameObject);
+        }
+        else if (destroyTimer >= 1.3f)
+        {
+            //DO EXPLOSION
+            rotation = gameObject.transform.globalRotation;
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            float angle = (float)(180.0f * Math.PI / 180.0f);
+            rotation = Quaternion.RotateAroundAxis(new Vector3(0,1,0), angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            //angle = (float)(180.0f * Math.PI / 180.0f);
+            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            //angle = (float)(270.0f * Math.PI / 180.0f);
+            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            //angle = (float)(360.0f * Math.PI / 180.0f);
+            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            //angle = (float)(450.0f * Math.PI / 180.0f);
+            //rotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), angle);
+            //InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+
             InternalCalls.Destroy(gameObject);
         }
 
