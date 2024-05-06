@@ -8,7 +8,7 @@ using YmirEngine;
 
 public enum WEAPON_TYPE
 {
-    NULL = -1,
+    NONE = -1,
 
     SMG,
     SHOTGUN,
@@ -17,7 +17,7 @@ public enum WEAPON_TYPE
 
 public enum UPGRADE
 {
-    NULL = -1,
+    NONE = -1,
 
     LVL_0,
     LVL_1,
@@ -39,7 +39,7 @@ public abstract class Weapon : YmirComponent
     public float range;
 
     public Player player;
-    public Weapon(WEAPON_TYPE type = WEAPON_TYPE.NULL, UPGRADE upgrade = UPGRADE.NULL)
+    public Weapon(WEAPON_TYPE type = WEAPON_TYPE.NONE, UPGRADE upgrade = UPGRADE.NONE)
     {
         _type = type;
         _upgrade = upgrade;

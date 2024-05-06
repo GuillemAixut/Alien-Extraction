@@ -133,6 +133,15 @@ std::unique_ptr<JsonFile> JsonFile::GetJSON(const std::string& route) {
 }
 
 // -------------------------- Support functions --------------------------------
+void JsonFile::UpdateJSON_File(const char* key)
+{
+	char* serialized_string = NULL;
+	serialized_string = json_serialize_to_string_pretty(rootValue);
+	puts(serialized_string);
+
+	json_serialize_to_file(rootValue, key);
+	json_free_serialized_string(serialized_string);
+}
 
 void JsonFile::SetInt(const char* key, int value) {
 

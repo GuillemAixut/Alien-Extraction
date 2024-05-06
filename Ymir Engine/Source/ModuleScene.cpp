@@ -73,6 +73,8 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
+	//LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
+	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 #ifdef _RELEASE
 	
@@ -89,7 +91,7 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
 
-	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 
 	//LoadScene("Assets", "Pollo Loco");
 	//LoadScene("Assets", "ParticleTest");

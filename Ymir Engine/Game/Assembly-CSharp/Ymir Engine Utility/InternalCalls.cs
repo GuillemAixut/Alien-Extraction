@@ -422,37 +422,37 @@ namespace YmirEngine
         /// 
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern int LoadInt();
+        public static extern int LoadInt(string dir, string name, string loadFrom);
 
         /// <summary>
         /// 
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern double LoadFloat();
+        public static extern double LoadFloat(string dir, string name, string loadFrom);
 
         /// <summary>
         /// 
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool LoadBool();
+        public static extern bool LoadBool(string dir, string name, string loadFrom);
 
         /// <summary>
         /// 
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern string LoadString();
+        public static extern string LoadString(string dir, string name, string loadFrom);
 
         ///// <summary>
         ///// 
         ///// </summary>
         //[MethodImplAttribute(MethodImplOptions.InternalCall)]
-        //public static extern void LoadIntArray();
+        //public static extern void LoadIntArray(string dir, string name, string loadFrom);
 
         ///// <summary>
         ///// 
         ///// </summary>
         //[MethodImplAttribute(MethodImplOptions.InternalCall)]
-        //public static extern void LoadFloatArray();
+        //public static extern void LoadFloatArray(string dir, string name, string loadFrom);
     }
 
     /// <summary>
