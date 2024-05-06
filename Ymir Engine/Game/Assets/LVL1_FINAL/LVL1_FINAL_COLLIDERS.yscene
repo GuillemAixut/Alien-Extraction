@@ -1,54 +1,34 @@
 {
     "NavMesh": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.nav",
     "Editor Camera Position": [
-        851.2579345703125,
-        605.69537353515625,
-        112.00376892089844
+        209.00303649902344,
+        383.81610107421875,
+        -175.07514953613281
     ],
     "Editor Camera Right (X)": [
-        0.68830287456512451,
-        4.0978193283081055e-08,
-        -0.10365619510412216
+        -0.16120393574237823,
+        4.9918889999389648e-07,
+        0.66256493330001831
     ],
     "Editor Camera Up (Y)": [
-        -0.096679858863353729,
-        0.25229677557945251,
-        -0.64197814464569092
+        0.53258299827575684,
+        0.41812071204185486,
+        0.12957863509654999
     ],
     "Editor Camera Front (Z)": [
-        -0.053906545042991638,
-        -0.93148404359817505,
-        -0.35795322060585022
+        0.58290630578994751,
+        -0.7864309549331665,
+        0.14182335138320923
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1968864687,
+            "UID": 1882148876,
             "Active": true,
             "Element_Type": "None",
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
+            "Components": [],
             "Children UID": [
                 265396639,
                 493464378,
@@ -77,7 +57,7 @@
             "UID": 265396639,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52061,7 +52041,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        0.092366822063922882,
+                        0.092366836965084076,
                         -180
                     ],
                     "Scale": [
@@ -58430,6 +58410,41 @@
                     "Ambient_ID": 847,
                     "Ambient_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Secret Door\/TEXTURAS\/TEX_PROP_Secret_Door_A.png",
                     "Ambient_UID": 1680296797
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        19.201000213623047,
+                        34.15008544921875,
+                        10.388999938964844
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        993.5560302734375,
+                        17.008384704589844,
+                        -161.63900756835938
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        -0.43999999761581421,
+                        0,
+                        1
+                    ]
                 }
             ]
         },
@@ -58611,6 +58626,41 @@
                     "Ambient_ID": 855,
                     "Ambient_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Secret Door\/TEXTURAS\/TEX_PROP_Secret_Door_A.png",
                     "Ambient_UID": 1680296797
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        19.301000595092773,
+                        34.15008544921875,
+                        7.2890000343322754
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        913.8756103515625,
+                        17.008384704589844,
+                        -243.09368896484375
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        -0.43999999761581421,
+                        0,
+                        1
+                    ]
                 }
             ]
         },
@@ -58811,7 +58861,7 @@
             "UID": 493464378,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -58876,7 +58926,7 @@
             "UID": 1161519485,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -59050,7 +59100,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.500018835067749,
+                        2.5000195503234863,
                         -0
                     ],
                     "Scale": [
@@ -59665,7 +59715,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327005386352539,
+                        31.327007293701172,
                         -0
                     ],
                     "Scale": [
@@ -59990,7 +60040,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        27.591024398803711,
+                        27.591020584106445,
                         -0
                     ],
                     "Scale": [
@@ -63128,7 +63178,7 @@
             "UID": 1495121981,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -63190,6 +63240,20 @@
                         0,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Key.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "door": 894488893
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Key.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "door": 1729747030
                 }
             ],
             "Children UID": [
@@ -63379,6 +63443,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         1,
@@ -63425,6 +63490,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 4.9000000953674316,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -63442,7 +63508,8 @@
                                     ]
                                 },
                                 {
-                                    "Type": 6
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/particleExample.png"
                                 }
                             ]
                         }
@@ -63483,7 +63550,7 @@
             "UID": 484997781,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -63830,7 +63897,7 @@
             "UID": 1545695842,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64177,7 +64244,7 @@
             "UID": 142531611,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64524,7 +64591,7 @@
             "UID": 1768177679,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64871,7 +64938,7 @@
             "UID": 2061990119,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64968,7 +65035,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64995,7 +65062,7 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 470,
+                    "Width": 742,
                     "Height": 681,
                     "UI Type": 0,
                     "UI State": 1,
@@ -67442,7 +67509,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67484,7 +67551,8 @@
                     "Type": "Script",
                     "ScriptName": "UI_Inventory.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "itemsDictionary": 0
                 }
             ],
             "Children UID": [
@@ -67927,15 +67995,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "ARMOR",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -68402,15 +68473,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -68877,15 +68951,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -69352,15 +69429,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -69827,15 +69907,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -70302,15 +70385,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -70791,15 +70877,18 @@
                     "currentSlot": 0,
                     "enumItem": "ARMOR",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 50,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -71214,15 +71303,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -71637,15 +71729,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -72060,15 +72155,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -72483,15 +72581,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -72906,15 +73007,18 @@
                     "currentSlot": 0,
                     "enumItem": "CHIP",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 5,
                     "armor": 5,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -73329,15 +73433,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -73752,15 +73859,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -74175,15 +74285,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -74598,15 +74711,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -75021,15 +75137,18 @@
                     "currentSlot": 0,
                     "enumItem": "CHIP",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 1.0000001192092896,
                     "reloadSpeed": 0.5,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -75444,15 +75563,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -75867,15 +75989,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -76290,15 +76415,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -76713,15 +76841,18 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -77527,7 +77658,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78064,7 +78195,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78415,7 +78546,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78496,7 +78627,7 @@
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
                     "Far Plane": 1000,
-                    "Frustum Culling": 0,
+                    "Frustum Culling": 1,
                     "Draw Bounding Boxes": 0,
                     "Game Camera": true
                 },
@@ -79051,6 +79182,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 10,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -79059,6 +79191,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Color1": [
                                         0.56194686889648438,
                                         0.56194686889648438,
@@ -79219,6 +79352,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Size1": 7.5,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -79227,6 +79361,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         1,
@@ -79410,6 +79545,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Size1": 7.5,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -79418,6 +79554,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Color1": [
                                         0.16814136505126953,
                                         0,
@@ -79578,6 +79715,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 9.1000003814697266,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -79586,6 +79724,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         0,
@@ -79723,6 +79862,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 7.0999999046325684,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -79731,6 +79871,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         1,
@@ -79868,6 +80009,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 10,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -79876,6 +80018,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         0,
@@ -80013,6 +80156,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 5.8000001907348633,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -80021,6 +80165,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         0.63716810941696167,
@@ -80158,6 +80303,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Size1": 1,
                                     "Size2": 10,
                                     "TimeStart": 0,
@@ -80166,6 +80312,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Color1": [
                                         0.10776094347238541,
                                         0.76106196641921997,
@@ -80237,7 +80384,7 @@
             "UID": 1570706478,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -80274,7 +80421,7 @@
             "UID": 227903904,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -83294,7 +83441,7 @@
             "UID": 900338210,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
@@ -84310,7 +84457,7 @@
             "UID": 728359170,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1968864687,
+            "Parent UID": 1882148876,
             "Components": [
                 {
                     "Type": "Transform",
