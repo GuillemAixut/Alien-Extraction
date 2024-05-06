@@ -1899,6 +1899,8 @@ public class Player : YmirComponent
 
     #endregion
 
+    #region SaveLoad
+    // TODO: Sara --> cambiar al arma buena cuando este hecho
     public void SavePlayer()
     {
         SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
@@ -1915,6 +1917,14 @@ public class Player : YmirComponent
         }
     }
 
+    public void LoadPlayer()
+    {
+        weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
+        SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
+
+        LoadItems();
+    }
+
     public void LoadItems()
     {
         for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num"); i++)
@@ -1923,4 +1933,6 @@ public class Player : YmirComponent
             itemsListTest.Add(item);
         }
     }
+
+    #endregion
 }
