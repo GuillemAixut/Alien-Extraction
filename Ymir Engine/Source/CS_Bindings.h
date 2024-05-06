@@ -1020,6 +1020,42 @@ void CreateSpitterAcidExplosive(MonoObject* position, MonoObject* rotation)
 	go->AddComponent(c);
 }
 
+void CreateSpitterAcidShrapnel(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidShrapnel", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "SpitterAcidShrapnel";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(1.5f, 1.5f, 1.5f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+	//Change in the future
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	//It bounces off
+	//physBody->physBody->body->setRestitution(1.0f);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "SpitterAcidShrapnel";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
 void CreateFaceHuggerTailAttack(MonoObject* position, MonoObject* rotation)
 {
 	if (External == nullptr) return;

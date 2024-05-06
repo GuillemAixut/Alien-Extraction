@@ -58,10 +58,17 @@ namespace YmirEngine
         public static extern void CreateSpitterAcidSpit(object position, object rotation);
 
         /// <summary>
-        /// Creates spitter acid rebound attack.
+        /// Creates spitter acid explosive attack.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void CreateSpitterAcidExplosive(object position, object rotation);
+
+        /// <summary>
+        /// Creates spitter acid shrapnel attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateSpitterAcidShrapnel(object position, object rotation);
+
 
         /// <summary>
         /// Creates facehugger tail attack.
