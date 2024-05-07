@@ -66,13 +66,14 @@ public abstract class Weapon : YmirComponent
     public WEAPON_TYPE Type { get { return _type; } }
     public UPGRADE Upgrade { get { return _upgrade; } }
     public abstract void Shoot();
+    public abstract void Reload();
 
     public bool ShootAvailable()
     {
-        if (reloadTimer <= 0)
+        if (fireRateTimer <= 0 && currentAmmo > 0)
         {
-
-            reloadTimer = reloadTime;
+    
+            fireRateTimer = fireRate;
             return true;
         }
 
@@ -82,7 +83,7 @@ public abstract class Weapon : YmirComponent
 
     public bool ReloadAvailable()
     {
-        if (reloadTimer <= 0) {
+        if (reloadTimer <= 0 && currentAmmo < ammo) {
 
             reloadTimer = reloadTime;
             return true;
@@ -91,5 +92,4 @@ public abstract class Weapon : YmirComponent
         reloadTimer -= Time.deltaTime;
         return false;
     }
-
 }

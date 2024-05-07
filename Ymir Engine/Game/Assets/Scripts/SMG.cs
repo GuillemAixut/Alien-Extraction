@@ -66,6 +66,9 @@ public class SMG : Weapon
 
     public override void Shoot()
     {
+
+        currentAmmo--;
+
         GameObject target;
 
         target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
@@ -103,5 +106,12 @@ public class SMG : Weapon
                 //-----------------------------------------------------------------------------------
             }
         }
+    }
+
+    public override void Reload()
+    {
+        currentAmmo = ammo;
+
+        Audio.PlayAudio(gameObject, "W_FirearmReload");
     }
 }

@@ -82,6 +82,7 @@ public class Shotgun : Weapon
     }
     public override void Shoot()
     {
+        currentAmmo--;
 
         Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 
@@ -107,5 +108,11 @@ public class Shotgun : Weapon
             default:
                 break;
         }
+    }
+    public override void Reload()
+    {
+        currentAmmo = ammo;
+
+        Audio.PlayAudio(gameObject, "W_FSADReload");
     }
 }

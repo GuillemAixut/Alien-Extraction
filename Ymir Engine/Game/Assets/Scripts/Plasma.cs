@@ -75,6 +75,8 @@ public class Plasma : Weapon
     public override void Shoot()
     {
 
+        currentAmmo--;
+
         GameObject target = null;
 
         switch (_upgrade)
@@ -132,6 +134,12 @@ public class Plasma : Weapon
                 //-----------------------------------------------------------------------------------
             }
         }
+    }
+    public override void Reload()
+    {
+        currentAmmo = ammo;
+
+        Audio.PlayAudio(gameObject, "W_PlasmaReload");
     }
 
 }
