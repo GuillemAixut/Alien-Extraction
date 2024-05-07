@@ -274,8 +274,7 @@ struct EmitterColor : EmitterSetting
 
 struct EmitterImage : EmitterSetting
 {
-	//TONI: Necesito que se le pase un ParticleEmitter para poder acceder al CMaterial del GO
-	EmitterImage(ParticleEmitter* parent);
+	EmitterImage();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
 	void OnInspector();
