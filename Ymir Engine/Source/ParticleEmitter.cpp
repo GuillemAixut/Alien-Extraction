@@ -127,10 +127,12 @@ bool ParticleEmitter::EmitterSettingExist(uint typeS, bool excludeNonUniques)
 	return ret;
 }
 
-int ParticleEmitter::DestroyEmitter(uint pos)
+int ParticleEmitter::DestroySetting(uint pos)
 {
 	if (modules.size() >= pos)
 	{
+		delete modules.at(pos);
+		modules.at(pos) = nullptr;
 		modules.erase(modules.begin() + pos);
 	}
 	return modules.size(); //Para un check de seguridad porque sino el arbol peta
