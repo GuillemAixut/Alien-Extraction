@@ -13,7 +13,7 @@ public enum QueenState
 	IDLE_PHASE_1,
 	ACID_SHOT,
 
-	//PHASE 2 AND 3
+	//PHASE 2 
 	//MOVEMENT
 
 	IDLE_PHASE_2,
@@ -29,13 +29,6 @@ public enum QueenState
 	AXE_TAIL,
 	PREPARE_DASH,
 	DASH
-}
-
-enum Phase
-{
-	PHASE1,
-	PHASE2,
-	PHASE3
 }
 
 public class QueenXenomorphBaseScript : YmirComponent
@@ -122,7 +115,7 @@ public class QueenXenomorphBaseScript : YmirComponent
     public void Start()
 	{
 		//Temporary until we know for sure
-		queenState = QueenState.IDLE_PHASE_2;
+		queenState = QueenState.IDLE_PHASE_1;
 		
 		life = 500f;
 		queenRotationSpeed = 5f;
@@ -145,7 +138,6 @@ public class QueenXenomorphBaseScript : YmirComponent
         Animation.SetLoop(gameObject, "Boss_Walk", true);
 
         Animation.SetResetToZero(gameObject, "Boss_Die", false);
-        //Animation.SetResetToZero(gameObject, "Boss_Dash", false);
 
         Animation.AddBlendOption(gameObject, "", "Boss_Idle", 10f);
         Animation.AddBlendOption(gameObject, "", "Boss_Walk", 10f);
@@ -194,12 +186,6 @@ public class QueenXenomorphBaseScript : YmirComponent
                 }
                 return;
 			case QueenState.IDLE_PHASE_1:
-
-            break;
-			case QueenState.ACID_SHOT: 
-
-			break;
-			case QueenState.IDLE_PHASE_2:
 
                 if (!randomMovSelected)
                 {
