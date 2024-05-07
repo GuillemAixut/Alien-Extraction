@@ -105,6 +105,17 @@ public class SpitterBaseScript : Enemy
 
     public void Update()
     {
+
+        if (CheckPause()) {
+            SetPause(true);
+            paused = true;
+            return;
+        }
+        else if (paused)
+        {
+            SetPause(false);
+            paused = false;
+        }
         //backwardsCooldownTime += Time.deltaTime;
 
         if (xenoState != XenoState.DEAD) { isDeath(); }
@@ -239,6 +250,7 @@ public class SpitterBaseScript : Enemy
 
                 break;
             case XenoState.ACID_REBOUND:
+
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
@@ -381,16 +393,16 @@ public class SpitterBaseScript : Enemy
                 LookAt(player.transform.globalPosition);
             }
         }
-
     }
     
-    public void SetPause(bool pause)
+    private void SetPause(bool pause)
     {
         if (pause)
         {
             pausedState = xenoState;
             xenoState = XenoState.PAUSED;
             Animation.PauseAnimation(gameObject);
+            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
         }
         else if (xenoState == XenoState.PAUSED)
         {

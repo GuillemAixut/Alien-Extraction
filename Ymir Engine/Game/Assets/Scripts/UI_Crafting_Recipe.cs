@@ -66,17 +66,23 @@ public class UI_Crafting_Recipe : YmirComponent
         {
             // Empty item
             InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().CreateItemBase();
-            
+            Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).Name);
+
             // Delete item from player list
             for (int j = 0; j < player.itemsList.Count; j++)
             {
-                if (player.itemsList[i].Equals(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2)))
+                if (player.itemsList[i].Equals(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item))
                 {
+                    Debug.Log(player.itemsList[i].name);
+                    Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item.name);
+
                     player.itemsList.Remove(player.itemsList[i]);
                     break;
                 }
             }
         }
+
+        Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).Name);
 
         // Don't trust reference
         //GameObject craftGO = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2); // Last GO of grid is the crafted item
@@ -85,7 +91,7 @@ public class UI_Crafting_Recipe : YmirComponent
 
         // Add new item
         InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item =
-            UI_Inventory.SearchItemInDictionary("armor_common"); // TODO: ajustar nom busca + formula raresa
+            Globals.SearchItemInDictionary("armor_common"); // TODO: ajustar nom busca + formula raresa
         player.itemsList.Add(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item);
     }
 

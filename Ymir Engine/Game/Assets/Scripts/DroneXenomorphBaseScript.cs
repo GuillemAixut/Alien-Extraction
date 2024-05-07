@@ -124,6 +124,18 @@ public class DroneXenomorphBaseScript : Enemy
 
     public void Update()
 	{
+        if (CheckPause())
+        {
+            SetPause(true);
+            paused = true;
+            return;
+        }
+        else if (paused)
+        {
+            SetPause(false);
+            paused = false;
+        }
+
         Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
         if (droneState != DroneState.DEAD) { isDeath(); }
         switch (droneState)
@@ -415,13 +427,14 @@ public class DroneXenomorphBaseScript : Enemy
         return droneState;
     }
 
-    public void SetPause(bool pause)
+    private void SetPause(bool pause)
     {
         if (pause)
         {
             pausedState = droneState;
             droneState = DroneState.PAUSED;
             Animation.PauseAnimation(gameObject);
+            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
         }
         else if (droneState == DroneState.PAUSED)
         {

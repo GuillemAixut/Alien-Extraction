@@ -107,7 +107,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 
     private bool tailColdown = false;
 
-
+    public bool paused = false;
 
     public void Start()
 	{
@@ -148,6 +148,17 @@ public class QueenXenomorphBaseScript : YmirComponent
 
     public void Update()
 	{
+        if (CheckPause())
+        {
+            SetPause(true);
+            paused = true;
+            return;
+        }
+        else if (paused)
+        {
+            SetPause(false);
+            paused = false;
+        }
 
         if (queenState != QueenState.DEAD) { isDeath(); }
         //Dont rotate while doing dash
@@ -606,6 +617,14 @@ public class QueenXenomorphBaseScript : YmirComponent
     {
         return queenState;
     }
+    private bool CheckPause()
+    {
+        if (player.GetComponent<Player>().currentState == Player.STATE.STOP)
+        {
+            return true;
+        }
+        return false;
+    }
 
     private void isDeath()
     {
@@ -619,13 +638,14 @@ public class QueenXenomorphBaseScript : YmirComponent
         }
     }
 
-    public void SetPause(bool pause)
+    private void SetPause(bool pause)
     {
         if (pause)
         {
             pausedState = queenState;
             queenState = QueenState.PAUSED;
             Animation.PauseAnimation(gameObject);
+            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
         }
         else if (queenState == QueenState.PAUSED)
         {

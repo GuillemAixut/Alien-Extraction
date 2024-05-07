@@ -8,19 +8,20 @@ using YmirEngine;
 
 public class Script_Npc : YmirComponent
 {
- 
     private GameObject canvas;
 
     public void Start()
     {
         canvas = InternalCalls.GetGameObjectByName("Npc_Canvas");
     }
+
     public void Update()
     {
        
 
 
     } 
+
     public void OnCollisionStay(GameObject other)
 	{
         if (other.Tag == "Player")
@@ -29,6 +30,7 @@ public class Script_Npc : YmirComponent
 
         }
 	}
+
     public void OnCollisionExit(GameObject other)
     {
         if (other.Tag == "Player")
@@ -36,5 +38,4 @@ public class Script_Npc : YmirComponent
             canvas.SetActive(false);
         }
     }
-
 }
