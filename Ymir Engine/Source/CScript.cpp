@@ -249,7 +249,7 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 		strcpy(field.fiValue.strValue, value);
 		mono_free(value);
 
-		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 200))
+		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 500))
 		{
 			str = mono_string_new(External->moduleMono->domain, field.fiValue.strValue);
 			mono_field_set_value(mono_gchandle_get_target(noGCobject), field.field, str);

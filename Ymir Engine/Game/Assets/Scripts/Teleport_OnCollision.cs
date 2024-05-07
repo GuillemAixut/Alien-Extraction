@@ -9,12 +9,12 @@ using YmirEngine;
 public class Teleport_OnCollision : YmirComponent
 {
     public string scene = "";
-    private GameObject loadSceneImg;
+    //private GameObject loadSceneImg = null;
 
     public void Start()
     {
-        loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
-        loadSceneImg.SetActive(false);
+        //loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
+        //loadSceneImg.SetActive(false);
     }
 
     public void Update()
@@ -27,7 +27,7 @@ public class Teleport_OnCollision : YmirComponent
         if (other.Tag == "Player")
         {
             Audio.StopAllAudios();
-            loadSceneImg.SetActive(true);
+            //loadSceneImg.SetActive(true);
 
             InternalCalls.LoadScene(scene);
         }
