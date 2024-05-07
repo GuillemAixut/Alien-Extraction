@@ -18,6 +18,7 @@ public class Health_Bar_Test : YmirComponent
 
     private FaceHuggerBaseScript aux = null;
     private DroneXenomorphBaseScript aux2 = null;
+    private SpitterBaseScript aux3 = null;
 
     public void Start()
     {
@@ -28,6 +29,7 @@ public class Health_Bar_Test : YmirComponent
 
         aux = enemy.GetComponent<FaceHuggerBaseScript>();
         aux2 = enemy.GetComponent<DroneXenomorphBaseScript>();
+        //aux3 = enemy.GetComponent<SpitterBaseScript>();
     }
 
     public void Update()
@@ -45,12 +47,29 @@ public class Health_Bar_Test : YmirComponent
         if (aux != null)
         {
             HP = aux.life;
+            if(aux.GetState() == WanderState.DEATH)
+            {
+                Destroy();
+            }
         }
 
         if (aux2 != null)
         {
             HP = aux2.life;
+            if (aux.GetState() == WanderState.DEATH)
+            {
+                Destroy();
+            }
         }
+
+        //if (aux3 != null)
+        //{
+        //    HP = aux3.life;
+        //    if (aux.GetState() == WanderState.DEATH)
+        //    {
+        //        Destroy();
+        //    }
+        //}
     }
     public void Destroy()
     {
