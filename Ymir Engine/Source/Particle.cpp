@@ -19,11 +19,9 @@ Particle::Particle()
 	
 	color = { 255,255,255,255 };
 	pTexture = nullptr;
-
-	//Debugging
-	bool showVecToCamara;
 }
 
 Particle::~Particle()
 {
+	if (pTexture != nullptr) { pTexture->UnloadFromMemory(); }
 }

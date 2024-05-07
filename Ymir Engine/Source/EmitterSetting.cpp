@@ -14,6 +14,65 @@ EmitterSetting::EmitterSetting()
 
 EmitterSetting::~EmitterSetting()
 {
+	//ERIC: Esto peta
+	/*switch (type)
+	{
+	case PAR_BASE:
+	{
+		EmitterBase* eBase = (EmitterBase*)this;
+		eBase->~EmitterBase();
+		eBase = nullptr;
+		break;
+	}
+	case PAR_SPAWN:
+	{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+	}
+	case PAR_POSITION:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_ROTATION:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_SIZE:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_COLOR:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_IMAGE:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PARTICLES_MAX:
+		{
+		break;
+		}
+	default:
+		break;
+	}*/
 }
 
 void EmitterSetting::Update(float dt, ParticleEmitter* emitter)
@@ -58,6 +117,10 @@ EmitterBase::EmitterBase()
 
 	//World rotation
 	rotacionBase = RotationInheritanceParticles::PAR_WORLD_MATRIX;
+}
+
+EmitterBase::~EmitterBase()
+{
 }
 
 void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
@@ -432,6 +495,11 @@ EmitterSpawner::EmitterSpawner()
 	subMaxLifetime = 1.0f;
 	subMinLifetime = 0.0f;
 	positionParticleForSub = { 0,0,0 };
+}
+
+EmitterSpawner::~EmitterSpawner()
+{
+	//pointingEmitter = nullptr;
 }
 
 void EmitterSpawner::Spawn(ParticleEmitter* emitter, Particle* particle)
