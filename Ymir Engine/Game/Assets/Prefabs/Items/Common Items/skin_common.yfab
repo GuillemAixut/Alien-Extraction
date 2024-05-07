@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "ofChip_common",
+            "Name": "skin_common",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2134696484,
+            "UID": 2104824991,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1665793544,
+            "Parent UID": 1756755808,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.18829292058944702,
-                        2.3112092018127441,
-                        10.244563102722168
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -78,18 +78,18 @@
                 }
             ],
             "Children UID": [
-                1978072722,
-                454803948
+                1618274243,
+                1912059297
             ]
         },
         {
-            "Name": "Paticle System (8)",
+            "Name": "Paticle System (9)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1978072722,
+            "UID": 1618274243,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2134696484,
+            "Parent UID": 2104824991,
             "Components": [
                 {
                     "Type": "Transform",
@@ -162,7 +162,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/OfChipItemName.png"
+                                    "Path": "Assets\/Particles\/SkinItemName.png"
                                 },
                                 {
                                     "Type": 3,
@@ -182,14 +182,14 @@
             ]
         },
         {
-            "Name": "Sphere (9)",
+            "Name": "Sphere (10)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 454803948,
+            "UID": 1912059297,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 2134696484,
+            "Parent UID": 2104824991,
             "Components": [
                 {
                     "Type": "Transform",

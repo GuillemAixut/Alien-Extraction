@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "skin_common",
+            "Name": "claw_rare",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2104824991,
+            "UID": 233898218,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1665793544,
+            "Parent UID": 1756755808,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.18829292058944702,
-                        2.3112092018127441,
-                        10.244563102722168
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -78,18 +78,18 @@
                 }
             ],
             "Children UID": [
-                1618274243,
-                1912059297
+                361483333,
+                108422129
             ]
         },
         {
-            "Name": "Paticle System (9)",
+            "Name": "Paticle System (4)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1618274243,
+            "UID": 361483333,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2104824991,
+            "Parent UID": 233898218,
             "Components": [
                 {
                     "Type": "Transform",
@@ -162,7 +162,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/SkinItemName.png"
+                                    "Path": "Assets\/Particles\/ClawItemName.png"
                                 },
                                 {
                                     "Type": 3,
@@ -182,14 +182,14 @@
             ]
         },
         {
-            "Name": "Sphere (10)",
+            "Name": "Sphere (5)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1912059297,
+            "UID": 108422129,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 2104824991,
+            "Parent UID": 233898218,
             "Components": [
                 {
                     "Type": "Transform",
@@ -230,8 +230,8 @@
                             ],
                             "color": [
                                 0,
-                                0.69999998807907104,
-                                0
+                                0.20000000298023224,
+                                1
                             ],
                             "light": false
                         }

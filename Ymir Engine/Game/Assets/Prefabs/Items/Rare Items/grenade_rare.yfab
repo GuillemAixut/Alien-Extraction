@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "claw_common",
+            "Name": "grenade_rare",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 233898218,
+            "UID": 2131198042,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1665793544,
+            "Parent UID": 1756755808,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.18829292058944702,
-                        2.3112092018127441,
-                        10.244563102722168
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -78,18 +78,18 @@
                 }
             ],
             "Children UID": [
-                361483333,
-                108422129
+                639009527,
+                1675696108
             ]
         },
         {
-            "Name": "Paticle System (4)",
+            "Name": "Paticle System (7)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 361483333,
+            "UID": 639009527,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 233898218,
+            "Parent UID": 2131198042,
             "Components": [
                 {
                     "Type": "Transform",
@@ -162,7 +162,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/ClawItemName.png"
+                                    "Path": "Assets\/Particles\/GrenadeItemName.png"
                                 },
                                 {
                                     "Type": 3,
@@ -182,14 +182,14 @@
             ]
         },
         {
-            "Name": "Sphere (5)",
+            "Name": "Sphere (8)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 108422129,
+            "UID": 1675696108,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 233898218,
+            "Parent UID": 2131198042,
             "Components": [
                 {
                     "Type": "Transform",
@@ -230,8 +230,8 @@
                             ],
                             "color": [
                                 0,
-                                0.69999998807907104,
-                                0
+                                0.20000000298023224,
+                                1
                             ],
                             "light": false
                         }

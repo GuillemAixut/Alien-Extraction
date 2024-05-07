@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "armor_common",
+            "Name": "defChip_common",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 481075456,
+            "UID": 405499245,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1665793544,
+            "Parent UID": 1756755808,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.18829292058944702,
-                        2.3112092018127441,
-                        10.244563102722168
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -78,18 +78,18 @@
                 }
             ],
             "Children UID": [
-                942788824,
-                826872905
+                481454251,
+                977326809
             ]
         },
         {
-            "Name": "Paticle System",
+            "Name": "Paticle System (5)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 942788824,
+            "UID": 481454251,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 481075456,
+            "Parent UID": 405499245,
             "Components": [
                 {
                     "Type": "Transform",
@@ -162,7 +162,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/ArmorItemName.png"
+                                    "Path": "Assets\/Particles\/DefChipItemName.png"
                                 },
                                 {
                                     "Type": 3,
@@ -182,14 +182,14 @@
             ]
         },
         {
-            "Name": "Sphere (1)",
+            "Name": "Sphere (6)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 826872905,
+            "UID": 977326809,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 481075456,
+            "Parent UID": 405499245,
             "Components": [
                 {
                     "Type": "Transform",

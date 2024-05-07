@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "defChip_common",
+            "Name": "bone_common",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 405499245,
+            "UID": 1781581018,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1665793544,
+            "Parent UID": 1756755808,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.18829292058944702,
-                        2.3112092018127441,
-                        10.244563102722168
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -78,18 +78,18 @@
                 }
             ],
             "Children UID": [
-                481454251,
-                977326809
+                1719308554,
+                1938018985
             ]
         },
         {
-            "Name": "Paticle System (5)",
+            "Name": "Paticle System (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 481454251,
+            "UID": 1719308554,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 405499245,
+            "Parent UID": 1781581018,
             "Components": [
                 {
                     "Type": "Transform",
@@ -105,8 +105,8 @@
                         -0
                     ],
                     "Scale": [
-                        7,
-                        7,
+                        7.1999998092651367,
+                        7.1999998092651367,
                         0
                     ]
                 },
@@ -162,7 +162,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/DefChipItemName.png"
+                                    "Path": "Assets\/Particles\/BoneItemName.png"
                                 },
                                 {
                                     "Type": 3,
@@ -182,14 +182,14 @@
             ]
         },
         {
-            "Name": "Sphere (6)",
+            "Name": "Sphere (4)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 977326809,
+            "UID": 1938018985,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 405499245,
+            "Parent UID": 1781581018,
             "Components": [
                 {
                     "Type": "Transform",

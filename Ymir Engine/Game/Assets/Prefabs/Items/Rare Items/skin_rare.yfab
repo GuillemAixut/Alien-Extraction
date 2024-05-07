@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "acidvesicle_common",
+            "Name": "skin_rare",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 714613891,
+            "UID": 2104824991,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1665793544,
+            "Parent UID": 1756755808,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -13.742246627807617,
-                        2.3112101554870605,
-                        7.9663877487182617
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -78,18 +78,18 @@
                 }
             ],
             "Children UID": [
-                1687817008,
-                1165925450
+                1618274243,
+                1912059297
             ]
         },
         {
-            "Name": "Paticle System (1)",
+            "Name": "Paticle System (9)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1687817008,
+            "UID": 1618274243,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 714613891,
+            "Parent UID": 2104824991,
             "Components": [
                 {
                     "Type": "Transform",
@@ -162,7 +162,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/AcidVesicleItemName.png"
+                                    "Path": "Assets\/Particles\/SkinItemName.png"
                                 },
                                 {
                                     "Type": 3,
@@ -182,14 +182,14 @@
             ]
         },
         {
-            "Name": "Sphere (2)",
+            "Name": "Sphere (10)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1165925450,
+            "UID": 1912059297,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 714613891,
+            "Parent UID": 2104824991,
             "Components": [
                 {
                     "Type": "Transform",
@@ -230,8 +230,8 @@
                             ],
                             "color": [
                                 0,
-                                0.69999998807907104,
-                                0
+                                0.20000000298023224,
+                                1
                             ],
                             "light": false
                         }

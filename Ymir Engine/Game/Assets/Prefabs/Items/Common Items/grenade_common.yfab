@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "bakerhouse_common",
+            "Name": "grenade_common",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2042120171,
+            "UID": 2131198042,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1665793544,
+            "Parent UID": 1756755808,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.18829292058944702,
-                        2.3112092018127441,
-                        10.244563102722168
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -78,18 +78,18 @@
                 }
             ],
             "Children UID": [
-                1156308071,
-                252287972
+                639009527,
+                1675696108
             ]
         },
         {
-            "Name": "Paticle System (2)",
+            "Name": "Paticle System (7)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1156308071,
+            "UID": 639009527,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2042120171,
+            "Parent UID": 2131198042,
             "Components": [
                 {
                     "Type": "Transform",
@@ -162,7 +162,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/BakerHouseItemName.png"
+                                    "Path": "Assets\/Particles\/GrenadeItemName.png"
                                 },
                                 {
                                     "Type": 3,
@@ -182,14 +182,14 @@
             ]
         },
         {
-            "Name": "Sphere (3)",
+            "Name": "Sphere (8)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 252287972,
+            "UID": 1675696108,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
-            "Parent UID": 2042120171,
+            "Parent UID": 2131198042,
             "Components": [
                 {
                     "Type": "Transform",
