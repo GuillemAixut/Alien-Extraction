@@ -107,6 +107,18 @@ namespace YmirEngine
         public static extern void CreateQueenSpitAttack(object position, object rotation);
 
         /// <summary>
+        /// Creates queen shrapnel attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenShrapnel(object position, object rotation);
+
+        /// <summary>
+        /// Creates queen puddle attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenPuddle(object position, object rotation);
+
+        /// <summary>
         /// Destroys a game object.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
