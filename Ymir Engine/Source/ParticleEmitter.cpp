@@ -94,7 +94,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 	}
 	case EmitterType::PAR_IMAGE:
 	{
-		nuevoEmitter = new EmitterImage(this);
+		nuevoEmitter = new EmitterImage();
 		nuevoEmitter->type = EmitterType::PAR_IMAGE;
 		nuevoEmitter->unique = true;
 
@@ -198,7 +198,6 @@ void ParticleEmitter::Update(float dt)
 
 	//Llamamos a Draw particles para que printe todas las particulas con su info updateada
 	DrawParticles();
-	//External->renderer3D->DrawParticles();
 }
 
 void ParticleEmitter::DrawParticles()

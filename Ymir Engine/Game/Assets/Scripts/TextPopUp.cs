@@ -8,12 +8,12 @@ using YmirEngine;
 
 public class TextPopUp : YmirComponent
 {
-    public GameObject PopUpCanvas;
+    public GameObject textUI;
     bool show;
 
     public void Start()
 	{
-		PopUpCanvas.SetActive(false);
+        textUI.SetActive(false);
 	}
 
     public void OnCollisionStay(GameObject other)
@@ -21,7 +21,7 @@ public class TextPopUp : YmirComponent
         if (other.Tag == "Player")
         {
             show = true;
-            PopUpCanvas.SetActive(true);
+            textUI.SetActive(true);
         }
     }
 
@@ -29,7 +29,7 @@ public class TextPopUp : YmirComponent
     {
         if (!show)
         {
-            PopUpCanvas.SetActive(false);
+            textUI.SetActive(false);
         }
 
         show = false;

@@ -4,18 +4,18 @@
             "Name": "BackZone_Door_Burnt",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 157648147,
+            "UID": 737864527,
             "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 925275612,
+            "Element_Type": "Model",
+            "Parent UID": 1612282923,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -5.1418814659118652,
-                        15.103329658508301,
-                        -78.277435302734375
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -23,35 +23,120 @@
                         -0
                     ],
                     "Scale": [
+                        0.99999988079071045,
                         1,
-                        1,
+                        0.99999988079071045
+                    ]
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1517,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_D.png",
+                    "Diffuse_UID": 475149771,
+                    "Specular_ID": 1521,
+                    "Specular_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_S.png",
+                    "Specular_UID": 1233326534,
+                    "Normal_ID": 1520,
+                    "Normal_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_N.png",
+                    "Normal_UID": 90017096,
+                    "Height_ID": 1519,
+                    "Height_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_H.png",
+                    "Height_UID": 576952277,
+                    "Ambient_ID": 1516,
+                    "Ambient_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_A.png",
+                    "Ambient_UID": 821916075,
+                    "Emissive_ID": 1518,
+                    "Emissive_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_E.png",
+                    "Emissive_UID": 406262089
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        60,
+                        30,
+                        30
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        15,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Door_Horizontal.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "fraction": 0
                 }
             ],
             "Children UID": [
-                647524690,
-                293404958,
-                835353220
+                50896776,
+                553706122,
+                1775831597,
+                353273149,
+                2061335501
             ]
         },
         {
-            "Name": "MarcoPuerta (1)",
+            "Name": "Puerta_L",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 647524690,
+            "UID": 50896776,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
-            "Parent UID": 157648147,
+            "Origin_Path": "Assets\/FBX\/PROP_BackZoneDoor_LowPoly.fbx",
+            "Parent UID": 737864527,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -454.75973510742188,
-                        -15.103366851806641,
-                        131.56745910644531
+                        -0.42440012097358704,
+                        17.003498077392578,
+                        9.4364595413208008
                     ],
                     "Rotation": [
                         -0,
@@ -67,7 +152,165 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 1290585504,
+                    "UID": 217462715,
+                    "Vertex Count": 44,
+                    "Index Count": 75
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1517,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_D.png",
+                    "Diffuse_UID": 475149771,
+                    "Specular_ID": 1521,
+                    "Specular_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_S.png",
+                    "Specular_UID": 1233326534,
+                    "Normal_ID": 1520,
+                    "Normal_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_N.png",
+                    "Normal_UID": 90017096,
+                    "Height_ID": 1519,
+                    "Height_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_H.png",
+                    "Height_UID": 576952277,
+                    "Ambient_ID": 1516,
+                    "Ambient_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_A.png",
+                    "Ambient_UID": 821916075,
+                    "Emissive_ID": 1518,
+                    "Emissive_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_E.png",
+                    "Emissive_UID": 406262089
+                }
+            ]
+        },
+        {
+            "Name": "Puerta_R",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 553706122,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/PROP_BackZoneDoor_LowPoly.fbx",
+            "Parent UID": 737864527,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -0.42440012097358704,
+                        17.003499984741211,
+                        -10.082544326782227
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 930067059,
+                    "Vertex Count": 44,
+                    "Index Count": 78
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1517,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_D.png",
+                    "Diffuse_UID": 475149771,
+                    "Specular_ID": 1521,
+                    "Specular_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_S.png",
+                    "Specular_UID": 1233326534,
+                    "Normal_ID": 1520,
+                    "Normal_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_N.png",
+                    "Normal_UID": 90017096,
+                    "Height_ID": 1519,
+                    "Height_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_H.png",
+                    "Height_UID": 576952277,
+                    "Ambient_ID": 1516,
+                    "Ambient_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_A.png",
+                    "Ambient_UID": 821916075,
+                    "Emissive_ID": 1518,
+                    "Emissive_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_E.png",
+                    "Emissive_UID": 406262089
+                }
+            ]
+        },
+        {
+            "Name": "MarcoPuerta",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1775831597,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/FBX\/PROP_BackZoneDoor_LowPoly.fbx",
+            "Parent UID": 737864527,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0.00010009832476498559,
+                        23.085853576660156,
+                        -0.34003782272338867
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 407709715,
                     "Vertex Count": 536,
                     "Index Count": 882
                 },
@@ -78,56 +321,58 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                6.46160888671875,
-                                15.465556144714355,
-                                -1.7969037294387817
+                                0,
+                                0,
+                                0
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                1,
-                                1,
-                                1
+                                0,
+                                0,
+                                0
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 707,
-                    "Diffuse_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_D.png",
-                    "Diffuse_UID": 565701661,
-                    "Normal_ID": 815,
-                    "Normal_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_N.png",
-                    "Normal_UID": 451220309,
-                    "Height_ID": 779,
-                    "Height_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_H.png",
-                    "Height_UID": 1786952575,
-                    "Ambient_ID": 671,
-                    "Ambient_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_A.png",
-                    "Ambient_UID": 1543258361,
-                    "Emissive_ID": 743,
-                    "Emissive_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_E.png",
-                    "Emissive_UID": 1368176993
+                    "Diffuse_ID": 1517,
+                    "Diffuse_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_D.png",
+                    "Diffuse_UID": 475149771,
+                    "Specular_ID": 1521,
+                    "Specular_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_S.png",
+                    "Specular_UID": 1233326534,
+                    "Normal_ID": 1520,
+                    "Normal_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_N.png",
+                    "Normal_UID": 90017096,
+                    "Height_ID": 1519,
+                    "Height_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_H.png",
+                    "Height_UID": 576952277,
+                    "Ambient_ID": 1516,
+                    "Ambient_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_A.png",
+                    "Ambient_UID": 821916075,
+                    "Emissive_ID": 1518,
+                    "Emissive_Path": "Assets\/Textures\/General_Props\/BackZone_Door\/Burnt\/TEX_PROP_BackZoneDoor_E.png",
+                    "Emissive_UID": 406262089
                 }
             ]
         },
         {
-            "Name": "Puerta_R (1)",
+            "Name": "End_Door2",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 293404958,
+            "UID": 353273149,
             "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
-            "Parent UID": 157648147,
+            "Element_Type": "None",
+            "Parent UID": 737864527,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -454.75973510742188,
-                        -15.103366851806641,
-                        131.56745910644531
+                        -0.42399999499320984,
+                        17,
+                        31
                     ],
                     "Rotation": [
                         -0,
@@ -139,71 +384,25 @@
                         1,
                         1
                     ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 441926206,
-                    "Vertex Count": 44,
-                    "Index Count": 78
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                6.46160888671875,
-                                15.465556144714355,
-                                -1.7969037294387817
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 711,
-                    "Diffuse_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_D.png",
-                    "Diffuse_UID": 565701661,
-                    "Normal_ID": 819,
-                    "Normal_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_N.png",
-                    "Normal_UID": 451220309,
-                    "Height_ID": 783,
-                    "Height_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_H.png",
-                    "Height_UID": 1786952575,
-                    "Ambient_ID": 675,
-                    "Ambient_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_A.png",
-                    "Ambient_UID": 1543258361,
-                    "Emissive_ID": 747,
-                    "Emissive_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_E.png",
-                    "Emissive_UID": 1368176993
                 }
             ]
         },
         {
-            "Name": "Puerta_L (1)",
+            "Name": "End_Door1",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 835353220,
+            "UID": 2061335501,
             "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
-            "Parent UID": 157648147,
+            "Element_Type": "None",
+            "Parent UID": 737864527,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -454.75973510742188,
-                        -15.103366851806641,
-                        131.56745910644531
+                        -0.42399999499320984,
+                        17,
+                        -31
                     ],
                     "Rotation": [
                         -0,
@@ -215,51 +414,6 @@
                         1,
                         1
                     ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1510816190,
-                    "Vertex Count": 44,
-                    "Index Count": 78
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                6.46160888671875,
-                                15.465556144714355,
-                                -1.7969037294387817
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 715,
-                    "Diffuse_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_D.png",
-                    "Diffuse_UID": 565701661,
-                    "Normal_ID": 823,
-                    "Normal_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_N.png",
-                    "Normal_UID": 451220309,
-                    "Height_ID": 787,
-                    "Height_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_H.png",
-                    "Height_UID": 1786952575,
-                    "Ambient_ID": 679,
-                    "Ambient_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_A.png",
-                    "Ambient_UID": 1543258361,
-                    "Emissive_ID": 751,
-                    "Emissive_Path": "Assets\/LVL1_FINAL\/Lvl-1 Warehouse\/Back Zone Door\/Texturas\/Burned\/TEX_PROP_BackZoneDoor_E.png",
-                    "Emissive_UID": 1368176993
                 }
             ]
         }

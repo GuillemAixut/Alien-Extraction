@@ -1788,7 +1788,7 @@ void ModuleEditor::CreateParticleSystemMenu()
 {
 	if (ImGui::MenuItem("Particle System")) {
 
-		GameObject* empty = App->scene->CreateGameObject("Paticle System", App->scene->selectedGO != nullptr ? App->scene->selectedGO : App->scene->mRootNode);
+		GameObject* empty = App->scene->CreateGameObject("Particle System", App->scene->selectedGO != nullptr ? App->scene->selectedGO : App->scene->mRootNode);
 		empty->UID = Random::Generate();
 
 		//TONI: We dont need material in Particle System

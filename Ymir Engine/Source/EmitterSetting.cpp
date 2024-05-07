@@ -1818,11 +1818,11 @@ void EmitterSize::Update(float dt, ParticleEmitter* emitter)
 void EmitterSize::OnInspector()
 {
 	ImGui::Checkbox("Progresive Scaling ## SCALE", &(this->progresive));
-	ImGui::SliderFloat("First Scale ## SCALE", &(this->sizeMultiplier1), 0.1f, 10.0f);
+	ImGui::DragFloat("First Scale ## SCALE", &(this->sizeMultiplier1), 0.5f, 0.0f, 720.0f);
 	if (this->progresive)
 	{
 		ImGui::Checkbox("Loop ## SCALE", &this->loop); ImGui::SameLine();
-		ImGui::SliderFloat("End Scale ## SCALE", &(this->sizeMultiplier2), 0.1f, 10.0f);
+		ImGui::DragFloat("End Scale ## SCALE", &(this->sizeMultiplier2), 0.5f, 0.0f, 720.0f);
 		ImGui::SliderFloat("Start Change ##SCALE", &(this->startChange), 0.0f, (this->stopChange - 0.05f));
 		ImGui::SliderFloat("Stop Change ##SCALE", &(this->stopChange), this->startChange + 0.05f, 1.0f);
 	}	
@@ -1913,7 +1913,7 @@ void EmitterColor::OnInspector()
 	ImGui::Separator();
 }
 
-EmitterImage::EmitterImage(ParticleEmitter* parent)
+EmitterImage::EmitterImage()
 {
 	rTexTemp = new ResourceTexture();
 	imgPath = "Assets/Particles/particleExample.png";
