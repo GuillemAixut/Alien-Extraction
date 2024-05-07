@@ -19,8 +19,6 @@ public class UI_Inventory : YmirComponent
 
     public void Start()
     {
-        Globals.CreateItemDictionary();
-
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();
 
@@ -236,6 +234,7 @@ public class UI_Inventory : YmirComponent
     {
         if (player != null)
         {
+            Debug.Log("movementSpeed " + player.movementSpeed.ToString());
             UI.TextEdit(_textSpeed, player.movementSpeed.ToString());
             UI.TextEdit(_textRate, player.fireRate.ToString());
             UI.TextEdit(_textReload, player.reloadDuration.ToString());
@@ -258,8 +257,9 @@ public class UI_Inventory : YmirComponent
         for (int i = 0; i < player.itemsListString.Count; i++)
         {
             Item item = Globals.SearchItemInDictionary(player.itemsListString[i]);
-            //player.itemsList.Add(item);
+            player.itemsList.Add(item);
 
+            Debug.Log("setslots ");
             item.LogStats();
 
             isInventory = true;
