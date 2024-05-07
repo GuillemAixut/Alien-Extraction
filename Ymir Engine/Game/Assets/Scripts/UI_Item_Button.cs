@@ -17,7 +17,7 @@ public class UI_Item_Button : YmirComponent
     public string menuName = "";
 
     private GameObject _menuReference;
-    public bool updateStats;
+    public bool updateStats = false;
 
     // Debug
     public string name = "";
@@ -30,12 +30,15 @@ public class UI_Item_Button : YmirComponent
     {
         _menuReference = InternalCalls.GetGameObjectByName(menuName);
 
-        itemType = SetType(enumItem);
-        currentSlot = SetType(enumSlot);
-        itemRarity = SetRarity(enumRarity);
+        updateStats = false;
 
         if (item == null)
         {
+            itemType = SetType(enumItem);
+            currentSlot = SetType(enumSlot);
+            itemRarity = SetRarity(enumRarity);
+
+            isEquipped = false;
             item = CreateItemBase();
         }
 
@@ -43,6 +46,9 @@ public class UI_Item_Button : YmirComponent
         //    /*name*/"Empty",
         //    /*description*/ "Empty",
         //    /*imagePath*/ "");
+        //
+        
+        _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
     }
 
     public void Update()
