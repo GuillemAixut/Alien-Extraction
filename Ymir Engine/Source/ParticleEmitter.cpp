@@ -154,13 +154,23 @@ void ParticleEmitter::KillDeadParticles()
 	//Leemos de final a principio la lista de particulas para eliminarlas y que no haya problemas de cambio de tamaño
 	for (int j = particlesToDelete.size() - 1; j >= 0; --j)
 	{
+		//delete listpa
 		listParticles.erase(listParticles.begin() + particlesToDelete.at(j));
 	}
 }
 
 void ParticleEmitter::KillAllParticles()
 {
-	listParticles.clear();
+	if(!listParticles.empty())
+	{
+		for (auto it = listParticles.rbegin(); it != listParticles.rend(); ++it)
+		{
+			delete (*it);
+			(*it) = nullptr;
+		}
+		listParticles.clear();
+	}
+	
 }
 
 void ParticleEmitter::UpdateModules(float dt)
@@ -235,18 +245,40 @@ void ParticleEmitter::SpawnParticle(uint particlesToAdd)
 				modules.at(m)->Spawn(this, particula);
 			}
 			//TODO TONI: En principio creo que esto no aplica con la camara del juego, ya que es: camera->editorCamera
-			float lineToZ = (External->camera->editorCamera->GetPos().z - (particula->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (particula->velocity.z * particula->velocity.w)));
-			for (int j = 0; j < listParticles.size(); ++j)
+			if (listParticles.empty()) { listParticles.push_back(particula); } //Evitar petada acceso a la nada
+			else
 			{
-				float lineToZVec = (External->camera->editorCamera->GetPos().z - (listParticles.at(j)->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (listParticles.at(j)->velocity.z * listParticles.at(j)->velocity.w)));
-				if (lineToZVec * lineToZVec < lineToZ * lineToZ) //Si la particula esta mas lejos se printa primero para las transparencias
+				bool lastParticle = true;
+				float lineToZ;
+
+				#ifdef _STANDALONE
+					lineToZ = (External->scene->gameCameraComponent->GetPos().z - (particula->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (particula->velocity.z * particula->velocity.w)));
+				#else
+					lineToZ = (External->camera->editorCamera->GetPos().z - (particula->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (particula->velocity.z * particula->velocity.w)));
+				#endif // _STANDALONE
+
+				for (int j = 0; j < listParticles.size(); ++j)
 				{
-					listParticles.emplace(listParticles.begin() + j, particula);
-					break;
+					float lineToZVec;
+
+					#ifdef _STANDALONE
+						lineToZVec = (External->scene->gameCameraComponent->GetPos().z - (listParticles.at(j)->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (listParticles.at(j)->velocity.z * listParticles.at(j)->velocity.w)));
+					#else
+						lineToZVec = (External->camera->editorCamera->GetPos().z - (listParticles.at(j)->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (listParticles.at(j)->velocity.z * listParticles.at(j)->velocity.w)));
+					#endif // _STANDALONE
+
+					if (lineToZVec * lineToZVec < lineToZ * lineToZ) //Si la particula esta mas lejos se printa primero para las transparencias
+					{
+						listParticles.emplace(listParticles.begin() + j, particula);
+						lastParticle = false;
+						break;
+					}
 				}
+				//Si no esta lo suficientemente lejos se coloca al final
+				if (lastParticle) { listParticles.push_back(particula); }
 			}
-			//Si no esta lo suficientemente lejos se coloca al final
-			listParticles.push_back(particula);
 		}
+			
+			
 	}
 }
