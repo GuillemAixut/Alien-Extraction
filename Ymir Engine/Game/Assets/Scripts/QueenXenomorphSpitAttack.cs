@@ -26,7 +26,9 @@ public class QueenXenomorphSpitAttack : YmirComponent
         movementSpeed = 7000f;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
-        gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
+        Vector3 impulse = gameObject.transform.GetForward();
+        impulse += new Vector3(0, -0.07f, 0);
+        gameObject.SetImpulse(impulse * movementSpeed * Time.deltaTime);
         destroyed = false;
         destroyTimer = 0f;
     }

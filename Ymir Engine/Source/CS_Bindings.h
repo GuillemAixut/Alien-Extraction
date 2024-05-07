@@ -967,7 +967,7 @@ void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, SPHERE);
-	//Change in the future
+
 	physBody->useGravity = true;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
@@ -1001,12 +1001,10 @@ void CreateSpitterAcidExplosive(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, SPHERE);
-	//Change in the future
+
 	physBody->useGravity = true;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
-	//It bounces off
-	//physBody->physBody->body->setRestitution(1.0f);
 	physBody->SetAsSensor(true);
 
 	go->AddComponent(physBody);
@@ -1037,12 +1035,10 @@ void CreateSpitterAcidShrapnel(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, SPHERE);
-	//Change in the future
+
 	physBody->useGravity = true;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
-	//It bounces off
-	//physBody->physBody->body->setRestitution(1.0f);
 	physBody->SetAsSensor(true);
 
 	go->AddComponent(physBody);
@@ -1073,7 +1069,7 @@ void CreateFaceHuggerTailAttack(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
-	//Change in the future
+
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
@@ -1107,7 +1103,7 @@ void CreateDroneClawAttack(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
-	//Change in the future
+
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
@@ -1141,7 +1137,7 @@ void CreateDroneTailAttack(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
-	//Change in the future
+
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
@@ -1175,7 +1171,7 @@ void CreateQueenClawAttack(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
-	//Change in the future
+
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
@@ -1209,7 +1205,7 @@ void CreateQueenTailAttack(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
-	//Change in the future
+
 	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
@@ -1243,7 +1239,7 @@ void CreateQueenSpitAttack(MonoObject* position, MonoObject* rotation)
 
 	CCollider* physBody;
 	physBody = new CCollider(go, SPHERE);
-	//Change in the future
+
 	physBody->useGravity = true;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
@@ -1255,6 +1251,74 @@ void CreateQueenSpitAttack(MonoObject* position, MonoObject* rotation)
 	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
 	const char* t = "QueenXenomorphSpitAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenShrapnel(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenShrapnel", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenShrapnel";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(2.0f, 2.0f, 2.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphShrapnelAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenPuddle(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenPuddle", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenPuddle";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.0f, 1.0f, 3.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, CYLINDER);
+
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphPuddle";
 	Component* c = nullptr;
 	c = new CScript(go, t);
 	go->AddComponent(c);

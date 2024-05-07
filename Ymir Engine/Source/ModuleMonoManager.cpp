@@ -286,6 +286,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenClawAttack", CreateQueenClawAttack);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenTailAttack", CreateQueenTailAttack);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenSpitAttack", CreateQueenSpitAttack);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenPuddle", CreateQueenPuddle);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenShrapnel", CreateQueenShrapnel);
 
 #pragma endregion
 
