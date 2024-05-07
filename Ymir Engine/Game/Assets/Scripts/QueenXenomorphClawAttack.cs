@@ -3,19 +3,52 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 using YmirEngine;
 
 public class QueenXenomorphClawAttack : YmirComponent
 {
+    public GameObject thisReference = null;
 
-	public void Start()
-	{
-		Debug.Log("HelloWorld"); 
-	}
+    private float movementSpeed;
 
-	public void Update()
-	{
-		return;
-	}
+    private float damage = 600f;
+
+    private GameObject player;
+
+    private Health healthScript;
+
+    private bool destroyed;
+
+    private float destroyTimer;
+
+    public void Start()
+    {
+        movementSpeed = 5000f;
+        player = InternalCalls.GetGameObjectByName("Player");
+        healthScript = player.GetComponent<Health>();
+        gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
+        destroyed = false;
+        destroyTimer = 0f;
+    }
+
+    public void Update()
+    {
+        destroyTimer += Time.deltaTime;
+
+        if (destroyed || destroyTimer >= 1f)
+        {
+            InternalCalls.Destroy(gameObject);
+        }
+
+    }
+
+    public void OnCollisionStay(GameObject other)
+    {
+        if (other.Name == "Player" && destroyed == false)
+        {
+            healthScript.TakeDmg(damage);
+            destroyed = true;
+        }
+    }
+
 }

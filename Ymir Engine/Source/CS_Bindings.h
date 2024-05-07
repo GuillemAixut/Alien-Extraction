@@ -1167,7 +1167,7 @@ void CreateQueenClawAttack(MonoObject* position, MonoObject* rotation)
 
 	float3 posVector = External->moduleMono->UnboxVector(position);
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(4.0f, 4.0f, 5.5f);
+	float3 scaleVector = float3(4.5f, 4.5f, 6.5f);
 
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
@@ -1201,7 +1201,7 @@ void CreateQueenTailAttack(MonoObject* position, MonoObject* rotation)
 
 	float3 posVector = External->moduleMono->UnboxVector(position);
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(4.0f, 4.0f, 5.5f);
+	float3 scaleVector = float3(4.0f, 4.0f, 6.0f);
 
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
