@@ -21,12 +21,17 @@ public class TextPopUp : YmirComponent
         if (other.Tag == "Player")
         {
             show = true;
+            PopUpCanvas.SetActive(true);
         }
     }
 
     public void Update()
     {
-        PopUpCanvas?.SetActive(show);
+        if (!show)
+        {
+            PopUpCanvas.SetActive(false);
+        }
+
         show = false;
     }
 }
