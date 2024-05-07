@@ -6,22 +6,23 @@ using System.Runtime.InteropServices;
 
 using YmirEngine;
 
-public class TextPopUp : YmirComponent
+public class TriggerTutorialUI : YmirComponent
 {
-    public GameObject textUI;
+
+    public GameObject tutorialUI;
     bool show;
 
     public void Start()
-	{
-        textUI.SetActive(false);
-	}
+    {
+        tutorialUI.SetActive(false);
+    }
 
     public void OnCollisionStay(GameObject other)
     {
         if (other.Tag == "Player")
         {
             show = true;
-            textUI.SetActive(true);
+            tutorialUI.SetActive(true);
         }
     }
 
@@ -29,7 +30,7 @@ public class TextPopUp : YmirComponent
     {
         if (!show)
         {
-            textUI.SetActive(false);
+            tutorialUI.SetActive(false);
         }
 
         show = false;

@@ -1,31 +1,31 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -105.27308654785156,
-        112.29144287109375,
-        49.568347930908203
+        -114.80068206787109,
+        122.2518310546875,
+        11.119233131408691
     ],
     "Editor Camera Right (X)": [
-        -0.10433774441480637,
-        -7.8231096267700195e-08,
-        0.99455654621124268
+        -0.057828366756439209,
+        -7.6368451118469238e-08,
+        0.99834179878234863
     ],
     "Editor Camera Up (Y)": [
-        0.71133619546890259,
-        0.69888722896575928,
-        0.074625484645366669
+        0.70585453510284424,
+        0.7071843147277832,
+        0.040886268019676208
     ],
     "Editor Camera Front (Z)": [
-        0.695076584815979,
-        -0.715240478515625,
-        0.072919599711894989
+        0.70600473880767822,
+        -0.70703846216201782,
+        0.04089486226439476
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1604896144,
+            "UID": 528999137,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -34,7 +34,8 @@
                 1806365249,
                 1398847280,
                 728359170,
-                1484304711
+                1484304711,
+                1368625540
             ]
         },
         {
@@ -44,7 +45,7 @@
             "UID": 1522841663,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1604896144,
+            "Parent UID": 528999137,
             "Components": [
                 {
                     "Type": "Transform",
@@ -176,7 +177,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1604896144,
+            "Parent UID": 528999137,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1963,7 +1964,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1604896144,
+            "Parent UID": 528999137,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1990,8 +1991,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 961,
-                    "Height": 631,
+                    "Width": 633,
+                    "Height": 544,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4437,7 +4438,7 @@
             "UID": 728359170,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1604896144,
+            "Parent UID": 528999137,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4464,8 +4465,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 961,
-                    "Height": 631,
+                    "Width": 633,
+                    "Height": 544,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4484,7 +4485,7 @@
             ]
         },
         {
-            "Name": "Image",
+            "Name": "ShootTutorial",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1536161671,
@@ -4547,11 +4548,11 @@
             ]
         },
         {
-            "Name": "Image (1)",
+            "Name": "AbilitiesTutorial",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1254634614,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 728359170,
             "Components": [
@@ -4610,11 +4611,11 @@
             ]
         },
         {
-            "Name": "Image (2)",
+            "Name": "DashTutorial",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1666938166,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 728359170,
             "Components": [
@@ -4673,7 +4674,7 @@
             ]
         },
         {
-            "Name": "Image (3)",
+            "Name": "DoorLocked",
             "Static": false,
             "Tag": "Untagged",
             "UID": 92552985,
@@ -4742,15 +4743,15 @@
             "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1604896144,
+            "Parent UID": 528999137,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        5.5949664115905762,
-                        10.39896297454834,
-                        44.211635589599609
+                        54.062549591064453,
+                        10.398927688598633,
+                        -62.274539947509766
                     ],
                     "Rotation": [
                         -0,
@@ -4870,7 +4871,79 @@
                     "ScriptName": "TextPopUp.cs",
                     "Active": 1,
                     "UID": 0,
-                    "PopUpCanvas": 728359170
+                    "textUI": 92552985
+                }
+            ]
+        },
+        {
+            "Name": "Empty",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1368625540,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 528999137,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        7.6701526641845703,
+                        0,
+                        43.10064697265625
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        4.3000001907348633,
+                        4.3000001907348633,
+                        4.3000001907348633
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        5,
+                        5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "TriggerTutorialUI.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "tutorialUI": 1536161671
                 }
             ]
         }
