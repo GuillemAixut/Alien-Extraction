@@ -1273,9 +1273,9 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		JSON_Array* sizeArrayAssets = json_value_get_array(sizeArrayValueAssets);
 
 		for (int i = 0; i < cAnimation->animator->animations.size(); i++) {
-			json_array_append_string(sizeArrayAssets, cAnimation->animator->animations[i]->GetAssetsFilePath().c_str());
+			json_array_append_number(sizeArrayAssets, cAnimation->animator->animations[i]->GetUID());
 		}
-		json_object_set_value(componentObject, "AssetsPath", sizeArrayValueAssets);
+		json_object_set_value(componentObject, "UIDs", sizeArrayValueAssets);
 
 		break;
 	}
@@ -2509,40 +2509,47 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		CAnimation* cAnim = new CAnimation(gameObject);
 
 		JSON_Value* jsonSizeValue = json_object_get_value(componentObject, "Paths");
-		JSON_Value* jsonSizeAssetsValue = json_object_get_value(componentObject, "AssetsPath");
+		JSON_Value* jsonSizeUIDValue = json_object_get_value(componentObject, "UIDs");
 
 		if (jsonSizeValue == nullptr || json_value_get_type(jsonSizeValue) != JSONArray) {
 
 			return;
 		}
 
-		if (jsonSizeAssetsValue == nullptr || json_value_get_type(jsonSizeAssetsValue) != JSONArray) {
+		if (jsonSizeUIDValue == nullptr || json_value_get_type(jsonSizeUIDValue) != JSONArray) {
 
 			return;
 		}
 
 		JSON_Array* jsonSizeArray = json_value_get_array(jsonSizeValue);
-		JSON_Array* jsonSizeAssetsArray = json_value_get_array(jsonSizeAssetsValue);
+		JSON_Array* jsonSizeUIDArray = json_value_get_array(jsonSizeUIDValue);
+
+
 		for (int i = 0; i < json_object_get_number(componentObject, "NumPaths"); i++) {
-			if (json_array_get_string(jsonSizeArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeArray, i))) {
-				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeArray, i), ResourceType::ANIMATION, gameObject->UID);
+			uint UID = json_array_get_number(jsonSizeUIDArray, i);
+			auto itr = External->resourceManager->resources.find(UID);
+
+			if (itr == External->resourceManager->resources.end()) {
+
+				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeArray, i), ResourceType::ANIMATION, UID);
+
 				cAnim->AddAnimation(rAnim);
+
 				LOG("Loaded animation '%s' from Library", rAnim->name.c_str());
 			}
-			else if (json_array_get_string(jsonSizeAssetsArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeAssetsArray, i))) {
-				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeAssetsArray, i), ResourceType::ANIMATION, gameObject->UID);
-				cAnim->AddAnimation(rAnim);
-				LOG("Loaded animation '%s' from Assets", rAnim->name.c_str());
-			}
 			else {
-				LOG("[ERROR]Couldn't load animation");
+
+				ResourceAnimation* rAnim = static_cast<ResourceAnimation*>(itr->second);
+				itr->second->IncreaseReferenceCount();
+
+				cAnim->AddAnimation(rAnim);
 			}
 		}
 
 		cAnim->active = json_object_get_number(componentObject, "Active");
 
 		gameObject->AddComponent(cAnim);
-	}
+}
 	else if (type == "Physics") {
 
 		// World Gravity

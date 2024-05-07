@@ -122,7 +122,7 @@ bool ResourceMesh::UnloadFromMemory()
     }
 
     if (VAO != 0) {
-        glDeleteBuffers(1, &VAO);
+        glDeleteVertexArrays(1, &VAO);
         VAO = 0;
     }
 
