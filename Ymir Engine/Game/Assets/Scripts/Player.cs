@@ -218,6 +218,9 @@ public class Player : YmirComponent
 
     public void Start()
     {
+        // Item map
+        Globals.CreateItemDictionary();
+
         Audio.SetState("PlayerState", "Alive");
         Audio.SetState("CombatState", "Exploration");
 
