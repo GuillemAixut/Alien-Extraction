@@ -75,6 +75,10 @@ namespace YmirEngine
         {
             Debug.Log("1234567 " + isEquipped.ToString());
         }
+        public virtual void LogStats()
+        {
+            Debug.Log("987654 " + isEquipped.ToString());
+        }
     }
 
     public class I_Equippable : Item
@@ -114,6 +118,9 @@ namespace YmirEngine
             this.fireRate = fireRate;
             this.reloadSpeed = reloadSpeed;
             this.damageMultiplier = damageMultiplier;
+
+            Debug.Log("created ");
+            LogStats();
         }
 
         public override void UpdateStats(GameObject menu)
@@ -124,6 +131,7 @@ namespace YmirEngine
 
             if (menu != null)
             {
+                Debug.Log("algo2 " + isEquipped.ToString());
                 menu.GetComponent<UI_Inventory>().health.currentHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.maxHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.armor += (armor * e);
@@ -132,6 +140,18 @@ namespace YmirEngine
                 menu.GetComponent<UI_Inventory>().player.fireRate += (fireRate * e);
                 menu.GetComponent<UI_Inventory>().player.damageMultiplier += (damageMultiplier * e);
             }
+        }
+
+        public override void LogStats()
+        {
+            Debug.Log("I_Equippable " +
+             "HP: " + HP.ToString() +
+             " armor: " + armor.ToString() +
+             " speed: " + speed.ToString() +
+             " fireRate: " + fireRate.ToString() +
+             " reloadSpeed: " + reloadSpeed.ToString() +
+             " damageMultiplier: " + damageMultiplier.ToString()
+            );
         }
     }
 
@@ -170,7 +190,15 @@ namespace YmirEngine
 
         public override void UpdateStats(GameObject menu)
         {
-        } 
+        }
+        public override void LogStats()
+        {
+            Debug.Log("I_Consumables " +
+             "dmg: " + dmg.ToString() +
+             " area: " + area.ToString() +
+             " time: " + time.ToString()
+             );
+        }
     }
     #endregion
     public class Upgrade
