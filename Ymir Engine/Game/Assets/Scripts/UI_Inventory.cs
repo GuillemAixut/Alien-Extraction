@@ -258,8 +258,9 @@ public class UI_Inventory : YmirComponent
         for (int i = 0; i < player.itemsListString.Count; i++)
         {
             Item item = Globals.SearchItemInDictionary(player.itemsListString[i]);
-            //player.itemsList.Add(item);
+            player.itemsList.Add(item);
 
+            Debug.Log("setslots ");
             item.LogStats();
 
             isInventory = true;
