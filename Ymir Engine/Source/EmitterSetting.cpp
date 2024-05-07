@@ -491,9 +491,9 @@ EmitterSpawner::EmitterSpawner()
 
 	pointingEmitter = nullptr;
 	pointingUID = 0;
-	conditionForSpawn = SpawnConditionSubemitter::PAR_INBETWEEN_OF;
-	subMaxLifetime = 1.0f;
-	subMinLifetime = 0.0f;
+	conditionForSpawn = SpawnConditionSubemitter::PAR_MORE_THAN;
+	subMaxLifetime = 0.0f;
+	subMinLifetime = 1.0f;
 	positionParticleForSub = { 0,0,0 };
 }
 
