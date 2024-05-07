@@ -46,7 +46,7 @@ void PlayEmbedAudio(MonoObject* go)
 	}
 	else
 	{
-		LOG("[WARNING] Couldn't play the audio %s. Component was null pointer", audSource->evName);
+		LOG("[WARNING] Couldn't play the audio %s. Component was null pointer");
 	}
 }
 
