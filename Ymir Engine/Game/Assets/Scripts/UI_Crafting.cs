@@ -68,8 +68,8 @@ public class UI_Crafting : YmirComponent
 
         if (_startCheck)
         {
-            focusedGO.parent.parent.GetComponent<UI_Crafting_Recipe>().Check();
             _startCheck = false;
+            focusedGO.parent.parent.GetComponent<UI_Crafting_Recipe>().Check();
         }
 
         UI_Item_Button cs_UI_Item_Button = focusedGO.GetComponent<UI_Item_Button>();

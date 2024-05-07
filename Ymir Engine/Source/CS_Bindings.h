@@ -1097,22 +1097,22 @@ void CreateDroneClawAttack(MonoObject* position, MonoObject* rotation)
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
 	float3 scaleVector = float3(3.3f, 3.3f, 4.2f);
 
+	posVector.x += 6;
+	posVector.z += 6;
+
 	go->mTransform->SetPosition(posVector);
-	go->mTransform->SetScale(scaleVector);
 	go->mTransform->SetRotation(rotVector);
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
 
 	physBody->useGravity = false;
-	physBody->physBody->SetPosition(posVector);
-	physBody->physBody->SetRotation(rotVector);
+
 	physBody->SetAsSensor(true);
 
 	go->AddComponent(physBody);
-	physBody->physBody->body->activate(true);
-	physBody->size = scaleVector;
-	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	physBody->size = scaleVector*3;
 
 	const char* t = "DroneXenomorphClawAttack";
 	Component* c = nullptr;
@@ -1131,22 +1131,20 @@ void CreateDroneTailAttack(MonoObject* position, MonoObject* rotation)
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
 	float3 scaleVector = float3(3.3f, 3.3f, 6.0f);
 
+	posVector.x += 6;
+	posVector.z += 6;
+
 	go->mTransform->SetPosition(posVector);
-	go->mTransform->SetScale(scaleVector);
 	go->mTransform->SetRotation(rotVector);
 
 	CCollider* physBody;
 	physBody = new CCollider(go, BOX);
 
 	physBody->useGravity = false;
-	physBody->physBody->SetPosition(posVector);
-	physBody->physBody->SetRotation(rotVector);
 	physBody->SetAsSensor(true);
 
+	physBody->size = scaleVector*3;
 	go->AddComponent(physBody);
-	physBody->physBody->body->activate(true);
-	physBody->size = scaleVector;
-	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
 
 	const char* t = "DroneXenomorphTailAttack";
 	Component* c = nullptr;

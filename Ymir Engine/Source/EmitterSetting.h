@@ -60,6 +60,7 @@ enum SpawnAreaShape
 struct EmitterBase : EmitterSetting
 {
 	EmitterBase();
+	~EmitterBase();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
 	void OnInspector();
@@ -126,6 +127,7 @@ enum SpawnConditionSubemitter
 struct EmitterSpawner : EmitterSetting
 {
 	EmitterSpawner();
+	~EmitterSpawner();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
 	bool PlayTrigger(bool val = true);

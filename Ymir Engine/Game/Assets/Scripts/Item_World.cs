@@ -8,7 +8,7 @@ using YmirEngine;
 
 public class Item_World : YmirComponent
 {
-    private Item item = null;
+    //private Item item = null;
     private Player player = null;
 
     public ITEM_RARITY itemRarity;
@@ -46,8 +46,8 @@ public class Item_World : YmirComponent
                 break;
         }
 
-        item = UI_Inventory.SearchItemInDictionary(gameObject.Name);
-        player.itemsList.Add(item);
+        //item = UI_Inventory.SearchItemInDictionary(gameObject.Name);
+        //player.itemsList.Add(item);
     }
 
     public void Update()

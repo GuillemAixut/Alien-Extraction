@@ -29,6 +29,7 @@ public class PickUp : YmirComponent
 
             int nonEquipped = 0;
 
+            // TODO:
             for (int i = 0; i < player.itemsList.Count; i++)
             {
                 if (!player.itemsList[i].isEquipped)
@@ -44,7 +45,9 @@ public class PickUp : YmirComponent
 
                 //TODO: Hacer que el item se destruya/elimine
                 gameObject.SetActive(false);
-                player.itemsListTest.Add(gameObject.Name);
+                Debug.Log("" + gameObject.Name);
+                player.itemsListString.Add(gameObject.Name);
+
                 InternalCalls.Destroy(gameObject);
                 picked = true;
             }

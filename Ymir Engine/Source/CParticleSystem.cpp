@@ -199,15 +199,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("POSITION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterPosition* ePosition = (EmitterPosition*)listModule.at(j);
 							ePosition->OnInspector();
 							ePosition = nullptr;
+
+							if(toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+							
 							break;
 						}
 						case EmitterType::PAR_ROTATION:
@@ -215,15 +219,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("ROTATION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterRotation* eRotation = (EmitterRotation*)listModule.at(j);
 							eRotation->OnInspector();
 							eRotation = nullptr;
+
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+
 							break;
 						}
 						case EmitterType::PAR_SIZE:
@@ -231,15 +239,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("SIZE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterSize* eSize = (EmitterSize*)listModule.at(j);
 							eSize->OnInspector();
 							eSize = nullptr;
+							
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+
 							break;
 						}
 						case EmitterType::PAR_COLOR:
@@ -247,15 +259,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("COLOR ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterColor* eColor = (EmitterColor*)listModule.at(j);
 							eColor->OnInspector();
 							eColor = nullptr;
+							
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+
 							break;
 						}
 						case EmitterType::PAR_IMAGE:
@@ -263,15 +279,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("IMAGE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterImage* eImage = (EmitterImage*)listModule.at(j);
 							eImage->OnInspector();
 							eImage = nullptr;
+							
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+
 							break;
 						}
 						case EmitterType::PARTICLES_MAX:
@@ -354,7 +374,12 @@ void CParticleSystem::OnInspector()
 
 	}
 
-	if (deleteEmitter > -1) { allEmitters.erase(allEmitters.begin() + deleteEmitter); }
+	if (deleteEmitter > -1) 
+	{ 
+		delete allEmitters.at(deleteEmitter);
+		allEmitters.at(deleteEmitter) = nullptr;
+		allEmitters.erase(allEmitters.begin() + deleteEmitter); 
+	}
 
 	if (!exists) { mOwner->RemoveComponent(this); }
 }

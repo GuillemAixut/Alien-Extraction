@@ -17,16 +17,18 @@ enum XenoState
     ACID_SPIT,
     ACID_REBOUND,
     KNOCKBACK,
-    DEAD
+    DEAD,
+    PAUSED
 }
 
-public class SpitterBaseScript : YmirComponent
+public class SpitterBaseScript : Enemy
 {
     public GameObject thisReference = null;
 
     protected Vector3 targetPosition = null;
 
     private XenoState xenoState;
+    private XenoState pausedState;
 
     //Attacks variables
 
@@ -52,22 +54,6 @@ public class SpitterBaseScript : YmirComponent
     private float timeLimit;
 
     private float outOfRangeTimer;
-
-    //TO REMOVE WHEN ENEMY.CS IS FIXED?
-    protected PathFinding agent;
-    public GameObject player = null;
-    public Health healthScript;
-    public float movementSpeed;
-    public float knockBackTimer;
-    public float knockBackSpeed;
-    public float timePassed = 0f;
-    public float life = 100f;
-    public float armor = 0;
-    public int rarity = 0;
-    public float wanderRange = 10f;
-    public float detectionRadius = 60f;
-
-    //TO REMOVE WHEN ENEMY.CS IS FIXED?
 
     public void Start()
     {
@@ -119,12 +105,26 @@ public class SpitterBaseScript : YmirComponent
 
     public void Update()
     {
+
+        if (CheckPause()) {
+            SetPause(true);
+            paused = true;
+            return;
+        }
+        else if (paused)
+        {
+            SetPause(false);
+            paused = false;
+        }
         //backwardsCooldownTime += Time.deltaTime;
 
         if (xenoState != XenoState.DEAD) { isDeath(); }
 
         switch (xenoState)
         {
+            case XenoState.PAUSED:
+                //Do nothing
+                break;
             case XenoState.IDLE:
 
                 timeCounter += Time.deltaTime;
@@ -154,7 +154,7 @@ public class SpitterBaseScript : YmirComponent
 
                 MoveToCalculatedPos(agent.speed);
 
-                IsReached(gameObject.transform.globalPosition, targetPosition);
+                IsReached1(gameObject.transform.globalPosition, targetPosition);
 
                 //Check if player in radius and if so go to cry state
                 if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
@@ -250,6 +250,7 @@ public class SpitterBaseScript : YmirComponent
 
                 break;
             case XenoState.ACID_REBOUND:
+
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
@@ -279,38 +280,41 @@ public class SpitterBaseScript : YmirComponent
                 break;
         }
 
-        //Check attacks
-        CheckAttacks();
-
-        //Walk backwards
-        if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, tooCloseRange) && aggro == true)
+        //If the enemy isn't paused
+        if (xenoState != XenoState.PAUSED)
         {
-            timeCounter = 0f;
-            timeLimit = 0.8f;
-            xenoState = XenoState.MOVE_BACKWARDS;
-        }
+            //Check attacks
+            CheckAttacks();
 
-        //If player too far away, go back to wander
-        if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
-        {
-            outOfRangeTimer += Time.deltaTime;
-
-            if (outOfRangeTimer >= 3f)
+            //Walk backwards
+            if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, tooCloseRange) && aggro == true)
             {
-                outOfRangeTimer = 0f;
                 timeCounter = 0f;
-                timeLimit = 5f;
-                aggro = false;
-                gameObject.SetVelocity(new Vector3(0, 0, 0));
-                xenoState = XenoState.IDLE;
+                timeLimit = 0.8f;
+                xenoState = XenoState.MOVE_BACKWARDS;
+            }
+
+            //If player too far away, go back to wander
+            if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
+            {
+                outOfRangeTimer += Time.deltaTime;
+
+                if (outOfRangeTimer >= 3f)
+                {
+                    outOfRangeTimer = 0f;
+                    timeCounter = 0f;
+                    timeLimit = 5f;
+                    aggro = false;
+                    gameObject.SetVelocity(new Vector3(0, 0, 0));
+                    xenoState = XenoState.IDLE;
+                }
+            }
+            else
+            {
+                //So that it resets if it is again in range
+                outOfRangeTimer = 0f;
             }
         }
-        else
-        {
-            //So that it resets if it is again in range
-            outOfRangeTimer = 0f;
-        }
-
     }
 
     public void OnCollisionStay(GameObject other)
@@ -324,7 +328,7 @@ public class SpitterBaseScript : YmirComponent
     }
 
 
-    public void IsReached(Vector3 position, Vector3 destintion)
+    public void IsReached1(Vector3 position, Vector3 destintion)
     {
         Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
                                       0,
@@ -389,67 +393,22 @@ public class SpitterBaseScript : YmirComponent
                 LookAt(player.transform.globalPosition);
             }
         }
-
     }
-    //REMOVE WHEN ENEMY.CS IS FIXED?
-    void TakeDmg(float dmg)
+    
+    private void SetPause(bool pause)
     {
-        life -= dmg * armor;
+        if (pause)
+        {
+            pausedState = xenoState;
+            xenoState = XenoState.PAUSED;
+            Animation.PauseAnimation(gameObject);
+            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+        }
+        else if (xenoState == XenoState.PAUSED)
+        {
+            //If bool set to false when it was never paused, it will do nothing
+            xenoState = pausedState;
+            Animation.ResumeAnimation(gameObject);
+        }
     }
-    void LookAt(Vector3 pointToLook)
-    {
-
-        Vector3 direction = pointToLook - gameObject.transform.globalPosition;
-        direction = direction.normalized;
-        float angle = (float)Math.Atan2(direction.x, direction.z);
-
-        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
-
-        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-            return;
-
-        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
-
-        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
-
-
-        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
-
-        gameObject.SetRotation(desiredRotation);
-    }
-
-    public void KnockBack(float speed)
-    {
-
-        Vector3 knockbackDirection = player.transform.globalPosition - gameObject.transform.globalPosition;
-        knockbackDirection = knockbackDirection.normalized;
-        knockbackDirection.y = 0f;
-        gameObject.SetVelocity(knockbackDirection * -speed);
-
-    }
-
-    public void MoveToCalculatedPos(float speed)
-    {
-        Vector3 pos = gameObject.transform.globalPosition;
-        Vector3 destination = agent.GetDestination();
-        Vector3 direction = destination - pos;
-
-        gameObject.SetVelocity(direction.normalized * speed * Time.deltaTime);
-    }
-
-    public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
-    {
-        float deltaX = Math.Abs(first.x - second.x);
-        float deltaY = Math.Abs(first.y - second.y);
-        float deltaZ = Math.Abs(first.z - second.z);
-
-        return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
-    }
-    public void DestroyEnemy()
-    {
-        Audio.PlayAudio(gameObject, "FH_Death");
-        InternalCalls.Destroy(gameObject);
-    }
-    //REMOVE WHEN ENEMY.CS IS FIXED?
-
 }

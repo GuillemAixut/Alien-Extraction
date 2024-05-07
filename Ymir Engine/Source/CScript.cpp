@@ -66,7 +66,15 @@ void CScript::Update()
 
 	MonoObject* exec = nullptr;
 
-	mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);  //Peta al hacer PLAY en el motor
+	try 
+	{
+		mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);
+	}
+	catch (const std::exception& e) 
+	{
+		// Handle any exceptions thrown within the try block
+		LOG("[ERROR] Script %s crashed on Update: '%s'", name, e.what());
+	}
 
 	if (exec != nullptr)
 	{
@@ -249,7 +257,7 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 		strcpy(field.fiValue.strValue, value);
 		mono_free(value);
 
-		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 200))
+		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 500))
 		{
 			str = mono_string_new(External->moduleMono->domain, field.fiValue.strValue);
 			mono_field_set_value(mono_gchandle_get_target(noGCobject), field.field, str);
