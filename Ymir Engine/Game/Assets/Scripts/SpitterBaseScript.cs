@@ -44,8 +44,8 @@ public class SpitterBaseScript : YmirComponent
 
     //Acid rebound
     //private float tailDamage;
-    private float acidSpitReboundCooldown;
-    private float acidSpitReboundCooldownTime;
+    private float acidExplosiveCooldown;
+    private float acidExplosiveCooldownTime;
 
     //FOR GENERAL TIME MANAGEMENT
     public float timeCounter;
@@ -97,8 +97,8 @@ public class SpitterBaseScript : YmirComponent
         tooCloseRange = 60f;
 
         //Tail
-        acidSpitReboundCooldown = 10f;
-        acidSpitReboundCooldownTime = 0f;
+        acidExplosiveCooldown = 10f;
+        acidExplosiveCooldownTime = 0f;
 
         //Time
         timeCounter = 0f;
@@ -354,7 +354,7 @@ public class SpitterBaseScript : YmirComponent
     private void CheckAttacks()
     {
         acidSpitCooldownTime += Time.deltaTime;
-        acidSpitReboundCooldownTime += Time.deltaTime;
+        acidExplosiveCooldownTime += Time.deltaTime;
 
         if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange) && acidSpitCooldownTime >= acidSpitCooldown)
         {
@@ -368,14 +368,15 @@ public class SpitterBaseScript : YmirComponent
                 Vector3 pos = gameObject.transform.globalPosition;
                 pos.y += 15;
                 InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
+                acidExplosiveCooldownTime -= 1.5f;
                 LookAt(player.transform.globalPosition);
             }
         }
-        else if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange) && acidSpitReboundCooldownTime >= acidSpitReboundCooldown)
+        else if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange) && acidExplosiveCooldownTime >= acidExplosiveCooldown)
         {
             if (xenoState != XenoState.ACID_SPIT)
             {
-                acidSpitReboundCooldownTime = 0f;
+                acidExplosiveCooldownTime = 0f;
                 timeCounter = 0f;
                 //ANIMATION DURATION HERE!!!
                 timeLimit = 0.8f;
@@ -384,6 +385,7 @@ public class SpitterBaseScript : YmirComponent
                 pos.y += 15;
                 pos.z -= 10;
                 InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
+                acidSpitCooldownTime -= 1.5f;
                 LookAt(player.transform.globalPosition);
             }
         }

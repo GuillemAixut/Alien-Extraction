@@ -1158,6 +1158,107 @@ void CreateDroneTailAttack(MonoObject* position, MonoObject* rotation)
 	go->AddComponent(c);
 }
 
+void CreateQueenClawAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenClawAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenClawAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(4.0f, 4.0f, 5.5f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+	//Change in the future
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphClawAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenTailAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenTailAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenTailAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(4.0f, 4.0f, 5.5f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+	//Change in the future
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphTailAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenSpitAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenSpitAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenSpitAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.0f, 3.0f, 3.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+	//Change in the future
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphSpitAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
 
 //---------- GLOBAL GETTERS ----------//
 MonoObject* SendGlobalPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class

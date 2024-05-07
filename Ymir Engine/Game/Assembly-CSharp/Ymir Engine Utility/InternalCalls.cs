@@ -88,7 +88,23 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void CreateDroneTailAttack(object position, object rotation);
 
+        /// <summary>
+        /// Creates queen claw attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenClawAttack(object position, object rotation);
 
+        /// <summary>
+        /// Creates queen tail attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenTailAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates queen spit attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenSpitAttack(object position, object rotation);
 
         /// <summary>
         /// Destroys a game object.
