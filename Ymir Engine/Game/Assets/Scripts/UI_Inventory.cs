@@ -19,7 +19,7 @@ public class UI_Inventory : YmirComponent
 
     public void Start()
     {
-        CreateItemDictionary();
+        Globals.CreateItemDictionary();
 
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();

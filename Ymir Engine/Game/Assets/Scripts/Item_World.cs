@@ -8,7 +8,7 @@ using YmirEngine;
 
 public class Item_World : YmirComponent
 {
-    private Item item = null;
+    //private Item item = null;
     private Player player = null;
 
     public ITEM_RARITY itemRarity;
