@@ -26,7 +26,8 @@ public enum WanderState
     HIT,
     KNOCKBACK,
     DEATH,
-    STOPED
+    STOPED,
+    PAUSED
 }
 
 public class Enemy : YmirComponent
@@ -55,6 +56,8 @@ public class Enemy : YmirComponent
     public float detectionRadius = 60f;
 
     public float xSpeed = 0, ySpeed = 0;
+
+    public bool paused = false;
 
     //Drop items
     //public string keys;
@@ -102,6 +105,15 @@ public class Enemy : YmirComponent
         knockbackDirection.y = 0f;
         gameObject.SetVelocity(knockbackDirection * -speed);
 
+    }
+
+    public bool CheckPause()
+    {
+        if (player.GetComponent<Player>().currentState == Player.STATE.STOP || player.GetComponent<Player>().currentState == Player.STATE.DEAD)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void MoveToCalculatedPos(float speed)

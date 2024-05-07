@@ -3700,9 +3700,9 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 				}
 				case PAR_IMAGE:
 				{
-					EmitterImage* eImage = (EmitterImage*)instancia;
+					/*EmitterImage* eImage = (EmitterImage*)instancia;
 					eImage->SetImage(json_object_get_string(modulo, "Path"));
-					eImage = nullptr;
+					eImage = nullptr;*/
 					break;
 				}
 				case PARTICLES_MAX:

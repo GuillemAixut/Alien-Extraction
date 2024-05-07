@@ -19,6 +19,8 @@ public class FaceHuggerBaseScript : Enemy
 
     public GameObject canvas;
 
+    private WanderState pausedState;
+
 
     protected Vector3 targetPosition = null;
 
@@ -120,6 +122,18 @@ public class FaceHuggerBaseScript : Enemy
 
     public void Update()
     {
+
+        if (CheckPause())
+        {
+            SetPause(true);
+            paused = true;
+            return;
+        }
+        else if (paused)
+        {
+            SetPause(false);
+            paused = false;
+        }
         Debug.Log("[ERROR] CurrentaState: " + wanderState);
        
         if(wanderState != WanderState.DEATH) { isDeath(); }
@@ -130,6 +144,9 @@ public class FaceHuggerBaseScript : Enemy
         {
             switch (wanderState)
             {
+                case WanderState.PAUSED: 
+                    //Do nothing
+                    break;
                 case WanderState.DEATH:
 
                     timePassed += Time.deltaTime;
@@ -209,56 +226,52 @@ public class FaceHuggerBaseScript : Enemy
                    
             }
 
-            ////Check if player is alive before chasing
-            if (wanderState != WanderState.ATTACK && healthScript.GetCurrentHealth() > 0)
+            if (wanderState != WanderState.PAUSED)
             {
-
-                if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
+                //Check if player is alive before chasing
+                if (wanderState != WanderState.ATTACK && healthScript.GetCurrentHealth() > 0)
                 {
 
-                    if (wanderState != WanderState.KNOCKBACK && wanderState != WanderState.HIT)
+                    if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
                     {
 
-                        if (CryTimer >= 10)
+                        if (wanderState != WanderState.KNOCKBACK && wanderState != WanderState.HIT)
                         {
-                            Audio.PlayAudio(gameObject, "FH_Cry");
-                            CryTimer = 0;
-                        }
-                        if (walkPlaying == false)
-                        {
-                            Animation.PlayAnimation(gameObject, "Walk_Facehugger");
-                            walkPlaying = true;
-                        }
-                        wanderState = WanderState.CHASING;
-                        
-                    }
-                    //Attack if in range
-                    if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, AttackDistance))
-                    {
 
-                        if (wanderState == WanderState.CHASING && wanderState != WanderState.ATTACK && wanderState != WanderState.KNOCKBACK)
-                        {
-                            //Debug.Log("[ERROR] ATTACKING");
-                            attackTimer = attackDuration;
-                            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-                            Audio.PlayAudio(gameObject, "FH_Tail");
-                            Animation.PlayAnimation(gameObject, "TailAttack_Facehugger");
-                            walkPlaying = false;
-                            wanderState = WanderState.ATTACK;
-                        }
-                    }
+                            if (CryTimer >= 10)
+                            {
+                                Audio.PlayAudio(gameObject, "FH_Cry");
+                                CryTimer = 0;
+                            }
+                            if (walkPlaying == false)
+                            {
+                                Animation.PlayAnimation(gameObject, "Walk_Facehugger");
+                                walkPlaying = true;
+                            }
+                            wanderState = WanderState.CHASING;
 
+                        }
+                        //Attack if in range
+                        if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, AttackDistance))
+                        {
+
+                            if (wanderState == WanderState.CHASING && wanderState != WanderState.ATTACK && wanderState != WanderState.KNOCKBACK)
+                            {
+                                //Debug.Log("[ERROR] ATTACKING");
+                                attackTimer = attackDuration;
+                                gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+                                Audio.PlayAudio(gameObject, "FH_Tail");
+                                Animation.PlayAnimation(gameObject, "TailAttack_Facehugger");
+                                walkPlaying = false;
+                                wanderState = WanderState.ATTACK;
+                            }
+                        }
+
+                    }
                 }
             }
-
-
         }
-
-
-
     }
-
-
 
     private void Proccescumdown()
     {
@@ -355,6 +368,23 @@ public class FaceHuggerBaseScript : Enemy
         if (other.Tag == "Tail" )
         {
              
+        }
+    }
+
+    private void SetPause(bool pause)
+    {
+        if (pause)
+        {
+            pausedState = wanderState;
+            wanderState = WanderState.PAUSED;
+            Animation.PauseAnimation(gameObject);
+            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+        }
+        else if (wanderState == WanderState.PAUSED)
+        {
+            //If bool set to false when it was never paused, it will do nothing
+            wanderState = pausedState;
+            Animation.ResumeAnimation(gameObject);
         }
     }
 }
