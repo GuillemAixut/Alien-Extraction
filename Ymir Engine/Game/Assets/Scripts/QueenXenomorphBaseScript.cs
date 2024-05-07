@@ -8,21 +8,15 @@ using YmirEngine;
 
 public enum QueenState
 {
-	//PHASE 1
-
 	IDLE_PHASE_1,
-	ACID_SHOT,
-
-	//PHASE 2 
-	//MOVEMENT
-
 	IDLE_PHASE_2,
 	WALKING_TO_PLAYER,
     WALK_BACKWARDS,
 	WALKING_SIDEWAYS,
-
     DEAD,
-	//ATTACKS
+    PAUSED,
+
+    //ATTACKS
 
     ACID_SPIT,
 	CLAW,
@@ -37,7 +31,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 
     private QueenState queenState;
 
-	
+    private QueenState pausedState;
 
 	public float life;
 
@@ -176,7 +170,9 @@ public class QueenXenomorphBaseScript : YmirComponent
 
 		switch (queenState)
 		{
-
+            case QueenState.PAUSED:
+                //Do nothing
+                break;
             case QueenState.DEAD:
 
                 timePassed += Time.deltaTime;
@@ -391,20 +387,23 @@ public class QueenXenomorphBaseScript : YmirComponent
             break;
 		}
 
-		//If player too far away stay idle
-        if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, DetectionRadius))
+        if (queenState != QueenState.PAUSED)
         {
-            Debug.Log("[ERROR] BOSS STATE IDLE");
-            Animation.PlayAnimation(gameObject, "Boss_Idle");
-            queenState = QueenState.IDLE_PHASE_1;
-        }
-
-        if (tailColdown)
-        {
-            timePassed += Time.deltaTime;
-            if(timePassed >= 0.5)
+            //If player too far away stay idle
+            if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, DetectionRadius))
             {
-                tailColdown = false;
+                Debug.Log("[ERROR] BOSS STATE IDLE");
+                Animation.PlayAnimation(gameObject, "Boss_Idle");
+                queenState = QueenState.IDLE_PHASE_1;
+            }
+
+            if (tailColdown)
+            {
+                timePassed += Time.deltaTime;
+                if (timePassed >= 0.5)
+                {
+                    tailColdown = false;
+                }
             }
         }
     }
@@ -617,6 +616,22 @@ public class QueenXenomorphBaseScript : YmirComponent
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             Audio.PlayAudio(gameObject, "QX_Death");
             queenState = QueenState.DEAD;
+        }
+    }
+
+    public void SetPause(bool pause)
+    {
+        if (pause)
+        {
+            pausedState = queenState;
+            queenState = QueenState.PAUSED;
+            Animation.PauseAnimation(gameObject);
+        }
+        else if (queenState == QueenState.PAUSED)
+        {
+            //If bool set to false when it was never paused, it will do nothing
+            queenState = pausedState;
+            Animation.ResumeAnimation(gameObject);
         }
     }
 }

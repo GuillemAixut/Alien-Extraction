@@ -16,7 +16,8 @@ public enum DroneState
 	CLAW,
 	TAIL,
     KNOCKBACK,
-	DEAD
+	DEAD,
+    PAUSED
 }
 
 public class DroneXenomorphBaseScript : Enemy
@@ -28,7 +29,7 @@ public class DroneXenomorphBaseScript : Enemy
     
 
     public DroneState droneState;
-
+    private DroneState pausedState;
 	//If aggressive or not
 	private bool aggro;
 
@@ -127,7 +128,9 @@ public class DroneXenomorphBaseScript : Enemy
         if (droneState != DroneState.DEAD) { isDeath(); }
         switch (droneState)
 		{
-
+            case DroneState.PAUSED: 
+                //Do nothing
+                break;
             case DroneState.DEAD:
 
                 timePassed += Time.deltaTime;
@@ -299,32 +302,34 @@ public class DroneXenomorphBaseScript : Enemy
                 break;
 		}
 
-        //Check attack posiblilities and count cooldowns
-        CheckAttack();
-
-        //If player too far away, go back to wander
-        if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
+        if (droneState != DroneState.PAUSED)
         {
-            outOfRangeTimer += Time.deltaTime;
+            //Check attack posiblilities and count cooldowns
+            CheckAttack();
 
-            if (outOfRangeTimer >= 3f)
+            //If player too far away, go back to wander
+            if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
             {
-                outOfRangeTimer = 0f;                           
-                timeCounter = 0f;
-                timeLimit = 5f;
-                aggro = false;
-                gameObject.SetVelocity(new Vector3(0, 0, 0));
-                droneState = DroneState.IDLE_NO_AGGRO;
-                Animation.PlayAnimation(gameObject, "Combat_Idle");
+                outOfRangeTimer += Time.deltaTime;
+
+                if (outOfRangeTimer >= 3f)
+                {
+                    outOfRangeTimer = 0f;
+                    timeCounter = 0f;
+                    timeLimit = 5f;
+                    aggro = false;
+                    gameObject.SetVelocity(new Vector3(0, 0, 0));
+                    droneState = DroneState.IDLE_NO_AGGRO;
+                    Animation.PlayAnimation(gameObject, "Combat_Idle");
+                }
+
             }
-
+            else
+            {
+                //So that it resets if it is again in range
+                outOfRangeTimer = 0f;
+            }
         }
-        else
-        {
-            //So that it resets if it is again in range
-            outOfRangeTimer = 0f;
-        }
-
     }
 
     public void OnCollisionStay(GameObject other)
@@ -409,4 +414,21 @@ public class DroneXenomorphBaseScript : Enemy
     {
         return droneState;
     }
+
+    public void SetPause(bool pause)
+    {
+        if (pause)
+        {
+            pausedState = droneState;
+            droneState = DroneState.PAUSED;
+            Animation.PauseAnimation(gameObject);
+        }
+        else if (droneState == DroneState.PAUSED)
+        {
+            //If bool set to false when it was never paused, it will do nothing
+            droneState = pausedState;
+            Animation.ResumeAnimation(gameObject);
+        }
+    }
+
 }
