@@ -11,7 +11,7 @@ public class Electric_trap : YmirComponent
 {
 
     private float time = 0f;
-    private bool activate = true;
+    private bool disabled = true;
     private bool hitPlayer = false;
     private Vector3 originalPosition;
     public float damage = 220;
@@ -25,28 +25,20 @@ public class Electric_trap : YmirComponent
     }
 
     public void Update()
-    {
+    {   
 
 
-        if (activate)
+        if (disabled)
         {
             if (time < 3f)
             {
                 gameObject.SetPosition(Vector3.negativeInfinity * Time.deltaTime * 1f);
                 //InternalCalls.GetGameObjectByName(toParticle).SetActive(false);
-                Particles.PlayEmitter(toParticle);
-
-                if (hitPlayer)
-                {
-                    activate = true;
-                    hitPlayer = false;
-                    time = 0f;
-                    //Debug.Log("Hit Player");
-                }
+               
             }
             else
             {
-                activate = false;
+                disabled = false;
                 time = 0f;
             }
         }
@@ -55,11 +47,18 @@ public class Electric_trap : YmirComponent
             if (time < 3f)
             {
                 gameObject.SetPosition(originalPosition);
-                
+                Particles.PlayEmitter(toParticle);
+                if (hitPlayer)
+                {
+                    disabled = true;
+                    hitPlayer = false;
+                    time = 0f;
+                    //Debug.Log("Hit Player");
+                }
             }
             else
             {
-                activate = true;
+                disabled = true;
                 time = 0f;
             }
         }
@@ -70,16 +69,15 @@ public class Electric_trap : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")
+        if (other.Tag == "Player" && !disabled)
         {
-            if (activate)
-            {
-                other.GetComponent<Health>().TakeDmg(damage);
-                hitPlayer = true;
-                // Debug.Log("" + other.GetComponent<Health>().currentHealth);
-                // Debug.Log("" + aux);
-                // aux++;
-            }
+
+            other.GetComponent<Health>().TakeDmg(damage);
+            hitPlayer = true;
+            //Debug.Log("" + other.GetComponent<Health>().currentHealth);
+            // Debug.Log("" + aux);
+            // aux++;
+            
         }
     }
 
