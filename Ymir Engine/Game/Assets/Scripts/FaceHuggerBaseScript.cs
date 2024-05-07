@@ -122,6 +122,18 @@ public class FaceHuggerBaseScript : Enemy
 
     public void Update()
     {
+
+        if (CheckPause())
+        {
+            SetPause(true);
+            paused = true;
+            return;
+        }
+        else if (paused)
+        {
+            SetPause(false);
+            paused = false;
+        }
         Debug.Log("[ERROR] CurrentaState: " + wanderState);
        
         if(wanderState != WanderState.DEATH) { isDeath(); }
@@ -359,13 +371,14 @@ public class FaceHuggerBaseScript : Enemy
         }
     }
 
-    public void SetPause(bool pause)
+    private void SetPause(bool pause)
     {
         if (pause)
         {
             pausedState = wanderState;
             wanderState = WanderState.PAUSED;
             Animation.PauseAnimation(gameObject);
+            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
         }
         else if (wanderState == WanderState.PAUSED)
         {
