@@ -363,7 +363,7 @@ Component* GameObject::GetComponent(ComponentType ctype, char* scriptname)
 	//// Suponiendo que ya tienes asignado un valor a scriptname
 	//char* concatenatedName = new char[strlen(scriptname) + 4]; // +4 para ".cs" y el terminador nulo
 	//strcpy(concatenatedName, scriptname);
-	//strcat(concatenatedName, ".cs");
+	//strcat(concatenatedName, ".cs"); 
 
 	for (size_t i = 0; i < mComponents.size(); i++)
 	{
