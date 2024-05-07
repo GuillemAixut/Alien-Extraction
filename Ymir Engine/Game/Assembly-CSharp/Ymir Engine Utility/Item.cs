@@ -73,19 +73,18 @@ namespace YmirEngine
 
         public virtual void UpdateStats(GameObject menu)
         {
-            Debug.Log("1234567 " + isEquipped.ToString());
         }
 
         public virtual void LogStats()
         {
             Debug.Log("Item " +
-             "currentSlot: " + currentSlot.ToString() +
-             "itemType: " + itemType.ToString() +
-             "itemRarity: " + itemRarity.ToString() +
-             "isEquipped: " + isEquipped.ToString() +
-             "name: " + name +
-             "description: " + description +
-             "imagePath: " + imagePath);
+             " currentSlot: " + currentSlot.ToString() +
+             " itemType: " + itemType.ToString() +
+             " itemRarity: " + itemRarity.ToString() +
+             " isEquipped: " + isEquipped.ToString() +
+             " name: " + name +
+             " description: " + description +
+             " imagePath: " + imagePath);
         }
     }
 
@@ -126,19 +125,18 @@ namespace YmirEngine
             this.fireRate = fireRate;
             this.reloadSpeed = reloadSpeed;
             this.damageMultiplier = damageMultiplier;
-
-            Debug.Log("created ");
-            LogStats();
         }
 
         public override void UpdateStats(GameObject menu)
         {
             int e = (isEquipped) ? 1 : -1;
 
-            Debug.Log("algo1 " + isEquipped.ToString());
+            Debug.Log("isEquipped " + isEquipped.ToString());
 
             if (menu != null)
             {
+                LogStats();
+
                 menu.GetComponent<UI_Inventory>().health.currentHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.maxHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.armor += (armor * e);
