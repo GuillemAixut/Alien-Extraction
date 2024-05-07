@@ -1,31 +1,31 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        90.690879821777344,
-        318.84463500976562,
-        -10.945144653320312
+        214.95960998535156,
+        206.53810119628906,
+        -107.07516479492188
     ],
     "Editor Camera Right (X)": [
-        0.87088841199874878,
-        2.8014183044433594e-06,
-        0.49063330888748169
+        0.50189006328582764,
+        -1.3262033462524414e-06,
+        -0.86396753787994385
     ],
     "Editor Camera Up (Y)": [
-        0.30247870087623596,
-        0.78703898191452026,
-        -0.53691297769546509
+        -0.53259479999542236,
+        0.78672277927398682,
+        -0.30939251184463501
     ],
     "Editor Camera Front (Z)": [
-        0.38646987080574036,
-        -0.61646145582199097,
-        -0.68599176406860352
+        -0.68084245920181274,
+        -0.6164785623550415,
+        -0.39550936222076416
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 634618728,
+            "UID": 1953655953,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -47,7 +47,11 @@
                 764467289,
                 1645988257,
                 270068987,
-                1459164758
+                1459164758,
+                982585116,
+                484997781,
+                1922542640,
+                82626634
             ]
         },
         {
@@ -57,7 +61,7 @@
             "UID": 1281640994,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -24751,9 +24755,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        336.60317993164062,
-                        97.745208740234375,
-                        -148.91989135742188
+                        113.11220550537109,
+                        97.745269775390625,
+                        -175.56246948242188
                     ],
                     "Rotation": [
                         -180,
@@ -25354,19 +25358,19 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        20.770042419433594,
-                        0,
-                        0
+                        20.770050048828125,
+                        0.8660888671875,
+                        -5.7220458984375e-06
                     ],
                     "Rotation": [
-                        -0,
-                        0,
-                        -0
+                        2.7479860834761505e-12,
+                        -0.00012891978258267045,
+                        -9.5671118596762916e-12
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        0.99999868869781494,
+                        0.99999988079071045,
+                        1.0000019073486328
                     ]
                 },
                 {
@@ -25426,7 +25430,7 @@
             "UID": 128304438,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -27537,7 +27541,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        9.442296028137207,
+                        9.4422941207885742,
                         -0
                     ],
                     "Scale": [
@@ -28890,7 +28894,7 @@
             "UID": 1829172732,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -29981,7 +29985,7 @@
             "UID": 1495121981,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -30327,7 +30331,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -30338,7 +30342,7 @@
                         -52.581008911132812
                     ],
                     "Rotation": [
-                        1.3512424956729774e-08,
+                        1.351243739122765e-08,
                         90,
                         0
                     ],
@@ -30683,7 +30687,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -32777,7 +32781,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -32819,8 +32823,7 @@
                     "Type": "Script",
                     "ScriptName": "UI_Inventory.cs",
                     "Active": 1,
-                    "UID": 0,
-                    "itemsDictionary": 0
+                    "UID": 0
                 }
             ],
             "Children UID": [
@@ -42947,7 +42950,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -43591,7 +43594,7 @@
             "UID": 1707342777,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -44079,7 +44082,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -44205,7 +44208,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        12.348064422607422,
+                        12.348072052001953,
                         -180
                     ],
                     "Scale": [
@@ -44323,7 +44326,7 @@
                     "acidicTimer": 0,
                     "currentMenu": "",
                     "setHover": false,
-                    "itemsListTest": 0,
+                    "itemsListString": 0,
                     "itemsList": 0
                 }
             ],
@@ -45791,7 +45794,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -46238,7 +46241,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -46685,7 +46688,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -47020,7 +47023,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -47467,7 +47470,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -47558,7 +47561,7 @@
                         0
                     ],
                     "Rotation": [
-                        3.8302747640273083e-09,
+                        3.830281425365456e-09,
                         90,
                         0
                     ],
@@ -47637,7 +47640,7 @@
                         0
                     ],
                     "Rotation": [
-                        1.7866823327494785e-06,
+                        1.7866840380520443e-06,
                         90,
                         0
                     ],
@@ -47716,7 +47719,7 @@
                         -1.2768347490421661e-10
                     ],
                     "Rotation": [
-                        3.8302774285625674e-09,
+                        3.8302840899007151e-09,
                         90,
                         0
                     ],
@@ -47844,7 +47847,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -47935,7 +47938,7 @@
                         0
                     ],
                     "Rotation": [
-                        3.8302738758488886e-09,
+                        3.8302809812762462e-09,
                         90,
                         0
                     ],
@@ -48014,7 +48017,7 @@
                         0
                     ],
                     "Rotation": [
-                        1.7866821053758031e-06,
+                        1.7866838106783689e-06,
                         90,
                         0
                     ],
@@ -48093,7 +48096,7 @@
                         -1.2768347490421661e-10
                     ],
                     "Rotation": [
-                        3.8302765403841477e-09,
+                        3.8302832017222954e-09,
                         90,
                         0
                     ],
@@ -48220,7 +48223,7 @@
             "UID": 270068987,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -48367,7 +48370,7 @@
             "UID": 1459164758,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 634618728,
+            "Parent UID": 1953655953,
             "Components": [
                 {
                     "Type": "Transform",
@@ -48504,6 +48507,1289 @@
                         0,
                         1
                     ]
+                }
+            ]
+        },
+        {
+            "Name": "core_mythic",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 982585116,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1953655953,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -329.34719848632812,
+                        107.49457550048828,
+                        205.82026672363281
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        3.2499997615814209,
+                        3.2499997615814209,
+                        3.2499997615814209
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        3,
+                        3,
+                        3
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "PickUp.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "MapInteractionLV1",
+                    "Event Name": "LV1_CollectItem",
+                    "Event ID": 2518039338
+                }
+            ],
+            "Children UID": [
+                6129524,
+                1048779234
+            ]
+        },
+        {
+            "Name": "Paticle System (11)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 6129524,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 982585116,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        7,
+                        7,
+                        0
+                    ]
+                },
+                {
+                    "Type": "ParticleSystem",
+                    "Active": 1,
+                    "NumEmitters": 1,
+                    "Emitters": [
+                        {
+                            "ModulesSize": 4,
+                            "EmitterUID": 2069915912,
+                            "Settings": [
+                                {
+                                    "Type": 0,
+                                    "Lifetime": 1,
+                                    "Lifetime2": 2,
+                                    "RandomLT": false,
+                                    "Position": [
+                                        0,
+                                        7.5,
+                                        0
+                                    ],
+                                    "DistanceLimit": 0,
+                                    "HasDistanceLimit": false,
+                                    "BaseRotation": 0,
+                                    "BaseShape": 0,
+                                    "PositiveBoxPoints": [
+                                        1,
+                                        1,
+                                        1
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        -1,
+                                        -1,
+                                        -1
+                                    ],
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 2,
+                                    "RadiusTop": 4,
+                                    "Heigth": 3
+                                },
+                                {
+                                    "Type": 1,
+                                    "SpawnMode": 0,
+                                    "StartMode": 0,
+                                    "NumParticles": 1,
+                                    "SpawnRatio": 0.20000000298023224,
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 2,
+                                    "SubemitterMaxLifetime": 1,
+                                    "SubemitterMinLifetime": 0
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/particleExample.png"
+                                },
+                                {
+                                    "Type": 3,
+                                    "AligmentMode": 1,
+                                    "WorldOrientation": 3,
+                                    "AxisOrientation": 3,
+                                    "FreeRotation": [
+                                        0,
+                                        0,
+                                        0
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Sphere (12)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1048779234,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Primitives\/Sphere.fbx",
+            "Parent UID": 982585116,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 621813214,
+                    "Vertex Count": 439,
+                    "Index Count": 2280
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -222.58538818359375,
+                                110.81430816650391,
+                                356.43319702148438
+                            ],
+                            "color": [
+                                0.80000001192092896,
+                                0.10000000149011612,
+                                0
+                            ],
+                            "light": false
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 484997781,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1953655953,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -9.4587917327880859,
+                        94.864006042480469,
+                        148.36019897460938
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.088275007903575897,
+                        0.088275007903575897,
+                        0.088275007903575897
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        300,
+                        100,
+                        250
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Loot_Chest.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "keys": "Nombre:,Probabilidad:",
+                    "path": "Assets\/Loot Tables\/loot_table.csv",
+                    "numFields": 2,
+                    "spawnRange": 0
+                }
+            ],
+            "Children UID": [
+                1871714168,
+                342242430,
+                1522841663
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest_Lid",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1871714168,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
+            "Parent UID": 484997781,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 333817056,
+                    "Vertex Count": 388,
+                    "Index Count": 690
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -281.25900268554688,
+                                206.99203491210938,
+                                419.08413696289062
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 356,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
+                    "Diffuse_UID": 1170378668,
+                    "Specular_ID": 388,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
+                    "Specular_UID": 300545344,
+                    "Normal_ID": 380,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
+                    "Normal_UID": 1614848588,
+                    "Height_ID": 372,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
+                    "Height_UID": 414377273,
+                    "Ambient_ID": 348,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
+                    "Ambient_UID": 1263068321,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
+                    "Emissive_UID": 1409401328
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest_Base",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 342242430,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
+            "Parent UID": 484997781,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1005804023,
+                    "Vertex Count": 452,
+                    "Index Count": 840
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -281.25900268554688,
+                                206.99203491210938,
+                                419.08413696289062
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 360,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
+                    "Diffuse_UID": 1170378668,
+                    "Specular_ID": 392,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
+                    "Specular_UID": 300545344,
+                    "Normal_ID": 384,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
+                    "Normal_UID": 1614848588,
+                    "Height_ID": 376,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
+                    "Height_UID": 414377273,
+                    "Ambient_ID": 352,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
+                    "Ambient_UID": 1263068321,
+                    "Emissive_ID": 368,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
+                    "Emissive_UID": 1409401328
+                }
+            ]
+        },
+        {
+            "Name": "Pop-Up",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1522841663,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 484997781,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        384.44873046875,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        150,
+                        150,
+                        150
+                    ]
+                }
+            ],
+            "Children UID": [
+                1981179967
+            ]
+        },
+        {
+            "Name": "Cube (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1981179967,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Primitives\/Cube.fbx",
+            "Parent UID": 1522841663,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.68999999761581421,
+                        0.68999999761581421,
+                        0.68999999761581421
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1728623793,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -222.58538818359375,
+                                110.81430816650391,
+                                356.43319702148438
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 656,
+                    "Diffuse_Path": "Assets\/Prefabs\/x_ps4_PROVISIONAL.png",
+                    "Diffuse_UID": 962411016
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1922542640,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1953655953,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        357.73773193359375,
+                        96.136962890625,
+                        397.99142456054688
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.064000003039836884,
+                        0.064000003039836884,
+                        0.064000003039836884
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        300,
+                        100,
+                        250
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Loot_Chest.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "keys": "Nombre:,Probabilidad:",
+                    "path": "Assets\/Loot Tables\/loot_table.csv",
+                    "numFields": 2,
+                    "spawnRange": 0
+                }
+            ],
+            "Children UID": [
+                245300577,
+                133980631,
+                1790074552
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest_Lid (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 245300577,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
+            "Parent UID": 1922542640,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 333817056,
+                    "Vertex Count": 388,
+                    "Index Count": 690
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -281.25900268554688,
+                                206.99203491210938,
+                                419.08413696289062
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 356,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
+                    "Diffuse_UID": 1170378668,
+                    "Specular_ID": 388,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
+                    "Specular_UID": 300545344,
+                    "Normal_ID": 380,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
+                    "Normal_UID": 1614848588,
+                    "Height_ID": 372,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
+                    "Height_UID": 414377273,
+                    "Ambient_ID": 348,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
+                    "Ambient_UID": 1263068321,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
+                    "Emissive_UID": 1409401328
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest_Base (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 133980631,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
+            "Parent UID": 1922542640,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1005804023,
+                    "Vertex Count": 452,
+                    "Index Count": 840
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -281.25900268554688,
+                                206.99203491210938,
+                                419.08413696289062
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 360,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
+                    "Diffuse_UID": 1170378668,
+                    "Specular_ID": 392,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
+                    "Specular_UID": 300545344,
+                    "Normal_ID": 384,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
+                    "Normal_UID": 1614848588,
+                    "Height_ID": 376,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
+                    "Height_UID": 414377273,
+                    "Ambient_ID": 352,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
+                    "Ambient_UID": 1263068321,
+                    "Emissive_ID": 368,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
+                    "Emissive_UID": 1409401328
+                }
+            ]
+        },
+        {
+            "Name": "Pop-Up (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1790074552,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1922542640,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        384.44873046875,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        150,
+                        150,
+                        150
+                    ]
+                }
+            ],
+            "Children UID": [
+                1417805484
+            ]
+        },
+        {
+            "Name": "Cube (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1417805484,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Primitives\/Cube.fbx",
+            "Parent UID": 1790074552,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1728623793,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -222.58538818359375,
+                                110.81430816650391,
+                                356.43319702148438
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 656,
+                    "Diffuse_Path": "Assets\/Prefabs\/x_ps4_PROVISIONAL.png",
+                    "Diffuse_UID": 962411016
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 82626634,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1953655953,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        235.33718872070312,
+                        94.529106140136719,
+                        -267.83685302734375
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.055000003427267075,
+                        0.055000003427267075,
+                        0.055000003427267075
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        300,
+                        100,
+                        250
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Loot_Chest.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "keys": "Nombre:,Probabilidad:",
+                    "path": "Assets\/Loot Tables\/loot_table.csv",
+                    "numFields": 2,
+                    "spawnRange": 0
+                }
+            ],
+            "Children UID": [
+                248880354,
+                1968834364,
+                72948098
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest_Lid (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 248880354,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
+            "Parent UID": 82626634,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 333817056,
+                    "Vertex Count": 388,
+                    "Index Count": 690
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -281.25900268554688,
+                                206.99203491210938,
+                                419.08413696289062
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 356,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
+                    "Diffuse_UID": 1170378668,
+                    "Specular_ID": 388,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
+                    "Specular_UID": 300545344,
+                    "Normal_ID": 380,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
+                    "Normal_UID": 1614848588,
+                    "Height_ID": 372,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
+                    "Height_UID": 414377273,
+                    "Ambient_ID": 348,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
+                    "Ambient_UID": 1263068321,
+                    "Emissive_ID": 364,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
+                    "Emissive_UID": 1409401328
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Base_Chest_Base (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1968834364,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest.fbx",
+            "Parent UID": 82626634,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1005804023,
+                    "Vertex Count": 452,
+                    "Index Count": 840
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -281.25900268554688,
+                                206.99203491210938,
+                                419.08413696289062
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": true,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 360,
+                    "Diffuse_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_D.png",
+                    "Diffuse_UID": 1170378668,
+                    "Specular_ID": 392,
+                    "Specular_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_S.png",
+                    "Specular_UID": 300545344,
+                    "Normal_ID": 384,
+                    "Normal_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_N.png",
+                    "Normal_UID": 1614848588,
+                    "Height_ID": 376,
+                    "Height_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_H.png",
+                    "Height_UID": 414377273,
+                    "Ambient_ID": 352,
+                    "Ambient_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_A.png",
+                    "Ambient_UID": 1263068321,
+                    "Emissive_ID": 368,
+                    "Emissive_Path": "Assets\/Prefabs\/Meshes\/Loot_Chest\/PROP_Base_Chest_E.png",
+                    "Emissive_UID": 1409401328
+                }
+            ]
+        },
+        {
+            "Name": "Pop-Up (2)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 72948098,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 82626634,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        384.44873046875,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        150,
+                        150,
+                        150
+                    ]
+                }
+            ],
+            "Children UID": [
+                1910863075
+            ]
+        },
+        {
+            "Name": "Cube (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1910863075,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Primitives\/Cube.fbx",
+            "Parent UID": 72948098,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1728623793,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -222.58538818359375,
+                                110.81430816650391,
+                                356.43319702148438
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 656,
+                    "Diffuse_Path": "Assets\/Prefabs\/x_ps4_PROVISIONAL.png",
+                    "Diffuse_UID": 962411016
                 }
             ]
         }
