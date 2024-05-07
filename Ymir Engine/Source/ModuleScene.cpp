@@ -73,11 +73,10 @@ bool ModuleScene::Init()
 bool ModuleScene::Start()
 {
 	currentSceneDir = "Assets";
-	//LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
-	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-
 #ifdef _RELEASE
 	
+	//LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
+	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets/Scenes", "Start_scene");
 	//LoadScene("Assets/Scenes", "GameUI");
 	//LoadScene("Assets", "Enemigo player");
@@ -85,14 +84,18 @@ bool ModuleScene::Start()
 	/*LoadScene("Assets", "Enemigo player"); */
 	//LoadScene("Assets/Test_Francesc", "TestPrefabs");
 	//LoadScene("Assets", "Prueba enemigo lvl2");
+
+	// -------------------- FINAL MAPS -------------------- \\
+
+	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
 
-	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-
+	// ----------------- END OF FINAL MAPS ---------------- \\
+	
 	//LoadScene("Assets", "Pollo Loco");
 	//LoadScene("Assets", "ParticleTest");
 	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
