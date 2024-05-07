@@ -104,6 +104,16 @@ void SetUIState(MonoObject* object, int uiState)
 	}
 }
 
+bool GetCanNav()
+{
+	return External->scene->canNav;
+}
+
+void SetCanNav(bool set)
+{
+	External->scene->canNav = set;
+}
+
 MonoObject* CreateImageUI(MonoObject* pParent, MonoString* newImage, int x, int y)
 {
 	GameObject* ui_gameObject = External->moduleMono->GameObject_From_CSGO(pParent);
@@ -118,19 +128,8 @@ MonoObject* CreateImageUI(MonoObject* pParent, MonoString* newImage, int x, int 
 	return External->moduleMono->GoToCSGO(tempGameObject);
 }
 
-bool GetCanNav()
-{
-	return External->scene->canNav;
-}
-
-void SetCanNav(bool set)
-{
-	External->scene->canNav = set;
-}
-
 void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
 {
-	//Falta meter automaticamente que haga el change de Image
 	GameObject* go_image_to_change = External->moduleMono->GameObject_From_CSGO(go);
 	std::string _newImage = mono_string_to_utf8(newImage);
 
