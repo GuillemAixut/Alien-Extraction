@@ -26,7 +26,8 @@ public enum WanderState
     HIT,
     KNOCKBACK,
     DEATH,
-    STOPED
+    STOPED,
+    PAUSED
 }
 
 public class Enemy : YmirComponent
