@@ -25,31 +25,10 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1575064073,
+            "UID": 1604896144,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 338908844,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
+            "Components": [],
             "Children UID": [
                 1522841663,
                 1806365249,
@@ -65,7 +44,7 @@
             "UID": 1522841663,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1575064073,
+            "Parent UID": 1604896144,
             "Components": [
                 {
                     "Type": "Transform",
@@ -197,7 +176,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1575064073,
+            "Parent UID": 1604896144,
             "Components": [
                 {
                     "Type": "Transform",
@@ -415,6 +394,7 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
+                    "saveName": "",
                     "currentState": 0,
                     "movementSpeed": 35,
                     "deathAnimFinish": true,
@@ -434,6 +414,7 @@
                     "acidicTimer": 0,
                     "currentMenu": "",
                     "setHover": true,
+                    "itemsListTest": 0,
                     "itemsList": 0
                 }
             ],
@@ -743,18 +724,22 @@
                                     "Position": [
                                         0,
                                         0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 2,
                                     "BaseShape": 1,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 1.2000000476837158,
                                     "RadiusTop": 2,
@@ -814,6 +799,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Size1": 7.5,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -822,6 +808,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         1,
@@ -934,18 +921,22 @@
                                     "Position": [
                                         0,
                                         1.3999999761581421,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 5.1449999809265137,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 2,
                                     "BaseShape": 0,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 4,
@@ -1005,6 +996,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Size1": 7.5,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -1013,6 +1005,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Color1": [
                                         0.16814136505126953,
                                         0,
@@ -1102,18 +1095,22 @@
                                     "Position": [
                                         0,
                                         0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 2,
                                     "BaseShape": 0,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 4,
@@ -1173,6 +1170,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 9.1000003814697266,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -1181,6 +1179,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         0,
@@ -1247,18 +1246,22 @@
                                     "Position": [
                                         0,
                                         0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 50.554000854492188,
                                     "HasDistanceLimit": true,
                                     "BaseRotation": 2,
                                     "BaseShape": 1,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 1,
@@ -1318,6 +1321,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 7.0999999046325684,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -1326,6 +1330,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         1,
@@ -1392,18 +1397,22 @@
                                     "Position": [
                                         0,
                                         0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
                                     "BaseShape": 0,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 4,
@@ -1463,6 +1472,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 10,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -1471,6 +1481,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         1,
                                         0,
@@ -1537,18 +1548,22 @@
                                     "Position": [
                                         0,
                                         0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
                                     "BaseShape": 1,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 3,
                                     "RadiusBase": 4,
                                     "RadiusTop": 9.1999998092651367,
@@ -1608,6 +1623,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Size1": 5.8000001907348633,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -1616,6 +1632,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         0.1150442361831665,
                                         1,
@@ -1682,18 +1699,22 @@
                                     "Position": [
                                         -0.10000000149011612,
                                         0.30000001192092896,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
                                     "BaseShape": 0,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 4,
@@ -1753,6 +1774,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Size1": 6,
                                     "Size2": 1,
                                     "TimeStart": 0,
@@ -1761,6 +1783,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": false,
+                                    "Loop": true,
                                     "Color1": [
                                         0.049494847655296326,
                                         0.34955751895904541,
@@ -1827,18 +1850,22 @@
                                     "Position": [
                                         0,
                                         0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
-                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
                                     "BaseShape": 2,
+                                    "PositiveBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
                                     "RadiusHollow": 0,
                                     "RadiusBase": 2,
                                     "RadiusTop": 4,
@@ -1898,6 +1925,7 @@
                                 {
                                     "Type": 4,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Size1": 1,
                                     "Size2": 10,
                                     "TimeStart": 0,
@@ -1906,6 +1934,7 @@
                                 {
                                     "Type": 5,
                                     "Progressive": true,
+                                    "Loop": true,
                                     "Color1": [
                                         0.10776094347238541,
                                         0.76106196641921997,
@@ -1934,7 +1963,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1575064073,
+            "Parent UID": 1604896144,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1961,8 +1990,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 780,
-                    "Height": 847,
+                    "Width": 961,
+                    "Height": 631,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4408,7 +4437,7 @@
             "UID": 728359170,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1575064073,
+            "Parent UID": 1604896144,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4435,8 +4464,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 780,
-                    "Height": 847,
+                    "Width": 961,
+                    "Height": 631,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4448,11 +4477,77 @@
                 }
             ],
             "Children UID": [
-                1254634614
+                1536161671,
+                1254634614,
+                1666938166,
+                92552985
             ]
         },
         {
             "Name": "Image",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1536161671,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 728359170,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 640,
+                    "Position Y": 250,
+                    "Width": 640,
+                    "Height": 150,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        640,
+                        250,
+                        640,
+                        150
+                    ],
+                    "Path": "Assets\/UI\/ShootTutorial.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1254634614,
@@ -4495,7 +4590,7 @@
                         640,
                         150
                     ],
-                    "Path": "Assets\/UI\/FondoRedondeado.png",
+                    "Path": "Assets\/UI\/AbilitiesTutorial.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4512,19 +4607,16 @@
                     "Type": "UI Transform",
                     "Component reference": 1
                 }
-            ],
-            "Children UID": [
-                209344268
             ]
         },
         {
-            "Name": "Text",
+            "Name": "Image (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 209344268,
+            "UID": 1666938166,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1254634614,
+            "Parent UID": 728359170,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4549,33 +4641,97 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 779,
-                    "Position Y": 330,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
+                    "Position X": 640,
+                    "Position Y": 250,
+                    "Width": 640,
+                    "Height": 150,
+                    "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        779,
-                        330,
-                        200,
-                        50
+                        640,
+                        250,
+                        640,
+                        150
                     ],
-                    "Text": "Door locked. A key is needed.",
-                    "Font name": "NK57 Monospace Se Bd.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 15.800000190734863,
-                    "Line Spacing": 1,
+                    "Path": "Assets\/UI\/DashTutorial.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
                     "Color": [
-                        -0.98000001907348633,
                         0,
-                        -0.98000001907348633,
+                        0,
+                        0,
                         0
                     ]
                 },
                 {
                     "Type": "UI Transform",
-                    "Component reference": 2
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 92552985,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 728359170,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 640,
+                    "Position Y": 250,
+                    "Width": 640,
+                    "Height": 150,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        640,
+                        250,
+                        640,
+                        150
+                    ],
+                    "Path": "Assets\/UI\/DoorLockedPopUp.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
                 }
             ]
         },
@@ -4586,7 +4742,7 @@
             "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1575064073,
+            "Parent UID": 1604896144,
             "Components": [
                 {
                     "Type": "Transform",
