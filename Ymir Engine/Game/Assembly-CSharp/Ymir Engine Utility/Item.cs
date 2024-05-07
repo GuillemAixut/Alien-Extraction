@@ -73,11 +73,18 @@ namespace YmirEngine
 
         public virtual void UpdateStats(GameObject menu)
         {
-            Debug.Log("1234567 " + isEquipped.ToString());
         }
+
         public virtual void LogStats()
         {
-            Debug.Log("987654 " + isEquipped.ToString());
+            Debug.Log("Item " +
+             " currentSlot: " + currentSlot.ToString() +
+             " itemType: " + itemType.ToString() +
+             " itemRarity: " + itemRarity.ToString() +
+             " isEquipped: " + isEquipped.ToString() +
+             " name: " + name +
+             " description: " + description +
+             " imagePath: " + imagePath);
         }
     }
 
@@ -118,20 +125,18 @@ namespace YmirEngine
             this.fireRate = fireRate;
             this.reloadSpeed = reloadSpeed;
             this.damageMultiplier = damageMultiplier;
-
-            Debug.Log("created ");
-            LogStats();
         }
 
         public override void UpdateStats(GameObject menu)
         {
             int e = (isEquipped) ? 1 : -1;
 
-            Debug.Log("algo1 " + isEquipped.ToString());
+            Debug.Log("isEquipped " + isEquipped.ToString());
 
             if (menu != null)
             {
-                Debug.Log("algo2 " + isEquipped.ToString());
+                LogStats();
+
                 menu.GetComponent<UI_Inventory>().health.currentHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.maxHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.armor += (armor * e);
@@ -144,8 +149,10 @@ namespace YmirEngine
 
         public override void LogStats()
         {
+            base.LogStats();
+
             Debug.Log("I_Equippable " +
-             "HP: " + HP.ToString() +
+             " HP: " + HP.ToString() +
              " armor: " + armor.ToString() +
              " speed: " + speed.ToString() +
              " fireRate: " + fireRate.ToString() +
@@ -191,16 +198,20 @@ namespace YmirEngine
         public override void UpdateStats(GameObject menu)
         {
         }
+
         public override void LogStats()
         {
+            base.LogStats();
+
             Debug.Log("I_Consumables " +
-             "dmg: " + dmg.ToString() +
+             " dmg: " + dmg.ToString() +
              " area: " + area.ToString() +
              " time: " + time.ToString()
              );
         }
     }
     #endregion
+    
     public class Upgrade
     {
         public string name, description;

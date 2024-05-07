@@ -66,7 +66,15 @@ void CScript::Update()
 
 	MonoObject* exec = nullptr;
 
-	mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);  //Peta al hacer PLAY en el motor
+	try 
+	{
+		mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);
+	}
+	catch (const std::exception& e) 
+	{
+		// Handle any exceptions thrown within the try block
+		LOG("[ERROR] Script %s crashed on Update: '%s'", name, e.what());
+	}
 
 	if (exec != nullptr)
 	{

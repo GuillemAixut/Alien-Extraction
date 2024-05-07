@@ -17,7 +17,7 @@ public class UI_Item_Button : YmirComponent
     public string menuName = "";
 
     private GameObject _menuReference;
-    public bool updateStats;
+    public bool updateStats = false;
 
     // Debug
     public string name = "";
@@ -30,26 +30,42 @@ public class UI_Item_Button : YmirComponent
     {
         _menuReference = InternalCalls.GetGameObjectByName(menuName);
 
-        itemType = SetType(enumItem);
-        currentSlot = SetType(enumSlot);
-        itemRarity = SetRarity(enumRarity);
+        updateStats = false;
 
-        item = CreateItemBase();
+        if (item == null)
+        {
+            itemType = SetType(enumItem);
+            currentSlot = SetType(enumSlot);
+            itemRarity = SetRarity(enumRarity);
+
+            isEquipped = false;
+            item = CreateItemBase();
+        }
+
         //item = new Item(currentSlot, itemType, itemRarity, isEquipped,
         //    /*name*/"Empty",
         //    /*description*/ "Empty",
         //    /*imagePath*/ "");
+        //
+        
+        _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
     }
 
     public void Update()
     {
         if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null)
         {
-            if (item.currentSlot != ITEM_SLOT.NONE)
+            if (item.currentSlot != ITEM_SLOT.NONE && item.currentSlot != ITEM_SLOT.SAVE)
             {
-                item.UpdateStats(_menuReference);
-                _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
+                item.isEquipped = true;
             }
+            else
+            {
+                item.isEquipped = false;
+            }
+
+            item.UpdateStats(_menuReference); 
+            _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
 
             updateStats = false;
         }
@@ -61,11 +77,13 @@ public class UI_Item_Button : YmirComponent
     {
         if (_menuReference.GetComponent<UI_Inventory>().goName != null)
         {
+            Debug.Log("" + item.name);
             UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
         }
 
         if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
         {
+            Debug.Log("" + item.description);
             UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
         }
     }
@@ -165,31 +183,12 @@ public class UI_Item_Button : YmirComponent
         return elementChanged;
     }
 
-    private void UpdateStats() // TODO: cambiar cuando items funcionen en player
-    {
-        //if (_menuReference != null)
-        //{
-        //    _menuReference.GetComponent<UI_Inventory>().health.currentHealth += item.HP;
-        //    _menuReference.GetComponent<UI_Inventory>().health.maxHealth += item.HP;
-        //    _menuReference.GetComponent<UI_Inventory>().health.armor += item.armor;
-        //    _menuReference.GetComponent<UI_Inventory>().player.movementSpeed += item.speed;
-        //    _menuReference.GetComponent<UI_Inventory>().player.reloadDuration += item.reloadSpeed;
-        //    _menuReference.GetComponent<UI_Inventory>().player.fireRate += item.fireRate;
-        //    _menuReference.GetComponent<UI_Inventory>().player.damageMultiplier += item.damageMultiplier;
-        //}
-    }
-
     public bool SetItem(Item _item)
     {
         currentSlot = SetType(enumSlot);
         itemType = SetType(enumItem);
 
         item = CreateItemBase();
-
-        //item = new Item(currentSlot, itemType, itemRarity, isEquipped,
-        //    /*name*/"Empty",
-        //    /*description*/ "Empty",
-        //    /*imagePath*/ "");
 
         bool ret = false;
         Debug.Log("item currentSlot: " + item.currentSlot.ToString());
@@ -233,10 +232,12 @@ public class UI_Item_Button : YmirComponent
                     break;
             }
 
+            item.LogStats();
+
             Debug.Log("aaa " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
         }
 
-        Debug.Log("return: " + ret.ToString());
+        //Debug.Log("return: " + ret.ToString());
         return ret;
     }
 

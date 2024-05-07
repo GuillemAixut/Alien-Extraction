@@ -8,8 +8,8 @@ using YmirEngine;
 
 public class UI_Crafting_Recipe : YmirComponent
 {
-    public int itemNumber;
     private Player player = null;
+    public string itemCraft = "";
 
     public void Start()
     {
@@ -68,7 +68,7 @@ public class UI_Crafting_Recipe : YmirComponent
             InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().CreateItemBase();
             Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).Name);
 
-            // Delete item from player list
+            // TODO: Delete item from player list
             for (int j = 0; j < player.itemsList.Count; j++)
             {
                 if (player.itemsList[i].Equals(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item))
@@ -83,15 +83,13 @@ public class UI_Crafting_Recipe : YmirComponent
         }
 
         Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).Name);
-
-        // Don't trust reference
-        //GameObject craftGO = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2); // Last GO of grid is the crafted item
-        //craftGO.GetComponent<UI_Item_Button>().item = UI_Inventory.SearchItemInDictionary("armor_common"); // TODO: ajustar nom busca + formula raresa
-        //player.itemsList.Add(craftGO.GetComponent<UI_Item_Button>().item);
+        Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item.name);
 
         // Add new item
-        InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item =
-            Globals.SearchItemInDictionary("armor_common"); // TODO: ajustar nom busca + formula raresa
+        Debug.Log(itemCraft + "_common");
+        Item item = Globals.SearchItemInDictionary(itemCraft + "_common"); // TODO: aplicar formula raresa
+        InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().SetItem(item); // TODO: ajustar nom busca + formula raresa
+
         player.itemsList.Add(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item);
     }
 
