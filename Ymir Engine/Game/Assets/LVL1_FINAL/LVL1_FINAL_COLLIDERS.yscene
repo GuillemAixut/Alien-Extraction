@@ -1,31 +1,31 @@
 {
     "NavMesh": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.nav",
     "Editor Camera Position": [
-        948.44158935546875,
-        126.36188507080078,
-        -151.31002807617188
+        -6.5401611328125,
+        273.11459350585938,
+        111.54949188232422
     ],
     "Editor Camera Right (X)": [
-        0.16174185276031494,
-        2.0861625671386719e-07,
-        0.66360795497894287
+        0.59241366386413574,
+        1.9371509552001953e-07,
+        0.33761531114578247
     ],
     "Editor Camera Up (Y)": [
-        0.56936126947402954,
-        0.35128685832023621,
-        -0.13877111673355103
+        0.24314600229263306,
+        0.47421836853027344,
+        -0.42664864659309387
     ],
     "Editor Camera Front (Z)": [
-        0.49935910105705261,
-        -0.8574339747428894,
-        -0.12170903384685516
+        0.34354609251022339,
+        -0.71849596500396729,
+        -0.60281997919082642
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 77961580,
+            "UID": 500341750,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -57,7 +57,7 @@
             "UID": 265396639,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -80,7 +80,6 @@
                 }
             ],
             "Children UID": [
-                588186517,
                 1371531059,
                 1617458914,
                 1813574606,
@@ -100,234 +99,6 @@
                 1847732981,
                 506114504,
                 1044246740
-            ]
-        },
-        {
-            "Name": "Tutorial (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 588186517,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
-            "Parent UID": 265396639,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1993760952,
-                1007906284,
-                793955987
-            ]
-        },
-        {
-            "Name": "Acid2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1993760952,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
-            "Parent UID": 588186517,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 631030484,
-                    "Vertex Count": 4,
-                    "Index Count": 6
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                6.46160888671875,
-                                15.465556144714355,
-                                -1.7969037294387817
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Acid1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1007906284,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
-            "Parent UID": 588186517,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1605425069,
-                    "Vertex Count": 4,
-                    "Index Count": 6
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                6.46160888671875,
-                                15.465556144714355,
-                                -1.7969037294387817
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "MiniWall_Tutorial5",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 793955987,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL1_FINAL\/LVL1_MAP.fbx",
-            "Parent UID": 588186517,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 200511488,
-                    "Vertex Count": 24,
-                    "Index Count": 36
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                6.46160888671875,
-                                15.465556144714355,
-                                -1.7969037294387817
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
             ]
         },
         {
@@ -52041,7 +51812,7 @@
                     ],
                     "Rotation": [
                         -180,
-                        0.09236685186624527,
+                        0.092366881668567657,
                         -180
                     ],
                     "Scale": [
@@ -58861,7 +58632,7 @@
             "UID": 493464378,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -58926,7 +58697,7 @@
             "UID": 1161519485,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -59100,7 +58871,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.5000205039978027,
+                        2.5000224113464355,
                         -0
                     ],
                     "Scale": [
@@ -59715,7 +59486,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327001571655273,
+                        31.327007293701172,
                         -0
                     ],
                     "Scale": [
@@ -63178,7 +62949,7 @@
             "UID": 1495121981,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -63203,8 +62974,7 @@
                     "Type": "Script",
                     "ScriptName": "Key.cs",
                     "Active": 1,
-                    "UID": 0,
-                    "door": 1220275149
+                    "UID": 0
                 },
                 {
                     "World gravity": [
@@ -63245,20 +63015,17 @@
                     "Type": "Script",
                     "ScriptName": "Key.cs",
                     "Active": 1,
-                    "UID": 0,
-                    "door": 894488893
+                    "UID": 0
                 },
                 {
                     "Type": "Script",
                     "ScriptName": "Key.cs",
                     "Active": 1,
-                    "UID": 0,
-                    "door": 1729747030
+                    "UID": 0
                 }
             ],
             "Children UID": [
-                884547342,
-                1015976471
+                884547342
             ]
         },
         {
@@ -63347,7 +63114,7 @@
             "UID": 484997781,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -63694,7 +63461,7 @@
             "UID": 1545695842,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64041,7 +63808,7 @@
             "UID": 142531611,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64388,7 +64155,7 @@
             "UID": 1768177679,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64735,7 +64502,7 @@
             "UID": 2061990119,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64832,7 +64599,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -64859,8 +64626,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 487,
-                    "Height": 643,
+                    "Width": 740,
+                    "Height": 655,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -67306,7 +67073,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67348,7 +67115,8 @@
                     "Type": "Script",
                     "ScriptName": "UI_Inventory.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "itemsDictionary": 0
                 }
             ],
             "Children UID": [
@@ -67791,15 +67559,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "ARMOR",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -68266,15 +68038,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -68741,15 +68517,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CHIP",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -69216,15 +68996,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -69691,15 +69475,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "CONSUMABLE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -70166,15 +69954,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "SAVE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -70655,15 +70447,19 @@
                     "currentSlot": 0,
                     "enumItem": "ARMOR",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 50,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -71078,15 +70874,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -71501,15 +71301,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -71924,15 +71728,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -72347,15 +72155,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -72770,15 +72582,19 @@
                     "currentSlot": 0,
                     "enumItem": "CHIP",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 5,
                     "armor": 5,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -73193,15 +73009,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -73616,15 +73436,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -74039,15 +73863,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -74462,15 +74290,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -74885,15 +74717,19 @@
                     "currentSlot": 0,
                     "enumItem": "CHIP",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 1.0000001192092896,
                     "reloadSpeed": 0.5,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -75308,15 +75144,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -75731,15 +75571,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -76154,15 +75998,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -76577,15 +76425,19 @@
                     "currentSlot": 0,
                     "enumItem": "NONE",
                     "enumSlot": "NONE",
+                    "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": true,
+                    "name": "",
                     "itemType": 0,
+                    "itemRarity": 0,
                     "HP": 0,
                     "armor": 0,
                     "speed": 0,
                     "fireRate": 0,
                     "reloadSpeed": 0,
-                    "damageMultiplier": 0
+                    "damageMultiplier": 0,
+                    "isEquipped": true
                 }
             ],
             "Children UID": [
@@ -77391,7 +77243,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -77928,7 +77780,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78279,7 +78131,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78505,6 +78357,7 @@
                     "ScriptName": "Player.cs",
                     "Active": 1,
                     "UID": 0,
+                    "saveName": "",
                     "currentState": 0,
                     "movementSpeed": 35,
                     "deathAnimFinish": true,
@@ -78524,6 +78377,7 @@
                     "acidicTimer": 0,
                     "currentMenu": "",
                     "setHover": false,
+                    "itemsListTest": 0,
                     "itemsList": 0
                 }
             ],
@@ -78532,14 +78386,6 @@
                 1269680697,
                 1197980913,
                 2042435818,
-                2046160732,
-                2031968580,
-                1112970529,
-                1471036841,
-                483483436,
-                1132840640,
-                1981494492,
-                1383432455,
                 127984506
             ]
         },
@@ -78849,7 +78695,7 @@
             "UID": 1570706478,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78886,7 +78732,7 @@
             "UID": 227903904,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78950,358 +78796,7 @@
                 }
             ],
             "Children UID": [
-                1484304711,
-                1729199026,
-                1560924514,
                 1912856147
-            ]
-        },
-        {
-            "Name": "Spawner_Hugger (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1484304711,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 781807958,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        40,
-                        10,
-                        -40
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Spawner.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawn": false,
-                    "porcentajeFaceHugger": 1.0000001192092896,
-                    "porcentajeDroneXenomorph": 1.4901161193847656e-08,
-                    "currentEnemies": 0,
-                    "typeOfEnemy": 0
-                }
-            ],
-            "Children UID": [
-                1060257251
-            ]
-        },
-        {
-            "Name": "Sensor",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1060257251,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1484304711,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SpawnSensor.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawner": 1484304711
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        167.39999389648438,
-                        10,
-                        80
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0.40000000596046448,
-                        0,
-                        1
-                    ]
-                }
-            ]
-        },
-        {
-            "Name": "Spawner_Hugger (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1729199026,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 781807958,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        66.786384582519531,
-                        10,
-                        -57.649166107177734
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Spawner.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawn": false,
-                    "porcentajeFaceHugger": 1.0000001192092896,
-                    "porcentajeDroneXenomorph": 1.4901161193847656e-08,
-                    "currentEnemies": 0,
-                    "typeOfEnemy": 0
-                }
-            ],
-            "Children UID": [
-                1444795378
-            ]
-        },
-        {
-            "Name": "Sensor (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1444795378,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1729199026,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SpawnSensor.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawner": 1729199026
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        166.89999389648438,
-                        10,
-                        80
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        -23.299999237060547,
-                        0,
-                        19.100000381469727
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0.40000000596046448,
-                        0,
-                        1
-                    ]
-                }
-            ]
-        },
-        {
-            "Name": "Spawner_Hugger (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1560924514,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 781807958,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        108.89801788330078,
-                        10,
-                        -140.66658020019531
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Spawner.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawn": false,
-                    "porcentajeFaceHugger": 1.0000001192092896,
-                    "porcentajeDroneXenomorph": 1.4901161193847656e-08,
-                    "currentEnemies": 0,
-                    "typeOfEnemy": 0
-                }
-            ],
-            "Children UID": [
-                410552368
-            ]
-        },
-        {
-            "Name": "Sensor (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 410552368,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1560924514,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -6.7594680786132812,
-                        0,
-                        6.8119659423828125
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SpawnSensor.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "spawner": 1560924514
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        174.69999694824219,
-                        10,
-                        96.5
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        -37.900001525878906,
-                        0,
-                        72.099998474121094
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0.40000000596046448,
-                        0,
-                        1
-                    ]
-                }
             ]
         },
         {
@@ -81906,7 +81401,7 @@
             "UID": 900338210,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -82922,7 +82417,7 @@
             "UID": 728359170,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 77961580,
+            "Parent UID": 500341750,
             "Components": [
                 {
                     "Type": "Transform",
