@@ -81,9 +81,14 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/Scenes", "GameUI");
 	//LoadScene("Assets", "Enemigo player");
 	//LoadScene("Assets/UI/Inventory", "InventoryScene");
-	/*LoadScene("Assets", "Enemigo player"); */
+	//LoadScene("Assets", "Enemigo player");
 	//LoadScene("Assets/Test_Francesc", "TestPrefabs");
 	//LoadScene("Assets", "Prueba enemigo lvl2");
+	//LoadScene("Assets", "Pollo Loco");
+	//LoadScene("Assets", "ParticleTest");
+	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
+	//LoadScene("Assets/UI/Scenes", "StartScene");
+	//LoadScene("Assets/Camera", "CameraTesting");
 
 	// -------------------- FINAL MAPS -------------------- \\
 
@@ -95,12 +100,6 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
 
 	// ----------------- END OF FINAL MAPS ---------------- \\
-	
-	//LoadScene("Assets", "Pollo Loco");
-	//LoadScene("Assets", "ParticleTest");
-	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
-	//LoadScene("Assets/UI/Scenes", "StartScene");
-	//LoadScene("Assets/Camera", "CameraTesting");
 
 #endif // _RELEASE
 
