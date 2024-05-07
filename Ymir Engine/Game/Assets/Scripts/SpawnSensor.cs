@@ -30,10 +30,10 @@ public class SpawnSensor:YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        Debug.Log("[ERROR] COLLISION");
+        //Debug.Log("[ERROR] COLLISION");
         if (other.Tag == "Player" && !spawned)
         {
-            Debug.Log("[ERROR] COLLISION GOOD");
+            //Debug.Log("[ERROR] COLLISION GOOD");
             spawnScript.spawn = true;
             spawned = true;
         }
