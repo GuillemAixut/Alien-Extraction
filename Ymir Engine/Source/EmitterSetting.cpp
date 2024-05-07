@@ -543,21 +543,180 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 					if (pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
-						emitter->SpawnParticle(1);
+						switch (spawnMode)
+						{
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST:
+						{
+							int remainingParticlesToSpawn = numParticlesToSpawn - emitter->listParticles.size();
+							if (remainingParticlesToSpawn > 0)
+							{
+								emitter->SpawnParticle(remainingParticlesToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += remainingParticlesToSpawn;
+								}
+							}
+						}
+
+						break;
+						case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = 0;
+							if (currentTimer > spawnRatio)
+							{
+								numToSpawn = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned++;
+								}
+							}
+							currentTimer -= (spawnRatio * numToSpawn);
+						}
+						break;
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = numParticlesToSpawn;
+							int substractTime = 0;
+							if (currentTimer > spawnRatio)
+							{
+								substractTime = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += numParticlesToSpawn;
+								}
+							}
+							currentTimer -= (spawnRatio * substractTime);
+						}
+						break;
+						case PAR_SPAWN_MODE_END:
+							break;
+						default:
+							break;
+						}
 					}
 					break;
 				case PAR_MORE_THAN:
 					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
-						emitter->SpawnParticle(1);
+						switch (spawnMode)
+						{
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST:
+						{
+							int remainingParticlesToSpawn = numParticlesToSpawn - emitter->listParticles.size();
+							if (remainingParticlesToSpawn > 0)
+							{
+								emitter->SpawnParticle(remainingParticlesToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += remainingParticlesToSpawn;
+								}
+							}
+						}
+
+						break;
+						case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = 0;
+							if (currentTimer > spawnRatio)
+							{
+								numToSpawn = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned++;
+								}
+							}
+							currentTimer -= (spawnRatio * numToSpawn);
+						}
+						break;
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = numParticlesToSpawn;
+							int substractTime = 0;
+							if (currentTimer > spawnRatio)
+							{
+								substractTime = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += numParticlesToSpawn;
+								}
+							}
+							currentTimer -= (spawnRatio * substractTime);
+						}
+						break;
+						case PAR_SPAWN_MODE_END:
+							break;
+						default:
+							break;
+						}
 					}
 					break;
 				case PAR_INBETWEEN_OF:
 					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime && pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
-						emitter->SpawnParticle(1);
+						switch (spawnMode)
+						{
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST:
+						{
+							int remainingParticlesToSpawn = numParticlesToSpawn - emitter->listParticles.size();
+							if (remainingParticlesToSpawn > 0)
+							{
+								emitter->SpawnParticle(remainingParticlesToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += remainingParticlesToSpawn;
+								}
+							}
+						}
+
+						break;
+						case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = 0;
+							if (currentTimer > spawnRatio)
+							{
+								numToSpawn = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned++;
+								}
+							}
+							currentTimer -= (spawnRatio * numToSpawn);
+						}
+						break;
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = numParticlesToSpawn;
+							int substractTime = 0;
+							if (currentTimer > spawnRatio)
+							{
+								substractTime = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += numParticlesToSpawn;
+								}
+							}
+							currentTimer -= (spawnRatio * substractTime);
+						}
+						break;
+						case PAR_SPAWN_MODE_END:
+							break;
+						default:
+							break;
+						}
 					}
 					break;
 				case PAR_END_SPAWN_CONDITION:
@@ -616,24 +775,24 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 				}
 			}
 		}
-		
-			break;
+
+		break;
 		case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
 		{
 			currentTimer += dt;
-				int numToSpawn = 0;
-				if (currentTimer > spawnRatio)
+			int numToSpawn = 0;
+			if (currentTimer > spawnRatio)
+			{
+				numToSpawn = currentTimer / spawnRatio;
+				emitter->SpawnParticle(numToSpawn);
+				if (countParticles)
 				{
-					numToSpawn = currentTimer / spawnRatio;
-					emitter->SpawnParticle(numToSpawn);
-					if (countParticles)
-					{
-						numParticlesSpawned++;
-					}
+					numParticlesSpawned++;
 				}
-				currentTimer -= (spawnRatio * numToSpawn);
+			}
+			currentTimer -= (spawnRatio * numToSpawn);
 		}
-			break;
+		break;
 		case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
 		{
 			currentTimer += dt;
@@ -645,7 +804,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 				emitter->SpawnParticle(numToSpawn);
 				if (countParticles)
 				{
-					numParticlesSpawned+= numParticlesToSpawn;
+					numParticlesSpawned += numParticlesToSpawn;
 				}
 			}
 			currentTimer -= (spawnRatio * substractTime);
