@@ -1708,6 +1708,7 @@ public class Player : YmirComponent
         if (!open)
         {
             currentMenu = "";
+            itemsList.Clear();
         }
         else
         {
