@@ -17,7 +17,7 @@ public class BH_Bullet : YmirComponent
     public void Start()
     {
         particleSystem = GetParticles();
-        Particles.PlayEmitter(particleSystem);
+        Particles.PlayParticles(particleSystem);
 
         vSpeed = GetDirection() * speed;
     }

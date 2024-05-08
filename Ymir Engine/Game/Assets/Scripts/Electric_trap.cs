@@ -47,7 +47,7 @@ public class Electric_trap : YmirComponent
             if (time < 3f)
             {
                 gameObject.SetPosition(originalPosition);
-                Particles.PlayEmitter(toParticle);
+                Particles.PlayParticles(toParticle);
                 if (hitPlayer)
                 {
                     disabled = true;

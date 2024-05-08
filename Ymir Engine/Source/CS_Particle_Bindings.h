@@ -5,7 +5,8 @@
 #include "CParticleSystem.h"
 #include "Component.h"
 
-void PlayEmitter(MonoObject* go) {
+//This function Starts the Particle System
+void PlayParticles(MonoObject* go) {
 
 	if (External == nullptr)
 		return;
@@ -21,9 +22,7 @@ void PlayEmitter(MonoObject* go) {
 
 	if (particleSystem != nullptr)
 	{
-		EmitterSpawner* spawner = (EmitterSpawner*)particleSystem->allEmitters.at(0)->modules.at(1);
-
-		spawner->PlayTrigger();
+		particleSystem->Play();
 	}
 	else
 	{
@@ -31,7 +30,34 @@ void PlayEmitter(MonoObject* go) {
 	}
 }
 
-//Esta funcion se utiliza para el disparo, recibe el vector hacia que el player está mirando y hace que las particulas se muevan hacia esa dirección
+//This function Stops the Particle System
+void StopParticles(MonoObject* go) {
+
+	if (External == nullptr)
+		return;
+
+	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
+	if (GO == nullptr)
+	{
+		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
+		return;
+	}
+
+	CParticleSystem* particleSystem = dynamic_cast<CParticleSystem*>(GO->GetComponent(ComponentType::PARTICLE));
+
+	if (particleSystem != nullptr)
+	{
+		particleSystem->Stop();
+	}
+	else
+	{
+		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
+	}
+}
+
+
+//This function is needed to Shoot, it needs a GetForward vector of the game object who shoot
+//to set the direction of the bullet in that direccion
 void ParticleShoot(MonoObject* go, MonoObject* vector)
 {
 	if (External == nullptr) return;
@@ -66,6 +92,61 @@ void ParticleShoot(MonoObject* go, MonoObject* vector)
 		{
 			pos->direction1 = directionShoot;
 		}
+	}
+	else
+	{
+		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
+	}
+}
+
+//This function activates a Trigger in a Particle System
+void PlayParticlesTrigger(MonoObject* go) {
+
+	if (External == nullptr)
+		return;
+
+	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
+	if (GO == nullptr)
+	{
+		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
+		return;
+	}
+
+	CParticleSystem* particleSystem = dynamic_cast<CParticleSystem*>(GO->GetComponent(ComponentType::PARTICLE));
+
+	if (particleSystem != nullptr)
+	{
+		for (uint i = 0; i < particleSystem->allEmitters.size(); i++)
+		{
+			EmitterSpawner* spawner = (EmitterSpawner*)particleSystem->allEmitters.at(i)->modules.at(1);
+			spawner->PlayTrigger();
+		}
+	}
+	else
+	{
+		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
+	}
+}
+
+//This function stops the particle system and then wakes it up again, in order to restart the particle triggers
+void RestartParticles(MonoObject* go) {
+
+	if (External == nullptr)
+		return;
+
+	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
+	if (GO == nullptr)
+	{
+		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
+		return;
+	}
+
+	CParticleSystem* particleSystem = dynamic_cast<CParticleSystem*>(GO->GetComponent(ComponentType::PARTICLE));
+
+	if (particleSystem != nullptr)
+	{
+		particleSystem->Stop();
+		particleSystem->Play();
 	}
 	else
 	{
