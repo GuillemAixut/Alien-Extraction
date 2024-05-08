@@ -97,6 +97,9 @@ namespace YmirEngine
     public class I_Equippable : Item
     {
         public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
+        private string v1;
+        private string v2;
+        private string v3;
 
         public I_Equippable(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
@@ -127,6 +130,23 @@ namespace YmirEngine
 
             // Equippables
             this.HP = HP;
+            this.armor = armor;
+            this.speed = speed;
+            this.fireRate = fireRate;
+            this.reloadSpeed = reloadSpeed;
+            this.damageMultiplier = damageMultiplier;
+        }
+
+        public I_Equippable(ITEM_SLOT currentSlot, ITEM_SLOT itemType, ITEM_RARITY itemRarity, bool isEquipped, string v1, string v2, string v3, float hP, float armor, float speed, float fireRate, float reloadSpeed, float damageMultiplier)
+        {
+            this.currentSlot = currentSlot;
+            this.itemType = itemType;
+            this.itemRarity = itemRarity;
+            this.isEquipped = isEquipped;
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
+            HP = hP;
             this.armor = armor;
             this.speed = speed;
             this.fireRate = fireRate;
