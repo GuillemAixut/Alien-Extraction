@@ -34,6 +34,7 @@ public class UI_Inventory : YmirComponent
         _show = false;
 
         player = Globals.GetPlayerScript();
+
         GetHealthScript();
 
         _textHP = InternalCalls.GetGameObjectByName("Text HP");
@@ -255,13 +256,14 @@ public class UI_Inventory : YmirComponent
             for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
             {
                 GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 0), 2);  // (Grid (Slot (Button)))
-                Debug.Log("button name " + button.Name);
+                //Debug.Log("button name " + button.Name);
 
                 if (button != null)
                 {
                     if (button.GetComponent<UI_Item_Button>().SetItem(item))
                     {
                         isInventory = false;
+                        Debug.Log("button name " + button.Name);
                         break;
                     }
                 }
@@ -272,11 +274,13 @@ public class UI_Inventory : YmirComponent
                 for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
                 {
                     GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+                    //Debug.Log("button name " + button.Name);
 
                     if (button != null)
                     {
                         if (button.GetComponent<UI_Item_Button>().SetItem(item))
                         {
+                            Debug.Log("button name " + button.Name);
                             break;
                         }
                     }
