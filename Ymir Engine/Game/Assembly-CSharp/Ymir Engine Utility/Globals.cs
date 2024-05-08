@@ -11,6 +11,18 @@ namespace YmirEngine
         public static string saveGameDir = "Assets/GameFiles/";
         public static string saveGameExt = ".ygame";
 
+        public static Player GetPlayerScript()
+        {
+            GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+            if (gameObject != null)
+            {
+                return gameObject.GetComponent<Player>();
+            }
+
+            return null;
+        }
+
         #region DEFINE ITEMS
 
         // Items dictionary
