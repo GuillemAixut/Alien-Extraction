@@ -35,6 +35,8 @@ ModuleAudio::~ModuleAudio()
 
 bool ModuleAudio::Init()
 {
+	OPTICK_EVENT();
+
 	//Init Memory Manager
 	AkMemSettings memSettings;
 
@@ -124,6 +126,8 @@ bool ModuleAudio::Init()
 
 bool ModuleAudio::Start()
 {
+	OPTICK_EVENT();
+
 	if (!LoadBanksInfo())
 	{
 		LOG("[ERROR] Audio Manager couldn't load data from SoundbanksInfo.json");
@@ -133,6 +137,8 @@ bool ModuleAudio::Start()
 
 update_status ModuleAudio::Update(float dt)
 {
+	OPTICK_EVENT();
+
 #ifdef STANDALONE
 	if (firstFrame)
 	{
@@ -151,6 +157,8 @@ update_status ModuleAudio::Update(float dt)
 
 update_status ModuleAudio::PostUpdate(float dt)
 {
+	OPTICK_EVENT();
+
 	if (defaultListener != nullptr && defaultListener->active)
 	{
 		//TODO when there is no sound listener or is deactivated all sound must be muted (but still rendering!)
@@ -164,6 +172,8 @@ update_status ModuleAudio::PostUpdate(float dt)
 
 bool ModuleAudio::CleanUp()
 {
+	OPTICK_EVENT();
+
 	ClearVecPtr(audio_sources);
 
 	for (std::vector<AudioBank*>::iterator it = banks.begin(); it != banks.end(); ++it)
