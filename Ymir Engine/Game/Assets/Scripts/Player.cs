@@ -1700,7 +1700,7 @@ public class Player : YmirComponent
     public void ToggleMenu(bool open)
     {
         GameObject canvas = InternalCalls.GetGameObjectByName(currentMenu);
-        Debug.Log("" + currentMenu);
+        Debug.Log("" + currentMenu + " " + open.ToString());
 
         canvas.SetActive(open);
         PlayerStopState(open);
