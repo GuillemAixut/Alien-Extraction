@@ -4,10 +4,10 @@
             "Name": "Crafting Canvas",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1904908806,
-            "Active": true,
+            "UID": 369438965,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 130637548,
+            "Parent UID": 1672355425,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1004,
-                    "Height": 574,
+                    "Width": 1519,
+                    "Height": 826,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -55,19 +55,19 @@
             "Children UID": [
                 707389338,
                 1309247317,
-                670316680,
+                2096665367,
                 17448215,
-                413940744
+                763691002
             ]
         },
         {
-            "Name": "Image",
+            "Name": "Image (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 707389338,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1904908806,
+            "Parent UID": 369438965,
             "Components": [
                 {
                     "Type": "Transform",
@@ -128,9 +128,9 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1309247317,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1904908806,
+            "Parent UID": 369438965,
             "Components": [
                 {
                     "Type": "Transform",
@@ -166,7 +166,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 764361758,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1309247317,
             "Components": [
@@ -197,7 +197,7 @@
                     "rows": 1,
                     "cols": 4,
                     "leftGridName": " ",
-                    "rightGridName": "Inventory",
+                    "rightGridName": "Inventory Craft",
                     "downGridName": "Grenade Grid",
                     "upGridName": "Resin Grid",
                     "naviagteX": true,
@@ -213,7 +213,7 @@
                     "ScriptName": "UI_Crafting_Recipe.cs",
                     "Active": 1,
                     "UID": 0,
-                    "itemNumber": 0
+                    "itemCraft": "armor"
                 }
             ],
             "Children UID": [
@@ -228,7 +228,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1127923513,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 764361758,
             "Components": [
@@ -259,11 +259,11 @@
             ]
         },
         {
-            "Name": "Image Background (15)",
+            "Name": "Image Background (87)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1458744809,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1127923513,
             "Components": [
@@ -322,11 +322,11 @@
             ]
         },
         {
-            "Name": "Image Item (15)",
+            "Name": "Image Item (87)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 392870004,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1127923513,
             "Components": [
@@ -385,11 +385,11 @@
             ]
         },
         {
-            "Name": "Item Button (15)",
+            "Name": "Item Button (81)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 537754432,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1127923513,
             "Components": [
@@ -524,7 +524,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1941586841,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 764361758,
             "Components": [
@@ -555,11 +555,11 @@
             ]
         },
         {
-            "Name": "Image Background (16)",
+            "Name": "Image Background (88)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1313639400,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1941586841,
             "Components": [
@@ -618,11 +618,11 @@
             ]
         },
         {
-            "Name": "Image Item (16)",
+            "Name": "Image Item (88)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 546320136,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1941586841,
             "Components": [
@@ -681,11 +681,11 @@
             ]
         },
         {
-            "Name": "Item Button (16)",
+            "Name": "Item Button (82)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 863861791,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1941586841,
             "Components": [
@@ -820,7 +820,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 589203257,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 764361758,
             "Components": [
@@ -851,11 +851,11 @@
             ]
         },
         {
-            "Name": "Image Background (17)",
+            "Name": "Image Background (89)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 420314602,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 589203257,
             "Components": [
@@ -914,11 +914,11 @@
             ]
         },
         {
-            "Name": "Image Item (17)",
+            "Name": "Image Item (89)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1837244147,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 589203257,
             "Components": [
@@ -977,11 +977,11 @@
             ]
         },
         {
-            "Name": "Item Button (17)",
+            "Name": "Item Button (83)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 155337027,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 589203257,
             "Components": [
@@ -1112,11 +1112,11 @@
             ]
         },
         {
-            "Name": "Armor",
+            "Name": "Armor (2)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 73809675,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 764361758,
             "Components": [
@@ -1147,11 +1147,11 @@
             ]
         },
         {
-            "Name": "Image Background (18)",
+            "Name": "Image Background (90)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 488555617,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 73809675,
             "Components": [
@@ -1210,11 +1210,11 @@
             ]
         },
         {
-            "Name": "Image Item (18)",
+            "Name": "Image Item (90)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1833165863,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 73809675,
             "Components": [
@@ -1273,11 +1273,11 @@
             ]
         },
         {
-            "Name": "Item Button (18)",
+            "Name": "Item Button (84)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2103736165,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 73809675,
             "Components": [
@@ -1412,7 +1412,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 477118258,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1309247317,
             "Components": [
@@ -1443,7 +1443,7 @@
                     "rows": 1,
                     "cols": 3,
                     "leftGridName": " ",
-                    "rightGridName": "Inventory",
+                    "rightGridName": "Inventory Craft",
                     "downGridName": "Baker Grid",
                     "upGridName": "Armor Grid",
                     "naviagteX": true,
@@ -1453,6 +1453,13 @@
                     "empty": true,
                     "childX": 0,
                     "childY": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Crafting_Recipe.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "itemCraft": "grenade"
                 }
             ],
             "Children UID": [
@@ -1466,7 +1473,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 883046283,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 477118258,
             "Components": [
@@ -1497,11 +1504,11 @@
             ]
         },
         {
-            "Name": "Image Background (19)",
+            "Name": "Image Background (91)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 22513458,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 883046283,
             "Components": [
@@ -1560,11 +1567,11 @@
             ]
         },
         {
-            "Name": "Image Item (19)",
+            "Name": "Image Item (91)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 919902780,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 883046283,
             "Components": [
@@ -1623,11 +1630,11 @@
             ]
         },
         {
-            "Name": "Item Button (19)",
+            "Name": "Item Button (85)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1753942895,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 883046283,
             "Components": [
@@ -1762,7 +1769,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1792022099,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 477118258,
             "Components": [
@@ -1793,11 +1800,11 @@
             ]
         },
         {
-            "Name": "Image Background (20)",
+            "Name": "Image Background (92)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 867400171,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1792022099,
             "Components": [
@@ -1856,11 +1863,11 @@
             ]
         },
         {
-            "Name": "Image Item (20)",
+            "Name": "Image Item (92)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1937874478,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1792022099,
             "Components": [
@@ -1919,11 +1926,11 @@
             ]
         },
         {
-            "Name": "Item Button (20)",
+            "Name": "Item Button (86)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 153903004,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1792022099,
             "Components": [
@@ -2058,7 +2065,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 388383255,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 477118258,
             "Components": [
@@ -2089,11 +2096,11 @@
             ]
         },
         {
-            "Name": "Image Background (21)",
+            "Name": "Image Background (93)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 117885094,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 388383255,
             "Components": [
@@ -2152,11 +2159,11 @@
             ]
         },
         {
-            "Name": "Image Item (21)",
+            "Name": "Image Item (93)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1341504038,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 388383255,
             "Components": [
@@ -2215,11 +2222,11 @@
             ]
         },
         {
-            "Name": "Item Button (21)",
+            "Name": "Item Button (87)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1809997916,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 388383255,
             "Components": [
@@ -2354,7 +2361,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1783776590,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1309247317,
             "Components": [
@@ -2385,7 +2392,7 @@
                     "rows": 1,
                     "cols": 3,
                     "leftGridName": " ",
-                    "rightGridName": "Inventory",
+                    "rightGridName": "Inventory Craft",
                     "downGridName": "Offensive Grid",
                     "upGridName": "Grenade Grid",
                     "naviagteX": true,
@@ -2395,6 +2402,13 @@
                     "empty": true,
                     "childX": 0,
                     "childY": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Crafting_Recipe.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "itemCraft": "bakerhouse"
                 }
             ],
             "Children UID": [
@@ -2408,7 +2422,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 584613517,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1783776590,
             "Components": [
@@ -2439,11 +2453,11 @@
             ]
         },
         {
-            "Name": "Image Background (22)",
+            "Name": "Image Background (94)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1457456203,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 584613517,
             "Components": [
@@ -2502,11 +2516,11 @@
             ]
         },
         {
-            "Name": "Image Item (22)",
+            "Name": "Image Item (94)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1566248593,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 584613517,
             "Components": [
@@ -2565,11 +2579,11 @@
             ]
         },
         {
-            "Name": "Item Button (22)",
+            "Name": "Item Button (88)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1219681845,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 584613517,
             "Components": [
@@ -2704,7 +2718,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1312694946,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1783776590,
             "Components": [
@@ -2735,11 +2749,11 @@
             ]
         },
         {
-            "Name": "Image Background (23)",
+            "Name": "Image Background (95)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1542524570,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1312694946,
             "Components": [
@@ -2798,11 +2812,11 @@
             ]
         },
         {
-            "Name": "Image Item (23)",
+            "Name": "Image Item (95)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1784766434,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1312694946,
             "Components": [
@@ -2861,11 +2875,11 @@
             ]
         },
         {
-            "Name": "Item Button (23)",
+            "Name": "Item Button (89)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1903393087,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1312694946,
             "Components": [
@@ -3000,7 +3014,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1838336280,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1783776590,
             "Components": [
@@ -3031,11 +3045,11 @@
             ]
         },
         {
-            "Name": "Image Background (24)",
+            "Name": "Image Background (96)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1903286632,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1838336280,
             "Components": [
@@ -3094,11 +3108,11 @@
             ]
         },
         {
-            "Name": "Image Item (24)",
+            "Name": "Image Item (96)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 851187635,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1838336280,
             "Components": [
@@ -3157,11 +3171,11 @@
             ]
         },
         {
-            "Name": "Item Button (24)",
+            "Name": "Item Button (90)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 722738141,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1838336280,
             "Components": [
@@ -3296,7 +3310,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 895822179,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1309247317,
             "Components": [
@@ -3327,7 +3341,7 @@
                     "rows": 1,
                     "cols": 4,
                     "leftGridName": " ",
-                    "rightGridName": "Inventory",
+                    "rightGridName": "Inventory Craft",
                     "downGridName": "Defensive Grid",
                     "upGridName": "Baker Grid",
                     "naviagteX": true,
@@ -3337,6 +3351,13 @@
                     "empty": true,
                     "childX": 0,
                     "childY": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Crafting_Recipe.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "itemCraft": "ofChip"
                 }
             ],
             "Children UID": [
@@ -3351,7 +3372,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 312764288,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 895822179,
             "Components": [
@@ -3382,11 +3403,11 @@
             ]
         },
         {
-            "Name": "Image Background (25)",
+            "Name": "Image Background (97)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 340125784,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 312764288,
             "Components": [
@@ -3445,11 +3466,11 @@
             ]
         },
         {
-            "Name": "Image Item (25)",
+            "Name": "Image Item (97)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 546533074,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 312764288,
             "Components": [
@@ -3508,11 +3529,11 @@
             ]
         },
         {
-            "Name": "Item Button (25)",
+            "Name": "Item Button (91)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1186428148,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 312764288,
             "Components": [
@@ -3647,7 +3668,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 774948004,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 895822179,
             "Components": [
@@ -3678,11 +3699,11 @@
             ]
         },
         {
-            "Name": "Image Background (26)",
+            "Name": "Image Background (98)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1891265443,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 774948004,
             "Components": [
@@ -3741,11 +3762,11 @@
             ]
         },
         {
-            "Name": "Image Item (26)",
+            "Name": "Image Item (98)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1157582713,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 774948004,
             "Components": [
@@ -3804,11 +3825,11 @@
             ]
         },
         {
-            "Name": "Item Button (26)",
+            "Name": "Item Button (92)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1043790994,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 774948004,
             "Components": [
@@ -3943,7 +3964,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 358711418,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 895822179,
             "Components": [
@@ -3974,11 +3995,11 @@
             ]
         },
         {
-            "Name": "Image Background (27)",
+            "Name": "Image Background (99)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1217816223,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 358711418,
             "Components": [
@@ -4037,11 +4058,11 @@
             ]
         },
         {
-            "Name": "Image Item (27)",
+            "Name": "Image Item (99)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1397473926,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 358711418,
             "Components": [
@@ -4100,11 +4121,11 @@
             ]
         },
         {
-            "Name": "Item Button (27)",
+            "Name": "Item Button (93)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1552337676,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 358711418,
             "Components": [
@@ -4239,7 +4260,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1000002366,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 895822179,
             "Components": [
@@ -4270,11 +4291,11 @@
             ]
         },
         {
-            "Name": "Image Background (28)",
+            "Name": "Image Background (100)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1250038310,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1000002366,
             "Components": [
@@ -4333,11 +4354,11 @@
             ]
         },
         {
-            "Name": "Image Item (28)",
+            "Name": "Image Item (100)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 594680611,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1000002366,
             "Components": [
@@ -4396,11 +4417,11 @@
             ]
         },
         {
-            "Name": "Item Button (28)",
+            "Name": "Item Button (94)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 967844934,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1000002366,
             "Components": [
@@ -4535,7 +4556,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 919940766,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1309247317,
             "Components": [
@@ -4566,7 +4587,7 @@
                     "rows": 1,
                     "cols": 4,
                     "leftGridName": " ",
-                    "rightGridName": "Inventory",
+                    "rightGridName": "Inventory Craft",
                     "downGridName": "Resin Grid",
                     "upGridName": "Offensive Grid",
                     "naviagteX": true,
@@ -4576,6 +4597,13 @@
                     "empty": true,
                     "childX": 0,
                     "childY": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Crafting_Recipe.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "itemCraft": "defChip"
                 }
             ],
             "Children UID": [
@@ -4590,7 +4618,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1965830013,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 919940766,
             "Components": [
@@ -4621,11 +4649,11 @@
             ]
         },
         {
-            "Name": "Image Background (29)",
+            "Name": "Image Background (101)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 712262262,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1965830013,
             "Components": [
@@ -4684,11 +4712,11 @@
             ]
         },
         {
-            "Name": "Image Item (29)",
+            "Name": "Image Item (101)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 156470185,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1965830013,
             "Components": [
@@ -4747,11 +4775,11 @@
             ]
         },
         {
-            "Name": "Item Button (29)",
+            "Name": "Item Button (95)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 34459288,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1965830013,
             "Components": [
@@ -4886,7 +4914,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 314169173,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 919940766,
             "Components": [
@@ -4917,11 +4945,11 @@
             ]
         },
         {
-            "Name": "Image Background (30)",
+            "Name": "Image Background (102)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2066412591,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 314169173,
             "Components": [
@@ -4980,11 +5008,11 @@
             ]
         },
         {
-            "Name": "Image Item (30)",
+            "Name": "Image Item (102)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1970514177,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 314169173,
             "Components": [
@@ -5043,11 +5071,11 @@
             ]
         },
         {
-            "Name": "Item Button (30)",
+            "Name": "Item Button (96)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 949040065,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 314169173,
             "Components": [
@@ -5182,7 +5210,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1817038436,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 919940766,
             "Components": [
@@ -5213,11 +5241,11 @@
             ]
         },
         {
-            "Name": "Image Background (31)",
+            "Name": "Image Background (103)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 366158028,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1817038436,
             "Components": [
@@ -5276,11 +5304,11 @@
             ]
         },
         {
-            "Name": "Image Item (31)",
+            "Name": "Image Item (103)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 475231697,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1817038436,
             "Components": [
@@ -5339,11 +5367,11 @@
             ]
         },
         {
-            "Name": "Item Button (31)",
+            "Name": "Item Button (97)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 639766,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1817038436,
             "Components": [
@@ -5478,7 +5506,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 18267580,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 919940766,
             "Components": [
@@ -5509,11 +5537,11 @@
             ]
         },
         {
-            "Name": "Image Background (32)",
+            "Name": "Image Background (104)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1631789756,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 18267580,
             "Components": [
@@ -5572,11 +5600,11 @@
             ]
         },
         {
-            "Name": "Image Item (32)",
+            "Name": "Image Item (104)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1903072267,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 18267580,
             "Components": [
@@ -5635,11 +5663,11 @@
             ]
         },
         {
-            "Name": "Item Button (32)",
+            "Name": "Item Button (98)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1964749918,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 18267580,
             "Components": [
@@ -5774,7 +5802,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1191969792,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1309247317,
             "Components": [
@@ -5805,7 +5833,7 @@
                     "rows": 1,
                     "cols": 5,
                     "leftGridName": " ",
-                    "rightGridName": "Inventory",
+                    "rightGridName": "Inventory Craft",
                     "downGridName": "Armor Grid",
                     "upGridName": "Defensive Grid",
                     "naviagteX": true,
@@ -5815,6 +5843,13 @@
                     "empty": true,
                     "childX": 0,
                     "childY": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Crafting_Recipe.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "itemCraft": "armor"
                 }
             ],
             "Children UID": [
@@ -5830,7 +5865,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1558854855,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1191969792,
             "Components": [
@@ -5861,11 +5896,11 @@
             ]
         },
         {
-            "Name": "Image Background (33)",
+            "Name": "Image Background (105)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1542638487,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1558854855,
             "Components": [
@@ -5924,11 +5959,11 @@
             ]
         },
         {
-            "Name": "Image Item (33)",
+            "Name": "Image Item (105)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 301855252,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1558854855,
             "Components": [
@@ -5987,11 +6022,11 @@
             ]
         },
         {
-            "Name": "Item Button (33)",
+            "Name": "Item Button (99)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 936721356,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1558854855,
             "Components": [
@@ -6126,7 +6161,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1804950507,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1191969792,
             "Components": [
@@ -6157,11 +6192,11 @@
             ]
         },
         {
-            "Name": "Image Background (34)",
+            "Name": "Image Background (106)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 707428863,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1804950507,
             "Components": [
@@ -6220,11 +6255,11 @@
             ]
         },
         {
-            "Name": "Image Item (34)",
+            "Name": "Image Item (106)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1300448198,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1804950507,
             "Components": [
@@ -6283,11 +6318,11 @@
             ]
         },
         {
-            "Name": "Item Button (34)",
+            "Name": "Item Button (100)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1698285226,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1804950507,
             "Components": [
@@ -6422,7 +6457,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1534675276,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1191969792,
             "Components": [
@@ -6453,11 +6488,11 @@
             ]
         },
         {
-            "Name": "Image Background (35)",
+            "Name": "Image Background (107)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1050603159,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1534675276,
             "Components": [
@@ -6516,11 +6551,11 @@
             ]
         },
         {
-            "Name": "Image Item (35)",
+            "Name": "Image Item (107)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 2025858442,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1534675276,
             "Components": [
@@ -6579,11 +6614,11 @@
             ]
         },
         {
-            "Name": "Item Button (35)",
+            "Name": "Item Button (101)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1596939527,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1534675276,
             "Components": [
@@ -6718,7 +6753,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1514810658,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1191969792,
             "Components": [
@@ -6749,11 +6784,11 @@
             ]
         },
         {
-            "Name": "Image Background (36)",
+            "Name": "Image Background (108)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1978564355,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1514810658,
             "Components": [
@@ -6812,11 +6847,11 @@
             ]
         },
         {
-            "Name": "Image Item (36)",
+            "Name": "Image Item (108)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1572004366,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1514810658,
             "Components": [
@@ -6875,11 +6910,11 @@
             ]
         },
         {
-            "Name": "Item Button (36)",
+            "Name": "Item Button (102)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 517128273,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1514810658,
             "Components": [
@@ -7014,7 +7049,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 838884383,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1191969792,
             "Components": [
@@ -7045,11 +7080,11 @@
             ]
         },
         {
-            "Name": "Image Background (37)",
+            "Name": "Image Background (109)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 675683903,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 838884383,
             "Components": [
@@ -7108,11 +7143,11 @@
             ]
         },
         {
-            "Name": "Image Item (37)",
+            "Name": "Image Item (109)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 168181962,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 838884383,
             "Components": [
@@ -7171,11 +7206,11 @@
             ]
         },
         {
-            "Name": "Item Button (37)",
+            "Name": "Item Button (103)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1708590439,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 838884383,
             "Components": [
@@ -7306,13 +7341,13 @@
             ]
         },
         {
-            "Name": "Inventory",
+            "Name": "Inventory Craft",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 670316680,
-            "Active": true,
+            "UID": 2096665367,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1904908806,
+            "Parent UID": 369438965,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7343,7 +7378,7 @@
                     "leftGridName": "Armor Grid",
                     "rightGridName": "",
                     "downGridName": " ",
-                    "upGridName": "Grid Save",
+                    "upGridName": "Grid Craft",
                     "naviagteX": true,
                     "naviagteY": true,
                     "bounceX": false,
@@ -7354,31 +7389,31 @@
                 }
             ],
             "Children UID": [
-                554361400,
-                141907602,
-                440803347,
-                1264572485,
-                1192845149,
-                1712601154,
-                702515142,
-                656247705,
-                992047321,
-                1083594228,
-                273154709,
-                492983410,
-                314257564,
-                601922695,
-                1379903598
+                1441926452,
+                1914643884,
+                1023173559,
+                1684383192,
+                32730954,
+                840653897,
+                1061795015,
+                1977414629,
+                1954552292,
+                906070043,
+                199428670,
+                112594024,
+                790065658,
+                1494613858,
+                568562144
             ]
         },
         {
-            "Name": "Item (1)",
+            "Name": "Item (78)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 554361400,
-            "Active": true,
+            "UID": 1441926452,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7401,19 +7436,19 @@
                 }
             ],
             "Children UID": [
-                463981516,
-                553207789,
-                1110638304
+                1916670656,
+                1119920154,
+                1505894494
             ]
         },
         {
-            "Name": "Image Background",
+            "Name": "Image Background (110)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 463981516,
-            "Active": true,
+            "UID": 1916670656,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1441926452,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7470,13 +7505,13 @@
             ]
         },
         {
-            "Name": "Image Item",
+            "Name": "Image Item (110)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 553207789,
-            "Active": true,
+            "UID": 1119920154,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1441926452,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7533,13 +7568,13 @@
             ]
         },
         {
-            "Name": "Item Button",
+            "Name": "Item Button (104)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1110638304,
-            "Active": true,
+            "UID": 1505894494,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1441926452,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7611,7 +7646,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 1110638304,
+                    "Image": 1505894494,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -7651,7 +7686,7 @@
                     "currentSlot": 0,
                     "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "COMMON",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "name": "Alien Skin",
@@ -7668,13 +7703,13 @@
             ]
         },
         {
-            "Name": "Item (13)",
+            "Name": "Item (79)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 141907602,
-            "Active": true,
+            "UID": 1914643884,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7697,19 +7732,19 @@
                 }
             ],
             "Children UID": [
-                1525189113,
-                476352939,
-                1438247965
+                2101664229,
+                1709103750,
+                1359082700
             ]
         },
         {
-            "Name": "Image Background (1)",
+            "Name": "Image Background (111)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1525189113,
-            "Active": true,
+            "UID": 2101664229,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 141907602,
+            "Parent UID": 1914643884,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7766,13 +7801,13 @@
             ]
         },
         {
-            "Name": "Image Item (1)",
+            "Name": "Image Item (111)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 476352939,
-            "Active": true,
+            "UID": 1709103750,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 141907602,
+            "Parent UID": 1914643884,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7829,13 +7864,13 @@
             ]
         },
         {
-            "Name": "Item Button (1)",
+            "Name": "Item Button (105)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1438247965,
-            "Active": true,
+            "UID": 1359082700,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 141907602,
+            "Parent UID": 1914643884,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7907,7 +7942,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 1438247965,
+                    "Image": 1359082700,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -7947,7 +7982,7 @@
                     "currentSlot": 0,
                     "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "COMMON",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "name": "Alien Skin",
@@ -7964,13 +7999,13 @@
             ]
         },
         {
-            "Name": "Item (14)",
+            "Name": "Item (80)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 440803347,
-            "Active": true,
+            "UID": 1023173559,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7993,19 +8028,19 @@
                 }
             ],
             "Children UID": [
-                1627118819,
-                32068179,
-                891142994
+                152622834,
+                1816575870,
+                58021973
             ]
         },
         {
-            "Name": "Image Background (2)",
+            "Name": "Image Background (112)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1627118819,
-            "Active": true,
+            "UID": 152622834,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 440803347,
+            "Parent UID": 1023173559,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8062,13 +8097,13 @@
             ]
         },
         {
-            "Name": "Image Item (2)",
+            "Name": "Image Item (112)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 32068179,
-            "Active": true,
+            "UID": 1816575870,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 440803347,
+            "Parent UID": 1023173559,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8125,13 +8160,13 @@
             ]
         },
         {
-            "Name": "Item Button (2)",
+            "Name": "Item Button (106)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 891142994,
-            "Active": true,
+            "UID": 58021973,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 440803347,
+            "Parent UID": 1023173559,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8203,7 +8238,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 891142994,
+                    "Image": 58021973,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -8243,7 +8278,7 @@
                     "currentSlot": 0,
                     "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "EPIC",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "name": "Alien Exocranium",
@@ -8260,13 +8295,13 @@
             ]
         },
         {
-            "Name": "Item (15)",
+            "Name": "Item (81)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1264572485,
-            "Active": true,
+            "UID": 1684383192,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8289,82 +8324,19 @@
                 }
             ],
             "Children UID": [
-                1491110480,
-                207356339,
-                222697088
+                2085085415,
+                704166883,
+                678332974
             ]
         },
         {
-            "Name": "Image Background (3)",
+            "Name": "Image Background (113)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1491110480,
-            "Active": true,
+            "UID": 2085085415,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1264572485,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1377,
-                        594,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0.5
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Image Item (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 207356339,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1264572485,
+            "Parent UID": 1684383192,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8411,6 +8383,69 @@
                         0,
                         0,
                         0,
+                        0.5
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image Item (113)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 704166883,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1684383192,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 100,
+                    "Height": 100,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1377,
+                        594,
+                        100,
+                        100
+                    ],
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
                         0
                     ]
                 },
@@ -8421,13 +8456,13 @@
             ]
         },
         {
-            "Name": "Item Button (3)",
+            "Name": "Item Button (107)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 222697088,
-            "Active": true,
+            "UID": 678332974,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1264572485,
+            "Parent UID": 1684383192,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8499,7 +8534,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 222697088,
+                    "Image": 678332974,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -8537,12 +8572,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "RARE",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Exocranium",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -8556,13 +8591,13 @@
             ]
         },
         {
-            "Name": "Item (16)",
+            "Name": "Item (82)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1192845149,
-            "Active": true,
+            "UID": 32730954,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8585,82 +8620,19 @@
                 }
             ],
             "Children UID": [
-                246713595,
-                647035913,
-                153205893
+                691083916,
+                932457479,
+                2115968511
             ]
         },
         {
-            "Name": "Image Background (4)",
+            "Name": "Image Background (114)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 246713595,
-            "Active": true,
+            "UID": 691083916,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1192845149,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1377,
-                        707,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0.5
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Image Item (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 647035913,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1192845149,
+            "Parent UID": 32730954,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8707,6 +8679,69 @@
                         0,
                         0,
                         0,
+                        0.5
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image Item (114)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 932457479,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 32730954,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 100,
+                    "Height": 100,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1377,
+                        707,
+                        100,
+                        100
+                    ],
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
                         0
                     ]
                 },
@@ -8717,13 +8752,13 @@
             ]
         },
         {
-            "Name": "Item Button (4)",
+            "Name": "Item Button (108)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 153205893,
-            "Active": true,
+            "UID": 2115968511,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1192845149,
+            "Parent UID": 32730954,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8795,7 +8830,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 153205893,
+                    "Image": 2115968511,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -8833,12 +8868,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "RARE",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Acid Vesicle",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -8852,13 +8887,13 @@
             ]
         },
         {
-            "Name": "Item (17)",
+            "Name": "Item (83)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1712601154,
-            "Active": true,
+            "UID": 840653897,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8881,82 +8916,19 @@
                 }
             ],
             "Children UID": [
-                1334176912,
-                940199141,
-                1107674453
+                1815744578,
+                1113351590,
+                1319800911
             ]
         },
         {
-            "Name": "Image Background (5)",
+            "Name": "Image Background (115)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1334176912,
-            "Active": true,
+            "UID": 1815744578,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1712601154,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1488,
-                        255,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0.5
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Image Item (5)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 940199141,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1712601154,
+            "Parent UID": 840653897,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9003,6 +8975,69 @@
                         0,
                         0,
                         0,
+                        0.5
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image Item (115)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1113351590,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 840653897,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 100,
+                    "Height": 100,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1488,
+                        255,
+                        100,
+                        100
+                    ],
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
                         0
                     ]
                 },
@@ -9013,13 +9048,13 @@
             ]
         },
         {
-            "Name": "Item Button (5)",
+            "Name": "Item Button (109)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1107674453,
-            "Active": true,
+            "UID": 1319800911,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1712601154,
+            "Parent UID": 840653897,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9091,7 +9126,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 1107674453,
+                    "Image": 1319800911,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -9129,12 +9164,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "COMMON",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Acid Vesicle",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -9148,13 +9183,13 @@
             ]
         },
         {
-            "Name": "Item (18)",
+            "Name": "Item (84)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 702515142,
-            "Active": true,
+            "UID": 1061795015,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9177,19 +9212,19 @@
                 }
             ],
             "Children UID": [
-                1421084131,
-                1074758314,
-                29787513
+                1128813330,
+                613097856,
+                2077702242
             ]
         },
         {
-            "Name": "Image Background (6)",
+            "Name": "Image Background (116)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1421084131,
-            "Active": true,
+            "UID": 1128813330,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 702515142,
+            "Parent UID": 1061795015,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9246,13 +9281,13 @@
             ]
         },
         {
-            "Name": "Image Item (6)",
+            "Name": "Image Item (116)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1074758314,
-            "Active": true,
+            "UID": 613097856,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 702515142,
+            "Parent UID": 1061795015,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9309,13 +9344,13 @@
             ]
         },
         {
-            "Name": "Item Button (6)",
+            "Name": "Item Button (110)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 29787513,
-            "Active": true,
+            "UID": 2077702242,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 702515142,
+            "Parent UID": 1061795015,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9387,7 +9422,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 29787513,
+                    "Image": 2077702242,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -9425,12 +9460,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "RARE",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Acid Vesicle",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -9444,13 +9479,13 @@
             ]
         },
         {
-            "Name": "Item (19)",
+            "Name": "Item (85)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 656247705,
-            "Active": true,
+            "UID": 1977414629,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9473,19 +9508,19 @@
                 }
             ],
             "Children UID": [
-                382470551,
-                407827468,
-                2075923172
+                1580983352,
+                319909240,
+                1209119644
             ]
         },
         {
-            "Name": "Image Background (7)",
+            "Name": "Image Background (117)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 382470551,
-            "Active": true,
+            "UID": 1580983352,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 656247705,
+            "Parent UID": 1977414629,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9542,13 +9577,13 @@
             ]
         },
         {
-            "Name": "Image Item (7)",
+            "Name": "Image Item (117)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 407827468,
-            "Active": true,
+            "UID": 319909240,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 656247705,
+            "Parent UID": 1977414629,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9605,13 +9640,13 @@
             ]
         },
         {
-            "Name": "Item Button (7)",
+            "Name": "Item Button (111)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2075923172,
-            "Active": true,
+            "UID": 1209119644,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 656247705,
+            "Parent UID": 1977414629,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9683,7 +9718,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 2075923172,
+                    "Image": 1209119644,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -9721,12 +9756,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "RARE",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Claw",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -9740,13 +9775,13 @@
             ]
         },
         {
-            "Name": "Item (20)",
+            "Name": "Item (86)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 992047321,
-            "Active": true,
+            "UID": 1954552292,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9769,19 +9804,19 @@
                 }
             ],
             "Children UID": [
-                1066723075,
-                670109813,
-                72487199
+                634420771,
+                2001944990,
+                1063197123
             ]
         },
         {
-            "Name": "Image Background (8)",
+            "Name": "Image Background (118)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1066723075,
-            "Active": true,
+            "UID": 634420771,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 992047321,
+            "Parent UID": 1954552292,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9838,13 +9873,13 @@
             ]
         },
         {
-            "Name": "Image Item (8)",
+            "Name": "Image Item (118)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 670109813,
-            "Active": true,
+            "UID": 2001944990,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 992047321,
+            "Parent UID": 1954552292,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9901,13 +9936,13 @@
             ]
         },
         {
-            "Name": "Item Button (8)",
+            "Name": "Item Button (112)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 72487199,
-            "Active": true,
+            "UID": 1063197123,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 992047321,
+            "Parent UID": 1954552292,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9979,7 +10014,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 72487199,
+                    "Image": 1063197123,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -10017,12 +10052,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "EPIC",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Claw",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -10036,13 +10071,13 @@
             ]
         },
         {
-            "Name": "Item (21)",
+            "Name": "Item (87)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1083594228,
-            "Active": true,
+            "UID": 906070043,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10065,19 +10100,19 @@
                 }
             ],
             "Children UID": [
-                160812673,
-                2057334404,
-                97847292
+                887660398,
+                1693062637,
+                1604330306
             ]
         },
         {
-            "Name": "Image Background (9)",
+            "Name": "Image Background (119)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 160812673,
-            "Active": true,
+            "UID": 887660398,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1083594228,
+            "Parent UID": 906070043,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10134,13 +10169,13 @@
             ]
         },
         {
-            "Name": "Image Item (9)",
+            "Name": "Image Item (119)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2057334404,
-            "Active": true,
+            "UID": 1693062637,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1083594228,
+            "Parent UID": 906070043,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10197,13 +10232,13 @@
             ]
         },
         {
-            "Name": "Item Button (9)",
+            "Name": "Item Button (113)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 97847292,
-            "Active": true,
+            "UID": 1604330306,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1083594228,
+            "Parent UID": 906070043,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10275,7 +10310,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 97847292,
+                    "Image": 1604330306,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -10313,12 +10348,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "RARE",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Tail tip",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -10332,13 +10367,13 @@
             ]
         },
         {
-            "Name": "Item (22)",
+            "Name": "Item (88)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 273154709,
-            "Active": true,
+            "UID": 199428670,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10361,82 +10396,19 @@
                 }
             ],
             "Children UID": [
-                1577670445,
-                1514491009,
-                2024698984
+                1739253129,
+                782325783,
+                1102360133
             ]
         },
         {
-            "Name": "Image Background (10)",
+            "Name": "Image Background (120)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1577670445,
-            "Active": true,
+            "UID": 1739253129,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 273154709,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1599,
-                        255,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0.5
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Image Item (10)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1514491009,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 273154709,
+            "Parent UID": 199428670,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10483,6 +10455,69 @@
                         0,
                         0,
                         0,
+                        0.5
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image Item (120)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 782325783,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 199428670,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 100,
+                    "Height": 100,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1599,
+                        255,
+                        100,
+                        100
+                    ],
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
                         0
                     ]
                 },
@@ -10493,13 +10528,13 @@
             ]
         },
         {
-            "Name": "Item Button (10)",
+            "Name": "Item Button (114)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2024698984,
-            "Active": true,
+            "UID": 1102360133,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 273154709,
+            "Parent UID": 199428670,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10571,7 +10606,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 2024698984,
+                    "Image": 1102360133,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -10609,12 +10644,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "RARE",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Tail tip",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -10628,13 +10663,13 @@
             ]
         },
         {
-            "Name": "Item (23)",
+            "Name": "Item (89)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 492983410,
-            "Active": true,
+            "UID": 112594024,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10657,19 +10692,19 @@
                 }
             ],
             "Children UID": [
-                1891349495,
-                1502837539,
-                2126575841
+                646087025,
+                2142631,
+                493577346
             ]
         },
         {
-            "Name": "Image Background (11)",
+            "Name": "Image Background (121)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1891349495,
-            "Active": true,
+            "UID": 646087025,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 492983410,
+            "Parent UID": 112594024,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10726,13 +10761,13 @@
             ]
         },
         {
-            "Name": "Image Item (11)",
+            "Name": "Image Item (121)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1502837539,
-            "Active": true,
+            "UID": 2142631,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 492983410,
+            "Parent UID": 112594024,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10789,13 +10824,13 @@
             ]
         },
         {
-            "Name": "Item Button (11)",
+            "Name": "Item Button (115)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2126575841,
-            "Active": true,
+            "UID": 493577346,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 492983410,
+            "Parent UID": 112594024,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10867,7 +10902,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 2126575841,
+                    "Image": 493577346,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -10905,12 +10940,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "RARE",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Aluminium Bone",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -10924,13 +10959,13 @@
             ]
         },
         {
-            "Name": "Item (24)",
+            "Name": "Item (90)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 314257564,
-            "Active": true,
+            "UID": 790065658,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10953,19 +10988,19 @@
                 }
             ],
             "Children UID": [
-                1596556115,
-                59474904,
-                840519761
+                543017671,
+                755351040,
+                1229014363
             ]
         },
         {
-            "Name": "Image Background (12)",
+            "Name": "Image Background (122)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1596556115,
-            "Active": true,
+            "UID": 543017671,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 314257564,
+            "Parent UID": 790065658,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11022,13 +11057,13 @@
             ]
         },
         {
-            "Name": "Image Item (12)",
+            "Name": "Image Item (122)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 59474904,
-            "Active": true,
+            "UID": 755351040,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 314257564,
+            "Parent UID": 790065658,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11085,13 +11120,13 @@
             ]
         },
         {
-            "Name": "Item Button (12)",
+            "Name": "Item Button (116)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 840519761,
-            "Active": true,
+            "UID": 1229014363,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 314257564,
+            "Parent UID": 790065658,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11163,7 +11198,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 840519761,
+                    "Image": 1229014363,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -11201,12 +11236,12 @@
                     "Active": 1,
                     "UID": 0,
                     "currentSlot": 0,
-                    "enumItem": "NONE",
+                    "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "",
+                    "enumRarity": "EPIC",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
-                    "name": "",
+                    "name": "Alien Aluminium Bone",
                     "itemType": 0,
                     "itemRarity": 0,
                     "HP": 0,
@@ -11220,13 +11255,13 @@
             ]
         },
         {
-            "Name": "Item (25)",
+            "Name": "Item (91)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 601922695,
-            "Active": true,
+            "UID": 1494613858,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11249,19 +11284,19 @@
                 }
             ],
             "Children UID": [
-                1111948205,
-                1457371736,
-                903527461
+                1979112235,
+                399504811,
+                1996905775
             ]
         },
         {
-            "Name": "Image Background (13)",
+            "Name": "Image Background (123)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1111948205,
-            "Active": true,
+            "UID": 1979112235,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 601922695,
+            "Parent UID": 1494613858,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11318,13 +11353,13 @@
             ]
         },
         {
-            "Name": "Image Item (13)",
+            "Name": "Image Item (123)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1457371736,
-            "Active": true,
+            "UID": 399504811,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 601922695,
+            "Parent UID": 1494613858,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11381,13 +11416,13 @@
             ]
         },
         {
-            "Name": "Item Button (13)",
+            "Name": "Item Button (117)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 903527461,
-            "Active": true,
+            "UID": 1996905775,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 601922695,
+            "Parent UID": 1494613858,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11459,7 +11494,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 903527461,
+                    "Image": 1996905775,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -11516,13 +11551,13 @@
             ]
         },
         {
-            "Name": "Item (26)",
+            "Name": "Item (92)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1379903598,
-            "Active": true,
+            "UID": 568562144,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 670316680,
+            "Parent UID": 2096665367,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11545,19 +11580,19 @@
                 }
             ],
             "Children UID": [
-                1952535612,
-                1130089041,
-                1290362077
+                926451790,
+                1979160631,
+                857643401
             ]
         },
         {
-            "Name": "Image Background (14)",
+            "Name": "Image Background (124)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1952535612,
-            "Active": true,
+            "UID": 926451790,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1379903598,
+            "Parent UID": 568562144,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11614,13 +11649,13 @@
             ]
         },
         {
-            "Name": "Image Item (14)",
+            "Name": "Image Item (124)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1130089041,
-            "Active": true,
+            "UID": 1979160631,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1379903598,
+            "Parent UID": 568562144,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11677,13 +11712,13 @@
             ]
         },
         {
-            "Name": "Item Button (14)",
+            "Name": "Item Button (118)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1290362077,
-            "Active": true,
+            "UID": 857643401,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1379903598,
+            "Parent UID": 568562144,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11755,7 +11790,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 1290362077,
+                    "Image": 857643401,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -11812,13 +11847,13 @@
             ]
         },
         {
-            "Name": "Grid Save",
+            "Name": "Grid Craft",
             "Static": false,
             "Tag": "Untagged",
             "UID": 17448215,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1904908806,
+            "Parent UID": 369438965,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11848,7 +11883,7 @@
                     "cols": 1,
                     "leftGridName": " ",
                     "rightGridName": " ",
-                    "downGridName": "Inventory",
+                    "downGridName": "Inventory Craft",
                     "upGridName": " ",
                     "naviagteX": true,
                     "naviagteY": true,
@@ -11864,11 +11899,11 @@
             ]
         },
         {
-            "Name": "Item (39)",
+            "Name": "Item (93)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1925881198,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 17448215,
             "Components": [
@@ -11899,11 +11934,11 @@
             ]
         },
         {
-            "Name": "Image Background (38)",
+            "Name": "Image Background (125)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1403066211,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1925881198,
             "Components": [
@@ -11962,11 +11997,11 @@
             ]
         },
         {
-            "Name": "Image Item (38)",
+            "Name": "Image Item (125)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 278713499,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1925881198,
             "Components": [
@@ -12025,11 +12060,11 @@
             ]
         },
         {
-            "Name": "Item Button (38)",
+            "Name": "Item Button (119)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1793094179,
-            "Active": true,
+            "Active": false,
             "Element_Type": "None",
             "Parent UID": 1925881198,
             "Components": [
@@ -12160,13 +12195,13 @@
             ]
         },
         {
-            "Name": "Info",
+            "Name": "Info (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 413940744,
-            "Active": true,
+            "UID": 763691002,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1904908806,
+            "Parent UID": 369438965,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12189,19 +12224,19 @@
                 }
             ],
             "Children UID": [
-                1010645615,
-                563983283,
-                1182401491
+                1332281778,
+                1109302146,
+                882234668
             ]
         },
         {
-            "Name": "Item Description Image",
+            "Name": "Item Description Image (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1010645615,
-            "Active": true,
+            "UID": 1332281778,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 413940744,
+            "Parent UID": 763691002,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12258,13 +12293,13 @@
             ]
         },
         {
-            "Name": "Item Description Text",
+            "Name": "Item Description Text (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 563983283,
-            "Active": true,
+            "UID": 1109302146,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 413940744,
+            "Parent UID": 763691002,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12320,13 +12355,13 @@
             ]
         },
         {
-            "Name": "Item Description Name",
+            "Name": "Item Description Name (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1182401491,
-            "Active": true,
+            "UID": 882234668,
+            "Active": false,
             "Element_Type": "None",
-            "Parent UID": 413940744,
+            "Parent UID": 763691002,
             "Components": [
                 {
                     "Type": "Transform",

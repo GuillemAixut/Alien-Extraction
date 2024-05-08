@@ -48,12 +48,16 @@ public class UI_Item_Button : YmirComponent
         //    /*imagePath*/ "");
         //
         
-        _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
+        if (menuName.CompareTo("Menu Inventory") == 1)
+        {
+            _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
+
+        }
     }
 
     public void Update()
     {
-        if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null)
+        if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null && menuName.CompareTo("Menu Inventory") == 1)
         {
             if (item.currentSlot != ITEM_SLOT.NONE && item.currentSlot != ITEM_SLOT.SAVE)
             {
@@ -295,7 +299,7 @@ public class UI_Item_Button : YmirComponent
             /*description*/ "Empty",
             /*imagePath*/ path);
 
-            switch (item.itemRarity)
+            switch (_item.itemRarity)
             {
                 case ITEM_RARITY.COMMON:
                     UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/CommonRarity.png", (int)UI_STATE.NORMAL); ;

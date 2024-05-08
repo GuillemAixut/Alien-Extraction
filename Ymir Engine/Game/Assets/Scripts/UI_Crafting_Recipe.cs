@@ -39,9 +39,9 @@ public class UI_Crafting_Recipe : YmirComponent
         for (int i = 0; i < InternalCalls.CS_GetChildrenSize(gameObject) - 1; i++) // Don't check last element (item to create)
         {
             GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2); // (Slot(Button))
-            Debug.Log(button.Name);
-            Debug.Log(button.GetComponent<UI_Item_Button>().itemType.ToString());
-            Debug.Log(button.GetComponent<UI_Item_Button>().currentSlot.ToString());
+            //Debug.Log(button.Name);
+            //Debug.Log(button.GetComponent<UI_Item_Button>().itemType.ToString());
+            //Debug.Log(button.GetComponent<UI_Item_Button>().currentSlot.ToString());
 
             if (button.GetComponent<UI_Item_Button>().itemType != ITEM_SLOT.NONE) // Check if it's empty
             {
@@ -72,23 +72,26 @@ public class UI_Crafting_Recipe : YmirComponent
             {
                 _rarity = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item.itemRarity;
             }
-             
+
+            Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item.itemRarity.ToString());
+            Debug.Log(_rarity.ToString());
+
+            // WIP
             // Reset item values in the UI menu
-            InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().CreateItemBase();
-            Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).Name);
+            //InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().CreateItemBase();
 
             // TODO: Delete item from player list, doesn't work for now
-            for (int j = 0; j < player.itemsList.Count; j++)
-            {
-                if (player.itemsList[i].Equals(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item))
-                {
-                    Debug.Log(player.itemsList[i].name);
-                    Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item.name);
+            //for (int j = 0; j < player.itemsList.Count; j++)
+            //{
+            //    if (player.itemsList[i].Equals(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item))
+            //    {
+            //        Debug.Log(player.itemsList[i].name);
+            //        Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item.name);
 
-                    player.itemsList.Remove(player.itemsList[i]);
-                    break;
-                }
-            }
+            //        player.itemsList.Remove(player.itemsList[i]);
+            //        break;
+            //    }
+            //}
         }
 
         Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).Name);
@@ -100,15 +103,22 @@ public class UI_Crafting_Recipe : YmirComponent
         switch (_rarity)
         {
             case ITEM_RARITY.COMMON:
+                Debug.Log(itemCraft + "_common");
                 item = Globals.SearchItemInDictionary(itemCraft + "_common"); 
                 break;
             case ITEM_RARITY.RARE:
+                Debug.Log(itemCraft + "_rare");
+
                 item = Globals.SearchItemInDictionary(itemCraft + "_rare"); 
                 break;
             case ITEM_RARITY.EPIC:
+                Debug.Log(itemCraft + "_epic");
+
                 item = Globals.SearchItemInDictionary(itemCraft + "_epic"); 
                 break;
             case ITEM_RARITY.MYTHIC:
+                Debug.Log(itemCraft + "_epic");
+
                 item = Globals.SearchItemInDictionary(itemCraft + "_epic"); 
                 break;
             case ITEM_RARITY.NONE:
@@ -117,7 +127,8 @@ public class UI_Crafting_Recipe : YmirComponent
                 break;
         }
 
-        InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().SetItem(item); // TODO: ajustar nom busca + formula raresa
+        Debug.Log(item.name);
+        InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().SetItem(item); 
 
         player.itemsList.Add(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item);
 
