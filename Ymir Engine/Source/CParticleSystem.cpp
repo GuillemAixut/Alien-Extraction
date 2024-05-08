@@ -135,6 +135,14 @@ void CParticleSystem::OnInspector()
 
 		ImGui::Checkbox("Looping", &looping);
 
+		if (ImGui::Button("Play ALL Triggers")) {
+			for (int i = 0; i < allEmitters.size(); i++)
+			{
+				EmitterSpawner* spawner = (EmitterSpawner*)allEmitters.at(i)->modules.at(1);
+				spawner->PlayTrigger();
+			}
+		}
+
 		ImGui::Separator();
 
 		//Crear emitter

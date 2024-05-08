@@ -1264,12 +1264,12 @@ public class Player : YmirComponent
 
         //Particles FX
         GameObject particles = GetParticles(gameObject, "ParticlesSmg");
-        Particles.PlayEmitter(particles);
+        Particles.PlayParticles(particles);
 
         //Bullet
         GameObject bulletParticles = GetParticles(gameObject, "ParticlesSmgBullet");
         Particles.ParticleShoot(bulletParticles, gameObject.transform.GetForward().normalized);
-        Particles.PlayEmitter(bulletParticles);
+        Particles.PlayParticles(bulletParticles);
 
         Debug.Log("Forward: " + gameObject.transform.GetForward().normalized.x + " " + gameObject.transform.GetForward().normalized.y + " " + gameObject.transform.GetForward().normalized.z);
 
@@ -1349,7 +1349,7 @@ public class Player : YmirComponent
 
         GameObject shotgunParticles = GetParticles(gameObject, "ParticlesShotgun");
         Particles.ParticleShoot(shotgunParticles, gameObject.transform.GetForward().normalized);
-        Particles.PlayEmitter(shotgunParticles);
+        Particles.PlayParticles(shotgunParticles);
 
         Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
         float distance = 40.0f;
@@ -1371,7 +1371,7 @@ public class Player : YmirComponent
 
         GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
         Particles.ParticleShoot(traceParticles, gameObject.transform.GetForward().normalized);
-        Particles.PlayEmitter(traceParticles);
+        Particles.PlayParticles(traceParticles);
 
         if (!godMode)
         {
@@ -1543,7 +1543,7 @@ public class Player : YmirComponent
 
         //Sistema de particulas
         GameObject particles = GetParticles(gameObject, "ParticlesDash");
-        Particles.PlayEmitter(particles);
+        Particles.PlayParticles(particles);
 
         Input.Rumble_Controller(100, 7);
         StopPlayer();
@@ -1821,7 +1821,7 @@ public class Player : YmirComponent
         Audio.PlayAudio(gameObject, "P_PredRush");
 
         GameObject predRushParticles = GetParticles(gameObject, "ParticlesPredRush");
-        Particles.PlayEmitter(predRushParticles);
+        Particles.PlayParticles(predRushParticles);
 
         //trigger de la animacion
 
@@ -1858,7 +1858,7 @@ public class Player : YmirComponent
         Audio.PlayAudio(gameObject, "P_TailSweep");
 
         GameObject particles = GetParticles(gameObject, "Tail Particles");
-        Particles.PlayEmitter(particles);
+        Particles.PlayParticles(particles);
 
         //trigger de la animacion
         //Setup de todo lo necesario
@@ -1939,7 +1939,7 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
 
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
-        Particles.PlayEmitter(acidicParticles);
+        Particles.PlayParticles(acidicParticles);
 
         //Trigger de la animación
 
