@@ -5,7 +5,6 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 #include "ModuleResourceManager.h"
-#include "ModuleAudio.h"
 #include "ResourceMesh.h"
 
 #include "GameObject.h"
@@ -90,7 +89,7 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
 	//LoadScene("Assets/UI/Scenes", "StartScene");
 	//LoadScene("Assets/Camera", "CameraTesting");
-	//LoadScene("Assets/CutScenes", "CutScenes");
+	LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
 
 	// -------------------- FINAL MAPS -------------------- \\
 
@@ -401,8 +400,6 @@ void ModuleScene::ClearScene()
 
 	focusedUIGO = nullptr;
 	selectedUIGO = nullptr;
-
-	External->audio->UnLoadAllBanks();
 
 	External->physics->currentCollisions.clear();
 	External->physics->previousCollisions.clear();

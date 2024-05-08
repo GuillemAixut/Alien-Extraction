@@ -25,6 +25,7 @@ public enum UPGRADE
     LVL_3_ALPHA,
     LVL_3_BETA,
 }
+
 public abstract class Weapon : YmirComponent
 {
     private string _name;
@@ -38,12 +39,12 @@ public abstract class Weapon : YmirComponent
     public float reloadTime;
     public float range;
 
-    protected int currentAmmo;
+    public int currentAmmo;
     protected float fireRateTimer;
     protected float reloadTimer;
 
-
-    public Player player;
+    public GameObject playerObject;
+    protected Player player;
     public Weapon(WEAPON_TYPE type = WEAPON_TYPE.NONE, UPGRADE upgrade = UPGRADE.NONE)
     {
         _type = type;
@@ -66,30 +67,21 @@ public abstract class Weapon : YmirComponent
     public WEAPON_TYPE Type { get { return _type; } }
     public UPGRADE Upgrade { get { return _upgrade; } }
     public abstract void Shoot();
+    public abstract void Reload();
 
+    public abstract void Start();
+    public void Update()
+    {
+        if (fireRateTimer > 0) fireRateTimer -= Time.deltaTime;
+        if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
+    }
     public bool ShootAvailable()
     {
-        if (reloadTimer <= 0)
-        {
-
-            reloadTimer = reloadTime;
-            return true;
-        }
-
-        fireRateTimer -= Time.deltaTime;
-        return false;
+        return (fireRateTimer <= 0 && currentAmmo > 0) ? true : false;
     }
 
     public bool ReloadAvailable()
     {
-        if (reloadTimer <= 0) {
-
-            reloadTimer = reloadTime;
-            return true;
-        }
-
-        reloadTimer -= Time.deltaTime;
-        return false;
+        return (reloadTimer <= 0 && currentAmmo < ammo) ? true : false;
     }
-
 }

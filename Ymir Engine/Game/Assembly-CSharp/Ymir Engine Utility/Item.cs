@@ -54,6 +54,7 @@ namespace YmirEngine
         public bool isEquipped = false;
 
         public bool inInventory = false;
+        public string dictionaryName = "";
 
         public Item(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
@@ -62,7 +63,8 @@ namespace YmirEngine
             bool isEquipped = false,
             string name = "",
             string description = "",
-            string imagePath = "")
+            string imagePath = "",
+            string dictionaryName = "")
         {
             this.currentSlot = currentSlot;
             this.itemType = itemType;
@@ -71,6 +73,7 @@ namespace YmirEngine
             this.name = name;
             this.description = (itemRarity != ITEM_RARITY.NONE) ? ("Rarity: " + itemRarity.ToString() + "\n" + description) : "";
             this.imagePath = imagePath;
+            this.dictionaryName = dictionaryName;
         }
 
         public virtual void UpdateStats(GameObject menu)
@@ -103,6 +106,7 @@ namespace YmirEngine
             string name = "Empty",
             string description = "Empty",
             string imagePath = "",
+            string dictionaryName = "",
 
             // Equippables
             float HP = 0,
@@ -144,8 +148,8 @@ namespace YmirEngine
                 menu.GetComponent<UI_Inventory>().health.maxHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.armor += (armor * e);
                 menu.GetComponent<UI_Inventory>().player.movementSpeed += (speed * e);
-                menu.GetComponent<UI_Inventory>().player.reloadDuration += (reloadSpeed * e);
-                menu.GetComponent<UI_Inventory>().player.fireRate += (fireRate * e);
+                menu.GetComponent<UI_Inventory>().player.currentWeapon.reloadTime += (reloadSpeed * e);
+                menu.GetComponent<UI_Inventory>().player.currentWeapon.fireRate += (fireRate * e);
                 menu.GetComponent<UI_Inventory>().player.damageMultiplier += (damageMultiplier * e);
             }
         }
@@ -177,6 +181,7 @@ namespace YmirEngine
             string name = "Empty",
             string description = "Empty",
             string imagePath = "",
+            string dictionaryName = "",
 
             // Consumables
             float dmg = 0,

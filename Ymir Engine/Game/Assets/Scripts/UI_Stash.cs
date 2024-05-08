@@ -9,7 +9,7 @@ using YmirEngine;
 public class UI_Stash : YmirComponent
 {
     private GameObject _selectedGO;
-    public GameObject focusedGO, goDescription, goText;
+    public GameObject focusedGO, goDescription, goText, goName;
 
     private bool _show;
 
@@ -23,8 +23,11 @@ public class UI_Stash : YmirComponent
 
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
         goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
+        goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
+        
         goDescription.SetActive(false);// TODO: when menu opened
         goText.SetActive(false);
+        goName.SetActive(false);
 
         _show = false;
 
@@ -46,6 +49,7 @@ public class UI_Stash : YmirComponent
             Debug.Log("set first");
             goDescription.SetActive(false);// TODO: when menu opened
             goText.SetActive(false);
+            goName.SetActive(false);
 
             player.setHover = false;
         }
@@ -159,12 +163,14 @@ public class UI_Stash : YmirComponent
     {
         UI.SetUIPosWithOther(goDescription, focusedGO.parent);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
         UI.SetUIPosWithOther(goText, focusedGO.parent);
+        UI.SetUIPosWithOther(goName, focusedGO.parent);
     }
 
     public void ShowText(bool isActive)
     {
         goDescription.SetActive(isActive);
         goText.SetActive(isActive);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
+        goName.SetActive(isActive);
     }
 
     private void GetPlayerScript()

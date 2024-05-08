@@ -78,16 +78,49 @@ public class UI_Item_Button : YmirComponent
 
     public void UpdateInfo()
     {
-        if (_menuReference.GetComponent<UI_Inventory>().goName != null)
+        if (Equals(menuName, "Inventory Menu"))
         {
-            //Debug.Log("" + item.name);
-            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
+            if (_menuReference.GetComponent<UI_Inventory>().goName != null)
+            {
+                //Debug.Log("" + item.name);
+                UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
+            }
+
+            if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
+            {
+                //Debug.Log("" + item.description);
+                UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
+            }
         }
 
-        if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
+        else if (Equals(menuName, "Crafting Canvas"))
         {
-            //Debug.Log("" + item.description);
-            UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
+            if (_menuReference.GetComponent<UI_Crafting>().goName != null)
+            {
+                //Debug.Log("" + item.name);
+                UI.TextEdit(_menuReference.GetComponent<UI_Crafting>().goName, item.name);
+            }
+
+            if (_menuReference.GetComponent<UI_Crafting>().goDescription != null)
+            {
+                //Debug.Log("" + item.description);
+                UI.TextEdit(_menuReference.GetComponent<UI_Crafting>().goText, item.description);
+            }
+        }
+        
+        else if (Equals(menuName, "Stash Canvas"))
+        {
+            if (_menuReference.GetComponent<UI_Stash>().goName != null)
+            {
+                //Debug.Log("" + item.name);
+                UI.TextEdit(_menuReference.GetComponent<UI_Stash>().goName, item.name);
+            }
+
+            if (_menuReference.GetComponent<UI_Stash>().goDescription != null)
+            {
+                //Debug.Log("" + item.description);
+                UI.TextEdit(_menuReference.GetComponent<UI_Stash>().goText, item.description);
+            }
         }
     }
 
@@ -122,7 +155,7 @@ public class UI_Item_Button : YmirComponent
         return elementChanged;
     }
 
-    private ITEM_RARITY SetRarity(string type)
+    public ITEM_RARITY SetRarity(string type)
     {
         ITEM_RARITY elementChanged = ITEM_RARITY.NONE;
 
@@ -155,7 +188,7 @@ public class UI_Item_Button : YmirComponent
         return elementChanged;
     }
 
-    private string SetInspectorType(ITEM_SLOT type) // Set values inspector when item is set
+    public string SetInspectorType(ITEM_SLOT type) // Set values inspector when item is set
     {
         string elementChanged = " ";
 
@@ -256,7 +289,8 @@ public class UI_Item_Button : YmirComponent
             _item = new I_Equippable(currentSlot, itemType, itemRarity, isEquipped,
             /*name*/"Empty",
             /*description*/ "Empty",
-            /*imagePath*/ "",
+            /*imagePath*/"Assets/UI/Inventory Buttons/New Buttons/Unselected.png",
+            /*dictionaryName*/"",
             HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
         }
 
@@ -264,7 +298,7 @@ public class UI_Item_Button : YmirComponent
         {
             _item = new I_Consumables(currentSlot, itemType, itemRarity, isEquipped,
             /*name*/"Empty",
-            /*description*/ "Empty",
+            /*description*/ "Assets/UI/Inventory Buttons/New Buttons/Unselected.png",
             /*imagePath*/ "");
         }
 
@@ -330,7 +364,10 @@ public class UI_Item_Button : YmirComponent
             _item = new Item(currentSlot, itemType, itemRarity, isEquipped,
             /*name*/"Empty",
             /*description*/ "Empty",
-            /*imagePath*/ "");
+            /*imagePath*/ "Assets/UI/Inventory Buttons/New Buttons/Unselected.png");
+
+            UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), _item.imagePath, (int)UI_STATE.NORMAL); // Empty image
+            UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL); // No rarity
         }
 
         //item.LogStats();    
