@@ -844,7 +844,7 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 
 		if (par->pTexture != nullptr)
 		{
-			par->pTexture->BindTexture(true, 0);
+			par->pTexture->BindTexture(true, 0 /*par->pTexture->ID*/);
 		}
 		
 		//Drawing to tris in direct mode
@@ -866,12 +866,12 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 
 		if (par->pTexture != nullptr)
 		{
-			par->pTexture->BindTexture(false, 0);
+			par->pTexture->BindTexture(false, 0/*par->pTexture->ID*/);
 		}
 
 		glEnd();
 		glPopMatrix();
-		glBindTexture(GL_TEXTURE_2D, 0);
+		//glBindTexture(GL_TEXTURE_2D, 0);
 
 		par = nullptr;
 	}

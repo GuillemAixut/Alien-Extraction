@@ -235,7 +235,7 @@ void ParticleEmitter::Reset()
 	KillAllParticles();
 }
 
-void ParticleEmitter::SpawnParticle(uint particlesToAdd)
+void ParticleEmitter::SpawnParticle(uint particlesToAdd) //This code only adds particles to the list, the actual spawning/drawing is made in renderer
 {
 	if (listParticles.size() < MAXPARTICLES)
 	{

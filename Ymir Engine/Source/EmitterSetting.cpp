@@ -2147,13 +2147,13 @@ EmitterImage::EmitterImage()
 	SetImage(imgPath);
 }
 
-void EmitterImage::SetImage(std::string imgPath)
+void EmitterImage::SetImage(std::string imagePath)
 {
-	ImporterTexture::Import(imgPath, rTexTemp);
+	ImporterTexture::Import(imagePath, rTexTemp);
 	rTexTemp->type = TextureType::DIFFUSE;
 	rTexTemp->UID = Random::Generate();
 
-	this->imgPath = imgPath;
+	this->imgPath = imagePath;
 }
 
 void EmitterImage::Spawn(ParticleEmitter* emitter, Particle* particle)
@@ -2192,10 +2192,14 @@ void EmitterImage::OnInspector()
 				{
 					std::string particlePath = "Assets/Particles/" + particleFile;
 					SetImage(particlePath);
+					break;
 				}
 			}
 		}
-		else ImGui::Text("There is no assets.");
+		else 
+		{ 
+			ImGui::Text("There is no assets.");
+		}
 
 		ImGui::EndCombo();
 	}
