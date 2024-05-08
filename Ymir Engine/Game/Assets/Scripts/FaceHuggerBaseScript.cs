@@ -73,9 +73,9 @@ public class FaceHuggerBaseScript : Enemy
         cumDuration2 = 5f;
 
         //Drop items
-        //keys = "Nombre:,Probabilidad:";
-        //path = "Assets/Loot Tables/facehugger_loot.csv";
-        //numFields = 2;
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/facehugger_loot.csv";
+        numFields = 2;
 
         attackTimer = attackDuration;
 
@@ -154,7 +154,7 @@ public class FaceHuggerBaseScript : Enemy
                     if (timePassed >= 1.2f)
                     {
                         Debug.Log("[ERROR] DEATH");
-                        //DropItem();
+                        DropItem();
                         InternalCalls.Destroy(gameObject);
                     }
 
