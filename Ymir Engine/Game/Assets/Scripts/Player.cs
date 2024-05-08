@@ -2028,8 +2028,6 @@ public class Player : YmirComponent
             //string item = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
             //itemsListString.Add(item);
 
-            Debug.Log("jiji " + SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num").ToString());
-
             string name = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
 
             Item item = Globals.SearchItemInDictionary(name);
