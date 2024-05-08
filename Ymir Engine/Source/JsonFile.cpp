@@ -3296,11 +3296,13 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					External->audio->LoadBank(caudiosource->audBankName);
 					(*it)->loaded_in_heap = true;
 				}
-				return;
+				
+			}
+			else 
+			{
+				caudiosource->audBankReference = nullptr;
 			}
 		}
-
-		caudiosource->audBankReference = nullptr;
 
 		gameObject->AddComponent(caudiosource); 
 
