@@ -290,6 +290,7 @@ public class UI_Item_Button : YmirComponent
             /*name*/"Empty",
             /*description*/ "Empty",
             /*imagePath*/ "",
+            /*dictionaryName*/"",
             HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
         }
 
