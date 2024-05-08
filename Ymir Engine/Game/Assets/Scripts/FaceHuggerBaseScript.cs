@@ -76,7 +76,8 @@ public class FaceHuggerBaseScript : Enemy
         keys = "Nombre:,Probabilidad:";
         path = "Assets/Loot Tables/facehugger_loot.csv";
         numFields = 2;
-
+        level = InternalCalls.GetCurrentMap();
+       
         attackTimer = attackDuration;
 
 
@@ -122,7 +123,7 @@ public class FaceHuggerBaseScript : Enemy
 
     public void Update()
     {
-
+        Debug.Log("Level --------- " + level);
         if (CheckPause())
         {
             SetPause(true);

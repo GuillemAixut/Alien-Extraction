@@ -102,6 +102,7 @@ public class DroneXenomorphBaseScript : Enemy
         keys = "Nombre:,Probabilidad:";
         path = "Assets/Loot Tables/droneXenomorph_loot.csv";
         numFields = 2;
+        level = InternalCalls.GetCurrentMap();
 
         Animation.SetLoop(gameObject, "Combat_Idle", true);
         Animation.SetLoop(gameObject, "Drone_Walk", true);

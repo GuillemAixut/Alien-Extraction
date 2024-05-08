@@ -64,6 +64,7 @@ public class Enemy : YmirComponent
     public string path;
     public int numFields;
     public int spawnRange;
+    protected int level; 
 
     private Vector3 itemPos = Vector3.zero;
     Random random = new Random();
@@ -235,6 +236,7 @@ public class Enemy : YmirComponent
 
             itemPos.x += randPosX;
             itemPos.z += randPosZ;
+
             if (name.Contains("common"))
             {
                 InternalCalls.CreateGOFromPrefab("Assets/Prefabs/Items/Common Items", name, itemPos);
