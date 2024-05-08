@@ -100,9 +100,8 @@ public class UI_Crafting_Recipe : YmirComponent
         // Add new item
         Item item = null;
 
-        if (craftName.CompareTo("upgradevessel") == 1)
+        if (Equals(craftName, "upgradevessel"))
         {
-            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             Debug.Log(craftName + "_mythic");
             item = Globals.SearchItemInDictionary(craftName + "_mythic");
         }

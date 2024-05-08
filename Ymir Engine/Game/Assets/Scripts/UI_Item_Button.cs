@@ -47,8 +47,8 @@ public class UI_Item_Button : YmirComponent
         //    /*description*/ "Empty",
         //    /*imagePath*/ "");
         //
-        
-        if (menuName.CompareTo("Inventory Menu") == 1)
+
+        if (Equals(menuName, "Inventory Menu"))
         {
             _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
         }
@@ -56,7 +56,7 @@ public class UI_Item_Button : YmirComponent
 
     public void Update()
     {
-        if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null && menuName.CompareTo("Inventory Menu") == 1)
+        if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null && Equals(menuName, "Inventory Menu"))
         {
             if (item.currentSlot != ITEM_SLOT.NONE && item.currentSlot != ITEM_SLOT.SAVE)
             {
