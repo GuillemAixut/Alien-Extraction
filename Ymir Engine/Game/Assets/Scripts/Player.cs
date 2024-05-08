@@ -112,6 +112,7 @@ public class Player : YmirComponent
     private int shootRumbleDuration;
 
     private WEAPON weaponType = WEAPON.NONE;
+    public WEAPON_TYPE weaponTypeTest = WEAPON_TYPE.NONE;
     //private Weapon currentWeapon = null;
 
     // Stats que no he visto implementadas, para inventario
@@ -168,6 +169,7 @@ public class Player : YmirComponent
     #region DEFINE MENUS
 
     public int currentLvl = (int)LEVEL.BASE;
+    public int lastUnlockedLvl = (int)LEVEL.BASE;
 
     public string currentMenu = "";
     public bool setHover = false; // Guarrada temporal
@@ -297,49 +299,57 @@ public class Player : YmirComponent
         itemsList = new List<Item>();
         itemsListString = new List<string>();
 
-        // TODO: Sara --> cosas pa probar items
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    Random random = new Random();
+        if (currentLvl != (int)LEVEL.BASE)
+        {
+            Debug.Log("current: " + currentLvl.ToString());
+            LoadPlayer();
+        }
 
-        //    ITEM_SLOT a = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
-        //    ITEM_SLOT b = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
-        //    //ITEM_SLOT b = ITEM_SLOT.ARMOR;
-        //    ITEM_RARITY c = (ITEM_RARITY)random.Next((int)ITEM_RARITY.NONE);
-        //    //bool d = (random.NextDouble() < 0.5 ? false : true);
-        //    bool d = true;
+        {
+            // TODO: Sara --> cosas pa probar items
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Random random = new Random();
 
-        //    Item item = null;
+            //    ITEM_SLOT a = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
+            //    ITEM_SLOT b = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
+            //    //ITEM_SLOT b = ITEM_SLOT.ARMOR;
+            //    ITEM_RARITY c = (ITEM_RARITY)random.Next((int)ITEM_RARITY.NONE);
+            //    //bool d = (random.NextDouble() < 0.5 ? false : true);
+            //    bool d = true;
 
-        //    int x = random.Next(0, 3);
-        //    switch (x)
-        //    {
-        //        case 0:
-        //            {
-        //                item = new Item(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-        //               "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
-        //            }
-        //            break;
-        //        case 1:
-        //            {
-        //                item = new I_Equippable(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-        //        "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png",
-        //        random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100));
-        //            }
-        //            break;
-        //        case 2:
-        //            {
-        //                item = new I_Consumables(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-        //               "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png", random.Next(100), random.Next(100), random.Next(100));
-        //            }
-        //            break;
-        //        default:
-        //            break;
-        //    }
+            //    Item item = null;
 
-        //    itemsList.Add(item);
-        //    itemsListTest.Add(item.name);
-        //}
+            //    int x = random.Next(0, 3);
+            //    switch (x)
+            //    {
+            //        case 0:
+            //            {
+            //                item = new Item(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
+            //               "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
+            //            }
+            //            break;
+            //        case 1:
+            //            {
+            //                item = new I_Equippable(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
+            //        "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png",
+            //        random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100));
+            //            }
+            //            break;
+            //        case 2:
+            //            {
+            //                item = new I_Consumables(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
+            //               "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png", random.Next(100), random.Next(100), random.Next(100));
+            //            }
+            //            break;
+            //        default:
+            //            break;
+            //    }
+
+            //    itemsList.Add(item);
+            //    itemsListTest.Add(item.name);
+            //}
+        }
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -347,10 +357,7 @@ public class Player : YmirComponent
         //--------------------- Set Animation Parameters ---------------------\\
         SetAnimParameters();
 
-
         currentState = STATE.IDLE;
-
-        //Debug.Log("START!");
     }
 
     public void Update()
@@ -1474,7 +1481,7 @@ public class Player : YmirComponent
                 //}
 
                 //w_SMG_0.SetActive(true);
-                
+
                 break;
 
             case WEAPON.SHOTGUN:
@@ -1701,6 +1708,7 @@ public class Player : YmirComponent
         if (!open)
         {
             currentMenu = "";
+            itemsList.Clear();
         }
         else
         {
@@ -1978,7 +1986,12 @@ public class Player : YmirComponent
     {
         SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
 
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Last unlocked Lvl", (int)lastUnlockedLvl);
+
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponTypeTest);
+        //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)weaponType);
+
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
 
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Items num", itemsListString.Count);
@@ -1992,7 +2005,12 @@ public class Player : YmirComponent
 
     public void LoadPlayer()
     {
+        lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
+
         weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
+        weaponTypeTest = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
+        //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
+
         SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
         LoadItems();
@@ -2008,6 +2026,7 @@ public class Player : YmirComponent
     }
 
     #endregion
+
     #region AUDIO
     public void SetCombatAudioState()
     {
@@ -2027,5 +2046,6 @@ public class Player : YmirComponent
     {
         Audio.SetState("PlayerState", "Dead");
     }
+
     #endregion
 }

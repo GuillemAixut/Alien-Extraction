@@ -142,6 +142,7 @@ public class SpitterBaseScript : Enemy
                 //Check if player in radius and if so go to cry state
                 if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
                 {
+                    player.GetComponent<Player>().SetExplorationAudioState();
                     timeLimit = 0.5f;
                     aggro = true;
                     xenoState = XenoState.CRY;
@@ -159,6 +160,7 @@ public class SpitterBaseScript : Enemy
                 //Check if player in radius and if so go to cry state
                 if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
                 {
+                    player.GetComponent<Player>().SetExplorationAudioState();
                     timeLimit = 0.5f;
                     aggro = true;
                     xenoState = XenoState.CRY;
@@ -292,6 +294,7 @@ public class SpitterBaseScript : Enemy
                 timeCounter = 0f;
                 timeLimit = 0.8f;
                 xenoState = XenoState.MOVE_BACKWARDS;
+               
             }
 
             //If player too far away, go back to wander
@@ -307,6 +310,7 @@ public class SpitterBaseScript : Enemy
                     aggro = false;
                     gameObject.SetVelocity(new Vector3(0, 0, 0));
                     xenoState = XenoState.IDLE;
+                    player.GetComponent<Player>().SetExplorationAudioState();
                 }
             }
             else

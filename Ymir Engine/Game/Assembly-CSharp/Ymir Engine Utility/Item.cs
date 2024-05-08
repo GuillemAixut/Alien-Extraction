@@ -217,6 +217,8 @@ namespace YmirEngine
         public string name, description;
         public int cost;
         public bool isUnlocked;
+        UPGRADE upgrade;
+
         public Upgrade(string name, string description, int cost, bool isUnlocked)
         {
             this.name = name;

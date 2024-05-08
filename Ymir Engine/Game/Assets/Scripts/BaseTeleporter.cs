@@ -30,7 +30,7 @@ public class BaseTeleporter : YmirComponent
         lvlText = InternalCalls.GetGameObjectByName("Lvl description");
         weaponText = InternalCalls.GetGameObjectByName("Weapon description");
 
-        GetPlayerScript();
+        csPlayer = Globals.GetPlayerScript();
 
         canvas = InternalCalls.GetGameObjectByName("Level Selection Canvas");
 
@@ -59,6 +59,8 @@ public class BaseTeleporter : YmirComponent
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
             UI.SetUIState(button, (int)UI_STATE.NORMAL);
+            //UI.SetFirstFocused(button.parent);
+
             _grid.GetComponent<UI_Inventory_Grid>().naviagteY = true;
 
             _setNormal = true;
@@ -84,6 +86,9 @@ public class BaseTeleporter : YmirComponent
                     break;
             }
 
+            csPlayer.weaponTypeTest = selectedWeapon;
+            //csPlayer.weaponTypeTest = selectedWeapon;
+
             Debug.Log("scene: " + button.GetComponent<Button_Navigation>().sceneName);
         }
         else if ((UI_STATE)UI.GetUIState(button) != UI_STATE.DISABLED &&
@@ -98,15 +103,5 @@ public class BaseTeleporter : YmirComponent
         }
 
         return;
-    }
-
-    private void GetPlayerScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            csPlayer = gameObject.GetComponent<Player>();
-        }
     }
 }

@@ -1277,7 +1277,7 @@ void CreateQueenPuddle(MonoObject* position, MonoObject* rotation)
 
 	float3 posVector = External->moduleMono->UnboxVector(position);
 	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
-	float3 scaleVector = float3(3.0f, 1.0f, 3.0f);
+	float3 scaleVector = float3(4.0f, 1.0f, 4.0f);
 
 	go->mTransform->SetPosition(posVector);
 	go->mTransform->SetScale(scaleVector);
@@ -1286,7 +1286,7 @@ void CreateQueenPuddle(MonoObject* position, MonoObject* rotation)
 	CCollider* physBody;
 	physBody = new CCollider(go, CYLINDER);
 
-	physBody->useGravity = true;
+	physBody->useGravity = false;
 	physBody->physBody->SetPosition(posVector);
 	physBody->physBody->SetRotation(rotVector);
 	physBody->SetAsSensor(true);

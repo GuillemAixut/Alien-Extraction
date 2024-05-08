@@ -1,10 +1,10 @@
 {
     "Prefab": [
         {
-            "Name": "ParticlesTeleport1",
+            "Name": "ParticlesTeleport2",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1439817863,
+            "UID": 1785797803,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 1804673821,
@@ -14,7 +14,7 @@
                     "Active": 1,
                     "Translation": [
                         0,
-                        0,
+                        247.20152282714844,
                         0
                     ],
                     "Rotation": [
@@ -34,12 +34,12 @@
                     "NumEmitters": 2,
                     "Emitters": [
                         {
-                            "ModulesSize": 5,
-                            "EmitterUID": 1461573130,
+                            "ModulesSize": 6,
+                            "EmitterUID": 243616431,
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 3,
+                                    "Lifetime": 2.5,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
@@ -68,9 +68,9 @@
                                 },
                                 {
                                     "Type": 1,
-                                    "SpawnMode": 0,
-                                    "StartMode": 3,
-                                    "NumParticles": 111,
+                                    "SpawnMode": 2,
+                                    "StartMode": 1,
+                                    "NumParticles": 5,
                                     "SpawnRatio": 0.20000000298023224,
                                     "NumParticlesToStop": 1,
                                     "PointingUID": 0,
@@ -90,47 +90,51 @@
                                     ]
                                 },
                                 {
-                                    "Type": 4,
-                                    "Progressive": false,
-                                    "Loop": false,
-                                    "Size1": 106.5,
-                                    "Size2": 1,
-                                    "TimeStart": 0,
-                                    "TimeStop": 1
-                                },
-                                {
                                     "Type": 5,
-                                    "Progressive": true,
+                                    "Progressive": false,
                                     "Loop": false,
                                     "Color1": [
                                         0,
-                                        0.78761053085327148,
+                                        1,
                                         1,
                                         1
                                     ],
                                     "Color2": [
                                         0,
-                                        1,
-                                        0.97345113754272461,
+                                        0,
+                                        0,
                                         0
                                     ],
                                     "TimeStart": 0,
                                     "TimeStop": 1
+                                },
+                                {
+                                    "Type": 4,
+                                    "Progressive": false,
+                                    "Loop": false,
+                                    "Size1": 147.5,
+                                    "Size2": 1,
+                                    "TimeStart": 0,
+                                    "TimeStop": 1
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/particleExample.png"
                                 }
                             ]
                         },
                         {
-                            "ModulesSize": 6,
-                            "EmitterUID": 1382472225,
+                            "ModulesSize": 7,
+                            "EmitterUID": 950512175,
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 1.5,
+                                    "Lifetime": 2.5,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        1.2000000476837158,
+                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
@@ -154,11 +158,11 @@
                                 },
                                 {
                                     "Type": 1,
-                                    "SpawnMode": 1,
-                                    "StartMode": 3,
+                                    "SpawnMode": 2,
+                                    "StartMode": 1,
                                     "NumParticles": 2,
-                                    "SpawnRatio": 0.52399998903274536,
-                                    "NumParticlesToStop": 4,
+                                    "SpawnRatio": 0.5,
+                                    "NumParticlesToStop": 5,
                                     "PointingUID": 0,
                                     "ConditionForSpawn": 2,
                                     "SubemitterMaxLifetime": 1,
@@ -170,7 +174,7 @@
                                     "UseShapeBase": false,
                                     "Direction1": [
                                         0,
-                                        1.2999999523162842,
+                                        -1.2000000476837158,
                                         0
                                     ],
                                     "Direction2": [
@@ -180,7 +184,7 @@
                                     ],
                                     "NormalizedBaseDirection": true,
                                     "Accelerates": false,
-                                    "Speed1": 10,
+                                    "Speed1": 9.3999996185302734,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -191,25 +195,6 @@
                                     "ChangeSpeed1": 0,
                                     "ChangeSpeed2": 1,
                                     "NormalizedChange": true
-                                },
-                                {
-                                    "Type": 5,
-                                    "Progressive": true,
-                                    "Loop": false,
-                                    "Color1": [
-                                        0,
-                                        0.86725687980651855,
-                                        1,
-                                        1
-                                    ],
-                                    "Color2": [
-                                        0,
-                                        0.89380526542663574,
-                                        1,
-                                        0
-                                    ],
-                                    "TimeStart": 0,
-                                    "TimeStop": 1
                                 },
                                 {
                                     "Type": 3,
@@ -226,10 +211,33 @@
                                     "Type": 4,
                                     "Progressive": false,
                                     "Loop": false,
-                                    "Size1": 89.5,
+                                    "Size1": 144,
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
+                                },
+                                {
+                                    "Type": 5,
+                                    "Progressive": true,
+                                    "Loop": false,
+                                    "Color1": [
+                                        0,
+                                        1,
+                                        1,
+                                        1
+                                    ],
+                                    "Color2": [
+                                        0,
+                                        1,
+                                        1,
+                                        0
+                                    ],
+                                    "TimeStart": 0,
+                                    "TimeStop": 1
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/particleExample.png"
                                 }
                             ]
                         }

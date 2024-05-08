@@ -211,7 +211,7 @@ public class UI_Item_Button : YmirComponent
 
             UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), item.imagePath, (int)UI_STATE.NORMAL);
 
-            switch (item.itemRarity) // TODO: Rarity image crashes, error with meta file
+            switch (item.itemRarity) 
             {
                 case ITEM_RARITY.COMMON:
                     UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/CommonRarity.png", (int)UI_STATE.NORMAL); ;
@@ -262,12 +262,59 @@ public class UI_Item_Button : YmirComponent
             /*imagePath*/ "");
         }
 
-        else if (itemType == ITEM_SLOT.MATERIAL) // TODO: DEBUG MATERIAL, delete when crafting finished
+        // TODO: DEBUG MATERIAL, delete when crafting is linked to inventory
+        else if (itemType == ITEM_SLOT.MATERIAL) 
         {
+            string path = "";
+            switch (name)
+            {
+                case "Alien Skin":
+                    path = "Assets/UI/Items Slots/Iconos/SkinIconColor.png";
+                    break;
+                case "Alien Exocranium":
+                    path = "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png";
+                    break;
+                case "Alien Acid Vesicle":
+                    path = "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png";
+                    break;
+                case "Alien Tail tip":
+                    path = "Assets/UI/Items Slots/Iconos/TailIconColor.png";
+                    break;
+                case "Alien Aluminium Bone":
+                    path = "Assets/UI/Items Slots/Iconos/BoneIconColor.png";
+                    break;
+                case "Alien Claw":
+                    path = "Assets/UI/Items Slots/Iconos/ClawIconColor.png";
+                    break;
+                default:
+                    break;
+            }
+
             _item = new Item(currentSlot, itemType, itemRarity, isEquipped,
             /*name*/name,
             /*description*/ "Empty",
-            /*imagePath*/ "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
+            /*imagePath*/ path);
+
+            switch (item.itemRarity)
+            {
+                case ITEM_RARITY.COMMON:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/CommonRarity.png", (int)UI_STATE.NORMAL); ;
+                    break;
+                case ITEM_RARITY.RARE:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/RareRarity.png", (int)UI_STATE.NORMAL);
+                    break;
+                case ITEM_RARITY.EPIC:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/EpicRarity.png", (int)UI_STATE.NORMAL);
+                    break;
+                case ITEM_RARITY.MYTHIC:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/MythicRarity.png", (int)UI_STATE.NORMAL);
+                    break;
+                case ITEM_RARITY.NONE:
+                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL);
+                    break;
+                default:
+                    break;
+            }
 
             UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), _item.imagePath, (int)UI_STATE.NORMAL);
         }

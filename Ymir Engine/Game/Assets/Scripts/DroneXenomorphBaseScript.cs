@@ -98,10 +98,11 @@ public class DroneXenomorphBaseScript : Enemy
 
         life = 300f;
 
-        ////Drop items
-        //keys = "Nombre:,Probabilidad:";
-        //path = "Assets/Loot Tables/droneXenomorph_loot.csv";
-        //numFields = 2; 
+        //Drop items
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/droneXenomorph_loot.csv";
+        numFields = 2;
+        level = InternalCalls.GetCurrentMap();
 
         Animation.SetLoop(gameObject, "Combat_Idle", true);
         Animation.SetLoop(gameObject, "Drone_Walk", true);
@@ -150,7 +151,7 @@ public class DroneXenomorphBaseScript : Enemy
                 if (timePassed >= 1.4f)
                 {
                     //Debug.Log("[ERROR] DEATH");
-                    //DropItem();
+                    DropItem();
                     InternalCalls.Destroy(gameObject);
                 }
 
@@ -191,6 +192,7 @@ public class DroneXenomorphBaseScript : Enemy
                     aggro = true;
                     droneState = DroneState.CRY;
                     Animation.PlayAnimation(gameObject, "Cry");
+                    player.GetComponent<Player>().SetExplorationAudioState();
                 }
 
                 break;
@@ -223,6 +225,7 @@ public class DroneXenomorphBaseScript : Enemy
                     aggro = true;
                     Audio.PlayAudio(gameObject, "DX_Cry");
                     Animation.PlayAnimation(gameObject, "Cry");
+                    player.GetComponent<Player>().SetExplorationAudioState();
                     droneState = DroneState.CRY;
 				}
 
@@ -332,6 +335,7 @@ public class DroneXenomorphBaseScript : Enemy
                     aggro = false;
                     gameObject.SetVelocity(new Vector3(0, 0, 0));
                     droneState = DroneState.IDLE_NO_AGGRO;
+                    player.GetComponent<Player>().SetExplorationAudioState();
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                 }
 

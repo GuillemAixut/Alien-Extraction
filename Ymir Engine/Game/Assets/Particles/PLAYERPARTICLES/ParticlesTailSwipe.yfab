@@ -1,10 +1,10 @@
 {
     "Prefab": [
         {
-            "Name": "ParticleSteps",
+            "Name": "Tail Particles",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1031312782,
+            "UID": 606101340,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 1804673821,
@@ -15,7 +15,7 @@
                     "Translation": [
                         0,
                         0,
-                        -63.578926086425781
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -35,7 +35,7 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
-                            "EmitterUID": 2002222269,
+                            "EmitterUID": 847423971,
                             "Settings": [
                                 {
                                     "Type": 0,
@@ -43,14 +43,14 @@
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
-                                        0,
+                                        1.8999999761581421,
                                         0,
                                         0
                                     ],
-                                    "DistanceLimit": 0,
-                                    "HasDistanceLimit": false,
+                                    "DistanceLimit": 23.299999237060547,
+                                    "HasDistanceLimit": true,
                                     "BaseRotation": 0,
-                                    "BaseShape": 1,
+                                    "BaseShape": 2,
                                     "PositiveBoxPoints": [
                                         1,
                                         1,
@@ -70,9 +70,9 @@
                                     "Type": 1,
                                     "SpawnMode": 0,
                                     "StartMode": 3,
-                                    "NumParticles": 26,
-                                    "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 16,
+                                    "NumParticles": 109,
+                                    "SpawnRatio": 0.56400001049041748,
+                                    "NumParticlesToStop": 100,
                                     "PointingUID": 0,
                                     "ConditionForSpawn": 2,
                                     "SubemitterMaxLifetime": 1,
@@ -80,21 +80,21 @@
                                 },
                                 {
                                     "Type": 2,
-                                    "Random": false,
-                                    "UseShapeBase": true,
+                                    "Random": true,
+                                    "UseShapeBase": false,
                                     "Direction1": [
+                                        -5,
                                         0,
-                                        0,
-                                        0
+                                        -5
                                     ],
                                     "Direction2": [
+                                        5,
                                         0,
-                                        0,
-                                        0
+                                        5
                                     ],
                                     "NormalizedBaseDirection": true,
                                     "Accelerates": false,
-                                    "Speed1": 1.6000000238418579,
+                                    "Speed1": 22.799999237060547,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -121,7 +121,7 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 4.5,
+                                    "Size1": 21.5,
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -131,16 +131,16 @@
                                     "Progressive": true,
                                     "Loop": false,
                                     "Color1": [
-                                        0.35398232936859131,
-                                        0.35398232936859131,
-                                        0.35398232936859131,
+                                        0.56194686889648438,
+                                        0.56194686889648438,
+                                        0.56194686889648438,
                                         1
                                     ],
                                     "Color2": [
-                                        0,
-                                        0,
-                                        0,
-                                        0
+                                        0.97647058963775635,
+                                        0.027450980618596077,
+                                        0.027450980618596077,
+                                        1
                                     ],
                                     "TimeStart": 0,
                                     "TimeStop": 1

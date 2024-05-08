@@ -33,7 +33,7 @@ public class UI_Inventory : YmirComponent
 
         _show = false;
 
-        GetPlayerScript();
+        player = Globals.GetPlayerScript();
         GetHealthScript();
 
         _textHP = InternalCalls.GetGameObjectByName("Text HP");
@@ -49,11 +49,6 @@ public class UI_Inventory : YmirComponent
 
     public void Update()
     {
-        if (player == null)
-        {
-            GetPlayerScript();
-        }
-
         if (player != null && player.setHover)
         {
             Debug.Log("set first");
@@ -208,16 +203,6 @@ public class UI_Inventory : YmirComponent
         goDescription.SetActive(isActive);
         goText.SetActive(isActive);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
         goName.SetActive(isActive);
-    }
-
-    private void GetPlayerScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            player = gameObject.GetComponent<Player>();
-        }
     }
 
     private void GetHealthScript()
