@@ -54,6 +54,7 @@ namespace YmirEngine
         public bool isEquipped = false;
 
         public bool inInventory = false;
+        public string dictionaryName = "";
 
         public Item(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
@@ -62,7 +63,8 @@ namespace YmirEngine
             bool isEquipped = false,
             string name = "",
             string description = "",
-            string imagePath = "")
+            string imagePath = "",
+            string dictionaryName = "")
         {
             this.currentSlot = currentSlot;
             this.itemType = itemType;
@@ -71,9 +73,10 @@ namespace YmirEngine
             this.name = name;
             this.description = (itemRarity != ITEM_RARITY.NONE) ? ("Rarity: " + itemRarity.ToString() + "\n" + description) : "";
             this.imagePath = imagePath;
+            this.dictionaryName = dictionaryName;
         }
 
-        public virtual void UpdateStats(GameObject menu)
+        public virtual void UpdateStats()
         {
         }
 
@@ -94,6 +97,9 @@ namespace YmirEngine
     public class I_Equippable : Item
     {
         public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
+        private string v1;
+        private string v2;
+        private string v3;
 
         public I_Equippable(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
@@ -103,6 +109,7 @@ namespace YmirEngine
             string name = "Empty",
             string description = "Empty",
             string imagePath = "",
+            string dictionaryName = "",
 
             // Equippables
             float HP = 0,
@@ -120,6 +127,7 @@ namespace YmirEngine
             this.name = name;
             this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
             this.imagePath = imagePath;
+            this.dictionaryName = dictionaryName;
 
             // Equippables
             this.HP = HP;
@@ -130,24 +138,21 @@ namespace YmirEngine
             this.damageMultiplier = damageMultiplier;
         }
 
-        public override void UpdateStats(GameObject menu)
+        public override void UpdateStats()
         {
             int e = (isEquipped) ? 1 : -1;
 
             Debug.Log("isEquipped " + isEquipped.ToString());
 
-            if (menu != null)
-            {
-                LogStats();
+            LogStats();
 
-                menu.GetComponent<UI_Inventory>().health.currentHealth += (HP * e);
-                menu.GetComponent<UI_Inventory>().health.maxHealth += (HP * e);
-                menu.GetComponent<UI_Inventory>().health.armor += (armor * e);
-                menu.GetComponent<UI_Inventory>().player.movementSpeed += (speed * e);
-                menu.GetComponent<UI_Inventory>().player.reloadDuration += (reloadSpeed * e);
-                menu.GetComponent<UI_Inventory>().player.fireRate += (fireRate * e);
-                menu.GetComponent<UI_Inventory>().player.damageMultiplier += (damageMultiplier * e);
-            }
+            Globals.GetPlayerHealthScript().currentHealth += (HP * e);
+            Globals.GetPlayerHealthScript().maxHealth += (HP * e);
+            Globals.GetPlayerHealthScript().armor += (armor * e);
+            Globals.GetPlayerScript().movementSpeed += (speed * e);
+            Globals.GetPlayerScript().currentWeapon.reloadTime += (reloadSpeed * e);
+            Globals.GetPlayerScript().currentWeapon.fireRate += (fireRate * e);
+            Globals.GetPlayerScript().damageMultiplier += (damageMultiplier * e);
         }
 
         public override void LogStats()
@@ -177,6 +182,7 @@ namespace YmirEngine
             string name = "Empty",
             string description = "Empty",
             string imagePath = "",
+            string dictionaryName = "",
 
             // Consumables
             float dmg = 0,
@@ -191,6 +197,7 @@ namespace YmirEngine
             this.name = name;
             this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
             this.imagePath = imagePath;
+            this.dictionaryName = dictionaryName;
 
             // Consumables
             this.dmg = dmg;
@@ -198,7 +205,7 @@ namespace YmirEngine
             this.time = time;
         }
 
-        public override void UpdateStats(GameObject menu)
+        public override void UpdateStats()
         {
         }
 
@@ -214,7 +221,7 @@ namespace YmirEngine
         }
     }
     #endregion
-    
+
     public class Upgrade
     {
         public string name, description;

@@ -1,7 +1,7 @@
 {
     "Prefab": [
         {
-            "Name": "ParticlesTraceDefault",
+            "Name": "ParticlesTracerDefault",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1395008013,
@@ -13,9 +13,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -38.399593353271484,
-                        134.32215881347656,
-                        41.456901550292969
+                        -367.81219482421875,
+                        1286.6107177734375,
+                        397.09674072265625
                     ],
                     "Rotation": [
                         -0,
@@ -23,9 +23,9 @@
                         -0
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        9.5785436630249023,
+                        9.5785436630249023,
+                        9.5785436630249023
                     ]
                 },
                 {
@@ -69,7 +69,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 2,
-                                    "StartMode": 0,
+                                    "StartMode": 3,
                                     "NumParticles": 200,
                                     "SpawnRatio": 0.019999999552965164,
                                     "NumParticlesToStop": 200,
@@ -183,7 +183,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 2,
-                                    "StartMode": 0,
+                                    "StartMode": 3,
                                     "NumParticles": 19,
                                     "SpawnRatio": 0.20000000298023224,
                                     "NumParticlesToStop": 100,
@@ -273,7 +273,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 1,
-                                    "StartMode": 0,
+                                    "StartMode": 3,
                                     "NumParticles": 5,
                                     "SpawnRatio": 0.082000002264976501,
                                     "NumParticlesToStop": 100,

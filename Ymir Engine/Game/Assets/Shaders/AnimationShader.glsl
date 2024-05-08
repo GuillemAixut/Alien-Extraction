@@ -70,6 +70,9 @@
     
     uniform float transparency;
 
+	uniform bool setColor;
+	uniform vec3 weaponColor;
+
     vec4 DisplayNormalMap() {
 
         // Normalize the interpolated normal since it's interpolated across the surface
@@ -119,7 +122,6 @@
         if (displayNormalMap) {
     
             FragColor = DisplayNormalMap();
-
         } 
         else if (bool(numLights)) {
             
@@ -136,7 +138,13 @@
 		    finalColor *= lightColor;
 
 		    // Output the final color
-		    FragColor = vec4(finalColor, transparency);
+			if (setColor) {
+				FragColor = vec4(weaponColor, transparency);
+			}
+			else {
+				FragColor = vec4(finalColor, transparency);
+			}
+		    
 
             if (selected) {
 

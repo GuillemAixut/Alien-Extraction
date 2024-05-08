@@ -23,11 +23,10 @@ public class UI_Inventory : YmirComponent
         _selectedGO = UI.GetSelected();
 
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
-
         goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
+        
         goDescription.SetActive(false);// TODO: when menu opened
-
         goText.SetActive(false);
         goName.SetActive(false);
 
@@ -109,17 +108,13 @@ public class UI_Inventory : YmirComponent
                                 cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
                                 Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
                 {
-                    cs_UI_Item_Button.item.currentSlot = ITEM_SLOT.NONE;
+                    // Change current item to an empty one
                     cs_UI_Item_Button.item.itemType = ITEM_SLOT.NONE;
-
-                    // Add real art and other stuff
-
-                    GameObject imageItem = InternalCalls.GetChildrenByName(focusedGO.parent, "Image Item");
-
-                    UI.ChangeImageUI(imageItem, "Assets/UI/Inventory Buttons/New Buttons/Unselected.png", (int)UI_STATE.NORMAL);
-
-                    cs_UI_Item_Button.item.description = "Empty";
-                    cs_UI_Item_Button.item.name = "Empty";
+                    cs_UI_Item_Button.itemType = ITEM_SLOT.NONE;
+                    cs_UI_Item_Button.SetInspectorType(ITEM_SLOT.NONE);
+                    cs_UI_Item_Button.item.itemRarity = ITEM_RARITY.NONE;
+                    cs_UI_Item_Button.itemRarity = ITEM_RARITY.NONE;
+                    cs_UI_Item_Button.item = cs_UI_Item_Button.CreateItemBase();
                     cs_UI_Item_Button.UpdateInfo();
                 }
             }
@@ -221,8 +216,8 @@ public class UI_Inventory : YmirComponent
         if (player != null)
         {
             UI.TextEdit(_textSpeed, player.movementSpeed.ToString());
-            UI.TextEdit(_textRate, player.fireRate.ToString());
-            UI.TextEdit(_textReload, player.reloadDuration.ToString());
+            UI.TextEdit(_textRate, player.currentWeapon.fireRate.ToString());
+            UI.TextEdit(_textReload, player.currentWeapon.reloadTime.ToString());
             UI.TextEdit(_textDamage, player.damageMultiplier.ToString());
             UI.TextEdit(_textResin, player.resin.ToString());
         }

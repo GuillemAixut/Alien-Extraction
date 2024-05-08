@@ -7,15 +7,15 @@
             "UID": 1673644918,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2145344201,
+            "Parent UID": 1804673821,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
                         0,
-                        14.23980712890625,
-                        18.379175186157227
+                        77.781791687011719,
+                        122.39486694335938
                     ],
                     "Rotation": [
                         -0,
@@ -69,7 +69,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 1,
-                                    "StartMode": 1,
+                                    "StartMode": 3,
                                     "NumParticles": 13,
                                     "SpawnRatio": 0.019999999552965164,
                                     "NumParticlesToStop": 10,
@@ -82,8 +82,8 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 6,
-                                    "Size2": 6.1700000762939453,
+                                    "Size1": 60,
+                                    "Size2": 61,
                                     "TimeStart": 0,
                                     "TimeStop": 1
                                 },
@@ -119,7 +119,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/muzzle_05.png"
+                                    "Path": "Assets\/Particles\/IMAGES\/muzzle_05.png"
                                 }
                             ]
                         },
@@ -159,7 +159,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 1,
-                                    "StartMode": 1,
+                                    "StartMode": 3,
                                     "NumParticles": 5,
                                     "SpawnRatio": 0.019999999552965164,
                                     "NumParticlesToStop": 10,
@@ -170,7 +170,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/muzzle_05.png"
+                                    "Path": "Assets\/Particles\/IMAGES\/muzzle_05.png"
                                 },
                                 {
                                     "Type": 3,
@@ -187,8 +187,8 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 2.5880000591278076,
-                                    "Size2": 3.2420001029968262,
+                                    "Size1": 25.58799934387207,
+                                    "Size2": 32.742000579833984,
                                     "TimeStart": 0,
                                     "TimeStop": 1
                                 },
@@ -249,7 +249,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 2,
-                                    "StartMode": 1,
+                                    "StartMode": 3,
                                     "NumParticles": 15,
                                     "SpawnRatio": 0.019999999552965164,
                                     "NumParticlesToStop": 200,
@@ -313,7 +313,7 @@
                                     "Type": 4,
                                     "Progressive": false,
                                     "Loop": false,
-                                    "Size1": 1.4079999923706055,
+                                    "Size1": 14.407999992370605,
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -367,7 +367,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 1,
-                                    "StartMode": 1,
+                                    "StartMode": 3,
                                     "NumParticles": 5,
                                     "SpawnRatio": 0.019999999552965164,
                                     "NumParticlesToStop": 10,
@@ -380,8 +380,8 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 6.5,
-                                    "Size2": 6.8839998245239258,
+                                    "Size1": 65.5,
+                                    "Size2": 69.384002685546875,
                                     "TimeStart": 0,
                                     "TimeStop": 1
                                 },
@@ -398,7 +398,7 @@
                                 },
                                 {
                                     "Type": 6,
-                                    "Path": "Assets\/Particles\/muzzle_flash_8.png"
+                                    "Path": "Assets\/Particles\/IMAGES\/muzzle_flash_8.png"
                                 },
                                 {
                                     "Type": 5,
@@ -457,7 +457,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 2,
-                                    "StartMode": 1,
+                                    "StartMode": 3,
                                     "NumParticles": 21,
                                     "SpawnRatio": 0.019999999552965164,
                                     "NumParticlesToStop": 20,
@@ -528,7 +528,7 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 0.5,
+                                    "Size1": 5,
                                     "Size2": 0,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -536,7 +536,7 @@
                             ]
                         },
                         {
-                            "ModulesSize": 5,
+                            "ModulesSize": 6,
                             "EmitterUID": 1555967858,
                             "Settings": [
                                 {
@@ -571,7 +571,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 2,
-                                    "StartMode": 1,
+                                    "StartMode": 3,
                                     "NumParticles": 15,
                                     "SpawnRatio": 0.019999999552965164,
                                     "NumParticlesToStop": 27,
@@ -635,6 +635,15 @@
                                         0,
                                         0
                                     ],
+                                    "TimeStart": 0,
+                                    "TimeStop": 1
+                                },
+                                {
+                                    "Type": 4,
+                                    "Progressive": false,
+                                    "Loop": false,
+                                    "Size1": 10.5,
+                                    "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
                                 }

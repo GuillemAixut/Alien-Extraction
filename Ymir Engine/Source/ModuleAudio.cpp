@@ -13,6 +13,8 @@
 #include "ModuleAudio.h"
 #include "Log.h"
 
+#include "External/Optick/include/optick.h"
+
 #include "External/mmgr/mmgr.h"
 
 CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
@@ -33,6 +35,8 @@ ModuleAudio::~ModuleAudio()
 
 bool ModuleAudio::Init()
 {
+	OPTICK_EVENT();
+
 	//Init Memory Manager
 	AkMemSettings memSettings;
 
@@ -122,6 +126,8 @@ bool ModuleAudio::Init()
 
 bool ModuleAudio::Start()
 {
+	OPTICK_EVENT();
+
 	if (!LoadBanksInfo())
 	{
 		LOG("[ERROR] Audio Manager couldn't load data from SoundbanksInfo.json");
@@ -131,6 +137,8 @@ bool ModuleAudio::Start()
 
 update_status ModuleAudio::Update(float dt)
 {
+	OPTICK_EVENT();
+
 #ifdef STANDALONE
 	if (firstFrame)
 	{
@@ -149,6 +157,8 @@ update_status ModuleAudio::Update(float dt)
 
 update_status ModuleAudio::PostUpdate(float dt)
 {
+	OPTICK_EVENT();
+
 	if (defaultListener != nullptr && defaultListener->active)
 	{
 		//TODO when there is no sound listener or is deactivated all sound must be muted (but still rendering!)
@@ -162,6 +172,25 @@ update_status ModuleAudio::PostUpdate(float dt)
 
 bool ModuleAudio::CleanUp()
 {
+	OPTICK_EVENT();
+
+	ClearVecPtr(audio_sources);
+
+	for (std::vector<AudioBank*>::iterator it = banks.begin(); it != banks.end(); ++it)
+	{
+		(*it)->events.clear();
+		(*it)->actions.clear();
+
+		delete (*it);
+		(*it) = nullptr;
+	}
+	ClearVec(banks);
+
+	ClearVecPtr(musicSource);
+
+	RELEASE(defaultListener);
+	RELEASE(uiBankRef);
+
 	AK::SoundEngine::UnregisterAllGameObj();
 	AK::SoundEngine::ClearBanks();
 
@@ -181,21 +210,6 @@ bool ModuleAudio::CleanUp()
 
 	// Terminate the Memory Manager
 	AK::MemoryMgr::Term();
-
-	audio_sources.clear();
-
-	std::vector<AudioBank*>::iterator it;
-	for (it = banks.begin(); it != banks.end(); ++it)
-	{
-		(*it)->events.clear();
-		(*it)->actions.clear();
-		delete (*it);
-		(*it) = nullptr;
-	}
-	banks.clear();
-	musicSource.clear();
-
-	defaultListener = nullptr;
 
 	return true;
 }

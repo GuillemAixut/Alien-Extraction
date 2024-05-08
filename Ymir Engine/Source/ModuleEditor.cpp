@@ -59,6 +59,8 @@ ModuleEditor::~ModuleEditor()
 
 bool ModuleEditor::Init()
 {
+	OPTICK_EVENT();
+
 	LOG("Initializing editor...");
 
 	bool ret = true;
@@ -156,6 +158,8 @@ bool ModuleEditor::Init()
 
 update_status ModuleEditor::Update(float dt)
 {
+	OPTICK_EVENT();
+
 	return exit;
 }
 
@@ -863,11 +867,11 @@ void ModuleEditor::DrawEditor()
 
 				}
 
-				if (ImGui::Button("Apply Checker Texture")) {
+				//if (ImGui::Button("Apply Checker Texture")) {
 
-					App->renderer3D->ApplyCheckerTexture();
+				//	App->renderer3D->ApplyCheckerTexture();
 
-				}
+				//}
 
 				if (ImGui::Button("Clear Actual Texture")) {
 
@@ -2266,6 +2270,8 @@ void ModuleEditor::Toggle_GL_WireframeMode(bool wireframe)
 
 bool ModuleEditor::CleanUp()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Deleting editor...");

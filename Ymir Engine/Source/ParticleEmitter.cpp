@@ -140,39 +140,30 @@ int ParticleEmitter::DestroySetting(uint pos)
 
 void ParticleEmitter::KillDeadParticles()
 {
-	//Añadimos en una lista todas las posiciones de particulas que queremos eliminar
-	std::vector<int> particlesToDelete;
-
-	//Buscamos en toda la lista que particulas estan muertas
-	for (int i = 0; i < listParticles.size(); i++)
+	for (int i = listParticles.size()-1; i >= 0; i--)
 	{
 		//Si la particula esta muerta eliminarla del vector
-		if (listParticles.at(i)->lifetime >= 1.0f || (listParticles.at(i)->diesByDistance && (math::Distance3( float4(listParticles.at(i)->position,0.0f), float4(listParticles.at(i)->initialPosition,0.0f) ) ) > (listParticles.at(i)->distanceLimit) ) )
+		if (listParticles.at(i)->lifetime >= 1.0f || (listParticles.at(i)->diesByDistance && (math::Distance3(float4(listParticles.at(i)->position, 0.0f), float4(listParticles.at(i)->initialPosition, 0.0f))) > (listParticles.at(i)->distanceLimit)))
 		{
-			particlesToDelete.push_back(i);
+			delete listParticles.at(i);
+			listParticles.at(i) = nullptr;
+			listParticles.erase(listParticles.begin() + i);
 		}
-	}
-
-	//Leemos de final a principio la lista de particulas para eliminarlas y que no haya problemas de cambio de tamaño
-	for (int j = particlesToDelete.size() - 1; j >= 0; --j)
-	{
-		//delete listpa
-		listParticles.erase(listParticles.begin() + particlesToDelete.at(j));
 	}
 }
 
 void ParticleEmitter::KillAllParticles()
 {
-	if(!listParticles.empty())
+	if (!listParticles.empty())
 	{
 		for (auto it = listParticles.rbegin(); it != listParticles.rend(); ++it)
 		{
 			delete (*it);
 			(*it) = nullptr;
 		}
+
 		listParticles.clear();
 	}
-	
 }
 
 void ParticleEmitter::UpdateModules(float dt)
@@ -241,6 +232,7 @@ void ParticleEmitter::SpawnParticle(uint particlesToAdd) //This code only adds p
 	{
 		for (int i = 0; i < particlesToAdd; i++)
 		{
+			//std::unique_ptr<Particle*> particula(new Particle*);
 			Particle* particula = new Particle();
 			for (int m = 0; m < modules.size(); ++m)
 			{

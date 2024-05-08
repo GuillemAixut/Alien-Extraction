@@ -44,7 +44,7 @@ public:
 	void SetPreviousAnimation(ResourceAnimation* animation);
 	ResourceAnimation* GetPreviousAnimation();
 
-	bool FindAnimation(std::string aniationName);
+	bool FindAnimation(std::string animationName);
 
 private:
 	std::vector<float4x4> finalBoneMatrices;
@@ -62,7 +62,7 @@ public:
 	// List of animations
 	std::vector<ResourceAnimation*> animations;
 
-	ResourceAnimation* currentAnimation = nullptr;
-	ResourceAnimation* previousAnimation = nullptr;
+	ResourceAnimation* currentAnimation;
+	ResourceAnimation* previousAnimation;
 
 };

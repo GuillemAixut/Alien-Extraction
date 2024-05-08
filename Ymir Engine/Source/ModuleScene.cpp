@@ -5,7 +5,6 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 #include "ModuleResourceManager.h"
-#include "ModuleAudio.h"
 #include "ResourceMesh.h"
 
 #include "GameObject.h"
@@ -48,6 +47,8 @@ ModuleScene::~ModuleScene()
 
 bool ModuleScene::Init()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Loading scene");
@@ -73,6 +74,8 @@ bool ModuleScene::Init()
 
 bool ModuleScene::Start()
 {
+	OPTICK_EVENT();
+
 	currentSceneDir = "Assets";
 #ifdef _RELEASE
 	
@@ -91,6 +94,7 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/UI/Scenes", "StartScene");
 	//LoadScene("Assets/Camera", "CameraTesting");
 	//LoadScene("Assets/CutScenes", "CutScenes");
+	//LoadScene("Assets/Particles", "PlayerParticlesScene");
 
 	// -------------------- FINAL MAPS -------------------- \\
 
@@ -268,6 +272,8 @@ update_status ModuleScene::PostUpdate(float dt)
 
 bool ModuleScene::CleanUp()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Deleting scene");
@@ -402,8 +408,6 @@ void ModuleScene::ClearScene()
 	focusedUIGO = nullptr;
 	selectedUIGO = nullptr;
 
-	External->audio->UnLoadAllBanks();
-
 	External->physics->currentCollisions.clear();
 	External->physics->previousCollisions.clear();
 
@@ -457,6 +461,8 @@ void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 
 void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 {
+	OPTICK_EVENT();
+
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
 		App->scene->currentSceneDir = dir;

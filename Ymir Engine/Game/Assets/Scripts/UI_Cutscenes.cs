@@ -16,7 +16,9 @@ public class UI_Cutscenes : YmirComponent
     public int maxFrames = 0;
 
     public bool hasFinished = false;
-
+    public bool introScene = false;
+    public bool winScene = false;
+    public bool loseScene = false;
     public void Start()
     {
         img = InternalCalls.GetGameObjectByName("CutsceneImg");
@@ -38,8 +40,10 @@ public class UI_Cutscenes : YmirComponent
                 if (currentFrame == maxFrames)
                 {
                     hasFinished = true;
-
-
+                    if(introScene)
+                    {
+                        InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
+                    }
                 }
             }
         }
