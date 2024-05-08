@@ -308,6 +308,25 @@ MonoObject* FindChildrenWithName(MonoObject* obj, MonoString* name) {
 	return nullptr;
 }
 
+MonoObject* FindEnemyGameObject(MonoObject* obj) {
+
+	std::vector<GameObject*> gameObjectVec;
+
+	GameObject* GO = External->moduleMono->GameObject_From_CSGO(obj);
+	GameObject* parent = GO->mParent;
+	parent->CollectChilds(gameObjectVec);
+
+
+	if(gameObjectVec[0] != nullptr) return External->moduleMono->GoToCSGO(gameObjectVec[0]);
+
+
+	
+
+	assert("The object you searched for doesn't exist. :/");
+
+	return nullptr;
+}
+
 MonoObject* CS_GetParent(MonoObject* obj)
 {
 	GameObject* go = External->moduleMono->GameObject_From_CSGO(obj);

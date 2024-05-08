@@ -13,7 +13,7 @@ public class Health_Bar_Test : YmirComponent
     public float initialHP = 500;
     public Vector3 initialScale;
 
-    public GameObject enemy = null;
+    private GameObject enemy = null;
     public GameObject plane = null;
 
     private FaceHuggerBaseScript aux = null;
@@ -22,7 +22,7 @@ public class Health_Bar_Test : YmirComponent
 
     public void Start()
     {
-
+        enemy = InternalCalls.GetEnemyGameObject();
         plane = InternalCalls.CS_GetChild(gameObject, 0);
         initialScale = plane.transform.localScale;
 
