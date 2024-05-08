@@ -863,11 +863,11 @@ void ModuleEditor::DrawEditor()
 
 				}
 
-				if (ImGui::Button("Apply Checker Texture")) {
+				//if (ImGui::Button("Apply Checker Texture")) {
 
-					App->renderer3D->ApplyCheckerTexture();
+				//	App->renderer3D->ApplyCheckerTexture();
 
-				}
+				//}
 
 				if (ImGui::Button("Clear Actual Texture")) {
 

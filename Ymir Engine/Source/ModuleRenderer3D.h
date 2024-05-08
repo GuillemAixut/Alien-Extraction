@@ -104,10 +104,8 @@ public:
 
 	void DrawRays();
 
-	void HandleDragAndDrop();
 	bool IsFileExtension(const char* directory, const char* extension);
 
-	void ApplyCheckerTexture();
 	void ClearActualTexture();
 
 	void ReloadTextures();
