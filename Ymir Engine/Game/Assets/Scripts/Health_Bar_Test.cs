@@ -22,14 +22,16 @@ public class Health_Bar_Test : YmirComponent
 
     public void Start()
     {
-        HP = 500.0f;
-        initialHP = HP;
+
         plane = InternalCalls.CS_GetChild(gameObject, 0);
         initialScale = plane.transform.localScale;
 
         aux = enemy.GetComponent<FaceHuggerBaseScript>();
         aux2 = enemy.GetComponent<DroneXenomorphBaseScript>();
         //aux3 = enemy.GetComponent<SpitterBaseScript>();
+
+        SetInitialHP();
+        initialHP = HP;
     }
 
     public void Update()
@@ -60,6 +62,30 @@ public class Health_Bar_Test : YmirComponent
             {
                 Destroy();
             }
+        }
+
+        //if (aux3 != null)
+        //{
+        //    HP = aux3.life;
+        //    if (aux.GetState() == WanderState.DEATH)
+        //    {
+        //        Destroy();
+        //    }
+        //}
+    }
+
+    public void SetInitialHP()
+    {
+        if (aux != null)
+        {
+            HP = aux.life;
+
+        }
+
+        if (aux2 != null)
+        {
+            HP = aux2.life;
+
         }
 
         //if (aux3 != null)
