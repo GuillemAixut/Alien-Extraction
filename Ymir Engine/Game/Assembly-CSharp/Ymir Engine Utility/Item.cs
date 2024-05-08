@@ -53,6 +53,8 @@ namespace YmirEngine
         public string description = ""; // item description, name not included so that the font of the name can be different from the description, include stats
         public bool isEquipped = false;
 
+        public bool inInventory = false;
+
         public Item(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
             ITEM_SLOT itemType = ITEM_SLOT.NONE,
@@ -84,7 +86,8 @@ namespace YmirEngine
              " isEquipped: " + isEquipped.ToString() +
              " name: " + name +
              " description: " + description +
-             " imagePath: " + imagePath);
+             " imagePath: " + imagePath +
+             " inInventory: " + inInventory.ToString());
         }
     }
 

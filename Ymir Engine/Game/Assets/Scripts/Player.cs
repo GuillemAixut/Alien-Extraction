@@ -1708,7 +1708,6 @@ public class Player : YmirComponent
         if (!open)
         {
             currentMenu = "";
-            itemsList.Clear();
         }
         else
         {
@@ -1994,12 +1993,18 @@ public class Player : YmirComponent
 
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
 
-        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Items num", itemsListString.Count);
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Items num", itemsList.Count);
 
         // Items
-        for (int i = 0; i < itemsListString.Count; i++)
+        //for (int i = 0; i < itemsListString.Count; i++)
+        //{
+        //    SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsListString[i]);
+        //}
+
+        for (int i = 0; i < itemsList.Count; i++)
         {
-            SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsListString[i]);
+            SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsList[i].name);
+            SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + ".Equipped", itemsList[i].isEquipped);
         }
     }
 
@@ -2007,8 +2012,8 @@ public class Player : YmirComponent
     {
         lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
 
-        weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
-        weaponTypeTest = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
+        //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
+        //weaponTypeTest = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
 
         SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
@@ -2020,8 +2025,19 @@ public class Player : YmirComponent
     {
         for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num"); i++)
         {
-            string item = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
-            itemsListString.Add(item);
+            //string item = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
+            //itemsListString.Add(item);
+
+            Debug.Log("jiji " + SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num").ToString());
+
+            string name = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
+
+            Item item = Globals.SearchItemInDictionary(name);
+            item.isEquipped = SaveLoad.LoadBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped");
+            item.LogStats();
+            itemsList.Add(item);
+
+            item.LogStats();
         }
     }
 
