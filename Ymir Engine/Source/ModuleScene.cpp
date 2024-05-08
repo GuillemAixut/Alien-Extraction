@@ -93,7 +93,7 @@ bool ModuleScene::Start()
 	// -------------------- FINAL MAPS -------------------- \\
 
 	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-	LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
+	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
 	//LoadScene("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
