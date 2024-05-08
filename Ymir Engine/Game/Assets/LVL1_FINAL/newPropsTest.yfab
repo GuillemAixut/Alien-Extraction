@@ -1,0 +1,756 @@
+{
+    "Prefab": [
+        {
+            "Name": "New_Props_LVL1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2079092654,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1465355134,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                2118724895,
+                547821351
+            ]
+        },
+        {
+            "Name": "Mini_Walls",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2118724895,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 2079092654,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1390880156,
+                859468744,
+                100976496,
+                727236657
+            ]
+        },
+        {
+            "Name": "PROP_Tuto_Wall_LOW_UVs1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1390880156,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 2118724895,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1453968511,
+                    "Vertex Count": 178,
+                    "Index Count": 408
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1683,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_D.png",
+                    "Diffuse_UID": 649791040,
+                    "Normal_ID": 1715,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_N.png",
+                    "Normal_UID": 2078834934,
+                    "Height_ID": 1699,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_H.png",
+                    "Height_UID": 1424516187,
+                    "Ambient_ID": 1667,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_A.png",
+                    "Ambient_UID": 276021116
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Tuto_Wall_LOW_UVs",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 859468744,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 2118724895,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1522759485,
+                    "Vertex Count": 178,
+                    "Index Count": 408
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1687,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_D.png",
+                    "Diffuse_UID": 649791040,
+                    "Normal_ID": 1719,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_N.png",
+                    "Normal_UID": 2078834934,
+                    "Height_ID": 1703,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_H.png",
+                    "Height_UID": 1424516187,
+                    "Ambient_ID": 1671,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_A.png",
+                    "Ambient_UID": 276021116
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Tuto_Wall_LOW_UVs2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 100976496,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 2118724895,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 2114823686,
+                    "Vertex Count": 178,
+                    "Index Count": 408
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1691,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_D.png",
+                    "Diffuse_UID": 649791040,
+                    "Normal_ID": 1723,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_N.png",
+                    "Normal_UID": 2078834934,
+                    "Height_ID": 1707,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_H.png",
+                    "Height_UID": 1424516187,
+                    "Ambient_ID": 1675,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_A.png",
+                    "Ambient_UID": 276021116
+                }
+            ]
+        },
+        {
+            "Name": "PROP_Tuto_Wall_LOW_UVs3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 727236657,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 2118724895,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1428874255,
+                    "Vertex Count": 178,
+                    "Index Count": 408
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1695,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_D.png",
+                    "Diffuse_UID": 649791040,
+                    "Normal_ID": 1727,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_N.png",
+                    "Normal_UID": 2078834934,
+                    "Height_ID": 1711,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_H.png",
+                    "Height_UID": 1424516187,
+                    "Ambient_ID": 1679,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/RESIZED OLD TEXTURES\/WAREHOUSE\/Vallas Tutorial\/TEX_PROP_Turotial_Fences_A.png",
+                    "Ambient_UID": 276021116
+                }
+            ]
+        },
+        {
+            "Name": "Wherehouse_Exteriors",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 547821351,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 2079092654,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1862894366,
+                389688034,
+                30111037,
+                1106609385
+            ]
+        },
+        {
+            "Name": "Mesher8",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1862894366,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 547821351,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 967695932,
+                    "Vertex Count": 948,
+                    "Index Count": 948
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1502,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_01\/TEX_PROP_EXT_Warehouse_01_D.png",
+                    "Diffuse_UID": 559365849,
+                    "Specular_ID": 1522,
+                    "Specular_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_01\/TEX_PROP_EXT_Warehouse_01_S.png",
+                    "Specular_UID": 207273635,
+                    "Normal_ID": 1518,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_01\/TEX_PROP_EXT_Warehouse_01_N.png",
+                    "Normal_UID": 501175198,
+                    "Height_ID": 1514,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_01\/TEX_PROP_EXT_Warehouse_01_H.png",
+                    "Height_UID": 1403292133,
+                    "Ambient_ID": 1510,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_01\/TEX_PROP_EXT_Warehouse_01_A.png",
+                    "Ambient_UID": 29413841
+                }
+            ]
+        },
+        {
+            "Name": "Mesher9",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 389688034,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 547821351,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1569069688,
+                    "Vertex Count": 747,
+                    "Index Count": 747
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1506,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_02\/TEX_PROP_EXT_Warehouse_02_D.png",
+                    "Diffuse_UID": 1506894209,
+                    "Specular_ID": 1538,
+                    "Specular_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_02\/TEX_PROP_EXT_Warehouse_02_S.png",
+                    "Specular_UID": 1327166698,
+                    "Normal_ID": 1534,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_02\/TEX_PROP_EXT_Warehouse_02_N.png",
+                    "Normal_UID": 877230360,
+                    "Height_ID": 1530,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_02\/TEX_PROP_EXT_Warehouse_02_H.png",
+                    "Height_UID": 296579822,
+                    "Ambient_ID": 1526,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_02\/TEX_PROP_EXT_Warehouse_02_A.png",
+                    "Ambient_UID": 345090648
+                }
+            ]
+        },
+        {
+            "Name": "Mesher10",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 30111037,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 547821351,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1866729809,
+                    "Vertex Count": 535,
+                    "Index Count": 543
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1542,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_03\/TEX_PROP_EXT_Warehouse_03_D.png",
+                    "Diffuse_UID": 1239439128,
+                    "Specular_ID": 1558,
+                    "Specular_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_03\/TEX_PROP_EXT_Warehouse_03_S.png",
+                    "Specular_UID": 1386976435,
+                    "Normal_ID": 1554,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_03\/TEX_PROP_EXT_Warehouse_03_N.png",
+                    "Normal_UID": 103421516,
+                    "Height_ID": 1550,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_03\/TEX_PROP_EXT_Warehouse_03_H.png",
+                    "Height_UID": 776986612,
+                    "Ambient_ID": 1546,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_03\/TEX_PROP_EXT_Warehouse_03_A.png",
+                    "Ambient_UID": 1075398175
+                }
+            ]
+        },
+        {
+            "Name": "Mesher11",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1106609385,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_LVL1.fbx",
+            "Parent UID": 547821351,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 995072030,
+                    "Vertex Count": 873,
+                    "Index Count": 873
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/SpecularLight.glsl",
+                    "Uniforms": [
+                        {
+                            "numLights": 1,
+                            "transparency": 1,
+                            "camPos": [
+                                -52.284080505371094,
+                                111.64328002929688,
+                                63.155529022216797
+                            ],
+                            "numPointLights": 1,
+                            "map": 1,
+                            "enableDiffuse": true,
+                            "enableSpecular": true,
+                            "enableNormal": true,
+                            "enableAmbient": true,
+                            "enableHeight": true,
+                            "enableEmissive": false,
+                            "enableLighting": true,
+                            "ambient": 1,
+                            "specularLight": 1,
+                            "normalIntensity": 1,
+                            "emissive": 1
+                        }
+                    ],
+                    "Diffuse_ID": 1566,
+                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_04\/TEX_PROP_EXT_Warehouse_04_D.png",
+                    "Diffuse_UID": 208993423,
+                    "Specular_ID": 1578,
+                    "Specular_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_04\/TEX_PROP_EXT_Warehouse_04_S.png",
+                    "Specular_UID": 819901773,
+                    "Normal_ID": 1574,
+                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_04\/TEX_PROP_EXT_Warehouse_04_N.png",
+                    "Normal_UID": 737289195,
+                    "Height_ID": 1570,
+                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_04\/TEX_PROP_EXT_Warehouse_04_H.png",
+                    "Height_UID": 638283188,
+                    "Ambient_ID": 1562,
+                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/WAREHOUSE\/Warehouse Exterior\/TEX_EXT_Warehouse_04\/TEX_PROP_EXT_Warehouse_04_A.png",
+                    "Ambient_UID": 526773955
+                }
+            ]
+        }
+    ]
+}
