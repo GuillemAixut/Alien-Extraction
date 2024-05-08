@@ -181,14 +181,4 @@ public class UI_Crafting : YmirComponent
             player = gameObject.GetComponent<Player>();
         }
     }
-
-    private void GetHealthScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            health = gameObject.GetComponent<Health>();
-        }
-    }
 }

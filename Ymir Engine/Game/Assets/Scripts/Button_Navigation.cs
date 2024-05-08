@@ -30,6 +30,8 @@ public class Button_Navigation : YmirComponent
             loadSceneImg.SetActive(true);
         }
 
+        Globals.GetPlayerScript().SavePlayer();
+
         InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
     }
 }
