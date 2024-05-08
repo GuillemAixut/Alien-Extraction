@@ -56,7 +56,7 @@ public class Health_Bar_Test : YmirComponent
         if (aux2 != null)
         {
             HP = aux2.life;
-            if (aux.GetState() == WanderState.DEATH)
+            if (aux2.GetState() == DroneState.DEAD)
             {
                 Destroy();
             }
