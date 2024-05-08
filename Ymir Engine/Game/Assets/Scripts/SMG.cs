@@ -68,8 +68,10 @@ public class SMG : Weapon
 
     public override void Shoot()
     {
-        fireRateTimer = fireRate; 
         currentAmmo--;
+        fireRateTimer = fireRate;
+
+        Audio.PlayAudio(gameObject, "W_FirearmShot");
 
         GameObject target;
 

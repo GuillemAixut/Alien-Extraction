@@ -88,6 +88,8 @@ public class Shotgun : Weapon
         currentAmmo--;
         fireRateTimer = fireRate;
 
+        Audio.PlayAudio(gameObject, "W_FSADShot");
+
         Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 
         InternalCalls.CreateShotgunSensor(gameObject.transform.globalPosition, rot, gameObject.transform.GetRight());

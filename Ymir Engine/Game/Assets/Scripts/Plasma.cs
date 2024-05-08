@@ -76,9 +76,10 @@ public class Plasma : Weapon
     }
     public override void Shoot()
     {
-
         currentAmmo--;
         fireRateTimer = fireRate;
+
+        Audio.PlayAudio(gameObject, "W_PlasmaShot");
 
         GameObject target = null;
 

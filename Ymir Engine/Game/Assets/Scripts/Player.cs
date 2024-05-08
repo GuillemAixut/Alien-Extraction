@@ -81,24 +81,8 @@ public class Player : YmirComponent
     #region DEFINE SHOOT VARS
 
     //--------------------- Shoot var ---------------------\\
-    public float fireRate = 0; // rate of fire
-    private float shootingTimer = 0.0f;
-    //public float secondaryRate = 0.2f;
-    private bool shootBefore = false;
-
-    private bool isReloading = false;
-    private float reloadTimer = 0.0f;
-    public float reloadDuration = 1.0f; // reload speed
-
-    public int ammo = 0;
-    public int magsize = 5;
-
-    public float smgRange = 30.0f;
-    public float shootgunRange = 15.0f;
-    public float traceRange = 100.0f;
-
-    private int shootRumbleIntensity;
-    private int shootRumbleDuration;
+    private int shootRumbleIntensity; // <- ?
+    private int shootRumbleDuration; // <- ?
 
     public WEAPON_TYPE weaponType = WEAPON_TYPE.NONE;
     public UPGRADE upgradeType = UPGRADE.NONE;
@@ -108,9 +92,6 @@ public class Player : YmirComponent
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
     public int resin = 10;
-
-    // Lo usa el script de BH_Shotgun
-    public Vector3 shotgunOffset = Vector3.zero;
 
     #endregion
 
@@ -445,39 +426,6 @@ public class Player : YmirComponent
                 hasDashed = false;
             }
         }
-
-        //--------------------- Shoot Timer ---------------------\\
-        //if (currentState == STATE.SHOOTING && !shootBefore)
-        //{
-        //    StartShoot();
-        //    shootBefore = true;
-        //}
-        //else if (shootingTimer > 0)
-        //{
-        //    shootingTimer -= Time.deltaTime;
-
-        //    if (shootingTimer <= 0)
-        //    {
-        //        inputsList.Add(INPUT.I_SHOOT);
-        //        //Debug.Log("In shoot");
-        //    }
-        //}
-
-        //--------------------- Reload Timer ---------------------\\
-        //if (isReloading)
-        //{
-        //    if (reloadTimer > 0)
-        //    {
-        //        reloadTimer -= Time.deltaTime;
-
-        //        if (reloadTimer <= 0)
-        //        {
-        //            ammo = magsize;
-        //            if (csBullets != null) { csBullets.UseBullets(); }
-        //            isReloading = false;
-        //        }
-        //    }
-        //}
 
         //--------------------- Acidic Spit Timer ---------------------\\
         if (acidicTimer > 0)
@@ -1023,7 +971,6 @@ public class Player : YmirComponent
                         case INPUT.I_SHOOT_END:                   
                             currentState = STATE.SHOOTING;
                             EndShooting();
-                            Debug.Log("End Shooting");
                             break;
 
                         case INPUT.I_PRED_END:
@@ -1212,235 +1159,8 @@ public class Player : YmirComponent
     }
     private void StartReload()
     {
-        //switch (weaponType)
-        //{
-        //    case WEAPON.SMG:
-        //        Audio.PlayAudio(gameObject, "W_FirearmReload");
-        //        break;
-        //    case WEAPON.SHOTGUN:
-        //        Audio.PlayAudio(gameObject, "W_FSADReload");
-        //        break;
-        //    case WEAPON.TRACE:
-        //        Audio.PlayAudio(gameObject, "W_PlasmaReload");
-        //        break;
-        //    default:
-        //        Audio.PlayAudio(gameObject, "W_FirearmReload");
-        //        break;
-        //}
-
         currentWeapon.Reload();
-
-        isReloading = true;
-        reloadTimer = reloadDuration;
     }
-
-    //private void SmgShoot()
-    //{
-    //    Audio.PlayAudio(gameObject, "P_Shoot");
-    //    Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
-
-    //    if (!godMode)
-    //    {
-    //        --ammo;
-    //        //if (csBullets!= null){ csBullets.UseBullets(); }
-    //    }
-
-    //    //Particles FX
-    //    GameObject particles = GetParticles(gameObject, "ParticlesSmg");
-    //    Particles.PlayEmitter(particles);
-
-    //    //Bullet
-    //    GameObject bulletParticles = GetParticles(gameObject, "ParticlesSmgBullet");
-    //    Particles.ParticleShoot(bulletParticles, gameObject.transform.GetForward().normalized);
-    //    Particles.PlayEmitter(bulletParticles);
-
-    //    Debug.Log("Forward: " + gameObject.transform.GetForward().normalized.x + " " + gameObject.transform.GetForward().normalized.y + " " + gameObject.transform.GetForward().normalized.z);
-
-    //    Vector3 offset = new Vector3(0, 15, 0);
-
-    //    //Distancias y posicion para que la bala salga desde delante del player
-    //    //Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-    //    //float distance = 20.0f;
-    //    //Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
-
-    //    //Rotacion desde la que se crea la bala (la misma que el game object que le dispara)
-    //    //Quaternion rot = gameObject.transform.globalRotation;
-
-    //    //Tamaño de la bala
-    //    //Vector3 scale = new Vector3(2.0f, 2.0f, 2.0f);
-
-    //    //Crea la bala
-    //    //InternalCalls.CreateBullet(pos, rot, scale);
-
-    //    GameObject target;
-    //    target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 100.0f);
-
-    //    if (target != null)
-    //    {
-
-    //        Debug.Log(target.Name);
-
-    //        if (target.Tag != "Enemy")
-    //        {
-
-    //            Audio.PlayAudio(gameObject, "W_FirearmSurf");
-    //        }
-    //        else
-    //        {
-    //            Audio.PlayAudio(gameObject, "W_FirearmEnemy");
-    //            //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
-    //            FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
-
-    //            if (aux != null)
-    //            {
-    //                aux.life -= 5;
-    //            }
-
-    //            DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
-    //            if (aux2 != null)
-    //            {
-    //                aux2.life -= 5;
-    //            }
-
-    //            QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
-    //            if (aux3 != null)
-    //            {
-    //                aux3.life -= 5;
-    //            }
-    //            Debug.Log("[ERROR] HIT ENEMy");
-    //            //-----------------------------------------------------------------------------------
-    //            // Sparkle particle
-    //            // Play bullet hit wall SFX
-    //        }
-    //    }
-
-    //    inputsList.Add(INPUT.I_SHOOT_END);
-    //}
-
-    //private void ShotgunShoot()
-    //{
-    //    Audio.PlayAudio(gameObject, "W_FSADShot");
-    //    Audio.PlayAudio(gameObject, "W_FSADCapRel");
-
-    //    Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
-
-    //    if (!godMode)
-    //    {
-    //        --ammo;
-    //        //if (csBullets!= null){ csBullets.UseBullets(); }
-    //    }
-
-    //    GameObject shotgunParticles = GetParticles(gameObject, "ParticlesShotgun");
-    //    Particles.ParticleShoot(shotgunParticles, gameObject.transform.GetForward().normalized);
-    //    Particles.PlayEmitter(shotgunParticles);
-
-    //    Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-    //    float distance = 40.0f;
-    //    Vector3 offset = new Vector3(0, 15, 0);
-    //    shotgunOffset = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
-
-    //    Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
-
-    //    InternalCalls.CreateShotgunSensor(shotgunOffset, rot, gameObject.transform.GetRight());
-
-    //    inputsList.Add(INPUT.I_SHOOT_END);
-    //}
-
-    //private void TraceShoot()
-    //{
-    //    Audio.PlayAudio(gameObject, "W_PlasmaShot");
-
-    //    Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
-
-    //    GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
-    //    Particles.ParticleShoot(traceParticles, gameObject.transform.GetForward().normalized);
-    //    Particles.PlayEmitter(traceParticles);
-
-    //    if (!godMode)
-    //    {
-    //        --ammo;
-    //        //if (csBullets!= null){ csBullets.UseBullets(); }
-    //    }
-
-    //    Vector3 offset = new Vector3(0, 15, 0);
-
-    //    GameObject target;
-    //    target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 30.0f);
-
-    //    if (target != null)
-    //    {
-
-    //        Debug.Log(target.Name);
-
-    //        if (target.Tag != "Enemy")
-    //        {
-    //            Audio.PlayAudio(gameObject, "W_PlasmaSurf");
-    //        }
-    //        else
-    //        {
-    //            Audio.PlayAudio(gameObject, "W_PlasmaEnemy");
-
-    //            //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
-    //            FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
-
-    //            if (aux != null)
-    //            {
-    //                aux.life -= 10;
-    //            }
-
-    //            DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
-    //            if (aux2 != null)
-    //            {
-    //                aux2.life -= 10;
-    //            }
-
-    //            QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
-    //            if (aux3 != null)
-    //            {
-    //                aux3.life -= 10;
-    //            }
-    //            Debug.Log("[ERROR] HIT ENEMy");
-    //            //-----------------------------------------------------------------------------------
-    //        }
-    //    }
-    //    // List<GameObject> targets = new List<GameObject>();
-
-    //    // for (float tracerCurrentDistance = 0; tracerCurrentDistance < traceRange; tracerCurrentDistance += 0) {
-
-    //    //     Debug.Log("Tracer CurrentDistance" + tracerCurrentDistance);
-
-    //    //     GameObject tempTarget = gameObject.RaycastHit(gameObject.transform.globalPosition + offset + (tracerCurrentDistance * gameObject.transform.GetForward()), gameObject.transform.GetForward(), traceRange - tracerCurrentDistance);
-
-    //    //     if (tempTarget != null && !targets.Contains(tempTarget)) {
-
-    //    //         targets.Add(tempTarget);
-    //    //         tracerCurrentDistance = Mathf.Distance(gameObject.transform.globalPosition, tempTarget.transform.globalPosition);
-    //    //     }
-    //    //     else
-    //    //     {
-    //    //         tracerCurrentDistance = traceRange;
-    //    //     }
-    //    // }
-
-    //    //for (int i = 0; i < targets.Count(); i++)
-    //    // {
-    //    //     Debug.Log("Tracer" + i + "Hit:"+ targets[i].Name);
-
-    //    //     if (targets[i].Tag != "Enemy")
-    //    //     {
-    //    //         // Sparkle particle
-    //    //         // Play bullet hit wall SFX
-    //    //     }
-    //    //     else
-    //    //     {
-    //    //         // Damage enemy
-    //    //         // Blood particle
-
-    //    //     }
-    //    // }
-
-    //    inputsList.Add(INPUT.I_SHOOT_END);
-    //}
 
     private void SetWeapon(WEAPON_TYPE type = WEAPON_TYPE.SMG, UPGRADE upgrade = UPGRADE.LVL_0)
     {
