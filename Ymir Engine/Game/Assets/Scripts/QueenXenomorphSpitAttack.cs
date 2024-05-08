@@ -27,7 +27,7 @@ public class QueenXenomorphSpitAttack : YmirComponent
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         Vector3 impulse = gameObject.transform.GetForward();
-        impulse += new Vector3(0, -0.07f, 0);
+        impulse += new Vector3(0, -0.02f, 0);
         gameObject.SetImpulse(impulse * movementSpeed * Time.deltaTime);
         destroyed = false;
         destroyTimer = 0f;
@@ -39,6 +39,54 @@ public class QueenXenomorphSpitAttack : YmirComponent
 
         if (destroyed || destroyTimer >= 3f)
         {
+            //DO EXPLOSION
+            Quaternion rotation;
+            float angle = 0.0f;
+            Vector3 pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateQueenShrapnel(gameObject.transform.globalPosition, rotation);
+            pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            angle = 45.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            angle = 90.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            angle = 135.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            angle = 180.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            angle = 225.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            angle = 270.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+            pos = gameObject.transform.globalPosition;
+            pos.y += 2f;
+            angle = 315.0f;
+            rotation = Quaternion.RotateQuaternionY(gameObject.transform.globalRotation, angle);
+            InternalCalls.CreateSpitterAcidShrapnel(gameObject.transform.globalPosition, rotation);
+
+            pos = gameObject.transform.globalPosition;
+            pos.y = 0f;
+            InternalCalls.CreateQueenPuddle(pos, gameObject.transform.globalRotation);
+
+
             InternalCalls.Destroy(gameObject);
         }
 

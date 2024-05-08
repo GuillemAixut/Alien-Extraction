@@ -8,14 +8,47 @@ using YmirEngine;
 
 public class QueenXenomorphPuddle : YmirComponent
 {
+    public GameObject thisReference = null;
 
-	public void Start()
-	{
-		Debug.Log("HelloWorld"); 
-	}
+    private float damage = 20f;
 
-	public void Update()
-	{
-		return;
-	}
+    private GameObject player;
+
+    private Health healthScript;
+
+    private float destroyTimer;
+
+    private float puddleTimer;
+
+    private float puddleDamageTimer;
+
+    public void Start()
+    {
+        player = InternalCalls.GetGameObjectByName("Player");
+        healthScript = player.GetComponent<Health>();
+        destroyTimer = 0f;
+        puddleTimer = 0f;
+    }
+
+    public void Update()
+    {
+        destroyTimer += Time.deltaTime;
+
+        puddleTimer += Time.deltaTime;
+
+        if (destroyTimer >= 50f)
+        {
+            InternalCalls.Destroy(gameObject);
+        }
+
+    }
+
+    public void OnCollisionStay(GameObject other)
+    {
+        if (other.Name == "Player" && puddleTimer >= 0.5f)
+        {
+            healthScript.TakeDmg(damage);
+            puddleTimer = 0f;
+        }
+    }
 }
