@@ -155,7 +155,7 @@ public class UI_Item_Button : YmirComponent
         return elementChanged;
     }
 
-    private ITEM_RARITY SetRarity(string type)
+    public ITEM_RARITY SetRarity(string type)
     {
         ITEM_RARITY elementChanged = ITEM_RARITY.NONE;
 
@@ -188,7 +188,7 @@ public class UI_Item_Button : YmirComponent
         return elementChanged;
     }
 
-    private string SetInspectorType(ITEM_SLOT type) // Set values inspector when item is set
+    public string SetInspectorType(ITEM_SLOT type) // Set values inspector when item is set
     {
         string elementChanged = " ";
 
@@ -289,7 +289,7 @@ public class UI_Item_Button : YmirComponent
             _item = new I_Equippable(currentSlot, itemType, itemRarity, isEquipped,
             /*name*/"Empty",
             /*description*/ "Empty",
-            /*imagePath*/ "",
+            /*imagePath*/"Assets/UI/Inventory Buttons/New Buttons/Unselected.png",
             /*dictionaryName*/"",
             HP, armor, speed, fireRate, reloadSpeed, damageMultiplier);
         }
@@ -298,7 +298,7 @@ public class UI_Item_Button : YmirComponent
         {
             _item = new I_Consumables(currentSlot, itemType, itemRarity, isEquipped,
             /*name*/"Empty",
-            /*description*/ "Empty",
+            /*description*/ "Assets/UI/Inventory Buttons/New Buttons/Unselected.png",
             /*imagePath*/ "");
         }
 
@@ -364,7 +364,10 @@ public class UI_Item_Button : YmirComponent
             _item = new Item(currentSlot, itemType, itemRarity, isEquipped,
             /*name*/"Empty",
             /*description*/ "Empty",
-            /*imagePath*/ "");
+            /*imagePath*/ "Assets/UI/Inventory Buttons/New Buttons/Unselected.png");
+
+            UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), _item.imagePath, (int)UI_STATE.NORMAL); // Empty image
+            UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL); // No rarity
         }
 
         //item.LogStats();    
