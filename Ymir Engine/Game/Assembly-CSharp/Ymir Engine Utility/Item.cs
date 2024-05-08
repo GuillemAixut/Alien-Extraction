@@ -106,6 +106,7 @@ namespace YmirEngine
             string name = "Empty",
             string description = "Empty",
             string imagePath = "",
+            string dictionaryName = "",
 
             // Equippables
             float HP = 0,
@@ -180,6 +181,7 @@ namespace YmirEngine
             string name = "Empty",
             string description = "Empty",
             string imagePath = "",
+            string dictionaryName = "",
 
             // Consumables
             float dmg = 0,
