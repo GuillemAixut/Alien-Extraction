@@ -2143,7 +2143,7 @@ void EmitterColor::OnInspector()
 EmitterImage::EmitterImage()
 {
 	rTexTemp = new ResourceTexture();
-	imgPath = "Assets/Particles/particleExample.png";
+	imgPath = "Assets/Particles/IMAGES/particleExample.png";
 	SetImage(imgPath);
 }
 
@@ -2168,7 +2168,7 @@ void EmitterImage::Update(float dt, ParticleEmitter* emitter)
 
 std::vector<std::string> ListFilesInParticlesFolder() {
 	std::vector<std::string> files;
-	const std::string particlesFolderPath = "Assets/Particles";
+	const std::string particlesFolderPath = "Assets/Particles/IMAGES";
 	for (const auto& entry : std::filesystem::directory_iterator(particlesFolderPath)) {
 		if (entry.is_regular_file() && entry.path().extension() == ".png") {
 			files.push_back(entry.path().filename().string());
@@ -2190,7 +2190,7 @@ void EmitterImage::OnInspector()
 			{
 				if (ImGui::Selectable(particleFile.c_str())) 
 				{
-					std::string particlePath = "Assets/Particles/" + particleFile;
+					std::string particlePath = "Assets/Particles/IMAGES/" + particleFile;
 					SetImage(particlePath);
 					break;
 				}
