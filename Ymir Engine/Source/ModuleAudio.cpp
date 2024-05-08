@@ -162,6 +162,23 @@ update_status ModuleAudio::PostUpdate(float dt)
 
 bool ModuleAudio::CleanUp()
 {
+	ClearVecPtr(audio_sources);
+
+	for (std::vector<AudioBank*>::iterator it = banks.begin(); it != banks.end(); ++it)
+	{
+		(*it)->events.clear();
+		(*it)->actions.clear();
+
+		delete (*it);
+		(*it) = nullptr;
+	}
+	ClearVec(banks);
+
+	ClearVecPtr(musicSource);
+
+	RELEASE(defaultListener);
+	RELEASE(uiBankRef);
+
 	AK::SoundEngine::UnregisterAllGameObj();
 	AK::SoundEngine::ClearBanks();
 
@@ -181,21 +198,6 @@ bool ModuleAudio::CleanUp()
 
 	// Terminate the Memory Manager
 	AK::MemoryMgr::Term();
-
-	audio_sources.clear();
-
-	std::vector<AudioBank*>::iterator it;
-	for (it = banks.begin(); it != banks.end(); ++it)
-	{
-		(*it)->events.clear();
-		(*it)->actions.clear();
-		delete (*it);
-		(*it) = nullptr;
-	}
-	banks.clear();
-	musicSource.clear();
-
-	defaultListener = nullptr;
 
 	return true;
 }
