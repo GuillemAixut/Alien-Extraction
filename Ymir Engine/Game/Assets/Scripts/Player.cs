@@ -167,6 +167,8 @@ public class Player : YmirComponent
 
     #region DEFINE MENUS
 
+    public int currentLvl = (int)LEVEL.BASE;
+
     public string currentMenu = "";
     public bool setHover = false; // Guarrada temporal
     public List<string> itemsListString;
