@@ -1,13 +1,13 @@
 {
     "Prefab": [
         {
-            "Name": "ParticlesSteps",
+            "Name": "ParticlesBullets",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1031312782,
+            "UID": 830019118,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1804673821,
+            "Parent UID": 792939468,
             "Components": [
                 {
                     "Type": "Transform",
@@ -15,7 +15,7 @@
                     "Translation": [
                         0,
                         0,
-                        -85.083541870117188
+                        0.33210945129394531
                     ],
                     "Rotation": [
                         -0,
@@ -23,9 +23,9 @@
                         -0
                     ],
                     "Scale": [
-                        9.5785436630249023,
-                        9.5785436630249023,
-                        9.5785436630249023
+                        1,
+                        1,
+                        1
                     ]
                 },
                 {
@@ -35,11 +35,11 @@
                     "Emitters": [
                         {
                             "ModulesSize": 6,
-                            "EmitterUID": 2002222269,
+                            "EmitterUID": 445827203,
                             "Settings": [
                                 {
                                     "Type": 0,
-                                    "Lifetime": 0.5,
+                                    "Lifetime": 1,
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
@@ -50,7 +50,7 @@
                                     "DistanceLimit": 0,
                                     "HasDistanceLimit": false,
                                     "BaseRotation": 0,
-                                    "BaseShape": 1,
+                                    "BaseShape": 0,
                                     "PositiveBoxPoints": [
                                         1,
                                         1,
@@ -69,23 +69,23 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 0,
-                                    "StartMode": 0,
-                                    "NumParticles": 9,
-                                    "SpawnRatio": 0.20000000298023224,
-                                    "NumParticlesToStop": 3,
+                                    "StartMode": 3,
+                                    "NumParticles": 4,
+                                    "SpawnRatio": 0.10000000149011612,
+                                    "NumParticlesToStop": 1,
                                     "PointingUID": 0,
-                                    "ConditionForSpawn": 2,
-                                    "SubemitterMaxLifetime": 1,
-                                    "SubemitterMinLifetime": 0
+                                    "ConditionForSpawn": 1,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 1
                                 },
                                 {
                                     "Type": 2,
                                     "Random": false,
-                                    "UseShapeBase": true,
+                                    "UseShapeBase": false,
                                     "Direction1": [
                                         0,
                                         0,
-                                        0
+                                        2.7999999523162842
                                     ],
                                     "Direction2": [
                                         0,
@@ -94,7 +94,7 @@
                                     ],
                                     "NormalizedBaseDirection": true,
                                     "Accelerates": false,
-                                    "Speed1": 1.6000000238418579,
+                                    "Speed1": 694.5999755859375,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -119,27 +119,27 @@
                                 },
                                 {
                                     "Type": 4,
-                                    "Progressive": true,
+                                    "Progressive": false,
                                     "Loop": false,
-                                    "Size1": 2.5,
-                                    "Size2": 0.5,
+                                    "Size1": 1,
+                                    "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
                                 },
                                 {
                                     "Type": 5,
-                                    "Progressive": true,
+                                    "Progressive": false,
                                     "Loop": false,
                                     "Color1": [
-                                        0.77433627843856812,
-                                        0.77433627843856812,
-                                        0.77433627843856812,
+                                        0,
+                                        0.65486741065979004,
+                                        1,
                                         1
                                     ],
                                     "Color2": [
-                                        0.49557524919509888,
-                                        0.49557524919509888,
-                                        0.49557524919509888,
+                                        0,
+                                        0,
+                                        0,
                                         0
                                     ],
                                     "TimeStart": 0,
