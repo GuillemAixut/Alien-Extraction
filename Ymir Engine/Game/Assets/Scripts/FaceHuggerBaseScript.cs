@@ -249,6 +249,7 @@ public class FaceHuggerBaseScript : Enemy
                                 walkPlaying = true;
                             }
                             wanderState = WanderState.CHASING;
+                            player.GetComponent<Player>().SetCombatAudioState();
 
                         }
                         //Attack if in range
