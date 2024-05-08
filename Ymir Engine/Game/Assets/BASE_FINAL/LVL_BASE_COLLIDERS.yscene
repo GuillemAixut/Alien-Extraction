@@ -1,9 +1,9 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        40.131420135498047,
-        169.33824157714844,
-        33.944488525390625
+        40.177497863769531,
+        168.84844970703125,
+        33.775978088378906
     ],
     "Editor Camera Right (X)": [
         0.96422773599624634,
@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1976638457,
+            "UID": 635123340,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -53,7 +53,7 @@
             "UID": 1211565987,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2659,7 +2659,7 @@
             "UID": 1950834715,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10639,7 +10639,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10666,8 +10666,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1519,
-                    "Height": 826,
+                    "Width": 1901,
+                    "Height": 1046,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -13177,7 +13177,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -20658,7 +20658,7 @@
             "UID": 365492027,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -22439,7 +22439,7 @@
             "UID": 2098616738,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51089,7 +51089,7 @@
             "UID": 869362369,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -54870,7 +54870,7 @@
             "UID": 297696942,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -55615,7 +55615,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56503,7 +56503,7 @@
                     "Rotation": [
                         -0,
                         0,
-                        6.1662144660949707
+                        6.1662149429321289
                     ],
                     "Scale": [
                         0.95785421133041382,
@@ -57329,7 +57329,7 @@
             "UID": 812841453,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -57366,7 +57366,7 @@
             "UID": 369438965,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -57393,8 +57393,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1519,
-                    "Height": 826,
+                    "Width": 1901,
+                    "Height": 1046,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -57572,7 +57572,7 @@
                     "ScriptName": "UI_Crafting_Recipe.cs",
                     "Active": 1,
                     "UID": 0,
-                    "itemCraft": "armor"
+                    "craftName": "armor"
                 }
             ],
             "Children UID": [
@@ -58818,7 +58818,7 @@
                     "ScriptName": "UI_Crafting_Recipe.cs",
                     "Active": 1,
                     "UID": 0,
-                    "itemCraft": "grenade"
+                    "craftName": "grenade"
                 }
             ],
             "Children UID": [
@@ -59767,7 +59767,7 @@
                     "ScriptName": "UI_Crafting_Recipe.cs",
                     "Active": 1,
                     "UID": 0,
-                    "itemCraft": "bakerhouse"
+                    "craftName": "bakerhouse"
                 }
             ],
             "Children UID": [
@@ -60716,7 +60716,7 @@
                     "ScriptName": "UI_Crafting_Recipe.cs",
                     "Active": 1,
                     "UID": 0,
-                    "itemCraft": "ofChip"
+                    "craftName": "ofChip"
                 }
             ],
             "Children UID": [
@@ -61962,7 +61962,7 @@
                     "ScriptName": "UI_Crafting_Recipe.cs",
                     "Active": 1,
                     "UID": 0,
-                    "itemCraft": "defChip"
+                    "craftName": "defChip"
                 }
             ],
             "Children UID": [
@@ -63208,7 +63208,7 @@
                     "ScriptName": "UI_Crafting_Recipe.cs",
                     "Active": 1,
                     "UID": 0,
-                    "itemCraft": "armor"
+                    "craftName": "upgradevessel"
                 }
             ],
             "Children UID": [
@@ -66229,7 +66229,7 @@
                     "currentSlot": 0,
                     "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "RARE",
+                    "enumRarity": "EPIC",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "name": "Alien Acid Vesicle",
@@ -68005,7 +68005,7 @@
                     "currentSlot": 0,
                     "enumItem": "MATERIAL",
                     "enumSlot": "NONE",
-                    "enumRarity": "RARE",
+                    "enumRarity": "EPIC",
                     "menuName": "Crafting Canvas",
                     "updateStats": true,
                     "name": "Alien Tail tip",
@@ -69782,7 +69782,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70319,7 +70319,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70670,7 +70670,7 @@
             "UID": 375914611,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1976638457,
+            "Parent UID": 635123340,
             "Components": [
                 {
                     "Type": "Transform",

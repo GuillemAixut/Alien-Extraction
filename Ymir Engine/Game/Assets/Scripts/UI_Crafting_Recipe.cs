@@ -9,7 +9,7 @@ using YmirEngine;
 public class UI_Crafting_Recipe : YmirComponent
 {
     private Player player = null;
-    public string itemCraft = "";
+    public string craftName = "";
     private ITEM_RARITY _rarity;
 
     public void Start()
@@ -100,31 +100,34 @@ public class UI_Crafting_Recipe : YmirComponent
         // Add new item
         Item item = null;
 
-        switch (_rarity)
+        if (craftName.CompareTo("upgradevessel") == 1)
         {
-            case ITEM_RARITY.COMMON:
-                Debug.Log(itemCraft + "_common");
-                item = Globals.SearchItemInDictionary(itemCraft + "_common"); 
-                break;
-            case ITEM_RARITY.RARE:
-                Debug.Log(itemCraft + "_rare");
+            Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            Debug.Log(craftName + "_mythic");
+            item = Globals.SearchItemInDictionary(craftName + "_mythic");
+        }
 
-                item = Globals.SearchItemInDictionary(itemCraft + "_rare"); 
-                break;
-            case ITEM_RARITY.EPIC:
-                Debug.Log(itemCraft + "_epic");
-
-                item = Globals.SearchItemInDictionary(itemCraft + "_epic"); 
-                break;
-            case ITEM_RARITY.MYTHIC:
-                Debug.Log(itemCraft + "_epic");
-
-                item = Globals.SearchItemInDictionary(itemCraft + "_epic"); 
-                break;
-            case ITEM_RARITY.NONE:
-                break;
-            default:
-                break;
+        else
+        {
+            switch (_rarity)
+            {
+                case ITEM_RARITY.COMMON:
+                    item = Globals.SearchItemInDictionary(craftName + "_common");
+                    break;
+                case ITEM_RARITY.RARE:
+                    item = Globals.SearchItemInDictionary(craftName + "_rare");
+                    break;
+                case ITEM_RARITY.EPIC:
+                    item = Globals.SearchItemInDictionary(craftName + "_epic");
+                    break;
+                case ITEM_RARITY.MYTHIC:
+                    item = Globals.SearchItemInDictionary(craftName + "_epic");
+                    break;
+                case ITEM_RARITY.NONE:
+                    break;
+                default:
+                    break;
+            }
         }
 
         Debug.Log(item.name);
