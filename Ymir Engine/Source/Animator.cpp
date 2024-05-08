@@ -15,6 +15,9 @@ Animator::Animator()
 	deltaTime = 0;
 	transitionTime = 0;
 	lastCurrentTime = 0;
+
+	currentAnimation = nullptr;
+	previousAnimation = nullptr;
 }
 
 Animator::Animator(ResourceAnimation* animation)
@@ -28,6 +31,9 @@ Animator::Animator(ResourceAnimation* animation)
 	deltaTime = 0;
 	transitionTime = 0;
 	lastCurrentTime = 0;
+
+	currentAnimation = nullptr;
+	previousAnimation = nullptr;
 }
 
 Animator::~Animator()
@@ -38,7 +44,7 @@ Animator::~Animator()
 		(*it) = nullptr;
 	}
 
-	ClearVec(animations);
+	ClearVecPtr(animations);
 	ClearVec(finalBoneMatrices);
 	currentAnimation = nullptr;
 	previousAnimation = nullptr; 

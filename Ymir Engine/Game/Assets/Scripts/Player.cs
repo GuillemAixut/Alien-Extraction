@@ -55,17 +55,6 @@ public class Player : YmirComponent
         I_SWIPE_END,
     }
 
-    enum WEAPON : int
-    {
-        NONE = -1,
-
-        SMG,
-        SHOTGUN,
-        TRACE,
-
-        All_TYPES
-    }
-
     //--------------------- State ---------------------\\
     public STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
     private List<INPUT> inputsList = new List<INPUT>();
@@ -92,14 +81,9 @@ public class Player : YmirComponent
     #region DEFINE SHOOT VARS
 
     //--------------------- Shoot var ---------------------\\
-    public float fireRate = 0; // rate of fire
-    private float shootingTimer = 0.0f;
-    //public float secondaryRate = 0.2f;
-    private bool shootBefore = false;
 
-    private bool isReloading = false;
-    private float reloadTimer = 0.0f;
-    public float reloadDuration = 1.0f; // reload speed
+    public WEAPON_TYPE weaponType = WEAPON_TYPE.NONE;
+    public UPGRADE upgradeType = UPGRADE.NONE;
 
     public int ammo = 0;
     public int magsize = 5;
@@ -113,14 +97,12 @@ public class Player : YmirComponent
 
     private WEAPON weaponType = WEAPON.NONE;
     public WEAPON_TYPE weaponTypeTest = WEAPON_TYPE.NONE;
-    //private Weapon currentWeapon = null;
+    
+    public Weapon currentWeapon = null;
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
     public int resin = 10;
-
-    // Lo usa el script de BH_Shotgun
-    public Vector3 shotgunOffset = Vector3.zero;
 
     #endregion
 
@@ -197,24 +179,24 @@ public class Player : YmirComponent
     #region WEAPON GAMEOBJECTS
 
     public GameObject w_SMG_0;
-    //public GameObject w_SMG_1;
-    //public GameObject w_SMG_2;
-    //public GameObject w_SMG_3a;
-    //public GameObject w_SMG_3b;
+    public GameObject w_SMG_1;
+    public GameObject w_SMG_2;
+    public GameObject w_SMG_3a;
+    public GameObject w_SMG_3b;
 
     public GameObject w_Shotgun_0;
-    //public GameObject w_Shotgun_1;
-    //public GameObject w_Shotgun_2;
-    //public GameObject w_Shotgun_3a;
-    //public GameObject w_Shotgun_3b;
+    public GameObject w_Shotgun_1;
+    public GameObject w_Shotgun_2;
+    public GameObject w_Shotgun_3a;
+    public GameObject w_Shotgun_3b;
 
     public GameObject w_Plasma_0;
-    //public GameObject w_Plasma_1;
-    //public GameObject w_Plasma_2;
-    //public GameObject w_Plasma_3a;
-    //public GameObject w_Plasma_3b;
+    public GameObject w_Plasma_1;
+    public GameObject w_Plasma_2;
+    public GameObject w_Plasma_3a;
+    public GameObject w_Plasma_3b;
 
-    //List<GameObject> weapons = new List<GameObject>();
+    List<GameObject> weapons = new List<GameObject>();
 
     #endregion
 
@@ -237,7 +219,8 @@ public class Player : YmirComponent
         deathAnimFinish = false;
         deathTimer = 3;
 
-        weaponType = WEAPON.SMG;
+        weaponType = WEAPON_TYPE.SMG;
+        upgradeType = UPGRADE.LVL_0;
 
         movementSpeed = 3000.0f;    //Antes 35
 
@@ -287,13 +270,27 @@ public class Player : YmirComponent
 
         //--------- Weapons List -----------\\
 
-        //weapons.Add(w_SMG_0);
-        //weapons.Add(w_Shotgun_0);
-        //weapons.Add(w_Plasma_0);
+        weapons.Add(w_SMG_0);
+        weapons.Add(w_SMG_1);
+        weapons.Add(w_SMG_2);
+        weapons.Add(w_SMG_3a);
+        weapons.Add(w_SMG_3b);
 
-        GetWeaponVars();
+        weapons.Add(w_Shotgun_0);
+        weapons.Add(w_Shotgun_1);
+        weapons.Add(w_Shotgun_2);
+        weapons.Add(w_Shotgun_3a);
+        weapons.Add(w_Shotgun_3b);
 
-        //currentWeapon = w_SMG_0.GetComponent<SMG>();
+        weapons.Add(w_Plasma_0);
+        weapons.Add(w_Plasma_1);
+        weapons.Add(w_Plasma_2);
+        weapons.Add(w_Plasma_3a);
+        weapons.Add(w_Plasma_3b);
+
+        SetWeapon(weaponType, upgradeType);
+
+        currentWeapon = w_SMG_0.GetComponent<SMG>();
 
         //--------------------- Menus ---------------------\\
         itemsList = new List<Item>();
@@ -373,6 +370,11 @@ public class Player : YmirComponent
 
         UpdateState();
 
+        if (currentWeapon != null)
+        {
+            currentWeapon.Update();
+        }
+
         if (Input.GetKey(YmirKeyCode.K) == KeyState.KEY_DOWN)
         {
             Audio.SetState("CombatState", "Exploration");
@@ -390,26 +392,23 @@ public class Player : YmirComponent
 
         if (Input.GetKey(YmirKeyCode.KP_1) == KeyState.KEY_DOWN)
         {
-            SwapWeapon(WEAPON.SMG);
+            SetWeapon(WEAPON_TYPE.SMG);
         }
 
         if (Input.GetKey(YmirKeyCode.KP_2) == KeyState.KEY_DOWN)
         {
-            SwapWeapon(WEAPON.SHOTGUN);
+            SetWeapon(WEAPON_TYPE.SHOTGUN);
         }
 
         if (Input.GetKey(YmirKeyCode.KP_3) == KeyState.KEY_DOWN)
         {
-            SwapWeapon(WEAPON.TRACE);
+            SetWeapon(WEAPON_TYPE.PLASMA);
         }
 
         if (Input.GetKey(YmirKeyCode.F8) == KeyState.KEY_DOWN)
         {
             SavePlayer();
         }
-
-        //Debug.Log("swipeCD = " + swipeCDTimer);
-
     }
 
     #region FSM
@@ -447,39 +446,6 @@ public class Player : YmirComponent
             if (dashCDTimer <= 0)
             {
                 hasDashed = false;
-            }
-        }
-
-        //--------------------- Shoot Timer ---------------------\\
-        if (currentState == STATE.SHOOTING && !shootBefore)
-        {
-            StartShoot();
-            shootBefore = true;
-        }
-        else if (shootingTimer > 0)
-        {
-            shootingTimer -= Time.deltaTime;
-
-            if (shootingTimer <= 0)
-            {
-                inputsList.Add(INPUT.I_SHOOT);
-                //Debug.Log("In shoot");
-            }
-        }
-
-        //--------------------- Reload Timer ---------------------\\
-        if (isReloading)
-        {
-            if (reloadTimer > 0)
-            {
-                reloadTimer -= Time.deltaTime;
-
-                if (reloadTimer <= 0)
-                {
-                    ammo = magsize;
-                    if (csBullets != null) { csBullets.UseBullets(); }
-                    isReloading = false;
-                }
             }
         }
 
@@ -651,14 +617,14 @@ public class Player : YmirComponent
             }
 
             //----------------- Shoot -----------------\\
-            if (Input.GetGamepadRightTrigger() > 0 && !isReloading && ammo > 0)
+            if (Input.GetGamepadRightTrigger() > 0)
             {
                 inputsList.Add(INPUT.I_SHOOTING);
             }
             else
             {
                 inputsList.Add(INPUT.I_SHOOTING_END);
-                shootBefore = false;
+                //shootBefore = false;
             }
 
             //----------------- Dash -----------------\\
@@ -710,7 +676,7 @@ public class Player : YmirComponent
             }
 
             //----------------- Reload -----------------\\
-            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN && currentWeapon.ReloadAvailable())
             {
                 inputsList.Add(INPUT.I_RELOAD);
             }
@@ -755,22 +721,22 @@ public class Player : YmirComponent
         //----------------- Swap to SMG -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
         {
-            SwapWeapon(WEAPON.SMG);
-            Debug.Log("" + WEAPON.SMG);
+            SetWeapon(WEAPON_TYPE.SMG);
+            Debug.Log("" + WEAPON_TYPE.SMG);
         }
 
         //----------------- Swap to Shotgun -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha2) == KeyState.KEY_DOWN)
         {
-            SwapWeapon(WEAPON.SHOTGUN);
-            Debug.Log("" + WEAPON.SHOTGUN);
+            SetWeapon(WEAPON_TYPE.SHOTGUN);
+            Debug.Log("" + WEAPON_TYPE.SHOTGUN);
         }
 
         //----------------- Swap to Laser -----------------\\  Provisional!!!
         if (Input.GetKey(YmirKeyCode.Alpha3) == KeyState.KEY_DOWN)
         {
-            SwapWeapon(WEAPON.TRACE);
-            Debug.Log("" + WEAPON.TRACE);
+            SetWeapon(WEAPON_TYPE.PLASMA);
+            Debug.Log("" + WEAPON_TYPE.PLASMA);
         }
 
         //----------------- Desbugear -----------------\\
@@ -996,7 +962,6 @@ public class Player : YmirComponent
                         case INPUT.I_SHOOTING_END:
                             currentState = STATE.IDLE;
                             EndShooting();
-                            //StartIdle(); //Trigger de la animacion
                             break;
 
                         case INPUT.I_SHOOT:
@@ -1025,9 +990,9 @@ public class Player : YmirComponent
                             StopPlayer();
                             break;
 
-                        case INPUT.I_SHOOT_END:
+                        case INPUT.I_SHOOT_END:                   
                             currentState = STATE.SHOOTING;
-                            StartShooting();
+                            EndShooting();
                             break;
 
                         case INPUT.I_PRED_END:
@@ -1185,34 +1150,17 @@ public class Player : YmirComponent
 
     private void StartShooting()
     {
-        // Trigger animacion disparar
-        // Futuro autoapuntado
-        shootingTimer = fireRate;
+
     }
     private void StartShoot()
     {
         StopPlayer();
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
-        //Logica del disparo depende del arma equipada
-        switch (weaponType)
-        {
-            case WEAPON.SMG:
-                SmgShoot();
-                break;
-            case WEAPON.SHOTGUN:
-                ShotgunShoot();
-                break;
-            case WEAPON.TRACE:
-                TraceShoot();
-                break;
-            default:
-                SmgShoot();
-                break;
-        }
+
+        currentWeapon.Shoot();
 
         if (!godMode)
         {
-            --ammo;
             if (csBullets != null) { csBullets.UseBullets(); }
         }
 
@@ -1220,319 +1168,144 @@ public class Player : YmirComponent
     }
     private void UpdateShooting()
     {
+        if (currentWeapon.ShootAvailable()) inputsList.Add(INPUT.I_SHOOT);
+
         if (JoystickMoving() == true)
             HandleRotation();
     }
 
     private void EndShooting()
     {
-        // Reset del futuro autoapuntado
-        Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        if (currentWeapon.currentAmmo <= 0 || inputsList[0] == INPUT.I_SHOOTING_END)
+            Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
     private void StartReload()
     {
-        switch (weaponType)
-        {
-            case WEAPON.SMG:
-                Audio.PlayAudio(gameObject, "W_FirearmReload");
-                break;
-            case WEAPON.SHOTGUN:
-                Audio.PlayAudio(gameObject, "W_FSADReload");
-                break;
-            case WEAPON.TRACE:
-                Audio.PlayAudio(gameObject, "W_PlasmaReload");
-                break;
-            default:
-                Audio.PlayAudio(gameObject, "W_FirearmReload");
-                break;
-        }
-
-        isReloading = true;
-        reloadTimer = reloadDuration;
+        currentWeapon.Reload();
     }
 
-    private void SmgShoot()
+    private void SetWeapon(WEAPON_TYPE type = WEAPON_TYPE.SMG, UPGRADE upgrade = UPGRADE.LVL_0)
     {
-        Audio.PlayAudio(gameObject, "P_Shoot");
-        Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
+        // Set all GO weapons to not active
+        for (int i = 0; i < weapons.Count(); i++) {
 
-        if (!godMode)
-        {
-            --ammo;
-            //if (csBullets!= null){ csBullets.UseBullets(); }
+            weapons[i].SetActive(false);
         }
-
-        //Particles FX
-        GameObject particles = GetParticles(gameObject, "ParticlesSmg");
-        Particles.PlayParticles(particles);
-
-        //Bullet
-        GameObject bulletParticles = GetParticles(gameObject, "ParticlesSmgBullet");
-        Particles.ParticleShoot(bulletParticles, gameObject.transform.GetForward().normalized);
-        Particles.PlayParticles(bulletParticles);
-
-        Debug.Log("Forward: " + gameObject.transform.GetForward().normalized.x + " " + gameObject.transform.GetForward().normalized.y + " " + gameObject.transform.GetForward().normalized.z);
-
-        Vector3 offset = new Vector3(0, 15, 0);
-
-        //Distancias y posicion para que la bala salga desde delante del player
-        //Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-        //float distance = 20.0f;
-        //Vector3 pos = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
-
-        //Rotacion desde la que se crea la bala (la misma que el game object que le dispara)
-        //Quaternion rot = gameObject.transform.globalRotation;
-
-        //Tamaño de la bala
-        //Vector3 scale = new Vector3(2.0f, 2.0f, 2.0f);
-
-        //Crea la bala
-        //InternalCalls.CreateBullet(pos, rot, scale);
-
-        GameObject target;
-        target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 100.0f);
-
-        if (target != null)
+    
+        switch (type)
         {
+            case WEAPON_TYPE.SMG:
 
-            Debug.Log(target.Name);
-
-            if (target.Tag != "Enemy")
-            {
-
-                Audio.PlayAudio(gameObject, "W_FirearmSurf");
-            }
-            else
-            {
-                Audio.PlayAudio(gameObject, "W_FirearmEnemy");
-                //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
-                FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
-
-                if (aux != null)
+                switch (upgrade)
                 {
-                    aux.life -= 5;
+                    case UPGRADE.LVL_0:
+                        
+                        currentWeapon = w_SMG_0.GetComponent<SMG>();
+                        w_SMG_0.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_1:
+
+                        currentWeapon = w_SMG_1.GetComponent<SMG>();
+                        w_SMG_1.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_2:
+
+                        currentWeapon = w_SMG_2.GetComponent<SMG>();
+                        w_SMG_2.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_3_ALPHA:
+
+                        currentWeapon = w_SMG_3a.GetComponent<SMG>();
+                        w_SMG_3a.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_3_BETA:
+
+                        currentWeapon = w_SMG_3b.GetComponent<SMG>();
+                        w_SMG_3b.SetActive(true);
+                        break;
+                    default:
+                        break;
                 }
-
-                DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
-                if (aux2 != null)
-                {
-                    aux2.life -= 5;
-                }
-
-                QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
-                if (aux3 != null)
-                {
-                    aux3.life -= 5;
-                }
-                Debug.Log("[ERROR] HIT ENEMy");
-                //-----------------------------------------------------------------------------------
-                // Sparkle particle
-                // Play bullet hit wall SFX
-            }
-        }
-
-        inputsList.Add(INPUT.I_SHOOT_END);
-    }
-
-    private void ShotgunShoot()
-    {
-        Audio.PlayAudio(gameObject, "W_FSADShot");
-        Audio.PlayAudio(gameObject, "W_FSADCapRel");
-
-        Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
-
-        if (!godMode)
-        {
-            --ammo;
-            //if (csBullets!= null){ csBullets.UseBullets(); }
-        }
-
-        GameObject shotgunParticles = GetParticles(gameObject, "ParticlesShotgun");
-        Particles.ParticleShoot(shotgunParticles, gameObject.transform.GetForward().normalized);
-        Particles.PlayParticles(shotgunParticles);
-
-        Vector3 offsetDirection = gameObject.transform.GetForward().normalized;
-        float distance = 40.0f;
-        Vector3 offset = new Vector3(0, 15, 0);
-        shotgunOffset = gameObject.transform.globalPosition + offset + (offsetDirection * distance);
-
-        Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
-
-        InternalCalls.CreateShotgunSensor(shotgunOffset, rot, gameObject.transform.GetRight());
-
-        inputsList.Add(INPUT.I_SHOOT_END);
-    }
-
-    private void TraceShoot()
-    {
-        Audio.PlayAudio(gameObject, "W_PlasmaShot");
-
-        Input.Rumble_Controller(shootRumbleDuration, shootRumbleIntensity);
-
-        GameObject traceParticles = GetParticles(gameObject, "ParticlesTraceShoot");
-        Particles.ParticleShoot(traceParticles, gameObject.transform.GetForward().normalized);
-        Particles.PlayParticles(traceParticles);
-
-        if (!godMode)
-        {
-            --ammo;
-            //if (csBullets!= null){ csBullets.UseBullets(); }
-        }
-
-        Vector3 offset = new Vector3(0, 15, 0);
-
-        GameObject target;
-        target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), 30.0f);
-
-        if (target != null)
-        {
-
-            Debug.Log(target.Name);
-
-            if (target.Tag != "Enemy")
-            {
-                Audio.PlayAudio(gameObject, "W_PlasmaSurf");
-            }
-            else
-            {
-                Audio.PlayAudio(gameObject, "W_PlasmaEnemy");
-
-                //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
-                FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
-
-                if (aux != null)
-                {
-                    aux.life -= 10;
-                }
-
-                DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
-                if (aux2 != null)
-                {
-                    aux2.life -= 10;
-                }
-
-                QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
-                if (aux3 != null)
-                {
-                    aux3.life -= 10;
-                }
-                Debug.Log("[ERROR] HIT ENEMy");
-                //-----------------------------------------------------------------------------------
-            }
-        }
-        // List<GameObject> targets = new List<GameObject>();
-
-        // for (float tracerCurrentDistance = 0; tracerCurrentDistance < traceRange; tracerCurrentDistance += 0) {
-
-        //     Debug.Log("Tracer CurrentDistance" + tracerCurrentDistance);
-
-        //     GameObject tempTarget = gameObject.RaycastHit(gameObject.transform.globalPosition + offset + (tracerCurrentDistance * gameObject.transform.GetForward()), gameObject.transform.GetForward(), traceRange - tracerCurrentDistance);
-
-        //     if (tempTarget != null && !targets.Contains(tempTarget)) {
-
-        //         targets.Add(tempTarget);
-        //         tracerCurrentDistance = Mathf.Distance(gameObject.transform.globalPosition, tempTarget.transform.globalPosition);
-        //     }
-        //     else
-        //     {
-        //         tracerCurrentDistance = traceRange;
-        //     }
-        // }
-
-        //for (int i = 0; i < targets.Count(); i++)
-        // {
-        //     Debug.Log("Tracer" + i + "Hit:"+ targets[i].Name);
-
-        //     if (targets[i].Tag != "Enemy")
-        //     {
-        //         // Sparkle particle
-        //         // Play bullet hit wall SFX
-        //     }
-        //     else
-        //     {
-        //         // Damage enemy
-        //         // Blood particle
-
-        //     }
-        // }
-
-        inputsList.Add(INPUT.I_SHOOT_END);
-    }
-
-    private void GetWeaponVars()
-    {
-        switch (weaponType)
-        {
-            case WEAPON.SMG:
-
-                magsize = 35;
-                reloadDuration = 1.8f;
-                //To do
-                //dmg = ?
-                fireRate = 0.1f;
-                //range = ?
-
-                shootRumbleIntensity = 5;
-                shootRumbleDuration = 50;
-
-                //for (int i = 0; i < weapons.Count(); i++)
-                //{
-                //    weapons[i].SetActive(false);
-                //}
-
-                //w_SMG_0.SetActive(true);
-
                 break;
 
-            case WEAPON.SHOTGUN:
+            case WEAPON_TYPE.SHOTGUN:
 
-                magsize = 8;
-                reloadDuration = 2.7f;
-                //To do
-                //dmg = ?
-                fireRate = 1.2f;
-                //range = ?
+                switch (upgrade)
+                {
+                    case UPGRADE.LVL_0:
 
-                shootRumbleIntensity = 10;
-                shootRumbleDuration = 200;
+                        currentWeapon = w_Shotgun_0.GetComponent<Shotgun>();
+                        w_Shotgun_0.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_1:
 
-                //for (int i = 0; i < weapons.Count(); i++)
-                //{
-                //    weapons[i].SetActive(false);
-                //}
+                        currentWeapon = w_Shotgun_1.GetComponent<Shotgun>();
+                        w_Shotgun_1.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_2:
 
-                //w_Shotgun_0.SetActive(true);
+                        currentWeapon = w_Shotgun_2.GetComponent<Shotgun>();
+                        w_Shotgun_2.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_3_ALPHA:
+
+                        currentWeapon = w_Shotgun_3a.GetComponent<Shotgun>();
+                        w_Shotgun_3a.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_3_BETA:
+
+                        currentWeapon = w_Shotgun_3b.GetComponent<Shotgun>();
+                        w_Shotgun_3b.SetActive(true);
+                        break;
+                    default:
+                        break;
+                }
                 break;
 
-            case WEAPON.TRACE:
+            case WEAPON_TYPE.PLASMA:
+                switch (upgrade)
+                {
+                    case UPGRADE.LVL_0:
 
-                magsize = 200;
-                reloadDuration = 3f;
-                //To do
-                //dmg = ?
-                fireRate = 0.03f;
-                //range = ?
+                        currentWeapon = w_Plasma_0.GetComponent<Plasma>();
+                        w_Plasma_0.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_1:
 
-                //for (int i = 0; i < weapons.Count(); i++)
-                //{
-                //    weapons[i].SetActive(false);
-                //}
+                        currentWeapon = w_Plasma_1.GetComponent<Plasma>();
+                        w_Plasma_1.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_2:
 
-                //w_Plasma_0.SetActive(true);
+                        currentWeapon = w_Plasma_2.GetComponent<Plasma>();
+                        w_Plasma_2.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_3_ALPHA:
+
+                        currentWeapon = w_Plasma_3a.GetComponent<Plasma>();
+                        w_Plasma_3a.SetActive(true);
+                        break;
+                    case UPGRADE.LVL_3_BETA:
+
+                        currentWeapon = w_Plasma_3b.GetComponent<Plasma>();
+                        w_Plasma_3b.SetActive(true);
+                        break;
+                    default:
+                        break;
+                }
                 break;
         }
 
-        ammo = magsize;
-        reloadTimer = reloadDuration;
+        currentWeapon.Start();
+
+        //Debug.Log("Ammo: " + currentWeapon.ammo);
+        //Debug.Log("Damage: " + currentWeapon.damage);
+        //Debug.Log("FireRate: " + currentWeapon.fireRate);
+        //Debug.Log("RealoadTime: " + currentWeapon.reloadTime);
 
         csBullets.UseBullets();
     }
 
-    private void SwapWeapon(WEAPON type)
-    {
-        weaponType = type;
-        GetWeaponVars();
-    }
     #endregion
 
     #region DASH
@@ -1827,8 +1600,8 @@ public class Player : YmirComponent
         //cambio de variables
         movementSpeed = movementSpeed * 1.5f;
         //Increase armor by * 1.3
-        fireRate = fireRate * 0.7f;
-        reloadDuration = reloadDuration * 0.5f;
+        currentWeapon.fireRate = currentWeapon.fireRate * 0.7f;
+        currentWeapon.reloadTime = currentWeapon.reloadTime * 0.5f;
         //Reduce dash CD * 0,5
 
         predatoryTimer = predatoryDuration;
@@ -1840,8 +1613,8 @@ public class Player : YmirComponent
 
         movementSpeed = movementSpeed / 1.5f;
         //Decrease armor by / 1.3
-        fireRate = fireRate / 0.7f;
-        reloadDuration = reloadDuration / 0.5f;
+        currentWeapon.fireRate = currentWeapon.fireRate / 0.7f;
+        currentWeapon.reloadTime = currentWeapon.reloadTime / 0.5f;
         //Increase dash CD / 0,5
 
         predatoryCDTimer = predatoryCD;
@@ -2016,6 +1789,7 @@ public class Player : YmirComponent
         //weaponTypeTest = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
 
+        weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
         LoadItems();

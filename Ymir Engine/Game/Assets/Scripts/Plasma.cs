@@ -15,7 +15,7 @@ public class Plasma : Weapon
 
     public Plasma() : base(WEAPON_TYPE.PLASMA) { }
 
-    public void Start()
+    public override void Start()
     {
         _upgrade = (UPGRADE)upgrade;
 
@@ -71,9 +71,15 @@ public class Plasma : Weapon
             default:
                 break;
         }
+
+        currentAmmo = ammo;
     }
     public override void Shoot()
     {
+        currentAmmo--;
+        fireRateTimer = fireRate;
+
+        Audio.PlayAudio(gameObject, "W_PlasmaShot");
 
         GameObject target = null;
 
@@ -132,6 +138,12 @@ public class Plasma : Weapon
                 //-----------------------------------------------------------------------------------
             }
         }
+    }
+    public override void Reload()
+    {
+        currentAmmo = ammo;
+
+        Audio.PlayAudio(gameObject, "W_PlasmaReload");
     }
 
 }
