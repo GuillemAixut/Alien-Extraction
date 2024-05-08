@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using YmirEngine;
 
-public enum LEVELS
+public enum LEVEL
 {
+    BASE,
     WAREHOUSE,
     LAB,
     HATCHERY,
@@ -13,7 +14,7 @@ public enum LEVELS
 
 public class BaseTeleporter : YmirComponent
 {
-    public LEVELS selectedLvl = LEVELS.NONE;
+    public LEVEL selectedLvl = LEVEL.NONE;
     public WEAPON_TYPE selectedWeapon = WEAPON_TYPE.NONE;
 
     public GameObject canvas, button, lvlText, weaponText;
@@ -33,7 +34,7 @@ public class BaseTeleporter : YmirComponent
 
         canvas = InternalCalls.GetGameObjectByName("Level Selection Canvas");
 
-        selectedLvl = LEVELS.NONE;
+        selectedLvl = LEVEL.NONE;
         selectedWeapon = WEAPON_TYPE.NONE;
 
         _grid = InternalCalls.GetGameObjectByName("Grid");
@@ -53,7 +54,7 @@ public class BaseTeleporter : YmirComponent
             canvas.SetActive(false);
         }
 
-        if (!_setNormal && selectedLvl != LEVELS.NONE && selectedWeapon != WEAPON_TYPE.NONE)
+        if (!_setNormal && selectedLvl != LEVEL.NONE && selectedWeapon != WEAPON_TYPE.NONE)
         {
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
@@ -64,19 +65,19 @@ public class BaseTeleporter : YmirComponent
 
             switch (selectedLvl)
             {
-                case LEVELS.WAREHOUSE:
+                case LEVEL.WAREHOUSE:
                     {
                         button.GetComponent<Button_Navigation>().sceneName = "LVL1_FINAL/LVL1_FINAL_COLLIDERS";
                     }
                     break;
 
-                case LEVELS.LAB:
+                case LEVEL.LAB:
                     {
                          button.GetComponent<Button_Navigation>().sceneName = "LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS";
                     }
                     break;
 
-                case LEVELS.HATCHERY:
+                case LEVEL.HATCHERY:
                     {
                          button.GetComponent<Button_Navigation>().sceneName = "LVL3_BlockOut/LVL3_PART1_COLLIDERS";
                     }
@@ -86,7 +87,7 @@ public class BaseTeleporter : YmirComponent
             Debug.Log("scene: " + button.GetComponent<Button_Navigation>().sceneName);
         }
         else if ((UI_STATE)UI.GetUIState(button) != UI_STATE.DISABLED &&
-            (selectedLvl == LEVELS.NONE || selectedWeapon == WEAPON_TYPE.NONE))
+            (selectedLvl == LEVEL.NONE || selectedWeapon == WEAPON_TYPE.NONE))
         {
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
