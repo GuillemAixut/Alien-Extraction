@@ -2163,7 +2163,10 @@ void EmitterImage::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 void EmitterImage::Update(float dt, ParticleEmitter* emitter)
 {
-
+	if(rTexTemp->ID == 0)
+	{
+		SetImage(rTexTemp->GetAssetsFilePath());
+	}
 }
 
 std::vector<std::string> ListFilesInParticlesFolder() {
@@ -2180,6 +2183,11 @@ std::vector<std::string> ListFilesInParticlesFolder() {
 void EmitterImage::OnInspector()
 {
 	ImGui::Spacing();
+
+	if (rTexTemp->ID == 0)
+	{
+		SetImage(rTexTemp->GetAssetsFilePath());
+	}
 
 	std::vector<std::string> particleFiles = ListFilesInParticlesFolder();
 	if (ImGui::BeginCombo("##Texture", rTexTemp->GetAssetsFilePath().c_str()))
