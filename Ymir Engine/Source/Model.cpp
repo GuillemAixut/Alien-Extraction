@@ -243,13 +243,12 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, GameObject* parentGO
 						ResourceAnimation* rAnim = new ResourceAnimation(modelGO->UID);
 						ImporterAnimation::Import(path, rAnim, this, i);
 
-						uint UID = modelGO->UID;
+						uint UID = Random::Generate();
 
 						std::string filenameUID = std::to_string(UID) + ".yanim";
 						std::string libraryPath = External->fileSystem->libraryAnimationsPath + filenameUID;
 
 						if (PhysfsEncapsule::FileExists(libraryPath)) {
-							UID = Random::Generate();
 							filenameUID = std::to_string(UID) + ".yanim";
 							libraryPath = External->fileSystem->libraryAnimationsPath + filenameUID;
 

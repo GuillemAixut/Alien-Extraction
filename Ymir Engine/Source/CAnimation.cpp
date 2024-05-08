@@ -226,8 +226,8 @@ void CAnimation::YAnimDragDropTarget() {
             //libraryFilePathDrop.replace(libraryFilePathDrop.begin(), libraryFilePathDrop.end(), 'e', '/');
 
             LOG("File path: %s", libraryFilePathDrop.c_str());
-
-            ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(libraryFilePathDrop, ResourceType::ANIMATION, mOwner->UID);
+            uint UID = Random::Generate();
+            ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(libraryFilePathDrop, ResourceType::ANIMATION, UID);
             AddAnimation(rAnim);
         }
         ImGui::EndDragDropTarget();
