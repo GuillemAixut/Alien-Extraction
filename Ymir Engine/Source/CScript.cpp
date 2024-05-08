@@ -65,28 +65,15 @@ void CScript::Update()
 	}
 
 	MonoObject* exec = nullptr;
-
-	try 
-	{
-		mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);
-	}
-	catch (const std::exception& e) 
-	{
-		// Handle any exceptions thrown within the try block
-		LOG("[ERROR] Script %s crashed on Update: '%s'", name, e.what());
-	}
-
+	
+	mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);
+	
 	if (exec != nullptr)
 	{
-		if (strcmp(mono_class_get_name(mono_object_get_class(exec)), "NullReferenceException") == 0)
-		{
-			LOG("[WARNING] Null reference exception detected at %s", name.c_str());
-		}
-		else
-		{
-			LOG("[ERROR] Something went wrong with: %s", mono_class_get_name(mono_object_get_class(exec)));
-		}
+		mono_print_unhandled_exception(exec);
+		LOG("[ERROR] Exception detected at Script %s: '%s'", name.c_str(), mono_class_get_name(mono_object_get_class(exec)));
 	}
+
 }
 
 void CScript::ReloadComponent() {
