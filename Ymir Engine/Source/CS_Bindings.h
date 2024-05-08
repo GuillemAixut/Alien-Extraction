@@ -1633,4 +1633,9 @@ void SpawnItemCS(MonoString* name, MonoObject* pos)
 	//TODO pocho: Hacer un switch con todos los prefabs en relación al nombre
 
 }
+
+int GetCurrentMapCS()
+{
+	return External->scene->currentMap;
+}
 #pragma endregion
