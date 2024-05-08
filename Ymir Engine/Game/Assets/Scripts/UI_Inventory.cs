@@ -23,11 +23,10 @@ public class UI_Inventory : YmirComponent
         _selectedGO = UI.GetSelected();
 
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
-
         goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
+        
         goDescription.SetActive(false);// TODO: when menu opened
-
         goText.SetActive(false);
         goName.SetActive(false);
 
