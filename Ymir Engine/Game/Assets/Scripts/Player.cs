@@ -1763,8 +1763,8 @@ public class Player : YmirComponent
 
         for (int i = 0; i < itemsList.Count; i++)
         {
-            SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsList[i].name);
-            SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + ".Equipped", itemsList[i].isEquipped);
+            SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsList[i].dictionaryName);
+            SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped", itemsList[i].isEquipped);
         }
     }
 
@@ -1779,24 +1779,20 @@ public class Player : YmirComponent
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
-        LoadItems();
+        LoadItems(); 
     }
 
     public void LoadItems()
     {
         for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num"); i++)
         {
-            //string item = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
-            //itemsListString.Add(item);
-
             string name = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
 
             Item item = Globals.SearchItemInDictionary(name);
             item.isEquipped = SaveLoad.LoadBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped");
-            item.LogStats();
             itemsList.Add(item);
 
-            item.LogStats();
+            item.UpdateStats();
         }
     }
 
