@@ -81,8 +81,6 @@ public class Player : YmirComponent
     #region DEFINE SHOOT VARS
 
     //--------------------- Shoot var ---------------------\\
-    private int shootRumbleIntensity; // <- ?
-    private int shootRumbleDuration; // <- ?
 
     public WEAPON_TYPE weaponType = WEAPON_TYPE.NONE;
     public UPGRADE upgradeType = UPGRADE.NONE;
@@ -1578,8 +1576,8 @@ public class Player : YmirComponent
         //cambio de variables
         movementSpeed = movementSpeed * 1.5f;
         //Increase armor by * 1.3
-        fireRate = fireRate * 0.7f;
-        reloadDuration = reloadDuration * 0.5f;
+        currentWeapon.fireRate = currentWeapon.fireRate * 0.7f;
+        currentWeapon.reloadTime = currentWeapon.reloadTime * 0.5f;
         //Reduce dash CD * 0,5
 
         predatoryTimer = predatoryDuration;
@@ -1591,8 +1589,8 @@ public class Player : YmirComponent
 
         movementSpeed = movementSpeed / 1.5f;
         //Decrease armor by / 1.3
-        fireRate = fireRate / 0.7f;
-        reloadDuration = reloadDuration / 0.5f;
+        currentWeapon.fireRate = currentWeapon.fireRate / 0.7f;
+        currentWeapon.reloadTime = currentWeapon.reloadTime / 0.5f;
         //Increase dash CD / 0,5
 
         predatoryCDTimer = predatoryCD;

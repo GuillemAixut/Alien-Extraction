@@ -43,8 +43,8 @@ public abstract class Weapon : YmirComponent
     protected float fireRateTimer;
     protected float reloadTimer;
 
-
-    public Player player;
+    public GameObject playerObject;
+    protected Player player;
     public Weapon(WEAPON_TYPE type = WEAPON_TYPE.NONE, UPGRADE upgrade = UPGRADE.NONE)
     {
         _type = type;

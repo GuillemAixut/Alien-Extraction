@@ -240,8 +240,8 @@ public class UI_Inventory : YmirComponent
         if (player != null)
         {
             UI.TextEdit(_textSpeed, player.movementSpeed.ToString());
-            UI.TextEdit(_textRate, player.fireRate.ToString());
-            UI.TextEdit(_textReload, player.reloadDuration.ToString());
+            UI.TextEdit(_textRate, player.currentWeapon.fireRate.ToString());
+            UI.TextEdit(_textReload, player.currentWeapon.reloadTime.ToString());
             UI.TextEdit(_textDamage, player.damageMultiplier.ToString());
             UI.TextEdit(_textResin, player.resin.ToString());
         }

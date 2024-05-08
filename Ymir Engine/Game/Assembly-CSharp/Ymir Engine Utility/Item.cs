@@ -128,8 +128,8 @@ namespace YmirEngine
                 menu.GetComponent<UI_Inventory>().health.maxHealth += (HP * e);
                 menu.GetComponent<UI_Inventory>().health.armor += (armor * e);
                 menu.GetComponent<UI_Inventory>().player.movementSpeed += (speed * e);
-                menu.GetComponent<UI_Inventory>().player.reloadDuration += (reloadSpeed * e);
-                menu.GetComponent<UI_Inventory>().player.fireRate += (fireRate * e);
+                menu.GetComponent<UI_Inventory>().player.currentWeapon.reloadTime += (reloadSpeed * e);
+                menu.GetComponent<UI_Inventory>().player.currentWeapon.fireRate += (fireRate * e);
                 menu.GetComponent<UI_Inventory>().player.damageMultiplier += (damageMultiplier * e);
             }
         }

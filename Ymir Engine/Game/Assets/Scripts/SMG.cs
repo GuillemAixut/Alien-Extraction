@@ -13,6 +13,8 @@ public class SMG : Weapon
 
     public override void Start()
     {
+
+
         _upgrade = (UPGRADE)upgrade;
 
         range = 100;
