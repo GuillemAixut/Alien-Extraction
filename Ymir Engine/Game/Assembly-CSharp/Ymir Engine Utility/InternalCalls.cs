@@ -223,6 +223,12 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void SpawnItem(string name, Vector3 pos);
 
+        /// <summary>
+        /// Returns the ID of the current map (IDs: NO_MAP = -1, LVL_BASE = 0, LVL_1 = 1, LVL_2_PART_1 = 2, LVL_2_PART_2 = 3, LVL_3_PART_1 = 4, LVL_3_PART_2 = 5) 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int GetCurrentMap();
+
     }
 
     /// <summary>
