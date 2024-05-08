@@ -20,7 +20,7 @@ public class QueenXenomorphPuddle : YmirComponent
 
     private float puddleTimer;
 
-    private float puddleDamageTimer;
+    //private float puddleDamageTimer;
 
     public void Start()
     {

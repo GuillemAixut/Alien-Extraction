@@ -18,7 +18,7 @@ public class Health_Bar_Test : YmirComponent
 
     private FaceHuggerBaseScript aux = null;
     private DroneXenomorphBaseScript aux2 = null;
-    private SpitterBaseScript aux3 = null;
+    //private SpitterBaseScript aux3 = null;
 
     public void Start()
     {
