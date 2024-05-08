@@ -13,6 +13,12 @@ namespace YmirEngine
         public static extern void ParticleShoot(object go, object vec);
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void PlayParticlesTrigger(object go, object vec);
+        public static extern void PlayParticlesTrigger(object go);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void StopParticles(object go);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void RestartParticles(object go);
     }
 }

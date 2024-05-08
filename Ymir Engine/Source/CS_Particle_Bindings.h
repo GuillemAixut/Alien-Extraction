@@ -78,19 +78,27 @@ void ParticleShoot(MonoObject* go, MonoObject* vector)
 
 	if (particleSystem != nullptr)
 	{
-		EmitterPosition* pos = (EmitterPosition*)particleSystem->allEmitters.at(0)->modules.at(2);
-
-		EmitterBase* base = (EmitterBase*)particleSystem->allEmitters.at(0)->modules.at(0);
-
-		if(base->currentShape == SpawnAreaShape::PAR_CONE)
+		for (int i = 0; i < particleSystem->allEmitters.size(); i++)
 		{
-			float angulo = math::Atan2(-directionShoot.z, directionShoot.x);
-			pos->direction1 = { math::Cos(angulo + (5 / 9 * pi)),0.5, -math::Sin(angulo + (5 / 9 * pi)) };
-			pos->direction2 = { math::Cos(angulo - (5 / 9 * pi)),-0.5,-math::Sin(angulo - (5 / 9 * pi)) };
-		}
-		else
-		{
-			pos->direction1 = directionShoot;
+			for (int j = 0; j < particleSystem->allEmitters[i]->modules.size(); j++)
+			{
+				if (particleSystem->allEmitters.at(i)->modules.at(j)->type == EmitterType::PAR_POSITION)
+				{
+					EmitterPosition* pos = (EmitterPosition*)particleSystem->allEmitters.at(i)->modules.at(j);
+					EmitterBase* base = (EmitterBase*)particleSystem->allEmitters.at(i)->modules.at(0);
+
+					if (base->currentShape == SpawnAreaShape::PAR_CONE)
+					{
+						float angulo = math::Atan2(-directionShoot.z, directionShoot.x);
+						pos->direction1 = { math::Cos(angulo + (5 / 9 * pi)),0.5, -math::Sin(angulo + (5 / 9 * pi)) };
+						pos->direction2 = { math::Cos(angulo - (5 / 9 * pi)),-0.5,-math::Sin(angulo - (5 / 9 * pi)) };
+					}
+					else
+					{
+						pos->direction1 = directionShoot;
+					}
+				}
+			}
 		}
 	}
 	else

@@ -1,31 +1,31 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -51.966644287109375,
-        34.517379760742188,
-        27.258132934570312
+        -1.0406606197357178,
+        25.419794082641602,
+        26.399106979370117
     ],
     "Editor Camera Right (X)": [
-        0.70157241821289062,
-        -4.1723251342773438e-07,
-        0.71261298656463623
+        0.99815750122070312,
+        -7.0035457611083984e-07,
+        -0.060875151306390762
     ],
     "Editor Camera Up (Y)": [
-        0.25719502568244934,
-        0.93260151147842407,
-        -0.25320971012115479
+        -0.02073315717279911,
+        0.94021356105804443,
+        -0.33996817469596863
     ],
     "Editor Camera Front (Z)": [
-        0.66457635164260864,
-        -0.36092495918273926,
-        -0.65428018569946289
+        -0.057235263288021088,
+        -0.34060326218605042,
+        -0.93847101926803589
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1199950536,
+            "UID": 1026997685,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -44,7 +44,7 @@
             "UID": 1285509392,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1199950536,
+            "Parent UID": 1026997685,
             "Components": [
                 {
                     "Type": "Transform",
@@ -241,7 +241,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1199950536,
+            "Parent UID": 1026997685,
             "Components": [
                 {
                     "Type": "Transform",
@@ -778,7 +778,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1199950536,
+            "Parent UID": 1026997685,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1129,7 +1129,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1199950536,
+            "Parent UID": 1026997685,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1156,8 +1156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 621,
-                    "Height": 627,
+                    "Width": 467,
+                    "Height": 484,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -3603,7 +3603,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1199950536,
+            "Parent UID": 1026997685,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3627,7 +3627,7 @@
             ],
             "Children UID": [
                 598771385,
-                1454188996
+                2086505483
             ]
         },
         {
@@ -3749,7 +3749,7 @@
             "Name": "Player",
             "Static": false,
             "Tag": "Player",
-            "UID": 1454188996,
+            "UID": 2086505483,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1806365249,
@@ -3778,28 +3778,28 @@
                     "Active": 1,
                     "NumPaths": 10,
                     "Paths": [
-                        ".\/Assets\/Raisen_Idle.yanim",
                         ".\/Assets\/Raisen_BaseIdle.yanim",
                         ".\/Assets\/Raisen_BaseWalk.yanim",
-                        ".\/Assets\/Raisen_Dash.yanim",
                         ".\/Assets\/Raisen_Death.yanim",
                         ".\/Assets\/Raisen_Damage.yanim",
                         ".\/Assets\/Raisen_Shooting.yanim",
                         ".\/Assets\/Raisen_Spin.yanim",
-                        ".\/Assets\/Raisen_Walk.yanim",
-                        ".\/Assets\/Raisen_Spit.yanim"
+                        ".\/Assets\/Raisen_Spit.yanim",
+                        "Assets\/Raisen_Idle.yanim",
+                        "Assets\/Raisen_Dash.yanim",
+                        "Assets\/Raisen_Walk.yanim"
                     ],
                     "UIDs": [
-                        291843350,
                         1345596970,
                         1515990403,
-                        1851684556,
                         746412495,
                         1210516057,
                         915183694,
                         168875129,
-                        1103101820,
-                        1123326600
+                        1123326600,
+                        548608041,
+                        1399667080,
+                        989388580
                     ]
                 },
                 {
@@ -3871,13 +3871,6 @@
                     "movementSpeed": 35,
                     "deathAnimFinish": false,
                     "godMode": false,
-                    "fireRate": 0,
-                    "reloadDuration": 1,
-                    "ammo": 0,
-                    "magsize": 5,
-                    "smgRange": 30,
-                    "shootgunRange": 15,
-                    "traceRange": 100,
                     "weaponType": 0,
                     "upgradeType": 0,
                     "damageMultiplier": 0,
@@ -3886,21 +3879,23 @@
                     "dashDistance": 200,
                     "swipeTimer": 0,
                     "acidicTimer": 0,
+                    "currentLvl": 0,
+                    "lastUnlockedLvl": 0,
                     "currentMenu": "",
                     "setHover": false,
-                    "itemsListTest": 0,
+                    "itemsListString": 0,
                     "itemsList": 0,
-                    "w_SMG_0": 1450903918,
+                    "w_SMG_0": 1248383492,
                     "w_SMG_1": 795223045,
                     "w_SMG_2": 879879892,
                     "w_SMG_3a": 1554789927,
                     "w_SMG_3b": 343038288,
-                    "w_Shotgun_0": 1808257216,
+                    "w_Shotgun_0": 529397923,
                     "w_Shotgun_1": 1976702640,
                     "w_Shotgun_2": 302481411,
                     "w_Shotgun_3a": 1340879312,
                     "w_Shotgun_3b": 858196141,
-                    "w_Plasma_0": 1565921101,
+                    "w_Plasma_0": 1845772668,
                     "w_Plasma_1": 1853496771,
                     "w_Plasma_2": 1770635885,
                     "w_Plasma_3a": 261074920,
@@ -3908,13 +3903,13 @@
                 }
             ],
             "Children UID": [
-                928077285,
-                1828926093,
-                1309714016,
-                50388698,
-                1450903918,
-                1808257216,
-                1565921101,
+                891365532,
+                2124835933,
+                1159266445,
+                1140505418,
+                1248383492,
+                529397923,
+                1845772668,
                 795223045,
                 1976702640,
                 1853496771,
@@ -3933,11 +3928,11 @@
             "Name": "Eyes",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 928077285,
+            "UID": 891365532,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3997,11 +3992,11 @@
             "Name": "Backpack",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1828926093,
+            "UID": 2124835933,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4061,11 +4056,11 @@
             "Name": "Body",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1309714016,
+            "UID": 1159266445,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4125,11 +4120,11 @@
             "Name": "Tail",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 50388698,
+            "UID": 1140505418,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4189,11 +4184,11 @@
             "Name": "W_SMG_0",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1450903918,
+            "UID": 1248383492,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4276,11 +4271,11 @@
             "Name": "W_Shotgun_0",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1808257216,
+            "UID": 529397923,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4365,11 +4360,11 @@
             "Name": "W_Plasma_0",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1565921101,
+            "UID": 1845772668,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4457,7 +4452,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4544,7 +4539,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4633,7 +4628,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4721,7 +4716,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4808,7 +4803,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4897,7 +4892,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -4985,7 +4980,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5072,7 +5067,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5161,7 +5156,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5249,7 +5244,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5336,7 +5331,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5425,7 +5420,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 1454188996,
+            "Parent UID": 2086505483,
             "Components": [
                 {
                     "Type": "Transform",
