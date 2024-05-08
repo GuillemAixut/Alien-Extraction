@@ -86,7 +86,7 @@ public class BaseTeleporter : YmirComponent
                     break;
             }
 
-            csPlayer.weaponTypeTest = selectedWeapon;
+            csPlayer.weaponType = selectedWeapon;
             //csPlayer.weaponTypeTest = selectedWeapon;
 
             Debug.Log("scene: " + button.GetComponent<Button_Navigation>().sceneName);

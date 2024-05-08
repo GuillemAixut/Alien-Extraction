@@ -84,19 +84,6 @@ public class Player : YmirComponent
 
     public WEAPON_TYPE weaponType = WEAPON_TYPE.NONE;
     public UPGRADE upgradeType = UPGRADE.NONE;
-
-    public int ammo = 0;
-    public int magsize = 5;
-
-    public float smgRange = 30.0f;
-    public float shootgunRange = 15.0f;
-    public float traceRange = 100.0f;
-
-    private int shootRumbleIntensity;
-    private int shootRumbleDuration;
-
-    private WEAPON weaponType = WEAPON.NONE;
-    public WEAPON_TYPE weaponTypeTest = WEAPON_TYPE.NONE;
     
     public Weapon currentWeapon = null;
 
@@ -1761,7 +1748,7 @@ public class Player : YmirComponent
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Last unlocked Lvl", (int)lastUnlockedLvl);
 
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
-        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponTypeTest);
+        //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponTypeTest);
         //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)weaponType);
 
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
