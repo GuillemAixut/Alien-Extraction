@@ -48,16 +48,15 @@ public class UI_Item_Button : YmirComponent
         //    /*imagePath*/ "");
         //
         
-        if (menuName.CompareTo("Menu Inventory") == 1)
+        if (menuName.CompareTo("Inventory Menu") == 1)
         {
             _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
-
         }
     }
 
     public void Update()
     {
-        if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null && menuName.CompareTo("Menu Inventory") == 1)
+        if (updateStats && _menuReference.GetComponent<UI_Inventory>() != null && menuName.CompareTo("Inventory Menu") == 1)
         {
             if (item.currentSlot != ITEM_SLOT.NONE && item.currentSlot != ITEM_SLOT.SAVE)
             {
@@ -68,7 +67,7 @@ public class UI_Item_Button : YmirComponent
                 item.isEquipped = false;
             }
 
-            item.UpdateStats(_menuReference); 
+            item.UpdateStats(_menuReference);
             _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
 
             updateStats = false;
@@ -81,13 +80,13 @@ public class UI_Item_Button : YmirComponent
     {
         if (_menuReference.GetComponent<UI_Inventory>().goName != null)
         {
-            Debug.Log("" + item.name);
+            //Debug.Log("" + item.name);
             UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
         }
 
         if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
         {
-            Debug.Log("" + item.description);
+            //Debug.Log("" + item.description);
             UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
         }
     }
@@ -192,15 +191,18 @@ public class UI_Item_Button : YmirComponent
         currentSlot = SetType(enumSlot);
         itemType = SetType(enumItem);
 
-        item = CreateItemBase();
+        if (item == null)
+        {
+            item = CreateItemBase();
+        }
 
         bool ret = false;
-        Debug.Log("item currentSlot: " + item.currentSlot.ToString());
-        Debug.Log("itemType: " + item.itemType.ToString());
+        //Debug.Log("item currentSlot: " + item.currentSlot.ToString());
+        //Debug.Log("itemType: " + item.itemType.ToString());
 
-        Debug.Log("itemType que le pasas: " + _item.itemType.ToString());
-        Debug.Log("isEquipped: " + _item.isEquipped.ToString());
-        Debug.Log("Rarity: " + _item.itemRarity.ToString());
+        //Debug.Log("itemType que le pasas: " + _item.itemType.ToString());
+        //Debug.Log("isEquipped: " + _item.isEquipped.ToString());
+        //Debug.Log("Rarity: " + _item.itemRarity.ToString());
 
         // is empty // is equipped // can be placed
         if (item.itemType == ITEM_SLOT.NONE &&
@@ -215,7 +217,7 @@ public class UI_Item_Button : YmirComponent
 
             UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), item.imagePath, (int)UI_STATE.NORMAL);
 
-            switch (item.itemRarity) 
+            switch (item.itemRarity)
             {
                 case ITEM_RARITY.COMMON:
                     UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/CommonRarity.png", (int)UI_STATE.NORMAL); ;
@@ -236,7 +238,7 @@ public class UI_Item_Button : YmirComponent
                     break;
             }
 
-            item.LogStats();
+            //item.LogStats();
 
             Debug.Log("aaa " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
         }
@@ -267,7 +269,7 @@ public class UI_Item_Button : YmirComponent
         }
 
         // TODO: DEBUG MATERIAL, delete when crafting is linked to inventory
-        else if (itemType == ITEM_SLOT.MATERIAL) 
+        else if (itemType == ITEM_SLOT.MATERIAL)
         {
             string path = "";
             switch (name)
@@ -330,6 +332,8 @@ public class UI_Item_Button : YmirComponent
             /*description*/ "Empty",
             /*imagePath*/ "");
         }
+
+        //item.LogStats();    
 
         return _item;
     }
