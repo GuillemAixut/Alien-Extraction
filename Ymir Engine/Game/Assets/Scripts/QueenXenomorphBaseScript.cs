@@ -132,16 +132,23 @@ public class QueenXenomorphBaseScript : YmirComponent
 
         //Animations
         Animation.SetLoop(gameObject, "Boss_Idle", true);
-        Animation.SetLoop(gameObject, "Boss_Walk", true);
+        Animation.SetLoop(gameObject, "Boss_Walk.001", true);
+        Animation.SetLoop(gameObject, "Boss_Walk_Side", true);
 
         Animation.SetResetToZero(gameObject, "Boss_Die", false);
 
+        Animation.SetSpeed(gameObject, "Boss_Walk.001", 1.75f);
+        Animation.SetSpeed(gameObject, "Boss_Walk_Side", 1.75f);
+
         Animation.AddBlendOption(gameObject, "", "Boss_Idle", 10f);
-        Animation.AddBlendOption(gameObject, "", "Boss_Walk", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Walk.001", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Walk_Side", 10f);
         Animation.AddBlendOption(gameObject, "", "Boss_Cry", 10f);
         Animation.AddBlendOption(gameObject, "", "Boss_Dash", 10f);
         Animation.AddBlendOption(gameObject, "", "Boss_Claw_Attack", 10f);
-        Animation.AddBlendOption(gameObject, "", "Boss_Die", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Tail_Attack", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Acid_Spit", 10f);
+        Animation.AddBlendOption(gameObject, "", "Boss_Die.002", 10f);
 
         Animation.PlayAnimation(gameObject, "Boss_Idle");
     }
@@ -209,7 +216,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     {
                         Debug.Log("[ERROR] BOSS STATE WALKING TO PLAYER");
                         randomMovSelected = false;
-                        Animation.PlayAnimation(gameObject, "Boss_Walk");
+                        Animation.PlayAnimation(gameObject, "Boss_Walk.001");
                         Audio.PlayAudio(gameObject, "QX_Move");
                         queenState = QueenState.WALKING_TO_PLAYER;
                     }
@@ -219,7 +226,15 @@ public class QueenXenomorphBaseScript : YmirComponent
                         randomMovSelected = false;
                         sidewaysDuration = random.Next(1, 4);
                         sidewaysTimer = 0f;
-                        Animation.PlayAnimation(gameObject, "Boss_Walk");
+                        if (selectedMovement == 2)
+                        {
+                            Animation.SetBackward(gameObject, "Boss_Walk_Side", true);
+                        }
+                        else
+                        {
+                            Animation.SetBackward(gameObject, "Boss_Walk_Side", false);
+                        }
+                        Animation.PlayAnimation(gameObject, "Boss_Walk_Side");
                         Audio.PlayAudio(gameObject, "QX_Move");
                         queenState = QueenState.WALKING_SIDEWAYS;
                     }
@@ -266,6 +281,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     {
                         Debug.Log("[ERROR] BOSS STATE WALKING TO PLAYER");
                         Audio.PlayAudio(gameObject, "QX_Move");
+                        Animation.PlayAnimation(gameObject, "Boss_Walk.001");
                         queenState = QueenState.WALKING_TO_PLAYER;
                     }
                 }
@@ -283,8 +299,8 @@ public class QueenXenomorphBaseScript : YmirComponent
                     backwardsTimer = 0f;
                     acidSpitReady = false;
                     acidSpitTimer = acidSpitAttackCooldown;
-                    Animation.SetBackward(gameObject, "Boss_Walk", false);
-                    Animation.PlayAnimation(gameObject, "Boss_Cry");
+                    Animation.SetBackward(gameObject, "Boss_Walk.001", false);
+                    Animation.PlayAnimation(gameObject, "Boss_Acid_Spit");
                     Audio.PlayAudio(gameObject, "QX_Acid");
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 10;
@@ -464,6 +480,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     pos.y += 10;
                     pos.z -= 6;
                     InternalCalls.CreateQueenTailAttack(pos, gameObject.transform.globalRotation);
+                    Animation.PlayAnimation(gameObject, "Boss_Tail_Attack");
                     queenState = QueenState.AXE_TAIL;
                 }
                 else
@@ -499,7 +516,7 @@ public class QueenXenomorphBaseScript : YmirComponent
             Debug.Log("[ERROR] BOSS STATE ACID SPIT");
             acidSpitReady = false;
             acidSpitTimer = acidSpitAttackCooldown;
-            Animation.PlayAnimation(gameObject, "Boss_Cry");
+            Animation.PlayAnimation(gameObject, "Boss_Acid_Spit");
             Audio.PlayAudio(gameObject, "QX_Acid");
             Vector3 pos = gameObject.transform.globalPosition;
             pos.y += 10;
@@ -511,8 +528,8 @@ public class QueenXenomorphBaseScript : YmirComponent
         else if ((CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, clawRadius)) && acidSpitReady == true)
         {
             Debug.Log("[ERROR] BOSS STATE WALK BACKWARDS");
-            Animation.PlayAnimation(gameObject, "Boss_Walk");
-            Animation.SetBackward(gameObject, "Boss_Walk", true);
+            Animation.PlayAnimation(gameObject, "Boss_Walk.001");
+            Animation.SetBackward(gameObject, "Boss_Walk.001", true);
             Audio.PlayAudio(gameObject, "QX_Move");
             queenState = QueenState.WALK_BACKWARDS;
         }
@@ -630,7 +647,7 @@ public class QueenXenomorphBaseScript : YmirComponent
     {
         if (life <= 0)
         {
-            Animation.PlayAnimation(gameObject, "Boss_Die");
+            Animation.PlayAnimation(gameObject, "Boss_Die.002");
             Debug.Log("[ERROR] DEATH");
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             Audio.PlayAudio(gameObject, "QX_Death");
