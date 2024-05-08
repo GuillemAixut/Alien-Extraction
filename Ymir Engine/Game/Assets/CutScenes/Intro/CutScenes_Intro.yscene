@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1338044808,
+            "UID": 634683976,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -41,7 +41,7 @@
             "UID": 1624412438,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1338044808,
+            "Parent UID": 634683976,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52,9 +52,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -78,19 +78,19 @@
                     "Type": "Camera",
                     "Active": 1,
                     "Right": [
-                        0.76604485511779785,
-                        -1.4361712885602174e-07,
+                        0.76604437828063965,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.6969747081202513e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361708622345759e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.6969747081202513e-08,
-                        -0.76604485511779785
+                        -6.696972576492044e-08,
+                        -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
                     "Near Plane": 1,
@@ -108,7 +108,7 @@
             "UID": 818596370,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1338044808,
+            "Parent UID": 634683976,
             "Components": [
                 {
                     "Type": "Transform",
@@ -135,8 +135,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 799,
-                    "Height": 488,
+                    "Width": 1925,
+                    "Height": 1058,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -195,7 +195,7 @@
                         1920,
                         1080
                     ],
-                    "Path": "Assets\/CutScenes\/Image.png",
+                    "Path": "Assets\/CutScenes\/Intro\/Image.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -217,11 +217,14 @@
                     "ScriptName": "UI_Cutscenes.cs",
                     "Active": 1,
                     "UID": 0,
-                    "imgPath": "Assets\\Cutscenes\\",
+                    "imgPath": "Assets\\Cutscenes\\Intro\\",
                     "imgName": "Image ",
                     "currentFrame": 0,
                     "maxFrames": 7,
-                    "hasFinished": false
+                    "hasFinished": false,
+                    "introScene": true,
+                    "winScene": false,
+                    "loseScene": false
                 }
             ]
         }
