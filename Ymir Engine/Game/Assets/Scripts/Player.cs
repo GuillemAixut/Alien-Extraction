@@ -100,10 +100,10 @@ public class Player : YmirComponent
     private int shootRumbleIntensity;
     private int shootRumbleDuration;
 
-    private WEAPON_TYPE weaponType = WEAPON_TYPE.NONE;
-    private UPGRADE upgradeType = UPGRADE.NONE;
+    public WEAPON_TYPE weaponType = WEAPON_TYPE.NONE;
+    public UPGRADE upgradeType = UPGRADE.NONE;
 
-    private Weapon currentWeapon = null;
+    public Weapon currentWeapon = null;
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
@@ -290,7 +290,7 @@ public class Player : YmirComponent
         weapons.Add(w_Plasma_3a);
         weapons.Add(w_Plasma_3b);
 
-        SetWeapon();
+        SetWeapon(weaponType, upgradeType);
 
         currentWeapon = w_SMG_0.GetComponent<SMG>();
 
@@ -366,6 +366,11 @@ public class Player : YmirComponent
         ProcessState();
 
         UpdateState();
+
+        if (currentWeapon != null)
+        {
+            currentWeapon.Update();
+        }
 
         if (Input.GetKey(YmirKeyCode.K) == KeyState.KEY_DOWN)
         {
@@ -648,12 +653,11 @@ public class Player : YmirComponent
             if (Input.GetGamepadRightTrigger() > 0 && currentWeapon.ShootAvailable())
             {
                 inputsList.Add(INPUT.I_SHOOTING);
-                StartShoot();
             }
             else
             {
                 inputsList.Add(INPUT.I_SHOOTING_END);
-                shootBefore = false;
+                //shootBefore = false;
             }
 
             //----------------- Dash -----------------\\
@@ -1183,36 +1187,16 @@ public class Player : YmirComponent
         // Trigger animacion disparar
         // Futuro autoapuntado
         //shootingTimer = fireRate;
-        //StartShoot();
-        //Debug.Log("Shooting");
-
     }
     private void StartShoot()
     {
         StopPlayer();
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
-        //Logica del disparo depende del arma equipada
-        //switch (weaponType)
-        //{
-        //    case WEAPON.SMG:
-        //        SmgShoot();
-        //        break;
-        //    case WEAPON.SHOTGUN:
-        //        ShotgunShoot();
-        //        break;
-        //    case WEAPON.TRACE:
-        //        TraceShoot();
-        //        break;
-        //    default:
-        //        SmgShoot();
-        //        break;
-        //}
 
         currentWeapon.Shoot();
 
         if (!godMode)
         {
-            //--ammo;
             if (csBullets != null) { csBullets.UseBullets(); }
         }
 
@@ -1220,6 +1204,8 @@ public class Player : YmirComponent
     }
     private void UpdateShooting()
     {
+        if (currentWeapon.ShootAvailable()) inputsList.Add(INPUT.I_SHOOT);
+
         if (JoystickMoving() == true)
             HandleRotation();
     }
@@ -1227,7 +1213,8 @@ public class Player : YmirComponent
     private void EndShooting()
     {
         // Reset del futuro autoapuntado
-        Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        if (currentWeapon.currentAmmo <= 0 || (currentState == STATE.SHOOTING && inputsList[0] == INPUT.I_SHOOTING_END))
+            Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
     private void StartReload()
     {
@@ -1572,6 +1559,13 @@ public class Player : YmirComponent
                 }
                 break;
         }
+
+        currentWeapon.Start();
+
+        //Debug.Log("Ammo: " + currentWeapon.ammo);
+        //Debug.Log("Damage: " + currentWeapon.damage);
+        //Debug.Log("FireRate: " + currentWeapon.fireRate);
+        //Debug.Log("RealoadTime: " + currentWeapon.reloadTime);
 
         csBullets.UseBullets();
     }

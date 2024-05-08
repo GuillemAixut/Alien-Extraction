@@ -25,6 +25,7 @@ public enum UPGRADE
     LVL_3_ALPHA,
     LVL_3_BETA,
 }
+
 public abstract class Weapon : YmirComponent
 {
     private string _name;
@@ -38,7 +39,7 @@ public abstract class Weapon : YmirComponent
     public float reloadTime;
     public float range;
 
-    protected int currentAmmo;
+    public int currentAmmo;
     protected float fireRateTimer;
     protected float reloadTimer;
 
@@ -68,28 +69,22 @@ public abstract class Weapon : YmirComponent
     public abstract void Shoot();
     public abstract void Reload();
 
+    public abstract void Start();
+    public void Update()
+    {
+        if (fireRateTimer > 0) fireRateTimer -= Time.deltaTime;
+        if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
+
+        Debug.Log("Shoot Cooldown: " + fireRateTimer);
+        Debug.Log("Realod Cooldown: " + reloadTimer);
+    }
     public bool ShootAvailable()
     {
-        if (fireRateTimer <= 0 && currentAmmo > 0)
-        {
-    
-            fireRateTimer = fireRate;
-            return true;
-        }
-
-        fireRateTimer -= Time.deltaTime;
-        return false;
+        return (fireRateTimer <= 0 && currentAmmo > 0) ? true : false;
     }
 
     public bool ReloadAvailable()
     {
-        if (reloadTimer <= 0 && currentAmmo < ammo) {
-
-            reloadTimer = reloadTime;
-            return true;
-        }
-
-        reloadTimer -= Time.deltaTime;
-        return false;
+        return (reloadTimer <= 0 && currentAmmo < ammo) ? true : false;
     }
 }

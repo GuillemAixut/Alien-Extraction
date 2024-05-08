@@ -15,7 +15,7 @@ public class Shotgun : Weapon
     public int dispersion;
     public Shotgun() : base(WEAPON_TYPE.SHOTGUN) { }
 
-    public void Start()
+    public override void Start()
     {
         _upgrade = (UPGRADE)upgrade;
 
@@ -79,10 +79,14 @@ public class Shotgun : Weapon
             default:
                 break;
         }
+
+        currentAmmo = ammo;
     }
+
     public override void Shoot()
     {
         currentAmmo--;
+        fireRateTimer = fireRate;
 
         Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 

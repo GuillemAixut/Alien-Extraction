@@ -11,7 +11,7 @@ public class SMG : Weapon
     public int upgrade = 0;
     public SMG() : base(WEAPON_TYPE.SMG) {}
 
-    public void Start()
+    public override void Start()
     {
         _upgrade = (UPGRADE)upgrade;
 
@@ -62,11 +62,14 @@ public class SMG : Weapon
             default:
                 break;
         }
+
+        currentAmmo = ammo;
     }
 
     public override void Shoot()
     {
-
+        Debug.Log("SMG Shoot");
+        fireRateTimer = fireRate; 
         currentAmmo--;
 
         GameObject target;

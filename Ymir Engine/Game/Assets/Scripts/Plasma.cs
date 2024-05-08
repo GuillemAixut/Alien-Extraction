@@ -15,7 +15,7 @@ public class Plasma : Weapon
 
     public Plasma() : base(WEAPON_TYPE.PLASMA) { }
 
-    public void Start()
+    public override void Start()
     {
         _upgrade = (UPGRADE)upgrade;
 
@@ -71,11 +71,14 @@ public class Plasma : Weapon
             default:
                 break;
         }
+
+        currentAmmo = ammo;
     }
     public override void Shoot()
     {
 
         currentAmmo--;
+        fireRateTimer = fireRate;
 
         GameObject target = null;
 

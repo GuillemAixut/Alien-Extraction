@@ -89,7 +89,7 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
 	//LoadScene("Assets/UI/Scenes", "StartScene");
 	//LoadScene("Assets/Camera", "CameraTesting");
-	//LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
+	LoadScene("Assets/Main Character/Weapons", "WeaponTesting");
 
 	// -------------------- FINAL MAPS -------------------- \\
 
