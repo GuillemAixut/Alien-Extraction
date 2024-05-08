@@ -406,9 +406,6 @@ public class Player : YmirComponent
         {
             SavePlayer();
         }
-
-        //Debug.Log("swipeCD = " + swipeCDTimer);
-
     }
 
     #region FSM
@@ -650,7 +647,7 @@ public class Player : YmirComponent
             }
 
             //----------------- Shoot -----------------\\
-            if (Input.GetGamepadRightTrigger() > 0 && currentWeapon.ShootAvailable())
+            if (Input.GetGamepadRightTrigger() > 0)
             {
                 inputsList.Add(INPUT.I_SHOOTING);
             }
@@ -995,7 +992,6 @@ public class Player : YmirComponent
                         case INPUT.I_SHOOTING_END:
                             currentState = STATE.IDLE;
                             EndShooting();
-                            //StartIdle(); //Trigger de la animacion
                             break;
 
                         case INPUT.I_SHOOT:
@@ -1024,9 +1020,10 @@ public class Player : YmirComponent
                             StopPlayer();
                             break;
 
-                        case INPUT.I_SHOOT_END:
+                        case INPUT.I_SHOOT_END:                   
                             currentState = STATE.SHOOTING;
-                            StartShooting();
+                            EndShooting();
+                            Debug.Log("End Shooting");
                             break;
 
                         case INPUT.I_PRED_END:
@@ -1184,9 +1181,7 @@ public class Player : YmirComponent
 
     private void StartShooting()
     {
-        // Trigger animacion disparar
-        // Futuro autoapuntado
-        //shootingTimer = fireRate;
+
     }
     private void StartShoot()
     {
@@ -1212,8 +1207,7 @@ public class Player : YmirComponent
 
     private void EndShooting()
     {
-        // Reset del futuro autoapuntado
-        if (currentWeapon.currentAmmo <= 0 || (currentState == STATE.SHOOTING && inputsList[0] == INPUT.I_SHOOTING_END))
+        if (currentWeapon.currentAmmo <= 0 || inputsList[0] == INPUT.I_SHOOTING_END)
             Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }
     private void StartReload()

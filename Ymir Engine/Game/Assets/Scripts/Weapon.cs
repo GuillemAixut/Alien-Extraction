@@ -74,9 +74,6 @@ public abstract class Weapon : YmirComponent
     {
         if (fireRateTimer > 0) fireRateTimer -= Time.deltaTime;
         if (reloadTimer > 0) reloadTimer -= Time.deltaTime;
-
-        Debug.Log("Shoot Cooldown: " + fireRateTimer);
-        Debug.Log("Realod Cooldown: " + reloadTimer);
     }
     public bool ShootAvailable()
     {

@@ -68,7 +68,6 @@ public class SMG : Weapon
 
     public override void Shoot()
     {
-        Debug.Log("SMG Shoot");
         fireRateTimer = fireRate; 
         currentAmmo--;
 
