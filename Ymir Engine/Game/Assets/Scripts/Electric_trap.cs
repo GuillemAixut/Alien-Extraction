@@ -22,6 +22,7 @@ public class Electric_trap : YmirComponent
     {
         originalPosition = gameObject.transform.globalPosition;
         toParticle = InternalCalls.CS_GetChild(gameObject, 1);
+        Particles.PlayParticles(toParticle);
     }
 
     public void Update()
@@ -33,8 +34,9 @@ public class Electric_trap : YmirComponent
             if (time < 3f)
             {
                 gameObject.SetPosition(Vector3.negativeInfinity * Time.deltaTime * 1f);
-                //InternalCalls.GetGameObjectByName(toParticle).SetActive(false);
-               
+                //InternalCalls.get(toParticle).SetActive(false);
+                //InternalCalls.CS_GetChild(gameObject, 1).SetActive(false);
+
             }
             else
             {
@@ -46,8 +48,8 @@ public class Electric_trap : YmirComponent
         {
             if (time < 3f)
             {
+                //InternalCalls.CS_GetChild(gameObject, 1).SetActive(true);
                 gameObject.SetPosition(originalPosition);
-                Particles.PlayParticles(toParticle);
                 if (hitPlayer)
                 {
                     disabled = true;
