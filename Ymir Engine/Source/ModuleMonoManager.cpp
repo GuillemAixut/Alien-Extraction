@@ -342,7 +342,34 @@ bool ModuleMonoManager::CleanUp()
 
 	LOG("Cleaning mono domain");
 
-	//mono_domain_unload(domain);
+	// Release Mono Classes ( peta :( )
+	//ClearVecPtr(userScripts);
+
+	// Release Mono Image and Assembly
+	if (image != nullptr) {
+		mono_image_close(image);
+	}
+
+	// Release Mono Assembly ( peta :( )
+	//if (assembly != nullptr) {
+	//	mono_assembly_close(assembly);
+	//}
+
+	// Release Mono Thread  ( peta :( )
+	if (domainThread != nullptr) {
+		mono_thread_detach(domainThread);
+	}
+
+	// Unload Mono Domains  ( peta :( )
+	
+	//if (domain != nullptr) {
+	//	mono_domain_unload(domain);
+	//}
+	
+	//if (jitDomain != nullptr) { 
+	//	mono_domain_unload(jitDomain);
+	//}
+
 	mono_jit_cleanup(jitDomain); //Mono cleanup
 	system("taskkill /F /IM VBCSCompiler.exe"); // Kills VBCSCompiler via CMD
 
