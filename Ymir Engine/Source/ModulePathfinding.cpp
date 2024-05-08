@@ -28,6 +28,8 @@
 
 #include "Random.h"
 
+#include "External/Optick/include/optick.h"
+
 #include "External/mmgr/mmgr.h"
 
 ModulePathFinding::ModulePathFinding(Application* app, bool start_enabled) : Module(app, start_enabled),
@@ -52,11 +54,15 @@ ModulePathFinding::~ModulePathFinding()
 
 bool ModulePathFinding::Init()
 {
+	OPTICK_EVENT();
+
 	return true;
 }
 
 update_status ModulePathFinding::Update(float dt)
 {
+	OPTICK_EVENT();
+
 #ifndef _STANDALONE
 	if (navMeshBuilder != nullptr && External->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_STATE::KEY_DOWN)
 	{

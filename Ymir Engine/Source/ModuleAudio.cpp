@@ -13,6 +13,8 @@
 #include "ModuleAudio.h"
 #include "Log.h"
 
+#include "External/Optick/include/optick.h"
+
 #include "External/mmgr/mmgr.h"
 
 CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
