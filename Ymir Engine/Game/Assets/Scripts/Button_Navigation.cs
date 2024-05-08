@@ -23,14 +23,14 @@ public class Button_Navigation : YmirComponent
 
     public void OnClickButton()
     {
-        Debug.Log("Go to scene" + sceneName + ".yscene");
+        Debug.Log("Go to scene " + sceneName + ".yscene");
         Audio.PauseAllAudios();
         if (loadSceneImg != null)
         {
             loadSceneImg.SetActive(true);
         }
 
-        Globals.GetPlayerScript().SavePlayer();
+        //Globals.GetPlayerScript().SavePlayer();
 
         InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
     }

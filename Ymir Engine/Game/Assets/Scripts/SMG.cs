@@ -11,8 +11,10 @@ public class SMG : Weapon
     public int upgrade = 0;
     public SMG() : base(WEAPON_TYPE.SMG) {}
 
-    public void Start()
+    public override void Start()
     {
+
+
         _upgrade = (UPGRADE)upgrade;
 
         range = 100;
@@ -62,10 +64,17 @@ public class SMG : Weapon
             default:
                 break;
         }
+
+        currentAmmo = ammo;
     }
 
     public override void Shoot()
     {
+        currentAmmo--;
+        fireRateTimer = fireRate;
+
+        Audio.PlayAudio(gameObject, "W_FirearmShot");
+
         GameObject target;
 
         target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
@@ -103,5 +112,12 @@ public class SMG : Weapon
                 //-----------------------------------------------------------------------------------
             }
         }
+    }
+
+    public override void Reload()
+    {
+        currentAmmo = ammo;
+
+        Audio.PlayAudio(gameObject, "W_FirearmReload");
     }
 }

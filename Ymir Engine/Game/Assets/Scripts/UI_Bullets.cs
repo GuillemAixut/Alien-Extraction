@@ -21,7 +21,7 @@ public class UI_Bullets : YmirComponent
         bulletsBar = InternalCalls.GetGameObjectByName("Bullets Text");
         if (bulletsBar != null )
         {
-            UI.TextEdit(bulletsBar, player.magsize.ToString() + "/" + player.magsize.ToString());
+            UI.TextEdit(bulletsBar, player.currentWeapon.ammo.ToString() + "/" + player.currentWeapon.ammo.ToString());
         }
         
     }
@@ -37,7 +37,7 @@ public class UI_Bullets : YmirComponent
     }
     public void UseBullets()
     {
-        UI.TextEdit(bulletsBar, player.ammo.ToString() + "/" + player.magsize.ToString());
+        UI.TextEdit(bulletsBar, player.currentWeapon.currentAmmo.ToString() + "/" + player.currentWeapon.ammo.ToString());
     }
 
     private void GetAnotherScript()

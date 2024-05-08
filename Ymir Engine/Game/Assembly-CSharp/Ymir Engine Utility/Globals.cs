@@ -22,6 +22,17 @@ namespace YmirEngine
 
             return null;
         }
+        public static Health GetPlayerHealthScript()
+        {
+            GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+            if (gameObject != null)
+            {
+                return gameObject.GetComponent<Health>();
+            }
+
+            return null;
+        }
 
         #region DEFINE ITEMS
 
@@ -37,7 +48,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Skin",
-                /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
+                /*description*/     "\nIt's made of a tough\nmaterial, capable of\nresisting the\ncreatures own acid\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png",
                 /*dictionaryName*/  "skin_common"
 
@@ -50,7 +61,7 @@ namespace YmirEngine
                /*itemRarity*/      ITEM_RARITY.RARE,
                /*isEquipped*/      false,
                /*name*/            "Alien Skin",
-               /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
+                /*description*/     "\nIt's made of a tough\nmaterial, capable of\nresisting the\ncreatures own acid\n\n\n-Material-",
                /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png",
                /*dictionaryName*/  "skin_rare"
                    ));
@@ -62,7 +73,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Skin",
-                /*description*/     "It's made of a tough material, capable of resisting the creatures own acid",
+                /*description*/     "\nIt's made of a tough\nmaterial, capable of\nresisting the\ncreatures own acid\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png",
                 /*dictionaryName*/  "skin_epic"
                     ));
@@ -74,7 +85,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Claw",
-                /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
+                /*description*/     "\nExtremely sharp claw,\ncapable of slicing\nthrough almost\nanything within its\ngrasp\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png",
                 /*dictionaryName*/  "claw_common"
                     ));
@@ -86,7 +97,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Claw",
-                /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
+                /*description*/     "\nExtremely sharp claw,\ncapable of slicing\nthrough almost\nanything within its\ngrasp\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png",
                 /*dictionaryName*/  "claw_rare"
                     ));
@@ -98,7 +109,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Claw",
-                /*description*/     "Shiny, black and extremely sharp claw, capable of slicing through almost anything within its grasp",
+                /*description*/     "\nExtremely sharp claw,\ncapable of slicing\nthrough almost\nanything within its\ngrasp\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ClawIconColor.png",
                 /*dictionaryName*/  "claw_epic"
                     ));
@@ -110,7 +121,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Tail Tip",
-                /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
+                /*description*/     "\nA sharp metallic piece\nof the tail, they use\nit as a slicing weapon\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png",
                 /*dictionaryName*/  "tailtip_common"
                     ));
@@ -122,7 +133,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Tail Tip",
-                /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
+                /*description*/     "\nA sharp metallic piece\nof the tail, they use\nit as a slicing weapon\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png",
                 /*dictionaryName*/  "tailtip_rare"
                     ));
@@ -134,7 +145,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Tail Tip",
-                /*description*/     "A sharp metallic piece of the tail, they use it as a slicing weapon",
+                /*description*/     "\nA sharp metallic piece\nof the tail, they use\nit as a slicing weapon\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/TailIconColor.png",
                 /*dictionaryName*/  "tailtip_epic"
                     ));
@@ -146,7 +157,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Acid Vesicle",
-                /*description*/     "Acid-filled organic bags, can be useful for some crafts",
+                /*description*/     "\nAcid-filled organic\nbags, can be useful\nfor some crafts\n\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png",
                 /*dictionaryName*/  "acidvesicle_common"
                     ));
@@ -158,7 +169,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Acid Vesicle",
-                /*description*/     "Acid-filled organic bags, can be useful for some crafts",
+                /*description*/     "\nAcid-filled organic\nbags, can be useful\nfor some crafts\n\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png",
                 /*dictionaryName*/  "acidvesicle_rare"
                     ));
@@ -170,7 +181,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Acid Vesicle",
-                /*description*/     "Acid-filled organic bags, can be useful for some crafts",
+                /*description*/     "\nAcid-filled organic\nbags, can be useful\nfor some crafts\n\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png",
                 /*dictionaryName*/  "acidvesicle_epic"
                     ));
@@ -182,7 +193,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Exocranium",
-                /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
+                /*description*/     "\nAn elongated shell.\nHard, resistant and\nlight. Sometimes\ncontaining some\nvesicles on the sides\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png",
                 /*dictionaryName*/  "exocranium_common"
                     ));
@@ -194,7 +205,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Exocranium",
-                /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
+                /*description*/     "\nAn elongated shell.\nHard, resistant and\nlight. Sometimes\ncontaining some\nvesicles on the sides\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png",
                 /*dictionaryName*/  "exocranium_rare"
                     ));
@@ -206,7 +217,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Exocranium",
-                /*description*/     "An elongated shell. Hard, resistant and light. Sometimes containing some vesicles on the sides",
+                /*description*/     "\nAn elongated shell.\nHard, resistant and\nlight. Sometimes\ncontaining some\nvesicles on the sides\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png",
                 /*dictionaryName*/  "exocranium_epic"
                     ));
@@ -218,7 +229,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Aluminum Bone",
-                /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
+                /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_common"
                     ));
@@ -230,7 +241,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Aluminum Bone",
-                /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
+                /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_rare"
 
@@ -243,7 +254,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Alien Aluminum Bone",
-                /*description*/     "It is light, soft, malleable, and a good conductor of both electricity and heat",
+                /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_epic"
                     ));
@@ -255,7 +266,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.MYTHIC,
                 /*isEquipped*/      false,
                 /*name*/            "Mythical Alien Core",
-                /*description*/     "An amazing but unknown part of the alien, it can be used to upgrade your weapon",
+                /*description*/     "\nAn amazing but\nunknown part of the\nalien, it can be used to\nupgrade your weapon\n\n\n-Upgrade Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/AlienCoreIconColor.png",
                 /*dictionaryName*/  "core_mythic"
                     ));
@@ -267,7 +278,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.MYTHIC,
                 /*isEquipped*/      false,
                 /*name*/            "Resin Vessel",
-                /*description*/     "Adds one more Resin Vessel when crafted, allowing you to get more heals on the raid",
+                /*description*/     "\nAdds permanently\none more Resin Vessel\nwhen crafted, allowing\nyou to get more heals\non the raid\n\n+1 Ressin Vessel",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png",
                 /*dictionaryName*/  "upgradevessel_mythic"
                     ));
@@ -280,7 +291,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Exo-Armor",
-                /*description*/     "An exo-armor that will help you withstand the blows of Xenomorphs. It's light and tough, much better than marine tech",
+                /*description*/     "\nAn exo-armor that will\nhelp you withstand the\nblows of Xenomorphs.\nIt's light and tough.\n\n             +10 Armor",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ArmorIconColor.png",
                 /*dictionaryName*/  "armor_common",
                 /*HP*/                  0,
@@ -298,7 +309,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Exo-Armor",
-                /*description*/     "An exo-armor that will help you withstand the blows of Xenomorphs. It's light and tough, much better than marine tech",
+                /*description*/     "\nAn exo-armor that will\nhelp you withstand the\nblows of Xenomorphs.\nIt's light and tough.\n\n             +18 Armor",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ArmorIconColor.png",
                 /*dictionaryName*/  "armor_rare",
                 /*HP*/                  0,
@@ -316,7 +327,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Exo-Armor",
-                /*description*/     "An exo-armor that will help you withstand the blows of Xenomorphs. It's light and tough, much better than marine tech",
+                /*description*/     "\nAn exo-armor that will\nhelp you withstand the\nblows of Xenomorphs.\nIt's light and tough.\n\n             +25 Armor",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/ArmorIconColor.png",
                 /*dictionaryName*/  "armor_epic",
                 /*HP*/                  0,
@@ -334,7 +345,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Offensive Chip",
-                /*description*/     "A thin layer made of aluminum bone with thin and sharp canals. Boosts the offensive capabilities",
+                /*description*/     "\nA thin layer made of\naluminum with cables.\nBoosts the offensive\ncapabilities.\n            +10% Speed\n        +5% Reload spd.\n         +12.5% Damage",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/OffensiveChipIcon2Color.png",
                 /*dictionaryName*/  "ofChip_common",
                 /*HP*/                  0,
@@ -352,7 +363,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Offensive Chip",
-                /*description*/     "A thin layer made of aluminum bone with thin and sharp canals. Boosts the offensive capabilities",
+                /*description*/     "\nA thin layer made of\naluminum with cables.\nBoosts the offensive\ncapabilities.\n            +20% Speed\n        +9% Reload spd.\n          +24% Damage",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/OffensiveChipIcon2Color.png",
                 /*dictionaryName*/  "ofChip_rare",
                 /*HP*/                  0,
@@ -370,7 +381,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Offensive Chip",
-                /*description*/     "A thin layer made of aluminum bone with thin and sharp canals. Boosts the offensive capabilities",
+                /*description*/     "\nA thin layer made of\naluminum with cables.\nBoosts the offensive\ncapabilities.\n            +20% Speed\n       +15% Reload spd.\n          +24% Damage",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/OffensiveChipIcon2Color.png",
                 /*dictionaryName*/  "ofChip_epic",
                 /*HP*/                  0,
@@ -388,7 +399,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Defensive Chip",
-                /*description*/     "A thick layer made of aluminum bone with many thin canals spread around various layers. Boosts the defensive capabilities",
+                /*description*/     "\nA thick layer made of\naluminum with cables.\nBoosts the defensive\ncapabilities.\n\n              +5 Armor",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/DefensiveChipIcon2Color.png",
                 /*dictionaryName*/  "defChip_common",
                 /*HP*/                  0,
@@ -406,7 +417,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Defensive Chip",
-                /*description*/     "A thick layer made of aluminum bone with many thin canals spread around various layers. Boosts the defensive capabilities",
+                /*description*/     "\nA thick layer made of\naluminum with cables.\nBoosts the defensive\ncapabilities.\n\n              +9 Armor",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/DefensiveChipIcon2Color.png",
                 /*dictionaryName*/  "defChip_rare",
                 /*HP*/                  0,
@@ -424,7 +435,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Defensive Chip",
-                /*description*/     "A thick layer made of aluminum bone with many thin canals spread around various layers. Boosts the defensive capabilities",
+                /*description*/     "\nA thick layer made of\naluminum with cables.\nBoosts the defensive\ncapabilities.\n\n             +12 Armor",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/DefensiveChipIcon2Color.png",
                 /*dictionaryName*/  "defChip_epic",
                 /*HP*/                  0,
@@ -443,7 +454,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Grenade",
-                /*description*/     "High damage explosive grenade that contains “Spitter” acid",
+                /*description*/     "\nHigh damage explosive\ngrenade that contains\nSpitter's acid\n\n            Damage: 200\n                 Area: 6",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/GrenadeIcon2Color.png",
                 /*dictionaryName*/  "grenade_common",
                 /*dmg*/             200,
@@ -458,7 +469,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Grenade",
-                /*description*/     "High damage explosive grenade that contains “Spitter” acid",
+                /*description*/     "\nHigh damage explosive\ngrenade that contains\nSpitter's acid\n\n            Damage: 360\n                 Area: 7",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/GrenadeIcon2Color.png",
                 /*dictionaryName*/  "grenade_rare",
                 /*dmg*/             360,
@@ -473,7 +484,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Grenade",
-                /*description*/     "High damage explosive grenade that contains “Spitter” acid",
+                /*description*/     "\nHigh damage explosive\ngrenade that contains\nSpitter's acid\n\n            Damage: 450\n                 Area: 8",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/GrenadeIcon2Color.png",
                 /*dictionaryName*/  "grenade_epic",
                 /*dmg*/             450,
@@ -488,7 +499,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
                 /*name*/            "Baker House",
-                /*description*/     "Miniature of a legendary baker house. It has a mechanism that attracts enemies with a peculiar noise for a few seconds",
+                /*description*/     "\nMiniature of a\nlegendary baker house.\nIt attracts enemies\nwith a noise.\n\n               Time: 3s\n               Area: 10",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BakerHouseIconColor.png",
                 /*dictionaryName*/  "bakerhouse_common",
                 /*dmg*/             0,
@@ -503,7 +514,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
                 /*name*/            "Baker House",
-                /*description*/     "Miniature of a legendary baker house. It has a mechanism that attracts enemies with a peculiar noise for a few seconds",
+                /*description*/     "\nMiniature of a\nlegendary baker house.\nIt attracts enemies\nwith a noise.\n\n               Time: 4s\n               Area: 12",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BakerHouseIconColor.png",
                 /*dictionaryName*/  "bakerhouse_rare",
                 /*dmg*/             0,
@@ -518,7 +529,7 @@ namespace YmirEngine
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
                 /*name*/            "Baker House",
-                /*description*/     "Miniature of a legendary baker house. It has a mechanism that attracts enemies with a peculiar noise for a few seconds",
+                /*description*/     "\nMiniature of a\nlegendary baker house.\nIt attracts enemies\nwith a noise.\n\n               Time: 6s\n               Area: 15",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BakerHouseIconColor.png",
                 /*dictionaryName*/  "bakerhouse_epic",
                 /*dmg*/             0,
