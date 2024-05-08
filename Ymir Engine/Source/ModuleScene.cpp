@@ -5,6 +5,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 #include "ModuleResourceManager.h"
+#include "ModuleAudio.h"
 #include "ResourceMesh.h"
 
 #include "GameObject.h"
@@ -400,6 +401,8 @@ void ModuleScene::ClearScene()
 
 	focusedUIGO = nullptr;
 	selectedUIGO = nullptr;
+
+	External->audio->UnLoadAllBanks();
 
 	External->physics->currentCollisions.clear();
 	External->physics->previousCollisions.clear();

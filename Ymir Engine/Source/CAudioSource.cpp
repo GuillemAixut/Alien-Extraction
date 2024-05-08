@@ -43,7 +43,6 @@ CAudioSource::~CAudioSource()
 
 	gameObjectTransform = nullptr;
 	audBankReference = nullptr;
-
 }
 
 #ifndef STANDALONE

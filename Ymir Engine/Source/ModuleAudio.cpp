@@ -418,8 +418,12 @@ void ModuleAudio::UnLoadAllBanks()
 	std::vector<AudioBank*>::iterator it;
 	for (it = banks.begin(); it != banks.end(); ++it)
 	{
-		if ((*it)->loaded_in_heap)
+		if ((*it)->loaded_in_heap) 
+		{
+			LOG("Unloading Audio Bank: '%s'", (*it)->bank_name.c_str());
 			(*it)->loaded_in_heap = !UnLoadBank((*it)->bank_name);
+		}
+			
 	}
 }
 

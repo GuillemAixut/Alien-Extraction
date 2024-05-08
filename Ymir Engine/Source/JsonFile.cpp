@@ -3284,11 +3284,25 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		caudiosource->audBankName = json_object_get_string(componentObject, "Bank Name");
 		caudiosource->evName = json_object_get_string(componentObject, "Event Name");
 		caudiosource->evID = json_object_get_number(componentObject, "Event ID");
-		//caudiosource->id = json_object_get_number(componentObject, "Event ID");
 
-		External->audio->LoadBank(caudiosource->audBankName);
+		for (std::vector<AudioBank*>::iterator& it = External->audio->banks.begin(); it != External->audio->banks.end(); ++it)
+		{
+			if ((*it)->bank_name == caudiosource->audBankName)
+			{
+				caudiosource->audBankReference = (*it);
+		
+				if (!(*it)->loaded_in_heap)
+				{
+					External->audio->LoadBank(caudiosource->audBankName);
+					(*it)->loaded_in_heap = true;
+				}
+				return;
+			}
+		}
 
-		gameObject->AddComponent(caudiosource);
+		caudiosource->audBankReference = nullptr;
+
+		gameObject->AddComponent(caudiosource); 
 
 	}
 	else if (type == "Light")
