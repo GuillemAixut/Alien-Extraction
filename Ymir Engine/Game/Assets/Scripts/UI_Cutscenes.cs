@@ -33,15 +33,13 @@ public class UI_Cutscenes : YmirComponent
             {
                 currentFrame++;
 
-                Debug.Log(imgPath + imgName + currentFrame.ToString() + ".png");
+                UI.ChangeImageUI(img, imgPath + imgName + "(" + currentFrame.ToString() +")" + ".png", (int)UI_STATE.NORMAL);
 
-                UI.ChangeImageUI(img, imgPath + imgName + currentFrame.ToString() + ".png", (int)UI_STATE.NORMAL);
-
-                Debug.Log(currentFrame.ToString() + ".png");
                 if (currentFrame == maxFrames)
                 {
                     hasFinished = true;
-                    Debug.Log(hasFinished.ToString() + ".png");
+
+
                 }
             }
         }
