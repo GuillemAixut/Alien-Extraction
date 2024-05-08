@@ -324,6 +324,8 @@ void Shader::UseShader(bool toggle)
 
 void Shader::ClearShader()
 {
+	ClearVec(uniforms);
+
 	glUseProgram(0);
 
 	if (shaderProgram != 0) {

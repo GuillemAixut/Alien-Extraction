@@ -97,6 +97,8 @@ ModuleRenderer3D::~ModuleRenderer3D()
 // Called before render is available
 bool ModuleRenderer3D::Init()
 {
+	OPTICK_EVENT();
+
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
 	
@@ -441,6 +443,8 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 // Called before quitting
 bool ModuleRenderer3D::CleanUp()
 {
+	OPTICK_EVENT();
+
 	LOG("Destroying 3D Renderer");
 
 	// Delete things from Init
@@ -483,49 +487,6 @@ void ModuleRenderer3D::SetGameCamera(CCamera* cam)
 	}
 }
 
-void ModuleRenderer3D::HandleDragAndDrop()
-{
-	/*if (App->input->droppedFile) {
-
-		if (IsFileExtension(App->input->droppedFileDirectory, ".fbx") || IsFileExtension(App->input->droppedFileDirectory, ".FBX") || IsFileExtension(App->input->droppedFileDirectory, ".DAE") || IsFileExtension(App->input->droppedFileDirectory, ".dae")) {
-
-			models.push_back(Model(App->input->droppedFileDirectory));
-
-			ReloadTextures();
-
-		}
-		else if (IsFileExtension(App->input->droppedFileDirectory, ".png") || IsFileExtension(App->input->droppedFileDirectory, ".dds") || IsFileExtension(App->input->droppedFileDirectory, ".tga")) {
-
-			ClearActualTexture();
-
-			for (auto it = models.begin(); it != models.end(); ++it) {
-
-				for (auto jt = (*it).meshes.begin(); jt != (*it).meshes.end(); ++jt) {
-
-					if ((*jt).meshGO->selected || (*it).modelGO->selected) {
-
-						(*jt).loadedTextures = false;
-						(*jt).loadedShader = false;
-
-						Texture tmpTexture;
-
-						tmpTexture.path = App->input->droppedFileDirectory;
-
-						(*jt).textures.push_back(tmpTexture);
-
-					}
-
-				}
-
-			}
-
-		}
-
-		App->input->droppedFile = false;
-
-	}*/
-}
-
 bool ModuleRenderer3D::IsFileExtension(const char* directory, const char* extension)
 {
 	size_t strLen = strlen(directory);
@@ -538,34 +499,6 @@ bool ModuleRenderer3D::IsFileExtension(const char* directory, const char* extens
 
 	return strncmp(directory + strLen - suffixLen, extension, suffixLen) == 0;
 }
-
-void ModuleRenderer3D::ApplyCheckerTexture()
-{
-	ClearActualTexture();
-
-	for (auto it = models.begin(); it != models.end(); ++it) {
-
-		for (auto jt = (*it).meshes.begin(); jt != (*it).meshes.end(); ++jt) {
-
-			if ((*jt).meshGO->selected || (*it).modelGO->selected) {
-
-				(*jt).loadedTextures = false;
-				(*jt).loadedShader = false;
-
-				Texture checkerTexture;
-
-				(*jt).textures.push_back(checkerTexture);
-
-				(*jt).applyCheckerTexture = true;
-
-			}
-
-		}
-
-	}
-
-}
-
 
 void ModuleRenderer3D::ClearActualTexture()
 {

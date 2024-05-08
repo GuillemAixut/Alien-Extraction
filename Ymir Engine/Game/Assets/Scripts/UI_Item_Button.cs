@@ -67,7 +67,7 @@ public class UI_Item_Button : YmirComponent
                 item.isEquipped = false;
             }
 
-            item.UpdateStats(_menuReference);
+            item.UpdateStats();
             _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
 
             updateStats = false;

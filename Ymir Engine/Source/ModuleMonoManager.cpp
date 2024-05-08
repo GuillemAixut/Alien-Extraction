@@ -43,6 +43,8 @@
 #pragma comment( lib, "Source/External/mono/libx86/mono-2.0-boehm.lib" )
 #pragma comment( lib, "Source/External/mono/libx86/mono-2.0-sgen.lib" )
 
+#include "External/Optick/include/optick.h"
+
 #include "External/mmgr/mmgr.h"
 
 ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Module(app, start_enabled), domain(nullptr), domainThread(nullptr), assembly(nullptr), image(nullptr), jitDomain(nullptr)
@@ -326,6 +328,8 @@ ModuleMonoManager::~ModuleMonoManager()
 // -----------------------------------------------------------------
 bool ModuleMonoManager::Init()
 {
+	OPTICK_EVENT();
+
 	LOG("Setting up the camera");
 	bool ret = true;
 
@@ -335,9 +339,38 @@ bool ModuleMonoManager::Init()
 // -----------------------------------------------------------------
 bool ModuleMonoManager::CleanUp()
 {
+	OPTICK_EVENT();
+
 	LOG("Cleaning mono domain");
 
-	//mono_domain_unload(domain);
+	// Release Mono Classes ( peta :( )
+	//ClearVecPtr(userScripts);
+
+	// Release Mono Image and Assembly
+	if (image != nullptr) {
+		mono_image_close(image);
+	}
+
+	// Release Mono Assembly ( peta :( )
+	//if (assembly != nullptr) {
+	//	mono_assembly_close(assembly);
+	//}
+
+	// Release Mono Thread  ( peta :( )
+	if (domainThread != nullptr) {
+		mono_thread_detach(domainThread);
+	}
+
+	// Unload Mono Domains  ( peta :( )
+	
+	//if (domain != nullptr) {
+	//	mono_domain_unload(domain);
+	//}
+	
+	//if (jitDomain != nullptr) { 
+	//	mono_domain_unload(jitDomain);
+	//}
+
 	mono_jit_cleanup(jitDomain); //Mono cleanup
 	system("taskkill /F /IM VBCSCompiler.exe"); // Kills VBCSCompiler via CMD
 
@@ -698,6 +731,8 @@ void ModuleMonoManager::RemoveScriptFromSLN(const char* scriptLocalPath)
 
 void ModuleMonoManager::InitMono()
 {
+	OPTICK_EVENT();
+
 	//mono_set_dirs("mono-runtime/lib", "mono-runtime/etc");
 	//mono_config_parse(NULL);
 

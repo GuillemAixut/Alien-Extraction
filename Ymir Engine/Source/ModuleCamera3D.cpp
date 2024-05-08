@@ -33,12 +33,14 @@ ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(ap
 
 ModuleCamera3D::~ModuleCamera3D()
 {
-	delete editorCamera;
+	
 }
 
 // -----------------------------------------------------------------
 bool ModuleCamera3D::Start()
 {
+	OPTICK_EVENT();
+
 	LOG("Setting up the camera");
 	bool ret = true;
 
@@ -54,7 +56,11 @@ bool ModuleCamera3D::Start()
 // -----------------------------------------------------------------
 bool ModuleCamera3D::CleanUp()
 {
+	OPTICK_EVENT();
+
 	LOG("Cleaning camera");
+
+	RELEASE(editorCamera);
 
 	return true;
 }

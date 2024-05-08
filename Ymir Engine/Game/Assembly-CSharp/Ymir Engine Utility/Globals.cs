@@ -22,6 +22,17 @@ namespace YmirEngine
 
             return null;
         }
+        public static Health GetPlayerHealthScript()
+        {
+            GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
+
+            if (gameObject != null)
+            {
+                return gameObject.GetComponent<Health>();
+            }
+
+            return null;
+        }
 
         #region DEFINE ITEMS
 

@@ -42,6 +42,8 @@ ModuleFileSystem::~ModuleFileSystem()
 
 bool ModuleFileSystem::Init()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Loading File System");
@@ -102,6 +104,8 @@ update_status ModuleFileSystem::PostUpdate(float dt)
 
 bool ModuleFileSystem::CleanUp()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Deleting File System");

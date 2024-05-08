@@ -22,6 +22,8 @@
 #pragma comment (lib, "Source/External/Bullet/libx86/LinearMath.lib")
 #endif
 
+#include "External/Optick/include/optick.h"
+
 #include "External/mmgr/mmgr.h"
 
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
@@ -49,21 +51,21 @@ ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app,
 
 ModulePhysics::~ModulePhysics()
 {
-	delete dispatcher;
-	delete collisionConfig;
-	delete broadphase;
-	delete constraintSolver;
+
 }
 
 // INIT ----------------------------------------------------------------------
 bool ModulePhysics::Init()
 {
+	OPTICK_EVENT();
+
 	return true;
 }
 
 // START ---------------------------------------------------------------------
 bool ModulePhysics::Start()
 {
+	OPTICK_EVENT();
 
 	return true;
 }
@@ -71,6 +73,8 @@ bool ModulePhysics::Start()
 // PRE-UPDATE ----------------------------------------------------------------
 update_status ModulePhysics::PreUpdate(float dt)
 {
+	OPTICK_EVENT();
+
 	float fixedTimeStep = 1 / App->GetFPS();
 
 	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING && !isWorldFirstFrame) 
@@ -88,6 +92,8 @@ update_status ModulePhysics::PreUpdate(float dt)
 // UPDATE --------------------------------------------------------------------
 update_status ModulePhysics::Update(float dt)
 {
+	OPTICK_EVENT();
+
 	//LOG("Bodies in list: %d", bodiesList.size());
 	//LOG("Bodies in world: %d", world->getNumCollisionObjects());
 
@@ -97,6 +103,8 @@ update_status ModulePhysics::Update(float dt)
 // POST-UPDATE ---------------------------------------------------------------
 update_status ModulePhysics::PostUpdate(float dt)
 {
+	OPTICK_EVENT();
+
 	//for (auto it = bodiesList.begin(); it != bodiesList.end(); ++it)
 	//{
 	//	btRigidBody* b = (btRigidBody*)(*it)->body;
@@ -209,8 +217,14 @@ update_status ModulePhysics::PostUpdate(float dt)
 // CLEANUP -------------------------------------------------------------------
 bool ModulePhysics::CleanUp()
 {
+	OPTICK_EVENT();
 
+	RELEASE(dispatcher);
+	RELEASE(collisionConfig);
+	RELEASE(broadphase);
+	RELEASE(constraintSolver);
 
+	DeleteWorld();
 
 	return true;
 }
@@ -229,8 +243,7 @@ void ModulePhysics::DeleteWorld()
 
 	world->clearForces();
 
-	delete world;
-	world = nullptr;
+	RELEASE(world);
 }
 
 // ADDBODY ============================================================================================================

@@ -76,7 +76,7 @@ namespace YmirEngine
             this.dictionaryName = dictionaryName;
         }
 
-        public virtual void UpdateStats(GameObject menu)
+        public virtual void UpdateStats()
         {
         }
 
@@ -127,6 +127,7 @@ namespace YmirEngine
             this.name = name;
             this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
             this.imagePath = imagePath;
+            this.dictionaryName = dictionaryName;
 
             // Equippables
             this.HP = HP;
@@ -137,41 +138,21 @@ namespace YmirEngine
             this.damageMultiplier = damageMultiplier;
         }
 
-        public I_Equippable(ITEM_SLOT currentSlot, ITEM_SLOT itemType, ITEM_RARITY itemRarity, bool isEquipped, string v1, string v2, string v3, float hP, float armor, float speed, float fireRate, float reloadSpeed, float damageMultiplier)
-        {
-            this.currentSlot = currentSlot;
-            this.itemType = itemType;
-            this.itemRarity = itemRarity;
-            this.isEquipped = isEquipped;
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            HP = hP;
-            this.armor = armor;
-            this.speed = speed;
-            this.fireRate = fireRate;
-            this.reloadSpeed = reloadSpeed;
-            this.damageMultiplier = damageMultiplier;
-        }
-
-        public override void UpdateStats(GameObject menu)
+        public override void UpdateStats()
         {
             int e = (isEquipped) ? 1 : -1;
 
             Debug.Log("isEquipped " + isEquipped.ToString());
 
-            if (menu != null)
-            {
-                LogStats();
+            LogStats();
 
-                menu.GetComponent<UI_Inventory>().health.currentHealth += (HP * e);
-                menu.GetComponent<UI_Inventory>().health.maxHealth += (HP * e);
-                menu.GetComponent<UI_Inventory>().health.armor += (armor * e);
-                menu.GetComponent<UI_Inventory>().player.movementSpeed += (speed * e);
-                menu.GetComponent<UI_Inventory>().player.currentWeapon.reloadTime += (reloadSpeed * e);
-                menu.GetComponent<UI_Inventory>().player.currentWeapon.fireRate += (fireRate * e);
-                menu.GetComponent<UI_Inventory>().player.damageMultiplier += (damageMultiplier * e);
-            }
+            Globals.GetPlayerHealthScript().currentHealth += (HP * e);
+            Globals.GetPlayerHealthScript().maxHealth += (HP * e);
+            Globals.GetPlayerHealthScript().armor += (armor * e);
+            Globals.GetPlayerScript().movementSpeed += (speed * e);
+            Globals.GetPlayerScript().currentWeapon.reloadTime += (reloadSpeed * e);
+            Globals.GetPlayerScript().currentWeapon.fireRate += (fireRate * e);
+            Globals.GetPlayerScript().damageMultiplier += (damageMultiplier * e);
         }
 
         public override void LogStats()
@@ -216,6 +197,7 @@ namespace YmirEngine
             this.name = name;
             this.description = "Rarity: " + itemRarity.ToString() + "\n" + description;
             this.imagePath = imagePath;
+            this.dictionaryName = dictionaryName;
 
             // Consumables
             this.dmg = dmg;
@@ -223,7 +205,7 @@ namespace YmirEngine
             this.time = time;
         }
 
-        public override void UpdateStats(GameObject menu)
+        public override void UpdateStats()
         {
         }
 
@@ -239,7 +221,7 @@ namespace YmirEngine
         }
     }
     #endregion
-    
+
     public class Upgrade
     {
         public string name, description;
