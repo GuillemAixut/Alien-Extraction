@@ -21,7 +21,7 @@ enum XenoState
     PAUSED
 }
 
-public class SpitterBaseScript : Enemy
+public class SpitterBaseScript : YmirComponent
 {
     public GameObject thisReference = null;
 
@@ -54,6 +54,31 @@ public class SpitterBaseScript : Enemy
     private float timeLimit;
 
     private float outOfRangeTimer;
+
+    //DELETE WHEN FIXED
+    protected PathFinding agent;
+    public GameObject player = null;
+
+    public Health healthScript;
+    public float movementSpeed;
+    public float knockBackTimer;
+    public float knockBackSpeed;
+
+    protected WanderState wanderState;
+    public float timePassed = 0f;
+    public float life = 100f;
+
+    //This may change depending on enemy rarity
+    public float armor = 0;
+
+    //0 = Common, 1 = Rare, 2 = Elite
+    public int rarity = 0;
+
+    public float wanderRange = 10f;
+
+    public float detectionRadius = 60f;
+    public bool paused = false;
+
 
     public void Start()
     {
@@ -414,5 +439,75 @@ public class SpitterBaseScript : Enemy
             xenoState = pausedState;
             Animation.ResumeAnimation(gameObject);
         }
+    }
+
+    //DELETE WHEN FIXED
+    public void TakeDmg(float dmg)
+    {
+        life -= dmg * armor;
+    }
+
+    public void LookAt(Vector3 pointToLook)
+    {
+
+        Vector3 direction = pointToLook - gameObject.transform.globalPosition;
+        direction = direction.normalized;
+        float angle = (float)Math.Atan2(direction.x, direction.z);
+
+        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
+
+        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
+            return;
+
+        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
+
+        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
+
+
+        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
+
+        gameObject.SetRotation(desiredRotation);
+    }
+
+    public void KnockBack(float speed)
+    {
+
+        Vector3 knockbackDirection = player.transform.globalPosition - gameObject.transform.globalPosition;
+        knockbackDirection = knockbackDirection.normalized;
+        knockbackDirection.y = 0f;
+        gameObject.SetVelocity(knockbackDirection * -speed);
+
+    }
+
+    public bool CheckPause()
+    {
+        if (player.GetComponent<Player>().currentState == Player.STATE.STOP || player.GetComponent<Player>().currentState == Player.STATE.DEAD)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void MoveToCalculatedPos(float speed)
+    {
+        Vector3 pos = gameObject.transform.globalPosition;
+        Vector3 destination = agent.GetDestination();
+        Vector3 direction = destination - pos;
+
+        gameObject.SetVelocity(direction.normalized * speed * Time.deltaTime);
+    }
+
+    public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
+    {
+        float deltaX = Math.Abs(first.x - second.x);
+        float deltaY = Math.Abs(first.y - second.y);
+        float deltaZ = Math.Abs(first.z - second.z);
+
+        return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
+    }
+    public void DestroyEnemy()
+    {
+        Audio.PlayAudio(gameObject, "FH_Death");
+        InternalCalls.Destroy(gameObject);
     }
 }
