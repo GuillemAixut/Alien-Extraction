@@ -1798,6 +1798,7 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Spit");
 
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
+        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 0, 20.0f);
         Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 1, 50.0f);
         Particles.PlayParticlesTrigger(acidicParticles);
 
