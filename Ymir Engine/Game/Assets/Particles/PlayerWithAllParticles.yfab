@@ -7,7 +7,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 835678379,
+            "Parent UID": 260345994,
             "Components": [
                 {
                     "Type": "Transform",
@@ -612,9 +612,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -40.892543792724609,
-                        133.94056701660156,
-                        113.01505279541016
+                        -39.365837097167969,
+                        138.08869934082031,
+                        106.97673797607422
                     ],
                     "Rotation": [
                         -0,
@@ -1253,9 +1253,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -40.115951538085938,
-                        133.02578735351562,
-                        129.58522033691406
+                        0,
+                        105.98418426513672,
+                        102.00164794921875
                     ],
                     "Rotation": [
                         -0,
@@ -2003,9 +2003,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -39.125968933105469,
-                        140.54428100585938,
-                        142.83303833007812
+                        -43.1788330078125,
+                        135.1923828125,
+                        129.15083312988281
                     ],
                     "Rotation": [
                         -0,
@@ -2173,7 +2173,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 2,
-                                    "StartMode": 3,
+                                    "StartMode": 2,
                                     "NumParticles": 19,
                                     "SpawnRatio": 0.20000000298023224,
                                     "NumParticlesToStop": 100,
@@ -2263,7 +2263,7 @@
                                 {
                                     "Type": 1,
                                     "SpawnMode": 1,
-                                    "StartMode": 3,
+                                    "StartMode": 2,
                                     "NumParticles": 5,
                                     "SpawnRatio": 0.082000002264976501,
                                     "NumParticlesToStop": 100,
@@ -4147,8 +4147,8 @@
                     "Active": 1,
                     "Translation": [
                         0,
-                        0,
-                        0
+                        142.03424072265625,
+                        -55.522026062011719
                     ],
                     "Rotation": [
                         -0,
@@ -4826,7 +4826,7 @@
                                     "Type": 4,
                                     "Progressive": false,
                                     "Loop": true,
-                                    "Size1": 14.407999992370605,
+                                    "Size1": 46.908000946044922,
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -5082,8 +5082,8 @@
                                     "Lifetime2": 2,
                                     "RandomLT": false,
                                     "Position": [
-                                        1.8999999761581421,
                                         0,
+                                        1.5,
                                         0
                                     ],
                                     "DistanceLimit": 23.299999237060547,
@@ -5234,7 +5234,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        0.5,
+                                        0.40000000596046448,
                                         0
                                     ],
                                     "DistanceLimit": 0,
@@ -5754,7 +5754,7 @@
                 {
                     "Type": "Audio listener",
                     "Active": 1,
-                    "Default Listener": 0
+                    "Default Listener": 1
                 },
                 {
                     "Type": "Camera",
@@ -5797,9 +5797,9 @@
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Bank Name": "BaseMusic",
+                    "Event Name": "B_Music",
+                    "Event ID": 2462702937
                 }
             ]
         }
