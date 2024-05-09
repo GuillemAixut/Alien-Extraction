@@ -64,7 +64,10 @@ public class Enemy : YmirComponent
     public string path;
     public int numFields;
     public int spawnRange;
-    protected int level; 
+    protected int level;
+    protected float commonProb;
+    protected float rareProb;
+    protected float epicProb;
 
     private Vector3 itemPos = Vector3.zero;
     Random random = new Random();
@@ -223,7 +226,7 @@ public class Enemy : YmirComponent
         return output;
     }
 
-    private void SpawnPrefab(string name, int probability)
+    protected void SpawnPrefab(string name, int probability)
     {
         int randNum = random.Next(0, 101);  //Generate a random number between 0 and 100
         Debug.Log("[WARNING] Rand Number: " + randNum);
@@ -236,6 +239,28 @@ public class Enemy : YmirComponent
 
             itemPos.x += randPosX;
             itemPos.z += randPosZ;
+
+            int randNum2 = random.Next(0, 101);
+            Debug.Log("[WARNING] Rand Number: " + randNum2);
+
+            if(!name.Contains("resinheal") && !name.Contains("core_mythic"))
+            {
+                if (randNum2 < commonProb)
+                {
+                    name += "_common";
+                }
+                else if (randNum2 < (commonProb + rareProb))
+                {
+                    name += "_rare";
+                }
+                else
+                {
+                    name += "_epic";
+                }
+            }
+           
+            Debug.Log("[WARNING] Name ---------- " + name);
+
 
             if (name.Contains("common"))
             {
@@ -254,7 +279,7 @@ public class Enemy : YmirComponent
                 // Case resin/core mythic
                 InternalCalls.CreateGOFromPrefab("Assets/Prefabs/Items", name, itemPos);
             }
-            
+
             //Clear the pos value
             itemPos = gameObject.transform.localPosition;
         }

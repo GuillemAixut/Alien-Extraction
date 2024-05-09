@@ -76,8 +76,34 @@ public class FaceHuggerBaseScript : Enemy
         keys = "Nombre:,Probabilidad:";
         path = "Assets/Loot Tables/facehugger_loot.csv";
         numFields = 2;
+        spawnRange = 15;
         level = InternalCalls.GetCurrentMap();
-       
+        switch (level)
+        {
+            case 1:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+            case int i when (i == 2 || i == 3):
+                commonProb = 20.0f;
+                rareProb = 50.0f;
+                epicProb = 30.0f;
+                break;
+            case int i when (i == 4 || i == 5):
+                commonProb = 10.0f;
+                rareProb = 30.0f;
+                epicProb = 60.0f;
+                break;
+            default:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+        }
+        Debug.Log("[WARNING] Probs: " + commonProb + "rare: " + rareProb + "Epic: " + epicProb);
+
+
         attackTimer = attackDuration;
 
 
@@ -123,7 +149,12 @@ public class FaceHuggerBaseScript : Enemy
 
     public void Update()
     {
-        Debug.Log("Level --------- " + level);
+        if (Input.GetKey(YmirKeyCode.M) == KeyState.KEY_DOWN)
+        {
+            wanderState = WanderState.DEATH;
+        }
+
+        //Debug.Log("Level --------- " + level);
         if (CheckPause())
         {
             SetPause(true);
