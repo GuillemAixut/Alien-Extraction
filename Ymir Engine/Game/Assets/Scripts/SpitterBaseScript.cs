@@ -355,6 +355,8 @@ public class SpitterBaseScript : YmirComponent
                     pos.z -= 10;
                     InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
                     explosionDone = true;
+                    GameObject particles = GetParticles(gameObject, "ParticlesAcidicEnemy");
+                    Particles.PlayParticlesTrigger(particles);
                 }
 
                 break;
@@ -592,5 +594,10 @@ public class SpitterBaseScript : YmirComponent
     {
         Audio.PlayAudio(gameObject, "XS_Death");
         InternalCalls.Destroy(gameObject);
+    }
+
+    private GameObject GetParticles(GameObject go, string pName)
+    {
+        return InternalCalls.GetChildrenByName(go, pName);
     }
 }
