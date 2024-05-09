@@ -84,6 +84,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::DisableComponent", DisableComponentCS);
 
 	mono_add_internal_call("YmirEngine.InternalCalls::SpawnItem", SpawnItemCS);
+	mono_add_internal_call("YmirEngine.InternalCalls::GetCurrentMap", GetCurrentMapCS);
 
 #pragma region GameObject
 
