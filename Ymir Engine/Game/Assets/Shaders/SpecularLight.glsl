@@ -345,10 +345,10 @@
                 finalColor += BakePointLight(vec3(-44.5f,11.0f,130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights2
                 finalColor += BakePointLight(vec3(-04.0f,11.0f,130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights3
                 finalColor += BakePointLight(vec3(-118.0f,11.0f,130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights4
-                finalColor += BakePointLight(vec3(-15.5f,15.0f130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights5
-                finalColor += BakePointLight(vec3(-44.5f,15.0f130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights6
-                finalColor += BakePointLight(vec3(-04.0f,15.0f130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproo1ligh1s0
-                finalColor += BakePointLight(vec3(-118.0f,15.0f130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights8
+                finalColor += BakePointLight(vec3(-15.5f,15.0f,130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights5
+                finalColor += BakePointLight(vec3(-44.5f,15.0f,130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights6
+                finalColor += BakePointLight(vec3(-04.0f,15.0f,130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproo1ligh1s0
+                finalColor += BakePointLight(vec3(-118.0f,15.0f,130.1f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights8
                 finalColor += BakePointLight(vec3(-68.0f,29.0f,0.0f), vec3(1.0f,1.0f,1.0f), 1, normal, TangentFragPos, viewDirection); //tproomlights9
                 
                 //finalColor += BakePointLight(vec3(-101.0f,1915f111.0f), vec3(0.5f,0.5f,1.0f), 1, normal, TangentFragPos, viewDirection); //tpscreenlights1
