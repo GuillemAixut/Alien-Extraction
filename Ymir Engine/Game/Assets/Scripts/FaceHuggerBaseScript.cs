@@ -166,7 +166,7 @@ public class FaceHuggerBaseScript : Enemy
             SetPause(false);
             paused = false;
         }
-        Debug.Log("[ERROR] CurrentaState: " + wanderState);
+        //Debug.Log("[ERROR] CurrentaState: " + wanderState);
        
         if(wanderState != WanderState.DEATH) { isDeath(); }
         

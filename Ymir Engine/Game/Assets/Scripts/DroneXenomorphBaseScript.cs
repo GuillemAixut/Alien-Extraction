@@ -162,7 +162,7 @@ public class DroneXenomorphBaseScript : Enemy
             paused = false;
         }
 
-        Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
+        //Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
         if (droneState != DroneState.DEAD) { isDeath(); }
         switch (droneState)
 		{
