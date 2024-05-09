@@ -451,6 +451,8 @@ bool ModuleRenderer3D::CleanUp()
 
 	delete outlineShader;
 
+	Shader::loadedShaders.clear();
+
 	// Clean Framebuffers
 	App->camera->editorCamera->framebuffer.Delete();
 
