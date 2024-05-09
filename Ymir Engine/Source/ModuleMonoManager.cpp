@@ -299,6 +299,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma region SaveLoad
 
+	mono_add_internal_call("YmirEngine.SaveLoad::GameFileExists", GameFileExists);
 	mono_add_internal_call("YmirEngine.SaveLoad::CreateSaveGameFile", CreateSaveGameFile);
 	mono_add_internal_call("YmirEngine.SaveLoad::SaveInt", SaveGameInt);
 	mono_add_internal_call("YmirEngine.SaveLoad::SaveFloat", SaveGameFloat);

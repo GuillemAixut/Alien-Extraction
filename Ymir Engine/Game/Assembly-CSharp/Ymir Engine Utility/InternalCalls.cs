@@ -413,6 +413,12 @@ namespace YmirEngine
         /// 
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool GameFileExists(string dir, string name);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void CreateSaveGameFile(string dir, string name);
 
         /// <summary>

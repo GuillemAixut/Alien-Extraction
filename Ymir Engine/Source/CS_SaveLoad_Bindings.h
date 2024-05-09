@@ -18,8 +18,15 @@
 
 #define SAVE_GAME_EXT ".ygame"
 
-#pragma region Save
+bool GameFileExists(MonoString* dir, MonoString* name)
+{
+	std::string fileDir = mono_string_to_utf8(dir);
+	std::string fileName = mono_string_to_utf8(name);
 
+	return PhysfsEncapsule::FileExists(fileDir + "/" + fileName + SAVE_GAME_EXT);
+}
+
+#pragma region Save
 void CreateSaveGameFile(MonoString* dir, MonoString* name)
 {
 	std::string fileDir = mono_string_to_utf8(dir);

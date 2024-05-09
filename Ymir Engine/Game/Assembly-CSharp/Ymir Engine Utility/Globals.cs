@@ -11,6 +11,9 @@ namespace YmirEngine
         public static string saveGameDir = "Assets/GameFiles/";
         public static string saveGameExt = ".ygame";
 
+        public static string saveGamesInfoFile = "Game Files";
+        public static string saveCurrentGame = "CurrentGameFile";
+
         public static Player GetPlayerScript()
         {
             GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
@@ -352,7 +355,7 @@ namespace YmirEngine
                 /*armor*/               0,
                 /*speed*/               1,
                 /*fireRate*/            0,
-                /*reloadSpeed*/         5,
+                /*reloadSpeed*/         5.0f,
                 /*damageMultiplier*/    12.5f
                 ));
 
@@ -370,7 +373,7 @@ namespace YmirEngine
                 /*armor*/               0,
                 /*speed*/               2,
                 /*fireRate*/            0,
-                /*reloadSpeed*/         9,
+                /*reloadSpeed*/         9.0f,
                 /*damageMultiplier*/    24f
                 ));
 
@@ -388,7 +391,7 @@ namespace YmirEngine
                 /*armor*/               0,
                 /*speed*/               3,
                 /*fireRate*/            0,
-                /*reloadSpeed*/         15,
+                /*reloadSpeed*/         15.0f,
                 /*damageMultiplier*/    45f
                 ));
 
