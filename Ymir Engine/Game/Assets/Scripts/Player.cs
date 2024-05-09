@@ -28,6 +28,7 @@ public class Player : YmirComponent
         DEAD,
         JUMP,
         TAILSWIPE,
+        HIT,
 
         All_TYPES
     }
@@ -54,6 +55,8 @@ public class Player : YmirComponent
         I_SWIPE,
         I_SWIPE_END,
         I_BASE,
+        I_HIT,
+        I_HIT_END,
     }
 
     private bool isInBase = false;
@@ -97,6 +100,14 @@ public class Player : YmirComponent
 
     //Particulas de caminar
     GameObject walkParticles = null;
+
+    //--------------------- Hit ---------------------\\
+    private float hitCD = 3f;
+    private float hitCDTimer;
+    private float hitDurationTimer;
+    private float hitDuration = 1.5f;
+
+    public bool vulnerable = true;
 
     #endregion
 
@@ -376,6 +387,12 @@ public class Player : YmirComponent
                 SetWeapon();
             }
 
+
+            if (Input.GetKey(YmirKeyCode.Alpha4) == KeyState.KEY_DOWN)
+            {
+                TakeDMG();  
+            }
+
             if (Input.GetKey(YmirKeyCode.PERIOD) == KeyState.KEY_DOWN)
             {
                 if ((int)upgradeType < 4)
@@ -405,6 +422,29 @@ public class Player : YmirComponent
     #region FSM
     private void ProcessInternalInput()
     {
+        //--------------------- Hit Timers ---------------------\\
+        if (hitDurationTimer > 0)
+        {
+            hitDurationTimer -= Time.deltaTime;
+
+            if (hitDurationTimer <= 0)
+            {
+                inputsList.Add(INPUT.I_HIT_END);
+
+                hitCDTimer = hitCD;
+            }
+        }
+
+        if (hitCDTimer > 0)
+        {
+            hitCDTimer -= Time.deltaTime;
+
+            if (hitCDTimer <= 0)
+            {
+                vulnerable = true;
+            }
+        }
+
         //--------------------- Dash Timers ---------------------\\
         if (dashTimer > 0)
         {
@@ -736,6 +776,11 @@ public class Player : YmirComponent
                     //Debug.Log("IDLE");
                     switch (input)
                     {
+                        case INPUT.I_HIT:
+                            currentState = STATE.HIT;
+                            StartHit();
+                            break;
+
                         case INPUT.I_MOVE:
                             currentState = STATE.MOVE;
                             StartMove();
@@ -798,6 +843,11 @@ public class Player : YmirComponent
                     //Debug.Log("MOVE");
                     switch (input)
                     {
+                        case INPUT.I_HIT:
+                            currentState = STATE.HIT;
+                            StartHit();
+                            break;
+
                         case INPUT.I_IDLE:
                             currentState = STATE.IDLE;
                             StartIdle();
@@ -912,6 +962,11 @@ public class Player : YmirComponent
                     //Debug.Log("SHOOTING");
                     switch (input)
                     {
+                        case INPUT.I_HIT:
+                            currentState = STATE.HIT;
+                            StartHit();
+                            break;
+
                         case INPUT.I_STOP:
                             currentState = STATE.STOP;
                             StopPlayer();
@@ -957,6 +1012,11 @@ public class Player : YmirComponent
                     //Debug.Log("SHOOT");
                     switch (input)
                     {
+                        case INPUT.I_HIT:
+                            currentState = STATE.HIT;
+                            StartHit();
+                            break;
+
                         case INPUT.I_STOP:
                             currentState = STATE.STOP;
                             StopPlayer();
@@ -981,6 +1041,11 @@ public class Player : YmirComponent
                 case STATE.RELOADING:
                     switch (input)
                     {
+                        case INPUT.I_HIT:
+                            currentState = STATE.HIT;
+                            StartHit();
+                            break;
+
                         case INPUT.I_MOVE:
                             currentState = STATE.MOVE;
                             StartMove();
@@ -1047,6 +1112,11 @@ public class Player : YmirComponent
                         //    StopPlayer();
                         //    break;
 
+                        case INPUT.I_HIT:
+                            currentState = STATE.HIT;
+                            StartHit();
+                            break;
+
                         case INPUT.I_PRED_END:
                             EndPredRush();
                             break;
@@ -1059,6 +1129,34 @@ public class Player : YmirComponent
                         case INPUT.I_DEAD:
                             currentState = STATE.DEAD;
                             StartDeath();
+                            break;
+                    }
+                    break;
+
+                case STATE.HIT:
+                    switch (input)
+                    {
+                        case INPUT.I_STOP:
+                            currentState = STATE.STOP;
+                            StopPlayer();
+                            break;
+
+                        case INPUT.I_ACID_END:
+                            EndAcidicSpit();
+                            break;
+
+                        case INPUT.I_PRED_END:
+                            EndPredRush();
+                            break;
+
+                        case INPUT.I_DEAD:
+                            currentState = STATE.DEAD;
+                            StartDeath();
+                            break;
+
+                        case INPUT.I_HIT_END:
+                            currentState = STATE.IDLE;
+                            StartIdle();
                             break;
                     }
                     break;
@@ -1447,6 +1545,9 @@ public class Player : YmirComponent
 
     private void StartDeath()
     {
+        Animation.SetSpeed(gameObject, "Raisen_Death", 1.0f);
+        Animation.SetPingPong(gameObject, "Raisen_Death");
+
         gameObject.SetVelocity(new Vector3(0, 0, 0));
         gameObject.ClearForces();
         Animation.PlayAnimation(gameObject, "Raisen_Death");
@@ -1464,6 +1565,21 @@ public class Player : YmirComponent
                 csHealth.DeathScreen();
             }
         }
+    }
+
+    private void StartHit()
+    {
+        vulnerable = false;
+        hitDurationTimer = hitDuration;
+
+        Animation.PlayAnimation(gameObject, "Raisen_Damage");
+        GameObject damageParticles = GetParticles(gameObject, "ParticlesDamage");
+        Particles.PlayParticlesTrigger(damageParticles);
+    }
+
+    public void TakeDMG()
+    {
+        inputsList.Add(INPUT.I_HIT);
     }
 
     public void PlayerStopState(bool stop)
@@ -1562,6 +1678,8 @@ public class Player : YmirComponent
         //trigger del sonido
         Audio.PlayAudio(gameObject, "P_PredRush");
 
+        Animation.SetSpeed(gameObject, "Raisen_Walk", 1.5f);
+
         GameObject predRushParticles = GetParticles(gameObject, "ParticlesPredatoryRush");
         Particles.PlayParticlesTrigger(predRushParticles);
 
@@ -1580,6 +1698,8 @@ public class Player : YmirComponent
     private void EndPredRush()
     {
         //volver las variables a su valor original
+
+        Animation.SetSpeed(gameObject, "Raisen_Walk", 1f);
 
         movementSpeed = movementSpeed / 1.5f;
         //Decrease armor by / 1.3
@@ -1678,7 +1798,7 @@ public class Player : YmirComponent
         //Trigger del sonido
         Audio.PlayAudio(gameObject, "P_AcidSpit");
 
-        Animation.PlayAnimation(gameObject, "Raisen_Shooting");
+        Animation.PlayAnimation(gameObject, "Raisen_Spit");
 
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
         Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 1, 50.0f);
