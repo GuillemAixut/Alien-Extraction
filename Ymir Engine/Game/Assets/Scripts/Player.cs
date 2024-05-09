@@ -306,6 +306,7 @@ public class Player : YmirComponent
         currentState = STATE.IDLE;
 
         //--------------------- Menus ---------------------\\
+        Globals.itemsDictionary = new Dictionary<string, Item>();
         Globals.CreateItemDictionary();
 
         itemsList = new List<Item>();
@@ -315,7 +316,7 @@ public class Player : YmirComponent
 
         if (currentLvl != (int)LEVEL.BASE)
         {
-            Debug.Log("current: " + currentLvl.ToString());
+            Debug.Log("[ERROR]current: " + currentLvl.ToString());
             LoadPlayer();
         }
         else
@@ -324,7 +325,7 @@ public class Player : YmirComponent
             SetWeapon();
             LoadItems();
         }
-
+        //SetWeapon();
         Debug.Log("[ERROR]" + weaponType.ToString());
         Debug.Log("[ERROR]" + upgradeType.ToString());
     }
