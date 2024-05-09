@@ -5,6 +5,7 @@
 #include "ModuleCamera3D.h"
 #include "ImporterTexture.h"
 #include "ModuleScene.h"
+#include "ModuleResourceManager.h"
 
 #include "External/mmgr/mmgr.h"
 
@@ -2142,18 +2143,74 @@ void EmitterColor::OnInspector()
 
 EmitterImage::EmitterImage()
 {
-	rTexTemp = new ResourceTexture();
 	imgPath = "Assets/Particles/IMAGES/particleExample.png";
 	SetImage(imgPath);
 }
 
+EmitterImage::~EmitterImage()
+{
+	RELEASE(rTexTemp);
+}
+
 void EmitterImage::SetImage(std::string imagePath)
 {
-	ImporterTexture::Import(imagePath, rTexTemp);
-	rTexTemp->type = TextureType::DIFFUSE;
-	rTexTemp->UID = Random::Generate();
-
 	this->imgPath = imagePath;
+
+	std::string metaFilePath = imgPath + ".meta"; // Assuming the meta file exists.
+
+	std::unique_ptr<JsonFile> metaFile = JsonFile::GetJSON(metaFilePath);
+
+	if (metaFile == nullptr) {
+
+		// Chuekada para crear el meta en library :((((
+
+		ResourceTexture* rTexMeta = new ResourceTexture();
+		ImporterTexture::Import(imgPath, rTexMeta);
+		RELEASE(rTexMeta);
+
+		// Get meta
+
+		metaFile = JsonFile::GetJSON(imgPath + ".meta");
+
+		std::string libraryPath = metaFile->GetString("Library Path");
+
+		uint UID = metaFile->GetInt("UID");
+		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
+
+		rTexTemp = (ResourceTexture*)External->resourceManager->CreateResourceFromLibrary(imgPath, ResourceType::TEXTURE, UID, type);
+		rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+	}
+	else {
+
+		std::string libraryPath = metaFile->GetString("Library Path");
+
+
+		uint UID = metaFile->GetInt("UID");
+		TextureType type = ResourceTexture::GetTextureTypeFromName(metaFile->GetString("TextureType"));
+
+		auto itr = External->resourceManager->resources.find(UID);
+
+		if (itr == External->resourceManager->resources.end())
+		{
+			// We are maintaining to Assets for now
+
+			//rTexTemp = static_cast<ResourceTexture*>
+				//(CreateResourceFromLibrary(libraryPath.c_str(), ResourceType::TEXTURE, UID, type));
+			rTexTemp = static_cast<ResourceTexture*>
+				(External->resourceManager->CreateResourceFromLibrary(imgPath, ResourceType::TEXTURE, UID, type));
+			rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+
+		}
+		else
+		{
+			rTexTemp = static_cast<ResourceTexture*>(itr->second);
+			rTexTemp->SetAssetsFilePath(metaFile->GetString("Assets Path"));
+			rTexTemp->type = type;
+			itr->second->IncreaseReferenceCount();
+		}
+
+	}
 }
 
 void EmitterImage::Spawn(ParticleEmitter* emitter, Particle* particle)
