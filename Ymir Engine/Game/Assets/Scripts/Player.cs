@@ -1118,7 +1118,10 @@ public class Player : YmirComponent
     private void EndShooting()
     {
         if (currentWeapon.currentAmmo <= 0 || inputsList[0] == INPUT.I_SHOOTING_END)
+        {
             Animation.PlayAnimation(gameObject, "Raisen_Idle");
+            Particles.RestartParticles(currentWeapon.particlesGO);
+        }
     }
     private void StartReload()
     {
@@ -1257,7 +1260,7 @@ public class Player : YmirComponent
 
         //Sistema de particulas
         GameObject particles = GetParticles(gameObject, "ParticlesDash");
-        Particles.PlayParticles(particles);
+        Particles.PlayParticlesTrigger(particles);
 
         Input.Rumble_Controller(100, 7);
         StopPlayer();
@@ -1534,8 +1537,8 @@ public class Player : YmirComponent
         //trigger del sonido
         Audio.PlayAudio(gameObject, "P_PredRush");
 
-        GameObject predRushParticles = GetParticles(gameObject, "ParticlesPredRush");
-        Particles.PlayParticles(predRushParticles);
+        GameObject predRushParticles = GetParticles(gameObject, "ParticlesPredatoryRush");
+        Particles.PlayParticlesTrigger(predRushParticles);
 
         //trigger de la animacion
 
@@ -1571,8 +1574,8 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Spin");
         Audio.PlayAudio(gameObject, "P_TailSweep");
 
-        GameObject particles = GetParticles(gameObject, "Tail Particles");
-        Particles.PlayParticles(particles);
+        GameObject particles = GetParticles(gameObject, "ParticlesTailSwipe");
+        Particles.PlayParticlesTrigger(particles);
 
         //trigger de la animacion
         //Setup de todo lo necesario
@@ -1653,7 +1656,8 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
 
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
-        Particles.PlayParticles(acidicParticles);
+        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 50.0f);
+        Particles.PlayParticlesTrigger(acidicParticles);
 
         //Trigger de la animación
 

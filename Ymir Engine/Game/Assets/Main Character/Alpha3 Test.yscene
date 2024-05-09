@@ -1,31 +1,31 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -18.164007186889648,
-        22.696126937866211,
-        8.943751335144043
+        -15.350861549377441,
+        20.490545272827148,
+        -1.8956050872802734
     ],
     "Editor Camera Right (X)": [
-        0.070984460413455963,
-        2.3096799850463867e-07,
-        0.99748063087463379
+        0.14131438732147217,
+        -8.9406967163085938e-08,
+        0.98539966344833374
     ],
     "Editor Camera Up (Y)": [
-        0.53314942121505737,
-        0.84517151117324829,
-        -0.037941105663776398
+        0.37464767694473267,
+        0.92072403430938721,
+        -0.053727462887763977
     ],
     "Editor Camera Front (Z)": [
-        0.84303939342498779,
-        -0.53449892997741699,
-        -0.059993717819452286
+        0.91553908586502075,
+        -0.38019928336143494,
+        -0.13129584491252899
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 835678379,
+            "UID": 495945308,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -44,7 +44,7 @@
             "UID": 1285509392,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 835678379,
+            "Parent UID": 495945308,
             "Components": [
                 {
                     "Type": "Transform",
@@ -241,7 +241,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 835678379,
+            "Parent UID": 495945308,
             "Components": [
                 {
                     "Type": "Transform",
@@ -778,7 +778,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 835678379,
+            "Parent UID": 495945308,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1129,7 +1129,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 835678379,
+            "Parent UID": 495945308,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1156,8 +1156,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 621,
-                    "Height": 862,
+                    "Width": 967,
+                    "Height": 970,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -3603,7 +3603,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 835678379,
+            "Parent UID": 495945308,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3626,8 +3626,123 @@
                 }
             ],
             "Children UID": [
-                2086505483,
-                34498900
+                598771385,
+                2086505483
+            ]
+        },
+        {
+            "Name": "Main Camera",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 598771385,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -58.784080505371094,
+                        111.64328002929688,
+                        63.155529022216797
+                    ],
+                    "Rotation": [
+                        120.00008392333984,
+                        25.000032424926758,
+                        -141.99998474121094
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1.0000001192092896
+                    ]
+                },
+                {
+                    "Type": "Audio listener",
+                    "Active": 1,
+                    "Default Listener": 1
+                },
+                {
+                    "Type": "Camera",
+                    "Active": 1,
+                    "Right": [
+                        0.7141801118850708,
+                        -0.01942114531993866,
+                        0.69969272613525391
+                    ],
+                    "Up": [
+                        0.55797886848449707,
+                        0.61933737993240356,
+                        -0.5523412823677063
+                    ],
+                    "Front": [
+                        0.42261877655982971,
+                        -0.7848847508430481,
+                        -0.4531550407409668
+                    ],
+                    "FOV": 60.000003814697266,
+                    "Near Plane": 1,
+                    "Far Plane": 1000,
+                    "Frustum Culling": 1,
+                    "Draw Bounding Boxes": 0,
+                    "Game Camera": true
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SceneManager.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "",
+                    "Event Name": "",
+                    "Event ID": 0
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        10,
+                        10,
+                        10
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "constDelay": 0
+                }
             ]
         },
         {
@@ -3705,7 +3820,7 @@
                     "Mass": 1,
                     "Friction": 0,
                     "Angular Friction": 0,
-                    "UseGravity": false,
+                    "UseGravity": true,
                     "IsSensor": false,
                     "LockX": true,
                     "LockY": false,
@@ -3815,8 +3930,7 @@
                 1031312782,
                 606101340,
                 1439817863,
-                1785797803,
-                491403246
+                1785797803
             ]
         },
         {
@@ -3875,7 +3989,7 @@
                             "numLights": 1,
                             "displayNormalMap": false,
                             "transparency": 1,
-                            "setColor": false,
+                            "setColor": true,
                             "weaponColor": [
                                 0,
                                 0,
@@ -3945,7 +4059,7 @@
                             "numLights": 1,
                             "displayNormalMap": false,
                             "transparency": 1,
-                            "setColor": false,
+                            "setColor": true,
                             "weaponColor": [
                                 0,
                                 0,
@@ -4015,7 +4129,7 @@
                             "numLights": 1,
                             "displayNormalMap": false,
                             "transparency": 1,
-                            "setColor": false,
+                            "setColor": true,
                             "weaponColor": [
                                 0,
                                 0,
@@ -4085,7 +4199,7 @@
                             "numLights": 1,
                             "displayNormalMap": false,
                             "transparency": 1,
-                            "setColor": false,
+                            "setColor": true,
                             "weaponColor": [
                                 0,
                                 0,
@@ -4155,7 +4269,7 @@
                             "numLights": 1,
                             "displayNormalMap": false,
                             "transparency": 1,
-                            "setColor": false,
+                            "setColor": true,
                             "weaponColor": [
                                 0,
                                 0,
@@ -4208,9 +4322,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -40.892543792724609,
-                        133.94056701660156,
-                        113.01505279541016
+                        -40.770648956298828,
+                        142.37722778320312,
+                        94.848014831542969
                     ],
                     "Rotation": [
                         -0,
@@ -4794,7 +4908,7 @@
                             "numLights": 1,
                             "displayNormalMap": false,
                             "transparency": 1,
-                            "setColor": false,
+                            "setColor": true,
                             "weaponColor": [
                                 0,
                                 0,
@@ -4849,9 +4963,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -40.115951538085938,
-                        133.02578735351562,
-                        129.58522033691406
+                        -44.508403778076172,
+                        138.52066040039062,
+                        108.60851287841797
                     ],
                     "Rotation": [
                         -0,
@@ -5364,7 +5478,7 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 5,
+                                    "Size1": 20.5,
                                     "Size2": 0,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -5372,7 +5486,7 @@
                             ]
                         },
                         {
-                            "ModulesSize": 6,
+                            "ModulesSize": 7,
                             "EmitterUID": 1555967858,
                             "Settings": [
                                 {
@@ -5443,7 +5557,7 @@
                                     ],
                                     "NormalizedBaseDirection": false,
                                     "Accelerates": false,
-                                    "Speed1": 24.799999237060547,
+                                    "Speed1": 409,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -5478,10 +5592,14 @@
                                     "Type": 4,
                                     "Progressive": false,
                                     "Loop": false,
-                                    "Size1": 10,
+                                    "Size1": 20.5,
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/IMAGES\/light_03.png"
                                 }
                             ]
                         }
@@ -5545,7 +5663,7 @@
                             "numLights": 1,
                             "displayNormalMap": false,
                             "transparency": 1,
-                            "setColor": false,
+                            "setColor": true,
                             "weaponColor": [
                                 0,
                                 0,
@@ -5599,9 +5717,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -39.125968933105469,
-                        140.54428100585938,
-                        142.83303833007812
+                        -3678.1220703125,
+                        12866.107421875,
+                        3970.96728515625
                     ],
                     "Rotation": [
                         -0,
@@ -5609,9 +5727,9 @@
                         -0
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        95.785438537597656,
+                        95.785438537597656,
+                        95.785438537597656
                     ]
                 },
                 {
@@ -6000,7 +6118,7 @@
                             "setColor": true,
                             "weaponColor": [
                                 0,
-                                1,
+                                0,
                                 0
                             ]
                         }
@@ -6093,7 +6211,7 @@
                             "setColor": true,
                             "weaponColor": [
                                 0,
-                                1,
+                                0,
                                 0
                             ]
                         }
@@ -6188,7 +6306,7 @@
                             "setColor": true,
                             "weaponColor": [
                                 0,
-                                1,
+                                0,
                                 0
                             ]
                         }
@@ -6281,7 +6399,7 @@
                             "transparency": 1,
                             "setColor": true,
                             "weaponColor": [
-                                1,
+                                0,
                                 0,
                                 0
                             ]
@@ -6374,7 +6492,7 @@
                             "transparency": 1,
                             "setColor": true,
                             "weaponColor": [
-                                1,
+                                0,
                                 0,
                                 0
                             ]
@@ -6469,7 +6587,7 @@
                             "transparency": 1,
                             "setColor": true,
                             "weaponColor": [
-                                1,
+                                0,
                                 0,
                                 0
                             ]
@@ -6565,7 +6683,7 @@
                             "weaponColor": [
                                 0,
                                 0,
-                                1
+                                0
                             ]
                         }
                     ],
@@ -6658,7 +6776,7 @@
                             "weaponColor": [
                                 0,
                                 0,
-                                2
+                                0
                             ]
                         }
                     ],
@@ -6753,7 +6871,7 @@
                             "weaponColor": [
                                 0,
                                 0,
-                                2
+                                0
                             ]
                         }
                     ],
@@ -6845,8 +6963,8 @@
                             "transparency": 1,
                             "setColor": true,
                             "weaponColor": [
-                                1,
-                                1,
+                                0,
+                                0,
                                 0
                             ]
                         }
@@ -6938,8 +7056,8 @@
                             "transparency": 1,
                             "setColor": true,
                             "weaponColor": [
-                                1,
-                                1,
+                                0,
+                                0,
                                 0
                             ]
                         }
@@ -7033,8 +7151,8 @@
                             "transparency": 1,
                             "setColor": true,
                             "weaponColor": [
-                                1,
-                                1,
+                                0,
+                                0,
                                 0
                             ]
                         }
@@ -7231,7 +7349,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        0,
+                                        1,
                                         39.5
                                     ],
                                     "DistanceLimit": 0,
@@ -7743,8 +7861,8 @@
                     "Active": 1,
                     "Translation": [
                         0,
-                        0,
-                        0
+                        124.35736846923828,
+                        -74.447303771972656
                     ],
                     "Rotation": [
                         -0,
@@ -8038,7 +8156,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        0,
+                                        1,
                                         0
                                     ],
                                     "DistanceLimit": 0,
@@ -8283,7 +8401,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        0,
+                                        0.5,
                                         0
                                     ],
                                     "DistanceLimit": 0,
@@ -8422,7 +8540,7 @@
                                     "Type": 4,
                                     "Progressive": false,
                                     "Loop": true,
-                                    "Size1": 14.407999992370605,
+                                    "Size1": 50.408000946044922,
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -8507,9 +8625,9 @@
                         -0
                     ],
                     "Scale": [
-                        1,
-                        1,
-                        1
+                        10,
+                        10,
+                        10
                     ]
                 },
                 {
@@ -8679,7 +8797,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         1.8999999761581421,
-                                        0,
+                                        0.5,
                                         0
                                     ],
                                     "DistanceLimit": 23.299999237060547,
@@ -8830,7 +8948,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        0.5,
+                                        0,
                                         0
                                     ],
                                     "DistanceLimit": 0,
@@ -9273,129 +9391,6 @@
                             ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "Name": "Point Light",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 491403246,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        161.96562194824219,
-                        -38.318031311035156
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        10,
-                        10,
-                        10
-                    ]
-                },
-                {
-                    "Type": "Light",
-                    "Active": 1,
-                    "Debug": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1
-                    ],
-                    "Intensity": 1,
-                    "Light Type": 0,
-                    "Radius": 1
-                }
-            ]
-        },
-        {
-            "Name": "Main Camera",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 34498900,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1806365249,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -58.784080505371094,
-                        111.64328002929688,
-                        63.155529022216797
-                    ],
-                    "Rotation": [
-                        120.00009918212891,
-                        25.000034332275391,
-                        -142
-                    ],
-                    "Scale": [
-                        1.0000004768371582,
-                        1,
-                        1.0000005960464478
-                    ]
-                },
-                {
-                    "Type": "Audio listener",
-                    "Active": 1,
-                    "Default Listener": 0
-                },
-                {
-                    "Type": "Camera",
-                    "Active": 1,
-                    "Right": [
-                        0.71418023109436035,
-                        -0.019421130418777466,
-                        0.69969254732131958
-                    ],
-                    "Up": [
-                        0.55797863006591797,
-                        0.61933755874633789,
-                        -0.5523412823677063
-                    ],
-                    "Front": [
-                        0.4226188063621521,
-                        -0.78488463163375854,
-                        -0.4531552791595459
-                    ],
-                    "FOV": 60.000003814697266,
-                    "Near Plane": 1,
-                    "Far Plane": 1000,
-                    "Frustum Culling": 1,
-                    "Draw Bounding Boxes": 0,
-                    "Game Camera": true
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "CameraRot.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "constDelay": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SceneManager.cs",
-                    "Active": 1,
-                    "UID": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
                 }
             ]
         }

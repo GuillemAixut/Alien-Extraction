@@ -46,7 +46,7 @@ public abstract class Weapon : YmirComponent
     public GameObject playerObject;
     protected Player player;
 
-    protected GameObject particlesGO;
+    public GameObject particlesGO;
     public Weapon(WEAPON_TYPE type = WEAPON_TYPE.NONE, UPGRADE upgrade = UPGRADE.NONE)
     {
         _type = type;

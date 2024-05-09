@@ -23,6 +23,7 @@ public class Shotgun : Weapon
         {
             case UPGRADE.LVL_0:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunDefault");
                 ammo = 16;
                 ammoInChamber = 2;
                 fireRate = 1.3f;
@@ -89,6 +90,8 @@ public class Shotgun : Weapon
         fireRateTimer = fireRate;
 
         Audio.PlayAudio(gameObject, "W_FSADShot");
+        Particles.ParticleShoot(particlesGO, gameObject.transform.GetForward());
+        Particles.PlayParticlesTrigger(particlesGO);
 
         Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 

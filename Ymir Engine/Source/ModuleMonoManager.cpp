@@ -257,6 +257,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Particles::PlayParticles", PlayParticles);
 	mono_add_internal_call("YmirEngine.Particles::StopParticles", StopParticles);
 	mono_add_internal_call("YmirEngine.Particles::RestartParticles", RestartParticles);
+	mono_add_internal_call("YmirEngine.Particles::ParticlesForward", ParticlesForward);
 
 #pragma endregion
 

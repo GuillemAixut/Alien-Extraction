@@ -23,6 +23,7 @@ public class SMG : Weapon
         {
             case UPGRADE.LVL_0:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgDefault");
                 ammo = 35;
                 fireRate = 0.06f;
                 damage = 5;
@@ -74,6 +75,8 @@ public class SMG : Weapon
         fireRateTimer = fireRate;
 
         Audio.PlayAudio(gameObject, "W_FirearmShot");
+        Particles.ParticleShoot(particlesGO, gameObject.transform.GetForward());
+        Particles.PlayParticlesTrigger(particlesGO);
 
         GameObject target;
 

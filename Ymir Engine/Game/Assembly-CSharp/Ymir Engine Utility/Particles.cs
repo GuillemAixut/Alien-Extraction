@@ -20,5 +20,8 @@ namespace YmirEngine
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void RestartParticles(object go);
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void ParticlesForward(object go, object vec, float distance);
     }
 }

@@ -23,6 +23,9 @@ public class Health : YmirComponent
 
     private Player player = null;
 
+    public GameObject particlesDamage = null;
+    public GameObject particlesHealth = null;
+
     public void Start()
     {
         debugDmg = 100;
@@ -41,8 +44,11 @@ public class Health : YmirComponent
         }
         
         currentHealth = maxHealth;
-        
+
         isAlive = true;
+
+        particlesDamage = InternalCalls.GetChildrenByName(gameObject, "ParticlesDamage");
+        particlesHealth = InternalCalls.GetChildrenByName(gameObject, "ParticlesHeal");
     }
 
     public void Update()
@@ -71,6 +77,7 @@ public class Health : YmirComponent
                 Debug.Log("Take debug dmg");
 
                 TakeDmg(debugDmg);
+                Particles.PlayParticlesTrigger(particlesDamage);
             }
 
             if (Input.GetKey(YmirKeyCode.F6) == KeyState.KEY_DOWN)
@@ -78,7 +85,7 @@ public class Health : YmirComponent
                 Debug.Log("Get debug health");
 
                 TakeDmg(-debugDmg);
-
+                Particles.PlayParticlesTrigger(particlesHealth);
             }
         }
 

@@ -7,15 +7,15 @@
             "UID": 2070782545,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1804673821,
+            "Parent UID": 529397923,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        124.94164276123047,
-                        91.610015869140625
+                        -44.508403778076172,
+                        138.52066040039062,
+                        108.60851287841797
                     ],
                     "Rotation": [
                         -0,
@@ -528,7 +528,7 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 5,
+                                    "Size1": 20.5,
                                     "Size2": 0,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -536,7 +536,7 @@
                             ]
                         },
                         {
-                            "ModulesSize": 6,
+                            "ModulesSize": 7,
                             "EmitterUID": 1555967858,
                             "Settings": [
                                 {
@@ -607,7 +607,7 @@
                                     ],
                                     "NormalizedBaseDirection": false,
                                     "Accelerates": false,
-                                    "Speed1": 24.799999237060547,
+                                    "Speed1": 409,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -642,10 +642,14 @@
                                     "Type": 4,
                                     "Progressive": false,
                                     "Loop": false,
-                                    "Size1": 10,
+                                    "Size1": 20.5,
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/IMAGES\/light_03.png"
                                 }
                             ]
                         }
