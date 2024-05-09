@@ -276,9 +276,6 @@ public class Player : YmirComponent
         weapons.Add(w_Plasma_3a);
         weapons.Add(w_Plasma_3b);
 
-        SetWeapon();
-
-        //currentWeapon = w_SMG_0.GetComponent<SMG>();
 
         //--------------------- Menus ---------------------\\
         itemsList = new List<Item>();
@@ -293,6 +290,9 @@ public class Player : YmirComponent
         {
             LoadItems();
         }
+
+        SetWeapon();
+        //currentWeapon = w_SMG_0.GetComponent<SMG>();
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -1761,6 +1761,8 @@ public class Player : YmirComponent
         SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
         LoadItems();
+
+        Debug.Log("Player loaded");
     }
 
     public void LoadItems()
