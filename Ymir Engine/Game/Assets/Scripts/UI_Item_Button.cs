@@ -243,6 +243,11 @@ public class UI_Item_Button : YmirComponent
             ((_item.isEquipped && _item.itemType == item.currentSlot) ||
             item.currentSlot == ITEM_SLOT.NONE || item.currentSlot == ITEM_SLOT.MATERIAL))
         {
+            if (_item.isEquipped)
+            {
+                _item.currentSlot = item.currentSlot;
+            }
+
             item = _item;
             enumSlot = SetInspectorType(item.currentSlot);
             enumItem = SetInspectorType(item.itemType);
