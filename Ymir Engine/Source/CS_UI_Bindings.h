@@ -133,8 +133,11 @@ void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
 	GameObject* go_image_to_change = External->moduleMono->GameObject_From_CSGO(go);
 	std::string _newImage = mono_string_to_utf8(newImage);
 
-	UI_Image* image_to_change = static_cast<UI_Image*>(static_cast<G_UI*>(go_image_to_change)->GetComponentUI(UI_TYPE::IMAGE));
-	image_to_change->SetImg(_newImage, (UI_STATE)state);
+	if (go_image_to_change != nullptr)
+	{
+		UI_Image* image_to_change = static_cast<UI_Image*>(static_cast<G_UI*>(go_image_to_change)->GetComponentUI(UI_TYPE::IMAGE));
+		image_to_change->SetImg(_newImage, (UI_STATE)state);
+	}
 }
 
 // Image Animations
