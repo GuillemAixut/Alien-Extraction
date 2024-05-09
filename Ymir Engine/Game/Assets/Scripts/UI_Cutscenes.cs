@@ -9,6 +9,7 @@ using YmirEngine;
 public class UI_Cutscenes : YmirComponent
 {
     public GameObject img = null;
+    public GameObject button = null;
     public string imgPath = "Assets\\Cutscenes\\";
     public string imgName = "";
 
@@ -20,10 +21,11 @@ public class UI_Cutscenes : YmirComponent
     public bool winScene = false;
     public bool loseScene = false;
 
-    public float timer = 2f;
-    public float finishTimer = 2f;
+    private float timer = 2f;
+    private float finishTimer = 2f;
     public void Start()
     {
+        button = InternalCalls.GetGameObjectByName("Button_A");
         img = InternalCalls.GetGameObjectByName("CutsceneImg");
         currentFrame = 0; 
         
@@ -32,31 +34,36 @@ public class UI_Cutscenes : YmirComponent
 
     public void Update()
     {
-        if (img != null && !hasFinished)
+        if (img != null && !hasFinished && button != null)
         {
-            if(finishTimer > 0)
+           
+            if (finishTimer >= 0)
             {
                 finishTimer -= Time.deltaTime;
-                if (finishTimer <= 0)
+                button.SetActive(false);
+               
+            }
+            if (finishTimer <= 0)
+            {
+                button.SetActive(true);
+                //Poner Aqui la imagen
+                if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
                 {
-                    if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
-                    {
-                        currentFrame++;
-                        finishTimer = timer;
-                        UI.ChangeImageUI(img, imgPath + imgName + "(" + currentFrame.ToString() + ")" + ".png", (int)UI_STATE.NORMAL);
+                    currentFrame++;
+                    finishTimer = timer;
+                    UI.ChangeImageUI(img, imgPath + imgName + "(" + currentFrame.ToString() + ")" + ".png", (int)UI_STATE.NORMAL);
 
-                        if (currentFrame == maxFrames)
+                    if (currentFrame == maxFrames)
+                    {
+                        hasFinished = true;
+                        if (introScene)
                         {
-                            hasFinished = true;
-                            if (introScene)
-                            {
-                                InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
-                            }
+                            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
                         }
                     }
                 }
             }
-            
+
         }
 
         return;
