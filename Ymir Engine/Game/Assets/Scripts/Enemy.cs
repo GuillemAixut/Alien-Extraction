@@ -69,7 +69,7 @@ public class Enemy : YmirComponent
     protected float rareProb;
     protected float epicProb;
 
-    private Vector3 itemPos = Vector3.zero;
+    protected Vector3 itemPos = Vector3.zero;
     Random random = new Random();
 
 
