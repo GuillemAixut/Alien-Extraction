@@ -75,6 +75,12 @@ public class AcidPuddle : YmirComponent
             {
                 aux3.life -= tickDamage;
             }
+
+            SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
+            if (aux4 != null)
+            {
+                aux4.life -= tickDamage;
+            }
         }
     }
 
