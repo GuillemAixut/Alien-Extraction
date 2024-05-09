@@ -76,9 +76,11 @@ public class SpitterBaseScript : YmirComponent
 
     public float wanderRange = 10f;
 
-    public float detectionRadius = 60f;
+    public float detectionRadius = 80f;
     public bool paused = false;
-
+    private bool walkAni = false;
+    private bool acidDone = false;
+    private bool explosionDone = false;
 
     public void Start()
     {
@@ -90,7 +92,7 @@ public class SpitterBaseScript : YmirComponent
 
         //Agent
         agent.stoppingDistance = 2f;
-        agent.speed = 800f;
+        agent.speed = 1600f;
         agent.angularSpeed = 10f;
 
         //ATTACKS
@@ -126,6 +128,24 @@ public class SpitterBaseScript : YmirComponent
         //path = "Assets/Loot Tables/spitter_loot.csv";
         //numFields = 2;
 
+        //Animations
+        Animation.SetLoop(gameObject, "Idle_Spiter", true);
+        Animation.SetLoop(gameObject, "Move_Spiter", true);
+        Animation.SetLoop(gameObject, "Combat Idle_Spiter", true);
+
+        Animation.SetResetToZero(gameObject, "Death_Spiter", false);
+
+        Animation.SetSpeed(gameObject, "Move_Spitter", 0.4f);
+
+        Animation.AddBlendOption(gameObject, "", "Idle_Spiter", 10f);
+        Animation.AddBlendOption(gameObject, "", "Combat Idle_Spiter", 10f);
+        Animation.AddBlendOption(gameObject, "", "Death_Spiter", 10f);
+        Animation.AddBlendOption(gameObject, "", "Move_Spiter", 10f);
+        Animation.AddBlendOption(gameObject, "", "Cry_Spiter", 10f);
+        Animation.AddBlendOption(gameObject, "", "Atack_1_Spiter", 10f);
+        Animation.AddBlendOption(gameObject, "", "Atack_1_Spiter", 10f);
+
+        Animation.PlayAnimation(gameObject, "Idle_Spiter");
     }
 
     public void Update()
@@ -161,6 +181,11 @@ public class SpitterBaseScript : YmirComponent
                     timeCounter = 0f;
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
+                    if (walkAni == false)
+                    {
+                        Animation.PlayAnimation(gameObject, "Move_Spiter");
+                        walkAni = true;
+                    }
                     xenoState = XenoState.MOVE;
                 }
 
@@ -170,6 +195,9 @@ public class SpitterBaseScript : YmirComponent
                     player.GetComponent<Player>().SetExplorationAudioState();
                     timeLimit = 0.5f;
                     aggro = true;
+                    Animation.PlayAnimation(gameObject, "Cry_Spiter");
+                    walkAni = false;
+                    Audio.PlayAudio(gameObject, "XS_Cry");
                     xenoState = XenoState.CRY;
                 }
 
@@ -188,6 +216,9 @@ public class SpitterBaseScript : YmirComponent
                     player.GetComponent<Player>().SetExplorationAudioState();
                     timeLimit = 0.5f;
                     aggro = true;
+                    Animation.PlayAnimation(gameObject, "Cry_Spiter");
+                    walkAni = false;
+                    Audio.PlayAudio(gameObject, "XS_Cry");
                     xenoState = XenoState.CRY;
                 }
 
@@ -202,6 +233,11 @@ public class SpitterBaseScript : YmirComponent
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
+                    if (walkAni == false)
+                    {
+                        Animation.PlayAnimation(gameObject, "Move_Spiter");
+                        walkAni = true;
+                    }
                     xenoState = XenoState.MOVE_AGGRO;
                 }
 
@@ -215,6 +251,11 @@ public class SpitterBaseScript : YmirComponent
 
                 if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange))
                 {
+                    if (walkAni == false)
+                    {
+                        Animation.PlayAnimation(gameObject, "Move_Spiter");
+                        walkAni = true;
+                    }
                     xenoState = XenoState.MOVE_AGGRO;
                 }
 
@@ -240,6 +281,9 @@ public class SpitterBaseScript : YmirComponent
                 {
                     timeCounter = 0f;
                     timeLimit = 1f;
+                    Animation.SetBackward(gameObject, "Move_Spiter", false);
+                    Animation.PlayAnimation(gameObject, "Idle_Spiter");
+                    walkAni = false;
                     xenoState = XenoState.IDLE_AGGRO;
                 }
 
@@ -252,7 +296,8 @@ public class SpitterBaseScript : YmirComponent
 
                 if (timePassed >= knockBackTimer)
                 {
-                    //Debug.Log("[ERROR] End KnockBack");
+                    Animation.PlayAnimation(gameObject, "Idle_Spiter");
+                    walkAni = false;
                     xenoState = XenoState.IDLE;
                     timePassed = 0f;
                 }
@@ -269,10 +314,19 @@ public class SpitterBaseScript : YmirComponent
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
+                    Animation.PlayAnimation(gameObject, "Idle_Spiter");
+                    walkAni = false;
                     xenoState = XenoState.IDLE_AGGRO;
                     //To fix tail to claw attack bug
                     //acidSpitReboundCooldownTime = 1f;
 
+                }
+                else if (timeCounter >= 0.6f && acidDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 15;
+                    InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
+                    acidDone = true;
                 }
 
                 break;
@@ -287,10 +341,20 @@ public class SpitterBaseScript : YmirComponent
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
+                    Animation.PlayAnimation(gameObject, "Idle_Spiter");
+                    walkAni = false;
                     xenoState = XenoState.IDLE_AGGRO;
                     //To fix tail to claw attack bug
                     //acidSpitReboundCooldownTime = 1f;
 
+                }
+                else if (timeCounter >= 0.6f && explosionDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 15;
+                    pos.z -= 10;
+                    InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
+                    explosionDone = true;
                 }
 
                 break;
@@ -318,6 +382,12 @@ public class SpitterBaseScript : YmirComponent
             {
                 timeCounter = 0f;
                 timeLimit = 0.8f;
+                Animation.SetBackward(gameObject, "Move_Spiter", true);
+                if (walkAni == false)
+                {
+                    Animation.PlayAnimation(gameObject, "Move_Spiter");
+                    walkAni = true;
+                }
                 xenoState = XenoState.MOVE_BACKWARDS;
                
             }
@@ -334,6 +404,8 @@ public class SpitterBaseScript : YmirComponent
                     timeLimit = 5f;
                     aggro = false;
                     gameObject.SetVelocity(new Vector3(0, 0, 0));
+                    Animation.PlayAnimation(gameObject, "Idle_Spiter");
+                    walkAni = false;
                     xenoState = XenoState.IDLE;
                     player.GetComponent<Player>().SetExplorationAudioState();
                 }
@@ -351,7 +423,8 @@ public class SpitterBaseScript : YmirComponent
         if (other.Tag == "Tail" && xenoState != XenoState.KNOCKBACK && xenoState != XenoState.DEAD)
         {
             life -= 80;
-
+            Animation.PlayAnimation(gameObject, "Idle_Spiter");
+            walkAni = false;
             xenoState = XenoState.KNOCKBACK;
         }
     }
@@ -370,6 +443,8 @@ public class SpitterBaseScript : YmirComponent
         if ((roundedPosition.x == roundedDestination.x) && (roundedPosition.y == roundedDestination.y) && (roundedPosition.z == roundedDestination.z))
         {
             gameObject.SetVelocity(new Vector3(0, 0, 0));
+            Animation.PlayAnimation(gameObject, "Idle_Spiter");
+            walkAni = false;
             xenoState = XenoState.IDLE;
         }
     }
@@ -379,6 +454,8 @@ public class SpitterBaseScript : YmirComponent
         if (life <= 0)
         {
             gameObject.SetVelocity(new Vector3(0, 0, 0));
+            Animation.PlayAnimation(gameObject, "Death_Spiter");
+            Audio.PlayAudio(gameObject, "XS_Death");
             xenoState = XenoState.DEAD;
             timePassed = 0;
         }
@@ -397,10 +474,11 @@ public class SpitterBaseScript : YmirComponent
                 timeCounter = 0f;
                 //ANIMATION DURATION HERE!!!
                 timeLimit = 0.8f;
+                Animation.PlayAnimation(gameObject, "Atack_1_Spiter");
+                walkAni = false;
+                Audio.PlayAudio(gameObject, "XS_Spit");
+                acidDone = false;
                 xenoState = XenoState.ACID_SPIT;
-                Vector3 pos = gameObject.transform.globalPosition;
-                pos.y += 15;
-                InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
                 acidExplosiveCooldownTime -= 1.5f;
                 LookAt(player.transform.globalPosition);
             }
@@ -413,11 +491,11 @@ public class SpitterBaseScript : YmirComponent
                 timeCounter = 0f;
                 //ANIMATION DURATION HERE!!!
                 timeLimit = 0.8f;
+                Animation.PlayAnimation(gameObject, "Atack_2_Spiter");
+                walkAni = false;
+                Audio.PlayAudio(gameObject, "XS_Rebound");
+                explosionDone = false;
                 xenoState = XenoState.ACID_REBOUND;
-                Vector3 pos = gameObject.transform.globalPosition;
-                pos.y += 15;
-                pos.z -= 10;
-                InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
                 acidSpitCooldownTime -= 1.5f;
                 LookAt(player.transform.globalPosition);
             }
@@ -512,7 +590,7 @@ public class SpitterBaseScript : YmirComponent
     }
     public void DestroyEnemy()
     {
-        Audio.PlayAudio(gameObject, "FH_Death");
+        Audio.PlayAudio(gameObject, "XS_Death");
         InternalCalls.Destroy(gameObject);
     }
 }
