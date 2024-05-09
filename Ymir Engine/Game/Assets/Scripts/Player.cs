@@ -53,7 +53,10 @@ public class Player : YmirComponent
         I_PRED_END,
         I_SWIPE,
         I_SWIPE_END,
+        I_BASE,
     }
+
+    private bool isInBase = false;
 
     //--------------------- State ---------------------\\
     public STATE currentState = STATE.IDLE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
@@ -199,7 +202,12 @@ public class Player : YmirComponent
 
         Audio.SetState("PlayerState", "Alive");
         Audio.SetState("CombatState", "Exploration");
-
+        
+        if(InternalCalls.GetCurrentMap() == 0)
+        {
+            isInBase = true;
+        }
+        
         //angle = 0;
         //has360 = false;
         //
