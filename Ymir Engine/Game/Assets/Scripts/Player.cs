@@ -1210,6 +1210,7 @@ public class Player : YmirComponent
     #region IDLE
     private void StartIdle()
     {
+        StopPlayer(); 
         Animation.PlayAnimation(gameObject, idleAnim);
     }
     #endregion
