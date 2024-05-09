@@ -201,7 +201,7 @@ public class Player : YmirComponent
     public GameObject w_Plasma_3a;
     public GameObject w_Plasma_3b;
 
-    List<GameObject> weapons = new List<GameObject>();
+    List<GameObject> weapons;
 
     #endregion
 
@@ -209,38 +209,12 @@ public class Player : YmirComponent
 
     public void Start()
     {
-        // Item map
-        Globals.CreateItemDictionary();
 
         Audio.SetState("PlayerState", "Alive");
         Audio.SetState("CombatState", "Exploration");
-        
-        if(InternalCalls.GetCurrentMap() == 0)
-        {
-            isInBase = true;
-            idleAnim = "Raisen_BaseIdle";
-            movementSpeed = 1500;
-
-            upgradeType = UPGRADE.NONE;
-        }
-        else
-        {
-            isInBase = false;
-            idleAnim = "Raisen_Idle";
-            movementSpeed = 3000.0f;
-
-            upgradeType = UPGRADE.LVL_0; //Se tendria que hacer con el Load para saber que mejora tienes guardada
-        }
-        
-        //angle = 0;
-        //has360 = false;
-        //
 
         deathAnimFinish = false;
-        deathTimer = 3;
-
-        //weaponType = WEAPON_TYPE.SMG;
-        
+        deathTimer = 3f;        
 
         //--------------------- Dash ---------------------\\
         dashDistance = 400.0f;     //Antes 2 
@@ -281,12 +255,29 @@ public class Player : YmirComponent
         //--------------------- Get Player Scripts ---------------------\\
         GetPlayerScripts();
 
+        if (InternalCalls.GetCurrentMap() == 0)
+        {
+            isInBase = true;
+            idleAnim = "Raisen_BaseIdle";
+            movementSpeed = 1500;
+
+            upgradeType = UPGRADE.NONE;
+        }
+        else
+        {
+            isInBase = false;
+            idleAnim = "Raisen_Idle";
+            movementSpeed = 3000.0f;
+        }
+
         //--------------------- Get Skills Scripts ---------------------\\
         GetSkillsScripts();
 
         //--------------------- Shoot ---------------------\\
 
         //--------- Weapons List -----------\\
+
+        weapons = new List<GameObject>();
 
         weapons.Add(w_SMG_0);
         weapons.Add(w_SMG_1);
@@ -307,23 +298,8 @@ public class Player : YmirComponent
         weapons.Add(w_Plasma_3b);
 
         //--------------------- Menus ---------------------\\
-        itemsList = new List<Item>();
-        itemsListString = new List<string>();
-
+       
         SetWeapon();
-
-        if (currentLvl != (int)LEVEL.BASE)
-        {
-            Debug.Log("current: " + currentLvl.ToString());
-            LoadPlayer();
-        }
-        else
-        {
-            LoadItems();
-        }
-
-        SetWeapon();
-        //currentWeapon = w_SMG_0.GetComponent<SMG>();
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -332,13 +308,35 @@ public class Player : YmirComponent
         SetAnimParameters();
 
         currentState = STATE.IDLE;
+
+        // A partir de aqui peta o7
+
+        //Item map
+        Globals.CreateItemDictionary();
+
+        itemsList = new List<Item>();
+        itemsListString = new List<string>();
+
+        if (currentLvl != (int)LEVEL.BASE)
+        {
+            Debug.Log("current: " + currentLvl.ToString());
+            LoadPlayer();
+            LoadItems();
+        }
+        else
+        {
+            LoadItems();
+        }
+
+        SetWeapon();
     }
 
     public void Update()
     {
         //Debug.Log(currentState.ToString());
         // New Things WIP
-        //Debug.Log("State: " + currentState);
+
+        Debug.Log("State: " + currentState);
         UpdateControllerInputs();
 
         ProcessInternalInput();
@@ -1646,7 +1644,6 @@ public class Player : YmirComponent
     {
         Animation.SetLoop(gameObject, "Raisen_Idle", true);
         Animation.SetLoop(gameObject, "Raisen_Walk", true);
-        Animation.SetLoop(gameObject, "Raisen_Dash", true);
         Animation.SetLoop(gameObject, "Raisen_BaseIdle", true);
         Animation.SetLoop(gameObject, "Raisen_BaseWalk", true);
 
@@ -1877,7 +1874,7 @@ public class Player : YmirComponent
 
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
-        SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
+        //SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
         LoadItems();
 
