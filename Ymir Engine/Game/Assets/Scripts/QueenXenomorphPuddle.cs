@@ -45,10 +45,12 @@ public class QueenXenomorphPuddle : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Name == "Player" && puddleTimer >= 0.5f)
+        if (other.Name == "Player" && puddleTimer >= 0.5f && player.GetComponent<Player>().vulnerable)
         {
             healthScript.TakeDmg(damage);
             puddleTimer = 0f;
+
+            player.GetComponent<Player>().TakeDMG();
         }
     }
 }
