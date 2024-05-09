@@ -35,7 +35,7 @@ public class SpitterAcidSpit : YmirComponent
 	{
         destroyTimer += Time.deltaTime;
 
-        if (destroyed || destroyTimer >= 3f) 
+        if (destroyed || destroyTimer >= 2f) 
         {
             InternalCalls.Destroy(gameObject);
         }

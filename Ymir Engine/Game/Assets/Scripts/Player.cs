@@ -91,6 +91,9 @@ public class Player : YmirComponent
     public float damageMultiplier = 0;
     public int resin = 10;
 
+    //Particulas de caminar
+    GameObject walkParticles = null;
+
     #endregion
 
     #region DEFINE SKILL VARS
@@ -1323,6 +1326,7 @@ public class Player : YmirComponent
     {
         //Trigger de la animacion
         Animation.PlayAnimation(gameObject, "Raisen_Walk");
+        walkParticles = GetParticles(gameObject, "ParticlesSteps");
         //Trigger del SFX de caminar
         //Vector3 impulse = new Vector3(0.0f,0.0f,0.01f);
         //gameObject.SetImpulse(gameObject.transform.GetForward() * 0.5f);
@@ -1334,6 +1338,9 @@ public class Player : YmirComponent
         //forward.y = 0f;
 
         HandleRotation();
+
+        Particles.ParticlesForward(walkParticles, gameObject.transform.GetForward(), 0, -5.0f);
+        Particles.PlayParticlesTrigger(walkParticles);
 
         Vector3 gravity = new Vector3(0, -20, 0);
         gameObject.SetVelocity((gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity);
@@ -1353,6 +1360,8 @@ public class Player : YmirComponent
         //Debug.Log("Stopping");
         gameObject.SetVelocity(new Vector3(0, 0, 0));
         gameObject.ClearForces();
+
+        Particles.RestartParticles(walkParticles);
     }
 
     private void HandleRotation()
@@ -1656,7 +1665,7 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
 
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
-        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 50.0f);
+        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 1, 50.0f);
         Particles.PlayParticlesTrigger(acidicParticles);
 
         //Trigger de la animación
