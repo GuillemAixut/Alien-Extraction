@@ -47,6 +47,8 @@ public abstract class Weapon : YmirComponent
     protected Player player;
 
     public GameObject particlesGO;
+
+    public Vector3 offset = null;
     public Weapon(WEAPON_TYPE type = WEAPON_TYPE.NONE, UPGRADE upgrade = UPGRADE.NONE)
     {
         _type = type;
@@ -63,6 +65,8 @@ public abstract class Weapon : YmirComponent
         currentAmmo = 0;
         fireRateTimer = 0;
         reloadTimer = 0;
+
+       offset = new Vector3(0, 15, 0);
     }
 
     public string Name { get { return _name; } }

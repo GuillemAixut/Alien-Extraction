@@ -86,20 +86,20 @@ public class Plasma : Weapon
         switch (_upgrade)
         {
             case UPGRADE.LVL_0:
-                target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
+                target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), range);
                 break;
             case UPGRADE.LVL_1:
-                target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
+                target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), range);
                 break;
             case UPGRADE.LVL_2:
-                target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
+                target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), range);
                 break;
             case UPGRADE.LVL_3_ALPHA:
-                target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
+                target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), range);
                 break;
             case UPGRADE.LVL_3_BETA:
                 // NEED TO ADD Piercing
-                target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
+                target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), range);
                 break;
             default:
                 break;

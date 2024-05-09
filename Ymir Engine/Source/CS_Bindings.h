@@ -793,7 +793,7 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	go->AddComponent(c);
 }
 
-void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, MonoObject* right) {
+void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, float lenght, float width, MonoObject* right) {
 
 	//Crea un game object temporal llamado "ShotgunBullet"
 	if (External == nullptr) return;
@@ -811,7 +811,8 @@ void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, MonoObject*
 	//rotVector = rotVector.RotateAxisAngle(rightVector, DegToRad(-90.0f));
 
 
-	float3 scaleVector = float3(15, 70, 15);
+	//float3 scaleVector = float3(15, 70, 15);
+	float3 scaleVector = float3(width, lenght, width);
 
 	//Añade RigidBody a la bala
 	CCollider* physBody;

@@ -35,7 +35,7 @@ public class Core : YmirComponent
         IN_DEAD
     }
 
-    private STATE currentState = STATE.NONE;
+    //private STATE currentState = STATE.NONE;
     private List<INPUT> inputList = new List<INPUT>();
     // Movment
     public float movementSpeed = 20f;
@@ -70,7 +70,7 @@ public class Core : YmirComponent
         //Hardcoceado para que sea una especie de "Awake()"
         if (start)
         {
-            currentState = STATE.IDLE;
+            //currentState = STATE.IDLE;
             Debug.Log("[WARNING] testString: " + testString);
             reference = gameObject;
 
@@ -301,27 +301,27 @@ public class Core : YmirComponent
 
     private void UpdateState()
     {
-        switch (currentState)
-        {
-            case STATE.NONE:
-                break;
-            case STATE.IDLE:
-                break;
-            case STATE.MOVE:
-                RotatePlayer();
-                //gameObject.transform.localPosition += reference.GetForward() * movementSpeed * Time.deltaTime;
-                Debug.Log("[ERROR]Mover");
-                break;
-            case STATE.DASH:
+        //switch (currentState)
+        //{
+        //    case STATE.NONE:
+        //        break;
+        //    case STATE.IDLE:
+        //        break;
+        //    case STATE.MOVE:
+        //        RotatePlayer();
+        //        //gameObject.transform.localPosition += reference.GetForward() * movementSpeed * Time.deltaTime;
+        //        Debug.Log("[ERROR]Mover");
+        //        break;
+        //    case STATE.DASH:
 
-                break;
-            case STATE.SHOOT:
+        //        break;
+        //    case STATE.SHOOT:
 
-                break;
-            default:
-                Debug.Log("NEED TO ADD STATE TO CORE");
-                break;
-        }
+        //        break;
+        //    default:
+        //        Debug.Log("NEED TO ADD STATE TO CORE");
+        //        break;
+        //}
     }
 
     private void RotatePlayer()

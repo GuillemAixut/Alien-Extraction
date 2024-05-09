@@ -18,7 +18,7 @@ public class SpawnSensor:YmirComponent
     public GameObject spawner8;
 
     private List<GameObject> spawnerList = new List<GameObject>();
-    private Spawner spawnScript;
+    private Spawner spawnScript = null;
 
     private bool spawned;
 

@@ -80,17 +80,17 @@ public class SMG : Weapon
 
         GameObject target;
 
-        target = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), range);
+        target = gameObject.RaycastHit(gameObject.transform.globalPosition + offset, gameObject.transform.GetForward(), range);
 
         if (target != null)
         {
             if (target.Tag != "Enemy")
             {
-                Audio.PlayAudio(gameObject, "W_PlasmaSurf");
+                Audio.PlayAudio(gameObject, "W_FirearmSurf");
             }
             else
             {
-                Audio.PlayAudio(gameObject, "W_PlasmaEnemy");
+                Audio.PlayAudio(gameObject, "W_FirearmEnemy");
 
                 //---------------Xiao: Gurrada Pendiente de Cambiar----------------------------
                 FaceHuggerBaseScript aux = target.GetComponent<FaceHuggerBaseScript>();
@@ -111,7 +111,7 @@ public class SMG : Weapon
                 {
                     aux3.life -= damage;
                 }
-                Debug.Log("[ERROR] HIT ENEMy");
+                Debug.Log("[ERROR] HIT ENEMY");
                 //-----------------------------------------------------------------------------------
             }
         }

@@ -56,7 +56,7 @@ public class Player : YmirComponent
     }
 
     //--------------------- State ---------------------\\
-    public STATE currentState = STATE.NONE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
+    public STATE currentState = STATE.IDLE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
     private List<INPUT> inputsList = new List<INPUT>();
 
     //--------------------- Movement ---------------------\\
@@ -701,7 +701,8 @@ public class Player : YmirComponent
             switch (currentState)
             {
                 case STATE.NONE:
-                    Debug.Log("ERROR STATE");
+                    Debug.Log("STATE: " + currentState);
+                    //currentState = STATE.IDLE;
                     break;
 
                 case STATE.IDLE:
@@ -1494,55 +1495,24 @@ public class Player : YmirComponent
         Animation.SetLoop(gameObject, "Raisen_Idle", true);
         Animation.SetLoop(gameObject, "Raisen_Walk", true);
         Animation.SetLoop(gameObject, "Raisen_Dash", true);
+        Animation.SetLoop(gameObject, "Raisen_BaseIdle", true);
+        Animation.SetLoop(gameObject, "Raisen_BaseWalk", true);
 
-        Animation.SetSpeed(gameObject, "Raisen_Dash", 4);
-        Animation.SetSpeed(gameObject, "Raisen_Spit", 0.1f);
+        Animation.SetSpeed(gameObject, "Raisen_Dash", 4.0f);
 
         Animation.SetResetToZero(gameObject, "Raisen_Death", false);
 
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Death", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Spin", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Shooting", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Spit", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Raisen_Idle", "Raisen_Dash", 5.0f);
-
-
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Death", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Spin", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Shooting", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Spit", 5.0f);
-        //Animation.AddBlendOption(gameObject, "Raisen_Walk", "Raisen_Dash", 5.0f);
-
-
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Death", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Spin", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Shooting", 2.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Shooting", "Raisen_Spit", 2.0f);
-        //Animation.AddBlendOption(gameObject, "Raisen_Run", "Raisen_Dash", 5.0f);
-
-        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Death", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Shooting", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spin", "Raisen_Spit", 5.0f);
-
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Run", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Death", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Spin", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Shooting", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Dash", "Raisen_Spit", 5.0f);
-
-        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Idle", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Walk", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Death", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Spin", 5.0f);
-        Animation.AddBlendOption(gameObject, "Raisen_Spit", "Raisen_Shooting", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Idle", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Walk", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Run", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Dash", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Death", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Damage", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Shooting", 2.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Spin", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_Spit", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_BaseIdle", 5.0f);
+        Animation.AddBlendOption(gameObject, "", "Raisen_BaseWalk", 5.0f);
 
         Animation.PlayAnimation(gameObject, "Raisen_Idle");
     }

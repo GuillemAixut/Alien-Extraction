@@ -95,7 +95,8 @@ public class Shotgun : Weapon
 
         Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 
-        InternalCalls.CreateShotgunSensor(gameObject.transform.globalPosition, rot, gameObject.transform.GetRight());
+
+        InternalCalls.CreateShotgunSensor(gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * range * 4), rot, 70, 15, gameObject.transform.GetRight());
 
         switch (_upgrade)
         {
