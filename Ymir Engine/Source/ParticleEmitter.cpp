@@ -198,9 +198,6 @@ void ParticleEmitter::Update(float dt)
 		//Actualizamos modulos que puedan cambiar con el tiempo (cambiar las particulas, moverlas o lo que haga falta)
 		UpdateModules(dt);
 	}
-
-	//Llamamos a Draw particles para que printe todas las particulas con su info updateada
-	DrawParticles();
 }
 
 void ParticleEmitter::DrawParticles()
@@ -230,7 +227,7 @@ void ParticleEmitter::SpawnParticle(uint particlesToAdd) //This code only adds p
 {
 	if (listParticles.size() < MAXPARTICLES)
 	{
-		for (int i = 0; i < particlesToAdd; i++)
+		for (int i = 0; i < particlesToAdd && i < MAXPARTICLES; i++)
 		{
 			//std::unique_ptr<Particle*> particula(new Particle*);
 			Particle* particula = new Particle();
@@ -238,7 +235,7 @@ void ParticleEmitter::SpawnParticle(uint particlesToAdd) //This code only adds p
 			{
 				modules.at(m)->Spawn(this, particula);
 			}
-			//TODO TONI: En principio creo que esto no aplica con la camara del juego, ya que es: camera->editorCamera
+
 			if (listParticles.empty()) { listParticles.push_back(particula); } //Evitar petada acceso a la nada
 			else
 			{
