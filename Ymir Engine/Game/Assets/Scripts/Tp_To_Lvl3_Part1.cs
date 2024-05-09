@@ -14,7 +14,7 @@ public class Tp_To_Lvl3_Part1 : YmirComponent
 
     public void Start()
     {
-        loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
+        loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
 
         if (loadSceneImg != null)
         {

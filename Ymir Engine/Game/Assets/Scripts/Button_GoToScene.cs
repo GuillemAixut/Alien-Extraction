@@ -16,7 +16,7 @@ public class Button_GoToScene : YmirComponent
 
     public void Start()
     {
-        loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
+        loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
 
         if (loadSceneImg != null)
         {
@@ -42,13 +42,13 @@ public class Button_GoToScene : YmirComponent
         Debug.Log("Go to scene " + sceneName + ".yscene");
         Audio.PauseAllAudios();
 
-        Globals.GetPlayerScript().SavePlayer();
-
         if (loadSceneImg != null)
         {
             loadSceneImg.SetActive(true);
         }
 
         loadScene = true;
+
+        Globals.GetPlayerScript().SavePlayer();
     }
 }

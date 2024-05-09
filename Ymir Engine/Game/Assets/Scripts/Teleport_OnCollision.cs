@@ -16,7 +16,7 @@ public class Teleport_OnCollision : YmirComponent
 
     public void Start()
     {
-        loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
+        loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
 
         if (loadSceneImg != null)
         {

@@ -79,10 +79,8 @@ bool ModuleScene::Start()
 	currentSceneDir = "Assets";
 #ifdef _RELEASE
 	
-	LoadScene("Assets/Main Character", "Alpha3 test");
+	//LoadScene("Assets/Main Character", "Alpha3 test");
 	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-	//LoadScene("Assets/Scenes", "Start_scene");
-	//LoadScene("Assets/Scenes", "GameUI");
 	//LoadScene("Assets", "Enemigo player");
 	//LoadScene("Assets/UI/Inventory", "InventoryScene");
 	//LoadScene("Assets", "Enemigo player");
@@ -97,8 +95,9 @@ bool ModuleScene::Start()
 	//LoadScene("Assets/Particles", "PlayerParticlesScene");
 
 	// -------------------- FINAL MAPS -------------------- \\
-
-	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	
+	//LoadScene("Assets/UI/Scenes", "StartScene");
+	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
@@ -112,7 +111,6 @@ bool ModuleScene::Start()
 #ifdef _STANDALONE
 
 	//LoadScene("Assets", "Alpha1_Level");
-	//LoadScene("Assets/Scenes", "Start_scene");
 	//LoadScene("Assets", "ParticleTest");
 
 	//LoadScene("Assets", "Prueba enemigo lvl2");

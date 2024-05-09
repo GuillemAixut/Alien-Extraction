@@ -14,10 +14,9 @@ public class SceneManager : YmirComponent
 
     private string sceneName = "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene";
 
-
     public void Start()
     {
-        loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
+        loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
 
         if (loadSceneImg != null)
         {
@@ -31,7 +30,7 @@ public class SceneManager : YmirComponent
     {
         if (loadScene)
         {
-            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene");
+            InternalCalls.LoadScene(sceneName);
             loadScene = false;
 
             return;
