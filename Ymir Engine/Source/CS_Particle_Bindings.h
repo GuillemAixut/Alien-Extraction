@@ -108,7 +108,7 @@ void ParticleShoot(MonoObject* go, MonoObject* vector)
 }
 
 //This function set the initial pos of a emitter in front of the player at X distance
-void ParticlesForward(MonoObject* go, MonoObject* vector, float distance)
+void ParticlesForward(MonoObject* go, MonoObject* vector, int emitter, float distance)
 {
 	if (External == nullptr) return;
 
@@ -131,9 +131,9 @@ void ParticlesForward(MonoObject* go, MonoObject* vector, float distance)
 		//TODO TONI: Esto deberia ser con un bool que diga si necesita coger el forward del player o no
 		//entonces deberia iterar sobre todos los emitters y coger solo los que tenga ese bool en true
 		//Ahora mismo lo dejo hardcodeado para el acidic porque es el unico script que usa esto realmente
-		if (particleSystem->allEmitters.at(1)->modules.at(0)->type == EmitterType::PAR_BASE)
+		if (particleSystem->allEmitters.at(emitter)->modules.at(0)->type == EmitterType::PAR_BASE)
 		{
-			EmitterBase* base = (EmitterBase*)particleSystem->allEmitters.at(1)->modules.at(0);
+			EmitterBase* base = (EmitterBase*)particleSystem->allEmitters.at(emitter)->modules.at(0);
 
 			/*if (base->currentShape == PAR_CONE && base->currentShape == PAR_POINT)
 			{*/
