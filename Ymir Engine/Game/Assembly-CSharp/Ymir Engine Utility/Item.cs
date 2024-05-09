@@ -141,7 +141,7 @@ namespace YmirEngine
 
             Debug.Log("isEquipped " + isEquipped.ToString());
 
-            LogStats();
+            //LogStats();
 
             Globals.GetPlayerHealthScript().currentHealth += (HP * e);
             Globals.GetPlayerHealthScript().maxHealth += (HP * e);
