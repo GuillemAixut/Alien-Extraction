@@ -324,6 +324,9 @@ public class Player : YmirComponent
             SetWeapon();
             LoadItems();
         }
+
+        Debug.Log("[ERROR]" + weaponType.ToString());
+        Debug.Log("[ERROR]" + upgradeType.ToString());
     }
 
     public void Update()
@@ -1870,7 +1873,8 @@ public class Player : YmirComponent
         lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
 
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
-        upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
+        //upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
+        upgradeType = 0;
         SetWeapon();
 
         csHealth.currentHealth = (float)SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
