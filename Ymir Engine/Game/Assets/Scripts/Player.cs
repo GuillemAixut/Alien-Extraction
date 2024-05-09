@@ -206,7 +206,7 @@ public class Player : YmirComponent
         deathAnimFinish = false;
         deathTimer = 3;
 
-        weaponType = WEAPON_TYPE.SMG;
+        //weaponType = WEAPON_TYPE.SMG;
         upgradeType = UPGRADE.LVL_0;
 
         movementSpeed = 3000.0f;    //Antes 35
@@ -275,9 +275,9 @@ public class Player : YmirComponent
         weapons.Add(w_Plasma_3a);
         weapons.Add(w_Plasma_3b);
 
-        SetWeapon(weaponType, upgradeType);
+        SetWeapon();
 
-        currentWeapon = w_SMG_0.GetComponent<SMG>();
+        //currentWeapon = w_SMG_0.GetComponent<SMG>();
 
         //--------------------- Menus ---------------------\\
         itemsList = new List<Item>();
@@ -287,52 +287,6 @@ public class Player : YmirComponent
         {
             Debug.Log("current: " + currentLvl.ToString());
             LoadPlayer();
-        }
-
-        {
-            // TODO: Sara --> cosas pa probar items
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    Random random = new Random();
-
-            //    ITEM_SLOT a = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
-            //    ITEM_SLOT b = (ITEM_SLOT)random.Next((int)ITEM_SLOT.SIZE);
-            //    //ITEM_SLOT b = ITEM_SLOT.ARMOR;
-            //    ITEM_RARITY c = (ITEM_RARITY)random.Next((int)ITEM_RARITY.NONE);
-            //    //bool d = (random.NextDouble() < 0.5 ? false : true);
-            //    bool d = true;
-
-            //    Item item = null;
-
-            //    int x = random.Next(0, 3);
-            //    switch (x)
-            //    {
-            //        case 0:
-            //            {
-            //                item = new Item(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-            //               "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png");
-            //            }
-            //            break;
-            //        case 1:
-            //            {
-            //                item = new I_Equippable(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-            //        "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png",
-            //        random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100), random.Next(100));
-            //            }
-            //            break;
-            //        case 2:
-            //            {
-            //                item = new I_Consumables(a, b, c, d, "Item " + i.ToString(), "This is: Item " + i.ToString(),
-            //               "Assets/UI/Items Slots/Iconos/ResinVesselIconColor.png", random.Next(100), random.Next(100), random.Next(100));
-            //            }
-            //            break;
-            //        default:
-            //            break;
-            //    }
-
-            //    itemsList.Add(item);
-            //    itemsListTest.Add(item.name);
-            //}
         }
 
         //--------------------- Get Camera GameObject ---------------------\\
@@ -377,19 +331,40 @@ public class Player : YmirComponent
             godMode = !godMode;
         }
 
-        if (Input.GetKey(YmirKeyCode.KP_1) == KeyState.KEY_DOWN)
+        if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
         {
-            SetWeapon(WEAPON_TYPE.SMG);
+            weaponType = WEAPON_TYPE.SMG;
+            SetWeapon();
         }
 
-        if (Input.GetKey(YmirKeyCode.KP_2) == KeyState.KEY_DOWN)
+        if (Input.GetKey(YmirKeyCode.Alpha2) == KeyState.KEY_DOWN)
         {
-            SetWeapon(WEAPON_TYPE.SHOTGUN);
+            weaponType = WEAPON_TYPE.SHOTGUN;
+            SetWeapon();
         }
 
-        if (Input.GetKey(YmirKeyCode.KP_3) == KeyState.KEY_DOWN)
+        if (Input.GetKey(YmirKeyCode.Alpha3) == KeyState.KEY_DOWN)
         {
-            SetWeapon(WEAPON_TYPE.PLASMA);
+            weaponType = WEAPON_TYPE.PLASMA;
+            SetWeapon();
+        }
+
+        if (Input.GetKey(YmirKeyCode.PERIOD) == KeyState.KEY_DOWN)
+        {
+            if ((int)upgradeType < 4)
+            {
+                upgradeType += 1;
+                SetWeapon();
+            }
+        }
+
+        if (Input.GetKey(YmirKeyCode.COMMA) == KeyState.KEY_DOWN)
+        {
+            if ((int)upgradeType > 0)
+            {
+                upgradeType -= 1;
+                SetWeapon();
+            }
         }
 
         if (Input.GetKey(YmirKeyCode.F8) == KeyState.KEY_DOWN)
@@ -683,8 +658,6 @@ public class Player : YmirComponent
         {
             currentMenu = "Inventory Menu";
             ToggleMenu(true);
-
-            Debug.Log("Inventory Menu");
         }
 
         ////----------------- Upgrade -----------------\\
@@ -704,27 +677,6 @@ public class Player : YmirComponent
 
         //    Debug.Log("Stash Canvas");
         //}
-
-        //----------------- Swap to SMG -----------------\\  Provisional!!!
-        if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
-        {
-            SetWeapon(WEAPON_TYPE.SMG);
-            Debug.Log("" + WEAPON_TYPE.SMG);
-        }
-
-        //----------------- Swap to Shotgun -----------------\\  Provisional!!!
-        if (Input.GetKey(YmirKeyCode.Alpha2) == KeyState.KEY_DOWN)
-        {
-            SetWeapon(WEAPON_TYPE.SHOTGUN);
-            Debug.Log("" + WEAPON_TYPE.SHOTGUN);
-        }
-
-        //----------------- Swap to Laser -----------------\\  Provisional!!!
-        if (Input.GetKey(YmirKeyCode.Alpha3) == KeyState.KEY_DOWN)
-        {
-            SetWeapon(WEAPON_TYPE.PLASMA);
-            Debug.Log("" + WEAPON_TYPE.PLASMA);
-        }
 
         //----------------- Desbugear -----------------\\
         //if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN)
@@ -1171,7 +1123,7 @@ public class Player : YmirComponent
         currentWeapon.Reload();
     }
 
-    private void SetWeapon(WEAPON_TYPE type = WEAPON_TYPE.SMG, UPGRADE upgrade = UPGRADE.LVL_0)
+    private void SetWeapon()
     {
         // Set all GO weapons to not active
         for (int i = 0; i < weapons.Count(); i++) {
@@ -1179,11 +1131,11 @@ public class Player : YmirComponent
             weapons[i].SetActive(false);
         }
     
-        switch (type)
+        switch (weaponType)
         {
             case WEAPON_TYPE.SMG:
 
-                switch (upgrade)
+                switch (upgradeType)
                 {
                     case UPGRADE.LVL_0:
                         
@@ -1217,7 +1169,7 @@ public class Player : YmirComponent
 
             case WEAPON_TYPE.SHOTGUN:
 
-                switch (upgrade)
+                switch (upgradeType)
                 {
                     case UPGRADE.LVL_0:
 
@@ -1250,7 +1202,7 @@ public class Player : YmirComponent
                 break;
 
             case WEAPON_TYPE.PLASMA:
-                switch (upgrade)
+                switch (upgradeType)
                 {
                     case UPGRADE.LVL_0:
 
@@ -1472,6 +1424,7 @@ public class Player : YmirComponent
         else
         {
             setHover = true;
+            Debug.Log("SetFirstFocused ");
             UI.SetFirstFocused(canvas);
         }
     }
@@ -1740,7 +1693,7 @@ public class Player : YmirComponent
     #endregion
 
     #region SaveLoad
-    // TODO: Sara --> cambiar al arma buena cuando este hecho
+
     public void SavePlayer()
     {
         SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);

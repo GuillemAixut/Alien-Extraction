@@ -222,7 +222,7 @@ public class FaceHuggerBaseScript : Enemy
                     LookAt(player.transform.globalPosition);
                     Attack();
                     break;
-
+                    
 
                    
             }

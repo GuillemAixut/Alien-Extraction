@@ -7,15 +7,15 @@
             "UID": 332055288,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 795926177,
+            "Parent UID": 772048495,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -21.680496215820312,
+                        17.693695068359375,
                         0,
-                        -15.838519096374512
+                        17.302278518676758
                     ],
                     "Rotation": [
                         -0,
@@ -31,7 +31,7 @@
             ],
             "Children UID": [
                 1765229486,
-                1953913454
+                1783222097
             ]
         },
         {
@@ -68,19 +68,19 @@
                     "NumPaths": 6,
                     "Paths": [
                         ".\/Assets\/Combat_Idle.yanim",
-                        "Assets\/Cry.yanim",
-                        "Assets\/Death.yanim",
                         "Assets\/Claw_Attack.yanim",
+                        "Assets\/Death.yanim",
+                        "Assets\/Cry.yanim",
                         "Assets\/Drone_Tail_Attack.yanim",
                         "Assets\/Drone_Walk.yanim"
                     ],
                     "UIDs": [
                         718993286,
-                        1765229486,
-                        1765229486,
-                        1765229486,
-                        1765229486,
-                        1765229486
+                        1105317,
+                        197152171,
+                        1711438717,
+                        484848809,
+                        9785755
                     ]
                 },
                 {
@@ -99,6 +99,12 @@
                     "detectionRadius": 60,
                     "xSpeed": 0,
                     "ySpeed": 0,
+                    "paused": true,
+                    "keys": "",
+                    "path": "",
+                    "numFields": 0,
+                    "spawnRange": 0,
+                    "level": 0,
                     "droneState": 0,
                     "timeCounter": 0
                 },
@@ -233,7 +239,7 @@
             "Name": "Health_Bar_Plane ",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1953913454,
+            "UID": 1783222097,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 332055288,
@@ -263,23 +269,22 @@
                     "Active": 1,
                     "UID": 0,
                     "HP": 500,
-                    "initialHP": 500,
-                    "enemy": 1765229486
+                    "initialHP": 500
                 }
             ],
             "Children UID": [
-                1882853862
+                771840857
             ]
         },
         {
             "Name": "pPlane1 ",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1882853862,
+            "UID": 771840857,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Health_Bar_Plane.fbx",
-            "Parent UID": 1953913454,
+            "Parent UID": 1783222097,
             "Components": [
                 {
                     "Type": "Transform",

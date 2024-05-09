@@ -97,9 +97,6 @@ namespace YmirEngine
     public class I_Equippable : Item
     {
         public float HP, armor, speed, fireRate, reloadSpeed, damageMultiplier;
-        private string v1;
-        private string v2;
-        private string v3;
 
         public I_Equippable(
             ITEM_SLOT currentSlot = ITEM_SLOT.NONE,
