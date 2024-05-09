@@ -151,7 +151,7 @@ namespace YmirEngine
 
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern GameObject GetEnemyGameObject();
+        public static extern GameObject GetEnemyGameObject(object go);
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern Vector3 GetWalkablePointAround(object position, float radius);
@@ -409,6 +409,12 @@ namespace YmirEngine
     /// </summary>
     public class SaveLoad
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool GameFileExists(string dir, string name);
+
         /// <summary>
         /// 
         /// </summary>

@@ -60,15 +60,22 @@ public class UI_Item_Button : YmirComponent
         {
             if (item.currentSlot != ITEM_SLOT.NONE && item.currentSlot != ITEM_SLOT.SAVE)
             {
-                item.isEquipped = true;
+                if (!item.isEquipped)
+                {
+                    item.isEquipped = true;
+                    item.UpdateStats();
+                    _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
+                }
             }
             else
             {
-                item.isEquipped = false;
+                if (item.isEquipped)
+                {
+                    item.isEquipped = false;
+                    item.UpdateStats();
+                    _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
+                }
             }
-
-            item.UpdateStats();
-            _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
 
             updateStats = false;
         }
