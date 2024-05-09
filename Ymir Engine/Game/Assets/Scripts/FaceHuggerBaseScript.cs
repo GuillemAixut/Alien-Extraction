@@ -186,6 +186,7 @@ public class FaceHuggerBaseScript : Enemy
                     if (timePassed >= 1.2f)
                     {
                         Debug.Log("[ERROR] DEATH");
+                        itemPos = gameObject.transform.globalPosition;
                         DropItem();
                         InternalCalls.Destroy(gameObject);
                     }

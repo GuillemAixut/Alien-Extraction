@@ -94,10 +94,12 @@ public class QueenXenomorphSpitAttack : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Name == "Player" && destroyed == false)
+        if (other.Name == "Player" && destroyed == false && player.GetComponent<Player>().vulnerable)
         {
             healthScript.TakeDmg(damage);
             destroyed = true;
+
+            player.GetComponent<Player>().TakeDMG();
         }
     }
 

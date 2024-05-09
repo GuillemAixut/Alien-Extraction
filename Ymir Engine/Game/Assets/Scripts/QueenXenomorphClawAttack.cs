@@ -44,11 +44,13 @@ public class QueenXenomorphClawAttack : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Name == "Player" && destroyed == false)
+        if (other.Name == "Player" && destroyed == false && player.GetComponent<Player>().vulnerable)
         {
             Debug.Log("[ERROR] CLAW");
             healthScript.TakeDmg(damage);
             destroyed = true;
+
+            player.GetComponent<Player>().TakeDMG();
         }
     }
 

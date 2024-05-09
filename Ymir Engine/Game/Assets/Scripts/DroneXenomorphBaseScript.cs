@@ -176,6 +176,7 @@ public class DroneXenomorphBaseScript : Enemy
                 if (timePassed >= 1.4f)
                 {
                     //Debug.Log("[ERROR] DEATH");
+                    itemPos = gameObject.transform.globalPosition;
                     DropItem();
                     InternalCalls.Destroy(gameObject);
                 }
