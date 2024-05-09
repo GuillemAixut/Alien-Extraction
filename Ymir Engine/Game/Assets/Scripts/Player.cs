@@ -1742,7 +1742,7 @@ public class Player : YmirComponent
     {
         saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
 
-        Debug.Log("saveName" + saveName);
+        Debug.Log("saveName " + saveName);
 
         lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
 
@@ -1759,7 +1759,7 @@ public class Player : YmirComponent
     {
         saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
 
-        Debug.Log("saveName" + saveName);
+        Debug.Log("saveName " + saveName);
 
         for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num"); i++)
         {
@@ -1770,7 +1770,10 @@ public class Player : YmirComponent
             item.inInventory = false;
             itemsList.Add(item);
 
-            item.UpdateStats();
+            if (item.isEquipped)
+            {
+                item.UpdateStats();
+            }
         }
 
         Debug.Log("Items loaded");
