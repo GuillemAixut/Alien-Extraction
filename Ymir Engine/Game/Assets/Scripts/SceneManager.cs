@@ -8,7 +8,12 @@ using YmirEngine;
 
 public class SceneManager : YmirComponent
 {
+    // Loading scene
     private GameObject loadSceneImg;
+    private bool loadScene = false;
+
+    private string sceneName = "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene";
+
 
     public void Start()
     {
@@ -18,10 +23,20 @@ public class SceneManager : YmirComponent
         {
             loadSceneImg.SetActive(false);
         }
+
+        loadScene = false;
     }
 
     public void Update()
     {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene");
+            loadScene = false;
+
+            return;
+        }
+
         if (Input.GetKey(YmirKeyCode.KP_1) == KeyState.KEY_DOWN)
         {
             Audio.StopAllAudios();
@@ -30,7 +45,9 @@ public class SceneManager : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene");
+            loadScene = true;
+
+            sceneName = "Assets/BASE_FINAL/LVL_BASE_COLLIDERS.yscene";
             return;
         }
 
@@ -42,7 +59,9 @@ public class SceneManager : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            InternalCalls.LoadScene("Assets/LVL1_FINAL/LVL1_FINAL_COLLIDERS.yscene");
+            loadScene = true;
+
+            sceneName ="Assets/LVL1_FINAL/LVL1_FINAL_COLLIDERS.yscene";
             return;
         }
 
@@ -54,7 +73,9 @@ public class SceneManager : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            InternalCalls.LoadScene("Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene");
+            loadScene = true;
+
+            sceneName = "Assets/LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS.yscene";
             return;
         }
 
@@ -66,7 +87,9 @@ public class SceneManager : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene");
+            loadScene = true;
+
+            sceneName = "Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene";
             return;
         }
 
@@ -78,7 +101,9 @@ public class SceneManager : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene");
+            loadScene = true;
+
+            sceneName = "Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene";
             return;
         }
 
@@ -90,7 +115,9 @@ public class SceneManager : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene");
+            loadScene = true;
+
+            sceneName = "Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene";
             return;
         }
 

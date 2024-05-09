@@ -9,7 +9,10 @@ using YmirEngine;
 public class Button_GoToScene : YmirComponent
 {
     public string sceneName = "BASE_FINAL/LVL_BASE_COLLIDERS";
+
+    // Loading scene
     private GameObject loadSceneImg;
+    private bool loadScene = false;
 
     public void Start()
     {
@@ -19,11 +22,19 @@ public class Button_GoToScene : YmirComponent
         {
             loadSceneImg.SetActive(false);
         }
+
+        loadScene = false;
     }
 
     public void Update()
     {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
+            loadScene = false;
 
+            return;
+        }
     }
 
     public void OnClickButton()
@@ -32,12 +43,12 @@ public class Button_GoToScene : YmirComponent
         Audio.PauseAllAudios();
 
         Globals.GetPlayerScript().SavePlayer();
-        
+
         if (loadSceneImg != null)
         {
             loadSceneImg.SetActive(true);
         }
 
-        InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
+        loadScene = true;
     }
 }
