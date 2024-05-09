@@ -19,6 +19,9 @@ public class UI_Cutscenes : YmirComponent
     public bool introScene = false;
     public bool winScene = false;
     public bool loseScene = false;
+
+    public float timer = 2f;
+    public float finishTimer = 2f;
     public void Start()
     {
         img = InternalCalls.GetGameObjectByName("CutsceneImg");
@@ -31,21 +34,29 @@ public class UI_Cutscenes : YmirComponent
     {
         if (img != null && !hasFinished)
         {
-            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
+            if(finishTimer > 0)
             {
-                currentFrame++;
-
-                UI.ChangeImageUI(img, imgPath + imgName + "(" + currentFrame.ToString() +")" + ".png", (int)UI_STATE.NORMAL);
-
-                if (currentFrame == maxFrames)
+                finishTimer -= Time.deltaTime;
+                if (finishTimer <= 0)
                 {
-                    hasFinished = true;
-                    if(introScene)
+                    if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
                     {
-                        InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
+                        currentFrame++;
+                        finishTimer = timer;
+                        UI.ChangeImageUI(img, imgPath + imgName + "(" + currentFrame.ToString() + ")" + ".png", (int)UI_STATE.NORMAL);
+
+                        if (currentFrame == maxFrames)
+                        {
+                            hasFinished = true;
+                            if (introScene)
+                            {
+                                InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
+                            }
+                        }
                     }
                 }
             }
+            
         }
 
         return;
