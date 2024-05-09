@@ -67,7 +67,7 @@ public class Health_Bar_Test : YmirComponent
         if (aux3 != null)
         {
             HP = aux3.life;
-            if (aux.GetState() == WanderState.DEATH)
+            if (aux3.GetState() == XenoState.DEAD)
             {
                 Destroy();
             }
@@ -91,7 +91,7 @@ public class Health_Bar_Test : YmirComponent
         if (aux3 != null)
         {
             HP = aux3.life;
-            if (aux.GetState() == WanderState.DEATH)
+            if (aux3.GetState() == XenoState.DEAD)
             {
                 Destroy();
             }
