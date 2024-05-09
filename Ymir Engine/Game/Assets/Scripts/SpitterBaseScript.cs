@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 using YmirEngine;
 
-enum XenoState
+public enum XenoState
 {
     IDLE,
     IDLE_AGGRO,
@@ -423,7 +423,12 @@ public class SpitterBaseScript : YmirComponent
             }
         }
     }
-    
+
+    public XenoState GetState()
+    {
+        return xenoState;
+    }
+
     private void SetPause(bool pause)
     {
         if (pause)
