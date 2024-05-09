@@ -54,6 +54,13 @@ public class BH_Shotgun : YmirComponent
             {
                 aux3.life -= 110;
             }
+
+            SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
+            if (aux4 != null)
+            {
+                aux4.life -= 110;
+            }
+
             Debug.Log("[ERROR] HIT ENEMy");
            
         }

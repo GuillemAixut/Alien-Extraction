@@ -1,13 +1,13 @@
 {
     "Prefab": [
         {
-            "Name": "Spitter",
+            "Name": "SpitterBase",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Enemy",
             "UID": 2076073244,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1801255640,
+            "Parent UID": 1887258694,
             "Components": [
                 {
                     "Type": "Transform",
@@ -35,9 +35,9 @@
             ]
         },
         {
-            "Name": "ANIM_CHAR_Spiter (1)",
+            "Name": "Spitter",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Enemy",
             "UID": 1033895836,
             "Active": true,
             "Element_Type": "Model",
@@ -632,7 +632,7 @@
             ]
         },
         {
-            "Name": "Health_Bar_Plane (1)",
+            "Name": "Health_Bar_Plane",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1618763415,
@@ -673,7 +673,7 @@
             ]
         },
         {
-            "Name": "pPlane1 (1)",
+            "Name": "pPlane1",
             "Static": false,
             "Tag": "Untagged",
             "UID": 658733598,

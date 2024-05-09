@@ -3,11 +3,11 @@
         {
             "Name": "FaceHugger",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Enemy",
             "UID": 460275566,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1632976353,
+            "Parent UID": 1887258694,
             "Components": [
                 {
                     "Type": "Transform",
@@ -37,7 +37,7 @@
         {
             "Name": "Facehugger",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Enemy",
             "UID": 1853857838,
             "Active": true,
             "Element_Type": "Model",
@@ -193,9 +193,9 @@
                         0
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         0,
-                        180
+                        -180
                     ],
                     "Scale": [
                         1,
