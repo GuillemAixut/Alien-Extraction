@@ -134,6 +134,7 @@ public class DroneXenomorphBaseScript : Enemy
 
         Animation.SetSpeed(gameObject, "Claw_Attack", 2f);
         Animation.SetSpeed(gameObject, "Drone_Tail_Attack", 2f);
+        Animation.SetSpeed(gameObject, "Drone_Walk", 0.5f);
 
         Animation.AddBlendOption(gameObject, "", "Drone_Walk", 5);
         Animation.AddBlendOption(gameObject, "", "Claw_Attack", 5);
