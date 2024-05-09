@@ -7,15 +7,15 @@
             "UID": 332055288,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 772048495,
+            "Parent UID": 1632976353,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        17.693695068359375,
+                        0.95230984687805176,
                         0,
-                        17.302278518676758
+                        15.927865982055664
                     ],
                     "Rotation": [
                         -0,
@@ -105,6 +105,9 @@
                     "numFields": 0,
                     "spawnRange": 0,
                     "level": 0,
+                    "commonProb": 0,
+                    "rareProb": 0,
+                    "epicProb": 0,
                     "droneState": 0,
                     "timeCounter": 0
                 },
@@ -206,8 +209,8 @@
                         {
                             "lightDir": [
                                 0,
-                                15.465556144714355,
-                                -0.51650440692901611
+                                16.196561813354492,
+                                -3.8318030834197998
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -217,7 +220,13 @@
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
-                            "transparency": 1
+                            "transparency": 1,
+                            "setColor": false,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
                         }
                     ],
                     "Diffuse_ID": 1139,
@@ -320,8 +329,8 @@
                         {
                             "lightDir": [
                                 0,
-                                15.465556144714355,
-                                -0.51650440692901611
+                                16.196561813354492,
+                                -3.8318030834197998
                             ],
                             "color": [
                                 1,

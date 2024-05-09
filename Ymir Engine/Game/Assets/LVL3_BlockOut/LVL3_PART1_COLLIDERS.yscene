@@ -1,5 +1,5 @@
 {
-    "NavMesh": "Assets\/LVL3_BlockOut\/\/LVL3_PART1_COLLIDERS.nav",
+    "NavMesh": "Assets\/LVL3_BlockOut\/LVL3_PART1_COLLIDERS.nav",
     "Editor Camera Position": [
         413.91073608398438,
         80.871322631835938,
@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 728505855,
+            "UID": 428667041,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -79,7 +79,7 @@
             "UID": 215325978,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3071,7 +3071,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.55461633205413818,
+                        0.55461639165878296,
                         -0
                     ],
                     "Scale": [
@@ -5490,7 +5490,7 @@
             "UID": 148987747,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5562,7 +5562,7 @@
             "UID": 484997781,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5573,9 +5573,9 @@
                         153.09422302246094
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -47.532154083251953,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.050000399351119995,
@@ -5915,7 +5915,7 @@
             "UID": 12745639,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -5926,9 +5926,9 @@
                         292.640625
                     ],
                     "Rotation": [
-                        -180,
-                        -1.3964574337005615,
-                        -180
+                        180,
+                        -1.3964577913284302,
+                        180
                     ],
                     "Scale": [
                         0.050005152821540833,
@@ -6268,7 +6268,7 @@
             "UID": 259210497,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -6279,9 +6279,9 @@
                         751.5816650390625
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -89.295562744140625,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000187009572983,
@@ -6621,7 +6621,7 @@
             "UID": 1237068732,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7302,7 +7302,7 @@
             "UID": 1495121981,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -7679,7 +7679,7 @@
             "UID": 466712987,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8060,7 +8060,7 @@
             "UID": 2063663470,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8196,7 +8196,7 @@
             "UID": 1372245636,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8332,7 +8332,7 @@
             "UID": 1630598529,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8369,7 +8369,7 @@
             "UID": 811451292,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8466,7 +8466,7 @@
             "UID": 560363617,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -8490,9 +8490,7 @@
             ],
             "Children UID": [
                 542224272,
-                1116124219,
                 1922431875,
-                1164126291,
                 664051939,
                 1284168529,
                 485390453,
@@ -17469,559 +17467,6 @@
             ]
         },
         {
-            "Name": "Beacon",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1116124219,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 560363617,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                345076392,
-                2037262221,
-                1228738417,
-                2063078560,
-                369118800,
-                1204725705,
-                395115767,
-                114995701
-            ]
-        },
-        {
-            "Name": "Base (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 345076392,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1401917253,
-                    "Vertex Count": 64,
-                    "Index Count": 96
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Cable (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2037262221,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 486262565,
-                    "Vertex Count": 256,
-                    "Index Count": 564
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "curve1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1228738417,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ]
-        },
-        {
-            "Name": "Antenna1 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2063078560,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 80336061,
-                    "Vertex Count": 121,
-                    "Index Count": 168
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Antenna2 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 369118800,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 670114322,
-                    "Vertex Count": 121,
-                    "Index Count": 168
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Antenna3 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1204725705,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1086583872,
-                    "Vertex Count": 121,
-                    "Index Count": 168
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Light (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 395115767,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 203414139,
-                    "Vertex Count": 9,
-                    "Index Count": 32
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 203414139,
-                    "Vertex Count": 112,
-                    "Index Count": 246
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Top (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 114995701,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1116124219,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 143979497,
-                    "Vertex Count": 86,
-                    "Index Count": 162
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
             "Name": "Altars",
             "Static": false,
             "Tag": "Untagged",
@@ -18155,531 +17600,6 @@
                     "UID": 835240012,
                     "Vertex Count": 1105,
                     "Index Count": 4788
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "Chests",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1164126291,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 560363617,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                21602857,
-                73576770,
-                246745959
-            ]
-        },
-        {
-            "Name": "PROP_Chest2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 21602857,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1164126291,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                1200117057,
-                1323064721
-            ]
-        },
-        {
-            "Name": "PROP_Chest_Base4",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1200117057,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 21602857,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1709981172,
-                    "Vertex Count": 340,
-                    "Index Count": 738
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "PROP_Chest_base4",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1323064721,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 21602857,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1784098146,
-                    "Vertex Count": 606,
-                    "Index Count": 1230
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "PROP_Chest1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 73576770,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1164126291,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                944280261,
-                757575998
-            ]
-        },
-        {
-            "Name": "PROP_Chest_Base4 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 944280261,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 73576770,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1895905838,
-                    "Vertex Count": 340,
-                    "Index Count": 738
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "PROP_Chest_base4 (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 757575998,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 73576770,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 968365417,
-                    "Vertex Count": 606,
-                    "Index Count": 1230
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "PROP_Chest",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 246745959,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 1164126291,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                774908142,
-                313124314
-            ]
-        },
-        {
-            "Name": "PROP_Chest_Base4 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 774908142,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 246745959,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 987662211,
-                    "Vertex Count": 340,
-                    "Index Count": 738
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                16.196561813354492,
-                                -3.8318030834197998
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                1,
-                                1,
-                                1
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                }
-            ]
-        },
-        {
-            "Name": "PROP_Chest_base4 (2)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 313124314,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/LVL3_BlockOut\/New_Props_LVL3.fbx",
-            "Parent UID": 246745959,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 874347374,
-                    "Vertex Count": 606,
-                    "Index Count": 1230
                 },
                 {
                     "Type": "Material",
@@ -19684,9 +18604,9 @@
                         120.87628173828125
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -19760,9 +18680,9 @@
                         71.847831726074219
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         0.009705699048936367,
-                        -90.00006103515625
+                        -90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -19836,9 +18756,9 @@
                         71.847831726074219
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         0.009705699048936367,
-                        -90.00006103515625
+                        -90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -19912,9 +18832,9 @@
                         120.87628173828125
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -20140,9 +19060,9 @@
                         162.56033325195312
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         0.009705699048936367,
-                        -90.00006103515625
+                        -90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -20216,9 +19136,9 @@
                         250.23971557617188
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -20522,7 +19442,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -20598,7 +19518,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -20674,7 +19594,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -20902,7 +19822,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         76.759788513183594,
@@ -21204,9 +20124,9 @@
                         621.3057861328125
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -21280,9 +20200,9 @@
                         575.306396484375
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         0.009705699048936367,
-                        -90.00006103515625
+                        -90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -21508,9 +20428,9 @@
                         651.71142578125
                     ],
                     "Rotation": [
-                        -90.000083923339844,
-                        -0.009758632630109787,
-                        -90.000083923339844
+                        -90.000091552734375,
+                        -0.0097569255158305168,
+                        -90.000091552734375
                     ],
                     "Scale": [
                         100,
@@ -21738,7 +20658,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -21814,7 +20734,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -21890,7 +20810,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -21966,7 +20886,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -22116,9 +21036,9 @@
                         684.84185791015625
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -22192,9 +21112,9 @@
                         684.84185791015625
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -22344,9 +21264,9 @@
                         368.5072021484375
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -22420,9 +21340,9 @@
                         597.85003662109375
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -22496,9 +21416,9 @@
                         305.61328125
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -22572,9 +21492,9 @@
                         305.61328125
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -22802,7 +21722,7 @@
                     "Rotation": [
                         -90.000007629394531,
                         -0.0097267581149935722,
-                        -180
+                        180
                     ],
                     "Scale": [
                         100,
@@ -22876,9 +21796,9 @@
                         298.91592407226562
                     ],
                     "Rotation": [
-                        -90.000114440917969,
+                        -90.000129699707031,
                         -0.0097264563664793968,
-                        -0.95749413967132568
+                        -0.95749425888061523
                     ],
                     "Scale": [
                         100,
@@ -22952,9 +21872,9 @@
                         649.98974609375
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -23180,9 +22100,9 @@
                         566.02813720703125
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         81.8428955078125,
@@ -23256,9 +22176,9 @@
                         603.17352294921875
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         81.8428955078125,
@@ -23788,9 +22708,9 @@
                         463.6068115234375
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -23864,9 +22784,9 @@
                         462.81964111328125
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -23940,9 +22860,9 @@
                         385.78292846679688
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -24016,9 +22936,9 @@
                         385.32730102539062
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -24092,9 +23012,9 @@
                         431.74981689453125
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -24168,9 +23088,9 @@
                         431.74981689453125
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -24244,9 +23164,9 @@
                         424.53643798828125
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24320,9 +23240,9 @@
                         373.07623291015625
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24396,9 +23316,9 @@
                         371.47280883789062
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24472,9 +23392,9 @@
                         424.53643798828125
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24548,9 +23468,9 @@
                         344.64535522460938
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24624,9 +23544,9 @@
                         344.53427124023438
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24700,9 +23620,9 @@
                         427.84686279296875
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -24776,9 +23696,9 @@
                         387.06607055664062
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24852,9 +23772,9 @@
                         387.06607055664062
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -24928,9 +23848,9 @@
                         427.84686279296875
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -25004,9 +23924,9 @@
                         377.3284912109375
                     ],
                     "Rotation": [
-                        -90.000099182128906,
-                        -0.0097313122823834419,
-                        -90.000099182128906
+                        -90.000106811523438,
+                        -0.0097330193966627121,
+                        -90.000106811523438
                     ],
                     "Scale": [
                         100,
@@ -25080,9 +24000,9 @@
                         418.48440551757812
                     ],
                     "Rotation": [
-                        -90.00006103515625,
+                        -90.000068664550781,
                         -0.009705699048936367,
-                        90.00006103515625
+                        90.000068664550781
                     ],
                     "Scale": [
                         100,
@@ -27152,8 +26072,8 @@
                         377.69894409179688
                     ],
                     "Rotation": [
-                        -90.000129699707031,
-                        -1.0245284101983998e-05,
+                        -90.000137329101562,
+                        -1.366037849948043e-05,
                         69.058303833007812
                     ],
                     "Scale": [
@@ -28510,7 +27430,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.90277844667434692,
+                        0.90277856588363647,
                         -0
                     ],
                     "Scale": [
@@ -28905,7 +27825,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.90277856588363647,
+                        0.90277868509292603,
                         -0
                     ],
                     "Scale": [
@@ -29667,8 +28587,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1776,
-                    "Height": 986,
+                    "Width": 1849,
+                    "Height": 1088,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -40834,9 +39754,9 @@
                         405.129150390625
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -5.0089561227650847e-06,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.034247130155563354,
@@ -41944,7 +40864,7 @@
             "UID": 1288139189,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -42614,7 +41534,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -42771,6 +41691,7 @@
                     "upgradeType": 0,
                     "damageMultiplier": 0,
                     "resin": 10,
+                    "vulnerable": true,
                     "dashDuration": 0.25,
                     "dashDistance": 200,
                     "swipeTimer": 0,
@@ -48417,7 +47338,7 @@
             "UID": 208637195,
             "Active": false,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -48429,7 +47350,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.00023488131409976631,
+                        4.0994523260451388e-06,
                         -0
                     ],
                     "Scale": [
@@ -48558,7 +47479,7 @@
             "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -48701,7 +47622,7 @@
             "UID": 3441973,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -48844,7 +47765,7 @@
             "UID": 1152587661,
             "Active": false,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -48855,9 +47776,9 @@
                         229.56985473632812
                     ],
                     "Rotation": [
-                        -0.00095698400400578976,
-                        0.00046432542148977518,
-                        -0.00095698400400578976
+                        -1.6702520952094346e-05,
+                        8.1040070654125884e-06,
+                        -1.6702520952094346e-05
                     ],
                     "Scale": [
                         1.0000001192092896,
@@ -48986,7 +47907,7 @@
             "UID": 992153246,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49129,7 +48050,7 @@
             "UID": 2020468071,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49272,7 +48193,7 @@
             "UID": 1656494279,
             "Active": false,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49415,7 +48336,7 @@
             "UID": 400287302,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49558,7 +48479,7 @@
             "UID": 1145991034,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49701,7 +48622,7 @@
             "UID": 1856296852,
             "Active": false,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49713,7 +48634,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.00038823246723040938,
+                        6.7759347075480036e-06,
                         -0
                     ],
                     "Scale": [
@@ -49842,7 +48763,7 @@
             "UID": 486475540,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -49985,7 +48906,7 @@
             "UID": 1452387347,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50128,7 +49049,7 @@
             "UID": 237645045,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50271,7 +49192,7 @@
             "UID": 1408440117,
             "Active": false,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50283,7 +49204,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        0.00047828158130869269,
+                        8.3475879364414141e-06,
                         -0
                     ],
                     "Scale": [
@@ -50416,7 +49337,7 @@
             "UID": 1901623558,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50559,7 +49480,7 @@
             "UID": 633250113,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50702,7 +49623,7 @@
             "UID": 1073555,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50845,7 +49766,7 @@
             "UID": 1250263756,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -50988,7 +49909,7 @@
             "UID": 769058872,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51131,7 +50052,7 @@
             "UID": 849543124,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51274,7 +50195,7 @@
             "UID": 82822841,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51417,7 +50338,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51444,8 +50365,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1776,
-                    "Height": 986,
+                    "Width": 1849,
+                    "Height": 1088,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -53955,7 +52876,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -61436,7 +60357,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
@@ -61788,7 +60709,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 728505855,
+            "Parent UID": 428667041,
             "Components": [
                 {
                     "Type": "Transform",
