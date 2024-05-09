@@ -276,10 +276,11 @@ public class Player : YmirComponent
         weapons.Add(w_Plasma_3a);
         weapons.Add(w_Plasma_3b);
 
-
         //--------------------- Menus ---------------------\\
         itemsList = new List<Item>();
         itemsListString = new List<string>();
+
+        SetWeapon();
 
         if (currentLvl != (int)LEVEL.BASE)
         {
@@ -1136,7 +1137,6 @@ public class Player : YmirComponent
         // Set all GO weapons to not active
         for (int i = 0; i < weapons.Count(); i++)
         {
-
             weapons[i].SetActive(false);
         }
 
@@ -1435,7 +1435,7 @@ public class Player : YmirComponent
     public void ToggleMenu(bool open)
     {
         GameObject canvas = InternalCalls.GetGameObjectByName(currentMenu);
-        Debug.Log("" + currentMenu + " " + open.ToString());
+        Debug.Log("CurrentMenu: " + currentMenu + " " + open.ToString());
 
         canvas.SetActive(open);
         PlayerStopState(open);
@@ -1447,7 +1447,6 @@ public class Player : YmirComponent
         else
         {
             setHover = true;
-            Debug.Log("SetFirstFocused ");
             UI.SetFirstFocused(canvas);
         }
     }
@@ -1455,7 +1454,6 @@ public class Player : YmirComponent
     // External scripts
     private void GetPlayerScripts()
     {
-        Debug.Log("" + gameObject.Name);
         csHealth = gameObject.GetComponent<Health>();
         csBullets = gameObject.GetComponent<UI_Bullets>();
     }
@@ -1733,12 +1731,6 @@ public class Player : YmirComponent
 
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Items num", itemsList.Count);
 
-        // Items
-        //for (int i = 0; i < itemsListString.Count; i++)
-        //{
-        //    SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsListString[i]);
-        //}
-
         for (int i = 0; i < itemsList.Count; i++)
         {
             SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsList[i].dictionaryName);
@@ -1750,11 +1742,9 @@ public class Player : YmirComponent
     {
         saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
 
-        lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
+        Debug.Log("saveName" + saveName);
 
-        //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
-        //weaponTypeTest = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
-        //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
+        lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
 
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
@@ -1769,6 +1759,8 @@ public class Player : YmirComponent
     {
         saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
 
+        Debug.Log("saveName" + saveName);
+
         for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num"); i++)
         {
             string name = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
@@ -1780,6 +1772,8 @@ public class Player : YmirComponent
 
             item.UpdateStats();
         }
+
+        Debug.Log("Items loaded");
     }
 
     #endregion

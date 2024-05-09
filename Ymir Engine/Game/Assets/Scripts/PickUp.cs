@@ -45,7 +45,7 @@ public class PickUp : YmirComponent
 
                 //TODO: Hacer que el item se destruya/elimine
                 gameObject.SetActive(false);
-                Debug.Log("" + gameObject.Name);
+                Debug.Log("Pick up " + gameObject.Name);
                 player.itemsList.Add(Globals.SearchItemInDictionary(gameObject.Name));
 
                 //player.itemsListString.Add(gameObject.Name);
