@@ -982,6 +982,24 @@ void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
 	go->mTransform->SetScale(scaleVector);
 	go->mTransform->SetRotation(rotVector);
 
+	uint UID = 1728623793; // UID of Cube.fbx mesh in meta (lo siento)
+
+	std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
+
+	//if (!PhysfsEncapsule::FileExists(libraryPath)) {
+
+	//	External->resourceManager->ImportFile("Assets/Primitives/Cube.fbx", true);
+
+	//}
+
+	//Añade la mesh a la bullet
+	ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
+	CMesh* cmesh = new CMesh(go);
+	cmesh->rMeshReference = rMesh;
+	go->AddComponent(cmesh);
+	CMesh* mesh;
+	mesh = new CMesh(go);
+
 	CCollider* physBody;
 	physBody = new CCollider(go, SPHERE);
 
