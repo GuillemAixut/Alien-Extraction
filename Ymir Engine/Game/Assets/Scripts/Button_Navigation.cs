@@ -16,10 +16,9 @@ public class Button_Navigation : YmirComponent
     private bool loadScene = false;
 
     public float time = 10;
+
     public void Start()
     {
-        sceneName = "BASE_FINAL/LVL_BASE_COLLIDERS";
-
         loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
 
         if (loadSceneImg != null)
@@ -71,9 +70,8 @@ public class Button_Navigation : YmirComponent
         if (loadSceneImg != null)
         {
             loadSceneImg.SetActive(true);
+            loadScene = true;
         }
-
-        loadScene = true;
     }
 
     public void SaveNewEmptyGame()

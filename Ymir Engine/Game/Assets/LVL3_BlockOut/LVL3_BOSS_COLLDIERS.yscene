@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 921417368,
+            "UID": 1314777103,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -40,7 +40,8 @@
                 1904908806,
                 1676754095,
                 1827062016,
-                1806365249
+                1806365249,
+                1781007999
             ]
         },
         {
@@ -50,7 +51,7 @@
             "UID": 172333081,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -357,7 +358,7 @@
                             "camPos": [
                                 -238.36373901367188,
                                 117.68576049804688,
-                                -62.881816864013672
+                                -126.17620849609375
                             ],
                             "numPointLights": 1,
                             "map": 1,
@@ -752,7 +753,7 @@
                             "camPos": [
                                 -238.36373901367188,
                                 117.68576049804688,
-                                -98.2987060546875
+                                -126.17620849609375
                             ],
                             "numPointLights": 1,
                             "map": 1,
@@ -843,7 +844,7 @@
             "UID": 1349128443,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1484,7 +1485,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        14.605810165405273,
+                        14.605808258056641,
                         -0
                     ],
                     "Scale": [
@@ -1667,7 +1668,7 @@
             "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1697,7 +1698,7 @@
             "UID": 27792721,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1768,7 +1769,7 @@
             "UID": 660882132,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1805,7 +1806,7 @@
             "UID": 1934786796,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2020,7 +2021,7 @@
                             "lightDir": [
                                 -179.57966613769531,
                                 22.239046096801758,
-                                -163.56361389160156
+                                -193.16354370117188
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -2102,7 +2103,7 @@
                             "lightDir": [
                                 -179.57966613769531,
                                 22.239046096801758,
-                                -189.26629638671875
+                                -193.16354370117188
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -2184,7 +2185,7 @@
                             "lightDir": [
                                 -179.57966613769531,
                                 22.239046096801758,
-                                -177.7884521484375
+                                -193.16354370117188
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -2300,7 +2301,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2327,8 +2328,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 598,
-                    "Height": 468,
+                    "Width": 1917,
+                    "Height": 1063,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -2344,8 +2345,7 @@
                 823303942,
                 807770031,
                 1883355782,
-                175461015,
-                1138588084
+                175461015
             ]
         },
         {
@@ -4769,76 +4769,13 @@
             ]
         },
         {
-            "Name": "Load Scene Img",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1138588084,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1398847280,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 1920,
-                    "Height": 1080,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        1920,
-                        1080
-                    ],
-                    "Path": "Assets\/UI\/Fondo.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
             "Name": "Inventory Menu",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12319,7 +12256,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12595,7 +12532,8 @@
                     "Active": 1,
                     "UID": 0,
                     "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS",
-                    "isNewGame": true
+                    "isNewGame": true,
+                    "time": 0
                 }
             ],
             "Children UID": [
@@ -12671,7 +12609,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12948,7 +12886,8 @@
                     "Active": 1,
                     "UID": 0,
                     "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS",
-                    "isNewGame": true
+                    "isNewGame": true,
+                    "time": 0
                 }
             ],
             "Children UID": [
@@ -13134,7 +13073,8 @@
                     "Active": 1,
                     "UID": 0,
                     "sceneName": "UI\/Scenes\/StartScene",
-                    "isNewGame": true
+                    "isNewGame": true,
+                    "time": 0
                 }
             ],
             "Children UID": [
@@ -13210,7 +13150,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 921417368,
+            "Parent UID": 1314777103,
             "Components": [
                 {
                     "Type": "Transform",
@@ -19004,6 +18944,119 @@
                     "Bank Name": "LV3Music",
                     "Event Name": "LV3_Boss",
                     "Event ID": 3961795458
+                }
+            ]
+        },
+        {
+            "Name": "Loading Scene Canvas",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1781007999,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1314777103,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1917,
+                    "Height": 1063,
+                    "UI Type": 0,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        524,
+                        250
+                    ]
+                }
+            ],
+            "Children UID": [
+                1138588084
+            ]
+        },
+        {
+            "Name": "Load Scene Img",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1138588084,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1781007999,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1920,
+                    "Height": 1080,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        1920,
+                        1080
+                    ],
+                    "Path": "Assets\/UI\/LoadingScenes\/Base.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
                 }
             ]
         }
