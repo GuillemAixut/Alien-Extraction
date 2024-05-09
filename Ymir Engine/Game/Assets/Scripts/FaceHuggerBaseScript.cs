@@ -45,7 +45,7 @@ public class FaceHuggerBaseScript : Enemy
     public float cumDuration2 = 5f;
 
     public float attackTimer;
-    private float attackDuration = 0.8f;
+    private float attackDuration = 1.2f;
     public bool attackSensor = false;
 
     private bool walkPlaying = false;
@@ -356,7 +356,7 @@ public class FaceHuggerBaseScript : Enemy
                 walkPlaying = false;
                 attackDone = false;
             }
-            else if (attackTimer <= 0.2f && attackDone == false)
+            else if (attackTimer <= 0.4f && attackDone == false)
             {
                 Vector3 pos = gameObject.transform.globalPosition;
                 pos.y += 10;
