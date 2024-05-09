@@ -12,7 +12,7 @@ public class QueenXenomorphShrapnelAttack : YmirComponent
 
     private float movementSpeed;
 
-    private float damage = 100f;
+    private float damage = 150f;
 
     private GameObject player;
 

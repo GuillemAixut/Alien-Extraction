@@ -198,7 +198,6 @@ public class FaceHuggerBaseScript : Enemy
                     //Debug.Log("[ERROR] Current State: REACHED");
                     targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
 
-                    Audio.PlayAudio(gameObject, "FH_Move");
                     Animation.PlayAnimation(gameObject, "Walk_Facehugger");
                     walkPlaying = true;
                     wanderState = WanderState.GOING;
