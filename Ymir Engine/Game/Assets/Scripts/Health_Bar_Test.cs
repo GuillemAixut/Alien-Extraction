@@ -22,7 +22,7 @@ public class Health_Bar_Test : YmirComponent
 
     public void Start()
     {
-        enemy = InternalCalls.GetEnemyGameObject();
+        enemy = InternalCalls.GetEnemyGameObject(gameObject);
         plane = InternalCalls.CS_GetChild(gameObject, 0);
         initialScale = plane.transform.localScale;
 

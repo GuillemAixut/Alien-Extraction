@@ -7,15 +7,15 @@
             "UID": 460275566,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 772048495,
+            "Parent UID": 720022813,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
                         0,
-                        0.24177777767181396,
-                        17.739372253417969
+                        0.094476222991943359,
+                        34.689655303955078
                     ],
                     "Rotation": [
                         -0,
@@ -120,9 +120,9 @@
                 {
                     "Type": "NavMesh",
                     "Active": 1,
-                    "Speed": 0,
-                    "Angular Speed": 0,
-                    "Stopping Distance": 0
+                    "Speed": 1500,
+                    "Angular Speed": 10,
+                    "Stopping Distance": 2
                 },
                 {
                     "Type": "Audio source",
@@ -226,7 +226,13 @@
                             ],
                             "numLights": 1,
                             "displayNormalMap": false,
-                            "transparency": 1
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
                         }
                     ],
                     "Diffuse_ID": 279,
