@@ -21,7 +21,7 @@ public class Electric_trap : YmirComponent
     public void Start()
     {
         originalPosition = gameObject.transform.globalPosition;
-        toParticle = InternalCalls.CS_GetChild(gameObject, 1);
+        toParticle = InternalCalls.CS_GetChild(gameObject, 0);
         Particles.PlayParticles(toParticle);
     }
 
