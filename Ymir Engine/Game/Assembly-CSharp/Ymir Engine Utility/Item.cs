@@ -147,8 +147,13 @@ namespace YmirEngine
             Globals.GetPlayerHealthScript().maxHealth += (HP * e);
             Globals.GetPlayerHealthScript().armor += (armor * e);
             Globals.GetPlayerScript().movementSpeed += (speed * e);
-            Globals.GetPlayerScript().currentWeapon.reloadTime += (0/*reloadSpeed*/ * e); // TODO: create aux to increase with items
-            Globals.GetPlayerScript().currentWeapon.fireRate += (fireRate * e);
+
+            if (Globals.GetPlayerScript().currentWeapon != null)
+            {
+                Globals.GetPlayerScript().currentWeapon.reloadTime += (0/*reloadSpeed*/ * e); // TODO: create aux to increase with items
+                Globals.GetPlayerScript().currentWeapon.fireRate += (fireRate * e);
+            }
+            
             Globals.GetPlayerScript().damageMultiplier += (damageMultiplier * e);
         }
 

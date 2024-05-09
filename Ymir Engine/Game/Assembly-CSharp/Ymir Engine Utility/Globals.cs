@@ -54,7 +54,6 @@ namespace YmirEngine
                 /*description*/     "\nIt's made of a tough\nmaterial, capable of\nresisting the\ncreatures own acid\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/SkinIconColor.png",
                 /*dictionaryName*/  "skin_common"
-
                     ));
 
             itemsDictionary.Add("skin_rare", new

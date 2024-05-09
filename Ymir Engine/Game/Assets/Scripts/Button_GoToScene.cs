@@ -14,6 +14,8 @@ public class Button_GoToScene : YmirComponent
     private GameObject loadSceneImg;
     private bool loadScene = false;
 
+    public float time = 10;
+
     public void Start()
     {
         loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
@@ -23,16 +25,23 @@ public class Button_GoToScene : YmirComponent
             loadSceneImg.SetActive(false);
         }
 
+        time = 10;
         loadScene = false;
     }
 
     public void Update()
     {
+        time -= Time.deltaTime;
+
         if (loadScene)
         {
-            InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
-            loadScene = false;
+            loadSceneImg.SetActive(true);
 
+            if (time <= 0)
+            {
+                InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
+                loadScene = false;
+            }
             return;
         }
     }
@@ -45,9 +54,8 @@ public class Button_GoToScene : YmirComponent
         if (loadSceneImg != null)
         {
             loadSceneImg.SetActive(true);
+            loadScene = true;
         }
-
-        loadScene = true;
 
         Globals.GetPlayerScript().SavePlayer();
     }

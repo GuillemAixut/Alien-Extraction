@@ -25,7 +25,7 @@ public class UI_Inventory : YmirComponent
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
         goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
-        
+
         goDescription.SetActive(false);// TODO: when menu opened
         goText.SetActive(false);
         goName.SetActive(false);
@@ -34,27 +34,33 @@ public class UI_Inventory : YmirComponent
 
         player = Globals.GetPlayerScript();
 
-        GetHealthScript();
+        health = Globals.GetPlayerHealthScript();
 
         switch (player.weaponType)
         {
+            case WEAPON_TYPE.NONE:
+                {
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"),
+                        "Assets\\/UI\\/Fondo.png", (int)UI_STATE.NORMAL);
+                }
+                break;
             case WEAPON_TYPE.SMG:
                 {
-                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"), 
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"),
                         "Assets\\UI\\HUD Buttons\\Icons\\SmgHUD.png", (int)UI_STATE.NORMAL);
                 }
                 break;
 
             case WEAPON_TYPE.SHOTGUN:
                 {
-                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"), 
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"),
                         "Assets\\UI\\HUD Buttons\\Icons\\ShotgunHUD.png", (int)UI_STATE.NORMAL);
                 }
                 break;
 
             case WEAPON_TYPE.PLASMA:
                 {
-                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"), 
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"),
                         "Assets\\UI\\HUD Buttons\\Icons\\LaserHUD.png", (int)UI_STATE.NORMAL);
                 }
                 break;
@@ -68,6 +74,7 @@ public class UI_Inventory : YmirComponent
         _textRate = InternalCalls.GetGameObjectByName("Text Rate");
         _textResin = InternalCalls.GetGameObjectByName("Text Resin");
 
+        UpdateTextStats();
         SetSlots();
     }
 
@@ -225,31 +232,31 @@ public class UI_Inventory : YmirComponent
         goName.SetActive(isActive);
     }
 
-    private void GetHealthScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            health = gameObject.GetComponent<Health>();
-        }
-    }
-
     public void UpdateTextStats() // Print player info on the screen
     {
-        if (player != null)
-        {
-            UI.TextEdit(_textSpeed, player.movementSpeed.ToString());
-            UI.TextEdit(_textRate, player.currentWeapon.fireRate.ToString());
-            UI.TextEdit(_textReload, player.currentWeapon.reloadTime.ToString() + "%");
-            UI.TextEdit(_textDamage, player.damageMultiplier.ToString() + "%");
-            UI.TextEdit(_textResin, player.resin.ToString());
-        }
-
         if (health != null)
         {
             UI.TextEdit(_textHP, health.currentHealth.ToString());
             UI.TextEdit(_textArmor, health.armor.ToString());
+        }
+
+        if (player != null)
+        {
+            UI.TextEdit(_textSpeed, player.movementSpeed.ToString());
+
+            if (Globals.GetPlayerScript().currentWeapon != null)
+            {
+                UI.TextEdit(_textRate, player.currentWeapon.fireRate.ToString());
+                UI.TextEdit(_textReload, player.currentWeapon.reloadTime.ToString() + "%");
+            }
+            else
+            {
+                UI.TextEdit(_textRate, "0");
+                UI.TextEdit(_textReload, "0" + "%");
+            }
+
+            UI.TextEdit(_textDamage, player.damageMultiplier.ToString() + "%");
+            UI.TextEdit(_textResin, player.resin.ToString());
         }
     }
 
@@ -260,7 +267,7 @@ public class UI_Inventory : YmirComponent
         for (int i = 0; i < player.itemsList.Count; i++)
         {
             Debug.Log("setslots ");
-            player.itemsList[i].LogStats();
+            //player.itemsList[i].LogStats();
 
             if (!player.itemsList[i].inInventory)
             {
