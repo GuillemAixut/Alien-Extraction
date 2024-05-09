@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 362629421,
+            "UID": 1425151944,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -54,7 +54,7 @@
             "UID": 1211565987,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2660,7 +2660,7 @@
             "UID": 1950834715,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10640,7 +10640,7 @@
             "UID": 375914611,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12200,7 +12200,7 @@
             "UID": 812841453,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12237,7 +12237,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -18040,7 +18040,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -20514,7 +20514,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -27995,7 +27995,7 @@
             "UID": 365492027,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -29776,7 +29776,7 @@
             "UID": 2098616738,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -58489,7 +58489,7 @@
             "UID": 869362369,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -62270,7 +62270,7 @@
             "UID": 297696942,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -63015,7 +63015,7 @@
             "UID": 369438965,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -75398,7 +75398,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -75937,7 +75937,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -76289,7 +76289,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 362629421,
+            "Parent UID": 1425151944,
             "Components": [
                 {
                     "Type": "Transform",
@@ -76329,8 +76329,7 @@
                 }
             ],
             "Children UID": [
-                1138588084,
-                1943852540
+                1138588084
             ]
         },
         {
@@ -76393,68 +76392,6 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Text (22)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1943852540,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1781007999,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1508,
-                    "Position Y": 973,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1508,
-                        973,
-                        200,
-                        50
-                    ],
-                    "Text": "Loading...",
-                    "Font name": "NK57 Monospace Se Bd.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 35,
-                    "Line Spacing": 1,
-                    "Color": [
-                        -0.98000001907348633,
-                        0,
-                        -0.98000001907348633,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
                 }
             ]
         }
