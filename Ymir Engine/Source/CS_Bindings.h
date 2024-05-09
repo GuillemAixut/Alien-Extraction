@@ -316,8 +316,9 @@ MonoObject* FindEnemyGameObject(MonoObject* obj) {
 	GameObject* parent = GO->mParent;
 	parent->CollectChilds(gameObjectVec);
 
+	GameObject* child = gameObjectVec[1];
 
-	if(gameObjectVec[0] != nullptr) return External->moduleMono->GoToCSGO(gameObjectVec[0]);
+	if(child != nullptr) return External->moduleMono->GoToCSGO(child);
 
 	assert("The object you searched for doesn't exist. :/");
 
