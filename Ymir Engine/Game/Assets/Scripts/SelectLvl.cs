@@ -8,7 +8,7 @@ using YmirEngine;
 
 public class SelectLvl : YmirComponent
 {
-    public int lvl = 0;  // TODO: Sara --> change to enum
+    public int lvl = 1;  // TODO: Sara --> change to enum
     private BaseTeleporter levelSelector;
 
     public GameObject locked;

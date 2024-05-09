@@ -36,7 +36,7 @@ public class QueenXenomorphShrapnelAttack : YmirComponent
     {
         destroyTimer += Time.deltaTime;
 
-        if (destroyed || destroyTimer >= 3f)
+        if (destroyed || destroyTimer >= 1f)
         {
             InternalCalls.Destroy(gameObject);
         }

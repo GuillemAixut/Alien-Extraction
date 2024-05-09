@@ -35,7 +35,7 @@ public class FaceHuggerTailAttack : YmirComponent
     {
         destroyTimer += Time.deltaTime;
 
-        if (destroyed || destroyTimer >= 1f)
+        if (destroyed || destroyTimer >= 0.3f)
         {
             InternalCalls.Destroy(gameObject);
         }
