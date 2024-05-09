@@ -34,8 +34,7 @@ public class DroneXenomorphClawAttack : YmirComponent
     public void Update()
     {
         destroyTimer += Time.deltaTime;
-
-        if (destroyed || destroyTimer >= 1f)
+        if (destroyed || destroyTimer >= 0.3f)
         {
             InternalCalls.Destroy(gameObject);
         }

@@ -37,7 +37,7 @@ public class QueenXenomorphSpitAttack : YmirComponent
     {
         destroyTimer += Time.deltaTime;
 
-        if (destroyed || destroyTimer >= 3f)
+        if (destroyed || destroyTimer >= 1.2f)
         {
             //DO EXPLOSION
             Quaternion rotation;
