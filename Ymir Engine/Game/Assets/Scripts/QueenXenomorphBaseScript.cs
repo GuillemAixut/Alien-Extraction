@@ -220,7 +220,6 @@ public class QueenXenomorphBaseScript : YmirComponent
                         Debug.Log("[ERROR] BOSS STATE WALKING TO PLAYER");
                         randomMovSelected = false;
                         Animation.PlayAnimation(gameObject, "Boss_Walk.001");
-                        Audio.PlayAudio(gameObject, "QX_Move");
                         queenState = QueenState.WALKING_TO_PLAYER;
                     }
                     else
@@ -238,7 +237,6 @@ public class QueenXenomorphBaseScript : YmirComponent
                             Animation.SetBackward(gameObject, "Boss_Walk_Side", false);
                         }
                         Animation.PlayAnimation(gameObject, "Boss_Walk_Side");
-                        Audio.PlayAudio(gameObject, "QX_Move");
                         queenState = QueenState.WALKING_SIDEWAYS;
                     }
                 }
@@ -283,7 +281,6 @@ public class QueenXenomorphBaseScript : YmirComponent
                     if (sidewaysTimer >= sidewaysDuration+2)
                     {
                         Debug.Log("[ERROR] BOSS STATE WALKING TO PLAYER");
-                        Audio.PlayAudio(gameObject, "QX_Move");
                         Animation.PlayAnimation(gameObject, "Boss_Walk.001");
                         queenState = QueenState.WALKING_TO_PLAYER;
                     }
@@ -540,7 +537,6 @@ public class QueenXenomorphBaseScript : YmirComponent
             Debug.Log("[ERROR] BOSS STATE WALK BACKWARDS");
             Animation.PlayAnimation(gameObject, "Boss_Walk.001");
             Animation.SetBackward(gameObject, "Boss_Walk.001", true);
-            Audio.PlayAudio(gameObject, "QX_Move");
             queenState = QueenState.WALK_BACKWARDS;
         }
     }

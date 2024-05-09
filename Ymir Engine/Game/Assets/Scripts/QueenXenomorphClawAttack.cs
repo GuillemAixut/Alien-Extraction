@@ -46,6 +46,7 @@ public class QueenXenomorphClawAttack : YmirComponent
     {
         if (other.Name == "Player" && destroyed == false && player.GetComponent<Player>().vulnerable)
         {
+            Debug.Log("[ERROR] CLAW");
             healthScript.TakeDmg(damage);
             destroyed = true;
 

@@ -166,7 +166,7 @@ public class FaceHuggerBaseScript : Enemy
             SetPause(false);
             paused = false;
         }
-        Debug.Log("[ERROR] CurrentaState: " + wanderState);
+        //Debug.Log("[ERROR] CurrentaState: " + wanderState);
        
         if(wanderState != WanderState.DEATH) { isDeath(); }
         
@@ -186,6 +186,7 @@ public class FaceHuggerBaseScript : Enemy
                     if (timePassed >= 1.2f)
                     {
                         Debug.Log("[ERROR] DEATH");
+                        itemPos = gameObject.transform.globalPosition;
                         DropItem();
                         InternalCalls.Destroy(gameObject);
                     }
@@ -197,7 +198,6 @@ public class FaceHuggerBaseScript : Enemy
                     //Debug.Log("[ERROR] Current State: REACHED");
                     targetPosition = agent.GetPointAt(agent.GetPathSize() - 1);
 
-                    Audio.PlayAudio(gameObject, "FH_Move");
                     Animation.PlayAnimation(gameObject, "Walk_Facehugger");
                     walkPlaying = true;
                     wanderState = WanderState.GOING;

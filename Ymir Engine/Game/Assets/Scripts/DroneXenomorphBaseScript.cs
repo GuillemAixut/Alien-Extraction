@@ -134,6 +134,7 @@ public class DroneXenomorphBaseScript : Enemy
 
         Animation.SetSpeed(gameObject, "Claw_Attack", 2f);
         Animation.SetSpeed(gameObject, "Drone_Tail_Attack", 2f);
+        Animation.SetSpeed(gameObject, "Drone_Walk", 0.5f);
 
         Animation.AddBlendOption(gameObject, "", "Drone_Walk", 5);
         Animation.AddBlendOption(gameObject, "", "Claw_Attack", 5);
@@ -162,7 +163,7 @@ public class DroneXenomorphBaseScript : Enemy
             paused = false;
         }
 
-        Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
+        //Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
         if (droneState != DroneState.DEAD) { isDeath(); }
         switch (droneState)
 		{
@@ -176,6 +177,7 @@ public class DroneXenomorphBaseScript : Enemy
                 if (timePassed >= 1.4f)
                 {
                     //Debug.Log("[ERROR] DEATH");
+                    itemPos = gameObject.transform.globalPosition;
                     DropItem();
                     InternalCalls.Destroy(gameObject);
                 }

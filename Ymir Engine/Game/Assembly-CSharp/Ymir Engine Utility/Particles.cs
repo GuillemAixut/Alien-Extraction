@@ -23,5 +23,9 @@ namespace YmirEngine
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void ParticlesForward(object go, object vec, int emitter, float distance);
+        
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void ParticlesSetDirection(object go, object vec, int emitter, Vector3 distance);
+
     }
 }
