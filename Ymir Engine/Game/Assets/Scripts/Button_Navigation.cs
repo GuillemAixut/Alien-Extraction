@@ -71,9 +71,8 @@ public class Button_Navigation : YmirComponent
         if (loadSceneImg != null)
         {
             loadSceneImg.SetActive(true);
+            loadScene = true;
         }
-
-        loadScene = true;
     }
 
     public void SaveNewEmptyGame()
