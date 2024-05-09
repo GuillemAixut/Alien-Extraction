@@ -8,7 +8,9 @@ using YmirEngine;
 
 public class Tp_To_Lvl3 : YmirComponent
 {
+    // Loading scene
     private GameObject loadSceneImg;
+    private bool loadScene = false;
 
     public void Start()
     {
@@ -18,10 +20,20 @@ public class Tp_To_Lvl3 : YmirComponent
         {
             loadSceneImg.SetActive(false);
         }
+
+        loadScene = false;
     }
 
     public void Update()
     {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene");
+            loadScene = false;
+
+            return;
+        }
+
         return;
     }
 
@@ -36,7 +48,7 @@ public class Tp_To_Lvl3 : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_BOSS_COLLDIERS.yscene");
+            loadScene = true;
         }
     }
 }

@@ -9,9 +9,12 @@ using YmirEngine;
 public class Button_Navigation : YmirComponent
 {
     public string sceneName = "BASE_FINAL/LVL_BASE_COLLIDERS";
-    private GameObject loadSceneImg;
 
     public bool isNewGame = true;
+
+    // Loading scene
+    private GameObject loadSceneImg;
+    private bool loadScene = false;
 
     public void Start()
     {
@@ -22,7 +25,7 @@ public class Button_Navigation : YmirComponent
             loadSceneImg.SetActive(false);
         }
 
-        //Debug.Log("hello world a");
+        loadScene = false;
 
         if (!SaveLoad.GameFileExists(Globals.saveGameDir, Globals.saveGamesInfoFile))
         {
@@ -30,9 +33,16 @@ public class Button_Navigation : YmirComponent
             SaveLoad.SaveString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame, "Player_0");
         }
     }
+
     public void Update()
     {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
+            loadScene = false;
 
+            return;
+        }
     }
 
     public void OnClickButton()
@@ -54,7 +64,7 @@ public class Button_Navigation : YmirComponent
             loadSceneImg.SetActive(true);
         }
 
-        InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
+        loadScene = true;
     }
 
     public void SaveNewEmptyGame()

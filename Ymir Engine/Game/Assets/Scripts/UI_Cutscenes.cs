@@ -23,6 +23,11 @@ public class UI_Cutscenes : YmirComponent
 
     private float timer = 2f;
     private float finishTimer = 2f;
+
+    // Loading scene
+    private GameObject loadSceneImg;
+    private bool loadScene = false;
+
     public void Start()
     {
         button = InternalCalls.GetGameObjectByName("Button_A");
@@ -30,13 +35,29 @@ public class UI_Cutscenes : YmirComponent
         currentFrame = 0; 
         
         hasFinished = false;
+        
+        loadSceneImg = InternalCalls.GetGameObjectByName("Load Scene Img");
+
+        if (loadSceneImg != null)
+        {
+            loadSceneImg.SetActive(false);
+        }
+
+        loadScene = false;
     }
 
     public void Update()
     {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
+            loadScene = false;
+
+            return;
+        }
+
         if (img != null && !hasFinished && button != null)
         {
-           
             if (finishTimer >= 0)
             {
                 finishTimer -= Time.deltaTime;
@@ -46,7 +67,7 @@ public class UI_Cutscenes : YmirComponent
             if (finishTimer <= 0)
             {
                 button.SetActive(true);
-                //Poner Aqui la imagen
+
                 if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
                 {
                     currentFrame++;
@@ -56,14 +77,19 @@ public class UI_Cutscenes : YmirComponent
                     if (currentFrame == maxFrames)
                     {
                         hasFinished = true;
+
                         if (introScene)
                         {
-                            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
+                            if (loadSceneImg != null)
+                            {
+                                loadSceneImg.SetActive(true);
+                            }
+
+                            loadScene = true;
                         }
                     }
                 }
             }
-
         }
 
         return;

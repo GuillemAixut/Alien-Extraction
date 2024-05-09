@@ -7,7 +7,7 @@
 #include "Particle.h"
 #include <vector>
 
-#define MAXPARTICLES 200
+#define MAXPARTICLES 300
 
 class CParticleSystem;
 class EmitterSetting;

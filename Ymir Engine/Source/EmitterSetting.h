@@ -284,6 +284,7 @@ struct EmitterImage : EmitterSetting
 
 	ResourceTexture* rTexTemp;
 	std::string imgPath;
+	bool firstInit;
 };
 
 #endif //__EMITTER_INSTANCE_H__

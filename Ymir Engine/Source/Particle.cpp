@@ -23,5 +23,10 @@ Particle::Particle()
 
 Particle::~Particle()
 {
-	if (pTexture != nullptr) { pTexture->UnloadFromMemory(); }
+	//if (pTexture != nullptr) { pTexture->UnloadFromMemory(); }
+	if (pTexture != nullptr) 
+	{
+		//RELEASE(pTexture); //Hacer esto peta.
+		pTexture = nullptr;
+	}
 }

@@ -2144,11 +2144,13 @@ EmitterImage::EmitterImage()
 {
 	rTexTemp = new ResourceTexture();
 	imgPath = "Assets/Particles/IMAGES/particleExample.png";
-	SetImage(imgPath);
+	firstInit = true;
+	//SetImage(imgPath);
 }
 
 void EmitterImage::SetImage(std::string imagePath)
 {
+	firstInit = false;
 	ImporterTexture::Import(imagePath, rTexTemp);
 	rTexTemp->type = TextureType::DIFFUSE;
 	rTexTemp->UID = Random::Generate();
@@ -2163,9 +2165,9 @@ void EmitterImage::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 void EmitterImage::Update(float dt, ParticleEmitter* emitter)
 {
-	if(rTexTemp->ID == 0)
+	if(firstInit)
 	{
-		SetImage(rTexTemp->GetAssetsFilePath());
+		SetImage(imgPath);
 	}
 }
 
@@ -2184,9 +2186,9 @@ void EmitterImage::OnInspector()
 {
 	ImGui::Spacing();
 
-	if (rTexTemp->ID == 0)
+	if (firstInit)
 	{
-		SetImage(rTexTemp->GetAssetsFilePath());
+		SetImage(imgPath);
 	}
 
 	std::vector<std::string> particleFiles = ListFilesInParticlesFolder();
