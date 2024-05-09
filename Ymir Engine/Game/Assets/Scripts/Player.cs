@@ -1568,6 +1568,7 @@ public class Player : YmirComponent
 
     private void StartHit()
     {
+        StopPlayer();
         vulnerable = false;
         hitDurationTimer = hitDuration;
 
