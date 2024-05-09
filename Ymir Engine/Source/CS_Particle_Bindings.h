@@ -149,7 +149,7 @@ void ParticlesForward(MonoObject* go, MonoObject* vector, int emitter, float dis
 	}
 }
 
-void ParticlesForward(MonoObject* go, MonoObject* vector, int emitter, float3 direction)
+void ParticlesSetDirection(MonoObject* go, MonoObject* vector, int emitter, float3 direction)
 {
 	if (External == nullptr) return;
 
