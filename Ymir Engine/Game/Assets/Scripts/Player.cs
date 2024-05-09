@@ -209,12 +209,11 @@ public class Player : YmirComponent
 
     public void Start()
     {
-
         Audio.SetState("PlayerState", "Alive");
         Audio.SetState("CombatState", "Exploration");
 
         deathAnimFinish = false;
-        deathTimer = 3f;        
+        deathTimer = 3f;
 
         //--------------------- Dash ---------------------\\
         dashDistance = 400.0f;     //Antes 2 
@@ -297,9 +296,6 @@ public class Player : YmirComponent
         weapons.Add(w_Plasma_3a);
         weapons.Add(w_Plasma_3b);
 
-        //--------------------- Menus ---------------------\\
-       
-        SetWeapon();
 
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
@@ -309,26 +305,25 @@ public class Player : YmirComponent
 
         currentState = STATE.IDLE;
 
-        // A partir de aqui peta o7
-
-        //Item map
+        //--------------------- Menus ---------------------\\
         Globals.CreateItemDictionary();
 
         itemsList = new List<Item>();
         itemsListString = new List<string>();
 
+        currentLvl = InternalCalls.GetCurrentMap();
+
         if (currentLvl != (int)LEVEL.BASE)
         {
             Debug.Log("current: " + currentLvl.ToString());
             LoadPlayer();
-            LoadItems();
         }
         else
         {
+            weaponType = WEAPON_TYPE.NONE;
+            SetWeapon();
             LoadItems();
         }
-
-        SetWeapon();
     }
 
     public void Update()
@@ -336,7 +331,7 @@ public class Player : YmirComponent
         //Debug.Log(currentState.ToString());
         // New Things WIP
 
-        Debug.Log("State: " + currentState);
+        //Debug.Log("State: " + currentState);
         UpdateControllerInputs();
 
         ProcessInternalInput();
@@ -365,7 +360,7 @@ public class Player : YmirComponent
             godMode = !godMode;
         }
 
-        if(!isInBase) 
+        if (!isInBase)
         {
             if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
             {
@@ -388,7 +383,7 @@ public class Player : YmirComponent
 
             if (Input.GetKey(YmirKeyCode.Alpha4) == KeyState.KEY_DOWN)
             {
-                TakeDMG();  
+                TakeDMG();
             }
 
             if (Input.GetKey(YmirKeyCode.PERIOD) == KeyState.KEY_DOWN)
@@ -409,7 +404,6 @@ public class Player : YmirComponent
                 }
             }
         }
-
 
         if (Input.GetKey(YmirKeyCode.F8) == KeyState.KEY_DOWN)
         {
@@ -645,7 +639,7 @@ public class Player : YmirComponent
                 StopPlayer();
             }
 
-            if(!isInBase)
+            if (!isInBase)
             {
                 //----------------- Shoot -----------------\\
                 if (Input.GetGamepadRightTrigger() > 0)
@@ -1210,7 +1204,7 @@ public class Player : YmirComponent
     #region IDLE
     private void StartIdle()
     {
-        StopPlayer(); 
+        StopPlayer();
         Animation.PlayAnimation(gameObject, idleAnim);
     }
     #endregion
@@ -1382,7 +1376,7 @@ public class Player : YmirComponent
                 break;
         }
 
-        if(currentWeapon != null)
+        if (currentWeapon != null)
         {
             currentWeapon.Start();
             csBullets.UseBullets();
@@ -1462,7 +1456,7 @@ public class Player : YmirComponent
     {
         //Trigger de la animacion
 
-        if(!isInBase)
+        if (!isInBase)
         {
             Animation.PlayAnimation(gameObject, "Raisen_Walk");
         }
@@ -1470,7 +1464,7 @@ public class Player : YmirComponent
         {
             Animation.PlayAnimation(gameObject, "Raisen_BaseWalk");
         }
-        
+
         walkParticles = GetParticles(gameObject, "ParticlesSteps");
         //Trigger del SFX de caminar
         //Vector3 impulse = new Vector3(0.0f,0.0f,0.01f);
@@ -1876,7 +1870,9 @@ public class Player : YmirComponent
 
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
-        //SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
+        SetWeapon();
+
+        csHealth.currentHealth = (float)SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
         LoadItems();
 
@@ -1896,7 +1892,13 @@ public class Player : YmirComponent
             Item item = Globals.SearchItemInDictionary(name);
             item.isEquipped = SaveLoad.LoadBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped");
             item.inInventory = false;
+            item.LogStats();
             itemsList.Add(item);
+
+            //Debug.Log("Items loaded name " + name);
+            //Debug.Log("Items loaded i name " + item.name);
+            //Debug.Log("SaveLoad.LoadInt(Globals.saveGameDir, saveName) " + SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num").ToString());
+            //item.inInventory = false;
 
             if (item.isEquipped)
             {

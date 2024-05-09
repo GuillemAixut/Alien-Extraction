@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 using YmirEngine;
 
 public class Button_Navigation : YmirComponent
@@ -16,8 +15,11 @@ public class Button_Navigation : YmirComponent
     private GameObject loadSceneImg;
     private bool loadScene = false;
 
+    public float time = 10;
     public void Start()
     {
+        sceneName = "BASE_FINAL/LVL_BASE_COLLIDERS";
+
         loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
 
         if (loadSceneImg != null)
@@ -25,6 +27,7 @@ public class Button_Navigation : YmirComponent
             loadSceneImg.SetActive(false);
         }
 
+        time = 10;
         loadScene = false;
 
         if (!SaveLoad.GameFileExists(Globals.saveGameDir, Globals.saveGamesInfoFile))
@@ -36,11 +39,17 @@ public class Button_Navigation : YmirComponent
 
     public void Update()
     {
+        time -= Time.deltaTime;
+
         if (loadScene)
         {
-            InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
-            loadScene = false;
+            loadSceneImg.SetActive(true);
 
+            if (time <= 0)
+            {
+                InternalCalls.LoadScene("Assets/" + sceneName + ".yscene");
+                loadScene = false;
+            }
             return;
         }
     }
