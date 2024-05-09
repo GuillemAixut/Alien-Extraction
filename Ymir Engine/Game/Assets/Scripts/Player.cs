@@ -11,7 +11,7 @@ using YmirEngine;
 
 public class Player : YmirComponent
 {
-    public string saveName = "Player";
+    public string saveName = "Player_0";
 
     #region DEFINE BASE VARS
     public enum STATE : int
@@ -197,8 +197,6 @@ public class Player : YmirComponent
         Audio.SetState("PlayerState", "Alive");
         Audio.SetState("CombatState", "Exploration");
 
-        saveName = "Player";
-
         //angle = 0;
         //has360 = false;
         //
@@ -287,6 +285,10 @@ public class Player : YmirComponent
         {
             Debug.Log("current: " + currentLvl.ToString());
             LoadPlayer();
+        }
+        else
+        {
+            LoadItems();
         }
 
         //--------------------- Get Camera GameObject ---------------------\\
@@ -1696,13 +1698,14 @@ public class Player : YmirComponent
 
     public void SavePlayer()
     {
-        SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
+        saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+
+        //SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
 
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Last unlocked Lvl", (int)lastUnlockedLvl);
 
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
-        //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponTypeTest);
-        //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)weaponType);
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)upgradeType);
 
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
 
@@ -1723,6 +1726,8 @@ public class Player : YmirComponent
 
     public void LoadPlayer()
     {
+        saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+
         lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
 
         //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
@@ -1730,6 +1735,7 @@ public class Player : YmirComponent
         //weaponType = (WEAPON)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
 
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
+        upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
         SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
         LoadItems(); 
@@ -1743,6 +1749,7 @@ public class Player : YmirComponent
 
             Item item = Globals.SearchItemInDictionary(name);
             item.isEquipped = SaveLoad.LoadBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped");
+            item.inInventory = false;
             itemsList.Add(item);
 
             item.UpdateStats();
