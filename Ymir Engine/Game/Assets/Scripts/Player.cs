@@ -1743,6 +1743,8 @@ public class Player : YmirComponent
 
     public void LoadItems()
     {
+        saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+
         for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num"); i++)
         {
             string name = SaveLoad.LoadString(Globals.saveGameDir, saveName, "Item " + i.ToString());
