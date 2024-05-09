@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 512778369,
+            "UID": 865248369,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -43,7 +43,7 @@
             "UID": 188443536,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 512778369,
+            "Parent UID": 865248369,
             "Components": [
                 {
                     "Type": "Transform",
@@ -93,6 +93,19 @@
                     "Type": "Audio listener",
                     "Active": 1,
                     "Default Listener": 1
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "UIMusic",
+                    "Event Name": "UI_Menu",
+                    "Event ID": 2511555531
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "MainMenuCamera.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ]
         },
@@ -103,7 +116,7 @@
             "UID": 2047246996,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 512778369,
+            "Parent UID": 865248369,
             "Components": [
                 {
                     "Type": "Transform",
@@ -130,8 +143,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1444,
-                    "Height": 801,
+                    "Width": 1071,
+                    "Height": 885,
                     "UI Type": 0,
                     "UI State": 5,
                     "Drag Limits": [
@@ -314,14 +327,14 @@
                     "UID": 0,
                     "rows": 4,
                     "cols": 1,
-                    "leftGridName": " ",
-                    "rightGridName": " ",
-                    "downGridName": " ",
-                    "upGridName": " ",
+                    "leftGridName": "",
+                    "rightGridName": "",
+                    "downGridName": "",
+                    "upGridName": "",
                     "naviagteX": false,
-                    "naviagteY": false,
-                    "bounceX": false,
-                    "bounceY": false,
+                    "naviagteY": true,
+                    "bounceX": true,
+                    "bounceY": true,
                     "empty": false,
                     "childX": 0,
                     "childY": 0
@@ -450,7 +463,7 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "CutScenes\/Intro\/CutScenes_Intro",
+                    "sceneName": "",
                     "isNewGame": true
                 }
             ],
@@ -636,8 +649,8 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS",
-                    "isNewGame": false
+                    "sceneName": "",
+                    "isNewGame": true
                 }
             ],
             "Children UID": [
@@ -1075,7 +1088,7 @@
             "UID": 648214567,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 512778369,
+            "Parent UID": 865248369,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1112,7 +1125,7 @@
             "UID": 1138588084,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 512778369,
+            "Parent UID": 865248369,
             "Components": [
                 {
                     "Type": "Transform",
