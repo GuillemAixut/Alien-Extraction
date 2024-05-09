@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1486714919,
+            "UID": 1208861710,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -33,7 +33,7 @@
                 188443536,
                 2047246996,
                 648214567,
-                1138588084
+                1781007999
             ]
         },
         {
@@ -43,7 +43,7 @@
             "UID": 188443536,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1486714919,
+            "Parent UID": 1208861710,
             "Components": [
                 {
                     "Type": "Transform",
@@ -116,7 +116,7 @@
             "UID": 2047246996,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1486714919,
+            "Parent UID": 1208861710,
             "Components": [
                 {
                     "Type": "Transform",
@@ -143,8 +143,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 557,
-                    "Height": 564,
+                    "Width": 598,
+                    "Height": 468,
                     "UI Type": 0,
                     "UI State": 5,
                     "Drag Limits": [
@@ -464,7 +464,8 @@
                     "Active": 1,
                     "UID": 0,
                     "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS",
-                    "isNewGame": true
+                    "isNewGame": true,
+                    "time": 0
                 }
             ],
             "Children UID": [
@@ -650,7 +651,8 @@
                     "Active": 1,
                     "UID": 0,
                     "sceneName": "",
-                    "isNewGame": true
+                    "isNewGame": false,
+                    "time": 0
                 }
             ],
             "Children UID": [
@@ -1088,7 +1090,7 @@
             "UID": 648214567,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1486714919,
+            "Parent UID": 1208861710,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1119,13 +1121,63 @@
             ]
         },
         {
+            "Name": "Loading Scene Canvas",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1781007999,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1208861710,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 2145,
+                    "Height": 1097,
+                    "UI Type": 0,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        524,
+                        250
+                    ]
+                }
+            ],
+            "Children UID": [
+                1138588084
+            ]
+        },
+        {
             "Name": "Load Scene Img",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1138588084,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1486714919,
+            "Parent UID": 1781007999,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1162,7 +1214,7 @@
                         1920,
                         1080
                     ],
-                    "Path": "Assets\/UI\/Fondo.png",
+                    "Path": "Assets\/UI\/LoadingScenes\/Base.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
