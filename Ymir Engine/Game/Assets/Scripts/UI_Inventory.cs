@@ -36,6 +36,30 @@ public class UI_Inventory : YmirComponent
 
         GetHealthScript();
 
+        switch (player.weaponType)
+        {
+            case WEAPON_TYPE.SMG:
+                {
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"), 
+                        "Assets\\UI\\HUD Buttons\\Icons\\SmgHUD.png", (int)UI_STATE.NORMAL);
+                }
+                break;
+
+            case WEAPON_TYPE.SHOTGUN:
+                {
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"), 
+                        "Assets\\UI\\HUD Buttons\\Icons\\ShotgunHUD.png", (int)UI_STATE.NORMAL);
+                }
+                break;
+
+            case WEAPON_TYPE.PLASMA:
+                {
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon"), 
+                        "Assets\\UI\\HUD Buttons\\Icons\\LaserHUD.png", (int)UI_STATE.NORMAL);
+                }
+                break;
+        }
+
         _textHP = InternalCalls.GetGameObjectByName("Text HP");
         _textArmor = InternalCalls.GetGameObjectByName("Text Armor");
         _textSpeed = InternalCalls.GetGameObjectByName("Text Speed");

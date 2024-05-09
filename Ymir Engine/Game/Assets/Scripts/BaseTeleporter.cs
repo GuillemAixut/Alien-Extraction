@@ -69,27 +69,26 @@ public class BaseTeleporter : YmirComponent
             {
                 case LEVEL.WAREHOUSE:
                     {
-                        button.GetComponent<Button_Navigation>().sceneName = "LVL1_FINAL/LVL1_FINAL_COLLIDERS";
+                        button.GetComponent<Button_GoToScene>().sceneName = "LVL1_FINAL/LVL1_FINAL_COLLIDERS";
                     }
                     break;
 
                 case LEVEL.LAB:
                     {
-                         button.GetComponent<Button_Navigation>().sceneName = "LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS";
+                        button.GetComponent<Button_GoToScene>().sceneName = "LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS";
                     }
                     break;
 
                 case LEVEL.HATCHERY:
                     {
-                         button.GetComponent<Button_Navigation>().sceneName = "LVL3_BlockOut/LVL3_PART1_COLLIDERS";
+                         button.GetComponent<Button_GoToScene>().sceneName = "LVL3_BlockOut/LVL3_PART1_COLLIDERS";
                     }
                     break;
             }
 
             csPlayer.weaponType = selectedWeapon;
-            //csPlayer.weaponTypeTest = selectedWeapon;
 
-            Debug.Log("scene: " + button.GetComponent<Button_Navigation>().sceneName);
+            Debug.Log("scene: " + button.GetComponent<Button_GoToScene>().sceneName);
         }
         else if ((UI_STATE)UI.GetUIState(button) != UI_STATE.DISABLED &&
             (selectedLvl == LEVEL.NONE || selectedWeapon == WEAPON_TYPE.NONE))

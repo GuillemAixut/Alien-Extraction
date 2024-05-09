@@ -84,12 +84,15 @@ public class Player : YmirComponent
 
     public WEAPON_TYPE weaponType = WEAPON_TYPE.NONE;
     public UPGRADE upgradeType = UPGRADE.NONE;
-    
+
     public Weapon currentWeapon = null;
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
     public int resin = 10;
+
+    //Particulas de caminar
+    GameObject walkParticles = null;
 
     #endregion
 
@@ -931,7 +934,7 @@ public class Player : YmirComponent
                             StopPlayer();
                             break;
 
-                        case INPUT.I_SHOOT_END:                   
+                        case INPUT.I_SHOOT_END:
                             currentState = STATE.SHOOTING;
                             EndShooting();
                             break;
@@ -1131,122 +1134,131 @@ public class Player : YmirComponent
     private void SetWeapon()
     {
         // Set all GO weapons to not active
-        for (int i = 0; i < weapons.Count(); i++) {
+        for (int i = 0; i < weapons.Count(); i++)
+        {
 
             weapons[i].SetActive(false);
         }
-    
+
         switch (weaponType)
         {
             case WEAPON_TYPE.SMG:
-
-                switch (upgradeType)
                 {
-                    case UPGRADE.LVL_0:
-                        
-                        currentWeapon = w_SMG_0.GetComponent<SMG>();
-                        w_SMG_0.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_1:
+                    switch (upgradeType)
+                    {
+                        case UPGRADE.LVL_0:
 
-                        currentWeapon = w_SMG_1.GetComponent<SMG>();
-                        w_SMG_1.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_2:
+                            currentWeapon = w_SMG_0.GetComponent<SMG>();
+                            w_SMG_0.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_1:
 
-                        currentWeapon = w_SMG_2.GetComponent<SMG>();
-                        w_SMG_2.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_3_ALPHA:
+                            currentWeapon = w_SMG_1.GetComponent<SMG>();
+                            w_SMG_1.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_2:
 
-                        currentWeapon = w_SMG_3a.GetComponent<SMG>();
-                        w_SMG_3a.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_3_BETA:
+                            currentWeapon = w_SMG_2.GetComponent<SMG>();
+                            w_SMG_2.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_3_ALPHA:
 
-                        currentWeapon = w_SMG_3b.GetComponent<SMG>();
-                        w_SMG_3b.SetActive(true);
-                        break;
-                    default:
-                        break;
+                            currentWeapon = w_SMG_3a.GetComponent<SMG>();
+                            w_SMG_3a.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_3_BETA:
+
+                            currentWeapon = w_SMG_3b.GetComponent<SMG>();
+                            w_SMG_3b.SetActive(true);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon Image"),
+                        "Assets\\UI\\HUD Buttons\\Icons\\SmgHUD.png", (int)UI_STATE.NORMAL);
                 }
                 break;
 
             case WEAPON_TYPE.SHOTGUN:
-
-                switch (upgradeType)
                 {
-                    case UPGRADE.LVL_0:
+                    switch (upgradeType)
+                    {
+                        case UPGRADE.LVL_0:
 
-                        currentWeapon = w_Shotgun_0.GetComponent<Shotgun>();
-                        w_Shotgun_0.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_1:
+                            currentWeapon = w_Shotgun_0.GetComponent<Shotgun>();
+                            w_Shotgun_0.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_1:
 
-                        currentWeapon = w_Shotgun_1.GetComponent<Shotgun>();
-                        w_Shotgun_1.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_2:
+                            currentWeapon = w_Shotgun_1.GetComponent<Shotgun>();
+                            w_Shotgun_1.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_2:
 
-                        currentWeapon = w_Shotgun_2.GetComponent<Shotgun>();
-                        w_Shotgun_2.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_3_ALPHA:
+                            currentWeapon = w_Shotgun_2.GetComponent<Shotgun>();
+                            w_Shotgun_2.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_3_ALPHA:
 
-                        currentWeapon = w_Shotgun_3a.GetComponent<Shotgun>();
-                        w_Shotgun_3a.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_3_BETA:
+                            currentWeapon = w_Shotgun_3a.GetComponent<Shotgun>();
+                            w_Shotgun_3a.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_3_BETA:
 
-                        currentWeapon = w_Shotgun_3b.GetComponent<Shotgun>();
-                        w_Shotgun_3b.SetActive(true);
-                        break;
-                    default:
-                        break;
+                            currentWeapon = w_Shotgun_3b.GetComponent<Shotgun>();
+                            w_Shotgun_3b.SetActive(true);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon Image"),
+                        "Assets\\UI\\HUD Buttons\\Icons\\ShotgunHUD.png", (int)UI_STATE.NORMAL);
                 }
                 break;
 
             case WEAPON_TYPE.PLASMA:
-                switch (upgradeType)
                 {
-                    case UPGRADE.LVL_0:
+                    switch (upgradeType)
+                    {
+                        case UPGRADE.LVL_0:
 
-                        currentWeapon = w_Plasma_0.GetComponent<Plasma>();
-                        w_Plasma_0.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_1:
+                            currentWeapon = w_Plasma_0.GetComponent<Plasma>();
+                            w_Plasma_0.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_1:
 
-                        currentWeapon = w_Plasma_1.GetComponent<Plasma>();
-                        w_Plasma_1.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_2:
+                            currentWeapon = w_Plasma_1.GetComponent<Plasma>();
+                            w_Plasma_1.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_2:
 
-                        currentWeapon = w_Plasma_2.GetComponent<Plasma>();
-                        w_Plasma_2.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_3_ALPHA:
+                            currentWeapon = w_Plasma_2.GetComponent<Plasma>();
+                            w_Plasma_2.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_3_ALPHA:
 
-                        currentWeapon = w_Plasma_3a.GetComponent<Plasma>();
-                        w_Plasma_3a.SetActive(true);
-                        break;
-                    case UPGRADE.LVL_3_BETA:
+                            currentWeapon = w_Plasma_3a.GetComponent<Plasma>();
+                            w_Plasma_3a.SetActive(true);
+                            break;
+                        case UPGRADE.LVL_3_BETA:
 
-                        currentWeapon = w_Plasma_3b.GetComponent<Plasma>();
-                        w_Plasma_3b.SetActive(true);
-                        break;
-                    default:
-                        break;
+                            currentWeapon = w_Plasma_3b.GetComponent<Plasma>();
+                            w_Plasma_3b.SetActive(true);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Weapon Image"),
+                        "Assets\\UI\\HUD Buttons\\Icons\\LaserHUD.png", (int)UI_STATE.NORMAL);
+
                 }
                 break;
         }
 
         currentWeapon.Start();
-
-        //Debug.Log("Ammo: " + currentWeapon.ammo);
-        //Debug.Log("Damage: " + currentWeapon.damage);
-        //Debug.Log("FireRate: " + currentWeapon.fireRate);
-        //Debug.Log("RealoadTime: " + currentWeapon.reloadTime);
-
         csBullets.UseBullets();
     }
 
@@ -1323,6 +1335,7 @@ public class Player : YmirComponent
     {
         //Trigger de la animacion
         Animation.PlayAnimation(gameObject, "Raisen_Walk");
+        walkParticles = GetParticles(gameObject, "ParticlesSteps");
         //Trigger del SFX de caminar
         //Vector3 impulse = new Vector3(0.0f,0.0f,0.01f);
         //gameObject.SetImpulse(gameObject.transform.GetForward() * 0.5f);
@@ -1334,6 +1347,9 @@ public class Player : YmirComponent
         //forward.y = 0f;
 
         HandleRotation();
+
+        Particles.ParticlesForward(walkParticles, gameObject.transform.GetForward(), 0, -5.0f);
+        Particles.PlayParticlesTrigger(walkParticles);
 
         Vector3 gravity = new Vector3(0, -20, 0);
         gameObject.SetVelocity((gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity);
@@ -1353,6 +1369,8 @@ public class Player : YmirComponent
         //Debug.Log("Stopping");
         gameObject.SetVelocity(new Vector3(0, 0, 0));
         gameObject.ClearForces();
+
+        Particles.RestartParticles(walkParticles);
     }
 
     private void HandleRotation()
@@ -1656,7 +1674,7 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
 
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
-        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 50.0f);
+        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 1, 50.0f);
         Particles.PlayParticlesTrigger(acidicParticles);
 
         //Trigger de la animación
@@ -1742,7 +1760,7 @@ public class Player : YmirComponent
         upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
         SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
-        LoadItems(); 
+        LoadItems();
     }
 
     public void LoadItems()

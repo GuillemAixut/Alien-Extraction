@@ -35,7 +35,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 
 	public float life;
 
-	public float speed = 1500f;
+	public float speed = 200f;
 
     public float armor = 0;
 
@@ -74,19 +74,19 @@ public class QueenXenomorphBaseScript : YmirComponent
     private bool clawReady;
     private bool clawDone = false;
     public float clawAniCounter = 0f;
-    private float clawAniDuration = 2.5f;
+    private float clawAniDuration = 1.75f;
 
     private float acidSpitAttackCooldown = 20f;
     private float acidSpitTimer;
     private bool acidSpitReady;
-    //private bool acidSpitDone = false;
+    private bool acidSpitDone = false;
     public float acidSpitAniCounter = 0f;
-    private float acidSpitAniDuration = 2f;
+    private float acidSpitAniDuration = 1f;
 
     private float axeAttackCooldown = 18f;
 	private float axeTimer;
 	private bool axeReady;
-    //private bool axeDone = false;
+    private bool axeDone = false;
     public float axeAniCounter = 0f;
     private float axeAniDuration = 1.5f;
 
@@ -139,6 +139,9 @@ public class QueenXenomorphBaseScript : YmirComponent
 
         Animation.SetSpeed(gameObject, "Boss_Walk.001", 1.75f);
         Animation.SetSpeed(gameObject, "Boss_Walk_Side", 1.75f);
+        Animation.SetSpeed(gameObject, "Boss_Claw_Attack", 2f);
+        Animation.SetSpeed(gameObject, "Boss_Tail_Attack", 4f);
+        Animation.SetSpeed(gameObject, "Boss_Acid_Spit", 3f);
 
         Animation.AddBlendOption(gameObject, "", "Boss_Idle", 10f);
         Animation.AddBlendOption(gameObject, "", "Boss_Walk.001", 10f);
@@ -253,7 +256,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                 xSpeed = vectorToPlayer.x;
                 ySpeed = vectorToPlayer.z;
 
-                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * 2 * Time.deltaTime);
+                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * Time.deltaTime);
 
                 CheckAttackDistance();
 
@@ -263,12 +266,12 @@ public class QueenXenomorphBaseScript : YmirComponent
                 if (selectedMovement == 2)
                 {
                     //Walk to the right side
-                    gameObject.SetVelocity(new Vector3(-(gameObject.transform.GetForward().z * speed * 2 * Time.deltaTime), 0, (gameObject.transform.GetForward().x * speed * 2 * Time.deltaTime)));
+                    gameObject.SetVelocity(new Vector3(-(gameObject.transform.GetForward().z * speed * Time.deltaTime), 0, (gameObject.transform.GetForward().x * speed * Time.deltaTime)));
                 }
                 else
                 {
                     //Walk to the left side
-                    gameObject.SetVelocity(new Vector3((gameObject.transform.GetForward().z * speed * 2 * Time.deltaTime), 0, -(gameObject.transform.GetForward().x * speed * 2 * Time.deltaTime)));
+                    gameObject.SetVelocity(new Vector3((gameObject.transform.GetForward().z * speed * Time.deltaTime), 0, -(gameObject.transform.GetForward().x * speed * Time.deltaTime)));
                 }
 
                 sidewaysTimer += Time.deltaTime;
@@ -289,7 +292,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                 break;
             case QueenState.WALK_BACKWARDS:
 
-                gameObject.SetVelocity(gameObject.transform.GetForward() * -speed * 2 * Time.deltaTime);
+                gameObject.SetVelocity(gameObject.transform.GetForward() * -speed * Time.deltaTime);
 
                 backwardsTimer += Time.deltaTime;
 
@@ -302,10 +305,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     Animation.SetBackward(gameObject, "Boss_Walk.001", false);
                     Animation.PlayAnimation(gameObject, "Boss_Acid_Spit");
                     Audio.PlayAudio(gameObject, "QX_Acid");
-                    Vector3 pos = gameObject.transform.globalPosition;
-                    pos.y += 10;
-                    pos.z -= 6;
-                    InternalCalls.CreateQueenSpitAttack(pos, gameObject.transform.globalRotation);
+                    acidSpitDone = false;
                     queenState = QueenState.ACID_SPIT;
                 }
 
@@ -323,7 +323,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     Animation.PlayAnimation(gameObject, "Boss_Idle");
                     queenState = QueenState.IDLE_PHASE_1;
                 }
-                else if (clawAniCounter >= 1f && clawDone == false)
+                else if (clawAniCounter >= 0.5f && clawDone == false)
                 {
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 10;
@@ -347,6 +347,14 @@ public class QueenXenomorphBaseScript : YmirComponent
                     Animation.PlayAnimation(gameObject, "Boss_Idle");
                     queenState = QueenState.IDLE_PHASE_1;
                 }
+                else if (acidSpitAniCounter >= 0.8f && acidSpitDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 10;
+                    pos.z -= 6;
+                    InternalCalls.CreateQueenSpitAttack(pos, gameObject.transform.globalRotation);
+                    acidSpitDone = true;
+                }
 
                 break;
 			case QueenState.AXE_TAIL:
@@ -363,8 +371,16 @@ public class QueenXenomorphBaseScript : YmirComponent
                     Audio.PlayAudio(gameObject, "QX_TailHit");
                     queenState = QueenState.IDLE_PHASE_1;
                 }
+                else if (axeAniCounter >= 0.8f && axeDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 10;
+                    pos.z -= 6;
+                    InternalCalls.CreateQueenTailAttack(pos, gameObject.transform.globalRotation);
+                    axeDone = true;
+                }
 
-            break;
+                break;
 			case QueenState.PREPARE_DASH:
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
@@ -386,7 +402,7 @@ public class QueenXenomorphBaseScript : YmirComponent
                     dashDone = true;
                     dashNum++;
                 }
-                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * 8 * Time.deltaTime);
+                gameObject.SetVelocity(gameObject.transform.GetForward() * speed * 5 * Time.deltaTime);
 
                 dashAniCounter2 += Time.deltaTime;
 
@@ -476,11 +492,8 @@ public class QueenXenomorphBaseScript : YmirComponent
                     axeTimer = axeAttackCooldown;
                     //TAIL ANIMATION HERE!!!!!!!!-----------------------------------------------------------------------------------------------------------------
                     Audio.PlayAudio(gameObject, "QX_TailMove");
-                    Vector3 pos = gameObject.transform.globalPosition;
-                    pos.y += 10;
-                    pos.z -= 6;
-                    InternalCalls.CreateQueenTailAttack(pos, gameObject.transform.globalRotation);
                     Animation.PlayAnimation(gameObject, "Boss_Tail_Attack");
+                    axeDone = false;
                     queenState = QueenState.AXE_TAIL;
                 }
                 else
@@ -518,10 +531,7 @@ public class QueenXenomorphBaseScript : YmirComponent
             acidSpitTimer = acidSpitAttackCooldown;
             Animation.PlayAnimation(gameObject, "Boss_Acid_Spit");
             Audio.PlayAudio(gameObject, "QX_Acid");
-            Vector3 pos = gameObject.transform.globalPosition;
-            pos.y += 10;
-            pos.z -= 6;
-            InternalCalls.CreateQueenSpitAttack(pos, gameObject.transform.globalRotation);
+            acidSpitDone = false;
             queenState = QueenState.ACID_SPIT;
 
         }
