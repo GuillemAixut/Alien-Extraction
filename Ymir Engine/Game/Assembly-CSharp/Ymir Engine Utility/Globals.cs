@@ -543,7 +543,6 @@ namespace YmirEngine
 
         public static Item SearchItemInDictionary(string name)
         {
-            Debug.Log("hola " + itemsDictionary[name].name);
             return itemsDictionary[name];
         }
         #endregion

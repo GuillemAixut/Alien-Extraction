@@ -89,13 +89,11 @@ public class UI_Item_Button : YmirComponent
         {
             if (_menuReference.GetComponent<UI_Inventory>().goName != null)
             {
-                //Debug.Log("" + item.name);
                 UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goName, item.name);
             }
 
             if (_menuReference.GetComponent<UI_Inventory>().goDescription != null)
             {
-                //Debug.Log("" + item.description);
                 UI.TextEdit(_menuReference.GetComponent<UI_Inventory>().goText, item.description);
             }
         }
@@ -104,28 +102,24 @@ public class UI_Item_Button : YmirComponent
         {
             if (_menuReference.GetComponent<UI_Crafting>().goName != null)
             {
-                //Debug.Log("" + item.name);
                 UI.TextEdit(_menuReference.GetComponent<UI_Crafting>().goName, item.name);
             }
 
             if (_menuReference.GetComponent<UI_Crafting>().goDescription != null)
             {
-                //Debug.Log("" + item.description);
                 UI.TextEdit(_menuReference.GetComponent<UI_Crafting>().goText, item.description);
             }
         }
-        
+
         else if (Equals(menuName, "Stash Canvas"))
         {
             if (_menuReference.GetComponent<UI_Stash>().goName != null)
             {
-                //Debug.Log("" + item.name);
                 UI.TextEdit(_menuReference.GetComponent<UI_Stash>().goName, item.name);
             }
 
             if (_menuReference.GetComponent<UI_Stash>().goDescription != null)
             {
-                //Debug.Log("" + item.description);
                 UI.TextEdit(_menuReference.GetComponent<UI_Stash>().goText, item.description);
             }
         }

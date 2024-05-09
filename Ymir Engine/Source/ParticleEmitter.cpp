@@ -230,7 +230,7 @@ void ParticleEmitter::SpawnParticle(uint particlesToAdd) //This code only adds p
 {
 	if (listParticles.size() < MAXPARTICLES)
 	{
-		for (int i = 0; i < particlesToAdd; i++)
+		for (int i = 0; i < particlesToAdd && i < MAXPARTICLES; i++)
 		{
 			//std::unique_ptr<Particle*> particula(new Particle*);
 			Particle* particula = new Particle();
