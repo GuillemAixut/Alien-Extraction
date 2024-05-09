@@ -47,6 +47,7 @@ public class QueenXenomorphPuddle : YmirComponent
     {
         if (other.Name == "Player" && puddleTimer >= 0.5f && player.GetComponent<Player>().vulnerable)
         {
+            Debug.Log("[ERROR] ACID PUDDLE");
             healthScript.TakeDmg(damage);
             puddleTimer = 0f;
 
