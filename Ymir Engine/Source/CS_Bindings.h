@@ -319,9 +319,6 @@ MonoObject* FindEnemyGameObject(MonoObject* obj) {
 
 	if(gameObjectVec[0] != nullptr) return External->moduleMono->GoToCSGO(gameObjectVec[0]);
 
-
-	
-
 	assert("The object you searched for doesn't exist. :/");
 
 	return nullptr;
