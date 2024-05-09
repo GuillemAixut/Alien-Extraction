@@ -149,50 +149,7 @@ void ParticlesForward(MonoObject* go, MonoObject* vector, int emitter, float dis
 	}
 }
 
-void ParticlesSetDirection(MonoObject* go, MonoObject* vector, int emitter, float3 direction)
-{
-	if (External == nullptr) return;
 
-	//Vector hacia el que mira el player
-	float3 newOrigin = External->moduleMono->UnboxVector(vector);
-
-	//Game object del player
-	//Se necesita para sacar el componente particula y por ende su EmitterPosition
-	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
-	if (GO == nullptr)
-	{
-		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
-		return;
-	}
-
-	CParticleSystem* particleSystem = dynamic_cast<CParticleSystem*>(GO->GetComponent(ComponentType::PARTICLE));
-
-	if (particleSystem != nullptr)
-	{
-		//TODO TONI: Esto deberia ser con un bool que diga si necesita coger el forward del player o no
-		//entonces deberia iterar sobre todos los emitters y coger solo los que tenga ese bool en true
-		//Ahora mismo lo dejo hardcodeado para el acidic porque es el unico script que usa esto realmente
-		for (int i = 0; i < particleSystem->allEmitters.at(emitter)->modules.size(); i++)
-		{
-			if (particleSystem->allEmitters.at(emitter)->modules.at(i)->type == EmitterType::PAR_POSITION)
-			{
-				EmitterPosition* position = (EmitterPosition*)particleSystem->allEmitters.at(emitter)->modules.at(i);
-
-				/*if (base->currentShape == PAR_CONE && base->currentShape == PAR_POINT)
-				{*/
-					position->direction1.x = direction.x;
-					position->direction1.y = direction.y;
-					position->direction1.z = direction.z;
-					//}
-			}
-		}
-		
-	}
-	else
-	{
-		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
-	}
-}
 
 
 //This function activates a Trigger in a Particle System
