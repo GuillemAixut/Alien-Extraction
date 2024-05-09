@@ -57,6 +57,7 @@ public class Player : YmirComponent
     }
 
     private bool isInBase = false;
+    private string idleAnim;
 
     //--------------------- State ---------------------\\
     public STATE currentState = STATE.IDLE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
@@ -206,6 +207,18 @@ public class Player : YmirComponent
         if(InternalCalls.GetCurrentMap() == 0)
         {
             isInBase = true;
+            idleAnim = "Raisen_BaseIdle";
+            movementSpeed = 1500;
+
+            upgradeType = UPGRADE.NONE;
+        }
+        else
+        {
+            isInBase = false;
+            idleAnim = "Raisen_Idle";
+            movementSpeed = 3000.0f;
+
+            upgradeType = UPGRADE.LVL_0; //Se tendria que hacer con el Load para saber que mejora tienes guardada
         }
         
         //angle = 0;
@@ -216,9 +229,7 @@ public class Player : YmirComponent
         deathTimer = 3;
 
         //weaponType = WEAPON_TYPE.SMG;
-        upgradeType = UPGRADE.LVL_0;
-
-        movementSpeed = 3000.0f;    //Antes 35
+        
 
         //--------------------- Dash ---------------------\\
         dashDistance = 400.0f;     //Antes 2 
@@ -345,41 +356,45 @@ public class Player : YmirComponent
             godMode = !godMode;
         }
 
-        if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
+        if(!isInBase) 
         {
-            weaponType = WEAPON_TYPE.SMG;
-            SetWeapon();
-        }
-
-        if (Input.GetKey(YmirKeyCode.Alpha2) == KeyState.KEY_DOWN)
-        {
-            weaponType = WEAPON_TYPE.SHOTGUN;
-            SetWeapon();
-        }
-
-        if (Input.GetKey(YmirKeyCode.Alpha3) == KeyState.KEY_DOWN)
-        {
-            weaponType = WEAPON_TYPE.PLASMA;
-            SetWeapon();
-        }
-
-        if (Input.GetKey(YmirKeyCode.PERIOD) == KeyState.KEY_DOWN)
-        {
-            if ((int)upgradeType < 4)
+            if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
             {
-                upgradeType += 1;
+                weaponType = WEAPON_TYPE.SMG;
                 SetWeapon();
+            }
+
+            if (Input.GetKey(YmirKeyCode.Alpha2) == KeyState.KEY_DOWN)
+            {
+                weaponType = WEAPON_TYPE.SHOTGUN;
+                SetWeapon();
+            }
+
+            if (Input.GetKey(YmirKeyCode.Alpha3) == KeyState.KEY_DOWN)
+            {
+                weaponType = WEAPON_TYPE.PLASMA;
+                SetWeapon();
+            }
+
+            if (Input.GetKey(YmirKeyCode.PERIOD) == KeyState.KEY_DOWN)
+            {
+                if ((int)upgradeType < 4)
+                {
+                    upgradeType += 1;
+                    SetWeapon();
+                }
+            }
+
+            if (Input.GetKey(YmirKeyCode.COMMA) == KeyState.KEY_DOWN)
+            {
+                if ((int)upgradeType > 0)
+                {
+                    upgradeType -= 1;
+                    SetWeapon();
+                }
             }
         }
 
-        if (Input.GetKey(YmirKeyCode.COMMA) == KeyState.KEY_DOWN)
-        {
-            if ((int)upgradeType > 0)
-            {
-                upgradeType -= 1;
-                SetWeapon();
-            }
-        }
 
         if (Input.GetKey(YmirKeyCode.F8) == KeyState.KEY_DOWN)
         {
@@ -592,69 +607,72 @@ public class Player : YmirComponent
                 StopPlayer();
             }
 
-            //----------------- Shoot -----------------\\
-            if (Input.GetGamepadRightTrigger() > 0)
+            if(!isInBase)
             {
-                inputsList.Add(INPUT.I_SHOOTING);
-            }
-            else
-            {
-                inputsList.Add(INPUT.I_SHOOTING_END);
-                //shootBefore = false;
-            }
+                //----------------- Shoot -----------------\\
+                if (Input.GetGamepadRightTrigger() > 0)
+                {
+                    inputsList.Add(INPUT.I_SHOOTING);
+                }
+                else
+                {
+                    inputsList.Add(INPUT.I_SHOOTING_END);
+                    //shootBefore = false;
+                }
 
-            //----------------- Dash -----------------\\
-            if (Input.GetGamepadLeftTrigger() > 0 && hasDashed == false && dashCDTimer <= 0)
-            {
-                hasDashed = true;
-                inputsList.Add(INPUT.I_DASH);
+                //----------------- Dash -----------------\\
+                if (Input.GetGamepadLeftTrigger() > 0 && hasDashed == false && dashCDTimer <= 0)
+                {
+                    hasDashed = true;
+                    inputsList.Add(INPUT.I_DASH);
 
-                // SARA: start dash cooldown
-                csUI_AnimationDash.Reset();
-                csUI_AnimationDash.backwards = false;
-                csUI_AnimationDash.SetAnimationState(true);
-            }
+                    // SARA: start dash cooldown
+                    csUI_AnimationDash.Reset();
+                    csUI_AnimationDash.backwards = false;
+                    csUI_AnimationDash.SetAnimationState(true);
+                }
 
-            //----------------- Acidic Spit (Skill 1) -----------------\\
-            if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN && hasAcidic == false && acidicCDTimer <= 0)
-            {
-                hasAcidic = true;
-                inputsList.Add(INPUT.I_ACID);
+                //----------------- Acidic Spit (Skill 1) -----------------\\
+                if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN && hasAcidic == false && acidicCDTimer <= 0)
+                {
+                    hasAcidic = true;
+                    inputsList.Add(INPUT.I_ACID);
 
-                // SARA: start acidic cooldown
-                csUI_AnimationAcid.Reset();
-                csUI_AnimationAcid.backwards = false;
-                csUI_AnimationAcid.SetAnimationState(true);
-            }
+                    // SARA: start acidic cooldown
+                    csUI_AnimationAcid.Reset();
+                    csUI_AnimationAcid.backwards = false;
+                    csUI_AnimationAcid.SetAnimationState(true);
+                }
 
-            //----------------- Predatory Rush (Skill 2) -----------------\\
-            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && hasPred == false && predatoryCDTimer <= 0)
-            {
-                hasPred = true;
-                inputsList.Add(INPUT.I_PRED);
+                //----------------- Predatory Rush (Skill 2) -----------------\\
+                if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && hasPred == false && predatoryCDTimer <= 0)
+                {
+                    hasPred = true;
+                    inputsList.Add(INPUT.I_PRED);
 
-                // SARA: start predatory cooldown
-                csUI_AnimationPredatory.Reset();
-                csUI_AnimationPredatory.backwards = false;
-                csUI_AnimationPredatory.SetAnimationState(true);
-            }
+                    // SARA: start predatory cooldown
+                    csUI_AnimationPredatory.Reset();
+                    csUI_AnimationPredatory.backwards = false;
+                    csUI_AnimationPredatory.SetAnimationState(true);
+                }
 
-            //----------------- Swipe (Skill 3) -----------------\\
-            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && hasSwipe == false && swipeCDTimer <= 0)
-            {
-                hasSwipe = true;
-                inputsList.Add(INPUT.I_SWIPE);
+                //----------------- Swipe (Skill 3) -----------------\\
+                if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && hasSwipe == false && swipeCDTimer <= 0)
+                {
+                    hasSwipe = true;
+                    inputsList.Add(INPUT.I_SWIPE);
 
-                // SARA: start swipe cooldown
-                csUI_AnimationSwipe.Reset();
-                csUI_AnimationSwipe.backwards = false;
-                csUI_AnimationSwipe.SetAnimationState(true);
-            }
+                    // SARA: start swipe cooldown
+                    csUI_AnimationSwipe.Reset();
+                    csUI_AnimationSwipe.backwards = false;
+                    csUI_AnimationSwipe.SetAnimationState(true);
+                }
 
-            //----------------- Reload -----------------\\
-            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN && currentWeapon.ReloadAvailable())
-            {
-                inputsList.Add(INPUT.I_RELOAD);
+                //----------------- Reload -----------------\\
+                if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN && currentWeapon.ReloadAvailable())
+                {
+                    inputsList.Add(INPUT.I_RELOAD);
+                }
             }
         }
 
@@ -1096,7 +1114,7 @@ public class Player : YmirComponent
     #region IDLE
     private void StartIdle()
     {
-        Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        Animation.PlayAnimation(gameObject, idleAnim);
     }
     #endregion
 
@@ -1132,7 +1150,7 @@ public class Player : YmirComponent
     {
         if (currentWeapon.currentAmmo <= 0 || inputsList[0] == INPUT.I_SHOOTING_END)
         {
-            Animation.PlayAnimation(gameObject, "Raisen_Idle");
+            Animation.PlayAnimation(gameObject, idleAnim);
             Particles.RestartParticles(currentWeapon.particlesGO);
         }
     }
@@ -1267,8 +1285,11 @@ public class Player : YmirComponent
                 break;
         }
 
-        currentWeapon.Start();
-        csBullets.UseBullets();
+        if(currentWeapon != null)
+        {
+            currentWeapon.Start();
+            csBullets.UseBullets();
+        }
     }
 
     #endregion
@@ -1297,7 +1318,7 @@ public class Player : YmirComponent
         StopPlayer();
         dashCDTimer = dashCD;
         //gameObject.transform.localPosition.y = dashStartYPos;
-        Animation.PlayAnimation(gameObject, "Raisen_Idle"); // Chuekada para la entrega, si ves esto ponlo bien porfa no lo ignores
+        Animation.PlayAnimation(gameObject, idleAnim); // Chuekada para la entrega, si ves esto ponlo bien porfa no lo ignores
 
     }
 
@@ -1343,7 +1364,16 @@ public class Player : YmirComponent
     private void StartMove()
     {
         //Trigger de la animacion
-        Animation.PlayAnimation(gameObject, "Raisen_Walk");
+
+        if(!isInBase)
+        {
+            Animation.PlayAnimation(gameObject, "Raisen_Walk");
+        }
+        else
+        {
+            Animation.PlayAnimation(gameObject, "Raisen_BaseWalk");
+        }
+        
         walkParticles = GetParticles(gameObject, "ParticlesSteps");
         //Trigger del SFX de caminar
         //Vector3 impulse = new Vector3(0.0f,0.0f,0.01f);
@@ -1360,7 +1390,7 @@ public class Player : YmirComponent
         Particles.ParticlesForward(walkParticles, gameObject.transform.GetForward(), 0, -5.0f);
         Particles.PlayParticlesTrigger(walkParticles);
 
-        Vector3 gravity = new Vector3(0, -20, 0);
+        Vector3 gravity = new Vector3(0, -15, 0);
         gameObject.SetVelocity((gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity);
 
         //if (gamepadInput.x > 0)
@@ -1505,6 +1535,7 @@ public class Player : YmirComponent
         Animation.SetLoop(gameObject, "Raisen_BaseWalk", true);
 
         Animation.SetSpeed(gameObject, "Raisen_Dash", 4.0f);
+        Animation.SetSpeed(gameObject, "Raisen_BaseWalk", 1.1f);
 
         Animation.SetResetToZero(gameObject, "Raisen_Death", false);
 
@@ -1520,7 +1551,7 @@ public class Player : YmirComponent
         Animation.AddBlendOption(gameObject, "", "Raisen_BaseIdle", 5.0f);
         Animation.AddBlendOption(gameObject, "", "Raisen_BaseWalk", 5.0f);
 
-        Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        Animation.PlayAnimation(gameObject, idleAnim);
     }
 
     #endregion
@@ -1617,7 +1648,7 @@ public class Player : YmirComponent
     {
         //StopPlayer();
         //Delete de la hitbox de la cola
-        Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        Animation.PlayAnimation(gameObject, idleAnim);
         swipeCDTimer = swipeCD;
 
     }
@@ -1671,7 +1702,7 @@ public class Player : YmirComponent
 
     private void EndAcidicSpit()
     {
-        Animation.PlayAnimation(gameObject, "Raisen_Idle");
+        Animation.PlayAnimation(gameObject, idleAnim);
         acidicCDTimer = acidicCD;
     }
 
