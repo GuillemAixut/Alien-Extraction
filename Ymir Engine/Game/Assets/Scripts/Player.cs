@@ -1486,6 +1486,7 @@ public class Player : YmirComponent
         Particles.PlayParticlesTrigger(walkParticles);
 
         Vector3 gravity = new Vector3(0, -15, 0);
+        gameObject.SetVelocity(new Vector3(0f, 0f, 0f));
         gameObject.SetVelocity((gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity);
 
         //if (gamepadInput.x > 0)
