@@ -25,35 +25,15 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 916391465,
+            "UID": 2132278752,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 379278140,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
+            "Components": [],
             "Children UID": [
                 188443536,
                 2047246996,
-                648214567
+                648214567,
+                1781007999
             ]
         },
         {
@@ -63,7 +43,7 @@
             "UID": 188443536,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 916391465,
+            "Parent UID": 2132278752,
             "Components": [
                 {
                     "Type": "Transform",
@@ -113,6 +93,19 @@
                     "Type": "Audio listener",
                     "Active": 1,
                     "Default Listener": 1
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "UIMusic",
+                    "Event Name": "UI_Menu",
+                    "Event ID": 2511555531
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "MainMenuCamera.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ]
         },
@@ -123,7 +116,7 @@
             "UID": 2047246996,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 916391465,
+            "Parent UID": 2132278752,
             "Components": [
                 {
                     "Type": "Transform",
@@ -150,8 +143,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1658,
-                    "Height": 1196,
+                    "Width": 1917,
+                    "Height": 1063,
                     "UI Type": 0,
                     "UI State": 5,
                     "Drag Limits": [
@@ -170,6 +163,7 @@
             ],
             "Children UID": [
                 902621313,
+                1666680866,
                 147158853
             ]
         },
@@ -217,7 +211,7 @@
                         1920,
                         1080
                     ],
-                    "Path": "Assets\/UI\/MainMenu.png",
+                    "Path": "Assets\/UI\/Fondo.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -237,6 +231,68 @@
             ]
         },
         {
+            "Name": "Text",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1666680866,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 2047246996,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 533,
+                    "Position Y": 310,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        533,
+                        310,
+                        200,
+                        50
+                    ],
+                    "Text": "Alien: Extraction",
+                    "Font name": "de-valencia-beta.otf",
+                    "Font path": "Assets\/Fonts",
+                    "Font size": 130,
+                    "Line Spacing": 1,
+                    "Color": [
+                        -0.98000001907348633,
+                        0,
+                        -0.98000001907348633,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
             "Name": "Grid",
             "Static": false,
             "Tag": "Untagged",
@@ -250,7 +306,7 @@
                     "Active": 1,
                     "Translation": [
                         740,
-                        -27.299999237060547,
+                        -29,
                         0
                     ],
                     "Rotation": [
@@ -271,14 +327,14 @@
                     "UID": 0,
                     "rows": 4,
                     "cols": 1,
-                    "leftGridName": " ",
-                    "rightGridName": " ",
-                    "downGridName": " ",
-                    "upGridName": " ",
+                    "leftGridName": "",
+                    "rightGridName": "",
+                    "downGridName": "",
+                    "upGridName": "",
                     "naviagteX": false,
-                    "naviagteY": false,
-                    "bounceX": false,
-                    "bounceY": false,
+                    "naviagteY": true,
+                    "bounceX": true,
+                    "bounceY": true,
                     "empty": false,
                     "childX": 0,
                     "childY": 0
@@ -292,7 +348,7 @@
             ]
         },
         {
-            "Name": "Start",
+            "Name": "New Game",
             "Static": false,
             "Tag": "Untagged",
             "UID": 163943387,
@@ -324,14 +380,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 592,
+                    "Position Y": 519,
                     "Width": 424,
                     "Height": 152,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        564.70001220703125,
+                        490,
                         424,
                         152
                     ],
@@ -364,7 +420,7 @@
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        -27.299999237060547,
+                        -29,
                         300,
                         50
                     ],
@@ -407,7 +463,9 @@
                     "ScriptName": "Button_Navigation.cs",
                     "Active": 1,
                     "UID": 0,
-                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS"
+                    "sceneName": "Cutscenes\/Intro\/CutScenes_Intro",
+                    "isNewGame": true,
+                    "time": 0
                 }
             ],
             "Children UID": [
@@ -446,22 +504,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 167,
-                    "Position Y": 664,
+                    "Position X": 131,
+                    "Position Y": 608,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        907,
-                        636.70001220703125,
+                        871,
+                        579,
                         300,
                         50
                     ],
-                    "Text": "Start",
-                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Text": "New Game",
+                    "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
-                    "Font size": 21,
+                    "Font size": 50,
                     "Line Spacing": 0.5,
                     "Color": [
                         0,
@@ -477,7 +535,7 @@
             ]
         },
         {
-            "Name": "Settings",
+            "Name": "Continue",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1643314356,
@@ -509,14 +567,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 689,
+                    "Position Y": 621,
                     "Width": 424,
                     "Height": 152,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        661.70001220703125,
+                        592,
                         424,
                         152
                     ],
@@ -549,7 +607,7 @@
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        -27.299999237060547,
+                        -29,
                         300,
                         50
                     ],
@@ -586,6 +644,15 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Button_Navigation.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS",
+                    "isNewGame": false,
+                    "time": 0
                 }
             ],
             "Children UID": [
@@ -625,21 +692,21 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 144,
-                    "Position Y": 760,
+                    "Position Y": 709,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
                         884,
-                        732.70001220703125,
+                        680,
                         300,
                         50
                     ],
-                    "Text": "Settings",
-                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Text": "Continue",
+                    "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
-                    "Font size": 21,
+                    "Font size": 50,
                     "Line Spacing": 0.5,
                     "Color": [
                         0,
@@ -687,14 +754,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 785,
+                    "Position Y": 724,
                     "Width": 424,
                     "Height": 152,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        757.70001220703125,
+                        695,
                         424,
                         152
                     ],
@@ -727,7 +794,7 @@
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        -27.299999237060547,
+                        -29,
                         300,
                         50
                     ],
@@ -803,21 +870,21 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 152,
-                    "Position Y": 858,
+                    "Position Y": 816,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
                         892,
-                        830.70001220703125,
+                        787,
                         300,
                         50
                     ],
                     "Text": "Credits",
-                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
-                    "Font size": 21,
+                    "Font size": 50,
                     "Line Spacing": 0.5,
                     "Color": [
                         0,
@@ -865,14 +932,14 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 0,
-                    "Position Y": 881,
+                    "Position Y": 825,
                     "Width": 424,
                     "Height": 152,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        853.70001220703125,
+                        796,
                         424,
                         152
                     ],
@@ -905,7 +972,7 @@
                     "UI State": 1,
                     "Drag Limits": [
                         740,
-                        -27.299999237060547,
+                        -29,
                         300,
                         50
                     ],
@@ -955,7 +1022,7 @@
             ]
         },
         {
-            "Name": "Text",
+            "Name": "Text (4)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1527662185,
@@ -987,21 +1054,21 @@
                     "Active": 1,
                     "Draggeable": false,
                     "Position X": 184,
-                    "Position Y": 957,
+                    "Position Y": 918,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
                         924,
-                        929.70001220703125,
+                        889,
                         300,
                         50
                     ],
                     "Text": "Exit",
-                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font name": "de-valencia-beta.otf",
                     "Font path": "Assets\/Fonts",
-                    "Font size": 21,
+                    "Font size": 50,
                     "Line Spacing": 0.5,
                     "Color": [
                         0,
@@ -1023,7 +1090,7 @@
             "UID": 648214567,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 916391465,
+            "Parent UID": 2132278752,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1050,6 +1117,119 @@
                     "Bank Name": "UI_Sfx",
                     "Event Name": "UI_MoveHover",
                     "Event ID": 3300279817
+                }
+            ]
+        },
+        {
+            "Name": "Loading Scene Canvas",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1781007999,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 2132278752,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 2145,
+                    "Height": 1097,
+                    "UI Type": 0,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        524,
+                        250
+                    ]
+                }
+            ],
+            "Children UID": [
+                1138588084
+            ]
+        },
+        {
+            "Name": "Load Scene Img",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1138588084,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1781007999,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1920,
+                    "Height": 1080,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        1920,
+                        1080
+                    ],
+                    "Path": "Assets\/UI\/LoadingScenes\/Base.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
                 }
             ]
         }

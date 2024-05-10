@@ -133,6 +133,15 @@ std::unique_ptr<JsonFile> JsonFile::GetJSON(const std::string& route) {
 }
 
 // -------------------------- Support functions --------------------------------
+void JsonFile::UpdateJSON_File(const char* key)
+{
+	char* serialized_string = NULL;
+	serialized_string = json_serialize_to_string_pretty(rootValue);
+	puts(serialized_string);
+
+	json_serialize_to_file(rootValue, key);
+	json_free_serialized_string(serialized_string);
+}
 
 void JsonFile::SetInt(const char* key, int value) {
 
@@ -1243,7 +1252,6 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 	}
 	case ANIMATION:
 	{
-
 		json_object_set_string(componentObject, "Type", "Animation");
 
 		// Save component animation
@@ -1257,7 +1265,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		JSON_Array* sizeArray = json_value_get_array(sizeArrayValue);
 
 		for (int i = 0; i < cAnimation->animator->animations.size(); i++) {
-			json_array_append_string(sizeArray, cAnimation->animator->animations[i].GetLibraryFilePath().c_str());
+			json_array_append_string(sizeArray, cAnimation->animator->animations[i]->GetLibraryFilePath().c_str());
 		}
 		json_object_set_value(componentObject, "Paths", sizeArrayValue);
 
@@ -1265,9 +1273,9 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		JSON_Array* sizeArrayAssets = json_value_get_array(sizeArrayValueAssets);
 
 		for (int i = 0; i < cAnimation->animator->animations.size(); i++) {
-			json_array_append_string(sizeArrayAssets, cAnimation->animator->animations[i].GetAssetsFilePath().c_str());
+			json_array_append_number(sizeArrayAssets, cAnimation->animator->animations[i]->GetUID());
 		}
-		json_object_set_value(componentObject, "AssetsPath", sizeArrayValueAssets);
+		json_object_set_value(componentObject, "UIDs", sizeArrayValueAssets);
 
 		break;
 	}
@@ -1779,6 +1787,51 @@ void JsonFile::SetReference(JSON_Object* componentObject, GameObject& pointer, c
 }
 
 // ---------- Load Scene
+
+void JsonFile::GetHierarchyNoMemoryLeaks(const char* key) const
+{
+	JSON_Value* hierarchyValue = json_object_get_value(rootObject, key);
+
+	if (hierarchyValue != nullptr && json_value_get_type(hierarchyValue) == JSONArray) {
+
+		JSON_Array* hierarchyArray = json_value_get_array(hierarchyValue);
+
+		size_t numGameObjects = json_array_get_count(hierarchyArray);
+
+		External->scene->gameObjects.reserve(numGameObjects);
+
+		for (size_t i = 1; i < numGameObjects; ++i) {
+
+			JSON_Value* gameObjectValue = json_array_get_value(hierarchyArray, i);
+
+			if (json_value_get_type(gameObjectValue) == JSONObject) {
+
+				JSON_Object* gameObjectObject = json_value_get_object(gameObjectValue);
+
+				// Create a new GameObject
+				// TODO: Preguntar monica
+				//GameObject* gameObject = new GameObject();	// asi deberia estar
+				G_UI* gameObject = new G_UI();
+
+				// Call a function to extract individual GameObject properties
+				GetGameObject(External->scene->gameObjects, gameObjectObject, *gameObject);
+
+				// Add the GameObject to the vector
+				External->scene->gameObjects.push_back(gameObject);
+
+			}
+
+		}
+
+		External->scene->mRootNode->mParent = nullptr;
+
+		for (auto it = External->scene->vTempComponents.begin(); it != External->scene->vTempComponents.end(); ++it)
+		{
+			(*it)->SetReference();
+		}
+
+	}
+}
 
 std::vector<GameObject*> JsonFile::GetHierarchy(const char* key) const
 {
@@ -2456,40 +2509,47 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		CAnimation* cAnim = new CAnimation(gameObject);
 
 		JSON_Value* jsonSizeValue = json_object_get_value(componentObject, "Paths");
-		JSON_Value* jsonSizeAssetsValue = json_object_get_value(componentObject, "AssetsPath");
+		JSON_Value* jsonSizeUIDValue = json_object_get_value(componentObject, "UIDs");
 
 		if (jsonSizeValue == nullptr || json_value_get_type(jsonSizeValue) != JSONArray) {
 
 			return;
 		}
 
-		if (jsonSizeAssetsValue == nullptr || json_value_get_type(jsonSizeAssetsValue) != JSONArray) {
+		if (jsonSizeUIDValue == nullptr || json_value_get_type(jsonSizeUIDValue) != JSONArray) {
 
 			return;
 		}
 
 		JSON_Array* jsonSizeArray = json_value_get_array(jsonSizeValue);
-		JSON_Array* jsonSizeAssetsArray = json_value_get_array(jsonSizeAssetsValue);
+		JSON_Array* jsonSizeUIDArray = json_value_get_array(jsonSizeUIDValue);
+
+
 		for (int i = 0; i < json_object_get_number(componentObject, "NumPaths"); i++) {
-			if (json_array_get_string(jsonSizeArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeArray, i))) {
-				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeArray, i), ResourceType::ANIMATION, gameObject->UID);
-				cAnim->AddAnimation(*rAnim);
+			uint UID = json_array_get_number(jsonSizeUIDArray, i);
+			auto itr = External->resourceManager->resources.find(UID);
+
+			if (itr == External->resourceManager->resources.end()) {
+
+				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeArray, i), ResourceType::ANIMATION, UID);
+
+				cAnim->AddAnimation(rAnim);
+
 				LOG("Loaded animation '%s' from Library", rAnim->name.c_str());
 			}
-			else if (json_array_get_string(jsonSizeAssetsArray, i) != "" && PhysfsEncapsule::FileExists(json_array_get_string(jsonSizeAssetsArray, i))) {
-				ResourceAnimation* rAnim = (ResourceAnimation*)External->resourceManager->CreateResourceFromLibrary(json_array_get_string(jsonSizeAssetsArray, i), ResourceType::ANIMATION, gameObject->UID);
-				cAnim->AddAnimation(*rAnim);
-				LOG("Loaded animation '%s' from Assets", rAnim->name.c_str());
-			}
 			else {
-				LOG("[ERROR]Couldn't load animation");
+
+				ResourceAnimation* rAnim = static_cast<ResourceAnimation*>(itr->second);
+				itr->second->IncreaseReferenceCount();
+
+				cAnim->AddAnimation(rAnim);
 			}
 		}
 
 		cAnim->active = json_object_get_number(componentObject, "Active");
 
 		gameObject->AddComponent(cAnim);
-	}
+}
 	else if (type == "Physics") {
 
 		// World Gravity
@@ -3224,11 +3284,27 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		caudiosource->audBankName = json_object_get_string(componentObject, "Bank Name");
 		caudiosource->evName = json_object_get_string(componentObject, "Event Name");
 		caudiosource->evID = json_object_get_number(componentObject, "Event ID");
-		//caudiosource->id = json_object_get_number(componentObject, "Event ID");
 
-		External->audio->LoadBank(caudiosource->audBankName);
+		for (std::vector<AudioBank*>::iterator& it = External->audio->banks.begin(); it != External->audio->banks.end(); ++it)
+		{
+			if ((*it)->bank_name == caudiosource->audBankName)
+			{
+				caudiosource->audBankReference = (*it);
+		
+				if (!(*it)->loaded_in_heap)
+				{
+					External->audio->LoadBank(caudiosource->audBankName);
+					(*it)->loaded_in_heap = true;
+				}
+				
+			}
+			else 
+			{
+				caudiosource->audBankReference = nullptr;
+			}
+		}
 
-		gameObject->AddComponent(caudiosource);
+		gameObject->AddComponent(caudiosource); 
 
 	}
 	else if (type == "Light")
@@ -3413,6 +3489,11 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 		cparticleSystem->active = json_object_get_boolean(componentObject, "Active");
 
 		int numEmitters = json_object_get_number(componentObject, "NumEmitters");
+		
+		for (int i = cparticleSystem->allEmitters.size(); i < numEmitters; i = cparticleSystem->allEmitters.size())
+		{
+			cparticleSystem->CreateEmitter();
+		}
 
 		JSON_Array* emittersArray = json_object_get_array(componentObject, "Emitters");
 		for (int i = 0; i < numEmitters; i++)
@@ -3424,7 +3505,10 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 			//Get cuantos settings tiene el emitter
 			int numSettings = json_object_get_number(json_array_get_object(emittersArray, i), "ModulesSize");
-
+			
+			//Get cuantos settings tiene el emitter
+			uint32_t UIDofEmitter = json_object_get_number(json_array_get_object(emittersArray, i), "EmitterUID");
+			pEmmiter->UID = UIDofEmitter;
 			for (int j = 0; j < numSettings; j++)
 			{
 				JSON_Object* modulo = json_array_get_object(settingsArray, j);
@@ -3489,6 +3573,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eBase->topRadius = (float)json_object_get_number(modulo, "RadiusTop");
 					eBase->heigth = (float)json_object_get_number(modulo, "Heigth");
 
+					eBase = nullptr;
 					break;
 				}
 				case PAR_SPAWN:
@@ -3502,6 +3587,14 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eSpawn->spawnRatio = (float)json_object_get_number(modulo, "SpawnRatio");
 					eSpawn->numParticlesForStop = json_object_get_number(modulo, "NumParticlesToStop");
 
+					//Emitter things
+					eSpawn->pointingEmitter = nullptr; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
+					eSpawn->pointingUID = json_object_get_number(modulo, "PointingUID");
+					eSpawn->conditionForSpawn = (SpawnConditionSubemitter)json_object_get_number(modulo, "ConditionForSpawn");
+					eSpawn->subMaxLifetime = json_object_get_number(modulo, "SubemitterMaxLifetime");
+					eSpawn->subMinLifetime = json_object_get_number(modulo, "SubemitterMinLifetime");
+
+					eSpawn = nullptr;
 					break;
 				}
 				case PAR_POSITION:
@@ -3509,6 +3602,8 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					EmitterPosition* ePos = (EmitterPosition*)instancia;
 
 					ePos->randomized = json_object_get_boolean(modulo, "Random");
+					ePos->useBaseShape = json_object_get_boolean(modulo, "UseShapeBase");
+
 					ePos->particleSpeed1 = json_object_get_number(modulo, "Speed1");
 					ePos->particleSpeed2 = json_object_get_number(modulo, "Speed2");
 					ePos->acceleration = json_object_get_boolean(modulo, "Accelerates");
@@ -3550,6 +3645,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 
 					ePos->normalizedChange = json_object_get_boolean(modulo, "NormalizedChange");
 
+					ePos = nullptr;
 					break;
 				}
 				case PAR_ROTATION:
@@ -3570,6 +3666,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					float posZN = json_array_get_number(arrFreeDir, 2);
 					eRot->freeWorldRotation = { posXN,posYN,posZN };
 
+					eRot = nullptr;
 					break;
 				}
 				case PAR_SIZE:
@@ -3577,10 +3674,13 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					EmitterSize* eSize = (EmitterSize*)instancia;
 
 					eSize->progresive = json_object_get_boolean(modulo, "Progressive");
+					eSize->loop = json_object_get_boolean(modulo, "Loop");
 					eSize->sizeMultiplier1 = (float)json_object_get_number(modulo, "Size1");
 					eSize->sizeMultiplier2 = (float)json_object_get_number(modulo, "Size2");
 					eSize->startChange = (float)json_object_get_number(modulo, "TimeStart");
 					eSize->stopChange = (float)json_object_get_number(modulo, "TimeStop");
+
+					eSize = nullptr;
 					break;
 				}
 				case PAR_COLOR:
@@ -3588,6 +3688,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					EmitterColor* eColor = (EmitterColor*)instancia;
 
 					eColor->progresive = json_object_get_boolean(modulo, "Progressive");
+					eColor->loop = json_object_get_boolean(modulo, "Loop");
 
 					eColor->startChange = (float)json_object_get_number(modulo, "TimeStart");
 					eColor->stopChange = (float)json_object_get_number(modulo, "TimeStop");
@@ -3610,6 +3711,15 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 					eColor->color2.b = (float)json_array_get_number(colArr2, 2);
 					eColor->color2.a = (float)json_array_get_number(colArr2, 3);
 
+					eColor = nullptr;
+					break;
+				}
+				case PAR_IMAGE:
+				{
+					EmitterImage* eImage = (EmitterImage*)instancia;
+					eImage->imgPath = json_object_get_string(modulo, "Path");
+					eImage->SetImage(json_object_get_string(modulo, "Path"));
+					eImage = nullptr;
 					break;
 				}
 				case PARTICLES_MAX:

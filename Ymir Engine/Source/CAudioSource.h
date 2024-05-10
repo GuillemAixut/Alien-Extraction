@@ -53,10 +53,10 @@ public:
 	std::string	audBankName;
 	uint64 evID;
 	unsigned int id;
+	AudioBank* audBankReference;
 
 private:
 
-	AudioBank* audBankReference;
 	float volume;
 	float pitch;
 	bool playOnAwake;

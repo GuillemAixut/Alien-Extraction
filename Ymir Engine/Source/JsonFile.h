@@ -35,6 +35,7 @@ public:
     static void DeleteJSON(const std::string& route);
 
     // -------------------------- Support functions --------------------------------
+    void UpdateJSON_File(const char* key);
 
     void SetInt(const char* key, int value);
     int GetInt(const char* key) const;
@@ -100,7 +101,9 @@ public:
     void SetReference(JSON_Object* componentObject, GameObject& pointer, const char* name);
     // ---------- Load Scene
 
+    void GetHierarchyNoMemoryLeaks(const char* key) const;
     std::vector<GameObject*> GetHierarchy(const char* key) const;
+
     const char* GetNavMeshPath(const char* key) const;
     void GetGameObject(const std::vector<GameObject*>& gameObjects, const JSON_Object* gameObjectObject, G_UI& gameObject) const;
     void GetComponent(const JSON_Object* componentObject, G_UI* gameObject) const;
@@ -112,7 +115,7 @@ public:
 
     void SetPrefab(const char* key, const GameObject& gameObject);
 
-private:
+//private:
 
     JSON_Value* rootValue; // Private member to store JSON value
     JSON_Object* rootObject; // Private member to store JSON object

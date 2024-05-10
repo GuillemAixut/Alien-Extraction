@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID B_CONSOLES = 1321898274U;
         static const AkUniqueID B_DEPARTING = 1841822454U;
         static const AkUniqueID B_METAL = 1253762097U;
+        static const AkUniqueID B_MUSIC = 2462702937U;
         static const AkUniqueID B_OPENDOOR = 1237118816U;
         static const AkUniqueID B_TELEPORT = 3258831073U;
         static const AkUniqueID C_CONFIRM = 4124650545U;
@@ -43,6 +44,7 @@ namespace AK
         static const AkUniqueID LV1_COMBAT = 559267303U;
         static const AkUniqueID LV1_FIRE = 2203822039U;
         static const AkUniqueID LV1_GRABKEY = 1939003214U;
+        static const AkUniqueID LV1_GRABRESIN = 1988943920U;
         static const AkUniqueID LV1_LEAKPIPES = 3849438701U;
         static const AkUniqueID LV1_MACHINERY = 3137796001U;
         static const AkUniqueID LV1_METAL = 1423113456U;
@@ -57,6 +59,7 @@ namespace AK
         static const AkUniqueID LV2_COMBAT = 3491575422U;
         static const AkUniqueID LV2_CONSOLES = 3677345244U;
         static const AkUniqueID LV2_GRABKEY = 936921561U;
+        static const AkUniqueID LV2_GRABRESIN = 3715372583U;
         static const AkUniqueID LV2_INTER = 3026565220U;
         static const AkUniqueID LV2_METAL = 2946420807U;
         static const AkUniqueID LV2_OPENCHEST = 442070525U;
@@ -73,6 +76,7 @@ namespace AK
         static const AkUniqueID LV3_DISTALIENCRY = 3203011774U;
         static const AkUniqueID LV3_FLESH = 3785941297U;
         static const AkUniqueID LV3_GRABKEY = 2705516844U;
+        static const AkUniqueID LV3_GRABRESIN = 2758019366U;
         static const AkUniqueID LV3_HEARTBEATS = 2317714342U;
         static const AkUniqueID LV3_OPENCHEST = 861924392U;
         static const AkUniqueID LV3_OPENDOOR = 2654175985U;
@@ -80,6 +84,9 @@ namespace AK
         static const AkUniqueID LV3_STONE = 4273619196U;
         static const AkUniqueID LV3_USEKEY = 3605471807U;
         static const AkUniqueID LV3_VEINS = 2858739430U;
+        static const AkUniqueID LVL1_MUSIC = 266958530U;
+        static const AkUniqueID LVL2_MUSIC = 886520485U;
+        static const AkUniqueID LVL3_MUSIC = 761846308U;
         static const AkUniqueID P_ACIDSPIT = 4041423483U;
         static const AkUniqueID P_ACIDSPITHIT = 1348116050U;
         static const AkUniqueID P_ACIDSPITPUDDLE = 2936341071U;
@@ -156,6 +163,34 @@ namespace AK
         static const AkUniqueID XS_REBOUND = 319049970U;
         static const AkUniqueID XS_SPIT = 1073288803U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace COMBATSTATE
+        {
+            static const AkUniqueID GROUP = 1071758680U;
+
+            namespace STATE
+            {
+                static const AkUniqueID EXPLORATION = 2582085496U;
+                static const AkUniqueID FIGHT = 514064485U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace COMBATSTATE
+
+        namespace PLAYERSTATE
+        {
+            static const AkUniqueID GROUP = 3285234865U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ALIVE = 655265632U;
+                static const AkUniqueID DEAD = 2044049779U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace PLAYERSTATE
+
+    } // namespace STATES
 
     namespace GAME_PARAMETERS
     {

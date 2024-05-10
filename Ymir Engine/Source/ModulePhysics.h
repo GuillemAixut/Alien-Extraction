@@ -4,6 +4,7 @@
 #include "Primitive.h"
 #include "Color.h"
 #include "CMesh.h"
+#include "CScript.h"
 
 #include "External/Bullet/include/btBulletDynamicsCommon.h"
 #include "External/Bullet/include/BulletCollision/CollisionShapes/btTriangleMesh.h"
@@ -96,6 +97,9 @@ public:
 
 public:
 	// TODO: create 2 lists, one for rigidbodies and one for colliders	
+	std::vector<std::pair<PhysBody*, PhysBody*>> currentCollisions;
+	std::vector<std::pair<PhysBody*, PhysBody*>> previousCollisions;
+
 	std::vector<PhysBody*> bodiesList;
 	std::vector<btDefaultMotionState*> motions;
 
@@ -113,10 +117,11 @@ public:
 	Color colliderColor;
 	Color sensorColor;
 	int shapeLineWidth = 2;
-
+	
+	bool collisionEnded = true;
 	bool inCollision = false;
 	bool onExitCollision = false;
-	bool firstCollision = true;
+	bool stayCollision = true;
 
 	bool isWorldFirstFrame = false;
 

@@ -47,6 +47,8 @@ ModuleScene::~ModuleScene()
 
 bool ModuleScene::Init()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Loading scene");
@@ -72,45 +74,51 @@ bool ModuleScene::Init()
 
 bool ModuleScene::Start()
 {
+	OPTICK_EVENT();
+
 	currentSceneDir = "Assets";
-
-	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-
 #ifdef _RELEASE
 	
-	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
-	//LoadSceneFromStart("Assets/Scenes", "GameUI");
-	//LoadSceneFromStart("Assets", "Enemigo player");
-	//LoadSceneFromStart("Assets/UI/Inventory", "InventoryScene");
-	/*LoadSceneFromStart("Assets", "Enemigo player"); */
-	//LoadSceneFromStart("Assets/Test_Francesc", "TestPrefabs");
-	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-	//LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
-	//LoadSceneFromStart("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
-	LoadSceneFromStart("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
-	//LoadSceneFromStart("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
-	//LoadSceneFromStart("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
+	//LoadScene("Assets/Main Character", "Alpha3 test");
+	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadScene("Assets", "Enemigo player");
+	//LoadScene("Assets/UI/Inventory", "InventoryScene");
+	//LoadScene("Assets", "Enemigo player");
+	//LoadScene("Assets/Test_Francesc", "TestPrefabs");
+	//LoadScene("Assets", "Prueba enemigo lvl2");
+	//LoadScene("Assets", "Pollo Loco");
+	//LoadScene("Assets", "ParticleTest");
+	//LoadScene("Assets/Prefabs", "Prueba de Pruebas");
+	//LoadScene("Assets/UI/Scenes", "StartScene");
+	//LoadScene("Assets/Camera", "CameraTesting");
+	//LoadScene("Assets/CutScenes", "CutScenes");
+	//LoadScene("Assets/Particles", "PlayerParticlesScene");
 
-	//LoadSceneFromStart("Assets", "Pollo Loco");
-	//LoadSceneFromStart("Assets", "ParticleTest");
-	//LoadSceneFromStart("Assets/Prefabs", "Prueba de Pruebas");
-	//LoadSceneFromStart("Assets/UI/Scenes", "StartScene");
+	// -------------------- FINAL MAPS -------------------- \\
+	
+	//LoadScene("Assets/UI/Scenes", "StartScene");
+	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
+	//LoadScene("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
+	//LoadScene("Assets/LVL2_LAB_PART2_FINAL", "LVL2_LAB_PART2_COLLIDERS");
+	//LoadScene("Assets/LVL3_BlockOut", "LVL3_PART1_COLLIDERS");
+	//LoadScene("Assets/LVL3_BlockOut", "LVL3_BOSS_COLLDIERS");
+
+	// ----------------- END OF FINAL MAPS ---------------- \\
 
 #endif // _RELEASE
 
 #ifdef _STANDALONE
 
-	//LoadSceneFromStart("Assets", "Alpha1_Level");
-	//LoadSceneFromStart("Assets/Scenes", "Start_scene");
-	//LoadSceneFromStart("Assets", "ParticleTest");
+	//LoadScene("Assets", "Alpha1_Level");
+	//LoadScene("Assets", "ParticleTest");
 
-	//LoadSceneFromStart("Assets", "Prueba enemigo lvl2");
-	//LoadSceneFromStart("Assets", "Pollo Loco");
-	//LoadSceneFromStart("Assets/UI/Scenes", "StartScene");
-	//LoadSceneFromStart("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
-	//LoadSceneFromStart("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
-	LoadSceneFromStart("Assets/UI/Scenes", "StartScene");
+	//LoadScene("Assets", "Prueba enemigo lvl2");
+	//LoadScene("Assets", "Pollo Loco");
+	//LoadScene("Assets/UI/Scenes", "StartScene");
+	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
+	LoadScene("Assets/UI/Scenes", "StartScene");
 
 #endif // _STANDALONE
 
@@ -262,6 +270,8 @@ update_status ModuleScene::PostUpdate(float dt)
 
 bool ModuleScene::CleanUp()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Deleting scene");
@@ -396,9 +406,10 @@ void ModuleScene::ClearScene()
 	focusedUIGO = nullptr;
 	selectedUIGO = nullptr;
 
-	External->lightManager->ClearLights(); // Done Correctly
+	External->physics->currentCollisions.clear();
+	External->physics->previousCollisions.clear();
 
-	External->resourceManager->ClearResources(); // Done Correctly
+	External->lightManager->ClearLights(); // Done Correctly
 
 	ClearVec(App->renderer3D->models); // Done Correctly
 
@@ -448,6 +459,8 @@ void ModuleScene::SaveScene(const std::string& dir, const std::string& fileName)
 
 void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 {
+	OPTICK_EVENT();
+
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
 		App->scene->currentSceneDir = dir;
@@ -471,19 +484,20 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 	mRootNode = CreateGameObject("Scene", nullptr); // Recreate scene
 	mRootNode->UID = deletedSceneUID;
 
-	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
+	sceneToLoad->GetHierarchyNoMemoryLeaks("Hierarchy");
+
 	mRootNode = gameObjects[0];
-	
-	for (int i = 0; i < gameObjects.size(); ++i) 
-	{
-		gameObjects[i]->mTransform->UpdateGlobalMatrix();
-	}
+
+	//for (int i = 0; i < gameObjects.size(); ++i) 
+	//{
+	//	gameObjects[i]->mTransform->UpdateGlobalMatrix();
+	//}
 
 	LoadScriptsData();
 
 	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
 
-	if (navMeshPath != "") 
+	if (navMeshPath != "")
 	{
 		External->pathFinding->Load(navMeshPath);
 	}
@@ -568,50 +582,6 @@ GameObject* ModuleScene::LoadPrefab( const char* path)
 	ClearVec(prefab);
 
 	return rootObject;
-}
-
-void ModuleScene::LoadSceneFromStart(const std::string& dir, const std::string& fileName)
-{
-	if (dir != External->fileSystem->libraryScenesPath)
-	{
-		App->scene->currentSceneDir = dir;
-		App->scene->currentSceneFile = (fileName == "" ? std::to_string(mRootNode->UID) : fileName);
-
-		LOG("Scene '%s' loaded", App->scene->currentSceneFile.c_str(), App->scene->currentSceneDir.c_str());
-	}
-
-	CheckCurrentMap((dir + "/" + fileName + ".yscene").c_str());
-
-	std::unique_ptr<JsonFile> sceneToLoad = JsonFile::GetJSON(dir + "/" + (fileName == "" ? std::to_string(mRootNode->UID) : fileName) + ".yscene");
-
-	App->camera->editorCamera->SetPos(sceneToLoad->GetFloat3("Editor Camera Position"));
-	App->camera->editorCamera->SetUp(sceneToLoad->GetFloat3("Editor Camera Up (Y)"));
-	App->camera->editorCamera->SetFront(sceneToLoad->GetFloat3("Editor Camera Front (Z)"));
-
-	uint deletedSceneUID = mRootNode->UID;
-
-	ClearScene();
-
-	mRootNode = CreateGameObject("Scene", nullptr);
-	mRootNode->UID = deletedSceneUID;
-
-	gameObjects = sceneToLoad->GetHierarchy("Hierarchy");
-	mRootNode = gameObjects[0];
-
-	for (int i = 0; i < gameObjects.size(); ++i) 
-	{
-		gameObjects[i]->mTransform->UpdateGlobalMatrix();
-	}
-
-	LoadScriptsData();
-
-	const char* navMeshPath = sceneToLoad->GetNavMeshPath("NavMesh");
-
-	if (navMeshPath != "") 
-	{
-		External->pathFinding->Load(navMeshPath);
-	}
-		
 }
 
 void ModuleScene::Destroy(GameObject* gm)
@@ -715,6 +685,15 @@ void ModuleScene::SetSelectedState(GameObject* go, bool selected)
 void ModuleScene::SetActiveRecursively(GameObject* gameObject, bool active)
 {
 	gameObject->active = active;
+	if (!gameObject->active) {
+		active = false;
+		CScript* aux = static_cast<CScript*>(gameObject->GetComponent(ComponentType::SCRIPT));
+
+		if (aux) {
+			aux->isStarting = true;
+		}
+
+	}
 
 	for (auto& child : gameObject->mChildren) {
 

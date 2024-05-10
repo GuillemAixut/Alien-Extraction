@@ -1,31 +1,168 @@
 {
     "Prefab": [
         {
+            "Name": "Drone",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 315874151,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1992011394,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        5.4377498626708984,
+                        0,
+                        45.154525756835938
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1953913454,
+                1765229486
+            ]
+        },
+        {
+            "Name": "Health_Bar_Plane",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1953913454,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 315874151,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        30,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        0.99999940395355225
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Health_Bar_Test.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "HP": 500,
+                    "initialHP": 500,
+                    "enemy": 1765229486
+                }
+            ],
+            "Children UID": [
+                1882853862
+            ]
+        },
+        {
+            "Name": "pPlane1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1882853862,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Health_Bar_Plane.fbx",
+            "Parent UID": 1953913454,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -7.0036673545837402,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        15,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1712041820,
+                    "Vertex Count": 121,
+                    "Index Count": 600
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                15.465556144714355,
+                                -0.51650440692901611
+                            ],
+                            "color": [
+                                1,
+                                0,
+                                0
+                            ],
+                            "light": false
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                }
+            ]
+        },
+        {
             "Name": "DroneXenomorph",
             "Static": false,
             "Tag": "Enemy",
             "UID": 1765229486,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 315874151,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.63420295715332031,
                         0,
-                        64.548736572265625
-                    ],
-                    "Rotation": [
-                        -0,
-                        -90,
+                        0,
                         0
                     ],
+                    "Rotation": [
+                        180,
+                        -89.980216979980469,
+                        180
+                    ],
                     "Scale": [
-                        0.024999996647238731,
                         0.02500000037252903,
-                        0.024999996647238731
+                        0.02500000037252903,
+                        0.02500000037252903
                     ]
                 },
                 {
@@ -107,6 +244,7 @@
                     "detectionRadius": 60,
                     "xSpeed": 0,
                     "ySpeed": 0,
+                    "droneState": 0,
                     "timeCounter": 0
                 },
                 {
@@ -141,8 +279,7 @@
                 }
             ],
             "Children UID": [
-                317641903,
-                1977502411
+                317641903
             ]
         },
         {
@@ -188,9 +325,9 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                -0.088538646697998047,
-                                13.082799911499023,
-                                -1.4917325973510742
+                                0,
+                                15.465556144714355,
+                                -0.51650440692901611
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -209,78 +346,6 @@
                     "Normal_ID": 602,
                     "Normal_Path": "Assets\/Textures\/Texturas-Drone\/TEX_CHAR_Xenomorph_N.png",
                     "Normal_UID": 788886931
-                }
-            ]
-        },
-        {
-            "Name": "Sensor",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1977502411,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1765229486,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        2.56103515625,
-                        239.32478332519531,
-                        -18.405149459838867
-                    ],
-                    "Rotation": [
-                        -180,
-                        89.980216979980469,
-                        180
-                    ],
-                    "Scale": [
-                        39.999992370605469,
-                        40,
-                        39.999992370605469
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        9.1000003814697266,
-                        10.399999618530273,
-                        18.100000381469727
-                    ],
-                    "Physics Type": 1,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        180,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "DroneXenomorphAttack.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "drone": 1765229486
                 }
             ]
         }

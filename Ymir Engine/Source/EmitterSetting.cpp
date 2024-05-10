@@ -6,8 +6,7 @@
 #include "ImporterTexture.h"
 #include "ModuleScene.h"
 
-//SHAPES
-//#include "EmitterShapeArea.h"
+#include "External/mmgr/mmgr.h"
 
 EmitterSetting::EmitterSetting()
 {
@@ -15,6 +14,65 @@ EmitterSetting::EmitterSetting()
 
 EmitterSetting::~EmitterSetting()
 {
+	//ERIC: Esto peta
+	/*switch (type)
+	{
+	case PAR_BASE:
+	{
+		EmitterBase* eBase = (EmitterBase*)this;
+		eBase->~EmitterBase();
+		eBase = nullptr;
+		break;
+	}
+	case PAR_SPAWN:
+	{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+	}
+	case PAR_POSITION:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_ROTATION:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_SIZE:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_COLOR:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PAR_IMAGE:
+		{
+		EmitterSpawner* eSpawner = (EmitterSpawner*)this;
+		eSpawner->~EmitterSpawner();
+		eSpawner = nullptr;
+		break;
+		}
+	case PARTICLES_MAX:
+		{
+		break;
+		}
+	default:
+		break;
+	}*/
 }
 
 void EmitterSetting::Update(float dt, ParticleEmitter* emitter)
@@ -39,15 +97,19 @@ EmitterBase::EmitterBase()
 	baseRadius = 2.0f;
 	topRadius = 4.0f;
 	heigth = 3.0f;
+	useAngle = true;
+	angle = 45.0f;
 
 	//Box
 	boxPointsPositives = { 1,1,1 };
 	boxPointsNegatives = { -1,-1,-1 };
+	scaleAll = false;
 
 	//Life time
 	randomLT = false;
 	particlesLifeTime1 = 1.0f;
 	particlesLifeTime2 = 2.0f;
+	inmortal = false;
 
 	//Die by distance
 	hasDistanceLimit = false;
@@ -55,6 +117,10 @@ EmitterBase::EmitterBase()
 
 	//World rotation
 	rotacionBase = RotationInheritanceParticles::PAR_WORLD_MATRIX;
+}
+
+EmitterBase::~EmitterBase()
+{
 }
 
 void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
@@ -155,6 +221,8 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 			particle->worldRotation = rotation;
 			particle->size = escale;
 		}
+
+		particle->initialPosition = particle->position;
 	}
 		break;
 	case PAR_BOX:
@@ -235,11 +303,15 @@ void EmitterBase::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 void EmitterBase::Update(float dt, ParticleEmitter* emitter)
 {
-	for (int i = 0; i < emitter->listParticles.size(); i++)
+	if(!inmortal)
 	{
-		//Actualizamos el tiempo de vida de cada particula
-		emitter->listParticles.at(i)->lifetime += emitter->listParticles.at(i)->oneOverMaxLifetime * dt;
+		for (int i = 0; i < emitter->listParticles.size(); i++)
+		{
+			//Actualizamos el tiempo de vida de cada particula
+			emitter->listParticles.at(i)->lifetime += emitter->listParticles.at(i)->oneOverMaxLifetime * dt;
+		}
 	}
+	
 }
 
 void EmitterBase::OnInspector()
@@ -293,22 +365,54 @@ void EmitterBase::OnInspector()
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
 			ImGui::DragFloat("Heigth ## BASE", &(this->heigth), 0.2f, 0.01f, 200.f);
 			ImGui::DragFloat("Base Radius ## BASE", &(this->baseRadius), 0.2f, radiusHollow+0.01f, 200.f);
-			ImGui::DragFloat("End Radius ## BASE", &(this->topRadius), 0.2f, 0.01f, 200.f);
+			ImGui::Checkbox("Angle", &this->useAngle); ImGui::SameLine();
+			if (useAngle) 
+			{
+				angle = RadToDeg(math::Atan((topRadius - baseRadius) / heigth));
+				if(ImGui::DragFloat("Angle ## BASE", &(this->angle), 0.2f, -90, 90,"%.1f"))
+				{
+					float angleRad = math::Tan(DEGTORAD * angle);
+					topRadius = angleRad* heigth + baseRadius;
+				}
+			}
+			else 
+			{
+				if(ImGui::DragFloat("Radius F. ## BASE", &(this->topRadius), 0.2f, 0.01f, 200.f, "%.1f"))
+				{
+					angle = RadToDeg(math::Atan((topRadius - baseRadius) / heigth));
+				}
+			}
+			
 			ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius-0.01f);
 		};
 			break;
 		case SpawnAreaShape::PAR_BOX:
 		{
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
-			ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f, 0.001f,200.0f);
-			ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegatives[0]), 0.1f,-200.0f,-0.0f);
+			ImGui::Checkbox("Scale All", &scaleAll);
+			if (scaleAll)
+			{
+				if (ImGui::DragFloat("Box Size ## BASE", &this->boxPointsPositives[0], 0.1F, 0.01F, 100.0F))
+				{
+					boxPointsPositives[1] = boxPointsPositives[0];
+					boxPointsPositives[2] = boxPointsPositives[0];
+					boxPointsNegatives[0] = -boxPointsPositives[0];
+					boxPointsNegatives[1] = -boxPointsPositives[0];
+					boxPointsNegatives[2] = -boxPointsPositives[0];
+				}
+			}
+			else
+			{
+				ImGui::DragFloat3("Box Size 1 ## BASE", &(this->boxPointsPositives[0]), 0.1f, 0.001f, 200.0f);
+				ImGui::DragFloat3("Box Size 2 ## BASE", &(this->boxPointsNegatives[0]), 0.1f, -200.0f, -0.0f);
+			}
 		}
 			break;
 		case SpawnAreaShape::PAR_SPHERE: 
 		{
 			ImGui::DragFloat3("Initial Pos. ## BASE", &(this->emitterOrigin[0]), 0.1f);
 			ImGui::DragFloat("Base Radius ## BASE", &(this->baseRadius), 0.2f, radiusHollow + 0.01f, 200.f);
-			ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius - 0.01f);
+			//ImGui::DragFloat("Empty Area ## BASE", &(this->radiusHollow), 0.1f, -0.0f, baseRadius - 0.01f);
 		} 
 			break;
 		case SpawnAreaShape::PAR_SHAPE_ENUM_END:
@@ -317,17 +421,21 @@ void EmitterBase::OnInspector()
 			break;
 	}
 	
-	ImGui::Checkbox("Random Lifetime ##BASE", &this->randomLT);
-	if (this->randomLT)
+	ImGui::Checkbox("Inmortal Particle ##BASE", &this->inmortal);
+	if (!inmortal)
 	{
-		ImGui::DragFloat("Life Time1 ## BASE", &(this->particlesLifeTime1), 0.5F, 0.1F, 720.0F);
-		ImGui::DragFloat("Life Time2 ## BASE", &(this->particlesLifeTime2), 0.5F, 0.1F, 720.0F);
+		ImGui::Checkbox("Random Lifetime ##BASE", &this->randomLT);
+		if (this->randomLT)
+		{
+			ImGui::DragFloat("Life Time1 ## BASE", &(this->particlesLifeTime1), 0.5F, 0.1F, 720.0F);
+			ImGui::DragFloat("Life Time2 ## BASE", &(this->particlesLifeTime2), 0.5F, 0.1F, 720.0F);
+		}
+		else
+		{
+			ImGui::DragFloat("Life Time ## BASE", &(this->particlesLifeTime1), 0.5F, 0.5F, 720.0F);
+		}
 	}
-	else
-	{
-		ImGui::DragFloat("Life Time ## BASE", &(this->particlesLifeTime1), 0.5F, 0.5F, 720.0F);
-	}
-
+	
 	ImGui::Checkbox("Dies by Distance ##BASE", &this->hasDistanceLimit);
 	if(this->hasDistanceLimit)
 	{
@@ -381,10 +489,25 @@ EmitterSpawner::EmitterSpawner()
 	numParticlesForStop = 100;
 	numParticlesSpawned = 0;
 
+	pointingEmitter = nullptr;
+	pointingUID = 0;
+	conditionForSpawn = SpawnConditionSubemitter::PAR_MORE_THAN;
+	subMaxLifetime = 0.0f;
+	subMinLifetime = 1.0f;
+	positionParticleForSub = { 0,0,0 };
+}
+
+EmitterSpawner::~EmitterSpawner()
+{
+	//pointingEmitter = nullptr;
 }
 
 void EmitterSpawner::Spawn(ParticleEmitter* emitter, Particle* particle)
 {
+	if(pointingEmitter != nullptr)
+	{
+		particle->position = positionParticleForSub; //Valor guardado de posicion;
+	}
 }
 
 void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
@@ -393,6 +516,219 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 	bool countParticles = false;
 	switch (startMode)
 	{
+
+	case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:
+	{
+		spawnFromStart = false;
+		countParticles = false;
+
+		if (pointingUID != 0)
+		{
+			for (int u = 0; u < emitter->owner->allEmitters.size(); u++) 
+			{
+				if(emitter->owner->allEmitters.at(u)->UID == pointingUID)
+				{
+					pointingEmitter = emitter->owner->allEmitters.at(u);
+				}
+			}
+			pointingUID = 0;
+		}
+		if(pointingEmitter != nullptr)
+		{
+			for (int i = 0; pointingEmitter->listParticles.size() > i; i++)
+			{
+				switch (conditionForSpawn)
+				{
+				case PAR_LESS_THAN:
+					if (pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
+					{
+						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
+						switch (spawnMode)
+						{
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST:
+						{
+							int remainingParticlesToSpawn = numParticlesToSpawn - emitter->listParticles.size();
+							if (remainingParticlesToSpawn > 0)
+							{
+								emitter->SpawnParticle(remainingParticlesToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += remainingParticlesToSpawn;
+								}
+							}
+						}
+
+						break;
+						case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = 0;
+							if (currentTimer > spawnRatio)
+							{
+								numToSpawn = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned++;
+								}
+							}
+							currentTimer -= (spawnRatio * numToSpawn);
+						}
+						break;
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = numParticlesToSpawn;
+							int substractTime = 0;
+							if (currentTimer > spawnRatio)
+							{
+								substractTime = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += numParticlesToSpawn;
+								}
+							}
+							currentTimer -= (spawnRatio * substractTime);
+						}
+						break;
+						case PAR_SPAWN_MODE_END:
+							break;
+						default:
+							break;
+						}
+					}
+					break;
+				case PAR_MORE_THAN:
+					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime) //Cumple condicion para spawn
+					{
+						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
+						switch (spawnMode)
+						{
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST:
+						{
+							int remainingParticlesToSpawn = numParticlesToSpawn - emitter->listParticles.size();
+							if (remainingParticlesToSpawn > 0)
+							{
+								emitter->SpawnParticle(remainingParticlesToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += remainingParticlesToSpawn;
+								}
+							}
+						}
+
+						break;
+						case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = 0;
+							if (currentTimer > spawnRatio)
+							{
+								numToSpawn = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned++;
+								}
+							}
+							currentTimer -= (spawnRatio * numToSpawn);
+						}
+						break;
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = numParticlesToSpawn;
+							int substractTime = 0;
+							if (currentTimer > spawnRatio)
+							{
+								substractTime = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += numParticlesToSpawn;
+								}
+							}
+							currentTimer -= (spawnRatio * substractTime);
+						}
+						break;
+						case PAR_SPAWN_MODE_END:
+							break;
+						default:
+							break;
+						}
+					}
+					break;
+				case PAR_INBETWEEN_OF:
+					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime && pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
+					{
+						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
+						switch (spawnMode)
+						{
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST:
+						{
+							int remainingParticlesToSpawn = numParticlesToSpawn - emitter->listParticles.size();
+							if (remainingParticlesToSpawn > 0)
+							{
+								emitter->SpawnParticle(remainingParticlesToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += remainingParticlesToSpawn;
+								}
+							}
+						}
+
+						break;
+						case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = 0;
+							if (currentTimer > spawnRatio)
+							{
+								numToSpawn = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned++;
+								}
+							}
+							currentTimer -= (spawnRatio * numToSpawn);
+						}
+						break;
+						case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
+						{
+							currentTimer += dt;
+							int numToSpawn = numParticlesToSpawn;
+							int substractTime = 0;
+							if (currentTimer > spawnRatio)
+							{
+								substractTime = currentTimer / spawnRatio;
+								emitter->SpawnParticle(numToSpawn);
+								if (countParticles)
+								{
+									numParticlesSpawned += numParticlesToSpawn;
+								}
+							}
+							currentTimer -= (spawnRatio * substractTime);
+						}
+						break;
+						case PAR_SPAWN_MODE_END:
+							break;
+						default:
+							break;
+						}
+					}
+					break;
+				case PAR_END_SPAWN_CONDITION:
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		
+	}
+	break;
 	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
 	{
 		spawnFromStart = true;
@@ -439,24 +775,24 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 				}
 			}
 		}
-		
-			break;
+
+		break;
 		case ParticlesSpawnMode::PAR_ONE_PARTICLE_OVER_DELAY:
 		{
 			currentTimer += dt;
-				int numToSpawn = 0;
-				if (currentTimer > spawnRatio)
+			int numToSpawn = 0;
+			if (currentTimer > spawnRatio)
+			{
+				numToSpawn = currentTimer / spawnRatio;
+				emitter->SpawnParticle(numToSpawn);
+				if (countParticles)
 				{
-					numToSpawn = currentTimer / spawnRatio;
-					emitter->SpawnParticle(numToSpawn);
-					if (countParticles)
-					{
-						numParticlesSpawned++;
-					}
+					numParticlesSpawned++;
 				}
-				currentTimer -= (spawnRatio * numToSpawn);
+			}
+			currentTimer -= (spawnRatio * numToSpawn);
 		}
-			break;
+		break;
 		case ParticlesSpawnMode::PAR_NUM_PARTICLES_OVER_DELAY:
 		{
 			currentTimer += dt;
@@ -468,7 +804,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 				emitter->SpawnParticle(numToSpawn);
 				if (countParticles)
 				{
-					numParticlesSpawned+= numParticlesToSpawn;
+					numParticlesSpawned += numParticlesToSpawn;
 				}
 			}
 			currentTimer -= (spawnRatio * substractTime);
@@ -495,9 +831,24 @@ bool EmitterSpawner::PlayTrigger(bool val) //Stats play or pause
 	return playTriggered;
 }
 
-void EmitterSpawner::OnInspector()
+void EmitterSpawner::OnInspector(ParticleEmitter* thisEmitter)
 {
 	int numParticles = this->numParticlesToSpawn;
+	if(thisEmitter->owner->allEmitters.size()<=1 && startMode == ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER)
+	{
+		startMode = ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP;
+	}
+	if (pointingUID != 0)
+	{
+		for (int u = 0; u < thisEmitter->owner->allEmitters.size(); u++)
+		{
+			if (thisEmitter->owner->allEmitters.at(u)->UID == pointingUID)
+			{
+				pointingEmitter = thisEmitter->owner->allEmitters.at(u);
+			}
+		}
+		pointingUID = 0;
+	}
 
 	//Spawn types
 	std::string modeName;
@@ -582,46 +933,28 @@ void EmitterSpawner::OnInspector()
 	std::string modeName2;
 	switch (startMode)
 	{
-	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
-		modeName2 = "Start and NonStop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_START_STOP:
-		modeName2 = "Start with Stop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:
-		modeName2 = "Wait then NonStop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_WAIT_STOP:
-		modeName2 = "Init with Stop";
-		break;
-	case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:
-		break;
-	default:
-		break;
+	case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:modeName2 = "Wait Subemitter";break;
+	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:modeName2 = "Start and NonStop";break;
+	case ParticlesSpawnEnabeling::PAR_START_STOP:modeName2 = "Start with Stop";break;
+	case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:modeName2 = "Wait then NonStop";break;
+	case ParticlesSpawnEnabeling::PAR_WAIT_STOP:modeName2 = "Wait with Stop";break;
+	case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:break;
+	default:break;
 	}
 
 	if (ImGui::BeginCombo("##InitMode", modeName2.c_str()))
 	{
-		for (int i = 0; i < ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END; i++)
+		for (int i = (thisEmitter->owner->allEmitters.size()>1) ? -1 : 0; i < ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END; i++)
 		{
-			/*std::string modeName;*/
 
 			switch (ParticlesSpawnEnabeling(i))
 			{
-			case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
-				modeName2 = "Start and NonStop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_START_STOP:
-				modeName2 = "Start with Stop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:
-				modeName2 = "Wait then NonStop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_WAIT_STOP:
-				modeName2 = "Wait with Stop";
-				break;
-			case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:
-				break;
+			case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:modeName2 = "Wait Subemitter";break;
+			case ParticlesSpawnEnabeling::PAR_START_NON_STOP:modeName2 = "Start and NonStop";break;
+			case ParticlesSpawnEnabeling::PAR_START_STOP:modeName2 = "Start with Stop";break;
+			case ParticlesSpawnEnabeling::PAR_WAIT_NON_STOP:modeName2 = "Wait then NonStop";break;
+			case ParticlesSpawnEnabeling::PAR_WAIT_STOP:modeName2 = "Wait with Stop";break;
+			case ParticlesSpawnEnabeling::PAR_ENABLE_MODES_END:break;
 			}
 			if (ImGui::Selectable(modeName2.c_str()))
 			{
@@ -636,6 +969,114 @@ void EmitterSpawner::OnInspector()
 
 	switch (startMode)
 	{
+	case ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER:
+	{
+		std::string actualEmitterName;
+		if (pointingEmitter == nullptr)
+		{
+			actualEmitterName = "None";
+		}
+		else
+		{
+			actualEmitterName = pointingEmitter->name;
+		}
+		if (ImGui::BeginCombo("##Change Emitter", actualEmitterName.c_str()))
+		{
+			for (auto it = thisEmitter->owner->allEmitters.begin(); it != thisEmitter->owner->allEmitters.end(); it++)
+			{
+				if ((*it)->UID != thisEmitter->UID)
+				{
+					actualEmitterName = (*it)->name;
+				}
+				else
+				{
+					actualEmitterName = "None";
+				}
+
+				if (actualEmitterName.c_str() == "None")
+				{
+					pointingEmitter = nullptr;
+				}
+				else if (ImGui::Selectable(actualEmitterName.c_str()))
+				{
+					pointingEmitter = (*it);
+					if (pointingEmitter == thisEmitter)
+					{
+						pointingEmitter = nullptr;
+					}
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+		ImGui::SameLine();
+		ImGui::Text("Emitter Being Observed");
+
+		if (pointingEmitter != nullptr) //If we have a pointing emitter spawn conditions
+		{
+			ImGui::Text("Subemitter Conditions");
+			std::string spawnCon;
+
+			switch (conditionForSpawn)
+			{
+			case SpawnConditionSubemitter::PAR_LESS_THAN: spawnCon = "Less Than";	break;
+			case SpawnConditionSubemitter::PAR_MORE_THAN: spawnCon = "More Than";	break;
+			case SpawnConditionSubemitter::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
+			case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
+			default:
+				break;
+			}
+
+			if (ImGui::BeginCombo("##SpawnCondition", spawnCon.c_str()))
+			{
+				for (int i = 0; i < SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION; i++)
+				{
+					switch ((SpawnConditionSubemitter)i)
+					{
+					case SpawnConditionSubemitter::PAR_LESS_THAN: spawnCon = "Less Than";	break;
+					case SpawnConditionSubemitter::PAR_MORE_THAN: spawnCon = "More Than";	break;
+					case SpawnConditionSubemitter::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
+					case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
+					}
+					if (ImGui::Selectable(spawnCon.c_str()))
+					{
+						conditionForSpawn = (SpawnConditionSubemitter)i;
+					}
+				}
+
+				ImGui::EndCombo();
+			}
+
+			switch (conditionForSpawn)
+			{
+			case SpawnConditionSubemitter::PAR_LESS_THAN:
+			{
+				ImGui::DragFloat("Maximun Time ## SUBEMITTER", &subMaxLifetime, 0.05f, 0.0f, 1.0f);
+			}
+			break;
+			case SpawnConditionSubemitter::PAR_MORE_THAN:
+			{
+				ImGui::DragFloat("Minimun Time ## SUBEMITTER", &subMinLifetime, 0.05f, 0.0f, 1.0f);
+			}
+			break;
+			case SpawnConditionSubemitter::PAR_INBETWEEN_OF:
+			{
+				if (subMinLifetime > subMaxLifetime) { subMinLifetime = subMaxLifetime; } //Protection against errors
+				ImGui::DragFloat("Minimun Time ## SUBEMITTER", &subMinLifetime, 0.05f, 0.0f, Min(subMaxLifetime, 1.0f));
+				ImGui::DragFloat("Maximun Time ## SUBEMITTER", &subMaxLifetime, 0.05f, Max(subMinLifetime, 0.0f), 1.0f);
+			}
+			break;
+			case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION:
+			{
+				spawnCon = "";
+			}
+			break;
+			default:
+				break;
+			}
+		}
+	}
+		break;
 	case ParticlesSpawnEnabeling::PAR_START_NON_STOP:
 		//modeName2 = "Start and NonStop";
 		break;
@@ -664,7 +1105,6 @@ void EmitterSpawner::OnInspector()
 		break;
 	}
 	
-	
 	ImGui::Separator();
 }
 
@@ -675,6 +1115,9 @@ EmitterPosition::EmitterPosition()
 	direction1 = { 0,0,0 };
 	direction2 = { 0,0,0 };
 	normalizedSpeed = true;
+
+	//Use shape for movement
+	useBaseShape = false;
 
 	//Normal acceleration
 	acceleration = false;
@@ -692,95 +1135,217 @@ EmitterPosition::EmitterPosition()
 
 void EmitterPosition::Spawn(ParticleEmitter* emitter, Particle* particle)
 {
-	if (randomized)
+	if (!useBaseShape)
 	{
-		float3 dir1, dir2;
-
-		dir1 = { direction1.x ,direction1.y ,direction1.z };
-		dir2 = { direction2.x ,direction2.y ,direction2.z };
-
-		float maxX, minX;
-		if (dir1.x > dir2.x)
+		if (randomized)
 		{
-			maxX = dir1.x;
-			minX = dir2.x;
+			float3 dir1, dir2;
+
+			dir1 = { direction1.x ,direction1.y ,direction1.z };
+			dir2 = { direction2.x ,direction2.y ,direction2.z };
+
+			float maxX, minX;
+			if (dir1.x > dir2.x)
+			{
+				maxX = dir1.x;
+				minX = dir2.x;
+			}
+			else
+			{
+				maxX = dir2.x;
+				minX = dir1.x;
+			}
+
+			float maxY, minY;
+			if (dir1.y > dir2.y)
+			{
+				maxY = dir1.y;
+				minY = dir2.y;
+			}
+			else
+			{
+				maxY = dir2.y;
+				minY = dir1.y;
+			}
+
+			float maxZ, minZ;
+			if (dir1.z > dir2.z)
+			{
+				maxZ = dir1.z;
+				minZ = dir2.z;
+			}
+			else
+			{
+				maxZ = dir2.z;
+				minZ = dir1.z;
+			}
+
+			float randomX = ((float)rand()) / (float)RAND_MAX;
+			float rangeX = maxX - minX;
+			float fX = (randomX * rangeX) + minX;
+
+			float randomY = ((float)rand()) / (float)RAND_MAX;
+			float rangeY = maxY - minY;
+			float fY = (randomY * rangeY) + minY;
+
+			float randomZ = ((float)rand()) / (float)RAND_MAX;
+			float rangeZ = maxZ - minZ;
+			float fZ = (randomZ * rangeZ) + minZ;
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ fX,fY,fZ });
+				particle->velocity.x += fX / newModul;
+				particle->velocity.y += fY / newModul;
+				particle->velocity.z += fZ / newModul;
+			}
+			else
+			{
+				particle->velocity.x += fX;
+				particle->velocity.y += fY;
+				particle->velocity.z += fZ;
+			}
+
 		}
 		else
 		{
-			maxX = dir2.x;
-			minX = dir1.x;
+			if (normalizedSpeed)
+			{
+				float modul1 = GetModuleVec(direction1);
+				if (modul1 > 0)
+				{
+					particle->velocity.x += direction1.x / modul1;
+					particle->velocity.y += direction1.y / modul1;
+					particle->velocity.z += direction1.z / modul1;
+				}
+			}
+			else
+			{
+				particle->velocity.x += direction1.x;
+				particle->velocity.y += direction1.y;
+				particle->velocity.z += direction1.z;
+			}
 		}
-
-		float maxY, minY;
-		if (dir1.y > dir2.y)
-		{
-			maxY = dir1.y;
-			minY = dir2.y;
-		}
-		else
-		{
-			maxY = dir2.y;
-			minY = dir1.y;
-		}
-
-		float maxZ, minZ;
-		if (dir1.z > dir2.z)
-		{
-			maxZ = dir1.z;
-			minZ = dir2.z;
-		}
-		else
-		{
-			maxZ = dir2.z;
-			minZ = dir1.z;
-		}
-
-		float randomX = ((float)rand()) / (float)RAND_MAX;
-		float rangeX = maxX - minX;
-		float fX = (randomX * rangeX) + minX;
-
-		float randomY = ((float)rand()) / (float)RAND_MAX;
-		float rangeY = maxY - minY;
-		float fY = (randomY * rangeY) + minY;
-
-		float randomZ = ((float)rand()) / (float)RAND_MAX;
-		float rangeZ = maxZ - minZ;
-		float fZ = (randomZ * rangeZ) + minZ;
-		if (normalizedSpeed) 
-		{
-			float newModul = GetModuleVec({ fX,fY,fZ });
-			particle->velocity.x += fX / newModul;
-			particle->velocity.y += fY / newModul;
-			particle->velocity.z += fZ / newModul;
-		}
-		else 
-		{
-			particle->velocity.x += fX;
-			particle->velocity.y += fY;
-			particle->velocity.z += fZ;
-		}
-		
 	}
 	else
 	{
-		if (normalizedSpeed)
+		if (emitter->modules.at(0)->type == EmitterType::PAR_BASE) //Check of security
 		{
-			float modul1 = GetModuleVec(direction1);
-			if (modul1 > 0)
+			EmitterBase* eBase = (EmitterBase*)emitter->modules.at(0);
+
+			switch (eBase->currentShape)
 			{
-				particle->velocity.x += direction1.x / modul1;
-				particle->velocity.y += direction1.y / modul1;
-				particle->velocity.z += direction1.z / modul1;
+			case SpawnAreaShape::PAR_POINT:
+			{
+				if (normalizedSpeed)
+				{
+					float modul1 = GetModuleVec(eBase->emitterOrigin);
+					if (modul1 > 0)
+					{
+						particle->velocity.x = eBase->emitterOrigin.x / modul1;
+						particle->velocity.y = eBase->emitterOrigin.y / modul1;
+						particle->velocity.z = eBase->emitterOrigin.z / modul1;
+					}
+				}
+				else
+				{
+					particle->velocity.x = eBase->emitterOrigin.x;
+					particle->velocity.y = eBase->emitterOrigin.y;
+					particle->velocity.z = eBase->emitterOrigin.z;
+				}
 			}
+				break;
+			case SpawnAreaShape::PAR_CONE:
+			{
+				float3 vecDire = (particle->initialPosition - emitter->owner->mOwner->mTransform->GetGlobalPosition()) - eBase->emitterOrigin; //Here we can extract 
+				float progressOfHeigth = vecDire.y / eBase->heigth; //Value in reference of heigth to base between 0-1
+				float3 finalDir = { (eBase->topRadius - eBase->baseRadius) * (vecDire.x) / (eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)) , eBase->heigth, (eBase->topRadius - eBase->baseRadius) * (vecDire.z) / (eBase->baseRadius * (1 - progressOfHeigth) + (eBase->topRadius * progressOfHeigth)) };
+				if (normalizedSpeed)
+				{
+					float modul1 = GetModuleVec(finalDir);
+					if (modul1 > 0)
+					{
+						particle->velocity.x = finalDir.x / modul1;
+						particle->velocity.y = finalDir.y / modul1;
+						particle->velocity.z = finalDir.z / modul1;
+					}
+				}
+				else
+				{
+					particle->velocity.x = finalDir.x;
+					particle->velocity.y = finalDir.y;
+					particle->velocity.z = finalDir.z;
+				}
+			}
+			break;
+			case SpawnAreaShape::PAR_BOX:
+			{
+				float3 vecDire = (particle->initialPosition - emitter->owner->mOwner->mTransform->GetGlobalPosition()) - eBase->emitterOrigin;
+				float3 finalDire = {0,0,0};
+
+				if (Abs(vecDire.x) > Abs(vecDire.y) && Abs(vecDire.x) > Abs(vecDire.z)) //If its X is away enough from the center make it count for movement 
+				{
+					finalDire.x = vecDire.x/Abs(vecDire.x);
+				}
+				else if (Abs(vecDire.y) > Abs(vecDire.z)) //If its Y is away enough from the center make it count for movement 
+				{
+					finalDire.y = vecDire.y / Abs(vecDire.y);
+				}
+				else //If its Z is away enough from the center make it count for movement 
+				{
+					finalDire.z = vecDire.z / Abs(vecDire.z);
+				}
+				if (normalizedSpeed)
+				{
+					particle->velocity.x = finalDire.x;
+					particle->velocity.y = finalDire.y;
+					particle->velocity.z = finalDire.z;
+				}
+				else
+				{
+					particle->velocity.x = finalDire.x * ((finalDire.x > 0.0f) ? eBase->boxPointsPositives.x : eBase->boxPointsNegatives.x);
+					particle->velocity.y = finalDire.y * ((finalDire.y > 0.0f) ? eBase->boxPointsPositives.y : eBase->boxPointsNegatives.y);
+					particle->velocity.z = finalDire.z * ((finalDire.z > 0.0f) ? eBase->boxPointsPositives.z : eBase->boxPointsNegatives.z);
+				}
+			}
+			break;
+			case SpawnAreaShape::PAR_SPHERE:
+			{
+				float3 vecDire = (particle->initialPosition - emitter->owner->mOwner->mTransform->GetGlobalPosition()) - eBase->emitterOrigin;
+				if (normalizedSpeed)
+				{
+
+					float modul1 = GetModuleVec(vecDire);
+					if (modul1 > 0)
+					{
+						particle->velocity.x = vecDire.x / modul1;
+						particle->velocity.y = vecDire.y / modul1;
+						particle->velocity.z = vecDire.z / modul1;
+					}
+				}
+				else
+				{
+					particle->velocity.x = vecDire.x;
+					particle->velocity.y = vecDire.y;
+					particle->velocity.z = vecDire.z;
+				}
+			}
+			break;
+			case SpawnAreaShape::PAR_SHAPE_ENUM_END:
+			{
+				//Nothing
+			}
+				break;
+			default:
+				break;
+			}
+
+			eBase = nullptr;
 		}
-		else
-		{
-			particle->velocity.x += direction1.x;
-			particle->velocity.y += direction1.y;
-			particle->velocity.z += direction1.z;
-		}
+
 	}
+	
 	particle->velocity.w += particleSpeed1;
+	
 }
 
 void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
@@ -913,34 +1478,43 @@ void EmitterPosition::Update(float dt, ParticleEmitter* emitter)
 
 void EmitterPosition::OnInspector()
 {
-	ImGui::Checkbox("Random Movement ##POSITION", &this->randomized);
-	if (this->randomized)
+	ImGui::Checkbox("Use Shape ##POSITION", &this->useBaseShape);
+	if(useBaseShape)
 	{
-		ImGui::DragFloat3("Range 1 ##POSITION", &(this->direction1[0]), 0.1f);
-		if (normalizedSpeed)
-		{
-			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
-			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
-			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
-		}
-		ImGui::DragFloat3("Range 2 ##POSITION", &(this->direction2[0]), 0.1f);
-		if (normalizedSpeed)
-		{
-			float newModul = GetModuleVec({ direction2[0],direction2[1],direction2[2] });
-			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
-			ImGui::Text(("( " + std::to_string(direction2[0] / newModul) + ", " + std::to_string(direction2[1] / newModul) + ", " + std::to_string(direction2[2] / newModul) + " )").c_str());
-		}
+		ImGui::Text("Using the Base Shape");
 	}
 	else
 	{
-		ImGui::DragFloat3("Position", &(this->direction1[0]), 0.1f);
-		if (normalizedSpeed)
+		ImGui::Checkbox("Random Movement ##POSITION", &this->randomized);
+		if (this->randomized)
 		{
-			float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
-			if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
-			ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+			ImGui::DragFloat3("Range 1 ##POSITION", &(this->direction1[0]), 0.1f);
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+				if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+				ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+			}
+			ImGui::DragFloat3("Range 2 ##POSITION", &(this->direction2[0]), 0.1f);
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ direction2[0],direction2[1],direction2[2] });
+				if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+				ImGui::Text(("( " + std::to_string(direction2[0] / newModul) + ", " + std::to_string(direction2[1] / newModul) + ", " + std::to_string(direction2[2] / newModul) + " )").c_str());
+			}
+		}
+		else
+		{
+			ImGui::DragFloat3("Position", &(this->direction1[0]), 0.1f);
+			if (normalizedSpeed)
+			{
+				float newModul = GetModuleVec({ direction1[0],direction1[1],direction1[2] });
+				if (newModul == 0.0f) { newModul = 1.0f; } //Evitar en nan defined de dividir entre 0
+				ImGui::Text(("( " + std::to_string(direction1[0] / newModul) + ", " + std::to_string(direction1[1] / newModul) + ", " + std::to_string(direction1[2] / newModul) + " )").c_str());
+			}
 		}
 	}
+	
 	ImGui::Checkbox("Normalize Dir. ##POSITION", &this->normalizedSpeed);
 	ImGui::Checkbox("Acceleration ##POSITION", &this->acceleration);
 	if (this->acceleration)
@@ -954,7 +1528,6 @@ void EmitterPosition::OnInspector()
 	}
 
 	std::string modeName;
-
 	switch (actualSpeedChange)
 	{
 	case SpeedChangeMode::PAR_NO_SPEED_CHANGE:modeName = "None"; break;
@@ -1273,13 +1846,12 @@ float4x4 EmitterRotation::LookAt(float3& Spot, float3& position) // https://www.
 	//Y
 	float3 up = forward.Cross(right);//crossProduct(forward, right);
 	
-	float4x4 m;
+	float4x4 m = float4x4::identity;
 	m[0][0] = right.x, m[0][1] = right.y, m[0][2] = right.z;
 	m[1][0] = up.x, m[1][1] = up.y, m[1][2] = up.z;
 	m[2][0] = forward.x, m[2][1] = forward.y, m[2][2] = forward.z;
 	m[3][0] = position.x, m[3][1] = position.y, m[3][2] = position.z;
-
-	return float4x4();
+	return m;
 }
 
 void EmitterRotation::SetRotation(Quat rot)
@@ -1370,6 +1942,7 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	
 	//We obtain the look at vector to create a matrix
 	float4x4 newMatrix = LookAt(tempPos, emitter->owner->mOwner->mTransform->GetGlobalPosition());
+	newMatrix.Decompose(tempPos, tempRot, tempSca);
 
 	float3 newRot = tempRot.ToEulerXYZ();
 	switch (orientationOfAxis)
@@ -1378,7 +1951,7 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	{
 		newRot.y = 0;
 		newRot.z = 0;
-		tempRot = tempRot.FromEulerXYZ(newRot.x,newRot.y,newRot.z);
+		//tempRot = tempRot.FromEulerXYZ(newRot.x,newRot.y,newRot.z);
 
 		//tempRot = Quat(math::Cross(tempRot.ToEulerXYZ(), {0,1,0}));
 	}
@@ -1387,14 +1960,14 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 	{
 		newRot.x = 0;
 		newRot.z = 0;
-		tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
+		//tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
 	}
 	break;
 	case OrientationDirection::PAR_Z_AXIS:
 	{
 		newRot.x = 0;
 		newRot.y = 0;
-		tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
+		//tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
 	}
 	break;
 	case OrientationDirection::PAR_ORIENTATION_DIRECTION_END: break;
@@ -1402,6 +1975,7 @@ void EmitterRotation::AxisAlign(ParticleEmitter* emitter)
 		break;
 		
 	}
+	tempRot = tempRot.FromEulerXYZ(newRot.x, newRot.y, newRot.z);
 	SetRotation(tempRot);
 }
 
@@ -1409,6 +1983,7 @@ EmitterSize::EmitterSize()
 {
 	originalSize = { 1,1,1 };
 	progresive = false;
+	loop = false;
 	startChange = 0.0f; //Range from 0 to 1 as lifetime
 	stopChange = 1.0f; //Range from 0 to 1 as lifetime
 	sizeMultiplier1 = 1.0f;
@@ -1425,16 +2000,38 @@ void EmitterSize::Update(float dt, ParticleEmitter* emitter)
 	float3 base = originalSize;
 	if (progresive)
 	{
-		float timeForLerp = stopChange - startChange;
-		for (int i = 0; i < emitter->listParticles.size(); i++)
+		if(loop)
 		{
-			float actualLT = emitter->listParticles.at(i)->lifetime;
-
-			if (startChange <= actualLT && actualLT <= stopChange)
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
 			{
-				emitter->listParticles.at(i)->size = base * (sizeMultiplier1 + ((sizeMultiplier2 - sizeMultiplier1) * ((actualLT - startChange) / timeForLerp))); //Lerp size multiplication
+				float actualLT = emitter->listParticles.at(i)->lifetime;
+
+				if (actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->size = base * (sizeMultiplier1 + ((sizeMultiplier2 - sizeMultiplier1) * ((actualLT - startChange) / timeForLerp))); //Lerp size multiplication
+				}
+				else
+				{
+					timeForLerp = 1.0f - stopChange;
+					emitter->listParticles.at(i)->size = base * (sizeMultiplier2 + ((sizeMultiplier1 - sizeMultiplier2) * ((actualLT - stopChange) / timeForLerp))); //Lerp size multiplication
+				}
 			}
 		}
+		else
+		{
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
+			{
+				float actualLT = emitter->listParticles.at(i)->lifetime;
+
+				if (startChange <= actualLT && actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->size = base * (sizeMultiplier1 + ((sizeMultiplier2 - sizeMultiplier1) * ((actualLT - startChange) / timeForLerp))); //Lerp size multiplication
+				}
+			}
+		}
+		
 	}
 	else
 	{
@@ -1447,11 +2044,12 @@ void EmitterSize::Update(float dt, ParticleEmitter* emitter)
 
 void EmitterSize::OnInspector()
 {
-	ImGui::Checkbox("Progresive Scaling", &(this->progresive));
-	ImGui::SliderFloat("First Scale", &(this->sizeMultiplier1), 0.1f, 10.0f);
+	ImGui::Checkbox("Progresive Scaling ## SCALE", &(this->progresive));
+	ImGui::DragFloat("First Scale ## SCALE", &(this->sizeMultiplier1), 0.5f, 0.0f, 720.0f);
 	if (this->progresive)
 	{
-		ImGui::SliderFloat("End Scale", &(this->sizeMultiplier2), 0.1f, 10.0f);
+		ImGui::Checkbox("Loop ## SCALE", &this->loop); ImGui::SameLine();
+		ImGui::DragFloat("End Scale ## SCALE", &(this->sizeMultiplier2), 0.5f, 0.0f, 720.0f);
 		ImGui::SliderFloat("Start Change ##SCALE", &(this->startChange), 0.0f, (this->stopChange - 0.05f));
 		ImGui::SliderFloat("Stop Change ##SCALE", &(this->stopChange), this->startChange + 0.05f, 1.0f);
 	}	
@@ -1462,6 +2060,7 @@ void EmitterSize::OnInspector()
 EmitterColor::EmitterColor()
 {
 	progresive = false;
+	loop = false;
 	startChange = 0.0f; //Range from 0 to 1 as lifetime
 	stopChange = 1.0f; //Range from 0 to 1 as lifetime
 	color1 = { 1,1,1,1 };
@@ -1477,82 +2076,104 @@ void EmitterColor::Update(float dt, ParticleEmitter* emitter)
 {
 	if (progresive)
 	{
-		float timeForLerp = stopChange - startChange;
-		for (int i = 0; i < emitter->listParticles.size(); i++)
+		if(loop) 
 		{
-			float actualLT = emitter->listParticles.at(i)->lifetime;
-
-			if (startChange <= actualLT && actualLT <= stopChange)
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
 			{
-				emitter->listParticles.at(i)->color.r = color1.r + ((color2.r - color1.r) * ((actualLT - startChange) / timeForLerp)); //Lerp red
-				emitter->listParticles.at(i)->color.g = color1.g + ((color2.g - color1.g) * ((actualLT - startChange) / timeForLerp)); //Lerp green
-				emitter->listParticles.at(i)->color.b = color1.b + ((color2.b - color1.b) * ((actualLT - startChange) / timeForLerp)); //Lerp blue
-				emitter->listParticles.at(i)->color.a = color1.a + ((color2.a - color1.a) * ((actualLT - startChange) / timeForLerp)); //Lerp alpha
+				float actualLT = emitter->listParticles.at(i)->lifetime;
 
+				if (actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->color.r = color1.r + ((color2.r - color1.r) * ((actualLT - startChange) / timeForLerp)); //Lerp red
+					emitter->listParticles.at(i)->color.g = color1.g + ((color2.g - color1.g) * ((actualLT - startChange) / timeForLerp)); //Lerp green
+					emitter->listParticles.at(i)->color.b = color1.b + ((color2.b - color1.b) * ((actualLT - startChange) / timeForLerp)); //Lerp blue
+					emitter->listParticles.at(i)->color.a = color1.a + ((color2.a - color1.a) * ((actualLT - startChange) / timeForLerp)); //Lerp alpha
+
+				}
+				else
+				{
+					timeForLerp = 1.0f - stopChange;
+					emitter->listParticles.at(i)->color.r = color2.r + ((color1.r - color2.r) * ((actualLT - stopChange) / timeForLerp)); //Lerp red
+					emitter->listParticles.at(i)->color.g = color2.g + ((color1.g - color2.g) * ((actualLT - stopChange) / timeForLerp)); //Lerp green
+					emitter->listParticles.at(i)->color.b = color2.b + ((color1.b - color2.b) * ((actualLT - stopChange) / timeForLerp)); //Lerp blue
+					emitter->listParticles.at(i)->color.a = color2.a + ((color1.a - color2.a) * ((actualLT - stopChange) / timeForLerp)); //Lerp alpha
+				}
 			}
 		}
+		else
+		{
+			float timeForLerp = stopChange - startChange;
+			for (int i = 0; i < emitter->listParticles.size(); i++)
+			{
+				float actualLT = emitter->listParticles.at(i)->lifetime;
+
+				if (startChange <= actualLT && actualLT <= stopChange)
+				{
+					emitter->listParticles.at(i)->color.r = color1.r + ((color2.r - color1.r) * ((actualLT - startChange) / timeForLerp)); //Lerp red
+					emitter->listParticles.at(i)->color.g = color1.g + ((color2.g - color1.g) * ((actualLT - startChange) / timeForLerp)); //Lerp green
+					emitter->listParticles.at(i)->color.b = color1.b + ((color2.b - color1.b) * ((actualLT - startChange) / timeForLerp)); //Lerp blue
+					emitter->listParticles.at(i)->color.a = color1.a + ((color2.a - color1.a) * ((actualLT - startChange) / timeForLerp)); //Lerp alpha
+
+				}
+			}
+		}
+		
 	}
 }
 
 void EmitterColor::OnInspector()
 {
-	ImGui::Checkbox("Progresive Color", &(this->progresive));
-	ImGui::ColorEdit4("First Color", &(this->color1));
+	ImGui::Checkbox("Progresive Color  ##COLOR", &(this->progresive));
+	ImGui::ColorEdit4("First Color  ##COLOR", &(this->color1));
 	if (this->progresive)
 	{
-		if (ImGui::ColorEdit4("End Color", &(this->color2)));
+		if (ImGui::ColorEdit4("End Color  ##COLOR", &(this->color2)));
 		{
 			this->color2 = this->color2;
 		}
-		ImGui::SliderFloat("Initial Color ##COLOR", &(this->startChange), 0.0f, (this->stopChange - 0.05f));
-		ImGui::SliderFloat("Final Color ##COLOR", &(this->stopChange), this->startChange + 0.05f, 1.0f);
+		ImGui::Checkbox("Loop ##COLOR", &this->loop);
+		ImGui::SliderFloat("Start Change ##COLOR", &(this->startChange), 0.0f, (this->stopChange - 0.05f));
+		ImGui::SliderFloat("End Change ##COLOR", &(this->stopChange), this->startChange + 0.05f, 1.0f);
 	}
 	
 	ImGui::Separator();
 }
 
-EmitterImage::EmitterImage(ParticleEmitter* parent)
+EmitterImage::EmitterImage()
 {
-	//TONI: Check if particle system GO has component material
-	if (parent->owner->mOwner->GetComponent(ComponentType::MATERIAL))
-	{
-		mat = (CMaterial*)parent->owner->mOwner->GetComponent(ComponentType::MATERIAL);
-	}
-	else
-	{
-		CMaterial* cMat = new CMaterial(parent->owner->mOwner);
-		parent->owner->mOwner->AddComponent(cMat);
-		mat = cMat;
-	}
-
 	rTexTemp = new ResourceTexture();
-	imgPath = "Assets/Particles/particleExample.png";
-	SetImage(imgPath);
+	imgPath = "Assets/Particles/IMAGES/particleExample.png";
+	firstInit = true;
+	//SetImage(imgPath);
 }
 
-void EmitterImage::SetImage(std::string imgPath)
+void EmitterImage::SetImage(std::string imagePath)
 {
-	ImporterTexture::Import(imgPath, rTexTemp);
+	firstInit = false;
+	ImporterTexture::Import(imagePath, rTexTemp);
 	rTexTemp->type = TextureType::DIFFUSE;
 	rTexTemp->UID = Random::Generate();
 
-	mat->diffuse_path = imgPath;
-	mat->rTextures.push_back(rTexTemp);
+	this->imgPath = imagePath;
 }
 
 void EmitterImage::Spawn(ParticleEmitter* emitter, Particle* particle)
 {
-	particle->mat = mat;
+	particle->pTexture = rTexTemp;
 }
 
 void EmitterImage::Update(float dt, ParticleEmitter* emitter)
 {
-
+	if(firstInit)
+	{
+		SetImage(imgPath);
+	}
 }
 
 std::vector<std::string> ListFilesInParticlesFolder() {
 	std::vector<std::string> files;
-	const std::string particlesFolderPath = "Assets/Particles";
+	const std::string particlesFolderPath = "Assets/Particles/IMAGES";
 	for (const auto& entry : std::filesystem::directory_iterator(particlesFolderPath)) {
 		if (entry.is_regular_file() && entry.path().extension() == ".png") {
 			files.push_back(entry.path().filename().string());
@@ -1565,6 +2186,11 @@ void EmitterImage::OnInspector()
 {
 	ImGui::Spacing();
 
+	if (firstInit)
+	{
+		SetImage(imgPath);
+	}
+
 	std::vector<std::string> particleFiles = ListFilesInParticlesFolder();
 	if (ImGui::BeginCombo("##Texture", rTexTemp->GetAssetsFilePath().c_str()))
 	{
@@ -1574,12 +2200,16 @@ void EmitterImage::OnInspector()
 			{
 				if (ImGui::Selectable(particleFile.c_str())) 
 				{
-					std::string particlePath = "Assets/Particles/" + particleFile;
+					std::string particlePath = "Assets/Particles/IMAGES/" + particleFile;
 					SetImage(particlePath);
+					break;
 				}
 			}
 		}
-		else ImGui::Text("There is no assets.");
+		else 
+		{ 
+			ImGui::Text("There is no assets.");
+		}
 
 		ImGui::EndCombo();
 	}
@@ -1589,156 +2219,4 @@ void EmitterImage::OnInspector()
 	ImGui::Separator();
 }
 
-EmitterShape::EmitterShape(ParticleEmitter* parent)
-{
-	CTransform* parentTransform = (CTransform*)parent->owner->mOwner->GetComponent(ComponentType::TRANSFORM);
-	eTransform = parentTransform;
 
-	shapeParent = parent;
-}
-
-void EmitterShape::Spawn(ParticleEmitter* emitter, Particle* particle)
-{
-
-}
-
-void EmitterShape::Update(float dt, ParticleEmitter* emitter)
-{
-
-}
-
-//void EmitterShape::OnInspector()
-//{
-//	ImGui::Text("Select shape");
-//
-//	ImGui::Spacing();
-//
-//	if (ImGui::Button("AREA"))
-//	{
-//		CreateSpawnShape(typeShape::AREA);
-//	}
-//
-//	if (ImGui::BeginCombo("NONE", "Select Shape", ImGuiComboFlags_PopupAlignLeft))
-//	{
-//
-//
-//		ImGui::EndCombo();
-//	}
-//
-//	ImGui::Separator();
-//}
-//
-//void EmitterShape::CreateSpawnShape(typeShape shape)
-//{
-//	EmitterShapeArea* newShape = nullptr;
-//
-//	switch (shape)
-//	{
-//	case typeShape::AREA:
-//		newShape = new EmitterShapeArea();
-//		shapeParent->modules.push_back(newShape);
-//		break;
-//	case typeShape::CONE:
-//		//newShape = new EmitterShapeCone();
-//		break;
-//	case typeShape::CIRCUMFERENCE:
-//		//newShape = new EmmiterShapeCircumference();
-//		break;
-//	case typeShape::SPHERE:
-//		//newShape = new EmitterShapeSphere();
-//		break;
-//	}
-//}
-
-EmitterShapeArea::EmitterShapeArea()
-{
-	angle = 0;
-	useDirection = false;
-}
-
-void EmitterShapeArea::Spawn(ParticleEmitter* emitter, Particle* particle)
-{
-
-	//Get a random spawn point inside of a quad defined by a point and a radius
-
-	float3 localPos;
-	localPos.x = offset.x + Random::GenerateRandomFloat(minRange, maxRange);
-	localPos.y = offset.y + Random::GenerateRandomFloat(minRange, maxRange);
-	localPos.z = offset.z + Random::GenerateRandomFloat(minRange, maxRange);
-	particle->position = localPos;
-
-	if (hasInitialSpeed)
-	{
-		float3 localSpeed = (localPos - float3(offset[0], offset[1], offset[2])).Normalized();
-		particle->velocity = float4(float3(emitter->owner->mOwner->mTransform->GetGlobalTransform().TransformDir(localSpeed).Normalized()), speed);	//TONI: estoy delirando
-
-		if (useDirection)
-		{
-			float3 direction = (localPos - float3(offset[0], offset[1], offset[2]));
-			direction = emitter->owner->mOwner->mTransform->GetGlobalTransform().TransformDir(direction).Normalized();
-
-#ifndef STANDALONE
-			float4x4 cameraView = External->camera->editorCamera->GetViewMatrix().Transposed();
-#else
-			float4x4 cameraView = External->moduleRenderer3D->GetGameRenderTarget()->ViewMatrixOpenGL().Transposed();
-#endif // !STANDALONE
-
-			direction = cameraView.TransformDir(direction);
-
-			float2 directionViewProj = float2(direction.x, direction.y).Normalized();
-			float2 xAxis = float2(1, 0);
-			float finalAngle = xAxis.AngleBetween(directionViewProj);
-			if (directionViewProj.y < 0)
-				finalAngle = 360 * DEGTORAD - finalAngle;
-			finalAngle += angle * DEGTORAD;
-
-			//particle->worldRotation = finalAngle;
-		}
-	}
-
-}
-
-void EmitterShapeArea::Update(float dt, ParticleEmitter* emitter)
-{
-	for (int i = 0; i < emitter->listParticles.size(); i++)
-	{
-		//Acceleration
-		float actualLT = emitter->listParticles.at(i)->lifetime;
-		emitter->listParticles.at(i)->velocity.w = speed + ((speed - speed) * (actualLT / 1.0f));
-
-		emitter->listParticles.at(i)->position.x += emitter->listParticles.at(i)->velocity.x * emitter->listParticles.at(i)->velocity.w * dt;
-		emitter->listParticles.at(i)->position.y += emitter->listParticles.at(i)->velocity.y * emitter->listParticles.at(i)->velocity.w * dt;
-		emitter->listParticles.at(i)->position.z += emitter->listParticles.at(i)->velocity.z * emitter->listParticles.at(i)->velocity.w * dt;
-	}
-}
-
-void EmitterShapeArea::OnInspector()
-{
-	std::string suffixLabel = "Dimensions##PaShapeArea";
-	ImGui::DragFloat3("Position", &(this->direccion[0]), 0.1f);
-
-	suffixLabel = "Face Direction##PaShapeCone";
-	ImGui::Checkbox(suffixLabel.c_str(), &useDirection);
-
-	if (useDirection)
-	{
-		suffixLabel = "Set Angle##PaShapeCone";
-		ImGui::DragFloat(suffixLabel.c_str(), &angle);
-	}
-}
-
-Subemitter::Subemitter()
-{
-}
-
-void Subemitter::Spawn(ParticleEmitter* emitter, Particle* particle)
-{
-}
-
-void Subemitter::Update(float dt, ParticleEmitter* emitter)
-{
-}
-
-void Subemitter::OnInspector()
-{
-}

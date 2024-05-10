@@ -28,9 +28,9 @@ public:
 	float3 initialPosition; //This is for killing by distance
 	float distanceLimit;
 
-	//Material 
+	//Textura 
 	Color color;
-	CMaterial* mat = nullptr;
+	ResourceTexture* pTexture;
 
 private:
 };

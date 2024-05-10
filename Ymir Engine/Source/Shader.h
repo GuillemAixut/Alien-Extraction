@@ -72,6 +72,13 @@ struct Uniform {
     UniformType type;
     int nElements;
 
+    void ClearUniform() 
+    {
+        name.clear();
+        value.reset();
+        nElements = 0;
+    }
+
 };
 
 class Shader

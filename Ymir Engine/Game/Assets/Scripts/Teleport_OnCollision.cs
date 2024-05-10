@@ -10,12 +10,32 @@ public class Teleport_OnCollision : YmirComponent
 {
     public string scene = "";
 
+    // Loading scene
+    private GameObject loadSceneImg;
+    private bool loadScene = false;
+
     public void Start()
     {
+        loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
+
+        if (loadSceneImg != null)
+        {
+            loadSceneImg.SetActive(false);
+        }
+
+        loadScene = false;
     }
 
     public void Update()
     {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene(scene);
+            loadScene = false;
+
+            return;
+        }
+
         return;
     }
 
@@ -24,7 +44,14 @@ public class Teleport_OnCollision : YmirComponent
         if (other.Tag == "Player")
         {
             Audio.StopAllAudios();
-            InternalCalls.LoadScene(scene);
+            //loadSceneImg.SetActive(true);
+            
+            if (loadSceneImg != null)
+            {
+                loadSceneImg.SetActive(true);
+            }
+
+            loadScene = true;
         }
     }
 }

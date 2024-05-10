@@ -31,8 +31,14 @@ ResourceAnimation::ResourceAnimation(uint UID) : Resource(UID, ResourceType::ANI
 	easeOutSpeed = 1;
 	easeInMultiplier = 1.025f;
 	easeOutMultiplier = 0.995f;
-	duration = 0;
+	duration = 0.0f;
+	ticksPerSecond = 0.0f;
 
+}
+
+ResourceAnimation::~ResourceAnimation()
+{
+	
 }
 
 bool ResourceAnimation::LoadInMemory()
@@ -40,12 +46,17 @@ bool ResourceAnimation::LoadInMemory()
 	ImporterAnimation::Load(this->GetLibraryFilePath().c_str(), this);
 	LOG("Loaded Animation %s succesfully", name.c_str());
 
-	return false;
+	return true;
 }
 
 bool ResourceAnimation::UnloadFromMemory()
 {
-	return false;
+	blendMap.clear();
+	boneInfoMap.clear();
+	ClearVec(bones);
+	rootNode.CleanUp();
+
+	return true;
 }
 
 Bone* ResourceAnimation::FindBone(std::string& name)
@@ -62,4 +73,12 @@ Bone* ResourceAnimation::FindBone(std::string& name)
 	else {
 		return &(*iter);
 	}
+}
+
+void AssimpNodeData::CleanUp()
+{
+	for (int i = 0; i < childrenCount; i++) {
+		children[i].CleanUp();
+	}
+	ClearVec(children);
 }

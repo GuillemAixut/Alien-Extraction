@@ -26,7 +26,7 @@ public:
 	void OnInspector() override;
 	
 	// Add animation to animations list
-	void AddAnimation(ResourceAnimation &newAnimation);
+	void AddAnimation(ResourceAnimation* newAnimation);
 
 	void RemoveAnimation(int ID);
 
@@ -61,10 +61,6 @@ public:
 	void SetResetToZero(std::string animationName = "", bool resetToZero = true);
 
 	bool HasFinished(std::string animationName);
-
-
-
-
 
 private:
 

@@ -8,24 +8,47 @@ using YmirEngine;
 
 public class Tp_To_Lvl3_Part1 : YmirComponent
 {
+    // Loading scene
+    private GameObject loadSceneImg;
+    private bool loadScene = false;
 
-	public void Start()
-	{
-		Debug.Log("HelloWorld"); 
-	}
+    public void Start()
+    {
+        loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
 
-	public void Update()
-	{
-		return;
-	}
+        if (loadSceneImg != null)
+        {
+            loadSceneImg.SetActive(false);
+        }
+
+        loadScene = false;
+    }
+
+    public void Update()
+    {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene");
+            loadScene = false;
+
+            return;
+        }
+
+        return;
+    }
 
     public void OnCollisionEnter(GameObject other)
     {
-        //TODO: Mostrat UI de que puede interactuar si pulsa el bot�n asignado
+        //TODO: Mostrat UI de que puede interactuar si pulsa el boton asignado
         if (other.Tag == "Player")
         {
             Audio.StopAllAudios();
-            InternalCalls.LoadScene("Assets/LVL3_BlockOut/LVL3_PART1_COLLIDERS.yscene");
+            if (loadSceneImg != null)
+            {
+                loadSceneImg.SetActive(true);
+            }
+
+            loadScene = true;
         }
     }
 }

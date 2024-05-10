@@ -27,6 +27,11 @@ enum main_states
 	MAIN_EXIT
 };
 
+void DumpMemoryLeaks(void)
+{
+	_CrtDumpMemoryLeaks();
+}
+
 int main(int argc, char ** argv)
 {
 	LOG("Starting engine '%s'....", TITLE);
@@ -101,6 +106,8 @@ int main(int argc, char ** argv)
 	External = nullptr;
 	delete App;
 	LOG("Exiting engine '%s'...\n", TITLE);
+
+	atexit(DumpMemoryLeaks);
 
 	return main_return;
 }

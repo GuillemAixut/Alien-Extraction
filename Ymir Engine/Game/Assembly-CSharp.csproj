@@ -44,6 +44,7 @@
 	<ItemGroup>
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Animation.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Audio.cs" />
+		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Globals.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Item.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Mathf.cs" />
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\PathFinding.cs" />
@@ -58,18 +59,20 @@
 		<Compile Include="Assembly-CSharp\Ymir Engine Utility\Vector2.cs" />
 		<Compile Include="Assets\Scripts\AcidicPuddle.cs" />
 		<Compile Include="Assets\Scripts\AcidicSpit.cs" />
-		<Compile Include="Assets\Scripts\AppearUI.cs" />
+		<Compile Include="Assets\Scripts\Alien_Head_Trap.cs" />
 		<Compile Include="Assets\Scripts\BaseTeleporter.cs" />
 		<Compile Include="Assets\Scripts\BH_Bullet.cs" />
 		<Compile Include="Assets\Scripts\BH_Plane.cs" />
 		<Compile Include="Assets\Scripts\BH_Tail.cs" />
 		<Compile Include="Assets\Scripts\Button.cs" />
 		<Compile Include="Assets\Scripts\Button_Exit.cs" />
+		<Compile Include="Assets\Scripts\Button_GoToScene.cs" />
 		<Compile Include="Assets\Scripts\Button_Navigation.cs" />
 		<Compile Include="Assets\Scripts\Caius.cs" />
 		<Compile Include="Assets\Scripts\Door.cs" />
 		<Compile Include="Assets\Scripts\Electric_trap.cs" />
 		<Compile Include="Assets\Scripts\Enemy.cs" />
+		<Compile Include="Assets\Scripts\Flesh_Door.cs" />
 		<Compile Include="Assets\Scripts\Health.cs" />
 		<Compile Include="Assets\Scripts\Inventory_Chest.cs" />
 		<Compile Include="Assets\Scripts\Key.cs" />
@@ -83,7 +86,9 @@
 		<Compile Include="Assets\Scripts\SelectLvl.cs" />
 		<Compile Include="Assets\Scripts\SelectWeapon.cs" />
 		<Compile Include="Assets\Scripts\SpawnSensor.cs" />
+		<Compile Include="Assets\Scripts\SpitterAcidExplosion.cs" />
 		<Compile Include="Assets\Scripts\Teleport_OnCollision.cs" />
+		<Compile Include="Assets\Scripts\TestCrash.cs" />
 		<Compile Include="Assets\Scripts\TestScript.cs" />
 		<Compile Include="Assets\Scripts\Tp_Beacon.cs" />
 		<Compile Include="Assets\Scripts\Tp_Lvl2_Part2.cs" />
@@ -107,6 +112,7 @@
 		<Compile Include="Assets\Scripts\UI_Inventory.cs" />
 		<Compile Include="Assets\Scripts\UI_Inventory_Grid.cs" />
 		<Compile Include="Assets\Scripts\UI_Item_Button.cs" />
+		<Compile Include="Assets\Scripts\UI_Stash.cs" />
 		<Compile Include="Assets\Scripts\UI_Upgrade_Button.cs" />
 		<Compile Include="Assets\Scripts\UI_Upgrade_Navigation.cs" />
 		<Compile Include="Assets\Scripts\UI_Upgrade_Station.cs" />
@@ -122,6 +128,30 @@
 		<Compile Include="Assets\Scripts\Open_Chest_RotationY.cs" />
 		<Compile Include="Assets\Scripts\Sensor_Alien_Trap.cs" />
 		<Compile Include="Assets\Scripts\UI_Start.cs" />
+		<Compile Include="Assets\Scripts\Health_Bar_Test.cs" />
+		<Compile Include="Assets\Scripts\Camera.cs" />
+		<Compile Include="Assets\Scripts\SpitterAcidSpit.cs" />
+		<Compile Include="Assets\Scripts\SpitterBaseScript.cs" />
+		<Compile Include="Assets\Scripts\Item_World.cs" />
+		<Compile Include="Assets\Scripts\TextPopUp.cs" />
+		<Compile Include="Assets\Scripts\UI_Crafting.cs" />
+		<Compile Include="Assets\Scripts\UI_Crafting_Recipe.cs" />
+		<Compile Include="Assets\Scripts\Weapon.cs" />
+		<Compile Include="Assets\Scripts\SMG.cs" />
+		<Compile Include="Assets\Scripts\Shotgun.cs" />
+		<Compile Include="Assets\Scripts\Plasma.cs" />
+		<Compile Include="Assets\Scripts\DroneXenomorphTailAttack.cs" />
+		<Compile Include="Assets\Scripts\DroneXenomorphClawAttack.cs" />
+		<Compile Include="Assets\Scripts\FaceHuggerTailAttack.cs" />
+		<Compile Include="Assets\Scripts\SpitterAcidShrapnel.cs" />
+		<Compile Include="Assets\Scripts\QueenXenomorphClawAttack.cs" />
+		<Compile Include="Assets\Scripts\QueenXenomorphTailAttack.cs" />
+		<Compile Include="Assets\Scripts\QueenXenomorphSpitAttack.cs" />
+		<Compile Include="Assets\Scripts\QueenXenomorphPuddle.cs" />
+		<Compile Include="Assets\Scripts\QueenXenomorphShrapnelAttack.cs" />
+		<Compile Include="Assets\Scripts\TriggerTutorialUI.cs" />
+		<Compile Include="Assets\Scripts\UI_Cutscenes.cs" />
+		<Compile Include="Assets\Scripts\MainMenuCamera.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Assets\Scripts\Enemies\" />

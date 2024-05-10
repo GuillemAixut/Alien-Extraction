@@ -29,7 +29,6 @@ class CCamera;
 
 class G_UI;
 
-
 enum MAP {
 
 	NO_MAP = -1,
@@ -75,11 +74,7 @@ public:
 
 	void SavePrefab(GameObject* prefab, const std::string& dir, const std::string& fileName);
 	GameObject* LoadPrefab(const std::string& dir, const std::string& fileName);
-
 	GameObject* LoadPrefab(const char* path);
-
-	// Start with a loaded scene from start
-	void LoadSceneFromStart(const std::string& dir, const std::string& fileName);
 	
 	void Destroy(GameObject* gm);
 

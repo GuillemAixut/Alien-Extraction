@@ -142,7 +142,6 @@ int MouseY()
 	return 0;
 }
 
-
 MonoObject* CreatePrefab(MonoString* prefabPath, MonoObject* position, MonoObject* rotation, MonoObject* scale)
 {
 	if (prefabPath == nullptr)
@@ -309,6 +308,23 @@ MonoObject* FindChildrenWithName(MonoObject* obj, MonoString* name) {
 	return nullptr;
 }
 
+MonoObject* FindEnemyGameObject(MonoObject* obj) {
+
+	std::vector<GameObject*> gameObjectVec;
+
+	GameObject* GO = External->moduleMono->GameObject_From_CSGO(obj);
+	GameObject* parent = GO->mParent;
+	parent->CollectChilds(gameObjectVec);
+
+	GameObject* child = gameObjectVec[1];
+
+	if(child != nullptr) return External->moduleMono->GoToCSGO(child);
+
+	assert("The object you searched for doesn't exist. :/");
+
+	return nullptr;
+}
+
 MonoObject* CS_GetParent(MonoObject* obj)
 {
 	GameObject* go = External->moduleMono->GameObject_From_CSGO(obj);
@@ -321,6 +337,11 @@ MonoObject* CS_GetChild(MonoObject* obj, int numberChild)
 	GameObject* go = External->moduleMono->GameObject_From_CSGO(obj);
 
 	return External->moduleMono->GoToCSGO(go->mChildren[numberChild]);
+}
+
+int CS_GetChildrenSize(MonoObject* obj)
+{
+	return External->moduleMono->GameObject_From_CSGO(obj)->mChildren.size();
 }
 
 bool CompareGameObjectsByUID(MonoObject* obj1, MonoObject* obj2)
@@ -440,7 +461,6 @@ void ClearForces(MonoObject* obj) {
 		rigidbody->physBody->body->setLinearVelocity(btVector3(0, 0, 0));
 		rigidbody->physBody->body->setAngularVelocity(btVector3(0, 0, 0));
 	}
-
 
 }
 
@@ -633,12 +653,11 @@ void RecieveScale(MonoObject* obj, MonoObject* secObj)
 		return;
 
 	float3 omgItWorks = External->moduleMono->UnboxVector(secObj);
-	GameObject* workGO = External->moduleMono->GameObject_From_CSGO(obj); //TODO IMPORTANT: First parameter is the object reference, use that to find UID
+	CTransform* transform = CS_CompToComp<CTransform*>(obj); //TODO IMPORTANT: First parameter is the object reference, use that to find UID
 
-	if (workGO->mTransform)
+	if (transform)
 	{
-		//workGO->mTransform->SetTransformMatrix(workGO->mTransform->translation, workGO->mTransform->rotation, omgItWorks);
-		//workGO->mTransform->updateTransform = true; //TODO: No tenemos la variable esta "updateTransform"
+		transform->SetScale(omgItWorks);
 	}
 }
 
@@ -649,6 +668,15 @@ void SetActive(MonoObject* obj, bool active)
 
 	GameObject* go = External->moduleMono->GameObject_From_CSGO(obj);
 	go->active = active;
+	if (!go->active) {
+		active = false;
+		CScript* aux = static_cast<CScript*>(go->GetComponent(ComponentType::SCRIPT));
+
+		if (aux) {
+			aux->isStarting = true;
+		}
+
+	}
 	External->scene->SetActiveRecursively(go, active);
 }
 
@@ -765,7 +793,7 @@ void CreateBullet(MonoObject* position, MonoObject* rotation, MonoObject* scale)
 	go->AddComponent(c);
 }
 
-void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, MonoObject* right) {
+void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, float lenght, float width, MonoObject* right) {
 
 	//Crea un game object temporal llamado "ShotgunBullet"
 	if (External == nullptr) return;
@@ -783,7 +811,8 @@ void CreateShotgunSensor(MonoObject* position, MonoObject* rotation, MonoObject*
 	//rotVector = rotVector.RotateAxisAngle(rightVector, DegToRad(-90.0f));
 
 
-	float3 scaleVector = float3(15, 70, 15);
+	//float3 scaleVector = float3(15, 70, 15);
+	float3 scaleVector = float3(width, lenght, width);
 
 	//Añade RigidBody a la bala
 	CCollider* physBody;
@@ -939,6 +968,358 @@ void CreateAcidPuddle(MonoObject* name, MonoObject* position)
 
 }
 
+void CreateSpitterAcidSpit(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidSpit", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "SpitterAcidSpit";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(2.5f, 2.5f, 2.5f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "SpitterAcidSpit";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateSpitterAcidExplosive(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidExplosion", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "SpitterAcidExplosion";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(2.5f, 2.5f, 2.5f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "SpitterAcidExplosion";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateSpitterAcidShrapnel(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("SpitterAcidShrapnel", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "SpitterAcidShrapnel";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(1.5f, 1.5f, 1.5f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "SpitterAcidShrapnel";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateFaceHuggerTailAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("FaceHuggerTailAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "FaceHuggerTailAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.3f, 3.3f, 5.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+
+	physBody->useGravity = false;
+
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+
+	physBody->size = scaleVector * 3;
+
+	const char* t = "FaceHuggerTailAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateDroneClawAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("DroneClawAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "DroneClawAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.3f, 3.3f, 4.2f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+
+	physBody->useGravity = false;
+
+	physBody->SetAsSensor(true);
+
+	physBody->size = scaleVector * 3;
+	go->AddComponent(physBody);
+
+	const char* t = "DroneXenomorphClawAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateDroneTailAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("DroneTailAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "DroneTailAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.3f, 3.3f, 6.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+
+	physBody->useGravity = false;
+	physBody->SetAsSensor(true);
+
+	physBody->size = scaleVector*3;
+	go->AddComponent(physBody);
+
+	const char* t = "DroneXenomorphTailAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenClawAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenClawAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenClawAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(7.5f, 5.5f, 7.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+
+	physBody->useGravity = false;
+	physBody->SetAsSensor(true);
+	physBody->size = scaleVector * 3;
+
+	go->AddComponent(physBody);
+
+	const char* t = "QueenXenomorphClawAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenTailAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenTailAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenTailAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(7.5f, 5.5f, 7.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, BOX);
+
+	physBody->useGravity = false;
+	physBody->SetAsSensor(true);
+
+	physBody->size = scaleVector * 3;
+	go->AddComponent(physBody);
+
+	const char* t = "QueenXenomorphTailAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenSpitAttack(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenSpitAttack", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenSpitAttack";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(3.0f, 3.0f, 3.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphSpitAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenShrapnel(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenShrapnel", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenShrapnel";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(2.0f, 2.0f, 2.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, SPHERE);
+
+	physBody->useGravity = true;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphShrapnelAttack";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
+void CreateQueenPuddle(MonoObject* position, MonoObject* rotation)
+{
+	if (External == nullptr) return;
+	GameObject* go = External->scene->PostUpdateCreateGameObject("QueenPuddle", External->scene->mRootNode);
+	go->UID = Random::Generate();
+	go->tag = "QueenPuddle";
+
+	float3 posVector = External->moduleMono->UnboxVector(position);
+	Quat rotVector = External->moduleMono->UnboxQuat(rotation);
+	float3 scaleVector = float3(4.0f, 1.0f, 4.0f);
+
+	go->mTransform->SetPosition(posVector);
+	go->mTransform->SetScale(scaleVector);
+	go->mTransform->SetRotation(rotVector);
+
+	CCollider* physBody;
+	physBody = new CCollider(go, CYLINDER);
+
+	physBody->useGravity = false;
+	physBody->physBody->SetPosition(posVector);
+	physBody->physBody->SetRotation(rotVector);
+	physBody->SetAsSensor(true);
+
+	go->AddComponent(physBody);
+	physBody->physBody->body->activate(true);
+	physBody->size = scaleVector;
+	physBody->shape->setLocalScaling(btVector3(scaleVector.x, scaleVector.y, scaleVector.z));
+
+	const char* t = "QueenXenomorphPuddle";
+	Component* c = nullptr;
+	c = new CScript(go, t);
+	go->AddComponent(c);
+}
+
 //---------- GLOBAL GETTERS ----------//
 MonoObject* SendGlobalPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
 {
@@ -1000,14 +1381,6 @@ void Rumble_Controller(int time, int intenisty)
 			printf("Rumble success!\n");
 		}
 	}
-}
-
-bool CompareStringToName(MonoObject* go, MonoString* name)
-{
-	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
-	std::string nameCompare = mono_string_to_utf8(name);
-
-	return nameCompare.compare(gameObject->name) == 0;
 }
 
 MonoString* CSVToString(MonoString* _filePath) {
@@ -1161,4 +1534,106 @@ void SetColliderSizeCS(MonoObject* go, MonoObject* vec)
 
 }
 
+void SetGameObjectScaleCS(MonoObject* go, MonoObject* vec)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	float3 vector = External->moduleMono->UnboxVector(vec);
+
+	gameObject->mTransform->SetScale(vector);
+}
+
+void SpawnItemCS(MonoString* name, MonoObject* pos)
+{
+	{
+		//float3 vectorPos = External->moduleMono->UnboxVector(pos);
+		//std::string goName = mono_string_to_utf8(name);
+
+		//GameObject* gameObject = External->scene->PostUpdateCreateGameObject(goName, External->scene->mRootNode);
+		//gameObject->UID = Random::Generate();
+		////Set the position of the GameObject
+		//gameObject->mTransform->SetPosition(vectorPos);
+
+		////Add mesh
+
+		//uint UID = 621813214;//1728623793; // UID of Cube.fbx (Shpere.fbx) mesh in meta (lo siento)
+
+		//std::string libraryPath = External->fileSystem->libraryMeshesPath + std::to_string(UID) + ".ymesh";
+
+		//if (!PhysfsEncapsule::FileExists(libraryPath)) {
+
+		//	External->resourceManager->ImportFile("Assets/Primitives/Shpere.fbx", true);
+		//}
+
+		//ResourceMesh* rMesh = (ResourceMesh*)(External->resourceManager->CreateResourceFromLibrary(libraryPath, ResourceType::MESH, UID));
+		//CMesh* cmesh = new CMesh(gameObject);
+		//cmesh->rMeshReference = rMesh;
+		//gameObject->AddComponent(cmesh);
+
+
+		////TODO: Eric Añadir el switch con los diferentes nombres
+
+		////Add the particle emmiter (Children)
+		//GameObject* particleObject = External->scene->PostUpdateCreateGameObject(goName + "Particle System", gameObject);
+		//CParticleSystem* particles = new CParticleSystem(particleObject);
+		//EmitterRotation* emitterRot = (EmitterRotation*)particles->allEmitters.at(0)->CreateEmitterSettingByType(3);
+		//emitterRot->currentAlignmentMode = BillboardType::PAR_LOOK_GAME_CAMERA;
+
+		//EmitterImage* emitterImage = (EmitterImage*)particles->allEmitters.at(0)->CreateEmitterSettingByType(6);
+		////emitterImage->SetImage(path);		//TODO: Eric & Xavi Falta añadir la imagen con el nombre y el path a la imagen
+
+		//EmitterBase* emitterBase = (EmitterBase*)particles->allEmitters.at(0)->modules.at(0);
+		//emitterBase->inmortal = true;
+
+		//EmitterSpawner* emitterSpawn = (EmitterSpawner*)particles->allEmitters.at(0)->modules.at(1);
+		//emitterSpawn->spawnMode = ParticlesSpawnMode::PAR_NUM_PARTICLES_BURST;
+		//emitterSpawn->numParticlesToSpawn = 1;
+
+		//particleObject->AddComponent(particles);
+
+
+
+		////Add material Part 1 (Meter en el switch)
+		//uint mat_UID = 366441211; //TODO Eric: UID of (BakerHouse) in meta (lo siento)
+
+		//std::string mat_libraryPath = External->fileSystem->assetsPath + "Item Textures" + std::to_string(mat_UID) + ".dds";
+
+		//if (!PhysfsEncapsule::FileExists(mat_libraryPath)) {
+
+		//	External->resourceManager->ImportFile("Assets/Item Textures/BakerHouse.png", true);
+		//}
+
+		//ResourceTexture* rText = (ResourceTexture*)(External->resourceManager->CreateResourceFromLibrary(mat_libraryPath, ResourceType::TEXTURE, mat_UID, TextureType::DIFFUSE));
+
+		////Add material Part 2 (No meter en el switch)
+		//CMaterial* cmaterial = new CMaterial(gameObject);
+		//cmaterial->shaderPath = SHADER_VS_FS;
+		//cmaterial->shader.LoadShader(cmaterial->shaderPath);
+		//cmaterial->shaderDirtyFlag = false;
+
+		//cmaterial->rTextures.emplace_back(rText);
+		//gameObject->AddComponent(cmaterial);
+
+		////Add physics
+		//CCollider* physBody;
+		//physBody = new CCollider(gameObject);
+		//physBody->useGravity = false;
+		//physBody->SetOBBSize();
+		//physBody->offset.y = 0;
+		//physBody->physBody->SetPosition(vectorPos);
+		//physBody->isSensor = true;
+		//physBody->physType = PhysicsType::KINEMATIC;
+		//gameObject->AddComponent(physBody);
+
+		////Return the MonoObject
+		//return External->moduleMono->GoToCSGO(gameObject);
+	}
+
+	//TODO pocho: Hacer un switch con todos los prefabs en relación al nombre
+
+}
+
+int GetCurrentMapCS()
+{
+	return External->scene->currentMap;
+}
 #pragma endregion

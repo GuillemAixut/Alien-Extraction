@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 using YmirEngine;
 
 public class UI_Upgrade_Station : YmirComponent
@@ -20,9 +19,9 @@ public class UI_Upgrade_Station : YmirComponent
         description = InternalCalls.GetChildrenByName(gameObject, "Description");
         cost = InternalCalls.GetChildrenByName(gameObject, "Cost");        
         coins = InternalCalls.GetChildrenByName(gameObject, "Coins");
+
         UI.TextEdit(coins, currentScore.ToString());
         GetPlayerScript();
-
     }
 
     public void Update()

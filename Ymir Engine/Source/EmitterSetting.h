@@ -9,7 +9,6 @@
 
 enum EmitterType
 {
-	PAR_SUBEMITTER = -1,
 	PAR_BASE,
 	PAR_SPAWN,
 	PAR_POSITION,
@@ -61,6 +60,7 @@ enum SpawnAreaShape
 struct EmitterBase : EmitterSetting
 {
 	EmitterBase();
+	~EmitterBase();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
 	void OnInspector();
@@ -69,6 +69,7 @@ struct EmitterBase : EmitterSetting
 	float particlesLifeTime1;
 	bool randomLT;
 	float particlesLifeTime2;
+	bool inmortal;
 
 	bool hasDistanceLimit;
 	float distanceLimit;
@@ -87,10 +88,13 @@ struct EmitterBase : EmitterSetting
 	float baseRadius; //Radius/face positioned on 0,0,0
 	float topRadius; // Radius/face projected after the length
 	float heigth; //Heigth of the cone.
+	bool useAngle;
+	float angle;
 
 	//Box Parameters
 	float3 boxPointsPositives;
 	float3 boxPointsNegatives;
+	bool scaleAll;
 };
 
 //EnumS of types of spawn of the spawn setting
@@ -104,6 +108,7 @@ enum ParticlesSpawnMode
 
 enum ParticlesSpawnEnabeling
 {
+	PAR_WAIT_SUBEMITTER = -	1,
 	PAR_START_NON_STOP, //Starts emittng and won´t stop
 	PAR_START_STOP, //Starts emitting but stops after X particles spawned
 	PAR_WAIT_NON_STOP, //Starts waiting for a Play then won't stop
@@ -111,23 +116,41 @@ enum ParticlesSpawnEnabeling
 	PAR_ENABLE_MODES_END
 };
 
+enum SpawnConditionSubemitter
+{
+	PAR_LESS_THAN,
+	PAR_MORE_THAN,
+	PAR_INBETWEEN_OF,
+	PAR_END_SPAWN_CONDITION,
+};
+
 struct EmitterSpawner : EmitterSetting
 {
 	EmitterSpawner();
+	~EmitterSpawner();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
 	bool PlayTrigger(bool val = true);
-	void OnInspector();
+	void OnInspector(ParticleEmitter* thisEmitter);
 
 	//Variable unica, ritmo de spawn
 	ParticlesSpawnMode spawnMode;
 	bool playTriggered;
+	
 	ParticlesSpawnEnabeling startMode;
 	float spawnRatio; //Dividir en current time por cuantas se spawnean 
 	float currentTimer;
 	int numParticlesToSpawn;
 	int numParticlesForStop; //When played, if enabeling mode is stop once it spawn X particles it stops playing
 	int numParticlesSpawned;
+
+	//Cosas de subemitter
+	ParticleEmitter* pointingEmitter;
+	uint32_t pointingUID; //Es una variable temporal solo usada para el save y load.
+	SpawnConditionSubemitter conditionForSpawn;
+	float subMaxLifetime;
+	float subMinLifetime;
+	float3 positionParticleForSub;
 };
 
 //Enum of the modes as positions change after spawn
@@ -154,6 +177,8 @@ struct EmitterPosition : EmitterSetting
 	float3 direction1;
 	float3 direction2;
 	bool normalizedSpeed;
+
+	bool useBaseShape;
 
 	bool acceleration;
 	float particleSpeed1;
@@ -225,6 +250,7 @@ struct EmitterSize : EmitterSetting
 
 	float3 originalSize; //Para gestionar si se escala el GameObject
 	bool progresive;
+	bool loop;
 	float startChange; //Range from 0 to 1 as lifetime
 	float stopChange; //Range from 0 to 1 as lifetime
 	float sizeMultiplier1;
@@ -241,6 +267,7 @@ struct EmitterColor : EmitterSetting
 	void OnInspector();
 
 	bool progresive;
+	bool loop;
 	float startChange; //Range from 0 to 1 as lifetime
 	float stopChange; //Range from 0 to 1 as lifetime
 	Color color1;
@@ -249,8 +276,7 @@ struct EmitterColor : EmitterSetting
 
 struct EmitterImage : EmitterSetting
 {
-	//TONI: Necesito que se le pase un ParticleEmitter para poder acceder al CMaterial del GO
-	EmitterImage(ParticleEmitter* parent);
+	EmitterImage();
 	void Spawn(ParticleEmitter* emitter, Particle* particle);
 	void Update(float dt, ParticleEmitter* emitter);
 	void OnInspector();
@@ -258,49 +284,7 @@ struct EmitterImage : EmitterSetting
 
 	ResourceTexture* rTexTemp;
 	std::string imgPath;
-
-	//CMaterial que tendrá la particula
-	CMaterial* mat;
-};
-
-struct EmitterShape : EmitterSetting
-{
-	EmitterShape(ParticleEmitter* parent);
-
-	void Spawn(ParticleEmitter* emitter, Particle* particle);
-	void Update(float dt, ParticleEmitter* emitter);
-	//void OnInspector();
-
-	//void CreateSpawnShape(typeShape shape);
-
-	EmitterShape* myShape;
-	CTransform* eTransform;
-	ParticleEmitter* shapeParent;
-};
-
-struct EmitterShapeArea : EmitterSetting
-{
-	EmitterShapeArea();
-	void Spawn(ParticleEmitter* emitter, Particle* particle);
-	void Update(float dt, ParticleEmitter* emitter);
-	void OnInspector();
-
-	float3 offset{ 0,0,0 };
-	bool hasInitialSpeed = true;
-	float speed;
-	float minRange = -1.0f;
-	float maxRange = 1.0f;
-	float3 direccion;
-	float angle;
-	bool useDirection = true;
-};
-
-struct Subemitter : EmitterSetting
-{
-	Subemitter();
-	void Spawn(ParticleEmitter* emitter, Particle* particle);
-	void Update(float dt, ParticleEmitter* emitter);
-	void OnInspector();
+	bool firstInit;
 };
 
 #endif //__EMITTER_INSTANCE_H__

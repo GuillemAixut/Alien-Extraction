@@ -222,5 +222,10 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern bool IsActive();
 
+        /// <summary>
+        /// Sets the scale of the gameobject
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public extern void SetScale(Vector3 vec);
     }
 }

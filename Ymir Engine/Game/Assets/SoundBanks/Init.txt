@@ -1,3 +1,15 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1071758680	CombatState			\Default Work Unit\CombatState	
+	3285234865	PlayerState			\Default Work Unit\PlayerState	
+
+State	ID	Name	State Group			Notes
+	514064485	Fight	CombatState			
+	748895195	None	CombatState			
+	2582085496	Exploration	CombatState			
+	655265632	Alive	PlayerState			
+	748895195	None	PlayerState			
+	2044049779	Dead	PlayerState			
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Reflect Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Reflect Acoustic Textures\Textures\Mountain	

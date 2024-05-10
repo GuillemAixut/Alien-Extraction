@@ -22,6 +22,8 @@
 #pragma comment (lib, "Source/External/Bullet/libx86/LinearMath.lib")
 #endif
 
+#include "External/Optick/include/optick.h"
+
 #include "External/mmgr/mmgr.h"
 
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
@@ -49,21 +51,21 @@ ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app,
 
 ModulePhysics::~ModulePhysics()
 {
-	delete dispatcher;
-	delete collisionConfig;
-	delete broadphase;
-	delete constraintSolver;
+
 }
 
 // INIT ----------------------------------------------------------------------
 bool ModulePhysics::Init()
 {
+	OPTICK_EVENT();
+
 	return true;
 }
 
 // START ---------------------------------------------------------------------
 bool ModulePhysics::Start()
 {
+	OPTICK_EVENT();
 
 	return true;
 }
@@ -71,6 +73,8 @@ bool ModulePhysics::Start()
 // PRE-UPDATE ----------------------------------------------------------------
 update_status ModulePhysics::PreUpdate(float dt)
 {
+	OPTICK_EVENT();
+
 	float fixedTimeStep = 1 / App->GetFPS();
 
 	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING && !isWorldFirstFrame) 
@@ -88,6 +92,8 @@ update_status ModulePhysics::PreUpdate(float dt)
 // UPDATE --------------------------------------------------------------------
 update_status ModulePhysics::Update(float dt)
 {
+	OPTICK_EVENT();
+
 	//LOG("Bodies in list: %d", bodiesList.size());
 	//LOG("Bodies in world: %d", world->getNumCollisionObjects());
 
@@ -97,6 +103,8 @@ update_status ModulePhysics::Update(float dt)
 // POST-UPDATE ---------------------------------------------------------------
 update_status ModulePhysics::PostUpdate(float dt)
 {
+	OPTICK_EVENT();
+
 	//for (auto it = bodiesList.begin(); it != bodiesList.end(); ++it)
 	//{
 	//	btRigidBody* b = (btRigidBody*)(*it)->body;
@@ -105,121 +113,118 @@ update_status ModulePhysics::PostUpdate(float dt)
 
 	//	//LOG("Pos: %f, %f, %f", t.getOrigin().x, t.getOrigin().y, t.getOrigin().z );
 	//}
+	if (TimeManager::gameTimer.GetState() == TimerState::STOPPED)
+	{
+		currentCollisions.clear();
+		previousCollisions.clear();
+	}
 
 	if (TimeManager::gameTimer.GetState() == TimerState::RUNNING)
-	{	
-		// Enable/disable collision logic in God Mode (WIP, doesn't work properly now)
-		//if (App->scene->godMode)
-		//{
-		//	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN)
-		//	{
-		//		for (auto it = bodiesList.begin(); it != bodiesList.end(); ++it)
-		//		{
-		//			if ((*it)->body != NULL)
-		//			{
-		//				if ((*it)->body->getCollisionFlags() == btCollisionObject::CF_NO_CONTACT_RESPONSE)
-		//				{
-		//					(*it)->body->setCollisionFlags((*it)->body->getCollisionFlags() & ~btCollisionObject::CF_NO_CONTACT_RESPONSE);
-
-		//				}
-		//				else
-		//				{
-		//					(*it)->body->setCollisionFlags((*it)->body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
-
-		//				}
-		//			}
-		//		}
-		//	}
-		//}
-		
+	{
 		int numManifolds = world->getDispatcher()->getNumManifolds();
-		for (int i = 0; i < numManifolds; i++)
-		{
+		std::vector<bool> activeCollisions(currentCollisions.size(), false);
+
+		for (int i = 0; i < numManifolds; i++) {
 			btPersistentManifold* contactManifold = world->getDispatcher()->getManifoldByIndexInternal(i);
 			btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
 			btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
 
-			int numContacts = contactManifold->getNumContacts();
-			if (numContacts > 0)
-			{
-				//LOG("Contacts number: %i", contactManifold->getNumContacts());
-				PhysBody* pbodyA = (PhysBody*)obA->getUserPointer();
-				PhysBody* pbodyB = (PhysBody*)obB->getUserPointer();
+			PhysBody* pbodyA = (PhysBody*)obA->getUserPointer();
+			PhysBody* pbodyB = (PhysBody*)obB->getUserPointer();
 
-				// Pendiente de revisar de momento wuaaaaarrrraaaaaaaaaada!!!!
-				if (pbodyA->owner != nullptr && pbodyB->owner != nullptr) {
-					CScript* auxA = dynamic_cast<CScript*>(pbodyA->owner->GetComponent(ComponentType::SCRIPT));
-					CScript* auxB = dynamic_cast<CScript*>(pbodyB->owner->GetComponent(ComponentType::SCRIPT));
+			std::pair<PhysBody*, PhysBody*> currentCollision(pbodyA, pbodyB);
 
-					if (auxA != nullptr && auxB != nullptr) {
-						if (firstCollision) {
-							auxA->CollisionEnterCallback(false, pbodyB->owner);
-							auxB->CollisionEnterCallback(false, pbodyA->owner);
-							firstCollision = false;
-							inCollision = true;
-						}
-						else if (inCollision) {
-							auxA->CollisionStayCallback(false, pbodyB->owner);
-							auxB->CollisionStayCallback(false, pbodyA->owner);
-							onExitCollision = true;
-						}
-					}
-				}
-
-				if (pbodyA && pbodyB)
-				{
-					p2List_item<Module*>* item = pbodyA->collision_listeners.getFirst();
-					while (item)
-					{
-						item->data->OnCollision(pbodyA, pbodyB);
-						item = item->next;
-					}
-
-					item = pbodyB->collision_listeners.getFirst();
-					while (item)
-					{
-						item->data->OnCollision(pbodyB, pbodyA);
-						item = item->next;
-					}
-				}
-			}
-			else if (numContacts == 0 && onExitCollision)
-			{
-				PhysBody* pbodyA = (PhysBody*)obA->getUserPointer();
-				PhysBody* pbodyB = (PhysBody*)obB->getUserPointer();
-
-				if (pbodyA && pbodyB)
-				{
+			auto it = std::find(currentCollisions.begin(), currentCollisions.end(), currentCollision);
+			if (it == currentCollisions.end()) {
+				auto itPrev = std::find(previousCollisions.begin(), previousCollisions.end(), currentCollision);
+				if (itPrev == previousCollisions.end()) {
+					// Collision Enter
 					CScript* scriptA = dynamic_cast<CScript*>(pbodyA->owner->GetComponent(ComponentType::SCRIPT));
 					CScript* scriptB = dynamic_cast<CScript*>(pbodyB->owner->GetComponent(ComponentType::SCRIPT));
+					if (scriptA != nullptr && scriptB != nullptr) {
+						scriptA->CollisionEnterCallback(false, pbodyB->owner);
+						scriptB->CollisionEnterCallback(false, pbodyA->owner);
+					}
+					currentCollisions.push_back(currentCollision);
+					activeCollisions.push_back(true);
+				}
+			}
+			else {
+				activeCollisions[it - currentCollisions.begin()] = true;
+				// Collision Stay
+				CScript* scriptA = dynamic_cast<CScript*>(pbodyA->owner->GetComponent(ComponentType::SCRIPT));
+				CScript* scriptB = dynamic_cast<CScript*>(pbodyB->owner->GetComponent(ComponentType::SCRIPT));
+				if (scriptA != nullptr && scriptB != nullptr) {
+					scriptA->CollisionStayCallback(false, pbodyB->owner);
+					scriptB->CollisionStayCallback(false, pbodyA->owner);
+				}
+			}
+		}
+		for (size_t i = 0; i < activeCollisions.size(); ++i) {
+			if (!activeCollisions[i]) {
+				// Collision Exit
+				CScript* scriptA = nullptr;
+				CScript* scriptB = nullptr;
 
-					if (scriptA && scriptB)
-					{
-						scriptA->CollisionExitCallback(false, pbodyB->owner);
-						scriptB->CollisionExitCallback(false, pbodyA->owner);
+				auto& collision = currentCollisions[i];
+				
+				for (const auto& gameObject : App->scene->gameObjects) {
+					if (gameObject == collision.first->owner) {
+						if (collision.first != nullptr)
+						{
+							scriptA = dynamic_cast<CScript*>(collision.first->owner->GetComponent(ComponentType::SCRIPT));
+						}
+						else
+						{
+							continue;
+						}
 					}
 
-					
 				}
+				
+				for (const auto& gameObject : App->scene->gameObjects) {
+					if (gameObject == collision.second->owner) {
+						if (collision.second != nullptr)
+						{
+							scriptB = dynamic_cast<CScript*>(collision.second->owner->GetComponent(ComponentType::SCRIPT));
+						}
+						else
+						{
+							continue;
+						}
+					}
 
+				}
+							
+				if (scriptA != nullptr && scriptB != nullptr) {
+					scriptA->CollisionExitCallback(false, collision.second->owner);
+					scriptB->CollisionExitCallback(false, collision.first->owner);
+				}
+				
+				currentCollisions.erase(currentCollisions.begin() + i);
+				activeCollisions.erase(activeCollisions.begin() + i);
+				--i; 
 			}
-		
 		}
+		previousCollisions = currentCollisions;
 		
-
-
 	}
-
 	if (isWorldFirstFrame) isWorldFirstFrame = false;
-
+	
 	return UPDATE_CONTINUE;
 }
 
 // CLEANUP -------------------------------------------------------------------
 bool ModulePhysics::CleanUp()
 {
+	OPTICK_EVENT();
 
+	RELEASE(dispatcher);
+	RELEASE(collisionConfig);
+	RELEASE(broadphase);
+	RELEASE(constraintSolver);
 
+	DeleteWorld();
 
 	return true;
 }
@@ -238,8 +243,7 @@ void ModulePhysics::DeleteWorld()
 
 	world->clearForces();
 
-	delete world;
-	world = nullptr;
+	RELEASE(world);
 }
 
 // ADDBODY ============================================================================================================

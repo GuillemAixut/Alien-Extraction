@@ -13,6 +13,8 @@
 #include "EmitterSetting.h"
 #include "ParticleEmitter.h"
 
+#include "External/mmgr/mmgr.h"
+
 //#include "parson-master/parson.h" //For JSONs
 
 CParticleSystem::CParticleSystem()
@@ -41,6 +43,7 @@ CParticleSystem::~CParticleSystem()
 		delete (*it);
 		(*it) = nullptr;
 	}
+	allEmitters.clear();
 }
 
 void CParticleSystem::Update()
@@ -132,6 +135,14 @@ void CParticleSystem::OnInspector()
 
 		ImGui::Checkbox("Looping", &looping);
 
+		if (ImGui::Button("Play ALL Triggers")) {
+			for (int i = 0; i < allEmitters.size(); i++)
+			{
+				EmitterSpawner* spawner = (EmitterSpawner*)allEmitters.at(i)->modules.at(1);
+				spawner->PlayTrigger();
+			}
+		}
+
 		ImGui::Separator();
 
 		//Crear emitter
@@ -142,17 +153,16 @@ void CParticleSystem::OnInspector()
 				std::string nameEmitter;
 				if (std::strcmp(allEmitters.at(i)->name.c_str(), "") == 0)
 				{
-
 					//ImGui::Text("ParticleEmmiter %i", i);
 					nameEmitter.append("Particle Emitter ");
 					nameEmitter.append(std::to_string(i + 1));
+					allEmitters.at(i)->name = nameEmitter;
 				}
 				else
 				{
 					nameEmitter += allEmitters.at(i)->name;
 					nameEmitter.append(" ## ");
 					nameEmitter.append(std::to_string(i + 1));
-
 				}
 
 				//Delete emmiter
@@ -174,17 +184,13 @@ void CParticleSystem::OnInspector()
 
 						switch (listModule.at(j)->type)
 						{
-						case EmitterType::PAR_SUBEMITTER:
-						{
-							ImGui::SeparatorText("SUBEMITTER");
-							break;
-						}
 						case EmitterType::PAR_BASE:
 						{
 							ImGui::SeparatorText(("BASE ##" + std::to_string(i)).c_str());
 
 							EmitterBase* eBase = (EmitterBase*)listModule.at(j);
 							eBase->OnInspector();
+							eBase = nullptr;
 							break;
 						}
 						case EmitterType::PAR_SPAWN:
@@ -192,7 +198,8 @@ void CParticleSystem::OnInspector()
 							ImGui::SeparatorText(("SPAWN ##" + std::to_string(i)).c_str());
 
 							EmitterSpawner* eSpawner = (EmitterSpawner*)listModule.at(j);
-							eSpawner->OnInspector();
+							eSpawner->OnInspector(allEmitters.at(i));
+							eSpawner = nullptr;
 							break;
 						}
 						case EmitterType::PAR_POSITION:
@@ -200,14 +207,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("POSITION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterPosition* ePosition = (EmitterPosition*)listModule.at(j);
 							ePosition->OnInspector();
+							ePosition = nullptr;
+
+							if(toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+							
 							break;
 						}
 						case EmitterType::PAR_ROTATION:
@@ -215,14 +227,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("ROTATION ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterRotation* eRotation = (EmitterRotation*)listModule.at(j);
 							eRotation->OnInspector();
+							eRotation = nullptr;
+
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+
 							break;
 						}
 						case EmitterType::PAR_SIZE:
@@ -230,14 +247,19 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("SIZE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterSize* eSize = (EmitterSize*)listModule.at(j);
 							eSize->OnInspector();
+							eSize = nullptr;
+							
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
+
 							break;
 						}
 						case EmitterType::PAR_COLOR:
@@ -245,14 +267,18 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("COLOR ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterColor* eColor = (EmitterColor*)listModule.at(j);
 							eColor->OnInspector();
+							eColor = nullptr;
+							
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
 
 							break;
 						}
@@ -261,14 +287,18 @@ void CParticleSystem::OnInspector()
 							ImGui::Text(particleModule.append(("IMAGE ##" + std::to_string(i))).c_str());
 							ImGui::SameLine();
 							deleteButton.append("Delete ##").append(std::to_string(j));
+							bool toDelete = false;
 							if (ImGui::SmallButton(deleteButton.c_str()))
 							{
-								securityCheckTree = allEmitters.at(i)->DestroyEmitter(j);
+								toDelete = true;
 							}
 							deleteButton.clear();
 
 							EmitterImage* eImage = (EmitterImage*)listModule.at(j);
 							eImage->OnInspector();
+							eImage = nullptr;
+							
+							if (toDelete) { securityCheckTree = allEmitters.at(i)->DestroySetting(j); }
 
 							break;
 						}
@@ -288,15 +318,12 @@ void CParticleSystem::OnInspector()
 				std::string CEid;
 				if (ImGui::CollapsingHeader(CEid.append("Emitter Options ##").append(std::to_string(i)).c_str()))
 				{
-					for (int k = (i > 0) ? -1 : 0; k < EmitterType::PARTICLES_MAX; k++)
+					for (int k = 0; k < EmitterType::PARTICLES_MAX; k++)
 					{
 						std::string emitterType;
 
 						switch (k)
 						{
-						case EmitterType::PAR_SUBEMITTER:
-							emitterType.assign("Subemitter ##");
-							break;
 						case EmitterType::PAR_BASE:
 							emitterType.assign("Base Emitter ##");
 							break;
@@ -355,7 +382,12 @@ void CParticleSystem::OnInspector()
 
 	}
 
-	if (deleteEmitter > -1) { allEmitters.erase(allEmitters.begin() + deleteEmitter); }
+	if (deleteEmitter > -1) 
+	{ 
+		delete allEmitters.at(deleteEmitter);
+		allEmitters.at(deleteEmitter) = nullptr;
+		allEmitters.erase(allEmitters.begin() + deleteEmitter); 
+	}
 
 	if (!exists) { mOwner->RemoveComponent(this); }
 }
@@ -374,7 +406,8 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 		char* serialized_string = NULL;
 
 		json_object_set_number(root_object, "ModulesSize", emitter->modules.size());
-		//json_object_set_number(root_object, "OwnerID", mOwner->UID);
+		//json_object_set_number(root_object, "OwnerID", UID);
+		json_object_set_number(root_object, "EmitterUID", emitter->UID);
 
 		//Create array of all modules info
 		JSON_Array* arr;
@@ -428,18 +461,18 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				JSON_Value* jValuePositiveCube = json_value_init_array();
 				JSON_Array* arrInitialPositiveCube = json_value_get_array(jValuePositiveCube);
 
-				json_object_dotset_value(child_object, "PositiveBoxPoints", jValuePos);
-				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.x);
-				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.y);
-				json_array_append_number(arrInitialPos, eBase->boxPointsPositives.z);
+				json_object_dotset_value(child_object, "PositiveBoxPoints", jValuePositiveCube);
+				json_array_append_number(arrInitialPositiveCube, eBase->boxPointsPositives.x);
+				json_array_append_number(arrInitialPositiveCube, eBase->boxPointsPositives.y);
+				json_array_append_number(arrInitialPositiveCube, eBase->boxPointsPositives.z);
 
 				JSON_Value* jValueNegativeCube = json_value_init_array();
 				JSON_Array* arrInitialNegativeCube = json_value_get_array(jValueNegativeCube);
 
-				json_object_dotset_value(child_object, "NegativeBoxPoints", jValuePos);
-				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.x);
-				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.y);
-				json_array_append_number(arrInitialPos, eBase->boxPointsNegatives.z);
+				json_object_dotset_value(child_object, "NegativeBoxPoints", jValueNegativeCube);
+				json_array_append_number(arrInitialNegativeCube, eBase->boxPointsNegatives.x);
+				json_array_append_number(arrInitialNegativeCube, eBase->boxPointsNegatives.y);
+				json_array_append_number(arrInitialNegativeCube, eBase->boxPointsNegatives.z);
 
 				//Cone & Sphere parameters
 				json_object_set_number(child_object, "RadiusHollow", eBase->radiusHollow);
@@ -447,6 +480,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "RadiusTop", eBase->topRadius);
 				json_object_set_number(child_object, "Heigth", eBase->heigth);
 
+				eBase = nullptr;
 				break;
 			}
 			case EmitterType::PAR_SPAWN:
@@ -464,6 +498,14 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				//Particles until stop (depends of Start Mode)
 				json_object_set_number(child_object, "NumParticlesToStop", eSpawn->numParticlesForStop);
 
+				//Emitter things
+				//eSpawn->pointingEmitter; //ParticleEmitter* pointingEmitter; //NO tengo ni idea de como guardar esto (ERIC)
+				json_object_set_number(child_object, "PointingUID", (eSpawn->pointingEmitter != nullptr) ? eSpawn->pointingEmitter->UID : 0);
+				json_object_set_number(child_object, "ConditionForSpawn", eSpawn->conditionForSpawn);
+				json_object_set_number(child_object, "SubemitterMaxLifetime", eSpawn->subMaxLifetime);
+				json_object_set_number(child_object, "SubemitterMinLifetime", eSpawn->subMinLifetime);
+
+				eSpawn = nullptr;
 				break;
 			}
 			case EmitterType::PAR_POSITION:
@@ -472,6 +514,9 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Random
 				json_object_set_boolean(child_object, "Random", ePosition->randomized);
+
+				//Use shape
+				json_object_set_boolean(child_object, "UseShapeBase", ePosition->useBaseShape);
 
 				//Directions
 				//InitialDirection
@@ -523,7 +568,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				json_object_set_boolean(child_object, "NormalizedChange", ePosition->normalizedChange);
 
-
+				ePosition = nullptr;
 				break;
 			}
 			case EmitterType::PAR_ROTATION:
@@ -543,7 +588,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_array_append_number(arrFreeWorldRotation, eRotation->freeWorldRotation.y);
 				json_array_append_number(arrFreeWorldRotation, eRotation->freeWorldRotation.z);
 
-
+				eRotation = nullptr;
 				break;
 			}
 			case EmitterType::PAR_SIZE:
@@ -552,6 +597,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Bool size increases progresivly
 				json_object_set_boolean(child_object, "Progressive", eSize->progresive);
+				json_object_set_boolean(child_object, "Loop", eSize->loop);
 
 				//Scaling Factor
 				json_object_set_number(child_object, "Size1", eSize->sizeMultiplier1);
@@ -561,6 +607,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "TimeStart", eSize->startChange);
 				json_object_set_number(child_object, "TimeStop", eSize->stopChange);
 
+				eSize = nullptr;
 				break;
 			}
 			case EmitterType::PAR_COLOR:
@@ -569,6 +616,7 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 
 				//Bool size increases progresivly
 				json_object_set_boolean(child_object, "Progressive", eColor->progresive);
+				json_object_set_boolean(child_object, "Loop", eColor->loop);
 
 				//Colors
 				//InitialColor
@@ -601,11 +649,14 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 				json_object_set_number(child_object, "TimeStart", eColor->startChange);
 				json_object_set_number(child_object, "TimeStop", eColor->stopChange);
 
+				eColor = nullptr;
 				break;
 			}
 			case EmitterType::PAR_IMAGE:
 			{
-				//The material already saves all the necesary information
+				EmitterImage* eImage = (EmitterImage*)emitter->modules.at(i);
+				json_object_set_string(child_object, "Path", eImage->imgPath.c_str());
+				eImage = nullptr;
 				break;
 			}
 			case EmitterType::PARTICLES_MAX:
@@ -618,154 +669,6 @@ JSON_Value* CParticleSystem::SaveEmmiterJSON2(ParticleEmitter* emitter)
 		}
 	}
 	return root_value;
-}
-
-ParticleEmitter* CParticleSystem::LoadEmitterFromMeta(const char* pathMeta)
-{
-	ParticleEmitter* pE = new ParticleEmitter(this);
-	pE->owner = this;
-	JSON_Value* root_value = json_parse_file(pathMeta);
-	JSON_Object* root_object = json_value_get_object(root_value);
-
-	int numEmitters = json_object_get_number(root_object, "ModulesSize");
-
-	JSON_Array* arr = json_object_get_array(root_object, "Settings");
-	for (int i = 0; i < numEmitters; i++)
-	{
-		JSON_Object* modulo = json_array_get_object(arr, i);
-
-		EmitterType type = (EmitterType)json_object_get_number(modulo, "Type");
-
-		EmitterSetting* instancia = pE->CreateEmitterSettingByType(type);
-
-		switch ((EmitterType)type)
-		{
-		case EmitterType::PAR_BASE:
-		{
-			EmitterBase* eBase = (EmitterBase*)instancia;
-			eBase->particlesLifeTime1 = (float)json_object_get_number(modulo, "Lifetime");
-
-			//Get position array
-			JSON_Array* posArr = json_object_get_array(modulo, "Position");
-
-			//Get elements of position
-			float posX = json_array_get_number(posArr, 0);
-			float posY = json_array_get_number(posArr, 1);
-			float posZ = json_array_get_number(posArr, 2);
-			eBase->emitterOrigin = { posX,posY,posZ };
-
-			break;
-		}
-		case EmitterType::PAR_SPAWN:
-		{
-			EmitterSpawner* eSpawn = (EmitterSpawner*)instancia;
-
-			//eSpawn->basedTimeSpawn = json_object_get_boolean(modulo, "TimeBased");
-			eSpawn->numParticlesToSpawn = json_object_get_number(modulo, "NumParticles");
-			eSpawn->spawnRatio = (float)json_object_get_number(modulo, "SpawnRatio");
-
-			break;
-		}
-		case EmitterType::PAR_POSITION:
-		{
-			EmitterPosition* ePos = (EmitterPosition*)instancia;
-
-			ePos->randomized = json_object_get_boolean(modulo, "Random");
-			ePos->particleSpeed1 = json_object_get_number(modulo, "Speed1");
-			ePos->particleSpeed2 = json_object_get_number(modulo, "Speed2");
-			ePos->acceleration = json_object_get_boolean(modulo, "Accelerates");
-
-			//Get position array
-			JSON_Array* dirArr1 = json_object_get_array(modulo, "Direction1");
-
-			//Get elements of position
-			float posX1 = json_array_get_number(dirArr1, 0);
-			float posY1 = json_array_get_number(dirArr1, 1);
-			float posZ1 = json_array_get_number(dirArr1, 2);
-			ePos->direction1 = { posX1,posY1,posZ1 };
-
-			//Get position array
-			JSON_Array* dirArr2 = json_object_get_array(modulo, "Direction2");
-
-			//Get elements of position
-			float posX2 = json_array_get_number(dirArr2, 0);
-			float posY2 = json_array_get_number(dirArr2, 1);
-			float posZ2 = json_array_get_number(dirArr2, 2);
-			ePos->direction2 = { posX2,posY2,posZ2 };
-
-			break;
-		}
-		case EmitterType::PAR_ROTATION:
-		{
-			break;
-		}
-		case EmitterType::PAR_SIZE:
-		{
-			EmitterSize* eSize = (EmitterSize*)instancia;
-
-			eSize->progresive = json_object_get_boolean(modulo, "Progressive");
-			eSize->sizeMultiplier1 = (float)json_object_get_number(modulo, "Size1");
-			eSize->sizeMultiplier2 = (float)json_object_get_number(modulo, "Size2");
-			eSize->startChange = (float)json_object_get_number(modulo, "TimeStart");
-			eSize->stopChange = (float)json_object_get_number(modulo, "TimeStop");
-			break;
-		}
-		case EmitterType::PAR_COLOR:
-		{
-			EmitterColor* eColor = (EmitterColor*)instancia;
-
-			eColor->progresive = json_object_get_boolean(modulo, "Progressive");
-
-			eColor->startChange = (float)json_object_get_number(modulo, "TimeStart");
-			eColor->stopChange = (float)json_object_get_number(modulo, "TimeStop");
-
-			//Get COLOR array
-			JSON_Array* colArr1 = json_object_get_array(modulo, "Color1");
-
-			//Get elements of position
-			eColor->color1.r = (float)json_array_get_number(colArr1, 0);
-			eColor->color1.g = (float)json_array_get_number(colArr1, 1);
-			eColor->color1.b = (float)json_array_get_number(colArr1, 2);
-			eColor->color1.a = (float)json_array_get_number(colArr1, 3);
-
-			//Get COLOR array
-			JSON_Array* colArr2 = json_object_get_array(modulo, "Color2");
-
-			//Get elements of position
-			eColor->color2.r = (float)json_array_get_number(colArr2, 0);
-			eColor->color2.g = (float)json_array_get_number(colArr2, 1);
-			eColor->color2.b = (float)json_array_get_number(colArr2, 2);
-			eColor->color2.a = (float)json_array_get_number(colArr2, 3);
-
-			break;
-		}
-		case EmitterType::PARTICLES_MAX:
-			break;
-		default:
-			break;
-		}
-	}
-	return pE;
-}
-
-void CParticleSystem::LoadAllEmmitersJSON(const char* path)
-{
-	JSON_Value* root_value = json_parse_file(path);
-	JSON_Object* root_object = json_value_get_object(root_value);
-
-	int numEmitters = json_object_get_number(root_object, "NumEmitters");
-
-	JSON_Array* arr = json_object_get_array(root_object, "Emitters");
-	for (int i = 0; i < numEmitters; i++)
-	{
-		uint32_t emmiterID = json_array_get_number(arr, i);
-
-		std::string pathEmitter;
-		//pathEmitter += PARTICLES_PATH;
-		pathEmitter += std::to_string(emmiterID);
-		//pathEmitter += PAR;
-		this->allEmitters.push_back(LoadEmitterFromMeta(pathEmitter.c_str()));
-	}
 }
 
 void CParticleSystem::Play()

@@ -19,6 +19,19 @@ ResourceTexture::ResourceTexture(uint UID) : Resource(UID, ResourceType::TEXTURE
 	height = 0;
 }
 
+ResourceTexture::~ResourceTexture()
+{
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	if (ID != 0) {
+		glDeleteTextures(1, &ID);
+		ID = 0; // Reset the texture ID to indicate it's no longer valid
+	}
+
+	// Clear the content of the checkerImage array
+	memset(checkerImage, 0, sizeof(checkerImage));
+}
+
 bool ResourceTexture::LoadInMemory()
 {
 	bool ret = true;
@@ -150,7 +163,19 @@ bool ResourceTexture::LoadInMemory()
 
 bool ResourceTexture::UnloadFromMemory()
 {
-	return false;
+	bool ret = true;
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	if (ID != 0) {
+		glDeleteTextures(1, &ID);
+		ID = 0; // Reset the texture ID to indicate it's no longer valid
+	}
+
+	// Clear the content of the checkerImage array
+	memset(checkerImage, 0, sizeof(checkerImage));
+
+	return ret;
 }
 
 void ResourceTexture::BindTexture(bool bind, GLuint unit)
@@ -219,7 +244,6 @@ void ResourceTexture::LoadCheckerImage()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, CHECKERS_WIDTH, CHECKERS_HEIGHT, 0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
 
 	checkerLoaded = true;
-
 }
 
 std::string ResourceTexture::GetSamplerName() const

@@ -37,7 +37,7 @@ namespace YmirEngine
         /// Creates Shotgun Sensor
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern void CreateShotgunSensor(object position, object rotation, object rightVector);
+        public static extern void CreateShotgunSensor(object position, object rotation, float lenght, float width, object rightVector);
 
         /// <summary>
         /// Creates a bullet.
@@ -50,6 +50,73 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void CreateAcidPuddle(object name, object position);
+
+        /// <summary>
+        /// Creates spitter acid spit attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateSpitterAcidSpit(object position, object rotation);
+
+        /// <summary>
+        /// Creates spitter acid explosive attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateSpitterAcidExplosive(object position, object rotation);
+
+        /// <summary>
+        /// Creates spitter acid shrapnel attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateSpitterAcidShrapnel(object position, object rotation);
+
+
+        /// <summary>
+        /// Creates facehugger tail attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateFaceHuggerTailAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates drone claw attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateDroneClawAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates drone tail attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateDroneTailAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates queen claw attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenClawAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates queen tail attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenTailAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates queen spit attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenSpitAttack(object position, object rotation);
+
+        /// <summary>
+        /// Creates queen shrapnel attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenShrapnel(object position, object rotation);
+
+        /// <summary>
+        /// Creates queen puddle attack.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateQueenPuddle(object position, object rotation);
 
         /// <summary>
         /// Destroys a game object.
@@ -83,7 +150,8 @@ namespace YmirEngine
         public static extern GameObject LoadScene(string name);
 
 
-
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern GameObject GetEnemyGameObject(object go);
 
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern Vector3 GetWalkablePointAround(object position, float radius);
@@ -131,23 +199,36 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern GameObject CS_GetChild(object go, int numberChild);
 
+        // TODO: PONER EN GAMEOBJECT.CS
+        /// <summary>
+        /// Get child in numberChild position in mchildren.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int CS_GetChildrenSize(object go);
+
         /// <summary>
         /// Compare GameObjects by UID.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern bool CompareGameObjectsByUID(object go1, object go2);          
-        
-        /// <summary>
-        /// Compare string to go name.
-        /// </summary>
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public static extern bool CompareStringToName(object go, string name);
 
         /// <summary>
         /// Disable the component with name.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern bool DisableComponent(object go, string name, bool includeChildren);
+
+        /// <summary>
+        /// Spawns an item prefab with name and position.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SpawnItem(string name, Vector3 pos);
+
+        /// <summary>
+        /// Returns the ID of the current map (IDs: NO_MAP = -1, LVL_BASE = 0, LVL_1 = 1, LVL_2_PART_1 = 2, LVL_2_PART_2 = 3, LVL_3_PART_1 = 4, LVL_3_PART_2 = 5) 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int GetCurrentMap();
 
     }
 
@@ -315,6 +396,104 @@ namespace YmirEngine
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern bool CheckUI(object goTarget, object goOrigin);
+
+        /// <summary>
+        /// Compare string to go name.
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool CompareStringToName(object go, string name);
+    }
+
+    /// <summary>
+    /// Provides methods for Save and Load operations.
+    /// </summary>
+    public class SaveLoad
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool GameFileExists(string dir, string name);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void CreateSaveGameFile(string dir, string name);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveInt(string dir, string name, string saveAs, int val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveFloat(string dir, string name, string saveAs, double val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveBool(string dir, string name, string saveAs, bool val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveString(string dir, string name, string saveAs, string val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveIntArray(string dir, string name, string saveAs, int[] val);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SaveFloatArray(string dir, string name, string saveAs, double[] val);
+
+        //
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern int LoadInt(string dir, string name, string loadFrom);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern double LoadFloat(string dir, string name, string loadFrom);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern bool LoadBool(string dir, string name, string loadFrom);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern string LoadString(string dir, string name, string loadFrom);
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //public static extern void LoadIntArray(string dir, string name, string loadFrom);
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //public static extern void LoadFloatArray(string dir, string name, string loadFrom);
     }
 
     /// <summary>

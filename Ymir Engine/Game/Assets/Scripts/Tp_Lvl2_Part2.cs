@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -8,13 +8,47 @@ using YmirEngine;
 
 public class Tp_Lvl2_Part2 : YmirComponent
 {
+    // Loading scene
+    private GameObject loadSceneImg;
+    private bool loadScene = false;
+
+    public void Start()
+    {
+        loadSceneImg = InternalCalls.GetGameObjectByName("Loading Scene Canvas");
+
+        if (loadSceneImg != null)
+        {
+            loadSceneImg.SetActive(false);
+        }
+
+        loadScene = false;
+    }
+
+    public void Update()
+    {
+        if (loadScene)
+        {
+            InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene");
+            loadScene = false;
+
+            return;
+        }
+
+        return;
+    }
+
     public void OnCollisionEnter(GameObject other)
     {
-        if(other.Tag == "Player")
+        //TODO: Mostrat UI de que puede interactuar si pulsa el boton asignado
+        if (other.Tag == "Player")
         {
             Audio.StopAllAudios();
-            InternalCalls.LoadScene("Assets/LVL2_LAB_PART2_FINAL/LVL2_LAB_PART2_COLLIDERS.yscene");
+            if (loadSceneImg != null)
+            {
+                loadSceneImg.SetActive(true);
+            }
+
+            loadScene = true;
         }
-    }
-    
+    }    
 }

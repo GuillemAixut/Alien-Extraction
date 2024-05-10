@@ -50,11 +50,11 @@ public class Spawner: YmirComponent
 
         if(randomValue < porcentajeFaceHugger)
         {
-            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger", gameObject.transform.globalPosition);
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger-DEF", gameObject.transform.globalPosition);
         }
         else
         {
-            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-DroneXenomorph", gameObject.transform.globalPosition);
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-DroneXenomorph-DEF", gameObject.transform.globalPosition);
         }
 
 

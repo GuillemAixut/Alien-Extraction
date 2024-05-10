@@ -154,7 +154,7 @@ public class Loot_Chest : YmirComponent
             pos.x += randPosX;
             pos.z += randPosZ;
 
-            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", name, pos);
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs/Items/Common Items", name, pos);
 
             //Clear the pos value
             pos = gameObject.transform.localPosition;

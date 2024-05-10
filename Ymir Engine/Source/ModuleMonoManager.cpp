@@ -21,6 +21,7 @@
 #include "CS_Animation_Bindings.h"
 #include "CS_Particle_Bindings.h"
 #include "CS_NavMesh_Bindings.h"
+#include "CS_SaveLoad_Bindings.h"
 
 #include "PhysfsEncapsule.h"
 #include "ModuleEditor.h"
@@ -42,6 +43,8 @@
 #pragma comment( lib, "Source/External/mono/libx86/mono-2.0-boehm.lib" )
 #pragma comment( lib, "Source/External/mono/libx86/mono-2.0-sgen.lib" )
 
+#include "External/Optick/include/optick.h"
+
 #include "External/mmgr/mmgr.h"
 
 ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Module(app, start_enabled), domain(nullptr), domainThread(nullptr), assembly(nullptr), image(nullptr), jitDomain(nullptr)
@@ -59,8 +62,10 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByName", FindObjectWithName);
 	mono_add_internal_call("YmirEngine.InternalCalls::GetChildrenByName", FindChildrenWithName);
 	mono_add_internal_call("YmirEngine.InternalCalls::GetGameObjectByUID", FindObjectWithUID);	
+	mono_add_internal_call("YmirEngine.InternalCalls::GetEnemyGameObject", FindEnemyGameObject);
 	mono_add_internal_call("YmirEngine.GameObject::get_parent", CS_GetParent);
 	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetChild", CS_GetChild);
+	mono_add_internal_call("YmirEngine.InternalCalls::CS_GetChildrenSize", CS_GetChildrenSize);
 	mono_add_internal_call("YmirEngine.InternalCalls::CompareGameObjectsByUID", CompareGameObjectsByUID);
 	mono_add_internal_call("YmirEngine.GameObject::TryGetComponent", CS_GetComponent);
 	mono_add_internal_call("YmirEngine.GameObject::get_Name", Get_GO_Name);
@@ -78,6 +83,9 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	
 	mono_add_internal_call("YmirEngine.InternalCalls::DisableComponent", DisableComponentCS);
 
+	mono_add_internal_call("YmirEngine.InternalCalls::SpawnItem", SpawnItemCS);
+	mono_add_internal_call("YmirEngine.InternalCalls::GetCurrentMap", GetCurrentMapCS);
+
 #pragma region GameObject
 
 	mono_add_internal_call("YmirEngine.GameObject::SetActive", SetActive);
@@ -85,12 +93,13 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::IsActive", IsActiveCS);
 
 	mono_add_internal_call("YmirEngine.GameObject::SetColliderSize", SetColliderSizeCS);
+	mono_add_internal_call("YmirEngine.GameObject::SetScale", SetGameObjectScaleCS);
 
 #pragma endregion
 
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateBullet", CreateBullet);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateShotgunSensor", CreateShotgunSensor);
-	mono_add_internal_call("YmirEngine.InternalCalls::CreatePrefab", CreatePrefab);	//TODO: Descomentar cuando est� el CreateBullet()
+	mono_add_internal_call("YmirEngine.InternalCalls::CreatePrefab", CreatePrefab);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateTailSensor", CreateTailSensor);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidicSpit", CreateAcidicSpit);
 	mono_add_internal_call("YmirEngine.InternalCalls::CreateAcidPuddle", CreateAcidPuddle);
@@ -138,6 +147,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::get_Tag", GetTag);
 	mono_add_internal_call("YmirEngine.GameObject::GetChildrenByTag", GetChildrenByTag);
 
+#pragma endregion
 
 #pragma region UI
 
@@ -208,7 +218,6 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 
 #pragma endregion
 
-
 #pragma region GamePad
 
 	mono_add_internal_call("YmirEngine.Input::GetGamepadButton", GetGamepadButton);
@@ -244,11 +253,14 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 #pragma endregion
 
 #pragma region Particles
-	mono_add_internal_call("YmirEngine.Particles::PlayEmitter", PlayEmitter);
+	mono_add_internal_call("YmirEngine.Particles::PlayParticlesTrigger", PlayParticlesTrigger);
 	mono_add_internal_call("YmirEngine.Particles::ParticleShoot", ParticleShoot);
+	mono_add_internal_call("YmirEngine.Particles::PlayParticles", PlayParticles);
+	mono_add_internal_call("YmirEngine.Particles::StopParticles", StopParticles);
+	mono_add_internal_call("YmirEngine.Particles::RestartParticles", RestartParticles);
+	mono_add_internal_call("YmirEngine.Particles::ParticlesForward", ParticlesForward);
 
 #pragma endregion
-
 
 #pragma region Pathfinder
 	mono_add_internal_call("YmirEngine.PathFinding::CalculateRandomPath", CS_CalculateRandomPath);
@@ -271,6 +283,41 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.InternalCalls::GetWalkablePointAround", GetWalkablePointAround);
 #pragma endregion
 
+#pragma region Enemies
+
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidSpit", CreateSpitterAcidSpit);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidExplosive", CreateSpitterAcidExplosive);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateSpitterAcidShrapnel", CreateSpitterAcidShrapnel);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateFaceHuggerTailAttack", CreateFaceHuggerTailAttack);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateDroneClawAttack", CreateDroneClawAttack);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateDroneTailAttack", CreateDroneTailAttack);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenClawAttack", CreateQueenClawAttack);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenTailAttack", CreateQueenTailAttack);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenSpitAttack", CreateQueenSpitAttack);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenPuddle", CreateQueenPuddle);
+	mono_add_internal_call("YmirEngine.InternalCalls::CreateQueenShrapnel", CreateQueenShrapnel);
+
+#pragma endregion
+
+#pragma region SaveLoad
+
+	mono_add_internal_call("YmirEngine.SaveLoad::GameFileExists", GameFileExists);
+	mono_add_internal_call("YmirEngine.SaveLoad::CreateSaveGameFile", CreateSaveGameFile);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveInt", SaveGameInt);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveFloat", SaveGameFloat);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveBool", SaveGameBool);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveString", SaveGameString);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveIntArray", SaveGameIntArray);
+	mono_add_internal_call("YmirEngine.SaveLoad::SaveFloatArray", SaveGameFloatArray);
+
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadInt", LoadGameInt);
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadFloat", LoadGameFloat);
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadBool", LoadGameBool);
+	mono_add_internal_call("YmirEngine.SaveLoad::LoadString", LoadGameString);
+	//mono_add_internal_call("YmirEngine.SaveLoad::LoadIntArray", LoadGameIntArray);
+	//mono_add_internal_call("YmirEngine.SaveLoad::LoadFloatArray", LoadGameFloatArray);
+
+#pragma endregion
 
 	mono_add_internal_call("YmirEngine.Time::get_deltaTime", GetDT);
 	mono_add_internal_call("YmirEngine.Time::get_time", GetTimeCS);
@@ -284,6 +331,8 @@ ModuleMonoManager::~ModuleMonoManager()
 // -----------------------------------------------------------------
 bool ModuleMonoManager::Init()
 {
+	OPTICK_EVENT();
+
 	LOG("Setting up the camera");
 	bool ret = true;
 
@@ -293,9 +342,38 @@ bool ModuleMonoManager::Init()
 // -----------------------------------------------------------------
 bool ModuleMonoManager::CleanUp()
 {
+	OPTICK_EVENT();
+
 	LOG("Cleaning mono domain");
 
-	//mono_domain_unload(domain);
+	// Release Mono Classes ( peta :( )
+	//ClearVecPtr(userScripts);
+
+	// Release Mono Image and Assembly
+	if (image != nullptr) {
+		mono_image_close(image);
+	}
+
+	// Release Mono Assembly ( peta :( )
+	//if (assembly != nullptr) {
+	//	mono_assembly_close(assembly);
+	//}
+
+	// Release Mono Thread  ( peta :( )
+	if (domainThread != nullptr) {
+		mono_thread_detach(domainThread);
+	}
+
+	// Unload Mono Domains  ( peta :( )
+	
+	//if (domain != nullptr) {
+	//	mono_domain_unload(domain);
+	//}
+	
+	//if (jitDomain != nullptr) { 
+	//	mono_domain_unload(jitDomain);
+	//}
+
 	mono_jit_cleanup(jitDomain); //Mono cleanup
 	system("taskkill /F /IM VBCSCompiler.exe"); // Kills VBCSCompiler via CMD
 
@@ -362,6 +440,18 @@ float3 ModuleMonoManager::UnboxVector(MonoObject* _obj)
 	mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "y"), &ret.y);
 	mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "z"), &ret.z);
 	return static_cast<float3>(ret);
+}
+
+std::vector<GameObject> ModuleMonoManager::UnboxList(MonoObject* _obj)
+{
+	std::vector<GameObject> ret;
+
+	//MonoClass* klass = mono_object_get_class(_obj);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "x"), &ret.);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "y"), &ret.y);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "z"), &ret.z);
+	//mono_field_get_value(_obj, mono_class_get_field_from_name(klass, "w"), &ret.w);
+	return ret;
 }
 
 //ASK: Is this the worst idea ever? TOO SLOW
@@ -644,6 +734,8 @@ void ModuleMonoManager::RemoveScriptFromSLN(const char* scriptLocalPath)
 
 void ModuleMonoManager::InitMono()
 {
+	OPTICK_EVENT();
+
 	//mono_set_dirs("mono-runtime/lib", "mono-runtime/etc");
 	//mono_config_parse(NULL);
 

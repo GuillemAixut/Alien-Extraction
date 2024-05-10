@@ -19,12 +19,15 @@ struct AssimpNodeData {
 	std::string name;
 	int childrenCount;
 	std::vector<AssimpNodeData> children;
+
+	void CleanUp();
 };
 
 class ResourceAnimation : public Resource {
 public:
 
 	ResourceAnimation(uint UID);
+	~ResourceAnimation();
 
 	bool LoadInMemory() override;
 	bool UnloadFromMemory() override;

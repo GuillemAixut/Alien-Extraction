@@ -20,13 +20,13 @@ public class BH_Shotgun : YmirComponent
 
     public void Update()
     {
-        gameObject.SetPosition(player.shotgunOffset);
+        gameObject.SetPosition(player.currentWeapon.gameObject.transform.globalPosition + player.currentWeapon.offset + (player.currentWeapon.gameObject.transform.GetForward() * player.currentWeapon.range * 4));
         gameObject.SetRotation(playerObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f)); // <- -90 Degree Quat
 
         InternalCalls.Destroy(gameObject);
     }
 
-    public void OnCollisionStay(GameObject other)
+    public void OnCollisionEnter(GameObject other)
     {
 
         if (other.Tag != "Enemy")
@@ -54,6 +54,13 @@ public class BH_Shotgun : YmirComponent
             {
                 aux3.life -= 110;
             }
+
+            SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
+            if (aux4 != null)
+            {
+                aux4.life -= 110;
+            }
+
             Debug.Log("[ERROR] HIT ENEMy");
            
         }

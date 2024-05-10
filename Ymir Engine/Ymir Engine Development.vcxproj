@@ -150,6 +150,7 @@
     <ClInclude Include="Source\CS_Bindings.h" />
     <ClInclude Include="Source\CS_Input_Bindings.h" />
     <ClInclude Include="Source\CS_Particle_Bindings.h" />
+    <ClInclude Include="Source\CS_SaveLoad_Bindings.h" />
     <ClInclude Include="Source\CS_UI_Bindings.h" />
     <ClInclude Include="Source\C_UI.h" />
     <ClInclude Include="Source\DefaultShader.h" />
@@ -676,10 +677,13 @@
     <None Include="Game\Assets\Shaders\AnimationShader.glsl" />
     <None Include="Game\Assets\Shaders\ColorShader.glsl" />
     <None Include="Game\Assets\Shaders\DefaultShader.glsl" />
+    <None Include="Game\Assets\Shaders\Framebuffer.glsl" />
     <None Include="Game\Assets\Shaders\LavaShader.glsl" />
     <None Include="Game\Assets\Shaders\Lighting Shader.glsl" />
     <None Include="Game\Assets\Shaders\MyShader.glsl" />
+    <None Include="Game\Assets\Shaders\OutlineShader.glsl" />
     <None Include="Game\Assets\Shaders\RainbowShader.glsl" />
+    <None Include="Game\Assets\Shaders\SpecularLight.glsl" />
     <None Include="Game\Assets\Shaders\UI Shader.glsl" />
     <None Include="Game\Assets\Shaders\WaterShader.glsl" />
     <None Include="Source\External\ImGuiNodeEditor\include\imgui_bezier_math.inl" />

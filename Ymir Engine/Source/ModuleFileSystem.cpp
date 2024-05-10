@@ -42,6 +42,8 @@ ModuleFileSystem::~ModuleFileSystem()
 
 bool ModuleFileSystem::Init()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Loading File System");
@@ -102,6 +104,8 @@ update_status ModuleFileSystem::PostUpdate(float dt)
 
 bool ModuleFileSystem::CleanUp()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Deleting File System");
@@ -257,6 +261,6 @@ bool ModuleFileSystem::LoadMeshToFile(const std::string filename, ResourceMesh* 
 void ModuleFileSystem::CopyStandaloneBuild()
 {
 	std::string standaloneEXEpath = "../Standalone/Ymir Engine.exe";
-	std::string gameEXEpath = "./ProjectClapcom.exe";
+	std::string gameEXEpath = "./AlienExtraction.exe";
 	PhysfsEncapsule::DuplicateFile(standaloneEXEpath.c_str(), gameEXEpath.c_str());
 }

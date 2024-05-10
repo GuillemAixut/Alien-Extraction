@@ -17,7 +17,7 @@ public class BH_Bullet : YmirComponent
     public void Start()
     {
         particleSystem = GetParticles();
-        Particles.PlayEmitter(particleSystem);
+        Particles.PlayParticles(particleSystem);
 
         vSpeed = GetDirection() * speed;
     }
@@ -89,6 +89,40 @@ public class BH_Bullet : YmirComponent
             QueenXenomorphBaseScript script;
             //Do damage AND take into account armor
             script = other.GetComponent<QueenXenomorphBaseScript>();
+            script.life -= (5 * (1 - script.armor));
+
+            //If health 0 then destroy enemy
+            if (script.life <= 0)
+            {
+                InternalCalls.Destroy(other);
+            }
+            Debug.Log("[ERROR] Life: " + script.life);
+            hit = true;
+            //Destroy bullet when hit, REMOVE THIS IF THE BULLET SHOULD PIERCE
+            currentLifeTime = maxLifeTime;
+        }
+        else if (other.Name == "Spitter" && !hit)
+        {
+            SpitterBaseScript script;
+            //Do damage AND take into account armor
+            script = other.GetComponent<SpitterBaseScript>();
+            script.life -= (5 * (1 - script.armor));
+
+            //If health 0 then destroy enemy
+            if (script.life <= 0)
+            {
+                InternalCalls.Destroy(other);
+            }
+            Debug.Log("[ERROR] Life: " + script.life);
+            hit = true;
+            //Destroy bullet when hit, REMOVE THIS IF THE BULLET SHOULD PIERCE
+            currentLifeTime = maxLifeTime;
+        }
+        else if (other.Name == "DroneXenomorph" && !hit)
+        {
+            DroneXenomorphBaseScript script;
+            //Do damage AND take into account armor
+            script = other.GetComponent<DroneXenomorphBaseScript>();
             script.life -= (5 * (1 - script.armor));
 
             //If health 0 then destroy enemy

@@ -16,7 +16,8 @@ public enum DroneState
 	CLAW,
 	TAIL,
     KNOCKBACK,
-	DEAD
+	DEAD,
+    PAUSED
 }
 
 public class DroneXenomorphBaseScript : Enemy
@@ -27,8 +28,8 @@ public class DroneXenomorphBaseScript : Enemy
 
     
 
-    private DroneState droneState;
-
+    public DroneState droneState;
+    private DroneState pausedState;
 	//If aggressive or not
 	private bool aggro;
 
@@ -39,19 +40,20 @@ public class DroneXenomorphBaseScript : Enemy
 	private float clawCooldown;
     private float clawCooldownTime;
     private float clawRange;
+    private bool clawDone;
 
 	//Tail
 	//private float tailDamage;
 	private float tailCooldown;
     private float tailCooldownTime;
     private float tailRange;
+    private bool tailDone;
 
 	//FOR GENERAL TIME MANAGEMENT
 	public float timeCounter;
 	private float timeLimit;
 
     private float outOfRangeTimer;
-
 	public void Start()
 	{
 		//MAIN STUFF
@@ -59,7 +61,6 @@ public class DroneXenomorphBaseScript : Enemy
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         agent = gameObject.GetComponent<PathFinding>();
-
 
         knockBackSpeed = 200;
         knockBackTimer = 0.5f;
@@ -77,16 +78,16 @@ public class DroneXenomorphBaseScript : Enemy
         wanderRange = 100f;
 
         //Claw
-        //clawDamage = 150f;
 		clawCooldown = 2f;
         clawCooldownTime = 0f;
         clawRange = 20f;
+        clawDone = false;
 
 		//Tail
-		//tailDamage = 200f;
 		tailCooldown = 6f;
         tailCooldownTime = 0f;
         tailRange = 30f;
+        tailDone = false;
 
 		//Time
 		timeCounter = 0f;
@@ -97,30 +98,89 @@ public class DroneXenomorphBaseScript : Enemy
 
         life = 300f;
 
+        //Drop items
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/droneXenomorph_loot.csv";
+        numFields = 2;
+        spawnRange = 15;
+        level = InternalCalls.GetCurrentMap();
+        switch (level)
+        {
+            case 1:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+            case int i when (i == 2 || i == 3):
+                commonProb = 20.0f;
+                rareProb = 50.0f;
+                epicProb = 30.0f;
+                break;
+            case int i when (i == 4 || i == 5):
+                commonProb = 10.0f;
+                rareProb = 30.0f;
+                epicProb = 60.0f;
+                break;
+            default:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+        }
+        Debug.Log("[WARNING] Probs: " + commonProb + "rare: " + rareProb + "Epic: " + epicProb);
 
-        Animation.PlayAnimation(gameObject, "Combat_Idle");
         Animation.SetLoop(gameObject, "Combat_Idle", true);
         Animation.SetLoop(gameObject, "Drone_Walk", true);
+
         Animation.SetSpeed(gameObject, "Claw_Attack", 2f);
         Animation.SetSpeed(gameObject, "Drone_Tail_Attack", 2f);
+        Animation.SetSpeed(gameObject, "Drone_Walk", 0.5f);
+
+        Animation.AddBlendOption(gameObject, "", "Drone_Walk", 5);
+        Animation.AddBlendOption(gameObject, "", "Claw_Attack", 5);
+        Animation.AddBlendOption(gameObject, "", "Drone_Tail_Attack", 5);
+        Animation.AddBlendOption(gameObject, "", "Cry", 5);
+        Animation.AddBlendOption(gameObject, "", "Combat_Idle", 10);
+        Animation.AddBlendOption(gameObject, "", "Death", 5);
+
+        Animation.SetResetToZero(gameObject, "Death", false);
+
+        Animation.PlayAnimation(gameObject, "Combat_Idle");
+
     }
 
     public void Update()
 	{
-        Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
+        if (CheckPause())
+        {
+            SetPause(true);
+            paused = true;
+            return;
+        }
+        else if (paused)
+        {
+            SetPause(false);
+            paused = false;
+        }
+
+        //Debug.Log("[ERROR] CURRENTSTATE: " + droneState);
         if (droneState != DroneState.DEAD) { isDeath(); }
         switch (droneState)
 		{
-
+            case DroneState.PAUSED: 
+                //Do nothing
+                break;
             case DroneState.DEAD:
-                timePassed += Time.deltaTime;
 
+                timePassed += Time.deltaTime;
+                
                 if (timePassed >= 1.4f)
                 {
-                    Debug.Log("[ERROR] DEATH");
+                    //Debug.Log("[ERROR] DEATH");
+                    itemPos = gameObject.transform.globalPosition;
+                    DropItem();
                     InternalCalls.Destroy(gameObject);
                 }
-
 
                 return;
             case DroneState.KNOCKBACK:
@@ -131,7 +191,7 @@ public class DroneXenomorphBaseScript : Enemy
 
                 if (timePassed >= knockBackTimer)
                 {
-                    Debug.Log("[ERROR] End KnockBack");
+                    //Debug.Log("[ERROR] End KnockBack");
                     droneState = DroneState.IDLE_NO_AGGRO;
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                     timePassed = 0f;
@@ -159,6 +219,7 @@ public class DroneXenomorphBaseScript : Enemy
                     aggro = true;
                     droneState = DroneState.CRY;
                     Animation.PlayAnimation(gameObject, "Cry");
+                    player.GetComponent<Player>().SetExplorationAudioState();
                 }
 
                 break;
@@ -191,6 +252,7 @@ public class DroneXenomorphBaseScript : Enemy
                     aggro = true;
                     Audio.PlayAudio(gameObject, "DX_Cry");
                     Animation.PlayAnimation(gameObject, "Cry");
+                    player.GetComponent<Player>().SetExplorationAudioState();
                     droneState = DroneState.CRY;
 				}
 
@@ -210,6 +272,7 @@ public class DroneXenomorphBaseScript : Enemy
 				timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+                //gameObject.ClearForces();
 
                 //If done with animation, go to move aggro
                 if (timeCounter >= timeLimit)
@@ -226,16 +289,27 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-               
+                //gameObject.ClearForces();
+
                 //LookAt(agent.GetDestination());
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
-                    Audio.PlayAudio(gameObject, "DX_Claw");
                     droneState = DroneState.IDLE_AGGRO;
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
+                    //To fix claw to tail attack bug
+                    tailCooldownTime = 5.5f;
+                }
+                else if (timeCounter >= 0.65f && clawDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 10;
+                    pos.z -= 6;
+                    InternalCalls.CreateDroneClawAttack(pos, gameObject.transform.globalRotation);
+                    Audio.PlayAudio(gameObject, "DX_Claw");
+                    clawDone = true;
                 }
 
                 break;
@@ -245,63 +319,66 @@ public class DroneXenomorphBaseScript : Enemy
                 timeCounter += Time.deltaTime;
 
                 gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
-                
+                //gameObject.ClearForces();
                 
 
                 //If done with animation, go to idle aggro
                 if (timeCounter >= timeLimit)
                 {
                     timeCounter = 0f;
-                    Audio.PlayAudio(gameObject, "DX_Tail");
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                     droneState = DroneState.IDLE_AGGRO;
+                    //To fix tail to claw attack bug
+                    clawCooldownTime = 1f;
+
                 }
-
+                else if (timeCounter >= 0.5f && tailDone == false)
+                {
+                    Vector3 pos = gameObject.transform.globalPosition;
+                    pos.y += 10;
+                    pos.z -= 6;
+                    InternalCalls.CreateDroneTailAttack(pos, gameObject.transform.globalRotation);
+                    Audio.PlayAudio(gameObject, "DX_Tail");
+                    tailDone = true;
+                }
                 break;
-
-
-
-
 		}
 
-        //Check attack posiblilities and count cooldowns
-        CheckAttack();
-
-        //If player too far away, go back to wander
-        if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
+        if (droneState != DroneState.PAUSED)
         {
-            outOfRangeTimer += Time.deltaTime;
+            //Check attack posiblilities and count cooldowns
+            CheckAttack();
 
-            if (outOfRangeTimer >= 3f)
+            //If player too far away, go back to wander
+            if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
             {
-                outOfRangeTimer = 0f;                           
-                timeCounter = 0f;
-                timeLimit = 5f;
-                aggro = false;
-                gameObject.SetVelocity(new Vector3(0, 0, 0));
-                droneState = DroneState.IDLE_NO_AGGRO;
-                Animation.PlayAnimation(gameObject, "Combat_Idle");
+                outOfRangeTimer += Time.deltaTime;
+
+                if (outOfRangeTimer >= 3f)
+                {
+                    outOfRangeTimer = 0f;
+                    timeCounter = 0f;
+                    timeLimit = 5f;
+                    aggro = false;
+                    gameObject.SetVelocity(new Vector3(0, 0, 0));
+                    droneState = DroneState.IDLE_NO_AGGRO;
+                    player.GetComponent<Player>().SetExplorationAudioState();
+                    Animation.PlayAnimation(gameObject, "Combat_Idle");
+                }
+
             }
-
+            else
+            {
+                //So that it resets if it is again in range
+                outOfRangeTimer = 0f;
+            }
         }
-        else
-        {
-            //So that it resets if it is again in range
-            outOfRangeTimer = 0f;
-        }
-
     }
-
-    //SHOULD BE ON ENEMY BASE SCRIPT!!!!!
-    //LookAt, CheckDistance, MoveToPosition, DestroyEnemy, IsReached
-    //Check distance between two gameobjects world position
 
     public void OnCollisionStay(GameObject other)
     {
         if (other.Tag == "Tail" && droneState != DroneState.KNOCKBACK && droneState != DroneState.DEAD)
         {
-            Debug.Log("[ERROR] CURRENTSTATE2: " + droneState);
-            Debug.Log("[ERROR] HIT!!");
             life -= 80;
 
             droneState = DroneState.KNOCKBACK;
@@ -332,13 +409,11 @@ public class DroneXenomorphBaseScript : Enemy
         {
             Audio.PlayAudio(gameObject, "DX_Death");
             Animation.PlayAnimation(gameObject, "Death");
-            Debug.Log("[ERROR] CURRENTSTATE2: " + droneState);
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             droneState = DroneState.DEAD;
             timePassed = 0;
         }
     }
-    //REMOVE functions on top------------------------------------------------------------------------
 
     //CHECK ATTACKS
     private void CheckAttack()
@@ -348,23 +423,31 @@ public class DroneXenomorphBaseScript : Enemy
 
         if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, clawRange) && clawCooldownTime >= clawCooldown)
         {
-            clawCooldownTime = 0f;
-            timeCounter = 0f;
-            //ANIMATION DURATION HERE!!!
-            timeLimit = 1f;
-            droneState = DroneState.CLAW;
-            LookAt(player.transform.globalPosition);
-            Animation.PlayAnimation(gameObject, "Claw_Attack");
+            if (droneState != DroneState.TAIL) 
+            {
+                clawCooldownTime = 0f;
+                timeCounter = 0f;
+                //ANIMATION DURATION HERE!!!
+                timeLimit = 1f;
+                clawDone = false;
+                droneState = DroneState.CLAW;
+                LookAt(player.transform.globalPosition);
+                Animation.PlayAnimation(gameObject, "Claw_Attack");
+            }
         }
         else if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, tailRange) && tailCooldownTime >= tailCooldown)
         {
-            tailCooldownTime = 0f;
-            timeCounter = 0f;
-            //ANIMATION DURATION HERE!!!
-            timeLimit = 0.8f;
-            droneState = DroneState.TAIL;
-            LookAt(player.transform.globalPosition);
-            Animation.PlayAnimation(gameObject, "Drone_Tail_Attack");
+            if (droneState != DroneState.CLAW)
+            {
+                tailCooldownTime = 0f;
+                timeCounter = 0f;
+                //ANIMATION DURATION HERE!!!
+                timeLimit = 0.8f;
+                tailDone = false;
+                droneState = DroneState.TAIL;
+                LookAt(player.transform.globalPosition);
+                Animation.PlayAnimation(gameObject, "Drone_Tail_Attack");
+            }
         }
 
     }
@@ -375,5 +458,21 @@ public class DroneXenomorphBaseScript : Enemy
         return droneState;
     }
 
+    private void SetPause(bool pause)
+    {
+        if (pause)
+        {
+            pausedState = droneState;
+            droneState = DroneState.PAUSED;
+            Animation.PauseAnimation(gameObject);
+            gameObject.SetVelocity(gameObject.transform.GetForward() * 0);
+        }
+        else if (droneState == DroneState.PAUSED)
+        {
+            //If bool set to false when it was never paused, it will do nothing
+            droneState = pausedState;
+            Animation.ResumeAnimation(gameObject);
+        }
+    }
 
 }

@@ -38,13 +38,14 @@ ModuleInput::ModuleInput(Application* app, bool start_enabled) : Module(app, sta
 // Destructor
 ModuleInput::~ModuleInput()
 {
-	delete[] keyboard;
-	keyboard = nullptr;
+
 }
 
 // Called before render is available
 bool ModuleInput::Init()
 {
+	OPTICK_EVENT();
+
 	LOG("Init SDL input event system");
 	bool ret = true;
 	SDL_Init(0);
@@ -96,6 +97,8 @@ bool ModuleInput::Init()
 
 bool ModuleInput::Start()
 {
+	OPTICK_EVENT();
+
 	return true;
 }
 
@@ -347,8 +350,39 @@ update_status ModuleInput::PreUpdate(float dt)
 // Called before quitting
 bool ModuleInput::CleanUp()
 {
+	OPTICK_EVENT();
+
 	LOG("Quitting SDL input event subsystem");
 
+	delete[] keyboard;
+	keyboard = nullptr;
+
+	if (SDL_NumJoysticks() > 0 && joystick != NULL) {
+
+		SDL_JoystickClose(joystick); // Release joystick resources
+		joystick = NULL;
+
+	}
+	
+	// Crashes with controller ON
+	
+	//for (int i = 0; i < MAX_CONTROLLERS; ++i) {
+
+	//	if (SDL_NumJoysticks() > 0 && sdl_controllers[i] != NULL) {
+
+	//		SDL_GameControllerClose(sdl_controllers[i]); // Release controller resources
+	//		sdl_controllers[i] = NULL;
+
+	//	}
+
+	//}
+
+	//ClearVecPtr(activeControllers);
+
+	SDL_GameControllerClose(controller_player);
+	controller_player = NULL;
+
+	SDL_QuitSubSystem(SDL_INIT_GAMECONTROLLER | SDL_INIT_EVENTS | SDL_INIT_JOYSTICK);
 	SDL_Quit();
 
 	return true;

@@ -32,6 +32,25 @@ void SetUIState(MonoObject* object, int uiState)
 		//{
 		((C_UI*)(*it))->SetState((UI_STATE)uiState);
 
+		// TODO: if menus do not work delete this, is for inventory
+		if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::NORMAL)
+		{
+			if (External->scene->selectedGO != nullptr && External->scene->selectedGO->UID == go->UID)
+			{
+				std::vector<Component*> listComponents = External->scene->focusedUIGO->GetAllComponentsByType(ComponentType::UI);
+				for (auto it = listComponents.begin(); it != listComponents.end(); ++it)
+				{
+					if (((C_UI*)(*it))->tabNav_)
+					{
+						((C_UI*)(*it))->SetState((UI_STATE)uiState);
+					}
+				}
+
+				External->scene->selectedGO = nullptr;
+				External->scene->SetSelected();
+			}
+		}
+
 		if (((C_UI*)(*it))->tabNav_ && (UI_STATE)uiState == UI_STATE::FOCUSED)
 		{
 			int offset = 0;
@@ -85,6 +104,16 @@ void SetUIState(MonoObject* object, int uiState)
 	}
 }
 
+bool GetCanNav()
+{
+	return External->scene->canNav;
+}
+
+void SetCanNav(bool set)
+{
+	External->scene->canNav = set;
+}
+
 MonoObject* CreateImageUI(MonoObject* pParent, MonoString* newImage, int x, int y)
 {
 	GameObject* ui_gameObject = External->moduleMono->GameObject_From_CSGO(pParent);
@@ -99,24 +128,16 @@ MonoObject* CreateImageUI(MonoObject* pParent, MonoString* newImage, int x, int 
 	return External->moduleMono->GoToCSGO(tempGameObject);
 }
 
-bool GetCanNav()
-{
-	return External->scene->canNav;
-}
-
-void SetCanNav(bool set)
-{
-	External->scene->canNav = set;
-}
-
 void ChangeImageUI(MonoObject* go, MonoString* newImage, int state)
 {
-	//Falta meter automaticamente que haga el change de Image
 	GameObject* go_image_to_change = External->moduleMono->GameObject_From_CSGO(go);
 	std::string _newImage = mono_string_to_utf8(newImage);
 
-	UI_Image* image_to_change = static_cast<UI_Image*>(static_cast<G_UI*>(go_image_to_change)->GetComponentUI(UI_TYPE::IMAGE));
-	image_to_change->SetImg(_newImage, (UI_STATE)state);
+	if (go_image_to_change != nullptr)
+	{
+		UI_Image* image_to_change = static_cast<UI_Image*>(static_cast<G_UI*>(go_image_to_change)->GetComponentUI(UI_TYPE::IMAGE));
+		image_to_change->SetImg(_newImage, (UI_STATE)state);
+	}
 }
 
 // Image Animations
@@ -255,8 +276,13 @@ void SwitchPosition(MonoObject* selectedObject, MonoObject* targetObject)
 			}
 		}
 	}
-	
+
 	External->scene->swapList.insert(std::pair<GameObject*, GameObject*>(selectedgo, targetgo));
+
+	// Switch name required for crafting, doesn't affect rest of scripts
+	std::string aux = selectedgo->name;
+	selectedgo->name = targetgo->name;
+	targetgo->name = aux;
 	//selectedgo->SwapChildren(targetgo);
 
 	External->scene->focusedUIGO = External->scene->selectedUIGO;
@@ -385,7 +411,7 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 								}
 							}
 						}
-						
+
 						else if (bounce)
 						{
 							if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
@@ -491,7 +517,7 @@ void NavigateGridHorizontal(MonoObject* go, int rows, int columns, bool isRight,
 								}
 							}
 						}
-						
+
 						else if (bounce)
 						{
 							if (listUI[External->scene->onHoverUI - offset]->state != UI_STATE::SELECTED)
@@ -587,7 +613,7 @@ void NavigateGridVertical(MonoObject* go, int rows, int columns, bool isDown, bo
 				}
 			}
 		}
-		
+
 		else
 		{
 
@@ -921,7 +947,7 @@ void SetUIPosWithOther(MonoObject* goSource, MonoObject* goDestination)
 	GameObject* targetgo = External->moduleMono->GameObject_From_CSGO(goDestination);
 	CTransform* targetTransform = targetgo->mTransform;
 
-	selectedTransform->SetPosition(float3(targetTransform->translation.x, targetTransform->translation.y,0));
+	selectedTransform->SetPosition(float3(targetTransform->translation.x, targetTransform->translation.y, 0));
 
 	//selectedTransform->UpdateUITransformChilds();
 	//selectedTransform->componentReference->dirty_ = true;
@@ -942,6 +968,19 @@ bool CheckUI(MonoObject* goTarget, MonoObject* goOrigin)
 		{
 			return true;
 		}
+	}
+
+	return false;
+}
+
+bool CompareStringToName(MonoObject* go, MonoString* name)
+{
+	GameObject* gameObject = External->moduleMono->GameObject_From_CSGO(go);
+	std::string nameCompare = mono_string_to_utf8(name);
+
+	if (gameObject->name.find(nameCompare) != std::string::npos) 
+	{
+		return true;
 	}
 
 	return false;

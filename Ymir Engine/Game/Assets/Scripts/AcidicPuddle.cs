@@ -18,7 +18,6 @@ public class AcidPuddle : YmirComponent
     private float lifeTimer;
     // private float duration = 1.8f;
 
-
     public void Start()
     {
         Debug.Log("ACID PUDDLE");
@@ -32,7 +31,6 @@ public class AcidPuddle : YmirComponent
         {
             player = playerObject.GetComponent<Player>();
         }
-
     }
 
     public void Update()
@@ -76,6 +74,12 @@ public class AcidPuddle : YmirComponent
             if (aux3 != null)
             {
                 aux3.life -= tickDamage;
+            }
+
+            SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
+            if (aux4 != null)
+            {
+                aux4.life -= tickDamage;
             }
         }
     }

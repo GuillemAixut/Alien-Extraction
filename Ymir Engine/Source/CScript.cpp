@@ -63,21 +63,17 @@ void CScript::Update()
 		mono_runtime_invoke(startMethod, mono_gchandle_get_target(noGCobject), NULL, &exec2);
 		isStarting = false;
 	}
+
 	MonoObject* exec = nullptr;
-
-	mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);  //Peta al hacer PLAY en el motor
-
+	
+	mono_runtime_invoke(updateMethod, mono_gchandle_get_target(noGCobject), NULL, &exec);
+	
 	if (exec != nullptr)
 	{
-		if (strcmp(mono_class_get_name(mono_object_get_class(exec)), "NullReferenceException") == 0)
-		{
-			LOG("[WARNING] Null reference exception detected");
-		}
-		else
-		{
-			LOG("[ERROR] Something went wrong with: %s", mono_class_get_name(mono_object_get_class(exec)));
-		}
+		mono_print_unhandled_exception(exec);
+		LOG("[ERROR] Exception detected at Script %s: '%s'", name.c_str(), mono_class_get_name(mono_object_get_class(exec)));
 	}
+
 }
 
 void CScript::ReloadComponent() {
@@ -141,8 +137,6 @@ void CScript::OnInspector()
 
 	if (!exists) { mOwner->RemoveComponent(this); }
 }
-
-
 
 void CScript::DropField(SerializedField& field, const char* dropType)
 {
@@ -217,6 +211,30 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 		break;
 	}
 
+	case MonoTypeEnum::MONO_TYPE_SZARRAY:
+	{
+		MonoArray* arr = nullptr;
+		mono_field_get_value(mono_gchandle_get_target(noGCobject), field.field, &arr);
+
+		MonoClass* arrClass = mono_class_from_name(External->moduleMono->image, YMIR_SCRIPTS_NAMESPACE, field.displayName.c_str());
+
+		
+		int arrayLength = mono_array_length(arr);
+
+
+		for (int i = 0; i < arrayLength; ++i) {
+			
+			int element = mono_array_get(arr, int, i);
+
+			field.fiValue.arrValue[i] = element;
+
+			if (ImGui::InputInt(field.displayName.c_str(), &element, 1 , 10)) {
+				mono_array_set(arr, int, i, element);
+				mono_field_set_value(mono_gchandle_get_target(noGCobject), field.field, arr);
+			}
+		}
+		break;
+	}
 	case MonoTypeEnum::MONO_TYPE_STRING:
 	{
 		MonoString* str = nullptr;
@@ -226,7 +244,7 @@ void CScript::DropField(SerializedField& field, const char* dropType)
 		strcpy(field.fiValue.strValue, value);
 		mono_free(value);
 
-		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 200))
+		if (ImGui::InputText(field.displayName.c_str(), &field.fiValue.strValue[0], 500))
 		{
 			str = mono_string_new(External->moduleMono->domain, field.fiValue.strValue);
 			mono_field_set_value(mono_gchandle_get_target(noGCobject), field.field, str);
@@ -361,7 +379,6 @@ void CScript::CollisionExitCallback(bool isTrigger, GameObject* collidedGameObje
 		{
 			mono_runtime_invoke(onCollisionExitMethod, mono_gchandle_get_target(noGCobject), params, NULL);
 			// Restablecer firstCollision aqui despues de salir de la colision
-
 		}
 
 		if (isTrigger)
@@ -369,10 +386,7 @@ void CScript::CollisionExitCallback(bool isTrigger, GameObject* collidedGameObje
 			if (onCollisionExitMethod != nullptr)
 				mono_runtime_invoke(onCollisionExitMethod, mono_gchandle_get_target(noGCobject), params, NULL);
 		}
-		else
-		{
-			External->physics->firstCollision = true;
-		}
+
 
 	}
 }

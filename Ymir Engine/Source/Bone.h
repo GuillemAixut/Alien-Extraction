@@ -28,6 +28,7 @@ struct KeyRotation {
 
 class Bone {
 public: 
+
 	Bone();
 	Bone(const std::string& name, int id, const aiNodeAnim* channel);
 	~Bone();
@@ -42,8 +43,8 @@ public:
 	float4x4 GetLocalTransform() { return localTransform; }
 	int GetID() { return id; }
 
-
 private: 
+
 	float GetScaleFactor(float lastTimeStamp, float nextTimeStamp, float animTime);
 
 	float4x4 InterpolatePosition(float animTime);

@@ -1,5 +1,7 @@
 #include "Particle.h"
 
+#include "External/mmgr/mmgr.h"
+
 Particle::Particle()
 {
 	position = { 0,0,0 };
@@ -16,11 +18,15 @@ Particle::Particle()
 	distanceLimit = 0.0f;
 	
 	color = { 255,255,255,255 };
-
-	//Debugging
-	bool showVecToCamara;
+	pTexture = nullptr;
 }
 
 Particle::~Particle()
 {
+	//if (pTexture != nullptr) { pTexture->UnloadFromMemory(); }
+	if (pTexture != nullptr) 
+	{
+		//RELEASE(pTexture); //Hacer esto peta.
+		pTexture = nullptr;
+	}
 }

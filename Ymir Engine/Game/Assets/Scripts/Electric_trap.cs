@@ -11,33 +11,36 @@ public class Electric_trap : YmirComponent
 {
 
     private float time = 0f;
-    private bool activate = true;
+    private bool disabled = true;
     private bool hitPlayer = false;
     private Vector3 originalPosition;
-    public float damage = 1;
-    //public string toParticle = ""; electricidad
+    public float damage = 220;
+    private GameObject toParticle;
     //int aux = 0;
 
     public void Start()
     {
-        Debug.Log("HelloWorld");
         originalPosition = gameObject.transform.globalPosition;
+        toParticle = InternalCalls.CS_GetChild(gameObject, 0);
+        Particles.PlayParticles(toParticle);
     }
 
     public void Update()
-    {
+    {   
 
 
-        if (activate)
+        if (disabled)
         {
             if (time < 3f)
             {
                 gameObject.SetPosition(Vector3.negativeInfinity * Time.deltaTime * 1f);
-                //InternalCalls.GetGameObjectByName(toParticle).SetActive(false);
+                //InternalCalls.get(toParticle).SetActive(false);
+                //InternalCalls.CS_GetChild(gameObject, 1).SetActive(false);
+
             }
             else
             {
-                activate = false;
+                disabled = false;
                 time = 0f;
             }
         }
@@ -45,11 +48,11 @@ public class Electric_trap : YmirComponent
         {
             if (time < 3f)
             {
+                //InternalCalls.CS_GetChild(gameObject, 1).SetActive(true);
                 gameObject.SetPosition(originalPosition);
-                // InternalCalls.GetGameObjectByName(toParticle).SetActive(true);
                 if (hitPlayer)
                 {
-                    activate = true;
+                    disabled = true;
                     hitPlayer = false;
                     time = 0f;
                     //Debug.Log("Hit Player");
@@ -57,7 +60,7 @@ public class Electric_trap : YmirComponent
             }
             else
             {
-                activate = true;
+                disabled = true;
                 time = 0f;
             }
         }
@@ -68,18 +71,15 @@ public class Electric_trap : YmirComponent
 
     public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")
+        if (other.Tag == "Player" && !disabled)
         {
-            if (!activate)
-            {
-                other.GetComponent<Health>().TakeDmg(damage);
-                hitPlayer = true;
-                // Debug.Log("" + other.GetComponent<Health>().currentHealth);
-                // Debug.Log("" + aux);
-                // aux++;
-            }
 
-
+            other.GetComponent<Health>().TakeDmg(damage);
+            hitPlayer = true;
+            //Debug.Log("" + other.GetComponent<Health>().currentHealth);
+            // Debug.Log("" + aux);
+            // aux++;
+            
         }
     }
 

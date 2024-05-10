@@ -398,11 +398,11 @@ void UI_Image::OnInspector()
 
 		// Utility buttons
 
-		if (ImGui::Button("Apply Checker Texture")) {
+		//if (ImGui::Button("Apply Checker Texture")) {
 
-			External->renderer3D->ApplyCheckerTexture();
+		//	External->renderer3D->ApplyCheckerTexture();
 
-		}
+		//}
 
 		ImGui::Spacing();
 

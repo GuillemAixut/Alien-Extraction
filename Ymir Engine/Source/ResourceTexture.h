@@ -36,6 +36,7 @@ class ResourceTexture : public Resource {
 public:
 
 	ResourceTexture(uint UID = 0);
+    ~ResourceTexture();
 
 	bool LoadInMemory() override;
 	bool UnloadFromMemory() override;
@@ -73,6 +74,6 @@ private:
     uint width; 
     uint height; 
 
-    GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4];
+    GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4] = { {{0}} };
 
 };

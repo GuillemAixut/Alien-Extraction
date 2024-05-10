@@ -50,18 +50,20 @@ CMaterial::~CMaterial()
 
     for (auto& it = rTextures.begin(); it != rTextures.end(); ++it)
     {
-        if (!(*it)->checkerLoaded) {
+        if ((*it) != nullptr) 
+        {
+            if (!(*it)->checkerLoaded) 
+            {
+                External->resourceManager->UnloadResource((*it)->GetUID());
+            }
+            else 
+            {
+                delete (*it);
+            }
 
-            External->resourceManager->UnloadResource((*it)->GetUID());            
+            (*it) = nullptr;
 
         }
-        else {
-
-            delete (*it);
-
-        }
-
-        (*it) = nullptr;
 
     }
 
@@ -359,11 +361,11 @@ void CMaterial::OnInspector()
 
         // Utility buttons
 
-        if (ImGui::Button("Apply Checker Texture")) {
+        //if (ImGui::Button("Apply Checker Texture")) {
 
-            External->renderer3D->ApplyCheckerTexture();
+        //    External->renderer3D->ApplyCheckerTexture();
 
-        }
+        //}
 
         ImGui::Spacing();
 

@@ -16,12 +16,11 @@ CAudioSource::CAudioSource(GameObject* owner) : Component(owner, ComponentType::
 {
 	id = static_cast<unsigned int>(Random::Generate());
 	gameObjectTransform = dynamic_cast<CTransform*>(owner->GetComponent(ComponentType::TRANSFORM));
+
 	External->audio->RegisterNewAudioObject(id);
 	External->audio->AddAudioSource(this);
 
-	//External->audio->LoadBank(std::string("Music"));
-	//External->audio->PlayEvent(this->id, std::string("Music"));
-
+	audBankReference = nullptr;
 
 	evID = 0;
 }
@@ -43,7 +42,6 @@ CAudioSource::~CAudioSource()
 
 	gameObjectTransform = nullptr;
 	audBankReference = nullptr;
-
 }
 
 #ifndef STANDALONE

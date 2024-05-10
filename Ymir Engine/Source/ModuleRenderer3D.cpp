@@ -10,7 +10,6 @@
 #include "ModulePathfinding.h"
 
 #include "Globals.h"
-#include "Log.h"
 #include "GameObject.h"
 #include "G_UI.h"
 
@@ -19,6 +18,66 @@
 #include "External/Optick/include/optick.h"
 
 #include "External/mmgr/mmgr.h"
+
+void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
+{
+	// Ignoring the following WARNING: Buffer detailed info: Buffer objects will use VIDEO memory as the source for buffer object operations.
+	if (id == 131185) return;
+	
+	std::string logMessage = "[ERROR] OPENGL CALLBACK: ";
+
+	switch (type) {
+
+		case GL_DEBUG_TYPE_ERROR:
+			logMessage += "Type: ERROR, ";
+			break;
+
+		case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
+			logMessage += "Type: DEPRECATED_BEHAVIOR, ";
+			break;
+
+		case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
+			logMessage += "Type: UNDEFINED_BEHAVIOR, ";
+			break;
+
+		case GL_DEBUG_TYPE_PORTABILITY:
+			logMessage += "Type: PORTABILITY, ";
+			break;
+
+		case GL_DEBUG_TYPE_PERFORMANCE:
+			logMessage += "Type: PERFORMANCE, ";
+			break;
+
+		case GL_DEBUG_TYPE_OTHER:
+			logMessage += "Type: OTHER, ";
+			break;
+
+	}
+
+	switch (severity) {
+
+		case GL_DEBUG_SEVERITY_LOW:
+			logMessage += "Severity: LOW, ";
+			break;
+
+		case GL_DEBUG_SEVERITY_MEDIUM:
+			logMessage += "Severity: MEDIUM, ";
+			break;
+
+		case GL_DEBUG_SEVERITY_HIGH:
+			logMessage += "Severity: HIGH, ";
+			break;
+
+	}
+
+	logMessage += "ID: " + std::to_string(id) + ", ";
+
+	logMessage += "MESSAGE: " + std::string(("%s", message));
+
+	logMessage += "\n";
+
+	LOG(logMessage.c_str());
+}
 
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -38,6 +97,8 @@ ModuleRenderer3D::~ModuleRenderer3D()
 // Called before render is available
 bool ModuleRenderer3D::Init()
 {
+	OPTICK_EVENT();
+
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
 	
@@ -71,6 +132,12 @@ bool ModuleRenderer3D::Init()
 		LOG("Successfully using Glew %s", glewGetString(GLEW_VERSION));
 	}
 
+	// OpenGL Debug Callback
+#ifdef _DEBUG
+	glEnable(GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(MessageCallback, 0);
+#endif // _DEBUG
+
 	// Initializing DevIL
 	ilInit();
 	ILenum ILerror = ilGetError();
@@ -85,30 +152,8 @@ bool ModuleRenderer3D::Init()
 	{
 		// Use Vsync
 		if (VSYNC && SDL_GL_SetSwapInterval(1) < 0)
+		{
 			LOG("[WARNING] Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-
-		// Initialize Projection Matrix
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-
-		// Check for errors
-		GLenum error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("[ERROR] Could not initialize OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
-
-		// Initialize Modelview Matrix
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-
-		// Check for errors
-		error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("[ERROR] Could not initialize OpenGL! %s\n", gluErrorString(error));
-			ret = false;
 		}
 
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
@@ -118,14 +163,6 @@ bool ModuleRenderer3D::Init()
 		glClearColor(0.f, 0.f, 0.f, 1.f);
 
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-		//Check for error
-		error = glGetError();
-		if (error != GL_NO_ERROR)
-		{
-			LOG("[ERROR] Could not initialize OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
 
 		// Enable OpenGL initial configurations
 
@@ -144,7 +181,6 @@ bool ModuleRenderer3D::Init()
 		// Additional OpenGL configurations (starting disabled)
 
 		glDisable(GL_TEXTURE_3D);
-
 		glDisable(GL_MULTISAMPLE);
 		glDisable(GL_SCISSOR_TEST);
 		glDisable(GL_POINT_SPRITE);
@@ -159,7 +195,7 @@ bool ModuleRenderer3D::Init()
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	}
-
+	
 	SDL_MaximizeWindow(App->window->window);
 
 	LOG("OpenGL initialized successfully.");
@@ -407,11 +443,15 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 // Called before quitting
 bool ModuleRenderer3D::CleanUp()
 {
+	OPTICK_EVENT();
+
 	LOG("Destroying 3D Renderer");
 
 	// Delete things from Init
 
 	delete outlineShader;
+
+	Shader::loadedShaders.clear();
 
 	// Clean Framebuffers
 	App->camera->editorCamera->framebuffer.Delete();
@@ -449,49 +489,6 @@ void ModuleRenderer3D::SetGameCamera(CCamera* cam)
 	}
 }
 
-void ModuleRenderer3D::HandleDragAndDrop()
-{
-	/*if (App->input->droppedFile) {
-
-		if (IsFileExtension(App->input->droppedFileDirectory, ".fbx") || IsFileExtension(App->input->droppedFileDirectory, ".FBX") || IsFileExtension(App->input->droppedFileDirectory, ".DAE") || IsFileExtension(App->input->droppedFileDirectory, ".dae")) {
-
-			models.push_back(Model(App->input->droppedFileDirectory));
-
-			ReloadTextures();
-
-		}
-		else if (IsFileExtension(App->input->droppedFileDirectory, ".png") || IsFileExtension(App->input->droppedFileDirectory, ".dds") || IsFileExtension(App->input->droppedFileDirectory, ".tga")) {
-
-			ClearActualTexture();
-
-			for (auto it = models.begin(); it != models.end(); ++it) {
-
-				for (auto jt = (*it).meshes.begin(); jt != (*it).meshes.end(); ++jt) {
-
-					if ((*jt).meshGO->selected || (*it).modelGO->selected) {
-
-						(*jt).loadedTextures = false;
-						(*jt).loadedShader = false;
-
-						Texture tmpTexture;
-
-						tmpTexture.path = App->input->droppedFileDirectory;
-
-						(*jt).textures.push_back(tmpTexture);
-
-					}
-
-				}
-
-			}
-
-		}
-
-		App->input->droppedFile = false;
-
-	}*/
-}
-
 bool ModuleRenderer3D::IsFileExtension(const char* directory, const char* extension)
 {
 	size_t strLen = strlen(directory);
@@ -503,33 +500,6 @@ bool ModuleRenderer3D::IsFileExtension(const char* directory, const char* extens
 	}
 
 	return strncmp(directory + strLen - suffixLen, extension, suffixLen) == 0;
-}
-
-void ModuleRenderer3D::ApplyCheckerTexture()
-{
-	ClearActualTexture();
-
-	for (auto it = models.begin(); it != models.end(); ++it) {
-
-		for (auto jt = (*it).meshes.begin(); jt != (*it).meshes.end(); ++jt) {
-
-			if ((*jt).meshGO->selected || (*it).modelGO->selected) {
-
-				(*jt).loadedTextures = false;
-				(*jt).loadedShader = false;
-
-				Texture checkerTexture;
-
-				(*jt).textures.push_back(checkerTexture);
-
-				(*jt).applyCheckerTexture = true;
-
-			}
-
-		}
-
-	}
-
 }
 
 void ModuleRenderer3D::ClearActualTexture()
@@ -796,7 +766,7 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 {
 	for (int i = 0; i < emitter->listParticles.size(); i++)
 	{
-		auto par = emitter->listParticles.at(i);
+		Particle* par = emitter->listParticles.at(i);
 
 		//Matrix transform de la particula
 		float4x4 m = float4x4::FromTRS(par->position, par->worldRotation, par->size).Transposed();
@@ -807,12 +777,9 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		//TODO TONI: ... this works, im sorry
 		glColor4f(par->color.r * 4, par->color.g * 4, par->color.b * 4, par->color.a * 4);
 
-		if (par->mat)
+		if (par->pTexture != nullptr)
 		{
-			for (auto& textures : par->mat->rTextures) {
-
-				textures->BindTexture(true, 0);
-			}
+			par->pTexture->BindTexture(true, 0 /*par->pTexture->ID*/);
 		}
 		
 		//Drawing to tris in direct mode
@@ -832,18 +799,16 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 		glTexCoord2f(0.0f, 1.0f);
 		glVertex3f(-.5f, .5f, .0f);
 
-		if (par->mat)
+		if (par->pTexture != nullptr)
 		{
-			for (auto& textures : par->mat->rTextures) {
-
-				textures->BindTexture(false, 0);
-			}
+			par->pTexture->BindTexture(false, 0/*par->pTexture->ID*/);
 		}
 
 		glEnd();
 		glPopMatrix();
-		glBindTexture(GL_TEXTURE_2D, 0);
+		//glBindTexture(GL_TEXTURE_2D, 0);
 
+		par = nullptr;
 	}
 }
 
@@ -854,215 +819,219 @@ bool ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 	{
 		return false;;
 	}
-	EmitterBase* eBase = (EmitterBase*)pSystem->allEmitters.at(0)->modules.at(0); //We create the referemce to accces more easily
-	
-	Quat rotacion;
-	switch (eBase->rotacionBase)
+	for (uint i = 0; i < pSystem->allEmitters.size(); i++)
 	{
-	case PAR_WORLD_MATRIX:
-		rotacion = Quat::identity;
-		break;
-	case PAR_GAMEOBJECT_MATRIX:
-		rotacion = pSystem->mOwner->mTransform->GetLocalRotation();
-		break;
-	case PAR_PARENT_MATRIX:
-		rotacion = pSystem->mOwner->mParent->mTransform->GetGlobalRotation();
-		break;
-	case PAR_INITIAL_ROTATION_END:
-		break;
-	default:
-		break;
-	}
+		EmitterBase* eBase = (EmitterBase*)pSystem->allEmitters.at(i)->modules.at(0); //We create the referemce to accces more easily
 
-	//POINT ROTATION
-	Quat nuwDirQuat = rotacion.Mul(Quat(eBase->emitterOrigin.x, eBase->emitterOrigin.y, eBase->emitterOrigin.z, 0));
-	float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
-
-	////BOX ROTATIONS ERIC:TODO Fixear esto, rota mal
-	Quat nuwDirPositives = rotacion.Mul(Quat(eBase->boxPointsPositives.x, eBase->boxPointsPositives.y, eBase->boxPointsPositives.z, 0));
-	float3 positivesModified = eBase->boxPointsPositives + originModified;
-
-	//Get rotated negatives point from the world
-	float3 negativesModified = eBase->boxPointsNegatives + originModified;
-
-	float3 color = { 0.8f,0,0.8f };
-	switch (eBase->currentShape)
-	{
-	case SpawnAreaShape::PAR_POINT:
-
-		glLineWidth(4.f);
-		glBegin(GL_LINES);
-		glColor3fv(color.ptr());
-
-		
-		//Position 0,0,0 of game object and current origin emmiter
-		glVertex3fv(pSystem->mOwner->mTransform->GetGlobalPosition().ptr());
-		glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition() + originModified).ptr());
-
-		
-
-		glColor3f(255.f, 255.f, 255.f);
-		glEnd();
-		glLineWidth(1.f);
-
-		break;
-	case SpawnAreaShape::PAR_CONE:
-	{
-		glLineWidth(2.f);
-		glBegin(GL_LINES);
-		glColor3fv(color.ptr());
-
-
-		float3 temp;
-		float3 temp2;
-		int numDivision = 1;
-		int numPuntos = 12;		
-		for (int j = 0; j <= numDivision+1; j++) //Hara siempre 0 que es la base y 1 que es arriba
+		Quat rotacion;
+		switch (eBase->rotacionBase)
 		{
-			float subDiv = (j * eBase->heigth) / (eBase->heigth * (numDivision + 1));
-
-			for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
-			{
-				//Draw external circle
-				temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ( (1-subDiv) * eBase->baseRadius + eBase->topRadius*subDiv) }; //Lerp entre base y top usando subdiv
-				temp2 = { cos((pi * 2 / numPuntos) * (i+1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i+1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv) }; //Lerp entre base y top usando subdiv
-				glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-
-				if(eBase->radiusHollow>0.0f)
-				{
-					//Draw inner circle
-					temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius/eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
-					temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
-					glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-					glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				}
-			}
+		case PAR_WORLD_MATRIX:
+			rotacion = Quat::identity;
+			break;
+		case PAR_GAMEOBJECT_MATRIX:
+			rotacion = pSystem->mOwner->mTransform->GetLocalRotation();
+			break;
+		case PAR_PARENT_MATRIX:
+			rotacion = pSystem->mOwner->mParent->mTransform->GetGlobalRotation();
+			break;
+		case PAR_INITIAL_ROTATION_END:
+			break;
+		default:
+			break;
 		}
-		
-		for (int i = 0; i < numPuntos; i++)
+
+		//POINT ROTATION
+		Quat nuwDirQuat = rotacion.Mul(Quat(eBase->emitterOrigin.x, eBase->emitterOrigin.y, eBase->emitterOrigin.z, 0));
+		float3 originModified = float3(nuwDirQuat.x, nuwDirQuat.y, nuwDirQuat.z);
+
+		////BOX ROTATIONS ERIC:TODO Fixear esto, rota mal
+		Quat nuwDirPositives = rotacion.Mul(Quat(eBase->boxPointsPositives.x, eBase->boxPointsPositives.y, eBase->boxPointsPositives.z, 0));
+		float3 positivesModified = eBase->boxPointsPositives + originModified;
+
+		//Get rotated negatives point from the world
+		float3 negativesModified = eBase->boxPointsNegatives + originModified;
+
+		float3 color = { 0.8f,0,0.8f };
+		switch (eBase->currentShape)
 		{
-			if(i == 0 || i % (numPuntos /4) == 0)
-			{
-				//Draw external circle
-				temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius }; //Punto Inferior
-				temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->topRadius ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->topRadius }; //Punto Superior
-				glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+		case SpawnAreaShape::PAR_POINT:
 
-				if (eBase->radiusHollow > 0.0f)
-				{
-					//Draw inner circle
-					temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow }; //Punto Inferior
-					temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) }; //Punto Superior
-					glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-					glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-				}
-			}
-		}
-		
-
-
-		glColor3f(255.f, 255.f, 255.f);
-		glEnd();
-		glLineWidth(1.f);
-		
-
-	}
-	break;
-	case SpawnAreaShape::PAR_BOX:
-	{
-		float3 temp;
-		float3 vertices[8];
-		temp = { negativesModified.x,negativesModified.y,positivesModified.z };
-		vertices[0] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { negativesModified.x,negativesModified.y,negativesModified.z };
-		vertices[1] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { negativesModified.x,positivesModified.y,positivesModified.z };
-		vertices[2] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { negativesModified.x,positivesModified.y,negativesModified.z };
-		vertices[3] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { positivesModified.x,negativesModified.y,positivesModified.z };
-		vertices[4] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { positivesModified.x,negativesModified.y,negativesModified.z };
-		vertices[5] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { positivesModified.x,positivesModified.y,positivesModified.z };
-		vertices[6] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		temp = { positivesModified.x,positivesModified.y,negativesModified.z };
-		vertices[7] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
-		
-		DrawBox(vertices, color);
-
-		if(External->scene->godMode)
-		{
 			glLineWidth(4.f);
 			glBegin(GL_LINES);
 			glColor3fv(color.ptr());
 
-			glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((positivesModified + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
 
-			glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((negativesModified + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			//Position 0,0,0 of game object and current origin emmiter
+			glVertex3fv(pSystem->mOwner->mTransform->GetGlobalPosition().ptr());
+			glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition() + originModified).ptr());
+
+
+
+			glColor3f(255.f, 255.f, 255.f);
+			glEnd();
+			glLineWidth(1.f);
+
+			break;
+		case SpawnAreaShape::PAR_CONE:
+		{
+			glLineWidth(2.f);
+			glBegin(GL_LINES);
+			glColor3fv(color.ptr());
+
+
+			float3 temp;
+			float3 temp2;
+			int numDivision = 1;
+			int numPuntos = 12;
+			for (int j = 0; j <= numDivision + 1; j++) //Hara siempre 0 que es la base y 1 que es arriba
+			{
+				float subDiv = (j * eBase->heigth) / (eBase->heigth * (numDivision + 1));
+
+				for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+				{
+					//Draw external circle
+					temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv) }; //Lerp entre base y top usando subdiv
+					temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->baseRadius + eBase->topRadius * subDiv) }; //Lerp entre base y top usando subdiv
+					glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+					if (eBase->radiusHollow > 0.0f)
+					{
+						//Draw inner circle
+						temp = { cos((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * i) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
+						temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv),eBase->heigth * subDiv,-sin((pi * 2 / numPuntos) * (i + 1)) * ((1 - subDiv) * eBase->radiusHollow + eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) * subDiv) }; //Lerp entre base y top usando subdiv
+						glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+						glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					}
+				}
+			}
+
+			for (int i = 0; i < numPuntos; i++)
+			{
+				if (i == 0 || i % (numPuntos / 4) == 0)
+				{
+					//Draw external circle
+					temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius }; //Punto Inferior
+					temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->topRadius ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->topRadius }; //Punto Superior
+					glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+					if (eBase->radiusHollow > 0.0f)
+					{
+						//Draw inner circle
+						temp = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow ,0.0f ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow }; //Punto Inferior
+						temp2 = { cos((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) ,eBase->heigth ,-sin((pi * 2 / numPuntos) * i) * eBase->radiusHollow * (eBase->topRadius / eBase->baseRadius) }; //Punto Superior
+						glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+						glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+					}
+				}
+			}
+
+
+
+			glColor3f(255.f, 255.f, 255.f);
+			glEnd();
+			glLineWidth(1.f);
+
+
+		}
+		break;
+		case SpawnAreaShape::PAR_BOX:
+		{
+			float3 temp;
+			float3 vertices[8];
+			temp = { negativesModified.x,negativesModified.y,positivesModified.z };
+			vertices[0] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+			temp = { negativesModified.x,negativesModified.y,negativesModified.z };
+			vertices[1] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+			temp = { negativesModified.x,positivesModified.y,positivesModified.z };
+			vertices[2] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+			temp = { negativesModified.x,positivesModified.y,negativesModified.z };
+			vertices[3] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+			temp = { positivesModified.x,negativesModified.y,positivesModified.z };
+			vertices[4] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+			temp = { positivesModified.x,negativesModified.y,negativesModified.z };
+			vertices[5] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+			temp = { positivesModified.x,positivesModified.y,positivesModified.z };
+			vertices[6] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+			temp = { positivesModified.x,positivesModified.y,negativesModified.z };
+			vertices[7] = temp + pSystem->mOwner->mTransform->GetGlobalPosition();
+
+			DrawBox(vertices, color);
+
+			if (External->scene->godMode)
+			{
+				glLineWidth(4.f);
+				glBegin(GL_LINES);
+				glColor3fv(color.ptr());
+
+				glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((positivesModified + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+				glVertex3fv((pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((negativesModified + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+
+				glColor3f(255.f, 255.f, 255.f);
+				glEnd();
+				glLineWidth(1.f);
+			}
+		}
+		break;
+		case SpawnAreaShape::PAR_SPHERE:
+		{
+			glLineWidth(2.f);
+			glBegin(GL_LINES);
+			glColor3fv(color.ptr());
+
+			float3 temp;
+			float3 temp2;
+
+			int numPuntos = 16;
+
+			//Eje X
+			for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+			{
+				//Draw external circle
+				temp = { 0,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * i) * eBase->baseRadius };
+				temp2 = { 0 , sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius };
+				glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			}
+
+			//Eje Y
+			for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+			{
+				//Draw external circle
+				temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius };
+				temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius };
+				glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			}
+
+			//Eje Z
+			for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
+			{
+				//Draw external circle
+				temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius, 0 };
+				temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,0 };
+				glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+				glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+			}
 
 			glColor3f(255.f, 255.f, 255.f);
 			glEnd();
 			glLineWidth(1.f);
 		}
-	}
 		break;
-	case SpawnAreaShape::PAR_SPHERE:
-	{
-		glLineWidth(2.f);
-		glBegin(GL_LINES);
-		glColor3fv(color.ptr());
-
-		float3 temp;
-		float3 temp2;
-
-		int numPuntos = 16;
-
-		//Eje X
-		for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
-		{
-			//Draw external circle
-			temp = { 0,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * i) * eBase->baseRadius };
-			temp2 = { 0 , sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,-cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius };
-			glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
+		case SpawnAreaShape::PAR_SHAPE_ENUM_END:
+			break;
+		default:
+			break;
 		}
 
-		//Eje Y
-		for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
-		{
-			//Draw external circle
-			temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * i) * eBase->baseRadius }; 
-			temp2 = { cos((pi * 2 / numPuntos) * (i+1)) * eBase->baseRadius ,0,-sin((pi * 2 / numPuntos) * (i+1)) * eBase->baseRadius }; 
-			glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-		}
-
-		//Eje Z
-		for (int i = 0; i < numPuntos; i++) //En vez de hacer ciruclos perfectos que requeririan demasiados puntos hacemos solo 12 que queda suficientemente redondeado
-		{
-			//Draw external circle
-			temp = { cos((pi * 2 / numPuntos) * i) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * i) * eBase->baseRadius, 0 };
-			temp2 = { cos((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,sin((pi * 2 / numPuntos) * (i + 1)) * eBase->baseRadius ,0 };
-			glVertex3fv((originModified + temp + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-			glVertex3fv((originModified + temp2 + pSystem->mOwner->mTransform->GetGlobalPosition()).ptr());
-		}
-
-		glColor3f(255.f, 255.f, 255.f);
-		glEnd();
-		glLineWidth(1.f);
+		eBase = nullptr;
 	}
-		break;
-	case SpawnAreaShape::PAR_SHAPE_ENUM_END:
-		break;
-	default:
-		break;
-	}
-
 	return ret;
 }
 
@@ -1210,7 +1179,6 @@ void ModuleRenderer3D::DrawGameObjects(bool isGame)
 			}
 
 		}
-
 
 		if(particleComponent != nullptr && particleComponent->active)
 		{

@@ -324,6 +324,12 @@ void Shader::UseShader(bool toggle)
 
 void Shader::ClearShader()
 {
+	for (auto& it = uniforms.begin(); it != uniforms.end(); ++it) 
+	{
+		(*it).ClearUniform();
+	}
+	ClearVec(uniforms);
+
 	glUseProgram(0);
 
 	if (shaderProgram != 0) {

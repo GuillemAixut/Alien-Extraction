@@ -436,11 +436,11 @@ void UI_Text::OnInspector()
 
 		// Utility buttons
 
-		if (ImGui::Button("Apply Checker Texture")) {
+		//if (ImGui::Button("Apply Checker Texture")) {
 
-			External->renderer3D->ApplyCheckerTexture();
+		//	External->renderer3D->ApplyCheckerTexture();
 
-		}
+		//}
 
 		ImGui::Spacing();
 
@@ -481,8 +481,8 @@ void UI_Text::Draw(bool game)
 
 			float offY = itr->second->size.y * fsDiv;
 
-			float nlOffsetE = (/*position.y +*/ offY + mOwner->mTransform->GetGlobalPosition().y + (fontSize * lineSpacing)) * newLines;
-			float nlOffsetG = (/*posY +*/ (scaleBounds.y * mOwner->mTransform->scale.y) + mOwner->mTransform->GetGlobalPosition().y + (fontSize * lineSpacing)) * newLines;
+			float nlOffsetE = (/*position.y +*/ offY /*+ mOwner->mTransform->GetGlobalPosition().y */+ (fontSize * lineSpacing)) * newLines;
+			float nlOffsetG = (/*posY +*/ (scaleBounds.y * mOwner->mTransform->scale.y) /*+ mOwner->mTransform->GetGlobalPosition().y*/ + (fontSize * lineSpacing)) * newLines;
 
 			if (i != 0)
 			{

@@ -39,6 +39,8 @@ ModuleResourceManager::~ModuleResourceManager()
 
 bool ModuleResourceManager::Init()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Loading Resource Manager");
@@ -69,11 +71,13 @@ update_status ModuleResourceManager::PostUpdate(float dt)
 
 bool ModuleResourceManager::CleanUp()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Deleting Resource Manager");
 
-	ClearResources();
+	//ClearResources();
 
 	return ret;
 }
@@ -86,6 +90,8 @@ void ModuleResourceManager::ImportFileToEngine(const char* fileDir)
 
 void ModuleResourceManager::ImportFile(const std::string& assetsFilePath, bool onlyReimport)
 {
+	OPTICK_EVENT();
+
 	// Create Meta
 
 	std::string metaFilePath = assetsFilePath + ".meta"; // Assuming the meta file exists.
@@ -532,20 +538,14 @@ void ModuleResourceManager::ReleaseResource(Resource* resource)
 
 	resources.erase(resource->GetUID());
 
-	delete resource;
+	RELEASE(resource);
 }
 
 void ModuleResourceManager::ClearResources()
 {
 	for (std::map<uint, Resource*>::iterator itr = resources.begin(); itr != resources.end(); ++itr)
 	{
-		if ((*itr).second->GetType() != ResourceType::TEXTURE) {
-
-			delete (itr->second);
-			(itr->second) = nullptr;
-
-		}
-		
+		External->resourceManager->ReleaseResource((*itr).second);
 	}
 
 	resources.clear();
@@ -773,7 +773,8 @@ Resource* ModuleResourceManager::CreateResourceFromAssets(std::string assetsFile
 
 Resource* ModuleResourceManager::CreateResourceFromLibrary(std::string libraryFilePath, ResourceType type, const uint& UID, TextureType rTexType)
 {
-	// FRANCESC: MEMORY LEAK
+	OPTICK_EVENT();
+
 	Resource* tmpResource = nullptr;
 
 	switch (type) {

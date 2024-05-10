@@ -10,6 +10,8 @@
 #include "ImporterTexture.h"
 #include "ModuleScene.h"
 
+#include "External/mmgr/mmgr.h"
+
 ParticleEmitter::ParticleEmitter(CParticleSystem* cParticleParent) //TODO: Solo se puede crear un emiiter funcional por game object, en el segundo no funciona el tree node de ImGui
 {
 	//Quiza haya que meterle alguna info? IDK
@@ -19,6 +21,15 @@ ParticleEmitter::ParticleEmitter(CParticleSystem* cParticleParent) //TODO: Solo 
 ParticleEmitter::~ParticleEmitter()
 {
 	KillAllParticles();
+	if(!modules.empty())
+	{
+		for (auto it = modules.rbegin(); it != modules.rend(); ++it)
+		{
+			delete (*it);
+			(*it) = nullptr;
+		}
+		modules.clear();
+	}
 }
 
 EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
@@ -33,14 +44,6 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 	EmitterSetting* nuevoEmitter = nullptr;
 	switch ((EmitterType)type)
 	{
-	case EmitterType::PAR_SUBEMITTER:
-	{
-		nuevoEmitter = new Subemitter;
-		nuevoEmitter->type = EmitterType::PAR_SUBEMITTER;
-		nuevoEmitter->unique = true;
-
-		break;
-	}
 	case EmitterType::PAR_BASE:
 	{
 		nuevoEmitter = new EmitterBase;
@@ -91,7 +94,7 @@ EmitterSetting* ParticleEmitter::CreateEmitterSettingByType(uint type)
 	}
 	case EmitterType::PAR_IMAGE:
 	{
-		nuevoEmitter = new EmitterImage(this);
+		nuevoEmitter = new EmitterImage();
 		nuevoEmitter->type = EmitterType::PAR_IMAGE;
 		nuevoEmitter->unique = true;
 
@@ -124,10 +127,12 @@ bool ParticleEmitter::EmitterSettingExist(uint typeS, bool excludeNonUniques)
 	return ret;
 }
 
-int ParticleEmitter::DestroyEmitter(uint pos)
+int ParticleEmitter::DestroySetting(uint pos)
 {
 	if (modules.size() >= pos)
 	{
+		delete modules.at(pos);
+		modules.at(pos) = nullptr;
 		modules.erase(modules.begin() + pos);
 	}
 	return modules.size(); //Para un check de seguridad porque sino el arbol peta
@@ -135,29 +140,30 @@ int ParticleEmitter::DestroyEmitter(uint pos)
 
 void ParticleEmitter::KillDeadParticles()
 {
-	//Añadimos en una lista todas las posiciones de particulas que queremos eliminar
-	std::vector<int> particlesToDelete;
-
-	//Buscamos en toda la lista que particulas estan muertas
-	for (int i = 0; i < listParticles.size(); i++)
+	for (int i = listParticles.size()-1; i >= 0; i--)
 	{
 		//Si la particula esta muerta eliminarla del vector
-		if (listParticles.at(i)->lifetime >= 1.0f || (listParticles.at(i)->diesByDistance && (math::Distance3( float4(listParticles.at(i)->position,0.0f), float4(listParticles.at(i)->initialPosition,0.0f) ) ) > (listParticles.at(i)->distanceLimit) ) )
+		if (listParticles.at(i)->lifetime >= 1.0f || (listParticles.at(i)->diesByDistance && (math::Distance3(float4(listParticles.at(i)->position, 0.0f), float4(listParticles.at(i)->initialPosition, 0.0f))) > (listParticles.at(i)->distanceLimit)))
 		{
-			particlesToDelete.push_back(i);
+			delete listParticles.at(i);
+			listParticles.at(i) = nullptr;
+			listParticles.erase(listParticles.begin() + i);
 		}
-	}
-
-	//Leemos de final a principio la lista de particulas para eliminarlas y que no haya problemas de cambio de tamaño
-	for (int j = particlesToDelete.size() - 1; j >= 0; --j)
-	{
-		listParticles.erase(listParticles.begin() + particlesToDelete.at(j));
 	}
 }
 
 void ParticleEmitter::KillAllParticles()
 {
-	listParticles.clear();
+	if (!listParticles.empty())
+	{
+		for (auto it = listParticles.rbegin(); it != listParticles.rend(); ++it)
+		{
+			delete (*it);
+			(*it) = nullptr;
+		}
+
+		listParticles.clear();
+	}
 }
 
 void ParticleEmitter::UpdateModules(float dt)
@@ -195,7 +201,6 @@ void ParticleEmitter::Update(float dt)
 
 	//Llamamos a Draw particles para que printe todas las particulas con su info updateada
 	DrawParticles();
-	//External->renderer3D->DrawParticles();
 }
 
 void ParticleEmitter::DrawParticles()
@@ -221,30 +226,53 @@ void ParticleEmitter::Reset()
 	KillAllParticles();
 }
 
-void ParticleEmitter::SpawnParticle(uint particlesToAdd)
+void ParticleEmitter::SpawnParticle(uint particlesToAdd) //This code only adds particles to the list, the actual spawning/drawing is made in renderer
 {
 	if (listParticles.size() < MAXPARTICLES)
 	{
-		for (int i = 0; i < particlesToAdd; i++)
+		for (int i = 0; i < particlesToAdd && i < MAXPARTICLES; i++)
 		{
+			//std::unique_ptr<Particle*> particula(new Particle*);
 			Particle* particula = new Particle();
 			for (int m = 0; m < modules.size(); ++m)
 			{
 				modules.at(m)->Spawn(this, particula);
 			}
 			//TODO TONI: En principio creo que esto no aplica con la camara del juego, ya que es: camera->editorCamera
-			float lineToZ = (External->camera->editorCamera->GetPos().z - (particula->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (particula->velocity.z * particula->velocity.w)));
-			for (int j = 0; j < listParticles.size(); ++j)
+			if (listParticles.empty()) { listParticles.push_back(particula); } //Evitar petada acceso a la nada
+			else
 			{
-				float lineToZVec = (External->camera->editorCamera->GetPos().z - (listParticles.at(j)->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (listParticles.at(j)->velocity.z * listParticles.at(j)->velocity.w)));
-				if (lineToZVec * lineToZVec < lineToZ * lineToZ) //Si la particula esta mas lejos se printa primero para las transparencias
+				bool lastParticle = true;
+				float lineToZ;
+
+				#ifdef _STANDALONE
+					lineToZ = (External->scene->gameCameraComponent->GetPos().z - (particula->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (particula->velocity.z * particula->velocity.w)));
+				#else
+					lineToZ = (External->camera->editorCamera->GetPos().z - (particula->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (particula->velocity.z * particula->velocity.w)));
+				#endif // _STANDALONE
+
+				for (int j = 0; j < listParticles.size(); ++j)
 				{
-					listParticles.emplace(listParticles.begin() + j, particula);
-					break;
+					float lineToZVec;
+
+					#ifdef _STANDALONE
+						lineToZVec = (External->scene->gameCameraComponent->GetPos().z - (listParticles.at(j)->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (listParticles.at(j)->velocity.z * listParticles.at(j)->velocity.w)));
+					#else
+						lineToZVec = (External->camera->editorCamera->GetPos().z - (listParticles.at(j)->position.z + owner->mOwner->mTransform->GetGlobalPosition().z + (listParticles.at(j)->velocity.z * listParticles.at(j)->velocity.w)));
+					#endif // _STANDALONE
+
+					if (lineToZVec * lineToZVec < lineToZ * lineToZ) //Si la particula esta mas lejos se printa primero para las transparencias
+					{
+						listParticles.emplace(listParticles.begin() + j, particula);
+						lastParticle = false;
+						break;
+					}
 				}
+				//Si no esta lo suficientemente lejos se coloca al final
+				if (lastParticle) { listParticles.push_back(particula); }
 			}
-			//Si no esta lo suficientemente lejos se coloca al final
-			listParticles.push_back(particula);
 		}
+			
+			
 	}
 }

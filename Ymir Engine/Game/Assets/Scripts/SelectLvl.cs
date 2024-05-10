@@ -8,7 +8,7 @@ using YmirEngine;
 
 public class SelectLvl : YmirComponent
 {
-    public int lvl = 0;  // TODO: Sara --> change to enum
+    public int lvl = 1;  // TODO: Sara --> change to enum
     private BaseTeleporter levelSelector;
 
     public GameObject locked;
@@ -41,16 +41,16 @@ public class SelectLvl : YmirComponent
 
             //Debug.Log("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
 
-            LEVELS selectedLvlPrev = levelSelector.selectedLvl;
+            LEVEL selectedLvlPrev = levelSelector.selectedLvl;
             WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;
 
-            if (levelSelector.selectedLvl != (LEVELS)lvl)
+            if (levelSelector.selectedLvl != (LEVEL)lvl)
             {
-                levelSelector.selectedLvl = (LEVELS)lvl;
+                levelSelector.selectedLvl = (LEVEL)lvl;
             }
             else
             {
-                levelSelector.selectedLvl = LEVELS.NONE;
+                levelSelector.selectedLvl = LEVEL.NONE;
                 UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
                 //UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
             }
@@ -94,24 +94,24 @@ public class SelectLvl : YmirComponent
     {
         if (levelSelector != null)
         {
-            switch ((LEVELS)lvl)
+            switch ((LEVEL)lvl)
             {
-                case LEVELS.NONE:
+                case LEVEL.NONE:
                     {
                         UI.TextEdit(levelSelector.lvlText, "");
                     }
                     break;
-                case LEVELS.WAREHOUSE:
+                case LEVEL.WAREHOUSE:
                     {
                         UI.TextEdit(levelSelector.lvlText, "An unused warehouse under the name of\nWeyland-Yutani corp. It doesn't look like a\ndangerous place, it smells a bit burnt.");
                     }
                     break;
-                case LEVELS.LAB:
+                case LEVEL.LAB:
                     {
                         UI.TextEdit(levelSelector.lvlText, "There are no records of this place, although it\nlooks like a research area. A laboratory?\nUnderground?");
                     }
                     break;
-                case LEVELS.HATCHERY:
+                case LEVEL.HATCHERY:
                     {
                         UI.TextEdit(levelSelector.lvlText, "If this was once a laboratory, it is definitely\nno longer one. All of it is covered in something\nblack and slimy.");
                     }

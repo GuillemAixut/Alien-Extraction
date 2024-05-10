@@ -68,6 +68,13 @@ public class AcidicSpit : YmirComponent
             {
                 aux3.life -= damage;
             }
+
+            SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
+            if (aux4 != null)
+            {
+                aux4.life -= damage;
+            }
+
             KillBullet();
         }
         else if (other.Tag == "Player")

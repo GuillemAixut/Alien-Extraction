@@ -7,7 +7,7 @@
 #include "Particle.h"
 #include <vector>
 
-#define MAXPARTICLES 200
+#define MAXPARTICLES 300
 
 class CParticleSystem;
 class EmitterSetting;
@@ -38,7 +38,7 @@ public:
 
 	EmitterSetting* CreateEmitterSettingByType(uint type);
 	bool EmitterSettingExist(uint typeS, bool excludeNonUniques = true);
-	int DestroyEmitter(uint pos);
+	int DestroySetting(uint pos);
 
 private:
 	void KillDeadParticles();

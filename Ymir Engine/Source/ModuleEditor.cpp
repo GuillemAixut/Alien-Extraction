@@ -59,6 +59,8 @@ ModuleEditor::~ModuleEditor()
 
 bool ModuleEditor::Init()
 {
+	OPTICK_EVENT();
+
 	LOG("Initializing editor...");
 
 	bool ret = true;
@@ -156,6 +158,8 @@ bool ModuleEditor::Init()
 
 update_status ModuleEditor::Update(float dt)
 {
+	OPTICK_EVENT();
+
 	return exit;
 }
 
@@ -863,11 +867,11 @@ void ModuleEditor::DrawEditor()
 
 				}
 
-				if (ImGui::Button("Apply Checker Texture")) {
+				//if (ImGui::Button("Apply Checker Texture")) {
 
-					App->renderer3D->ApplyCheckerTexture();
+				//	App->renderer3D->ApplyCheckerTexture();
 
-				}
+				//}
 
 				if (ImGui::Button("Clear Actual Texture")) {
 
@@ -1788,7 +1792,7 @@ void ModuleEditor::CreateParticleSystemMenu()
 {
 	if (ImGui::MenuItem("Particle System")) {
 
-		GameObject* empty = App->scene->CreateGameObject("Paticle System", App->scene->selectedGO != nullptr ? App->scene->selectedGO : App->scene->mRootNode);
+		GameObject* empty = App->scene->CreateGameObject("Particle System", App->scene->selectedGO != nullptr ? App->scene->selectedGO : App->scene->mRootNode);
 		empty->UID = Random::Generate();
 
 		//TONI: We dont need material in Particle System
@@ -2266,6 +2270,8 @@ void ModuleEditor::Toggle_GL_WireframeMode(bool wireframe)
 
 bool ModuleEditor::CleanUp()
 {
+	OPTICK_EVENT();
+
 	bool ret = true;
 
 	LOG("Deleting editor...");
@@ -3167,6 +3173,13 @@ void ModuleEditor::DrawInspector()
 			if (ImGui::Checkbox("##Active", &App->scene->selectedGO->active)) {
 
 				App->scene->SetActiveRecursively(App->scene->selectedGO, App->scene->selectedGO->active);
+				if (!App->scene->selectedGO->active) {
+					CScript* aux = static_cast<CScript*>(App->scene->selectedGO->GetComponent(ComponentType::SCRIPT));
+
+					if (aux) {
+						aux->isStarting = true;
+					}
+				}
 
 			}
 

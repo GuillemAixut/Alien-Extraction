@@ -1,5 +1,6 @@
 #include "Animator.h"
 #include "Log.h"
+#include "ModuleResourceManager.h"
 
 #include "External/mmgr/mmgr.h"
 
@@ -10,6 +11,13 @@ Animator::Animator()
 	for (int i = 0; i < 100; i++) {
 		finalBoneMatrices.push_back(identity.identity);
 	}
+
+	deltaTime = 0;
+	transitionTime = 0;
+	lastCurrentTime = 0;
+
+	currentAnimation = nullptr;
+	previousAnimation = nullptr;
 }
 
 Animator::Animator(ResourceAnimation* animation)
@@ -19,10 +27,27 @@ Animator::Animator(ResourceAnimation* animation)
 	for (int i = 0; i < 100; i++) {
 		finalBoneMatrices.push_back(identity.identity);
 	}
+
+	deltaTime = 0;
+	transitionTime = 0;
+	lastCurrentTime = 0;
+
+	currentAnimation = nullptr;
+	previousAnimation = nullptr;
 }
 
-Animator::~Animator() {
+Animator::~Animator()
+{
+	for (auto& it = animations.begin(); it != animations.end(); ++it) 
+	{
+		External->resourceManager->UnloadResource((*it)->GetUID());
+		(*it) = nullptr;
+	}
 
+	ClearVecPtr(animations);
+	ClearVec(finalBoneMatrices);
+	currentAnimation = nullptr;
+	previousAnimation = nullptr; 
 }
 
 void Animator::UpdateAnimation(float dt)
@@ -167,15 +192,12 @@ void Animator::UpdateCurrentTime(ResourceAnimation* animation) {
 
 		ResetAnimation(animation);
 	}
-		
-		
 }
 
 void Animator::PlayAnimation(ResourceAnimation* animation)
 {
 	if (previousAnimation) {
 		lastCurrentTime = previousAnimation->currentTime;
-		LOG("PrevAnim Time: %f", lastCurrentTime);
 	}
 
 	previousAnimation = currentAnimation;
@@ -257,9 +279,9 @@ void Animator::CalculateBoneTransform(const AssimpNodeData* node, float4x4 paren
 			prevTransform = prevTransform;
 		}
 
-		float3 translate = float3(.0f, .0f, .0f);;
-		Quat rotation = Quat::identity;;
-		float3 scale = float3(1, 1, 1);;
+		float3 translate = float3(.0f, .0f, .0f);
+		Quat rotation = Quat::identity;
+		float3 scale = float3(1, 1, 1);
 
 		float3 prevTranslate = float3(.0f,.0f,.0f);
 		Quat prevRotation = Quat::identity;
@@ -283,8 +305,6 @@ void Animator::CalculateBoneTransform(const AssimpNodeData* node, float4x4 paren
 
 	float4x4 globalTransform = parentTransform * nodeTransform;
 	
-	
-
 	std::map<std::string, BoneInfo> boneInfoMap = currentAnimation->GetBoneIDMap();
 	if (boneInfoMap.find(nodeName) != boneInfoMap.end()) {
 		int index = boneInfoMap[nodeName].id;
@@ -298,11 +318,36 @@ void Animator::CalculateBoneTransform(const AssimpNodeData* node, float4x4 paren
 	}
 }
 
+std::vector<float4x4> Animator::GetFinalBoneMatrices()
+{
+	return finalBoneMatrices;
+}
+
+void Animator::SetCurrentAnimation(ResourceAnimation* animation)
+{
+	currentAnimation = animation;
+}
+
+ResourceAnimation* Animator::GetCurrentAnimation()
+{
+	return currentAnimation;
+}
+
+void Animator::SetPreviousAnimation(ResourceAnimation* animation)
+{
+	previousAnimation = animation;
+}
+
+ResourceAnimation* Animator::GetPreviousAnimation()
+{
+	return previousAnimation;
+}
+
 bool Animator::FindAnimation(std::string aniationName) {
 
 	for (int i = 0; i < animations.size(); i++) {
-		if (animations[i].name == aniationName) {
-			return true;;
+		if (animations[i]->name == aniationName) {
+			return true;
 		} 
 	}
 
