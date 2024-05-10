@@ -27,6 +27,13 @@ enum main_states
 	MAIN_EXIT
 };
 
+// Force the use of the discrete GPU
+extern "C"
+{
+	__declspec(dllexport) DWORD NvOptimusEnablement = 1;
+	__declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+}
+
 void DumpMemoryLeaks(void)
 {
 	_CrtDumpMemoryLeaks();
