@@ -114,7 +114,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 		//Temporary until we know for sure
 		queenState = QueenState.IDLE_PHASE_1;
 		
-		life = 500f;
+		life = 3000f;
 		queenRotationSpeed = 5f;
         player = InternalCalls.GetGameObjectByName("Player");
 		axeTimer = axeAttackCooldown;
