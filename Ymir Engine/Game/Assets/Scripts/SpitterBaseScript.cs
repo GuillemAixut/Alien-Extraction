@@ -376,9 +376,6 @@ public class SpitterBaseScript : YmirComponent
         //If the enemy isn't paused
         if (xenoState != XenoState.PAUSED)
         {
-            //Check attacks
-            CheckAttacks();
-
             //Walk backwards
             if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, tooCloseRange) && aggro == true)
             {
@@ -393,6 +390,9 @@ public class SpitterBaseScript : YmirComponent
                 xenoState = XenoState.MOVE_BACKWARDS;
                
             }
+
+            //Check attacks
+            CheckAttacks();
 
             //If player too far away, go back to wander
             if (!CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius) && aggro == true)
