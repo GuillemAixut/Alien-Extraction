@@ -261,6 +261,6 @@ bool ModuleFileSystem::LoadMeshToFile(const std::string filename, ResourceMesh* 
 void ModuleFileSystem::CopyStandaloneBuild()
 {
 	std::string standaloneEXEpath = "../Standalone/Ymir Engine.exe";
-	std::string gameEXEpath = "./ProjectClapcom.exe";
+	std::string gameEXEpath = "./AlienExtraction.exe";
 	PhysfsEncapsule::DuplicateFile(standaloneEXEpath.c_str(), gameEXEpath.c_str());
 }
