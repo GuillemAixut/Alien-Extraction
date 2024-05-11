@@ -172,6 +172,8 @@ private:
 	int mouse_y_motion;
 	//int mouse_z_motion;
 
+	SDL_GameController* controller_player = nullptr;
+
 	int maxChars;
 	bool getInput_B;
 };

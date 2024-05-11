@@ -130,8 +130,7 @@ update_status ModuleInput::PreUpdate(float dt)
 	}
 
 	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i) {
-
-		bool key_pressed = SDL_GameControllerGetButton(sdl_controllers[0], (SDL_GameControllerButton)i);
+		bool key_pressed = SDL_GameControllerGetButton(controller_player, (SDL_GameControllerButton)i);
 
 		if (key_pressed)
 		{
@@ -374,6 +373,9 @@ bool ModuleInput::CleanUp()
 	//}
 
 	//ClearVecPtr(activeControllers);
+
+	SDL_GameControllerClose(controller_player);
+	controller_player = NULL;
 
 	SDL_QuitSubSystem(SDL_INIT_GAMECONTROLLER | SDL_INIT_EVENTS | SDL_INIT_JOYSTICK);
 	SDL_Quit();
