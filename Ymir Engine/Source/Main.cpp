@@ -16,7 +16,7 @@
 #pragma comment (lib, "Source/External/Optick/lib/releaseLib/OptickCore.lib") 
 #endif // _DEBUG
 
-#include "External/Tracy/tracy/Tracy.hpp"
+#include "Tracy.h"
 
 #include "External/mmgr/mmgr.h"
 

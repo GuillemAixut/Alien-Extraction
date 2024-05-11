@@ -94,7 +94,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <PreprocessorDefinitions>_RELEASE;TRACY_ENABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)\Source\External</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -487,6 +487,7 @@
     <ClInclude Include="Source\Texture.h" />
     <ClInclude Include="Source\TimeManager.h" />
     <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\Tracy.h" />
     <ClInclude Include="Source\UI_Button.h" />
     <ClInclude Include="Source\UI_Canvas.h" />
     <ClInclude Include="Source\UI_CheckBox.h" />

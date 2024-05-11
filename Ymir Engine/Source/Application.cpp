@@ -19,7 +19,7 @@
 
 #include "External/Optick/include/optick.h"
 
-#include "External/Tracy/tracy/Tracy.hpp"
+#include "Tracy.h"
 
 #include "External/mmgr/mmgr.h"
 
