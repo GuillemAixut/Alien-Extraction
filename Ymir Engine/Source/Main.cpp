@@ -16,6 +16,8 @@
 #pragma comment (lib, "Source/External/Optick/lib/releaseLib/OptickCore.lib") 
 #endif // _DEBUG
 
+#include "External/Tracy/tracy/Tracy.hpp"
+
 #include "External/mmgr/mmgr.h"
 
 enum main_states
@@ -89,8 +91,11 @@ int main(int argc, char ** argv)
 				state = MAIN_FINISH;
 			}
 
+#ifdef TRACY_ENABLE
+			FrameMark;
+#endif // TRACY_ENABLE
+			
 			break;
-
 		}
 
 		case MAIN_FINISH:

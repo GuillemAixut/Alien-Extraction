@@ -19,6 +19,8 @@
 
 #include "External/Optick/include/optick.h"
 
+#include "External/Tracy/tracy/Tracy.hpp"
+
 #include "External/mmgr/mmgr.h"
 
 extern Application* External = nullptr;
@@ -138,6 +140,7 @@ void Application::FinishUpdate()
 update_status Application::Update()
 {
 	OPTICK_EVENT();
+
 	update_status ret = UPDATE_CONTINUE;
 	PrepareUpdate();
 	
@@ -157,6 +160,7 @@ update_status Application::Update()
 	}
 
 	FinishUpdate();
+
 	return ret;
 }
 

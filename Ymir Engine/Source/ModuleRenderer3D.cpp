@@ -17,6 +17,7 @@
 
 #include "External/Optick/include/optick.h"
 
+#include "External/Tracy/tracy/Tracy.hpp"
 #include "External/mmgr/mmgr.h"
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
@@ -302,6 +303,10 @@ static bool started = false; // Sorry
 // PostUpdate present buffer to screen
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
+#ifdef TRACY_ENABLE
+	ZoneScoped;
+#endif // TRACY_ENABLE
+
 	OPTICK_EVENT();
 
 #ifdef _STANDALONE // Sorry for doing this, it was necessary (Francesc) :(
