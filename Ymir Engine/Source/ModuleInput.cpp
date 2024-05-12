@@ -272,12 +272,26 @@ update_status ModuleInput::PreUpdate(float dt)
 
 			Init();
 
+			int num_joystincks = SDL_NumJoysticks();
+			for (int i = 0; i < num_joystincks; ++i) {
+				if (i == 0) {
+					if (SDL_GameControllerGetAttached(controller_player) == SDL_FALSE) {
+						controller_player = SDL_GameControllerOpen(i);
+						continue;
+					}
+				}
+			}
+
 			break;
 		}
 		case SDL_CONTROLLERDEVICEREMOVED:
 		{
-			activeControllers.clear();
 			Init();
+
+			if (SDL_GameControllerGetAttached(controller_player) == SDL_FALSE) {
+				SDL_GameControllerClose(controller_player);
+				controller_player = nullptr;
+			}
 
 			break;
 		}
