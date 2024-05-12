@@ -96,7 +96,10 @@ public class Player : YmirComponent
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
-    public int resin = 10;
+    public int currentResinVessels = 2;
+    public int maxResinVessels = 2;
+    public float resinHealing = 400;
+    public GameObject resinText = null;
 
     //Particulas de caminar
     GameObject walkParticles = null;
@@ -269,6 +272,16 @@ public class Player : YmirComponent
             movementSpeed = 3000.0f;
         }
 
+        // Resin
+        currentResinVessels = maxResinVessels;
+
+        resinText = InternalCalls.GetGameObjectByName("Number Heals");
+
+        if (resinText != null)
+        {
+            UI.TextEdit(resinText, "x" + currentResinVessels.ToString());
+        }
+
         //--------------------- Get Skills Scripts ---------------------\\
         GetSkillsScripts();
 
@@ -316,7 +329,6 @@ public class Player : YmirComponent
 
         if (currentLvl != (int)LEVEL.BASE)
         {
-            Debug.Log("[ERROR]current: " + currentLvl.ToString());
             LoadPlayer();
         }
         else
@@ -325,9 +337,6 @@ public class Player : YmirComponent
             SetWeapon();
             LoadItems();
         }
-        //SetWeapon();
-        Debug.Log("[ERROR]" + weaponType.ToString());
-        Debug.Log("[ERROR]" + upgradeType.ToString());
     }
 
     public void Update()
@@ -708,6 +717,21 @@ public class Player : YmirComponent
                 if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN && currentWeapon.ReloadAvailable())
                 {
                     inputsList.Add(INPUT.I_RELOAD);
+                }
+
+                //----------------- Heal -----------------\\
+                // TODO: cual es el control del mando?
+
+                if (Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN && currentResinVessels > 0)
+                {
+                    Debug.Log("Resin used");
+
+                    csHealth.TakeDmg(-resinHealing);
+
+                    if (resinText != null)
+                    {
+                        UI.TextEdit(resinText, "x" + currentResinVessels.ToString());
+                    }
                 }
             }
         }
@@ -1899,13 +1923,8 @@ public class Player : YmirComponent
             Item item = Globals.SearchItemInDictionary(name);
             item.isEquipped = SaveLoad.LoadBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped");
             item.inInventory = false;
-            item.LogStats();
+            //item.LogStats();
             itemsList.Add(item);
-
-            //Debug.Log("Items loaded name " + name);
-            //Debug.Log("Items loaded i name " + item.name);
-            //Debug.Log("SaveLoad.LoadInt(Globals.saveGameDir, saveName) " + SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Items num").ToString());
-            //item.inInventory = false;
 
             if (item.isEquipped)
             {

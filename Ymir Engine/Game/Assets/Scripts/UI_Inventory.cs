@@ -256,7 +256,7 @@ public class UI_Inventory : YmirComponent
             }
 
             UI.TextEdit(_textDamage, player.damageMultiplier.ToString() + "%");
-            UI.TextEdit(_textResin, player.resin.ToString());
+            UI.TextEdit(_textResin, player.currentResinVessels.ToString());
         }
     }
 

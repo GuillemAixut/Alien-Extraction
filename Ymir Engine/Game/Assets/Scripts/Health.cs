@@ -8,7 +8,6 @@ using YmirEngine;
 
 public class Health : YmirComponent
 {
-    
     //public GameObject player = null;
     public GameObject healthBar = null;
     public GameObject deathCanvas = null;
@@ -31,7 +30,7 @@ public class Health : YmirComponent
         debugDmg = 100;
         maxHealth = 1200;
 
-        GetPlayerScript();
+        player = Globals.GetPlayerScript();
 
         healthBar = InternalCalls.GetGameObjectByName("Health Bar");
         deathCanvas = InternalCalls.GetGameObjectByName("Death Canvas");
@@ -143,27 +142,4 @@ public class Health : YmirComponent
 
         return true;
     }
-
-    private void GetPlayerScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            player = gameObject.GetComponent<Player>();
-        }
-    }
-
-    //private void GetAnotherScript()
-    //{
-    //    GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-    //    if (gameObject != null)
-    //    {
-    //        PlayerMovement p = gameObject.GetComponent<PlayerMovement>();
-
-    //        //Debug.Log("MovmentSpeed= " + movementSpeed);
-
-    //    }
-    //}
 }
