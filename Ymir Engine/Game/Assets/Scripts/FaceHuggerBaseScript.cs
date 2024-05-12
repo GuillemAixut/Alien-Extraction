@@ -101,7 +101,6 @@ public class FaceHuggerBaseScript : Enemy
                 epicProb = 15.0f;
                 break;
         }
-        Debug.Log("[WARNING] Probs: " + commonProb + "rare: " + rareProb + "Epic: " + epicProb);
 
 
         attackTimer = attackDuration;
@@ -149,11 +148,6 @@ public class FaceHuggerBaseScript : Enemy
 
     public void Update()
     {
-        if (Input.GetKey(YmirKeyCode.M) == KeyState.KEY_DOWN)
-        {
-            wanderState = WanderState.DEATH;
-        }
-
         //Debug.Log("Level --------- " + level);
         if (CheckPause())
         {

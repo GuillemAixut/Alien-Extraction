@@ -21,7 +21,7 @@ public enum XenoState
     PAUSED
 }
 
-public class SpitterBaseScript : YmirComponent
+public class SpitterBaseScript : Enemy
 {
     public GameObject thisReference = null;
 
@@ -55,29 +55,6 @@ public class SpitterBaseScript : YmirComponent
 
     private float outOfRangeTimer;
 
-    //DELETE WHEN FIXED
-    protected PathFinding agent;
-    public GameObject player = null;
-
-    public Health healthScript;
-    public float movementSpeed;
-    public float knockBackTimer;
-    public float knockBackSpeed;
-
-    protected WanderState wanderState;
-    public float timePassed = 0f;
-    public float life = 100f;
-
-    //This may change depending on enemy rarity
-    public float armor = 0;
-
-    //0 = Common, 1 = Rare, 2 = Elite
-    public int rarity = 0;
-
-    public float wanderRange = 10f;
-
-    public float detectionRadius = 80f;
-    public bool paused = false;
     private bool walkAni = false;
     private bool acidDone = false;
     private bool explosionDone = false;
@@ -122,11 +99,35 @@ public class SpitterBaseScript : YmirComponent
 
         //Life
         life = 450f;
-
+        paused = false;
         //Drop items
-        //keys = "Nombre:,Probabilidad:";
-        //path = "Assets/Loot Tables/spitter_loot.csv";
-        //numFields = 2;
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/spitter_loot.csv";
+        numFields = 2;
+        level = InternalCalls.GetCurrentMap();
+        switch (level)
+        {
+            case 1:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+            case int i when (i == 2 || i == 3):
+                commonProb = 20.0f;
+                rareProb = 50.0f;
+                epicProb = 30.0f;
+                break;
+            case int i when (i == 4 || i == 5):
+                commonProb = 10.0f;
+                rareProb = 30.0f;
+                epicProb = 60.0f;
+                break;
+            default:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+        }
 
         //Animations
         Animation.SetLoop(gameObject, "Idle_Spiter", true);
@@ -366,7 +367,7 @@ public class SpitterBaseScript : YmirComponent
 
                 if (timePassed >= 1.4f)
                 {
-                   // DropItem();
+                    DropItem();
                     InternalCalls.Destroy(gameObject);
                 }
 
@@ -456,6 +457,7 @@ public class SpitterBaseScript : YmirComponent
         if (life <= 0)
         {
             gameObject.SetVelocity(new Vector3(0, 0, 0));
+            itemPos = gameObject.transform.globalPosition;
             Animation.PlayAnimation(gameObject, "Death_Spiter");
             Audio.PlayAudio(gameObject, "XS_Death");
             xenoState = XenoState.DEAD;
@@ -527,74 +529,74 @@ public class SpitterBaseScript : YmirComponent
     }
 
     //DELETE WHEN FIXED
-    public void TakeDmg(float dmg)
-    {
-        life -= dmg * armor;
-    }
+    //public void TakeDmg(float dmg)
+    //{
+    //    life -= dmg * armor;
+    //}
 
-    public void LookAt(Vector3 pointToLook)
-    {
+    //public void LookAt(Vector3 pointToLook)
+    //{
 
-        Vector3 direction = pointToLook - gameObject.transform.globalPosition;
-        direction = direction.normalized;
-        float angle = (float)Math.Atan2(direction.x, direction.z);
+    //    Vector3 direction = pointToLook - gameObject.transform.globalPosition;
+    //    direction = direction.normalized;
+    //    float angle = (float)Math.Atan2(direction.x, direction.z);
 
-        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
+    //    //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
 
-        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-            return;
+    //    if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
+    //        return;
 
-        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
+    //    Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
 
-        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
+    //    float rotationSpeed = Time.deltaTime * agent.angularSpeed;
 
 
-        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
+    //    Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
 
-        gameObject.SetRotation(desiredRotation);
-    }
+    //    gameObject.SetRotation(desiredRotation);
+    //}
 
-    public void KnockBack(float speed)
-    {
+    //public void KnockBack(float speed)
+    //{
 
-        Vector3 knockbackDirection = player.transform.globalPosition - gameObject.transform.globalPosition;
-        knockbackDirection = knockbackDirection.normalized;
-        knockbackDirection.y = 0f;
-        gameObject.SetVelocity(knockbackDirection * -speed);
+    //    Vector3 knockbackDirection = player.transform.globalPosition - gameObject.transform.globalPosition;
+    //    knockbackDirection = knockbackDirection.normalized;
+    //    knockbackDirection.y = 0f;
+    //    gameObject.SetVelocity(knockbackDirection * -speed);
 
-    }
+    //}
 
-    public bool CheckPause()
-    {
-        if (player.GetComponent<Player>().currentState == Player.STATE.STOP || player.GetComponent<Player>().currentState == Player.STATE.DEAD)
-        {
-            return true;
-        }
-        return false;
-    }
+    //public bool CheckPause()
+    //{
+    //    if (player.GetComponent<Player>().currentState == Player.STATE.STOP || player.GetComponent<Player>().currentState == Player.STATE.DEAD)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
-    public void MoveToCalculatedPos(float speed)
-    {
-        Vector3 pos = gameObject.transform.globalPosition;
-        Vector3 destination = agent.GetDestination();
-        Vector3 direction = destination - pos;
+    //public void MoveToCalculatedPos(float speed)
+    //{
+    //    Vector3 pos = gameObject.transform.globalPosition;
+    //    Vector3 destination = agent.GetDestination();
+    //    Vector3 direction = destination - pos;
 
-        gameObject.SetVelocity(direction.normalized * speed * Time.deltaTime);
-    }
+    //    gameObject.SetVelocity(direction.normalized * speed * Time.deltaTime);
+    //}
 
-    public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
-    {
-        float deltaX = Math.Abs(first.x - second.x);
-        float deltaY = Math.Abs(first.y - second.y);
-        float deltaZ = Math.Abs(first.z - second.z);
+    //public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
+    //{
+    //    float deltaX = Math.Abs(first.x - second.x);
+    //    float deltaY = Math.Abs(first.y - second.y);
+    //    float deltaZ = Math.Abs(first.z - second.z);
 
-        return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
-    }
-    public void DestroyEnemy()
-    {
-        Audio.PlayAudio(gameObject, "XS_Death");
-        InternalCalls.Destroy(gameObject);
-    }
+    //    return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
+    //}
+    //public void DestroyEnemy()
+    //{
+    //    Audio.PlayAudio(gameObject, "XS_Death");
+    //    InternalCalls.Destroy(gameObject);
+    //}
 
     private GameObject GetParticles(GameObject go, string pName)
     {
