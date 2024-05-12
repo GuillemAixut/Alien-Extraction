@@ -273,6 +273,8 @@ public class Player : YmirComponent
         }
 
         // Resin
+        maxResinVessels = 2;
+        resinHealing = 400; // TODO: Cambiar cuando este el save/load
         currentResinVessels = maxResinVessels;
 
         resinText = InternalCalls.GetGameObjectByName("Number Heals");
@@ -631,6 +633,7 @@ public class Player : YmirComponent
             }
         }
     }
+
     private void ProcessExternalInput()
     {
         //----------------- Debug KEY to test Die Animation -----------------\\
@@ -726,6 +729,7 @@ public class Player : YmirComponent
                 {
                     Debug.Log("Resin used");
 
+                    currentResinVessels--;
                     csHealth.TakeDmg(-resinHealing);
 
                     if (resinText != null)
@@ -733,6 +737,15 @@ public class Player : YmirComponent
                         UI.TextEdit(resinText, "x" + currentResinVessels.ToString());
                     }
                 }
+            }
+
+
+            //----------------- Pause -----------------\\
+            if (Input.GetGamepadButton(GamePadButton.START) == KeyState.KEY_DOWN)
+            {
+                Debug.Log("Paused");
+                currentMenu = "Pause Menu";
+                ToggleMenu(true);
             }
         }
 

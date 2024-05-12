@@ -135,9 +135,9 @@ public class UI_Inventory : YmirComponent
                 //
 
                 if (((cs_UI_Item_Button.item.itemType != ITEM_SLOT.NONE ||
-                                cs_UI_Item_Button.item.itemType != ITEM_SLOT.SAVE) &&
-                                cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
-                                Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
+                    cs_UI_Item_Button.item.itemType != ITEM_SLOT.SAVE) &&
+                    cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
+                    Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
                 {
                     // Change current item to an empty one
                     cs_UI_Item_Button.item.itemType = ITEM_SLOT.NONE;

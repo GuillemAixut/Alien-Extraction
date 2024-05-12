@@ -27,7 +27,7 @@ public class PickUp : YmirComponent
         {
             player = other.GetComponent<Player>();
 
-            if (gameObject.Tag == "Resin")
+            if (gameObject.Tag == "Resin" && player.currentResinVessels < player.maxResinVessels)
             {
                 gameObject.SetActive(false);
                 Debug.Log("Pick up " + gameObject.Name);
