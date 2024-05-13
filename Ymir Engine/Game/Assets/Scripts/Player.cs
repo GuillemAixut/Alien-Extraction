@@ -1841,6 +1841,8 @@ public class Player : YmirComponent
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
         //Particles.ParticlesSetDirection(acidicParticles, gameObject.transform.GetForward().normalized, 0, gameObject.transform.GetForward().normalized);
         Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 1, 50.0f);
+        Particles.ParticlesSetDirection(acidicParticles, gameObject.transform.GetForward().normalized, 0);
+        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 2, 10.0f);
         Particles.PlayParticlesTrigger(acidicParticles);
 
         //Trigger de la animación
