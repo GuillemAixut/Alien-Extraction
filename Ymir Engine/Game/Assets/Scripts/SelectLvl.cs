@@ -41,23 +41,23 @@ public class SelectLvl : YmirComponent
 
             //Debug.Log("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
 
-            LEVEL selectedLvlPrev = levelSelector.selectedLvl;
             WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;
 
             if (levelSelector.selectedLvl != (LEVEL)lvl)
             {
                 levelSelector.selectedLvl = (LEVEL)lvl;
             }
-            else
-            {
-                levelSelector.selectedLvl = LEVEL.NONE;
-                UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
-                //UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
-            }
+            //else
+            //{
+            //    levelSelector.selectedLvl = LEVEL.NONE;
+            //    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl) + ")"), "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
+            //    //UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+            //}
 
             if (gameObject0 != null)
             {
-                UI.ChangeImageUI(gameObject0, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
+                // TODO: Should be gameObject0, but it is not working
+                UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl) + ")"), "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
             }
 
             if (gameObject1 != null/* && levelSelector.selectedWeapon != selectedWeaponPrev*/)

@@ -42,11 +42,6 @@ public class BaseTeleporter : YmirComponent
 
     public void Update()
     {
-        // TODO: delete this
-        if (Input.GetGamepadButton(GamePadButton.X) == KeyState.KEY_DOWN)
-        {
-            UI.SetFirstFocused(gameObject);
-        }
 
         if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
         {
