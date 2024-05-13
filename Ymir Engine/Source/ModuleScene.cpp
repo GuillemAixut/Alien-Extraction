@@ -80,7 +80,7 @@ bool ModuleScene::Start()
 #ifdef _RELEASE
 	
 	//LoadScene("Assets/Main Character", "Alpha3 test");
-	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets", "Enemigo player");
 	//LoadScene("Assets/UI/Inventory", "InventoryScene");
 	//LoadScene("Assets", "Enemigo player");

@@ -344,15 +344,33 @@ public class Player : YmirComponent
 
     public void Update()
     {
-        //if(currentState == STATE.IDLE)
+        GameObject bottomRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetUp() * -1, 3f);
+        GameObject forwardRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 3f);
+        GameObject behindRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward() * -1, 3f);
+
+        float gravity = 0f;
+
+        if (bottomRaycast != null && behindRaycast != null)
+        {
+            if (bottomRaycast.Tag == "Stairs" || behindRaycast.Tag == "Stairs")
+            {
+                gravity = -50f;
+            }
+        }
+        //else if (bottomRaycast != null)
         //{
-        //    gameObject.ClearForces();
+        //    if (bottomRaycast.Tag == "Stairs")
+        //    {
+        //        gravity = -50f;
+        //    }
         //}
+        else if (bottomRaycast == null)
+        {
+            gravity = -50f;
+        }
 
-        //Debug.Log(currentState.ToString());
-        // New Things WIP
+        movementVector = new Vector3(movementVector.x, gravity, movementVector.z);
 
-        //Debug.Log("State: " + currentState);
         UpdateControllerInputs();
 
         ProcessInternalInput();
@@ -1537,31 +1555,12 @@ public class Player : YmirComponent
 
         //gameObject.SetVelocity(new Vector3(0f, 0f, 0f));
 
-        movementVector = (gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
-        GameObject checkStairs = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetUp() * -1, 5f);
-        if (checkStairs != null)
-        {
-            if (checkStairs.Tag == "Stairs")
-            {
-                Vector3 gravity = new Vector3(0f, -15f, 0f);
-
-                movementVector = (gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity;
-            }
-        }
+        Vector3 speedVector = gameObject.transform.GetForward() * movementSpeed * Time.deltaTime;
+        movementVector = new Vector3(speedVector.x, movementVector.y, speedVector.z);
+        Debug.Log("Velocity: " + movementVector);
 
         gameObject.SetVelocity(movementVector);
 
-        //Debug.Log("Movement Vector: " + (gameObject.transform.GetForward() * movementSpeed * Time.deltaTime).normalized);
-        //Debug.Log("Forward Player: " + gameObject.transform.GetForward());
-
-        //if (gamepadInput.x > 0)
-        //{
-        //    gameObject.SetVelocity(cameraObject.transform.GetRight() * movementSpeed * -1);
-        //}
-        //if (gamepadInput.x < 0)
-        //{
-        //    gameObject.SetVelocity(cameraObject.transform.GetRight() * movementSpeed);
-        //}
     }
 
     private void StopPlayer()
