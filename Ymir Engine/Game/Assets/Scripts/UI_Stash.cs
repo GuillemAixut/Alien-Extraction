@@ -16,6 +16,8 @@ public class UI_Stash : YmirComponent
     public Player player = null;
     public Health health = null;
 
+    public List<Item> stashItemsList;
+
     public void Start()
     {
         focusedGO = UI.GetFocused();
@@ -24,7 +26,7 @@ public class UI_Stash : YmirComponent
         goDescription = InternalCalls.GetChildrenByName(gameObject, "Item Description Image"); // TODO: ARREGLAR-HO, FER SIGUI PARE TEXT
         goText = InternalCalls.GetChildrenByName(gameObject, "Item Description Text");
         goName = InternalCalls.GetChildrenByName(gameObject, "Item Description Name");
-        
+
         goDescription.SetActive(false);// TODO: when menu opened
         goText.SetActive(false);
         goName.SetActive(false);
@@ -195,58 +197,104 @@ public class UI_Stash : YmirComponent
 
     private void SetSlots()
     {
-        Debug.Log("ffffffff " + player.itemsList.Count.ToString());
+        bool isInventory = false;
+
         for (int i = 0; i < player.itemsList.Count; i++)
         {
-            Debug.Log("ccccccc " + player.itemsList[i].itemType.ToString());
-
-            GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
-            GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
-            GameObject save = InternalCalls.CS_GetChild(gameObject, 3);
-
-            for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
+            if (!player.itemsList[i].inStash)
             {
-                Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
-                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 2);  // (Grid (Slot (Button)))
+                isInventory = true;
 
-                if (gameObject != null)
+                GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+                GameObject save = InternalCalls.CS_GetChild(gameObject, 3);
+
+                for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
                 {
-                    Debug.Log("bbbb " + button.Name);
-                    Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
-                    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+
+                    if (gameObject != null)
                     {
-                        break;
+                        if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                        {
+                            isInventory = false;
+                            player.itemsList[i].inStash = true;
+                            break;
+                        }
                     }
                 }
+
+                //GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+
+                //if (gameObject != null)
+                //{
+                //    Debug.Log("jiji " + button.Name);
+                //    Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
+                //    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                //    {
+                //        break;
+                //    }
+                //}
             }
-
-            for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
-            {
-                Debug.Log("iiiiiiiiiiii");
-                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
-
-                if (gameObject != null)
-                {
-                    Debug.Log("jiji " + button.Name);
-                    Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
-                    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
-                    {
-                        break;
-                    }
-                }
-            }
-
-            //GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
-
-            //if (gameObject != null)
-            //{
-            //    Debug.Log("jiji " + button.Name);
-            //    Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
-            //    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
-            //    {
-            //        break;
-            //    }
-            //}
         }
+
+        if (isInventory)
+        {
+            for (int i = 0; i < player.itemsList.Count; i++)
+            {
+                GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
+
+                for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
+                {
+                    Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 2);  // (Grid (Slot (Button)))
+
+                    if (gameObject != null)
+                    {
+                        Debug.Log("bbbb " + button.Name);
+                        Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
+                        if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                        {
+                            player.itemsList[i].inStash = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void SaveStashItems()
+    {
+        player.saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+
+        SaveLoad.SaveInt(Globals.saveGameDir, player.saveName, "Stash Items num", stashItemsList.Count);
+
+        for (int i = 0; i < stashItemsList.Count; i++)
+        {
+            SaveLoad.SaveString(Globals.saveGameDir, player.saveName, "Stash Item " + i.ToString(), stashItemsList[i].dictionaryName);
+        }
+    }
+
+    public void LoadStashItems()
+    {
+        player.saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+
+        Debug.Log("saveName " + player.saveName);
+
+        for (int i = 0; i < SaveLoad.LoadInt(Globals.saveGameDir, player.saveName, "Stash Items num"); i++)
+        {
+            string name = SaveLoad.LoadString(Globals.saveGameDir, player.saveName, "Stash Item " + i.ToString());
+
+            Item item = Globals.SearchItemInDictionary(name);
+            item.inInventory = false;
+            stashItemsList.Add(item);
+
+            if (item.isEquipped)
+            {
+                item.UpdateStats();
+            }
+        }
+
+        Debug.Log("Items loaded");
     }
 }

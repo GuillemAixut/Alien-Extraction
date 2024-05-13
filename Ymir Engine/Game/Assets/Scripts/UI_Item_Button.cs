@@ -238,9 +238,15 @@ public class UI_Item_Button : YmirComponent
         //Debug.Log("isEquipped: " + _item.isEquipped.ToString());
         //Debug.Log("Rarity: " + _item.itemRarity.ToString());
 
-        // is empty // is equipped // can be placed
+        Debug.Log("name " + _item.name);
+        Debug.Log("!Equals(menuName) " + Equals(menuName, "Inventory Menu").ToString());
+        Debug.Log("_item.isEquipped " + _item.isEquipped.ToString());
+        Debug.Log("aaaaa " + (!_item.isEquipped && !Equals(menuName, "Inventory Menu")).ToString());
+
+        // is empty // is equipped and in inventory || is not equipped and not inventory // can be placed
         if (item.itemType == ITEM_SLOT.NONE &&
-            ((_item.isEquipped && _item.itemType == item.currentSlot) ||
+            (((_item.isEquipped && _item.itemType == item.currentSlot) && Equals(menuName, "Inventory Menu") ||
+            (!_item.isEquipped && !Equals(menuName, "Inventory Menu"))) ||
             item.currentSlot == ITEM_SLOT.NONE || item.currentSlot == ITEM_SLOT.MATERIAL))
         {
             if (_item.isEquipped)
@@ -279,10 +285,9 @@ public class UI_Item_Button : YmirComponent
 
             //item.LogStats();
 
-            Debug.Log("aaa " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
+            Debug.Log("currentSlot " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
         }
 
-        //Debug.Log("return: " + ret.ToString());
         return ret;
     }
 

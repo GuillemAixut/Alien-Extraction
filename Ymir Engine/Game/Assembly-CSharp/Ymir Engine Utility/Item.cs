@@ -54,6 +54,8 @@ namespace YmirEngine
         public bool isEquipped = false;
 
         public bool inInventory = false;
+        public bool inStash = false;
+        public bool inCraft = false;
         public string dictionaryName = "";
 
         public Item(

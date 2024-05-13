@@ -262,7 +262,7 @@ public class UI_Inventory : YmirComponent
 
     private void SetSlots() // Place the items from player to inventory
     {
-        bool isInventory;
+        bool isInventory = false;
 
         for (int i = 0; i < player.itemsList.Count; i++)
         {
