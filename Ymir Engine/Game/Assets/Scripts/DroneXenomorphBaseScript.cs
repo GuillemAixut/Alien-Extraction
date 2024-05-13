@@ -25,7 +25,6 @@ public class DroneXenomorphBaseScript : Enemy
     public GameObject thisReference = null;
 
     protected Vector3 targetPosition = null;
-
     
 
     public DroneState droneState;
@@ -54,6 +53,7 @@ public class DroneXenomorphBaseScript : Enemy
 	private float timeLimit;
 
     private float outOfRangeTimer;
+
 	public void Start()
 	{
 		//MAIN STUFF
@@ -104,6 +104,7 @@ public class DroneXenomorphBaseScript : Enemy
         numFields = 2;
         spawnRange = 15;
         level = InternalCalls.GetCurrentMap();
+
         switch (level)
         {
             case 1:
@@ -146,7 +147,6 @@ public class DroneXenomorphBaseScript : Enemy
         Animation.SetResetToZero(gameObject, "Death", false);
 
         Animation.PlayAnimation(gameObject, "Combat_Idle");
-
     }
 
     public void Update()
@@ -365,7 +365,6 @@ public class DroneXenomorphBaseScript : Enemy
                     player.GetComponent<Player>().SetExplorationAudioState();
                     Animation.PlayAnimation(gameObject, "Combat_Idle");
                 }
-
             }
             else
             {
@@ -384,7 +383,6 @@ public class DroneXenomorphBaseScript : Enemy
             droneState = DroneState.KNOCKBACK;
         }
     }
-
 
     public new void IsReached(Vector3 position, Vector3 destintion)
     {
@@ -449,7 +447,6 @@ public class DroneXenomorphBaseScript : Enemy
                 Animation.PlayAnimation(gameObject, "Drone_Tail_Attack");
             }
         }
-
     }
 
     //State getter
@@ -460,7 +457,7 @@ public class DroneXenomorphBaseScript : Enemy
 
     private void SetPause(bool pause)
     {
-        if (pause)
+        if (pause && !paused)
         {
             pausedState = droneState;
             droneState = DroneState.PAUSED;
@@ -474,5 +471,4 @@ public class DroneXenomorphBaseScript : Enemy
             Animation.ResumeAnimation(gameObject);
         }
     }
-
 }

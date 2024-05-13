@@ -151,8 +151,8 @@ public class SpitterBaseScript : Enemy
 
     public void Update()
     {
-
-        if (CheckPause()) {
+        if (CheckPause())
+        {
             SetPause(true);
             paused = true;
             return;
@@ -389,7 +389,7 @@ public class SpitterBaseScript : Enemy
                     walkAni = true;
                 }
                 xenoState = XenoState.MOVE_BACKWARDS;
-               
+
             }
 
             //Check attacks
@@ -431,7 +431,6 @@ public class SpitterBaseScript : Enemy
             xenoState = XenoState.KNOCKBACK;
         }
     }
-
 
     public void IsReached1(Vector3 position, Vector3 destintion)
     {
@@ -513,7 +512,7 @@ public class SpitterBaseScript : Enemy
 
     private void SetPause(bool pause)
     {
-        if (pause)
+        if (pause && !paused)
         {
             pausedState = xenoState;
             xenoState = XenoState.PAUSED;

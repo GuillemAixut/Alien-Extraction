@@ -11,8 +11,6 @@ using System.Threading.Tasks;
 
 using YmirEngine;
 
-
-
 public class FaceHuggerBaseScript : Enemy
 {
     public GameObject thisReference = null;
@@ -26,12 +24,12 @@ public class FaceHuggerBaseScript : Enemy
 
     public bool PlayerDetected = false;
 
-    
+
     private float AttackDistance = 15f;
 
     //private EnemyState state = EnemyState.Idle;
-   
-    
+
+
     private float wanderTimer;
     public float wanderDuration = 5f;
 
@@ -50,7 +48,7 @@ public class FaceHuggerBaseScript : Enemy
 
     private bool walkPlaying = false;
     private bool attackDone = false;
-    
+
 
     //Audio
     private float CryTimer = 10f;
@@ -78,6 +76,7 @@ public class FaceHuggerBaseScript : Enemy
         numFields = 2;
         spawnRange = 15;
         level = InternalCalls.GetCurrentMap();
+
         switch (level)
         {
             case 1:
@@ -102,7 +101,6 @@ public class FaceHuggerBaseScript : Enemy
                 break;
         }
 
-
         attackTimer = attackDuration;
 
 
@@ -120,7 +118,6 @@ public class FaceHuggerBaseScript : Enemy
             life = 600;
             armor = 0.2f;
             movementSpeed = 23f;
-
         }
 
         agent.stoppingDistance = 2f;
@@ -149,7 +146,7 @@ public class FaceHuggerBaseScript : Enemy
     public void Update()
     {
         //Debug.Log("Level --------- " + level);
-        if (CheckPause())
+        if (CheckPause() )
         {
             SetPause(true);
             paused = true;
@@ -161,16 +158,17 @@ public class FaceHuggerBaseScript : Enemy
             paused = false;
         }
         //Debug.Log("[ERROR] CurrentaState: " + wanderState);
-       
-        if(wanderState != WanderState.DEATH) { isDeath(); }
-        
+
+        if (wanderState != WanderState.DEATH) { isDeath(); }
+
         CryTimer += Time.deltaTime;
         cumTimer2 -= Time.deltaTime;
+
         if (cumTimer2 <= 0)
         {
             switch (wanderState)
             {
-                case WanderState.PAUSED: 
+                case WanderState.PAUSED:
                     //Do nothing
                     break;
                 case WanderState.DEATH:
@@ -184,8 +182,8 @@ public class FaceHuggerBaseScript : Enemy
                         DropItem();
                         InternalCalls.Destroy(gameObject);
                     }
-
                     return;
+
                 case WanderState.REACHED:
                     agent.CalculateRandomPath(gameObject.transform.globalPosition, wanderRange);
                     wanderTimer = wanderDuration;
@@ -199,7 +197,7 @@ public class FaceHuggerBaseScript : Enemy
 
                 case WanderState.GOING:
                     LookAt(agent.GetDestination());
-                    
+
                     MoveToCalculatedPos(agent.speed);
                     //Debug.Log("[ERROR] Current State: GOING");
 
@@ -214,8 +212,6 @@ public class FaceHuggerBaseScript : Enemy
                     agent.CalculatePath(gameObject.transform.globalPosition, player.transform.globalPosition);
 
                     MoveToCalculatedPos(agent.speed);
-
-                   
                     break;
 
                 case WanderState.STOPED:
@@ -235,9 +231,9 @@ public class FaceHuggerBaseScript : Enemy
                     KnockBack(knockBackSpeed);
                     timePassed += Time.deltaTime;
 
-                    if(timePassed >= knockBackTimer)
+                    if (timePassed >= knockBackTimer)
                     {
-                        Debug.Log("[ERROR] End KnockBack"); 
+                        Debug.Log("[ERROR] End KnockBack");
                         wanderState = WanderState.REACHED;
                         timePassed = 0f;
                     }
@@ -247,9 +243,6 @@ public class FaceHuggerBaseScript : Enemy
                     LookAt(player.transform.globalPosition);
                     Attack();
                     break;
-                    
-
-                   
             }
 
             if (wanderState != WanderState.PAUSED)
@@ -257,13 +250,10 @@ public class FaceHuggerBaseScript : Enemy
                 //Check if player is alive before chasing
                 if (wanderState != WanderState.ATTACK && healthScript.GetCurrentHealth() > 0)
                 {
-
                     if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, detectionRadius))
                     {
-
                         if (wanderState != WanderState.KNOCKBACK && wanderState != WanderState.HIT)
                         {
-
                             if (CryTimer >= 10)
                             {
                                 Audio.PlayAudio(gameObject, "FH_Cry");
@@ -281,7 +271,6 @@ public class FaceHuggerBaseScript : Enemy
                         //Attack if in range
                         if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, AttackDistance))
                         {
-
                             if (wanderState == WanderState.CHASING && wanderState != WanderState.ATTACK && wanderState != WanderState.KNOCKBACK)
                             {
                                 //Debug.Log("[ERROR] ATTACKING");
@@ -293,7 +282,6 @@ public class FaceHuggerBaseScript : Enemy
                                 wanderState = WanderState.ATTACK;
                             }
                         }
-
                     }
                 }
             }
@@ -313,7 +301,7 @@ public class FaceHuggerBaseScript : Enemy
                 walkPlaying = false;
             }
         }
-    }   
+    }
 
     private void ProcessStopped()
     {
@@ -333,6 +321,7 @@ public class FaceHuggerBaseScript : Enemy
     {
         return wanderState;
     }
+
     private void Attack()
     {
         if (attackTimer > 0)
@@ -343,7 +332,7 @@ public class FaceHuggerBaseScript : Enemy
             {
                 attackSensor = true;
                 attackTimer = attackDuration;
-                
+
                 stopedTimer = stopedDuration;
                 wanderState = WanderState.STOPED;
                 Animation.PlayAnimation(gameObject, "Idle_Facehugger");
@@ -361,10 +350,9 @@ public class FaceHuggerBaseScript : Enemy
         }
     }
 
-
     private void isDeath()
     {
-        if(life <= 0)
+        if (life <= 0)
         {
             Debug.Log("[ERROR] DEATH");
             gameObject.SetVelocity(new Vector3(0, 0, 0));
@@ -375,10 +363,9 @@ public class FaceHuggerBaseScript : Enemy
         }
     }
 
-
     public void OnCollisionStay(GameObject other)
     {
-       if(other.Tag == "Tail" && wanderState != WanderState.KNOCKBACK && wanderState != WanderState.DEATH)
+        if (other.Tag == "Tail" && wanderState != WanderState.KNOCKBACK && wanderState != WanderState.DEATH)
         {
             Debug.Log("[ERROR] HIT!!");
             life -= 80;
@@ -389,18 +376,17 @@ public class FaceHuggerBaseScript : Enemy
         }
     }
 
-
     public void OnCollisionExit(GameObject other)
     {
-        if (other.Tag == "Tail" )
+        if (other.Tag == "Tail")
         {
-             
+
         }
     }
 
     private void SetPause(bool pause)
     {
-        if (pause)
+        if (pause && !paused)
         {
             pausedState = wanderState;
             wanderState = WanderState.PAUSED;
@@ -411,6 +397,7 @@ public class FaceHuggerBaseScript : Enemy
         {
             //If bool set to false when it was never paused, it will do nothing
             wanderState = pausedState;
+            Debug.Log("[ERROR] state: " + wanderState);
             Animation.ResumeAnimation(gameObject);
         }
     }
