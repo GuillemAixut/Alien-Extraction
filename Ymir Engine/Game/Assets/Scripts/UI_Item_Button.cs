@@ -243,11 +243,10 @@ public class UI_Item_Button : YmirComponent
         Debug.Log("_item.isEquipped " + _item.isEquipped.ToString());
         Debug.Log("aaaaa " + (!_item.isEquipped && !Equals(menuName, "Inventory Menu")).ToString());
 
-        // is empty // is equipped and in inventory || is not equipped and not inventory // can be placed
-        if (item.itemType == ITEM_SLOT.NONE &&
-            (((_item.isEquipped && _item.itemType == item.currentSlot) && Equals(menuName, "Inventory Menu") ||
-            (!_item.isEquipped && !Equals(menuName, "Inventory Menu"))) ||
-            item.currentSlot == ITEM_SLOT.NONE || item.currentSlot == ITEM_SLOT.MATERIAL))
+        // is empty && (is not equipped and not inventory || is equipped and in inventory && can be placed)
+        if (item.itemType == ITEM_SLOT.NONE && ((!_item.isEquipped && !Equals(menuName, "Inventory Menu")) ||
+            ((_item.isEquipped && _item.itemType == item.currentSlot ||
+            item.currentSlot == ITEM_SLOT.NONE || item.currentSlot == ITEM_SLOT.MATERIAL) && Equals(menuName, "Inventory Menu"))))
         {
             if (_item.isEquipped)
             {

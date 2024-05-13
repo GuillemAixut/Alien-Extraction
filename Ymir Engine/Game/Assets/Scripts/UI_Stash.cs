@@ -241,21 +241,21 @@ public class UI_Stash : YmirComponent
         {
             for (int i = 0; i < player.itemsList.Count; i++)
             {
-                GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
-
-                for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
+                if (!player.itemsList[i].inStash)
                 {
-                    Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
-                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 2);  // (Grid (Slot (Button)))
+                    GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
 
-                    if (gameObject != null)
+                    for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
                     {
-                        Debug.Log("bbbb " + button.Name);
-                        Debug.Log("hhhhhhh " + player.itemsList[i].itemType.ToString());
-                        if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                        GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 2);  // (Grid (Slot (Button)))
+
+                        if (gameObject != null)
                         {
-                            player.itemsList[i].inStash = true;
-                            break;
+                            if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                            {
+                                player.itemsList[i].inStash = true;
+                                break;
+                            }
                         }
                     }
                 }
@@ -286,15 +286,10 @@ public class UI_Stash : YmirComponent
             string name = SaveLoad.LoadString(Globals.saveGameDir, player.saveName, "Stash Item " + i.ToString());
 
             Item item = Globals.SearchItemInDictionary(name);
-            item.inInventory = false;
+            item.inStash = false;
             stashItemsList.Add(item);
-
-            if (item.isEquipped)
-            {
-                item.UpdateStats();
-            }
         }
 
-        Debug.Log("Items loaded");
+        Debug.Log("Stash loaded");
     }
 }
