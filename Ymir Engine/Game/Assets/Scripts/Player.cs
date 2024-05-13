@@ -71,6 +71,7 @@ public class Player : YmirComponent
     public float movementSpeed = 35.0f; // speed
     //private double angle = 0.0f;
     private float deathZone = 0.5f;
+    private Vector3 movementVector = Vector3.zero;
 
     //--------------------- Controller var ---------------------\\
     float x = 0;
@@ -1533,9 +1534,22 @@ public class Player : YmirComponent
         Particles.ParticlesForward(walkParticles, gameObject.transform.GetForward(), 0, -5.0f);
         Particles.PlayParticlesTrigger(walkParticles);
 
-        Vector3 gravity = new Vector3(0f, -15f, 0f);
+
         //gameObject.SetVelocity(new Vector3(0f, 0f, 0f));
-        gameObject.SetVelocity((gameObject.transform.GetForward() * movementSpeed * Time.deltaTime));
+
+        movementVector = (gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
+        GameObject checkStairs = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetUp() * -1, 5f);
+        if (checkStairs != null)
+        {
+            if (checkStairs.Tag == "Stairs")
+            {
+                Vector3 gravity = new Vector3(0f, -15f, 0f);
+
+                movementVector = (gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity;
+            }
+        }
+
+        gameObject.SetVelocity(movementVector);
 
         //Debug.Log("Movement Vector: " + (gameObject.transform.GetForward() * movementSpeed * Time.deltaTime).normalized);
         //Debug.Log("Forward Player: " + gameObject.transform.GetForward());

@@ -1,31 +1,31 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -39.50994873046875,
-        101.59468078613281,
-        111.442138671875
+        -64.862007141113281,
+        33.810508728027344,
+        -38.345687866210938
     ],
     "Editor Camera Right (X)": [
-        0.97892260551452637,
-        1.862645149230957e-07,
-        0.19571463763713837
+        -0.83754414319992065,
+        1.3411045074462891e-07,
+        -0.54328542947769165
     ],
     "Editor Camera Up (Y)": [
-        0.086420640349388123,
-        0.89570415019989014,
-        -0.43225830793380737
+        -0.2989426851272583,
+        0.83359140157699585,
+        0.46085867285728455
     ],
     "Editor Camera Front (Z)": [
-        0.17590020596981049,
-        -0.44156235456466675,
-        -0.87981456518173218
+        -0.45440724492073059,
+        -0.55025750398635864,
+        0.7005268931388855
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 408018208,
+            "UID": 1322066880,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -55,7 +55,7 @@
             "UID": 1211565987,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1810,9 +1810,9 @@
             ]
         },
         {
-            "Name": "Col_26",
+            "Name": "Stairs_03",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Stairs",
             "UID": 2002843763,
             "Active": true,
             "Element_Type": "None",
@@ -1875,9 +1875,9 @@
             ]
         },
         {
-            "Name": "Col_27",
+            "Name": "Stairs_02",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Stairs",
             "UID": 1709232037,
             "Active": true,
             "Element_Type": "None",
@@ -2590,9 +2590,9 @@
             ]
         },
         {
-            "Name": "Col_38",
+            "Name": "Stairs_01",
             "Static": false,
-            "Tag": "Untagged",
+            "Tag": "Stairs",
             "UID": 1426208162,
             "Active": true,
             "Element_Type": "None",
@@ -2661,7 +2661,7 @@
             "UID": 1950834715,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10045,9 +10045,9 @@
                         0
                     ],
                     "Scale": [
-                        0.9999995231628418,
-                        1,
-                        0.9999995231628418
+                        0.10000000149011612,
+                        0.10000000149011612,
+                        0.10000000149011612
                     ]
                 }
             ],
@@ -10641,7 +10641,7 @@
             "UID": 375914611,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12201,7 +12201,7 @@
             "UID": 812841453,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12238,7 +12238,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12265,8 +12265,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1893,
-                    "Height": 1098,
+                    "Width": 97,
+                    "Height": 468,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -14712,7 +14712,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -22193,7 +22193,7 @@
             "UID": 365492027,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -23975,7 +23975,7 @@
             "UID": 2098616738,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -24017,7 +24017,8 @@
                     "Type": "Script",
                     "ScriptName": "UI_Stash.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "stashItemsList": 0
                 }
             ],
             "Children UID": [
@@ -52688,7 +52689,7 @@
             "UID": 869362369,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56469,7 +56470,7 @@
             "UID": 297696942,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -57214,7 +57215,7 @@
             "UID": 369438965,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -69597,7 +69598,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70138,7 +70139,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70491,7 +70492,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70604,7 +70605,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
@@ -76410,7 +76411,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 408018208,
+            "Parent UID": 1322066880,
             "Components": [
                 {
                     "Type": "Transform",
