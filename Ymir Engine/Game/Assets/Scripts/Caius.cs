@@ -76,6 +76,11 @@ public class Caius : YmirComponent
         Abutton = InternalCalls.GetGameObjectByName("buttonA");
         Xbutton = InternalCalls.GetGameObjectByName("buttonX");
 
+        //Animation - WIP
+        Animation.SetLoop(InternalCalls.CS_GetChild(gameObject, 0), "Caius_Idle", true);
+        Animation.SetSpeed(InternalCalls.CS_GetChild(gameObject, 0), "Caius_Idle", 0.2f);
+        Animation.PlayAnimation(InternalCalls.CS_GetChild(gameObject, 0), "Caius_Idle");
+
         LoadDialogues(dialoguescsv);
         dialogue_ = Dialogue_id.ID_1;
     }
