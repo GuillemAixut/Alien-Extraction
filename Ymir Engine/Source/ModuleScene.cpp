@@ -523,7 +523,10 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
 {
 	TimeManager::gameTimer.Pause();
-	ClearVec(vTempComponents);
+	if (!vTempComponents.empty())
+	{
+		ClearVec(vTempComponents);
+	}
 	
 	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
 
