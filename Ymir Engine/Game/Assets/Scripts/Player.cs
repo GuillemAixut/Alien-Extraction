@@ -739,12 +739,11 @@ public class Player : YmirComponent
                 }
             }
 
-
             //----------------- Pause -----------------\\
             if (Input.GetGamepadButton(GamePadButton.START) == KeyState.KEY_DOWN)
             {
                 Debug.Log("Paused");
-                currentMenu = "Pause Menu";
+                currentMenu = "Pause Canvas";
                 ToggleMenu(true);
             }
         }
@@ -1626,19 +1625,23 @@ public class Player : YmirComponent
     public void ToggleMenu(bool open)
     {
         GameObject canvas = InternalCalls.GetGameObjectByName(currentMenu);
-        Debug.Log("CurrentMenu: " + currentMenu + " " + open.ToString());
 
-        canvas.SetActive(open);
-        PlayerStopState(open);
+        if (canvas != null)
+        {
+            Debug.Log("CurrentMenu: " + canvas.Name + " " + open.ToString());
 
-        if (!open)
-        {
-            currentMenu = "";
-        }
-        else
-        {
-            setHover = true;
-            UI.SetFirstFocused(canvas);
+            canvas.SetActive(open);
+            PlayerStopState(open);
+
+            if (!open)
+            {
+                currentMenu = "";
+            }
+            else
+            {
+                setHover = true;
+                UI.SetFirstFocused(canvas);
+            }
         }
     }
 

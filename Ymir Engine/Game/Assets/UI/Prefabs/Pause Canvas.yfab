@@ -7,7 +7,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 751934338,
+            "Parent UID": 1527236003,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1558,
-                    "Height": 1024,
+                    "Width": 1586,
+                    "Height": 1000,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -141,6 +141,25 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 3,
+                    "cols": 1,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": false,
+                    "naviagteY": false,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
                 }
             ],
             "Children UID": [
@@ -193,7 +212,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button.png",
+                    "Path": "Assets\/Lava.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -229,7 +248,7 @@
                     "Is interactable": true,
                     "Text": 798937101,
                     "Image": 1256989267,
-                    "Normal": "Assets\/UI\/Buttons\/Button.png",
+                    "Normal": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Focused": "Assets\/UI\/Buttons\/Button_pressed.png",
                     "Pressed": "Assets\/UI\/Buttons\/Button_pressed.png",
                     "Selected": "Assets\/UI\/Buttons\/Button.png",
@@ -259,6 +278,14 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_ToggleMenu.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "menu": "Pause Canvas",
+                    "active": false
                 }
             ],
             "Children UID": [
@@ -371,7 +398,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button.png",
+                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -407,7 +434,7 @@
                     "Is interactable": true,
                     "Text": 1652380264,
                     "Image": 2072063440,
-                    "Normal": "Assets\/UI\/Buttons\/Button.png",
+                    "Normal": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Focused": "Assets\/UI\/Buttons\/Button_pressed.png",
                     "Pressed": "Assets\/UI\/Buttons\/Button_pressed.png",
                     "Selected": "Assets\/UI\/Buttons\/Button.png",
@@ -437,6 +464,14 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Button_GoToScene.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "sceneName": "UI\/Scenes\/StartScene",
+                    "time": 10
                 }
             ],
             "Children UID": [
@@ -549,7 +584,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button.png",
+                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -585,7 +620,7 @@
                     "Is interactable": true,
                     "Text": 151134588,
                     "Image": 983362550,
-                    "Normal": "Assets\/UI\/Buttons\/Button.png",
+                    "Normal": "Assets\/UI\/Buttons\/Button_unpressed.png",
                     "Focused": "Assets\/UI\/Buttons\/Button_pressed.png",
                     "Pressed": "Assets\/UI\/Buttons\/Button_pressed.png",
                     "Selected": "Assets\/UI\/Buttons\/Button.png",
@@ -615,6 +650,12 @@
                         1,
                         1
                     ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Button_Exit.cs",
+                    "Active": 1,
+                    "UID": 0
                 }
             ],
             "Children UID": [
