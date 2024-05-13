@@ -71,6 +71,7 @@ public class Player : YmirComponent
     public float movementSpeed = 35.0f; // speed
     //private double angle = 0.0f;
     private float deathZone = 0.5f;
+    private Vector3 movementVector = Vector3.zero;
 
     //--------------------- Controller var ---------------------\\
     float x = 0;
@@ -261,7 +262,7 @@ public class Player : YmirComponent
         {
             isInBase = true;
             idleAnim = "Raisen_BaseIdle";
-            movementSpeed = 1500;
+            //movementSpeed = 2000;
 
             upgradeType = UPGRADE.NONE;
         }
@@ -269,7 +270,7 @@ public class Player : YmirComponent
         {
             isInBase = false;
             idleAnim = "Raisen_Idle";
-            movementSpeed = 3000.0f;
+            //movementSpeed = 3000.0f;
         }
 
         // Resin
@@ -343,10 +344,33 @@ public class Player : YmirComponent
 
     public void Update()
     {
-        //Debug.Log(currentState.ToString());
-        // New Things WIP
+        GameObject bottomRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetUp() * -1, 3f);
+        GameObject forwardRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 3f);
+        GameObject behindRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward() * -1, 3f);
 
-        //Debug.Log("State: " + currentState);
+        float gravity = 0f;
+
+        if (bottomRaycast != null && behindRaycast != null)
+        {
+            if (bottomRaycast.Tag == "Stairs" || behindRaycast.Tag == "Stairs")
+            {
+                gravity = -50f;
+            }
+        }
+        //else if (bottomRaycast != null)
+        //{
+        //    if (bottomRaycast.Tag == "Stairs")
+        //    {
+        //        gravity = -50f;
+        //    }
+        //}
+        else if (bottomRaycast == null)
+        {
+            gravity = -50f;
+        }
+
+        movementVector = new Vector3(movementVector.x, gravity, movementVector.z);
+
         UpdateControllerInputs();
 
         ProcessInternalInput();
@@ -1496,13 +1520,20 @@ public class Player : YmirComponent
     {
         //Trigger de la animacion
 
-        if (!isInBase)
+        if(godMode)
         {
+            movementSpeed = 5000;
             Animation.PlayAnimation(gameObject, "Raisen_Walk");
+        }
+        else if(isInBase)
+        {
+            movementSpeed = 2000;
+            Animation.PlayAnimation(gameObject, "Raisen_BaseWalk");
         }
         else
         {
-            Animation.PlayAnimation(gameObject, "Raisen_BaseWalk");
+            movementSpeed = 3000;
+            Animation.PlayAnimation(gameObject, "Raisen_Walk");
         }
 
         walkParticles = GetParticles(gameObject, "ParticlesSteps");
@@ -1521,18 +1552,15 @@ public class Player : YmirComponent
         Particles.ParticlesForward(walkParticles, gameObject.transform.GetForward(), 0, -5.0f);
         Particles.PlayParticlesTrigger(walkParticles);
 
-        Vector3 gravity = new Vector3(0, -15, 0);
-        gameObject.SetVelocity(new Vector3(0f, 0f, 0f));
-        gameObject.SetVelocity((gameObject.transform.GetForward() * movementSpeed * Time.deltaTime) + gravity);
 
-        //if (gamepadInput.x > 0)
-        //{
-        //    gameObject.SetVelocity(cameraObject.transform.GetRight() * movementSpeed * -1);
-        //}
-        //if (gamepadInput.x < 0)
-        //{
-        //    gameObject.SetVelocity(cameraObject.transform.GetRight() * movementSpeed);
-        //}
+        //gameObject.SetVelocity(new Vector3(0f, 0f, 0f));
+
+        Vector3 speedVector = gameObject.transform.GetForward() * movementSpeed * Time.deltaTime;
+        movementVector = new Vector3(speedVector.x, movementVector.y, speedVector.z);
+        Debug.Log("Velocity: " + movementVector);
+
+        gameObject.SetVelocity(movementVector);
+
     }
 
     private void StopPlayer()
@@ -1551,7 +1579,7 @@ public class Player : YmirComponent
 
         Quaternion targetRotation = Quaternion.identity;
 
-        Vector3 aY = new Vector3(0, 1, 0);
+        Vector3 aY = new Vector3(0f, 1f, 0f);
 
         if (aX != Vector3.zero)
         {
@@ -1573,6 +1601,7 @@ public class Player : YmirComponent
             targetRotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.up);
         }
 
+        //Debug.Log("Target Rotation: " + targetRotation);
         // Apply rotation
         gameObject.SetRotation(targetRotation);
     }
@@ -1689,7 +1718,7 @@ public class Player : YmirComponent
         Animation.SetLoop(gameObject, "Raisen_BaseWalk", true);
 
         Animation.SetSpeed(gameObject, "Raisen_Dash", 4.0f);
-        Animation.SetSpeed(gameObject, "Raisen_BaseWalk", 1.1f);
+        Animation.SetSpeed(gameObject, "Raisen_BaseWalk", 1.55f);
 
         Animation.SetResetToZero(gameObject, "Raisen_Death", false);
 
@@ -1841,6 +1870,8 @@ public class Player : YmirComponent
         GameObject acidicParticles = GetParticles(gameObject, "ParticlesAcidic");
         //Particles.ParticlesSetDirection(acidicParticles, gameObject.transform.GetForward().normalized, 0, gameObject.transform.GetForward().normalized);
         Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 1, 50.0f);
+        Particles.ParticlesSetDirection(acidicParticles, gameObject.transform.GetForward().normalized, 0);
+        Particles.ParticlesForward(acidicParticles, gameObject.transform.GetForward().normalized, 2, 10.0f);
         Particles.PlayParticlesTrigger(acidicParticles);
 
         //Trigger de la animación

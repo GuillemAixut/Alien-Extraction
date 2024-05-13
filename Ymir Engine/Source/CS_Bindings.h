@@ -505,7 +505,7 @@ MonoObject* RaycastHit(MonoObject* obj, MonoObject* origin, MonoObject* directio
 	return External->moduleMono->GoToCSGO(External->physics->RaycastHit(fOrigin, fdirection, rayLenght));
 }
 
-bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght, MonoObject* gameObject) {
+bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, float rayLenght) {
 
 	if (External == nullptr)
 		return false;
@@ -528,9 +528,7 @@ bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, flo
 	fdirection.setY(pdirection.y);
 	fdirection.setZ(pdirection.z);
 
-	GameObject* testGameObject = External->moduleMono->GameObject_From_CSGO(gameObject);
-
-	return External->physics->RaycastTest(fOrigin, fdirection, rayLenght, testGameObject);
+	return External->physics->RaycastTest(fOrigin, fdirection, rayLenght);
 }
 
 MonoObject* SendPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class

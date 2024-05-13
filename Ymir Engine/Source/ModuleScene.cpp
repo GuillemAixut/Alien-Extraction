@@ -80,7 +80,7 @@ bool ModuleScene::Start()
 #ifdef _RELEASE
 	
 	//LoadScene("Assets/Main Character", "Alpha3 test");
-	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets", "Enemigo player");
 	//LoadScene("Assets/UI/Inventory", "InventoryScene");
 	//LoadScene("Assets", "Enemigo player");
@@ -523,7 +523,10 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
 {
 	TimeManager::gameTimer.Pause();
-	ClearVec(vTempComponents);
+	if (!vTempComponents.empty())
+	{
+		ClearVec(vTempComponents);
+	}
 	
 	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
 
