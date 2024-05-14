@@ -83,6 +83,23 @@ namespace YmirEngine
             this.dictionaryName = dictionaryName;
         }
 
+        // Copy constructor for Item
+        public Item(Item other)
+        {
+            currentSlot = other.currentSlot;
+            itemType = other.itemType;
+            itemRarity = other.itemRarity;
+            imagePath = other.imagePath;
+            name = other.name;
+            description = other.description;
+            isEquipped = other.isEquipped;
+            inSave = other.inSave;
+            inInventory = other.inInventory;
+            inStash = other.inStash;
+            inCraft = other.inCraft;
+            dictionaryName = other.dictionaryName;
+        }
+
         public virtual void UpdateStats()
         {
         }
@@ -140,6 +157,17 @@ namespace YmirEngine
             this.fireRate = fireRate;
             this.reloadSpeed = reloadSpeed;
             this.damageMultiplier = damageMultiplier;
+        }
+
+        // Copy constructor for I_Equippable
+        public I_Equippable(I_Equippable other) : base(other)
+        {
+            HP = other.HP;
+            armor = other.armor;
+            speed = other.speed;
+            fireRate = other.fireRate;
+            reloadSpeed = other.reloadSpeed;
+            damageMultiplier = other.damageMultiplier;
         }
 
         public override void UpdateStats()
@@ -212,6 +240,14 @@ namespace YmirEngine
             this.dmg = dmg;
             this.area = area;
             this.time = time;
+        }
+
+        // Copy constructor for I_Consumables
+        public I_Consumables(I_Consumables other) : base(other)
+        {
+            dmg = other.dmg;
+            area = other.area;
+            time = other.time;
         }
 
         public override void UpdateStats()

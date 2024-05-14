@@ -1930,7 +1930,7 @@ public class Player : YmirComponent
         // Weapons
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
         //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)upgradeType);
-        
+
         // Stats
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
 
@@ -1940,6 +1940,14 @@ public class Player : YmirComponent
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Potties healing", resinHealing);
 
         // Items
+        SaveItems();
+
+        // Others
+        SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Iscariot dialogue", hasTalkedIscariot);
+    }
+
+    public void SaveItems()
+    {
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Items num", itemsList.Count);
 
         for (int i = 0; i < itemsList.Count; i++)
@@ -1947,9 +1955,6 @@ public class Player : YmirComponent
             SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsList[i].dictionaryName);
             SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped", itemsList[i].isEquipped);
         }
-
-        // Others
-        SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Iscariot dialogue", hasTalkedIscariot);
     }
 
     private void SaveLvlInfo()
