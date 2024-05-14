@@ -8,7 +8,6 @@ using YmirEngine;
 
 public class Plasma : Weapon
 {
-
     public int upgrade = 0;
 
     public float damageEscalation;

@@ -13,18 +13,17 @@ public class Open_Chest_RotationY : YmirComponent
 
     public void Start()
     {
-        Debug.Log("HelloWorld");
     }
 
     public void Update()
     {
-
         if (time < 1)
         {
             //gameObject.transform.localRotation = Quaternion.RotateAroundAxis(new Vector3(0, 1, 0), velocity * time); en caso de fallar cambiar a este
             gameObject.transform.localRotation = Quaternion.Euler(180f, velocity * time, 0f);
             time += Time.deltaTime;
         }
+
         return;
     }
 }

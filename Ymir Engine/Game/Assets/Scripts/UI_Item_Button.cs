@@ -247,7 +247,7 @@ public class UI_Item_Button : YmirComponent
         {
             if (_item.isEquipped)
             {
-                _item.currentSlot = item.currentSlot;
+                _item.currentSlot = _item.itemType;
             }
 
             item = _item;

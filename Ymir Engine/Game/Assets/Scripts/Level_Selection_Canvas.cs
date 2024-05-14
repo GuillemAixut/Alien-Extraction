@@ -13,12 +13,11 @@ public class Level_Selection_Canvas : YmirComponent
 
     public void Start()
     {
-        Debug.Log("HelloWorld");
+
     }
 
     public void Update()
     {
-
         if (teleport_ui)
         { //open teleport_ui
             InternalCalls.GetGameObjectByName(toGameObject).SetActive(true);
@@ -29,6 +28,7 @@ public class Level_Selection_Canvas : YmirComponent
                 teleport_ui = false;
             }
         }
+
         return;
     }
 
@@ -38,9 +38,6 @@ public class Level_Selection_Canvas : YmirComponent
         {
             //Show the teleport UI
             teleport_ui = true;
-
-
         }
-
     }
 }
