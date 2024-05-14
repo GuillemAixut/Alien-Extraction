@@ -97,10 +97,6 @@ public class Player : YmirComponent
 
     // Stats que no he visto implementadas, para inventario
     public float damageMultiplier = 0;
-    public int currentResinVessels = 2;
-    public int maxResinVessels = 2;
-    public float resinHealing = 400;
-    public GameObject resinText = null;
 
     //Particulas de caminar
     GameObject walkParticles = null;
@@ -112,6 +108,17 @@ public class Player : YmirComponent
     private float hitDuration = 1.5f;
 
     public bool vulnerable = true;
+
+    #endregion
+
+    #region DEFINE ITEMS
+
+    public List<Item> itemsList;
+
+    public int currentResinVessels = 2;
+    public int maxResinVessels = 2;
+    public float resinHealing = 400;
+    public GameObject resinText = null;
 
     #endregion
 
@@ -163,9 +170,6 @@ public class Player : YmirComponent
     public int lastUnlockedLvl = (int)LEVEL.BASE;
 
     public string currentMenu = "";
-    public bool setHover = false; // Guarrada temporal
-    public List<string> itemsListString;
-    public List<Item> itemsList;
 
     #endregion
 
@@ -182,6 +186,8 @@ public class Player : YmirComponent
     private UI_Animation csUI_AnimationPredatory;
     private UI_Animation csUI_AnimationSwipe;
     private UI_Animation csUI_AnimationAcid;
+
+    public bool hasTalkedIscariot = false;
 
     #endregion
 
@@ -312,7 +318,6 @@ public class Player : YmirComponent
         weapons.Add(w_Plasma_3a);
         weapons.Add(w_Plasma_3b);
 
-
         //--------------------- Get Camera GameObject ---------------------\\
         cameraObject = InternalCalls.GetGameObjectByName("Main Camera");
 
@@ -326,18 +331,19 @@ public class Player : YmirComponent
         Globals.CreateItemDictionary();
 
         itemsList = new List<Item>();
-        itemsListString = new List<string>();
 
-        currentLvl = InternalCalls.GetCurrentMap();
-
-        if (currentLvl != (int)LEVEL.BASE)
+        if (InternalCalls.GetCurrentMap() != (int)LEVEL.BASE)
         {
             LoadPlayer();
+            currentLvl = InternalCalls.GetCurrentMap();
+            SavePlayer();
         }
         else
         {
             weaponType = WEAPON_TYPE.NONE;
             SetWeapon();
+
+            LoadLvlInfo();
             LoadItems();
         }
     }
@@ -1520,12 +1526,12 @@ public class Player : YmirComponent
     {
         //Trigger de la animacion
 
-        if(godMode)
+        if (godMode)
         {
             movementSpeed = 5000;
             Animation.PlayAnimation(gameObject, "Raisen_Walk");
         }
-        else if(isInBase)
+        else if (isInBase)
         {
             movementSpeed = 2000;
             Animation.PlayAnimation(gameObject, "Raisen_BaseWalk");
@@ -1552,15 +1558,13 @@ public class Player : YmirComponent
         Particles.ParticlesForward(walkParticles, gameObject.transform.GetForward(), 0, -5.0f);
         Particles.PlayParticlesTrigger(walkParticles);
 
-
         //gameObject.SetVelocity(new Vector3(0f, 0f, 0f));
 
         Vector3 speedVector = gameObject.transform.GetForward() * movementSpeed * Time.deltaTime;
         movementVector = new Vector3(speedVector.x, movementVector.y, speedVector.z);
-        Debug.Log("Velocity: " + movementVector);
+        //Debug.Log("Velocity: " + movementVector);
 
         gameObject.SetVelocity(movementVector);
-
     }
 
     private void StopPlayer()
@@ -1668,7 +1672,6 @@ public class Player : YmirComponent
             }
             else
             {
-                setHover = true;
                 UI.SetFirstFocused(canvas);
             }
         }
@@ -1921,13 +1924,22 @@ public class Player : YmirComponent
 
         //SaveLoad.CreateSaveGameFile(Globals.saveGameDir, saveName);
 
-        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Last unlocked Lvl", (int)lastUnlockedLvl);
+        // Lvls
+        SaveLvlInfo();
 
+        // Weapons
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current weapon", (int)weaponType);
-        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)upgradeType);
-
+        //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)upgradeType);
+        
+        // Stats
         SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Health", csHealth.currentHealth);
 
+        // Resin vessels
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current potties", currentResinVessels);
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Max potties", maxResinVessels);
+        SaveLoad.SaveFloat(Globals.saveGameDir, saveName, "Potties healing", resinHealing);
+
+        // Items
         SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Items num", itemsList.Count);
 
         for (int i = 0; i < itemsList.Count; i++)
@@ -1935,6 +1947,15 @@ public class Player : YmirComponent
             SaveLoad.SaveString(Globals.saveGameDir, saveName, "Item " + i.ToString(), itemsList[i].dictionaryName);
             SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Item " + i.ToString() + " Equipped", itemsList[i].isEquipped);
         }
+
+        // Others
+        SaveLoad.SaveBool(Globals.saveGameDir, saveName, "Iscariot dialogue", hasTalkedIscariot);
+    }
+
+    private void SaveLvlInfo()
+    {
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Current Lvl", (int)currentLvl);
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Last unlocked Lvl", (int)lastUnlockedLvl);
     }
 
     public void LoadPlayer()
@@ -1943,18 +1964,39 @@ public class Player : YmirComponent
 
         Debug.Log("saveName " + saveName);
 
-        lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
+        // Lvls
+        LoadLvlInfo();
 
+        // Weapons
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
         //upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
+
         upgradeType = 0;
         SetWeapon();
 
+        // Stats
         csHealth.currentHealth = (float)SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Health");
 
+        // Resin vessels
+        currentResinVessels = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current potties");
+        maxResinVessels = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Max potties");
+        resinHealing = (float)SaveLoad.LoadFloat(Globals.saveGameDir, saveName, "Potties healing");
+
+        // Items
         LoadItems();
 
+        // Others
+        hasTalkedIscariot = SaveLoad.LoadBool(Globals.saveGameDir, saveName, "Iscariot dialogue");
+
         Debug.Log("Player loaded");
+    }
+
+    private void LoadLvlInfo()
+    {
+        saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+
+        currentLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current Lvl");
+        lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
     }
 
     public void LoadItems()
