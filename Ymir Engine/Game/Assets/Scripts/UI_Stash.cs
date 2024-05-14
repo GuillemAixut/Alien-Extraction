@@ -275,14 +275,10 @@ public class UI_Stash : YmirComponent
 
     private void SetSlots()
     {
-        bool isInventory = false;
-
         for (int i = 0; i < player.itemsList.Count; i++)
         {
             if (!player.itemsList[i].inStash)
             {
-                isInventory = true;
-
                 GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
 
                 for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
@@ -293,7 +289,6 @@ public class UI_Stash : YmirComponent
                     {
                         if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
                         {
-                            isInventory = false;
                             player.itemsList[i].inStash = true;
                             break;
                         }
