@@ -42,7 +42,7 @@ public class UI_Inventory_Grid : YmirComponent
         downGrid = InternalCalls.GetGameObjectByName(downGridName);
         upGrid = InternalCalls.GetGameObjectByName(upGridName);
         _timer = 0.0f;
-        _time = 0.15f;
+        _time = 0.1f;
     }
 
     public void Update()
@@ -62,7 +62,7 @@ public class UI_Inventory_Grid : YmirComponent
             }
         }
 
-        if ((Input.GetLeftAxisX() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_REPEAT || Input.GetKey(YmirKeyCode.D) == KeyState.KEY_REPEAT) && _canTab)
+        if ((Input.GetLeftAxisX() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_RIGHT) == KeyState.KEY_DOWN || Input.GetKey(YmirKeyCode.D) == KeyState.KEY_DOWN) && _canTab)
         {
             if (audioSource != null)
             {
@@ -73,7 +73,7 @@ public class UI_Inventory_Grid : YmirComponent
             UI.NavigateGridHorizontal(gameObject, rows, cols, true, naviagteX, leftGrid, rightGrid, bounceX, childX, empty);
         }
 
-        else if ((Input.GetLeftAxisX() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_REPEAT || Input.GetKey(YmirKeyCode.A) == KeyState.KEY_REPEAT) && _canTab)
+        else if ((Input.GetLeftAxisX() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_LEFT) == KeyState.KEY_DOWN || Input.GetKey(YmirKeyCode.A) == KeyState.KEY_DOWN) && _canTab)
         {
             if (audioSource != null)
             {
@@ -84,7 +84,7 @@ public class UI_Inventory_Grid : YmirComponent
             UI.NavigateGridHorizontal(gameObject, rows, cols, false, naviagteX, leftGrid, rightGrid, bounceX, childX, empty);
         }
 
-        else if ((Input.GetLeftAxisY() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_DOWN) == KeyState.KEY_REPEAT || Input.GetKey(YmirKeyCode.S) == KeyState.KEY_REPEAT) && _canTab)
+        else if ((Input.GetLeftAxisY() > 0 || Input.GetGamepadButton(GamePadButton.DPAD_DOWN) == KeyState.KEY_DOWN || Input.GetKey(YmirKeyCode.S) == KeyState.KEY_DOWN) && _canTab)
         {
             if (audioSource != null)
             {
@@ -95,7 +95,7 @@ public class UI_Inventory_Grid : YmirComponent
             UI.NavigateGridVertical(gameObject, rows, cols, true, naviagteY, downGrid, upGrid, bounceY, childY, empty);
         }
 
-        else if ((Input.GetLeftAxisY() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_UP) == KeyState.KEY_REPEAT || Input.GetKey(YmirKeyCode.W) == KeyState.KEY_REPEAT) && _canTab)
+        else if ((Input.GetLeftAxisY() < 0 || Input.GetGamepadButton(GamePadButton.DPAD_UP) == KeyState.KEY_DOWN || Input.GetKey(YmirKeyCode.W) == KeyState.KEY_DOWN) && _canTab)
         {
             if (audioSource != null)
             {
