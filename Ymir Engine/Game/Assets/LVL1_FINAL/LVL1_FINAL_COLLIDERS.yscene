@@ -1,31 +1,31 @@
 {
     "NavMesh": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.nav",
     "Editor Camera Position": [
-        -102.53878784179688,
-        184.12982177734375,
-        91.395309448242188
+        793.26751708984375,
+        252.66835021972656,
+        376.04013061523438
     ],
     "Editor Camera Right (X)": [
-        0.6283034086227417,
-        3.8743019104003906e-07,
-        0.77796214818954468
+        0.99112123250961304,
+        -2.2351741790771484e-08,
+        0.13295701146125793
     ],
     "Editor Camera Up (Y)": [
-        0.64587080478668213,
-        0.55745500326156616,
-        -0.52162307500839233
+        0.1172800287604332,
+        0.4710814356803894,
+        -0.87425786256790161
     ],
     "Editor Camera Front (Z)": [
-        0.43368080258369446,
-        -0.83020418882369995,
-        -0.35025197267532349
+        0.062633655965328217,
+        -0.88208931684494019,
+        -0.46689951419830322
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1564660942,
+            "UID": 1254306716,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -63,7 +63,7 @@
             "UID": 265396639,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56242,7 +56242,7 @@
                         -3.0337157249450684
                     ],
                     "Rotation": [
-                        3.4263516681676265e-06,
+                        3.4263525776623283e-06,
                         -46.611167907714844,
                         -7.9577130236430094e-06
                     ],
@@ -56659,9 +56659,9 @@
                         30.556087493896484
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -43.000003814697266,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000072717666626,
@@ -61235,7 +61235,7 @@
             "UID": 493464378,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -61300,7 +61300,7 @@
             "UID": 1161519485,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -61474,7 +61474,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.500035285949707,
+                        2.5000357627868652,
                         -0
                     ],
                     "Scale": [
@@ -62089,7 +62089,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327001571655273,
+                        31.327007293701172,
                         -0
                     ],
                     "Scale": [
@@ -62154,7 +62154,7 @@
                     ],
                     "Rotation": [
                         0,
-                        -31.649332046508789,
+                        -31.649328231811523,
                         0
                     ],
                     "Scale": [
@@ -62284,7 +62284,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        29.194099426269531,
+                        29.194103240966797,
                         -0
                     ],
                     "Scale": [
@@ -62414,7 +62414,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        27.591022491455078,
+                        27.591020584106445,
                         -0
                     ],
                     "Scale": [
@@ -63259,7 +63259,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        32.775012969970703,
+                        32.775016784667969,
                         -0
                     ],
                     "Scale": [
@@ -64429,7 +64429,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        33.035991668701172,
+                        33.035987854003906,
                         -0
                     ],
                     "Scale": [
@@ -65552,7 +65552,7 @@
             "UID": 1495121981,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -65711,7 +65711,7 @@
             "UID": 484997781,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -65722,9 +65722,9 @@
                         -58.960765838623047
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -46.375835418701172,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000566989183426,
@@ -65772,10 +65772,8 @@
                     "ScriptName": "Loot_Chest.cs",
                     "Active": 1,
                     "UID": 0,
-                    "keys": "Nombre:,Probabilidad:",
-                    "path": "Assets\/Loot Tables\/loot_table.csv",
-                    "numFields": 2,
-                    "spawnRange": 0
+                    "spawnRange": 0,
+                    "itemPath": "Assets\/Prefabs\/Items\/Common Items\/grenade_common"
                 }
             ],
             "Children UID": [
@@ -66046,7 +66044,7 @@
             "UID": 1545695842,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -66057,9 +66055,9 @@
                         -224.14338684082031
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -44.601146697998047,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000213086605072,
@@ -66107,10 +66105,8 @@
                     "ScriptName": "Loot_Chest.cs",
                     "Active": 1,
                     "UID": 0,
-                    "keys": "Nombre:,Probabilidad:",
-                    "path": "Assets\/Loot Tables\/loot_table.csv",
-                    "numFields": 2,
-                    "spawnRange": 0
+                    "spawnRange": 0,
+                    "itemPath": "Assets\/Prefabs\/Items\/Common Items\/armor_common"
                 }
             ],
             "Children UID": [
@@ -66381,7 +66377,7 @@
             "UID": 142531611,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -66442,10 +66438,8 @@
                     "ScriptName": "Loot_Chest.cs",
                     "Active": 1,
                     "UID": 0,
-                    "keys": "Nombre:,Probabilidad:",
-                    "path": "Assets\/Loot Tables\/loot_table.csv",
-                    "numFields": 2,
-                    "spawnRange": 0
+                    "spawnRange": 0,
+                    "itemPath": "Assets\/Prefabs\/Items\/Rare Items\/grenade_rare"
                 }
             ],
             "Children UID": [
@@ -66716,7 +66710,7 @@
             "UID": 1768177679,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -66727,9 +66721,9 @@
                         271.76446533203125
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -46.605636596679688,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.050000283867120743,
@@ -66777,10 +66771,8 @@
                     "ScriptName": "Loot_Chest.cs",
                     "Active": 1,
                     "UID": 0,
-                    "keys": "Nombre:,Probabilidad:",
-                    "path": "Assets\/Loot Tables\/loot_table.csv",
-                    "numFields": 2,
-                    "spawnRange": 0
+                    "spawnRange": 0,
+                    "itemPath": "Assets\/Prefabs\/Items\/Common Items\/defChip_common"
                 }
             ],
             "Children UID": [
@@ -67051,7 +67043,7 @@
             "UID": 2061990119,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67148,7 +67140,7 @@
             "UID": 1570706478,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67185,7 +67177,7 @@
             "UID": 227903904,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67288,6 +67280,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -67436,6 +67429,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -67584,6 +67578,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -67734,6 +67729,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -67849,6 +67845,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -67964,6 +67961,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68112,6 +68110,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68268,6 +68267,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68383,6 +68383,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68498,6 +68499,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68613,6 +68615,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68728,6 +68731,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68843,6 +68847,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -68958,6 +68963,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -69073,6 +69079,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -69188,6 +69195,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -69337,6 +69345,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -69452,6 +69461,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.0000001192092896,
                     "porcentajeDroneXenomorph": 1.4901161193847656e-08,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -69600,6 +69610,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -69748,6 +69759,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1.0000001192092896,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 }
@@ -69834,7 +69846,7 @@
             "UID": 900338210,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -69990,7 +70002,7 @@
                         -144.62565612792969
                     ],
                     "Rotation": [
-                        5.2373811740835663e-06,
+                        5.2373807193362154e-06,
                         -47.000064849853516,
                         2.3910420168249402e-06
                     ],
@@ -70371,9 +70383,9 @@
                         -96.881149291992188
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         0,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.91000956296920776,
@@ -70405,9 +70417,9 @@
                         16.260398864746094
                     ],
                     "Rotation": [
-                        -1.239207176695345e-05,
+                        -1.2392070857458748e-05,
                         43.000034332275391,
-                        3.9892507629701868e-05
+                        3.9892503991723061e-05
                     ],
                     "Scale": [
                         7.4380626678466797,
@@ -70480,9 +70492,9 @@
                         -95.504554748535156
                     ],
                     "Rotation": [
-                        180,
+                        -180,
                         -44.999961853027344,
-                        180
+                        -180
                     ],
                     "Scale": [
                         0.91000056266784668,
@@ -70850,7 +70862,7 @@
             "UID": 728359170,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70877,8 +70889,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1586,
-                    "Height": 1000,
+                    "Width": 16,
+                    "Height": 466,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -71155,7 +71167,7 @@
             "UID": 147559574,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71227,7 +71239,7 @@
             "UID": 813229651,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71299,7 +71311,7 @@
             "UID": 367980240,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71371,7 +71383,7 @@
             "UID": 1932512867,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -72075,7 +72087,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -72102,8 +72114,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1586,
-                    "Height": 1000,
+                    "Width": 16,
+                    "Height": 466,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -74613,7 +74625,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -82094,7 +82106,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -82447,7 +82459,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -82988,7 +83000,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -88794,7 +88806,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
@@ -88907,7 +88919,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1564660942,
+            "Parent UID": 1254306716,
             "Components": [
                 {
                     "Type": "Transform",
