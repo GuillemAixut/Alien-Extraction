@@ -501,7 +501,7 @@ void ModuleMonoManager::DebugAllMethods(const char* nsName, const char* classNam
 MonoObject* ModuleMonoManager::GoToCSGO(GameObject* inGo) const
 {
 	if (inGo == nullptr) {
-		LOG("[WARNING] GoTOCSGO inGo doesn't exist");
+		//LOG("[WARNING] GoTOCSGO inGo doesn't exist");
 		return nullptr;
 	}
 	MonoClass* goClass = mono_class_from_name(image, YMIR_SCRIPTS_NAMESPACE, "GameObject");

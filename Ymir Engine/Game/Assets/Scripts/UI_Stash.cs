@@ -122,6 +122,7 @@ public class UI_Stash : YmirComponent
                 _selectedGO.GetComponent<UI_Item_Button>().updateStats = true;
 
                 SaveStashItems();
+                player.SaveItems();
             }
 
             else
@@ -274,14 +275,10 @@ public class UI_Stash : YmirComponent
 
     private void SetSlots()
     {
-        bool isInventory = false;
-
         for (int i = 0; i < player.itemsList.Count; i++)
         {
             if (!player.itemsList[i].inStash)
             {
-                isInventory = true;
-
                 GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
 
                 for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
@@ -292,7 +289,6 @@ public class UI_Stash : YmirComponent
                     {
                         if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
                         {
-                            isInventory = false;
                             player.itemsList[i].inStash = true;
                             break;
                         }
@@ -301,15 +297,10 @@ public class UI_Stash : YmirComponent
             }
         }
 
-        Debug.Log("Stash" + stashItemsList.Count.ToString());
         for (int i = 0; i < stashItemsList.Count; i++)
         {
-            Debug.Log("Stash" + stashItemsList[i].inStash.ToString());
-
             if (!stashItemsList[i].inStash)
             {
-                Debug.Log("Stash loaded");
-
                 GameObject stash = InternalCalls.CS_GetChild(gameObject, 1);
 
                 for (int c = 0; c < InternalCalls.CS_GetChildrenSize(stash); c++)
@@ -320,7 +311,6 @@ public class UI_Stash : YmirComponent
                     {
                         if (button.GetComponent<UI_Item_Button>().SetItem(stashItemsList[i]))
                         {
-                            Debug.Log("sssssssssssssss loaded");
                             stashItemsList[i].inStash = true;
                             break;
                         }
@@ -353,6 +343,8 @@ public class UI_Stash : YmirComponent
         //        }
         //    }
         //}
+
+        SaveStashItems();
     }
 
     private void ResetMenuSlots()
@@ -384,6 +376,7 @@ public class UI_Stash : YmirComponent
         for (int i = 0; i < stashItemsList.Count; i++)
         {
             SaveLoad.SaveString(Globals.saveGameDir, player.saveName, "Stash Item " + i.ToString(), stashItemsList[i].dictionaryName);
+            SaveLoad.SaveBool(Globals.saveGameDir, player.saveName, "Stash Item in " + i.ToString(), stashItemsList[i].inStash);
         }
     }
 
@@ -398,7 +391,7 @@ public class UI_Stash : YmirComponent
             string name = SaveLoad.LoadString(Globals.saveGameDir, player.saveName, "Stash Item " + i.ToString());
 
             Item _item = Globals.SearchItemInDictionary(name);
-            _item.inStash = false;
+            _item.inStash = SaveLoad.LoadBool(Globals.saveGameDir, player.saveName, "Stash Item in " + i.ToString());
             stashItemsList.Add(_item);
         }
 
