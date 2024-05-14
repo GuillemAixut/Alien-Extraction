@@ -373,6 +373,8 @@ public class UI_Item_Button : YmirComponent
             /*description*/ "Empty",
             /*imagePath*/ "Assets/UI/Inventory Buttons/New Buttons/Unselected.png");
 
+
+            Debug.Log("yhtgfrds");
             UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), _item.imagePath, (int)UI_STATE.NORMAL); // Empty image
             UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL); // No rarity
         }

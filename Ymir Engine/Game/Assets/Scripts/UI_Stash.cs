@@ -14,7 +14,7 @@ public class UI_Stash : YmirComponent
     private bool _show;
 
     public Player player = null;
-    public Health health = null;
+    public Health csHealth = null;
 
     public List<Item> stashItemsList;
 
@@ -33,42 +33,14 @@ public class UI_Stash : YmirComponent
 
         _show = false;
 
-        GetPlayerScript();
-        GetHealthScript();
-
-        GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
-
-        Debug.Log("sdfghjkl");
-        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
-        {
-            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 2);  // (Grid (Slot (Button)))
-
-            if (gameObject != null)
-            {
-                button.GetComponent<UI_Item_Button>().ResetSlot();
-            }
-        }
+        player = Globals.GetPlayerScript();
+        csHealth = Globals.GetPlayerHealthScript();
 
         SetSlots();
     }
 
     public void Update()
     {
-        if (player == null)
-        {
-            GetPlayerScript();
-        }
-
-        if (player != null && player.setHover)
-        {
-            Debug.Log("set first");
-            goDescription.SetActive(false);// TODO: when menu opened
-            goText.SetActive(false);
-            goName.SetActive(false);
-
-            player.setHover = false;
-        }
-
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
         UI_Item_Button cs_UI_Item_Button = focusedGO.GetComponent<UI_Item_Button>();
@@ -188,29 +160,24 @@ public class UI_Stash : YmirComponent
         goName.SetActive(isActive);
     }
 
-    private void GetPlayerScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            player = gameObject.GetComponent<Player>();
-        }
-    }
-
-    private void GetHealthScript()
-    {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
-        {
-            health = gameObject.GetComponent<Health>();
-        }
-    }
-
     private void SetSlots()
     {
         bool isInventory = false;
+
+        {
+            GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
+
+            for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+            {
+                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+                if (gameObject != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
+                }
+            }
+        }
 
         for (int i = 0; i < player.itemsList.Count; i++)
         {
