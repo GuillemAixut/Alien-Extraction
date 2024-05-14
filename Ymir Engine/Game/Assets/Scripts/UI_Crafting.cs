@@ -35,19 +35,16 @@ public class UI_Crafting : YmirComponent
         // TODO: Very bad postupdate, fix
         _startCheck = false;
 
+        player = Globals.GetPlayerScript();
+
         //GetPlayerScript();
         //GetHealthScript();
 
-        //SetSlots();
+        SetSlots();
     }
 
 	public void Update()
 	{
-        if (player == null)
-        {
-            GetPlayerScript();
-        }
-
         if (player != null && player.setHover)
         {
             goDescription.SetActive(false);// TODO: when menu opened
@@ -171,13 +168,28 @@ public class UI_Crafting : YmirComponent
         goName.SetActive(isActive);
     }
 
-    private void GetPlayerScript()
+    private void SetSlots()
     {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
+        for (int i = 0; i < player.itemsList.Count; i++)
         {
-            player = gameObject.GetComponent<Player>();
+            if (!player.itemsList[i].inCraft)
+            {
+                GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+
+                for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
+                {
+                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+
+                    if (gameObject != null)
+                    {
+                        if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                        {
+                            player.itemsList[i].inCraft = true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

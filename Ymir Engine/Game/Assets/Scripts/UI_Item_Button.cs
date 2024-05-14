@@ -60,6 +60,8 @@ public class UI_Item_Button : YmirComponent
         {
             if (item.currentSlot != ITEM_SLOT.NONE && item.currentSlot != ITEM_SLOT.SAVE)
             {
+                item.inSave = false;
+
                 if (!item.isEquipped)
                 {
                     item.isEquipped = true;
@@ -238,11 +240,6 @@ public class UI_Item_Button : YmirComponent
         //Debug.Log("isEquipped: " + _item.isEquipped.ToString());
         //Debug.Log("Rarity: " + _item.itemRarity.ToString());
 
-        Debug.Log("name " + _item.name);
-        Debug.Log("!Equals(menuName) " + Equals(menuName, "Inventory Menu").ToString());
-        Debug.Log("_item.isEquipped " + _item.isEquipped.ToString());
-        Debug.Log("aaaaa " + (!_item.isEquipped && !Equals(menuName, "Inventory Menu")).ToString());
-
         // is empty && (is not equipped and not inventory || is equipped and in inventory && can be placed)
         if (item.itemType == ITEM_SLOT.NONE && ((!_item.isEquipped && !Equals(menuName, "Inventory Menu")) ||
             ((_item.isEquipped && _item.itemType == item.currentSlot ||
@@ -383,5 +380,15 @@ public class UI_Item_Button : YmirComponent
         //item.LogStats();    
 
         return _item;
+    }
+
+    public void ResetSlot()
+    {
+        currentSlot = SetType(enumSlot);
+        itemType = ITEM_SLOT.NONE;
+
+        //item.inInventory = false;
+        item.inStash = false;
+        item.inCraft = false;
     }
 }
