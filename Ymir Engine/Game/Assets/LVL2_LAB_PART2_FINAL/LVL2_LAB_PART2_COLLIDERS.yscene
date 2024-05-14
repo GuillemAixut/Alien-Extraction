@@ -1,31 +1,31 @@
 {
     "NavMesh": "Assets\/LVL2_LAB_PART2_FINAL\/LVL2_LAB_PART2_COLLIDERS.nav",
     "Editor Camera Position": [
-        237.95233154296875,
-        213.68699645996094,
-        381.3013916015625
+        62.837913513183594,
+        94.4366455078125,
+        625.451416015625
     ],
     "Editor Camera Right (X)": [
-        0.56529325246810913,
-        2.9802322387695312e-08,
-        -0.67219996452331543
+        0.97868287563323975,
+        2.384185791015625e-07,
+        -0.20537647604942322
     ],
     "Editor Camera Up (Y)": [
-        -0.27337655425071716,
-        0.84894531965255737,
-        -0.22989869117736816
+        -0.16014844179153442,
+        0.62605494260787964,
+        -0.76315653324127197
     ],
     "Editor Camera Front (Z)": [
-        -0.6727142333984375,
-        -0.36982810497283936,
-        -0.56572574377059937
+        -0.12857671082019806,
+        -0.77977895736694336,
+        -0.61270898580551147
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1527236003,
+            "UID": 1772679,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -67,7 +67,7 @@
             "UID": 456674892,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -9462,7 +9462,7 @@
             "UID": 1462968092,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10643,7 +10643,7 @@
             "UID": 1406784881,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10904,7 +10904,7 @@
             "UID": 505858485,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12617,7 +12617,7 @@
             "UID": 2107836948,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13258,7 +13258,7 @@
             "UID": 1493897338,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13355,7 +13355,7 @@
             "UID": 511732336,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13393,7 +13393,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13839,7 +13839,7 @@
             "UID": 165934810,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14100,7 +14100,7 @@
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/PROP_Door_Lab.fbx",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14191,7 +14191,7 @@
                         0
                     ],
                     "Rotation": [
-                        3.8302871985251841e-09,
+                        3.8302889748820235e-09,
                         90,
                         0
                     ],
@@ -14270,7 +14270,7 @@
                         0
                     ],
                     "Rotation": [
-                        1.786685402294097e-06,
+                        1.7866858570414479e-06,
                         90,
                         0
                     ],
@@ -14349,7 +14349,7 @@
                         -1.2768347490421661e-10
                     ],
                     "Rotation": [
-                        3.8302898630604432e-09,
+                        3.8302916394172826e-09,
                         90,
                         0
                     ],
@@ -14476,7 +14476,7 @@
             "UID": 982585116,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14718,7 +14718,7 @@
             "UID": 484997781,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14779,10 +14779,8 @@
                     "ScriptName": "Loot_Chest.cs",
                     "Active": 1,
                     "UID": 0,
-                    "keys": "Nombre:,Probabilidad:",
-                    "path": "Assets\/Loot Tables\/loot_table.csv",
-                    "numFields": 2,
-                    "spawnRange": 0
+                    "spawnRange": 0,
+                    "itemPath": "Assets\/Prefabs\/Items\/Common Items\/grenade_common"
                 }
             ],
             "Children UID": [
@@ -14810,7 +14808,7 @@
                         0
                     ],
                     "Rotation": [
-                        -1.0017937711381819e-05,
+                        -1.0017941349360626e-05,
                         90,
                         0
                     ],
@@ -15053,7 +15051,7 @@
             "UID": 1423819104,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -15273,7 +15271,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -15300,8 +15298,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1586,
-                    "Height": 1000,
+                    "Width": 703,
+                    "Height": 874,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -17747,7 +17745,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -25228,7 +25226,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -25581,7 +25579,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -26122,7 +26120,7 @@
             "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -26151,6 +26149,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1,
                     "porcentajeDroneXenomorph": 0,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 },
@@ -26265,7 +26264,7 @@
             "UID": 1459372103,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -26294,6 +26293,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1,
                     "porcentajeDroneXenomorph": 0,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 },
@@ -26408,7 +26408,7 @@
             "UID": 1393792402,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -26437,6 +26437,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 },
@@ -26551,7 +26552,7 @@
             "UID": 1799577663,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -26580,6 +26581,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1,
                     "porcentajeDroneXenomorph": 0,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 },
@@ -26694,7 +26696,7 @@
             "UID": 1224520343,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -26721,8 +26723,9 @@
                     "Active": 1,
                     "UID": 0,
                     "spawn": false,
-                    "porcentajeFaceHugger": 1,
+                    "porcentajeFaceHugger": 0,
                     "porcentajeDroneXenomorph": 0,
+                    "porcentajeSpitter": 1,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 },
@@ -26837,7 +26840,7 @@
             "UID": 778851339,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -26866,6 +26869,7 @@
                     "spawn": false,
                     "porcentajeFaceHugger": 1.4901161193847656e-08,
                     "porcentajeDroneXenomorph": 1,
+                    "porcentajeSpitter": 0,
                     "currentEnemies": 0,
                     "typeOfEnemy": 0
                 },
@@ -26980,7 +26984,7 @@
             "UID": 436079242,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -27334,7 +27338,7 @@
             "UID": 208637195,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -27478,7 +27482,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33284,7 +33288,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33397,7 +33401,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 1772679,
             "Components": [
                 {
                     "Type": "Transform",
@@ -33788,7 +33792,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
+                    "Path": "Assets\/Lava.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -33974,7 +33978,7 @@
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
+                    "Path": "Assets\/Lava.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,

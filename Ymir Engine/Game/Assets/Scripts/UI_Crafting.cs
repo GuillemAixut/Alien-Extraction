@@ -18,7 +18,7 @@ public class UI_Crafting : YmirComponent
     private bool _startCheck = false;
 
     public void Start()
-	{
+    {
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();
 
@@ -37,27 +37,11 @@ public class UI_Crafting : YmirComponent
 
         player = Globals.GetPlayerScript();
 
-        // Reset Slots to null to update
-        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
-
-        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
-        {
-            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
-
-            if (gameObject != null)
-            {
-                if (button.GetComponent<UI_Item_Button>().item != null)
-                {
-                    button.GetComponent<UI_Item_Button>().ResetSlot();
-                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
-                }
-            }
-        }
-
+        ResetMenuSlots();
         SetSlots();
     }
 
-	public void Update()
+    public void Update()
 	{
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
@@ -187,6 +171,26 @@ public class UI_Crafting : YmirComponent
                             break;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    private void ResetMenuSlots()
+    {
+        // Reset Slots to null to update
+        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
+
+        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+            if (gameObject != null)
+            {
+                if (button.GetComponent<UI_Item_Button>().item != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
                 }
             }
         }

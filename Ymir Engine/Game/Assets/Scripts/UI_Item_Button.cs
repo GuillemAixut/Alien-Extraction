@@ -281,7 +281,7 @@ public class UI_Item_Button : YmirComponent
 
             //item.LogStats();
 
-            Debug.Log("currentSlot " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
+            //Debug.Log("currentSlot " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
         }
 
         return ret;
@@ -387,7 +387,7 @@ public class UI_Item_Button : YmirComponent
         currentSlot = SetType(enumSlot);
         itemType = ITEM_SLOT.NONE;
 
-        //item.inInventory = false;
+        item.inInventory = false;
         item.inStash = false;
         item.inCraft = false;
     }

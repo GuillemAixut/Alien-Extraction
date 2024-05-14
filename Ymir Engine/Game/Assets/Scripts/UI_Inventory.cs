@@ -74,23 +74,14 @@ public class UI_Inventory : YmirComponent
         _textRate = InternalCalls.GetGameObjectByName("Text Rate");
         _textResin = InternalCalls.GetGameObjectByName("Text Resin");
 
-        UpdateTextStats();
+        ResetMenuSlots();
 
+        UpdateTextStats();
         SetSlots();
     }
 
     public void Update()
     {
-        if (player != null && player.setHover)
-        {
-            Debug.Log("set first");
-            goDescription.SetActive(false);// TODO: when menu opened
-            goText.SetActive(false);
-            goName.SetActive(false);
-
-            player.setHover = false;
-        }
-
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
         UI_Item_Button cs_UI_Item_Button = focusedGO.GetComponent<UI_Item_Button>();
@@ -267,7 +258,6 @@ public class UI_Inventory : YmirComponent
 
         for (int i = 0; i < player.itemsList.Count; i++)
         {
-            Debug.Log("setslots ");
             //player.itemsList[i].LogStats();
 
             if (!player.itemsList[i].inInventory)
@@ -311,6 +301,26 @@ public class UI_Inventory : YmirComponent
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    private void ResetMenuSlots()
+    {
+        // Reset Slots to null to update
+        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
+
+        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+            if (gameObject != null)
+            {
+                if (button.GetComponent<UI_Item_Button>().item != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
                 }
             }
         }

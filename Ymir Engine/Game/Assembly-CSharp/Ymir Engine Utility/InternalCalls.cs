@@ -250,7 +250,7 @@ namespace YmirEngine
         public static extern void SetCanNav(bool isActive);
         
         /// <summary>
-        /// Change UI state.
+        /// Get UI state.
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern int GetUIState(object go);

@@ -36,11 +36,12 @@ public class SelectLvl : YmirComponent
     {
         if (!isLocked)
         {
-            GameObject gameObject0 = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
+            GameObject gameObject0 = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl) + ")");
             GameObject gameObject1 = InternalCalls.GetGameObjectByName("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
 
             //Debug.Log("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
 
+            LEVEL selectedLvlPrev = levelSelector.selectedLvl;
             WEAPON_TYPE selectedWeaponPrev = levelSelector.selectedWeapon;
 
             if (levelSelector.selectedLvl != (LEVEL)lvl)
@@ -50,14 +51,13 @@ public class SelectLvl : YmirComponent
             //else
             //{
             //    levelSelector.selectedLvl = LEVEL.NONE;
-            //    UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl) + ")"), "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
+            //    UI.ChangeImageUI(gameObject0, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
             //    //UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
             //}
 
             if (gameObject0 != null)
             {
-                // TODO: Should be gameObject0, but it is not working
-                UI.ChangeImageUI(InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl) + ")"), "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
+                UI.ChangeImageUI(gameObject0, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
             }
 
             if (gameObject1 != null/* && levelSelector.selectedWeapon != selectedWeaponPrev*/)
