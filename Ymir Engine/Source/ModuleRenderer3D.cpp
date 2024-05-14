@@ -829,7 +829,7 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 bool ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 {
 	bool ret = true;
-	if (pSystem->allEmitters.empty())
+	if (pSystem->allEmitters.empty() || !pSystem->showEmitters)
 	{
 		return false;;
 	}

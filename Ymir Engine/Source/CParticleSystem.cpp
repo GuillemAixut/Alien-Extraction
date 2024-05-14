@@ -133,7 +133,7 @@ void CParticleSystem::OnInspector()
 
 		ImGui::Text("Playback time: %.2f", timer.ReadSec());
 
-		ImGui::Checkbox("Looping", &looping);
+		ImGui::Checkbox("ShowOnGodMode", &showEmitters);
 
 		if (ImGui::Button("Play ALL Triggers")) {
 			for (int i = 0; i < allEmitters.size(); i++)
