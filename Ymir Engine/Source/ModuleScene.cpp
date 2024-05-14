@@ -461,6 +461,8 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 {
 	OPTICK_EVENT();
 
+	godMode = false; // Reset God Mode when scene changes
+
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
 		App->scene->currentSceneDir = dir;
