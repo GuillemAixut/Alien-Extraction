@@ -60,27 +60,6 @@ public class BaseTeleporter : YmirComponent
 
             _setNormal = true;
 
-            switch (selectedLvl)
-            {
-                case LEVEL.WAREHOUSE:
-                    {
-                        button.GetComponent<Button_GoToScene>().sceneName = "LVL1_FINAL/LVL1_FINAL_COLLIDERS";
-                    }
-                    break;
-
-                case LEVEL.LAB:
-                    {
-                        button.GetComponent<Button_GoToScene>().sceneName = "LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS";
-                    }
-                    break;
-
-                case LEVEL.HATCHERY:
-                    {
-                         button.GetComponent<Button_GoToScene>().sceneName = "LVL3_BlockOut/LVL3_PART1_COLLIDERS";
-                    }
-                    break;
-            }
-
             csPlayer.weaponType = selectedWeapon;
 
             Debug.Log("scene: " + button.GetComponent<Button_GoToScene>().sceneName);
@@ -94,6 +73,27 @@ public class BaseTeleporter : YmirComponent
             _grid.GetComponent<UI_Inventory_Grid>().naviagteY = false;
 
             _setNormal = false;
+        }
+
+        switch (selectedLvl)
+        {
+            case LEVEL.WAREHOUSE:
+                {
+                    button.GetComponent<Button_GoToScene>().sceneName = "LVL1_FINAL/LVL1_FINAL_COLLIDERS";
+                }
+                break;
+
+            case LEVEL.LAB:
+                {
+                    button.GetComponent<Button_GoToScene>().sceneName = "LVL2_LAB_PART1_FINAL/LVL2_LAB_PART1_COLLIDERS";
+                }
+                break;
+
+            case LEVEL.HATCHERY:
+                {
+                    button.GetComponent<Button_GoToScene>().sceneName = "LVL3_BlockOut/LVL3_PART1_COLLIDERS";
+                }
+                break;
         }
 
         return;
