@@ -14,7 +14,6 @@ public class UI_Stash : YmirComponent
     private bool _show;
 
     public Player player = null;
-    public Health csHealth = null;
 
     public List<Item> stashItemsList;
 
@@ -34,25 +33,9 @@ public class UI_Stash : YmirComponent
         _show = false;
 
         player = Globals.GetPlayerScript();
-        csHealth = Globals.GetPlayerHealthScript();
+        stashItemsList = new List<Item>();
 
-        // Reset Slots to null to update
-        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
-
-        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
-        {
-            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
-
-            if (gameObject != null)
-            {
-                if (button.GetComponent<UI_Item_Button>().item != null)
-                {
-                    button.GetComponent<UI_Item_Button>().ResetSlot();
-                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
-                }
-            }
-        }
-
+        ResetMenuSlots();
         SetSlots();
     }
 
@@ -122,6 +105,8 @@ public class UI_Stash : YmirComponent
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.SAVE && _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE) ||
                 (focusedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE && _selectedGO.GetComponent<UI_Item_Button>().item.currentSlot == ITEM_SLOT.NONE))
             {
+                ManageItemsLists();
+
                 UI.SwitchPosition(_selectedGO.parent, focusedGO.parent);
 
                 //_show = false;
@@ -143,6 +128,113 @@ public class UI_Stash : YmirComponent
 
             UI.SetUIState(_selectedGO, (int)UI_STATE.NORMAL);
             UI.SetUIState(focusedGO, (int)UI_STATE.NORMAL);
+        }
+    }
+
+    private void ManageItemsLists()
+    {
+        if (_selectedGO.parent.parent.Name != focusedGO.parent.parent.Name)
+        {
+            if (_selectedGO.parent.parent.Name == "Inventory Grid")
+            {
+                // Remove from player and add to stash
+                if (_selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                {
+                    player.itemsList.Remove(_selectedGO.GetComponent<UI_Item_Button>().item);
+
+                    if (_selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        stashItemsList.Add(_selectedGO.GetComponent<UI_Item_Button>().item);
+                    }
+                }
+                // If empty swapped with existing item, remove from stash and add to player
+                else
+                {
+                    if (_selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        player.itemsList.Add(_selectedGO.GetComponent<UI_Item_Button>().item);
+                    }
+
+                    stashItemsList.Remove(_selectedGO.GetComponent<UI_Item_Button>().item);
+                }
+
+                // 
+                if (focusedGO.GetComponent<UI_Item_Button>().item.itemType == ITEM_SLOT.NONE)
+                {
+                    player.itemsList.Remove(focusedGO.GetComponent<UI_Item_Button>().item);
+
+                    if (focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        stashItemsList.Add(focusedGO.GetComponent<UI_Item_Button>().item);
+                    }
+                }
+                // If swapped with existing item, remove from stash and add to player
+                else
+                {
+                    if (_selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        player.itemsList.Add(focusedGO.GetComponent<UI_Item_Button>().item);
+                    }
+
+                    stashItemsList.Remove(focusedGO.GetComponent<UI_Item_Button>().item);
+                }
+            }
+            else if (_selectedGO.parent.parent.Name == "Stash Grid")
+            {
+                // Remove from stash and add to player
+                if (_selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                {
+                    if (_selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        player.itemsList.Add(_selectedGO.GetComponent<UI_Item_Button>().item);
+                    }
+
+                    stashItemsList.Remove(_selectedGO.GetComponent<UI_Item_Button>().item);
+                }
+                // If empty swapped with existing item, remove from player and add to stash
+                else
+                {
+                    player.itemsList.Remove(_selectedGO.GetComponent<UI_Item_Button>().item);
+
+                    if (_selectedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        stashItemsList.Add(_selectedGO.GetComponent<UI_Item_Button>().item);
+                    }
+                }
+
+                // 
+                if (focusedGO.GetComponent<UI_Item_Button>().item.itemType == ITEM_SLOT.NONE)
+                {
+                    if (focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        player.itemsList.Add(focusedGO.GetComponent<UI_Item_Button>().item);
+                    }
+
+                    stashItemsList.Remove(focusedGO.GetComponent<UI_Item_Button>().item);
+                }
+                // If swapped with existing item, remove from player and add to stash
+                else
+                {
+                    player.itemsList.Remove(focusedGO.GetComponent<UI_Item_Button>().item);
+
+                    if (focusedGO.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE)
+                    {
+                        stashItemsList.Add(focusedGO.GetComponent<UI_Item_Button>().item);
+                    }
+                }
+            }
+
+            Debug.Log("player: " + player.itemsList.Count.ToString());
+            //for (int i = 0; i < player.itemsList.Count; i++)
+            //{
+            //    Debug.Log(player.itemsList[i].name);
+            //}
+
+            Debug.Log("stashItemsList: " + stashItemsList.Count.ToString());
+            //for (int i = 0; i < stashItemsList.Count; i++)
+            //{
+            //    Debug.Log(stashItemsList[i].name);
+            //}
         }
     }
 
@@ -186,7 +278,6 @@ public class UI_Stash : YmirComponent
             if (!player.itemsList[i].inStash)
             {
                 isInventory = true;
-                Debug.Log("yhtgfrds");
 
                 GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
 
@@ -228,6 +319,26 @@ public class UI_Stash : YmirComponent
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    private void ResetMenuSlots()
+    {
+        // Reset Slots to null to update
+        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
+
+        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+            if (gameObject != null)
+            {
+                if (button.GetComponent<UI_Item_Button>().item != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
                 }
             }
         }
