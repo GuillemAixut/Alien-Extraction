@@ -53,9 +53,14 @@ namespace YmirEngine
         public string description = ""; // item description, name not included so that the font of the name can be different from the description, include stats
         public bool isEquipped = false;
 
+        // Save item when die
+        public bool inSave = false;
+
+        // Menus management
         public bool inInventory = false;
         public bool inStash = false;
         public bool inCraft = false;
+
         public string dictionaryName = "";
 
         public Item(
