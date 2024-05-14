@@ -92,10 +92,12 @@ namespace YmirEngine
             imagePath = other.imagePath;
             name = other.name;
             description = other.description;
+
             isEquipped = other.isEquipped;
             inSave = other.inSave;
+
             inInventory = other.inInventory;
-            inStash = other.inStash;
+            //inStash = other.inStash;
             inCraft = other.inCraft;
             dictionaryName = other.dictionaryName;
         }

@@ -293,6 +293,8 @@ public class Player : YmirComponent
             UI.TextEdit(resinText, "x" + currentResinVessels.ToString());
         }
 
+        hasTalkedIscariot = false;
+
         //--------------------- Get Skills Scripts ---------------------\\
         GetSkillsScripts();
 

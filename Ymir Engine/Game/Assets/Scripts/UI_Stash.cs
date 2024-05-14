@@ -277,21 +277,18 @@ public class UI_Stash : YmirComponent
     {
         for (int i = 0; i < player.itemsList.Count; i++)
         {
-            if (!player.itemsList[i].inStash)
+            GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+
+            for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
             {
-                GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
 
-                for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
+                if (gameObject != null)
                 {
-                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
-
-                    if (gameObject != null)
+                    if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
                     {
-                        if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
-                        {
-                            player.itemsList[i].inStash = true;
-                            break;
-                        }
+                        //player.itemsList[i].inStash = true;
+                        break;
                     }
                 }
             }
@@ -299,21 +296,18 @@ public class UI_Stash : YmirComponent
 
         for (int i = 0; i < stashItemsList.Count; i++)
         {
-            if (!stashItemsList[i].inStash)
+            GameObject stash = InternalCalls.CS_GetChild(gameObject, 1);
+
+            for (int c = 0; c < InternalCalls.CS_GetChildrenSize(stash); c++)
             {
-                GameObject stash = InternalCalls.CS_GetChild(gameObject, 1);
+                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(stash, c), 2);  // (Grid (Slot (Button)))
 
-                for (int c = 0; c < InternalCalls.CS_GetChildrenSize(stash); c++)
+                if (gameObject != null)
                 {
-                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(stash, c), 2);  // (Grid (Slot (Button)))
-
-                    if (gameObject != null)
+                    if (button.GetComponent<UI_Item_Button>().SetItem(stashItemsList[i]))
                     {
-                        if (button.GetComponent<UI_Item_Button>().SetItem(stashItemsList[i]))
-                        {
-                            stashItemsList[i].inStash = true;
-                            break;
-                        }
+                        //stashItemsList[i].inStash = true;
+                        break;
                     }
                 }
             }
@@ -358,7 +352,24 @@ public class UI_Stash : YmirComponent
 
             if (gameObject != null)
             {
-                if (button.GetComponent<UI_Item_Button>().item != null)
+                //if (button.GetComponent<UI_Item_Button>().item != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
+                }
+            }
+        }
+
+        // Reset Slots to null to update
+        inv = InternalCalls.CS_GetChild(gameObject, 1);
+
+        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+            if (gameObject != null)
+            {
+                //if (button.GetComponent<UI_Item_Button>().item != null)
                 {
                     button.GetComponent<UI_Item_Button>().ResetSlot();
                     button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
@@ -376,7 +387,7 @@ public class UI_Stash : YmirComponent
         for (int i = 0; i < stashItemsList.Count; i++)
         {
             SaveLoad.SaveString(Globals.saveGameDir, player.saveName, "Stash Item " + i.ToString(), stashItemsList[i].dictionaryName);
-            SaveLoad.SaveBool(Globals.saveGameDir, player.saveName, "Stash Item in " + i.ToString(), stashItemsList[i].inStash);
+            //SaveLoad.SaveBool(Globals.saveGameDir, player.saveName, "Stash Item in " + i.ToString(), stashItemsList[i].inStash);
         }
     }
 
@@ -391,7 +402,7 @@ public class UI_Stash : YmirComponent
             string name = SaveLoad.LoadString(Globals.saveGameDir, player.saveName, "Stash Item " + i.ToString());
 
             Item _item = Globals.SearchItemInDictionary(name);
-            _item.inStash = SaveLoad.LoadBool(Globals.saveGameDir, player.saveName, "Stash Item in " + i.ToString());
+            //_item.inStash = SaveLoad.LoadBool(Globals.saveGameDir, player.saveName, "Stash Item in " + i.ToString());
             stashItemsList.Add(_item);
         }
 
