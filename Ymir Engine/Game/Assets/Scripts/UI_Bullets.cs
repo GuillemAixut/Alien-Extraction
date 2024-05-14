@@ -15,16 +15,14 @@ public class UI_Bullets : YmirComponent
 
     public void Start()
     {
-        Debug.Log("HelloWorld");
-
         GetAnotherScript();
         bulletsBar = InternalCalls.GetGameObjectByName("Bullets Text");
         if (bulletsBar != null )
         {
             UI.TextEdit(bulletsBar, player.currentWeapon.ammo.ToString() + "/" + player.currentWeapon.ammo.ToString());
-        }
-        
+        }        
     }
+
     public void Update()
     {
         if (Input.GetKey(YmirKeyCode.V) == KeyState.KEY_DOWN)
