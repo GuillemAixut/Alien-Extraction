@@ -1313,6 +1313,12 @@ public class Player : YmirComponent
         {
             Animation.PlayAnimation(gameObject, idleAnim);
             Particles.RestartParticles(currentWeapon.particlesGO);
+
+            if (currentWeapon.Type == WEAPON_TYPE.PLASMA)
+            {
+                Plasma plasma = (Plasma)currentWeapon;
+                plasma.ResetDamage();
+            }
         }
     }
     private void StartReload()

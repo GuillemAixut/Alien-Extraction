@@ -131,6 +131,9 @@ public class UI_Inventory : YmirComponent
                     cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
                     Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
                 {
+                    //Delete item from player list
+                    player.itemsList.Remove(cs_UI_Item_Button.item);
+                   
                     // Change current item to an empty one
                     cs_UI_Item_Button.item.itemType = ITEM_SLOT.NONE;
                     cs_UI_Item_Button.itemType = ITEM_SLOT.NONE;

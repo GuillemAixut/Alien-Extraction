@@ -659,8 +659,8 @@ GameObject* ModulePhysics::RaycastHit(btVector3 origin, btVector3 direction, flo
 
 	world->rayTest(origin, end, rayCallback);
 
-	//LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
-	//LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());
+	/*LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
+	LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());*/
 
 	if (rayCallback.hasHit()) {
 
@@ -681,8 +681,8 @@ bool ModulePhysics::RaycastTest(btVector3 origin, btVector3 direction, float ray
 
 	world->rayTest(origin, end, rayCallback);
 
-	LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
-	LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());
+	/*LOG("Raycast Start: %f, %f, %f", origin.getX(), origin.getY(), origin.getZ());
+	LOG("Raycast End: %f, %f, %f", end.getX(), end.getY(), end.getZ());*/
 
 	if (rayCallback.hasHit()) {
 
