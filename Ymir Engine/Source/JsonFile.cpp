@@ -1694,6 +1694,7 @@ void JsonFile::SetComponent(JSON_Object* componentObject, const Component& compo
 		CParticleSystem* cparticles = (CParticleSystem*)&component;
 
 		json_object_set_number(componentObject, "Active", cparticles->active);
+		json_object_set_boolean(componentObject, "ShowEmitters", cparticles->showEmitters);
 
 		//List of UUID , as each emmiter is save 
 
@@ -3487,6 +3488,7 @@ void JsonFile::GetComponent(const JSON_Object* componentObject, G_UI* gameObject
 	{
 		CParticleSystem* cparticleSystem = new CParticleSystem(gameObject);
 		cparticleSystem->active = json_object_get_boolean(componentObject, "Active");
+		cparticleSystem->showEmitters = json_object_get_boolean(componentObject, "ShowEmitters");
 
 		int numEmitters = json_object_get_number(componentObject, "NumEmitters");
 		

@@ -18,7 +18,6 @@ public class Alien_Trap : YmirComponent
     public bool sensorTrap = false;
     public void Start()
     {
-        Debug.Log("HelloWorld");
         originalPosition = gameObject.transform.localPosition;
         time = 0f;
     }

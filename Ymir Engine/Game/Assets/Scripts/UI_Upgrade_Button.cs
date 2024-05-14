@@ -19,6 +19,7 @@ public class UI_Upgrade_Button : YmirComponent
     public UI_Upgrade_Station currentStation;
     private GameObject _parent;
     private GameObject audioSource;
+    private bool _setFocused = false;
 
     public void Start()
     {
@@ -26,8 +27,9 @@ public class UI_Upgrade_Button : YmirComponent
         description = UI.GetUIText(goText);
         audioSource = InternalCalls.GetGameObjectByName("UI Audio");
 
-
         upgrade = new Upgrade(name, description, cost, isUnlocked);
+
+        _setFocused = false;
 
         if (!upgrade.isUnlocked && cost != 1)
         {
@@ -41,7 +43,7 @@ public class UI_Upgrade_Button : YmirComponent
             currentStation = go.GetComponent<UI_Upgrade_Station>();
         }
 
-        if (cost == 2)
+        if (cost == 2 || cost == 4)
         {
             _parent = InternalCalls.GetGameObjectByName(stationName + " End");
         }
@@ -49,6 +51,11 @@ public class UI_Upgrade_Button : YmirComponent
 
     public void Update()
     {
+        if (_setFocused)
+        {
+            UI.SetUIState(gameObject, (int)UI_STATE.FOCUSED);
+            _setFocused = false;
+        }
         return;
     }
 
@@ -82,6 +89,17 @@ public class UI_Upgrade_Button : YmirComponent
                     break;
                 case 4:
                     {
+                        if (gameObject.Name == "Upgrade 3")
+                        {
+                            GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
+                            UI.SetUIState(go4, (int)UI_STATE.DISABLED);
+                        }
+                        else
+                        {
+                            GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
+                            UI.SetUIState(go3, (int)UI_STATE.DISABLED);
+                        }
+
                         currentStation.currentScore -= upgrade.cost;
                         upgrade.isUnlocked = true;
                     }
@@ -89,6 +107,8 @@ public class UI_Upgrade_Button : YmirComponent
             }
             currentStation.UpdateCoins();
         }
+
+        _setFocused = true;
     }
 
     public void OnHoverButton()
