@@ -13,6 +13,7 @@ public class Spawner: YmirComponent
 
     public float porcentajeFaceHugger;
     public float porcentajeDroneXenomorph;
+    public float porcentajeSpitter; 
 
     static Random random = new Random();
 
@@ -51,6 +52,10 @@ public class Spawner: YmirComponent
         if(randomValue < porcentajeFaceHugger)
         {
             InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-FaceHugger-DEF", gameObject.transform.globalPosition);
+        }
+        else if (randomValue < (porcentajeSpitter + porcentajeFaceHugger))
+        {
+            InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Enemy-Spitter-DEF", gameObject.transform.globalPosition);
         }
         else
         {
