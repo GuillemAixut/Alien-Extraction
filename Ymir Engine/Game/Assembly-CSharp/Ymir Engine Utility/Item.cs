@@ -58,7 +58,7 @@ namespace YmirEngine
 
         // Menus management
         public bool inInventory = false;
-        public bool inStash = false;
+        //public bool inStash = false;
         public bool inCraft = false;
 
         public string dictionaryName = "";

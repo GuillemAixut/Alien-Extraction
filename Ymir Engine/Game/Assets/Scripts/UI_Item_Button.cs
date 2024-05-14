@@ -70,8 +70,6 @@ public class UI_Item_Button : YmirComponent
                     item.isEquipped = true;
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
-
-                    player.SaveItems();
                 }
             }
             else
@@ -79,10 +77,9 @@ public class UI_Item_Button : YmirComponent
                 if (item.isEquipped)
                 {
                     item.isEquipped = false;
+                    item.inInventory = false;
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
-
-                    player.SaveItems();
                 }
             }
 
@@ -334,11 +331,14 @@ public class UI_Item_Button : YmirComponent
 
     public void ResetSlot()
     {
+        //enumSlot = "NONE";
         currentSlot = ITEM_SLOT.NONE;
         itemType = ITEM_SLOT.NONE;
+        itemRarity = ITEM_RARITY.NONE;
 
-        item.inInventory = false;
+        item = null;
+        //item.inInventory = false;
         //item.inStash = false;
-        item.inCraft = false;
+        //item.inCraft = false;
     }
 }
