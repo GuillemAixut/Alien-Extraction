@@ -542,7 +542,19 @@ namespace YmirEngine
 
         public static Item SearchItemInDictionary(string name)
         {
-            return itemsDictionary[name];
+            Item _item = itemsDictionary[name];
+
+            if (_item.itemType == ITEM_SLOT.ARMOR || _item.itemType == ITEM_SLOT.CHIP)
+            {
+                return new I_Equippable((I_Equippable)_item);
+            }
+
+            else if (_item.itemType == ITEM_SLOT.CONSUMABLE)
+            {
+                return new I_Consumables((I_Consumables)_item);
+            }
+
+            return new Item(_item);
         }
         #endregion
     }
