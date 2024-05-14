@@ -1291,6 +1291,7 @@ public class Player : YmirComponent
         Animation.PlayAnimation(gameObject, "Raisen_Shooting");
 
         currentWeapon.Shoot();
+        Debug.Log("Damage: " + currentWeapon.damage);
 
         if (!godMode)
         {
@@ -1454,7 +1455,14 @@ public class Player : YmirComponent
 
         if (currentWeapon != null)
         {
+            currentWeapon.Type = weaponType;
+            currentWeapon.Upgrade = upgradeType;
+
+            Debug.Log("Weapon Type: " + weaponType);
+            Debug.Log("Upgrade Type: " + upgradeType);
+
             currentWeapon.Start();
+
             csBullets.UseBullets();
         }
     }

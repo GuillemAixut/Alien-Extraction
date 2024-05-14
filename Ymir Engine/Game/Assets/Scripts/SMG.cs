@@ -8,14 +8,10 @@ using YmirEngine;
 
 public class SMG : Weapon
 {
-    public int upgrade = 0;
     public SMG() : base(WEAPON_TYPE.SMG) {}
 
     public override void Start()
     {
-
-
-        _upgrade = (UPGRADE)upgrade;
 
         range = 100;
 

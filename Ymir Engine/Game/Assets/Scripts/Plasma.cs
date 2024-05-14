@@ -8,8 +8,6 @@ using YmirEngine;
 
 public class Plasma : Weapon
 {
-    public int upgrade = 0;
-
     public float damageEscalation;
 
     public float currentDamage;
@@ -18,8 +16,6 @@ public class Plasma : Weapon
 
     public override void Start()
     {
-        _upgrade = (UPGRADE)upgrade;
-
         range = 200;
 
         switch (_upgrade)

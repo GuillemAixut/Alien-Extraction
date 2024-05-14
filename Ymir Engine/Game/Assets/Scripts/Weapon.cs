@@ -70,8 +70,14 @@ public abstract class Weapon : YmirComponent
     }
 
     public string Name { get { return _name; } }
-    public WEAPON_TYPE Type { get { return _type; } }
-    public UPGRADE Upgrade { get { return _upgrade; } }
+    public WEAPON_TYPE Type { 
+        get { return _type; } 
+        set { _type = value; }
+    }
+    public UPGRADE Upgrade { 
+        get { return _upgrade; } 
+        set { _upgrade = value; }
+    }
     public abstract void Shoot();
     public abstract void Reload();
 

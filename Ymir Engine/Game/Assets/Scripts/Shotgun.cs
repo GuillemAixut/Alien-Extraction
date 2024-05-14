@@ -8,17 +8,12 @@ using YmirEngine;
 
 public class Shotgun : Weapon
 {
-
-    public int upgrade = 0;
-
     public int ammoInChamber;
     public int dispersion;
     public Shotgun() : base(WEAPON_TYPE.SHOTGUN) { }
 
     public override void Start()
     {
-        _upgrade = (UPGRADE)upgrade;
-
         switch (_upgrade)
         {
             case UPGRADE.LVL_0:
