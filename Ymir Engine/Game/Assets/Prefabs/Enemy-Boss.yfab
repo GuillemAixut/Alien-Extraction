@@ -1,21 +1,55 @@
 {
     "Prefab": [
         {
+            "Name": "Final-BOSS",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1978513889,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 574999696,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -145.79103088378906,
+                        0,
+                        -146.04046630859375
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                427225322,
+                1953913454
+            ]
+        },
+        {
             "Name": "Boss",
             "Static": false,
             "Tag": "Enemy",
             "UID": 427225322,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1887258694,
+            "Parent UID": 1978513889,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        8.2851657867431641,
                         0,
-                        57.371871948242188
+                        1.7427301406860352,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -164,9 +198,9 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
+                                -104.97515869140625,
                                 16.196561813354492,
-                                -3.8318030834197998
+                                -137.10113525390625
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -246,9 +280,9 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
+                                -104.97515869140625,
                                 16.196561813354492,
-                                -3.8318030834197998
+                                -137.10113525390625
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -328,9 +362,9 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
+                                -104.97515869140625,
                                 16.196561813354492,
-                                -3.8318030834197998
+                                -137.10113525390625
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -410,9 +444,9 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
+                                -104.97515869140625,
                                 16.196561813354492,
-                                -3.8318030834197998
+                                -137.10113525390625
                             ],
                             "lightInt": 1,
                             "lightColor": [
@@ -446,6 +480,108 @@
                     "Emissive_ID": 479,
                     "Emissive_Path": "Assets\/Textures\/Textures Reina\/TEX_CHAR_Boss_E.png",
                     "Emissive_UID": 1417189470
+                }
+            ]
+        },
+        {
+            "Name": "Health_Bar_Plane",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1953913454,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1978513889,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        64.61199951171875,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        0.99999940395355225
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Health_Bar_Test.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "HP": 500,
+                    "initialHP": 500
+                }
+            ],
+            "Children UID": [
+                1882853862
+            ]
+        },
+        {
+            "Name": "pPlane1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1882853862,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Prefabs\/Health_Bar_Plane.fbx",
+            "Parent UID": 1953913454,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -40.495998382568359,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        91.199996948242188,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1712041820,
+                    "Vertex Count": 121,
+                    "Index Count": 600
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/ColorShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                -104.97515869140625,
+                                16.196561813354492,
+                                -137.10113525390625
+                            ],
+                            "color": [
+                                1,
+                                0,
+                                0
+                            ],
+                            "light": false
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
                 }
             ]
         }
