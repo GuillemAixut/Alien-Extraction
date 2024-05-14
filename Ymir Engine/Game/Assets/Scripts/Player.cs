@@ -1307,6 +1307,12 @@ public class Player : YmirComponent
         {
             Animation.PlayAnimation(gameObject, idleAnim);
             Particles.RestartParticles(currentWeapon.particlesGO);
+
+            if (currentWeapon.Type == WEAPON_TYPE.PLASMA)
+            {
+                Plasma plasma = (Plasma)currentWeapon;
+                plasma.ResetDamage();
+            }
         }
     }
     private void StartReload()
@@ -1557,7 +1563,7 @@ public class Player : YmirComponent
 
         Vector3 speedVector = gameObject.transform.GetForward() * movementSpeed * Time.deltaTime;
         movementVector = new Vector3(speedVector.x, movementVector.y, speedVector.z);
-        Debug.Log("Velocity: " + movementVector);
+        //Debug.Log("Velocity: " + movementVector);
 
         gameObject.SetVelocity(movementVector);
 

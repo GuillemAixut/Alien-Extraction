@@ -13,6 +13,8 @@ public class Plasma : Weapon
 
     public float damageEscalation;
 
+    public float currentDamage;
+
     public Plasma() : base(WEAPON_TYPE.PLASMA) { }
 
     public override void Start()
@@ -72,8 +74,9 @@ public class Plasma : Weapon
                 break;
         }
 
+        currentDamage = damage;
         currentAmmo = ammo;
-    }
+    } 
     public override void Shoot()
     {
         currentAmmo--;
@@ -120,30 +123,37 @@ public class Plasma : Weapon
 
                 if (aux != null)
                 {
-                    aux.life -= damage;
+                    aux.life -= currentDamage;
                 }
 
                 DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
                 if (aux2 != null)
                 {
-                    aux2.life -= damage;
+                    aux2.life -= currentDamage;
                 }
 
                 QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
                 if (aux3 != null)
                 {
-                    aux3.life -= damage;
+                    aux3.life -= currentDamage;
                 }
                 Debug.Log("[ERROR] HIT ENEMy");
                 //-----------------------------------------------------------------------------------
             }
         }
+
+        currentDamage += currentDamage * damageEscalation;
     }
     public override void Reload()
     {
         currentAmmo = ammo;
 
         Audio.PlayAudio(gameObject, "W_PlasmaReload");
+    }
+
+    public void ResetDamage()
+    {
+        currentDamage = damage;
     }
 
 }
