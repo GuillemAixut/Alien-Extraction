@@ -20,6 +20,7 @@ public class UI_ToggleMenu : YmirComponent
 
     public void Update()
     {
+        active = true;
         return;
     }
 
