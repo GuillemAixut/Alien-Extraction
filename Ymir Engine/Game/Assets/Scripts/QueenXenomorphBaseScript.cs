@@ -640,7 +640,7 @@ public class QueenXenomorphBaseScript : YmirComponent
 
     private bool CheckPause()
     {
-        if (player.GetComponent<Player>().currentState == Player.STATE.STOP)
+        if (player.GetComponent<Player>().currentState == Player.STATE.STOP || player.GetComponent<Player>().currentState == Player.STATE.DEAD)
         {
             return true;
         }
