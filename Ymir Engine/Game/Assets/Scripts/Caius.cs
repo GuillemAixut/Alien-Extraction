@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 using YmirEngine;
 
 public class Caius : YmirComponent
@@ -21,7 +20,7 @@ public class Caius : YmirComponent
     string dialoguescsv;
     bool active_Dialogue;
 
-    //public Player player;
+    public Player player;
     public GameObject canvas_Caius = null;
     public GameObject name_Npc = null;
     public GameObject dialogue_Npc = null;
@@ -29,6 +28,9 @@ public class Caius : YmirComponent
     public GameObject Bbutton = null;
     public GameObject Abutton = null;
     public GameObject Xbutton = null;
+
+    //Popup
+    private GameObject popup;
 
     public enum Dialogue_id
     {
@@ -64,7 +66,7 @@ public class Caius : YmirComponent
     public Dialogue_id dialogue_;
     public void Start()
     {
-        //player = InternalCalls.GetGameObjectByName("Player").GetComponent<Player>();
+        player = InternalCalls.GetGameObjectByName("Player").GetComponent<Player>();
 
         active_Dialogue = false;
         canvas_Caius = InternalCalls.GetGameObjectByName("Npc_Dialogue");
@@ -76,6 +78,8 @@ public class Caius : YmirComponent
         Abutton = InternalCalls.GetGameObjectByName("buttonA");
         Xbutton = InternalCalls.GetGameObjectByName("buttonX");
 
+        popup = InternalCalls.CS_GetChild(gameObject, 1);
+
         //Animation - WIP
         Animation.SetLoop(InternalCalls.CS_GetChild(gameObject, 0), "Caius_Idle", true);
         Animation.SetSpeed(InternalCalls.CS_GetChild(gameObject, 0), "Caius_Idle", 0.2f);
@@ -86,70 +90,81 @@ public class Caius : YmirComponent
     }
     public void Update()
     {
+        popup.SetAsBillboard();
+
         if (active_Dialogue)
         {
+            if (popup.IsActive())
+            {
+                popup.SetActive(false);
+            }
+
             //player.PlayerStopState(true);
-            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_1)
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_1)
             {
                 dialogue_ = Dialogue_id.ID_5;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_5)
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_5)
             {
                 dialogue_ = Dialogue_id.ID_7;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_5)
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_5)
             {
                 dialogue_ = Dialogue_id.ID_9;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_1)
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_1)
             {
                 dialogue_ = Dialogue_id.ID_10;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_10)
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_10)
             {
                 dialogue_ = Dialogue_id.ID_12;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_12)
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_12)
             {
                 dialogue_ = Dialogue_id.ID_14;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_12)
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_12)
             {
                 dialogue_ = Dialogue_id.ID_16;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_10)
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_10)
             {
                 dialogue_ = Dialogue_id.ID_18;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_18)
+            if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_18)
             {
                 dialogue_ = Dialogue_id.ID_20;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_18)
+            if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_18)
             {
                 dialogue_ = Dialogue_id.ID_22;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_10)
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_10)
             {
                 dialogue_ = Dialogue_id.ID_24;
                 return;
             }
-            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_UP && dialogue_ == Dialogue_id.ID_1)
+            if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_1)
             {
                 dialogue_ = Dialogue_id.ID_26;
                 return;
             }
             DialogueManager();
+        }
+        else
+        {
+            popup.SetActive(false);
         }
         return;
     }
@@ -176,7 +191,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, dialogue[8].Text);
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_7:
                 UI.TextEdit(name_Npc, dialogue[7].Name);
@@ -185,7 +202,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_9:
                 UI.TextEdit(name_Npc, dialogue[9].Name);
@@ -194,6 +213,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_10:
                 UI.TextEdit(name_Npc, dialogue[10].Name);
@@ -218,7 +240,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                // player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_16:
                 UI.TextEdit(name_Npc, dialogue[16].Name);
@@ -227,7 +251,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_18:
                 UI.TextEdit(name_Npc, dialogue[18].Name);
@@ -244,7 +270,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_22:
                 UI.TextEdit(name_Npc, dialogue[22].Name);
@@ -253,7 +281,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_24:
                 UI.TextEdit(name_Npc, dialogue[24].Name);
@@ -262,7 +292,9 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
             case Dialogue_id.ID_26:
                 UI.TextEdit(name_Npc, dialogue[26].Name);
@@ -271,18 +303,25 @@ public class Caius : YmirComponent
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                //player.PlayerStopState(false);
+                player.PlayerStopState(false);
+                active_Dialogue = false;
+                canvas_Caius.SetActive(false);
                 break;
 
         }
     }
-    public void OnCollisionEnter(GameObject other)
+    public void OnCollisionStay(GameObject other)
     {
-        if (other.Tag == "Player")  
+        if (other.Tag == "Player" && !active_Dialogue)
+        {
+            popup.SetActive(true);
+        }
+
+        if (other.Tag == "Player" && (Input.IsGamepadButtonAPressedCS() || Input.GetKey(YmirKeyCode.SPACE) == KeyState.KEY_DOWN) && !active_Dialogue)
         {
             canvas_Caius.SetActive(true);
             active_Dialogue = true;
-            //player.PlayerStopState(true);
+            player.PlayerStopState(true);
         }
     }
     public void OnCollisionExit(GameObject other)
@@ -292,7 +331,6 @@ public class Caius : YmirComponent
             canvas_Caius.SetActive(false);
             active_Dialogue = false;
             dialogue_ = Dialogue_id.ID_1;
-            //player.PlayerStopState(false);
         }
     }
     public void LoadDialogues(string dialogueData)
