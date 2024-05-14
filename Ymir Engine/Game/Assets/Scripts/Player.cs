@@ -109,6 +109,8 @@ public class Player : YmirComponent
 
     public bool vulnerable = true;
 
+    public GameObject aimSensor = null;
+
     #endregion
 
     #region DEFINE ITEMS
@@ -296,6 +298,7 @@ public class Player : YmirComponent
 
         //--------------------- Shoot ---------------------\\
 
+
         //--------- Weapons List -----------\\
 
         weapons = new List<GameObject>();
@@ -376,6 +379,10 @@ public class Player : YmirComponent
         }
 
         movementVector = new Vector3(movementVector.x, gravity, movementVector.z);
+
+        // Aim sensor Position
+        if (aimSensor != null) 
+            aimSensor.SetPosition(gameObject.transform.globalPosition);
 
         UpdateControllerInputs();
 
