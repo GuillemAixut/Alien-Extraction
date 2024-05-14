@@ -27,20 +27,22 @@ public class PickUp : YmirComponent
         {
             player = other.GetComponent<Player>();
 
-            if (gameObject.Tag == "Resin" && player.currentResinVessels < player.maxResinVessels)
+            if (gameObject.Tag == "Resin")
             {
-                gameObject.SetActive(false);
-                Debug.Log("Pick up " + gameObject.Name);
-                player.currentResinVessels++;
+                if (player.currentResinVessels < player.maxResinVessels) {
+                    gameObject.SetActive(false);
+                    Debug.Log("Pick up " + gameObject.Name);
+                    player.currentResinVessels++;
 
-                if (player.resinText != null)
-                {
-                    UI.TextEdit(player.resinText, "x" + player.currentResinVessels.ToString());
+                    if (player.resinText != null)
+                    {
+                        UI.TextEdit(player.resinText, "x" + player.currentResinVessels.ToString());
+                    }
+
+                    picked = true;
+
+                    InternalCalls.Destroy(gameObject);
                 }
-
-                picked = true;
-
-                InternalCalls.Destroy(gameObject);
             }
             else
             {
