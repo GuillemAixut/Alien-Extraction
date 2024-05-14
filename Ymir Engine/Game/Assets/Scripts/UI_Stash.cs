@@ -36,6 +36,23 @@ public class UI_Stash : YmirComponent
         player = Globals.GetPlayerScript();
         csHealth = Globals.GetPlayerHealthScript();
 
+        // Reset Slots to null to update
+        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
+
+        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+            if (gameObject != null)
+            {
+                if (button.GetComponent<UI_Item_Button>().item != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
+                }
+            }
+        }
+
         SetSlots();
     }
 
@@ -164,26 +181,12 @@ public class UI_Stash : YmirComponent
     {
         bool isInventory = false;
 
-        {
-            GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
-
-            for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
-            {
-                GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
-
-                if (gameObject != null)
-                {
-                    button.GetComponent<UI_Item_Button>().ResetSlot();
-                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
-                }
-            }
-        }
-
         for (int i = 0; i < player.itemsList.Count; i++)
         {
             if (!player.itemsList[i].inStash)
             {
                 isInventory = true;
+                Debug.Log("yhtgfrds");
 
                 GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
 
@@ -210,11 +213,11 @@ public class UI_Stash : YmirComponent
             {
                 if (!player.itemsList[i].inStash)
                 {
-                    GameObject character = InternalCalls.CS_GetChild(gameObject, 1);
+                    GameObject stash = InternalCalls.CS_GetChild(gameObject, 1);
 
-                    for (int c = 0; c < InternalCalls.CS_GetChildrenSize(character); c++)
+                    for (int c = 0; c < InternalCalls.CS_GetChildrenSize(stash); c++)
                     {
-                        GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(character, c), 2);  // (Grid (Slot (Button)))
+                        GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(stash, c), 2);  // (Grid (Slot (Button)))
 
                         if (gameObject != null)
                         {
