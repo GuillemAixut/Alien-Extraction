@@ -375,14 +375,14 @@ public class Player : YmirComponent
         //        gravity = -50f;
         //    }
         //}
-        else if (bottomRaycast == null)
-        {
-            gravity = -50f;
-        }
-        else if (bottomRaycast != null)
-        {
-            gravity = 0f;
-        }
+        //else if (bottomRaycast == null)
+        //{
+        //    gravity = -50f;
+        //}
+        //else if (bottomRaycast != null)
+        //{
+        //    gravity = 0f;
+        //}
 
         movementVector = new Vector3(movementVector.x, gravity, movementVector.z);
 
