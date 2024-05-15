@@ -84,8 +84,7 @@ public class Plasma : Weapon
 
         Audio.PlayAudio(gameObject, "W_PlasmaShot");
         Particles.ParticleShoot(particlesGO, gameObject.transform.GetForward());
-        //TODO TONI: Cambiar el max distance segun el largo del raycast del laser (variable range)
-        //Particles.SetMaxDistance(particlesGO, range);
+        Particles.SetMaxDistance(particlesGO, range);
         Particles.PlayParticlesTrigger(particlesGO);
 
         GameObject target = null;

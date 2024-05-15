@@ -260,6 +260,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Particles::RestartParticles", RestartParticles);
 	mono_add_internal_call("YmirEngine.Particles::ParticlesForward", ParticlesForward);
 	mono_add_internal_call("YmirEngine.Particles::ParticlesSetDirection", ParticlesSetDirection);
+	mono_add_internal_call("YmirEngine.Particles::SetMaxDistance", SetMaxDistance);
 
 #pragma endregion
 
