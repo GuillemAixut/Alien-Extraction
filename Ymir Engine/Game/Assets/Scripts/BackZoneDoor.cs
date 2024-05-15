@@ -21,8 +21,8 @@ public class BackZoneDoor : YmirComponent
     /// se desbloquee el poder abrirla por el otro lado
     /// </summary>
     public bool unlockAfterOpen = true;
-    public bool lockRight = false;
-    public bool lockLeft = true;
+    public bool lockFront = false;
+    public bool lockBack = false;
 
     private GameObject doorCollider;
     private GameObject doorSensor1;
@@ -35,11 +35,14 @@ public class BackZoneDoor : YmirComponent
     float animDuration = 1f;
 
     private GameObject lDoor;
-    private Vector3 initialPos_lDoor;
     private GameObject end_lDoor;
     private GameObject rDoor;
-    private Vector3 initialPos_rDoor;
     private GameObject end_rDoor;
+
+    private Vector3 initialPos_lDoor;
+    private Vector3 initialPos_rDoor;
+    private Vector3 initialScale_lDoor;
+    private Vector3 initialScale_rDoor;
 
     public void Start()
     {
@@ -51,11 +54,14 @@ public class BackZoneDoor : YmirComponent
         doorSensor1 = InternalCalls.CS_GetChild(gameObject, 6);
         doorSensor2 = InternalCalls.CS_GetChild(gameObject, 7);
 
-        if (lockRight) doorSensor1.GetComponent<BackZoneDoor_Sensor>().active = false;
-        if (lockLeft) doorSensor2.GetComponent<BackZoneDoor_Sensor>().active = false;
+        if (lockFront) doorSensor1.GetComponent<BackZoneDoor_Sensor>().active = false;
+        if (lockBack) doorSensor2.GetComponent<BackZoneDoor_Sensor>().active = false;
 
         initialPos_lDoor = lDoor.transform.localPosition;
         initialPos_rDoor = rDoor.transform.localPosition;
+
+        initialScale_lDoor = lDoor.transform.localScale;
+        initialScale_rDoor = rDoor.transform.localScale;
 
         currentState = DoorState.CLOSED;
     }
@@ -67,8 +73,12 @@ public class BackZoneDoor : YmirComponent
             case DoorState.OPENING:
                 timer += Time.deltaTime;
                 float fraction = Mathf.Clamp01(timer / animDuration);
+
                 lDoor.transform.localPosition = Vector3.Lerp(initialPos_lDoor, end_lDoor.transform.localPosition, fraction);
                 rDoor.transform.localPosition = Vector3.Lerp(initialPos_rDoor, end_rDoor.transform.localPosition, fraction);
+                lDoor.transform.localScale = Vector3.Lerp(initialScale_lDoor, new Vector3(initialScale_lDoor.x, initialScale_lDoor.y, 0f), fraction);
+                rDoor.transform.localScale = Vector3.Lerp(initialScale_rDoor, new Vector3(initialScale_rDoor.x, initialScale_rDoor.y, 0f), fraction);
+
                 if (timer >= animDuration)
                 {
                     currentState = DoorState.WAITING;
@@ -88,15 +98,18 @@ public class BackZoneDoor : YmirComponent
             case DoorState.CLOSING:
                 timer += Time.deltaTime;
                 fraction = Mathf.Clamp01(timer / animDuration);
+
                 lDoor.transform.localPosition = Vector3.Lerp(end_lDoor.transform.localPosition, initialPos_lDoor, fraction);
                 rDoor.transform.localPosition = Vector3.Lerp(end_rDoor.transform.localPosition, initialPos_rDoor, fraction);
+                lDoor.transform.localScale = Vector3.Lerp(new Vector3(initialScale_lDoor.x, initialScale_lDoor.y, 0f), initialScale_lDoor, fraction);
+                rDoor.transform.localScale = Vector3.Lerp(new Vector3(initialScale_rDoor.x, initialScale_rDoor.y, 0f), initialScale_rDoor, fraction);
+
                 if (timer >= animDuration)
                 {
                     currentState = DoorState.CLOSED;
                 }
                 break;
             case DoorState.CLOSED:
-
                 break;
 
         }
