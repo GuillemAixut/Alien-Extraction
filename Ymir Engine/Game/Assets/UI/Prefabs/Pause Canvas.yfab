@@ -7,7 +7,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1527236003,
+            "Parent UID": 2088433382,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1586,
-                    "Height": 1000,
+                    "Width": 1923,
+                    "Height": 1008,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -127,8 +127,8 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        0,
+                        734,
+                        424,
                         0
                     ],
                     "Rotation": [
@@ -169,7 +169,7 @@
             ]
         },
         {
-            "Name": "Continue",
+            "Name": "Resume",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1256989267,
@@ -207,8 +207,8 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        0,
+                        734,
+                        424,
                         424,
                         152
                     ],
@@ -324,19 +324,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 129,
+                    "Position X": 155,
                     "Position Y": 77,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        129,
-                        77,
+                        889,
+                        501,
                         300,
                         50
                     ],
-                    "Text": "Continue",
+                    "Text": "Resume",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -393,12 +393,12 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        129,
+                        734,
+                        553,
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
+                    "Path": "Assets\/Lava.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -471,7 +471,8 @@
                     "Active": 1,
                     "UID": 0,
                     "sceneName": "UI\/Scenes\/StartScene",
-                    "time": 10
+                    "time": 10,
+                    "saveGame": true
                 }
             ],
             "Children UID": [
@@ -517,8 +518,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        135,
-                        202,
+                        869,
+                        626,
                         300,
                         50
                     ],
@@ -579,12 +580,12 @@
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        0,
-                        261,
+                        734,
+                        685,
                         424,
                         152
                     ],
-                    "Path": "Assets\/UI\/Buttons\/Button_unpressed.png",
+                    "Path": "Assets\/Lava.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -701,8 +702,8 @@
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        166,
-                        337,
+                        900,
+                        761,
                         300,
                         50
                     ],
