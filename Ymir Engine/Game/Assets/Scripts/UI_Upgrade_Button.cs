@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -29,12 +30,23 @@ public class UI_Upgrade_Button : YmirComponent
 
         upgrade = new Upgrade(name, description, cost, isUnlocked);
 
+        if (stationName.Contains("Sub"))
+        {
+            upgrade.type = WEAPON_TYPE.SMG;
+        }
+        else if (stationName.Contains("Shotgun"))
+        {
+            upgrade.type = WEAPON_TYPE.SHOTGUN;
+        }
+        else
+        {
+            upgrade.type = WEAPON_TYPE.PLASMA;
+        }
+
         _setFocused = false;
 
-        if (!upgrade.isUnlocked && cost != 1)
-        {
-            UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
-        }
+        LoadWeaponUpgrade();
+        ManageStart();
 
         GameObject go = InternalCalls.GetGameObjectByName("Upgrade Station");
 
@@ -72,6 +84,9 @@ public class UI_Upgrade_Button : YmirComponent
                         GameObject go2 = InternalCalls.GetChildrenByName(InternalCalls.GetGameObjectByName(stationName), "Upgrade 2");
                         UI.SetUIState(go2, (int)UI_STATE.NORMAL);
                         currentStation.currentScore -= upgrade.cost;
+
+                        upgrade.upgradeType = UPGRADE.LVL_1;
+
                         upgrade.isUnlocked = true;
                     }
                     break;
@@ -83,6 +98,8 @@ public class UI_Upgrade_Button : YmirComponent
                         UI.SetUIState(go3, (int)UI_STATE.NORMAL);
                         UI.SetUIState(go4, (int)UI_STATE.NORMAL);
 
+                        upgrade.upgradeType = UPGRADE.LVL_2;
+
                         currentStation.currentScore -= upgrade.cost;
                         upgrade.isUnlocked = true;
                     }
@@ -93,11 +110,15 @@ public class UI_Upgrade_Button : YmirComponent
                         {
                             GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
                             UI.SetUIState(go4, (int)UI_STATE.DISABLED);
+
+                            upgrade.upgradeType = UPGRADE.LVL_3_ALPHA;
                         }
                         else
                         {
                             GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
                             UI.SetUIState(go3, (int)UI_STATE.DISABLED);
+
+                            upgrade.upgradeType = UPGRADE.LVL_3_BETA;
                         }
 
                         currentStation.currentScore -= upgrade.cost;
@@ -105,6 +126,8 @@ public class UI_Upgrade_Button : YmirComponent
                     }
                     break;
             }
+
+            SaveWeaponUpgrade();
             currentStation.UpdateCoins();
         }
 
@@ -117,6 +140,50 @@ public class UI_Upgrade_Button : YmirComponent
         {
             UI.TextEdit(currentStation.description, description);
             UI.TextEdit(currentStation.cost, upgrade.cost.ToString());
+        }
+    }
+
+    public void SaveWeaponUpgrade()
+    {
+        string saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+        SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Upgrade " + upgrade.type.ToString(), (int)upgrade.upgradeType);
+
+        Debug.Log("saved " + upgrade.type.ToString() + ": " + upgrade.upgradeType.ToString());
+    }
+
+    public void LoadWeaponUpgrade()
+    {
+        string saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+        upgrade.upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Upgrade " + upgrade.type.ToString());
+    }
+
+    private void ManageStart()
+    {
+        int num = (name.Contains("0") ? 0 : name.Contains("1") ? 1 : name.Contains("2") ? 2 : name.Contains("3") ? 3 : 4);
+
+        if (num <= (int)upgrade.upgradeType && num < 3)
+        {
+            upgrade.isUnlocked = true;
+            UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+        }
+        else if (num == (int)upgrade.upgradeType && num >= 3)
+        {
+            upgrade.isUnlocked = true;
+            UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+        }
+        else
+        {
+            upgrade.isUnlocked = false;
+            UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
+        }
+
+        if (num == (int)upgrade.upgradeType && num == 2)
+        {
+            GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 3");
+            GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
+
+            UI.SetUIState(go3, (int)UI_STATE.NORMAL);
+            UI.SetUIState(go4, (int)UI_STATE.NORMAL);
         }
     }
 }
