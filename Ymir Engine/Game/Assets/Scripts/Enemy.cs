@@ -70,13 +70,13 @@ public class Enemy : YmirComponent
     protected float epicProb;
 
     protected Vector3 itemPos = Vector3.zero;
-    Random random = new Random();
+    public Random random = new Random();
 
 
 
     public void TakeDmg(float dmg)
     {
-        life -= dmg * armor;
+        life -= (1 - armor) * dmg;
     }
 
     public void LookAt(Vector3 pointToLook)

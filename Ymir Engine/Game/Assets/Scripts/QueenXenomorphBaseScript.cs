@@ -675,4 +675,9 @@ public class QueenXenomorphBaseScript : YmirComponent
             Animation.ResumeAnimation(gameObject);
         }
     }
+    public void TakeDmg(float dmg)
+    {
+        life -= (1 - armor) * dmg;
+    }
+
 }

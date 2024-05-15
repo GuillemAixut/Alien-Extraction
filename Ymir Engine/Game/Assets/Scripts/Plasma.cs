@@ -118,20 +118,27 @@ public class Plasma : Weapon
 
                 if (aux != null)
                 {
-                    aux.life -= currentDamage;
+                    aux.TakeDmg(currentDamage);
                 }
 
                 DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
                 if (aux2 != null)
                 {
-                    aux2.life -= currentDamage;
+                    aux2.TakeDmg(currentDamage);
                 }
 
                 QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
                 if (aux3 != null)
                 {
-                    aux3.life -= currentDamage;
+                    aux3.TakeDmg(currentDamage);
                 }
+
+                SpitterBaseScript aux4 = target.GetComponent<SpitterBaseScript>();
+                if (aux4 != null)
+                {
+                    aux4.TakeDmg(currentDamage);
+                }
+
                 Debug.Log("[ERROR] HIT ENEMy");
                 //-----------------------------------------------------------------------------------
             }
