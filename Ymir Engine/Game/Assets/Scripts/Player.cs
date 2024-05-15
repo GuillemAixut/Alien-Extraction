@@ -293,6 +293,8 @@ public class Player : YmirComponent
             UI.TextEdit(resinText, "x" + currentResinVessels.ToString());
         }
 
+        hasTalkedIscariot = false;
+
         //--------------------- Get Skills Scripts ---------------------\\
         GetSkillsScripts();
 
@@ -417,18 +419,24 @@ public class Player : YmirComponent
             if (Input.GetKey(YmirKeyCode.Alpha1) == KeyState.KEY_DOWN)
             {
                 weaponType = WEAPON_TYPE.SMG;
+                LoadWeaponUpgrade();
+
                 SetWeapon();
             }
 
             if (Input.GetKey(YmirKeyCode.Alpha2) == KeyState.KEY_DOWN)
             {
                 weaponType = WEAPON_TYPE.SHOTGUN;
+                LoadWeaponUpgrade();
+
                 SetWeapon();
             }
 
             if (Input.GetKey(YmirKeyCode.Alpha3) == KeyState.KEY_DOWN)
             {
                 weaponType = WEAPON_TYPE.PLASMA;
+                LoadWeaponUpgrade();
+
                 SetWeapon();
             }
 
@@ -1995,9 +2003,7 @@ public class Player : YmirComponent
 
         // Weapons
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");
-        //upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Weapon upgrade");
-
-        upgradeType = 0;
+        LoadWeaponUpgrade();
         SetWeapon();
 
         // Stats
@@ -2023,6 +2029,12 @@ public class Player : YmirComponent
 
         currentLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current Lvl");
         lastUnlockedLvl = SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Last unlocked Lvl");
+    }
+
+    private void LoadWeaponUpgrade()
+    {
+        saveName = SaveLoad.LoadString(Globals.saveGameDir, Globals.saveGamesInfoFile, Globals.saveCurrentGame);
+        upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Upgrade " + weaponType.ToString());
     }
 
     public void LoadItems()

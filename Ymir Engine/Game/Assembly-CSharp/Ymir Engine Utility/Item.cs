@@ -58,7 +58,7 @@ namespace YmirEngine
 
         // Menus management
         public bool inInventory = false;
-        public bool inStash = false;
+        //public bool inStash = false;
         public bool inCraft = false;
 
         public string dictionaryName = "";
@@ -92,10 +92,12 @@ namespace YmirEngine
             imagePath = other.imagePath;
             name = other.name;
             description = other.description;
+
             isEquipped = other.isEquipped;
             inSave = other.inSave;
+
             inInventory = other.inInventory;
-            inStash = other.inStash;
+            //inStash = other.inStash;
             inCraft = other.inCraft;
             dictionaryName = other.dictionaryName;
         }
@@ -272,7 +274,9 @@ namespace YmirEngine
         public string name, description;
         public int cost;
         public bool isUnlocked;
-        //UPGRADE upgrade;
+
+        public WEAPON_TYPE type = WEAPON_TYPE.NONE;
+        public UPGRADE upgradeType = UPGRADE.NONE;
 
         public Upgrade(string name, string description, int cost, bool isUnlocked)
         {
