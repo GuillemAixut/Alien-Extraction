@@ -11,7 +11,6 @@ public class BH_Shotgun : YmirComponent
 {
     GameObject playerObject;
     Player player;
-
     public void Start()
     {
         playerObject = InternalCalls.GetGameObjectByName("Player");
@@ -40,25 +39,25 @@ public class BH_Shotgun : YmirComponent
 
             if (aux != null)
             {
-                aux.life -= 110;
+                aux.TakeDmg(player.currentWeapon.damage);
             }
 
             DroneXenomorphBaseScript aux2 = other.GetComponent<DroneXenomorphBaseScript>();
             if (aux2 != null)
             {
-                aux2.life -= 110;
+                aux.TakeDmg(player.currentWeapon.damage);
             }
 
             QueenXenomorphBaseScript aux3 = other.GetComponent<QueenXenomorphBaseScript>();
             if (aux3 != null)
             {
-                aux3.life -= 110;
+                aux.TakeDmg(player.currentWeapon.damage);
             }
 
             SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
             if (aux4 != null)
             {
-                aux4.life -= 110;
+                aux.TakeDmg(player.currentWeapon.damage);
             }
 
             Debug.Log("[ERROR] HIT ENEMy");

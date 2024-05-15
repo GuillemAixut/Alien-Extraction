@@ -76,7 +76,7 @@ public class Enemy : YmirComponent
 
     public void TakeDmg(float dmg)
     {
-        life -= dmg * armor;
+        life -= (1 - armor) * dmg;
     }
 
     public void LookAt(Vector3 pointToLook)
