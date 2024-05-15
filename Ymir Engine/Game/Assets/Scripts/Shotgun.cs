@@ -72,7 +72,7 @@ public class Shotgun : Weapon
                 fireRate = 1.3f;
                 damage = 80;
                 reloadTime = 2.5f;
-                range = 21;
+                range = 21f;
                 dispersion = 80;
 
                 break;
@@ -95,7 +95,7 @@ public class Shotgun : Weapon
         Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 
 
-        InternalCalls.CreateShotgunSensor(gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * range * 4), rot, 70, 15, gameObject.transform.GetRight());
+        InternalCalls.CreateShotgunSensor(gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * range), rot, 70, 15, gameObject.transform.GetRight());
 
         switch (_upgrade)
         {

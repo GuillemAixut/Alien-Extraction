@@ -128,7 +128,7 @@ public class Plasma : Weapon
                 {
                     GameObject FaceHuggerDamageParticles = InternalCalls.GetChildrenByName(aux.gameObject, "ParticlesDamageFaceHugger");
                     if (FaceHuggerDamageParticles != null) Particles.PlayParticlesTrigger(FaceHuggerDamageParticles);
-                    aux.TakeDmg(currentDamage);
+                    aux.TakeDmg(currentDamage*3);
                 }
 
                 DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
@@ -136,7 +136,7 @@ public class Plasma : Weapon
                 {
                     GameObject DroneDamageParticles = InternalCalls.GetChildrenByName(aux2.gameObject, "ParticlesDamageDrone");
                     if (DroneDamageParticles != null) Particles.PlayParticlesTrigger(DroneDamageParticles);
-                    aux2.TakeDmg(currentDamage);
+                    aux2.TakeDmg(currentDamage * 3);
                 }
 
                 QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
@@ -144,7 +144,7 @@ public class Plasma : Weapon
                 {
                     GameObject QueenDamageParticles = InternalCalls.GetChildrenByName(aux3.gameObject, "ParticlesDamageQueen");
                     if (QueenDamageParticles != null) Particles.PlayParticlesTrigger(QueenDamageParticles);
-                    aux3.TakeDmg(currentDamage);
+                    aux3.TakeDmg(currentDamage * 3);
                 }
 
                 SpitterBaseScript aux4 = target.GetComponent<SpitterBaseScript>();
@@ -152,7 +152,7 @@ public class Plasma : Weapon
                 {
                     GameObject SpitterDamageParticles = InternalCalls.GetChildrenByName(aux4.gameObject, "ParticlesDamageSpitter");
                     if (SpitterDamageParticles != null) Particles.PlayParticlesTrigger(SpitterDamageParticles);
-                    aux4.TakeDmg(currentDamage);
+                    aux4.TakeDmg(currentDamage * 3);
                 }
 
                 Debug.Log("[ERROR] HIT ENEMy");
