@@ -230,7 +230,7 @@ namespace YmirEngine
                 /*item type*/       ITEM_SLOT.MATERIAL,
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
-                /*name*/            "Alien Aluminum Bone",
+                /*name*/            "Alien Aluminium Bone",
                 /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_common"
@@ -242,7 +242,7 @@ namespace YmirEngine
                 /*item type*/       ITEM_SLOT.MATERIAL,
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
-                /*name*/            "Alien Aluminum Bone",
+                /*name*/            "Alien Aluminium Bone",
                 /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_rare"
@@ -255,7 +255,7 @@ namespace YmirEngine
                 /*item type*/       ITEM_SLOT.MATERIAL,
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
-                /*name*/            "Alien Aluminum Bone",
+                /*name*/            "Alien Aluminium Bone",
                 /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_epic"

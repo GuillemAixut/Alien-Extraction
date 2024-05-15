@@ -39,9 +39,10 @@ public class UI_Crafting_Recipe : YmirComponent
         for (int i = 0; i < InternalCalls.CS_GetChildrenSize(gameObject) - 1; i++) // Don't check last element (item to create)
         {
             GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2); // (Slot(Button))
-            //Debug.Log(button.Name);
-            //Debug.Log(button.GetComponent<UI_Item_Button>().itemType.ToString());
-            //Debug.Log(button.GetComponent<UI_Item_Button>().currentSlot.ToString());
+            Debug.Log(button.Name);
+            Debug.Log(button.GetComponent<UI_Item_Button>().itemType.ToString());
+            Debug.Log(button.GetComponent<UI_Item_Button>().itemRarity.ToString());
+            Debug.Log(button.GetComponent<UI_Item_Button>().currentSlot.ToString());
 
             if (button.GetComponent<UI_Item_Button>().itemType != ITEM_SLOT.NONE) // Check if it's empty
             {
@@ -76,26 +77,21 @@ public class UI_Crafting_Recipe : YmirComponent
             Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item.itemRarity.ToString());
             Debug.Log(_rarity.ToString());
 
-            // WIP
-            // Reset item values in the UI menu
-            //InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().CreateItemBase();
+            // Delete item from player list
+            GameObject goDelete = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2);
+            player.itemsList.Remove(goDelete.GetComponent<UI_Item_Button>().item);
 
-            // TODO: Delete item from player list, doesn't work for now
-            //for (int j = 0; j < player.itemsList.Count; j++)
-            //{
-            //    if (player.itemsList[i].Equals(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item))
-            //    {
-            //        Debug.Log(player.itemsList[i].name);
-            //        Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2).GetComponent<UI_Item_Button>().item.name);
-
-            //        player.itemsList.Remove(player.itemsList[i]);
-            //        break;
-            //    }
-            //}
+            // Change current item to an empty one
+            goDelete.GetComponent<UI_Item_Button>().item.itemType = ITEM_SLOT.NONE;
+            goDelete.GetComponent<UI_Item_Button>().itemType = ITEM_SLOT.NONE;
+            goDelete.GetComponent<UI_Item_Button>().SetInspectorType(ITEM_SLOT.NONE);
+            goDelete.GetComponent<UI_Item_Button>().item.itemRarity = ITEM_RARITY.NONE;
+            goDelete.GetComponent<UI_Item_Button>().itemRarity = ITEM_RARITY.NONE;
+            goDelete.GetComponent<UI_Item_Button>().item = goDelete.GetComponent<UI_Item_Button>().CreateItemBase();
         }
 
-        Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).Name);
-        Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item.name);
+        //Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).Name);
+        //Debug.Log(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item.name);
 
         // Add new item
         Item item = null;
