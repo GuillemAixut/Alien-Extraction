@@ -53,7 +53,7 @@ public class UI_Upgrade_Button : YmirComponent
             currentStation = go.GetComponent<UI_Upgrade_Station>();
         }
 
-        if (cost == 2 || cost == 4)
+        if (cost == 2)
         {
             _parent = InternalCalls.GetGameObjectByName(stationName + " End");
         }
@@ -93,9 +93,10 @@ public class UI_Upgrade_Button : YmirComponent
                     break;
                 case 2:
                     {
-                        GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 3");
-                        GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
-
+                        GameObject go3 = InternalCalls.CS_GetChild(InternalCalls.GetGameObjectByName(stationName + " 3"), 0);
+                        Debug.Log(go3.Name);
+                        GameObject go4 = InternalCalls.CS_GetChild(InternalCalls.GetGameObjectByName(stationName + " 4"), 0);
+                        Debug.Log(go4.Name);
                         UI.SetUIState(go3, (int)UI_STATE.NORMAL);
                         UI.SetUIState(go4, (int)UI_STATE.NORMAL);
 
@@ -107,19 +108,26 @@ public class UI_Upgrade_Button : YmirComponent
                     break;
                 case 4:
                     {
-                        if (gameObject.Name == "Upgrade 3")
+                        if (UI.CompareStringToName(gameObject, "Upgrade 3"))
                         {
-                            GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
+                            Debug.Log(gameObject.Name);
+                            Debug.Log(stationName + " 3");
+
+                            GameObject go4 = InternalCalls.CS_GetChild(InternalCalls.GetGameObjectByName(stationName + " 4"), 0);
                             UI.SetUIState(go4, (int)UI_STATE.DISABLED);
 
-                            upgrade.upgradeType = UPGRADE.LVL_3_BETA;
+                            upgrade.upgradeType = UPGRADE.LVL_3_ALPHA;
                         }
                         else
                         {
-                            GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
+                            GameObject go3 = InternalCalls.CS_GetChild(InternalCalls.GetGameObjectByName(stationName + " 3"), 0);
                             UI.SetUIState(go3, (int)UI_STATE.DISABLED);
 
-                            upgrade.upgradeType = UPGRADE.LVL_3_ALPHA;
+                            GameObject goStation = InternalCalls.GetGameObjectByName(stationName);
+                            Debug.Log(goStation.Name);
+                            goStation.GetComponent<UI_Inventory_Grid>().downGrid = InternalCalls.GetGameObjectByName(stationName + " 4");
+
+                            upgrade.upgradeType = UPGRADE.LVL_3_BETA;
                         }
 
                         currentStation.currentScore -= upgrade.cost;
@@ -261,6 +269,10 @@ public class UI_Upgrade_Button : YmirComponent
                     {
                         upgrade.isUnlocked = true;
                         UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+
+                        GameObject goStation = InternalCalls.GetGameObjectByName(stationName);
+                        Debug.Log(goStation.Name);
+                        goStation.GetComponent<UI_Inventory_Grid>().downGrid = InternalCalls.GetGameObjectByName(stationName + " 4");
                     }
                     else if ((int)upgrade.upgradeType == 2)
                     {
