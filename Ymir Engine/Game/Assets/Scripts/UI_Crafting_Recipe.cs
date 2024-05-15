@@ -40,11 +40,12 @@ public class UI_Crafting_Recipe : YmirComponent
         {
             GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, i), 2); // (Slot(Button))
             Debug.Log(button.Name);
-            Debug.Log(button.GetComponent<UI_Item_Button>().itemType.ToString());
-            Debug.Log(button.GetComponent<UI_Item_Button>().itemRarity.ToString());
-            Debug.Log(button.GetComponent<UI_Item_Button>().currentSlot.ToString());
+            Debug.Log("NAME ITEM: " + button.GetComponent<UI_Item_Button>().item.name.ToString());
+            Debug.Log("TYPE ITEM: " + button.GetComponent<UI_Item_Button>().item.itemType.ToString());
+            Debug.Log("RARITY ITEM: " + button.GetComponent<UI_Item_Button>().item.itemRarity.ToString());
+            Debug.Log("CURRENT SLOT ITEM: " + button.GetComponent<UI_Item_Button>().item.currentSlot.ToString());
 
-            if (button.GetComponent<UI_Item_Button>().itemType != ITEM_SLOT.NONE) // Check if it's empty
+            if (button.GetComponent<UI_Item_Button>().item.itemType != ITEM_SLOT.NONE) // Check if it's empty
             {
                 count++;
                 Debug.Log(count.ToString());
