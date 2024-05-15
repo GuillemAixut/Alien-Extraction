@@ -759,7 +759,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 		break;
 	}
 
-	if((spawnFromStart || playTriggered) && numParticlesSpawned < numParticlesForStop)
+	if((spawnFromStart || playTriggered) && numParticlesSpawned < numParticlesForStop && startMode != ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER)
 	{
 		switch (spawnMode)
 		{
