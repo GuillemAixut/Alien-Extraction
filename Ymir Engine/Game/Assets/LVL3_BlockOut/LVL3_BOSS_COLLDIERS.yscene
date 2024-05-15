@@ -1,5 +1,5 @@
 {
-    "NavMesh": "Assets\/LVL3_BlockOut\/LVL3_BOSS_COLLDIERS.nav",
+    "NavMesh": "Assets\/LVL3_BlockOut\/\/LVL3_BOSS_COLLDIERS.nav",
     "Editor Camera Position": [
         -389.99478149414062,
         280.83038330078125,
@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1254802211,
+            "UID": 1341072154,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -53,7 +53,7 @@
             "UID": 172333081,
             "Active": false,
             "Element_Type": "Model",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -846,7 +846,7 @@
             "UID": 1349128443,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1487,7 +1487,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        14.605810165405273,
+                        14.605808258056641,
                         -0
                     ],
                     "Scale": [
@@ -1670,7 +1670,7 @@
             "UID": 1484304711,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1700,7 +1700,7 @@
             "UID": 27792721,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1771,7 +1771,7 @@
             "UID": 660882132,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1808,7 +1808,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -1835,8 +1835,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 339,
-                    "Height": 474,
+                    "Width": 582,
+                    "Height": 679,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -3268,7 +3268,8 @@
                     "delay": 0.10000000149011612,
                     "loopCount": 1,
                     "totalFrames": 18,
-                    "currentIndex": 18
+                    "currentIndex": 18,
+                    "disableOnFinish": true
                 }
             ],
             "Children UID": [
@@ -3538,7 +3539,8 @@
                     "delay": 0.10000000149011612,
                     "loopCount": 1,
                     "totalFrames": 18,
-                    "currentIndex": 18
+                    "currentIndex": 18,
+                    "disableOnFinish": true
                 }
             ],
             "Children UID": [
@@ -3808,7 +3810,8 @@
                     "delay": 0.10000000149011612,
                     "loopCount": 1,
                     "totalFrames": 18,
-                    "currentIndex": 18
+                    "currentIndex": 18,
+                    "disableOnFinish": true
                 }
             ],
             "Children UID": [
@@ -4078,7 +4081,8 @@
                     "delay": 0.10000000149011612,
                     "loopCount": 1,
                     "totalFrames": 18,
-                    "currentIndex": 18
+                    "currentIndex": 18,
+                    "disableOnFinish": true
                 }
             ],
             "Children UID": [
@@ -4282,7 +4286,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11763,7 +11767,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12093,7 +12097,7 @@
                     ],
                     "Text": "Back to base",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 33.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -12116,7 +12120,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12447,7 +12451,7 @@
                     ],
                     "Text": "Transfer Conciousness",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 48.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -12634,7 +12638,7 @@
                     ],
                     "Text": "Back To Menu",
                     "Font name": "de-valencia-beta.otf",
-                    "Font path": "Assets\\Fonts",
+                    "Font path": "Assets\/Fonts",
                     "Font size": 48.200000762939453,
                     "Line Spacing": 0.5,
                     "Color": [
@@ -12657,7 +12661,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12770,7 +12774,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13234,7 +13238,8 @@
                     "Active": 1,
                     "UID": 0,
                     "sceneName": "UI\/Scenes\/StartScene",
-                    "time": 10
+                    "time": 10,
+                    "saveGame": true
                 }
             ],
             "Children UID": [
@@ -13500,7 +13505,7 @@
             "UID": 1978513889,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14085,7 +14090,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14664,8 +14669,7 @@
                     "range": 0,
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
+                    "reloadTimer": 0
                 },
                 {
                     "Type": "Audio source",
@@ -15305,7 +15309,6 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
                     "ammoInChamber": 0,
                     "dispersion": 0
                 },
@@ -16057,8 +16060,8 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
+                    "damageEscalation": 0,
+                    "currentDamage": 0
                 },
                 {
                     "Type": "Audio source",
@@ -16509,8 +16512,7 @@
                     "range": 0,
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
+                    "reloadTimer": 0
                 },
                 {
                     "Type": "Audio source",
@@ -16603,7 +16605,6 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
                     "ammoInChamber": 0,
                     "dispersion": 0
                 },
@@ -16698,8 +16699,8 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
+                    "damageEscalation": 0,
+                    "currentDamage": 0
                 },
                 {
                     "Type": "Audio source",
@@ -16791,8 +16792,7 @@
                     "range": 0,
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
+                    "reloadTimer": 0
                 },
                 {
                     "Type": "Audio source",
@@ -16885,7 +16885,6 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
                     "ammoInChamber": 0,
                     "dispersion": 0
                 },
@@ -16980,8 +16979,8 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
+                    "damageEscalation": 0,
+                    "currentDamage": 0
                 },
                 {
                     "Type": "Audio source",
@@ -17073,8 +17072,7 @@
                     "range": 0,
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
+                    "reloadTimer": 0
                 },
                 {
                     "Type": "Audio source",
@@ -17167,7 +17165,6 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
                     "ammoInChamber": 0,
                     "dispersion": 0
                 },
@@ -17262,8 +17259,8 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
+                    "damageEscalation": 0,
+                    "currentDamage": 0
                 },
                 {
                     "Type": "Audio source",
@@ -17355,8 +17352,7 @@
                     "range": 0,
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
+                    "reloadTimer": 0
                 },
                 {
                     "Type": "Audio source",
@@ -17449,7 +17445,6 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
                     "ammoInChamber": 0,
                     "dispersion": 0
                 },
@@ -17544,8 +17539,8 @@
                     "currentAmmo": 0,
                     "fireRateTimer": 0,
                     "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
+                    "damageEscalation": 0,
+                    "currentDamage": 0
                 },
                 {
                     "Type": "Audio source",
@@ -19889,9 +19884,9 @@
                 {
                     "Type": "Audio source",
                     "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
+                    "Bank Name": "LV3Music",
+                    "Event Name": "LV3_Boss",
+                    "Event ID": 3961795458
                 }
             ]
         },
@@ -19902,7 +19897,7 @@
             "UID": 155676397,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1254802211,
+            "Parent UID": 1341072154,
             "Components": [
                 {
                     "Type": "Transform",
@@ -20031,9 +20026,9 @@
                         0.44474205374717712
                     ],
                     "Rotation": [
-                        -90.000015258789062,
-                        1.366037849948043e-05,
-                        -45.000003814697266
+                        -90.000022888183594,
+                        1.878302100521978e-05,
+                        -45.000007629394531
                     ],
                     "Scale": [
                         100,
@@ -20269,7 +20264,7 @@
                     ],
                     "Rotation": [
                         -90.000015258789062,
-                        1.2806605127479997e-06,
+                        8.5377365621752688e-07,
                         -9.9354486465454102
                     ],
                     "Scale": [
@@ -20420,9 +20415,9 @@
                         -104.99391937255859
                     ],
                     "Rotation": [
-                        -90.000022888183594,
-                        -5.122642050991999e-06,
-                        103.97385406494141
+                        -90.000030517578125,
+                        -3.4150946248701075e-06,
+                        103.97386169433594
                     ],
                     "Scale": [
                         100,
@@ -20496,8 +20491,8 @@
                         40.757823944091797
                     ],
                     "Rotation": [
-                        -90.000022888183594,
-                        1.878302100521978e-05,
+                        -90.000030517578125,
+                        2.2198115402716212e-05,
                         135
                     ],
                     "Scale": [
@@ -20773,9 +20768,9 @@
                         -230.77484130859375
                     ],
                     "Rotation": [
-                        -90,
-                        1.0245284101983998e-05,
-                        -46.265880584716797
+                        -90.000007629394531,
+                        8.5377369032357819e-06,
+                        -46.265888214111328
                     ],
                     "Scale": [
                         100,
@@ -20844,8 +20839,8 @@
                     ],
                     "Rotation": [
                         -90.000007629394531,
-                        3.4150946248701075e-06,
-                        -21.271108627319336
+                        1.7075473124350538e-06,
+                        -21.271110534667969
                     ],
                     "Scale": [
                         99.999992370605469,
@@ -20914,7 +20909,7 @@
                     ],
                     "Rotation": [
                         -90.000022888183594,
-                        1.7075473806471564e-05,
+                        1.5367926607723348e-05,
                         -88.934806823730469
                     ],
                     "Scale": [
@@ -21263,9 +21258,9 @@
                         -136.74339294433594
                     ],
                     "Rotation": [
-                        -90,
+                        -90.000015258789062,
                         -1.366037849948043e-05,
-                        80.500068664550781
+                        80.500083923339844
                     ],
                     "Scale": [
                         100,
@@ -21333,9 +21328,9 @@
                         -136.74337768554688
                     ],
                     "Rotation": [
-                        -90,
+                        -90.000015258789062,
                         -1.366037849948043e-05,
-                        80.500068664550781
+                        80.500083923339844
                     ],
                     "Scale": [
                         100,
@@ -21753,8 +21748,8 @@
                         32.063220977783203
                     ],
                     "Rotation": [
-                        -90.000022888183594,
-                        1.7075473806471564e-05,
+                        -90.000030517578125,
+                        1.5367926607723348e-05,
                         133.62309265136719
                     ],
                     "Scale": [
@@ -21943,8 +21938,8 @@
                         -123.94481658935547
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        2.0490568203967996e-05,
+                        -90.000015258789062,
+                        1.366037849948043e-05,
                         -91.866790771484375
                     ],
                     "Scale": [
@@ -22551,8 +22546,8 @@
                         -96.221885681152344
                     ],
                     "Rotation": [
-                        -90,
-                        1.1952831300732214e-05,
+                        -90.000015258789062,
+                        8.5377369032357819e-06,
                         -135
                     ],
                     "Scale": [
@@ -22627,8 +22622,8 @@
                         109.72997283935547
                     ],
                     "Rotation": [
-                        -90,
-                        1.1952831300732214e-05,
+                        -90.000015258789062,
+                        8.5377369032357819e-06,
                         -135
                     ],
                     "Scale": [
@@ -23274,8 +23269,8 @@
                         -284.3463134765625
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        6.830189249740215e-06,
+                        -90.000015258789062,
+                        3.4150946248701075e-06,
                         -46.736801147460938
                     ],
                     "Scale": [
@@ -23402,8 +23397,8 @@
                         -96.298263549804688
                     ],
                     "Rotation": [
-                        -90,
-                        1.1952831300732214e-05,
+                        -90.000015258789062,
+                        8.5377369032357819e-06,
                         -135
                     ],
                     "Scale": [
@@ -23466,8 +23461,8 @@
                         110.67373657226562
                     ],
                     "Rotation": [
-                        -90,
-                        1.1952831300732214e-05,
+                        -90.000015258789062,
+                        8.5377369032357819e-06,
                         -135
                     ],
                     "Scale": [
@@ -23530,7 +23525,7 @@
                         -30.492519378662109
                     ],
                     "Rotation": [
-                        -90.000022888183594,
+                        -90.000038146972656,
                         1.7075473806471564e-05,
                         133.15216064453125
                     ],
@@ -23713,9 +23708,9 @@
                         -313.44595336914062
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        3.4150946248701075e-06,
-                        -45.000007629394531
+                        -90.000015258789062,
+                        5.122642050991999e-06,
+                        -45.000011444091797
                     ],
                     "Scale": [
                         100,
@@ -23777,9 +23772,9 @@
                         -149.16116333007812
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        3.4150946248701075e-06,
-                        -45.000007629394531
+                        -90.000015258789062,
+                        5.122642050991999e-06,
+                        -45.000011444091797
                     ],
                     "Scale": [
                         100,
@@ -23841,9 +23836,9 @@
                         -204.14047241210938
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        3.4150946248701075e-06,
-                        -45.000007629394531
+                        -90.000015258789062,
+                        5.122642050991999e-06,
+                        -45.000011444091797
                     ],
                     "Scale": [
                         100,
@@ -23905,9 +23900,9 @@
                         -259.40283203125
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        3.4150946248701075e-06,
-                        -45.000007629394531
+                        -90.000015258789062,
+                        5.122642050991999e-06,
+                        -45.000011444091797
                     ],
                     "Scale": [
                         100,
@@ -24289,8 +24284,8 @@
                         -93.356475830078125
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        3.4150946248701075e-06,
+                        -90.000015258789062,
+                        1.7075473124350538e-06,
                         -135
                     ],
                     "Scale": [
@@ -24353,8 +24348,8 @@
                         114.13134002685547
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        3.4150946248701075e-06,
+                        -90.000015258789062,
+                        1.7075473124350538e-06,
                         -135
                     ],
                     "Scale": [
@@ -24993,7 +24988,7 @@
                         -102.92914581298828
                     ],
                     "Rotation": [
-                        -90.000007629394531,
+                        -90.000015258789062,
                         0,
                         103.40393829345703
                     ],
@@ -25057,7 +25052,7 @@
                         -102.92915344238281
                     ],
                     "Rotation": [
-                        -90.000007629394531,
+                        -90.000015258789062,
                         0,
                         103.40393829345703
                     ],
@@ -25546,7 +25541,7 @@
                         -97.249130249023438
                     ],
                     "Rotation": [
-                        -90.000030517578125,
+                        -90.000038146972656,
                         -5.122642050991999e-06,
                         -135
                     ],
@@ -25622,7 +25617,7 @@
                         111.63606262207031
                     ],
                     "Rotation": [
-                        -90.000030517578125,
+                        -90.000038146972656,
                         -5.122642050991999e-06,
                         -135
                     ],
@@ -25698,8 +25693,8 @@
                         119.38208770751953
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -25774,8 +25769,8 @@
                         76.590255737304688
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -25850,8 +25845,8 @@
                         33.990093231201172
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -25926,8 +25921,8 @@
                         -8.6188440322875977
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -26002,8 +25997,8 @@
                         -51.192638397216797
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -26121,8 +26116,8 @@
                         119.90966796875
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -26197,8 +26192,8 @@
                         77.491722106933594
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -26273,8 +26268,8 @@
                         34.793056488037109
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -26349,8 +26344,8 @@
                         -7.521054744720459
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
@@ -26425,8 +26420,8 @@
                         -49.651149749755859
                     ],
                     "Rotation": [
-                        -90.000007629394531,
-                        -3.4150946248701075e-06,
+                        -90.000015258789062,
+                        -1.7075473124350538e-06,
                         135
                     ],
                     "Scale": [
