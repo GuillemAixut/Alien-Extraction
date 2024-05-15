@@ -81,6 +81,13 @@ namespace YmirEngine
             return (a.x * b.x + a.y + b.y + a.z + b.z);
         }
 
+        public static Vector3 Cross(Vector3 lhs, Vector3 rhs)
+        {
+            return new Vector3(
+                lhs.y * rhs.z - lhs.z * rhs.y,
+                lhs.z * rhs.x - lhs.x * rhs.z,
+                lhs.x * rhs.y - lhs.y * rhs.x);
+        }
         public static float Magnitude(Vector3 vector) { return (float)Math.Sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z); }
         public float magnitude { get { return (float)Math.Sqrt(x * x + y * y + z * z); } }
 
