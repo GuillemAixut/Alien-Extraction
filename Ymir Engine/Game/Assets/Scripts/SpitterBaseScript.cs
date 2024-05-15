@@ -389,6 +389,7 @@ public class SpitterBaseScript : Enemy
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 15;
                     InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
+                    InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Projectile-SpitterAcidSpit", pos);
                     acidDone = true;
                 }
 
@@ -418,8 +419,8 @@ public class SpitterBaseScript : Enemy
                     pos.z -= 10;
                     InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
                     explosionDone = true;
-                    GameObject particles = GetParticles(gameObject, "ParticlesAcidicEnemy");
-                    Particles.PlayParticlesTrigger(particles);
+                    //GameObject particles = GetParticles(gameObject, "ParticlesAcidicEnemy");
+                    //Particles.PlayParticlesTrigger(particles);
                 }
 
                 break;

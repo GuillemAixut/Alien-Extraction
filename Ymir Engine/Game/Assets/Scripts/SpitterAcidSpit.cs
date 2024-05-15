@@ -21,17 +21,24 @@ public class SpitterAcidSpit : YmirComponent
 
     private float destroyTimer;
 
+
     public void Start()
 	{
 		movementSpeed = 7000f;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
-        gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
         destroyed = false;
         destroyTimer = 0f;
-	}
+        Vector3 direction = gameObject.transform.globalPosition - player.transform.globalPosition;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        Debug.Log("[ERROR] ROTATIONNN " + gameObject.transform.globalRotation);
+        gameObject.transform.localRotation = rotation;
+        gameObject.SetRotation(rotation);
+        gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
+        Debug.Log("[ERROR] ROTATIONNN " + gameObject.transform.globalRotation);
+    }
 
-	public void Update()
+    public void Update()
 	{
         destroyTimer += Time.deltaTime;
 
