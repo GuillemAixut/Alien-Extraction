@@ -542,7 +542,11 @@ namespace YmirEngine
 
         public static Item SearchItemInDictionary(string name)
         {
-            Item _item = itemsDictionary[name];
+            string[] parts = name.Split(' ');
+
+            string itemName = parts[0];
+
+            Item _item = itemsDictionary[itemName];
 
             if (_item.itemType == ITEM_SLOT.ARMOR || _item.itemType == ITEM_SLOT.CHIP)
             {

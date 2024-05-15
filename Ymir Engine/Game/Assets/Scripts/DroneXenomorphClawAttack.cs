@@ -47,9 +47,6 @@ public class DroneXenomorphClawAttack : YmirComponent
         {
             healthScript.TakeDmg(damage);
             destroyed = true;
-
-            player.GetComponent<Player>().TakeDMG();
         }
     }
-
 }

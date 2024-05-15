@@ -36,12 +36,12 @@ public class Health : YmirComponent
         deathCanvas = InternalCalls.GetGameObjectByName("Death Canvas");
         winCanvas = InternalCalls.GetGameObjectByName("Win Canvas");
 
-        if (healthBar != null) 
-        { 
-            UI.SliderSetMax(healthBar, maxHealth); 
-            UI.SliderEdit(healthBar, maxHealth); 
+        if (healthBar != null)
+        {
+            UI.SliderSetMax(healthBar, maxHealth);
+            UI.SliderEdit(healthBar, maxHealth);
         }
-        
+
         currentHealth = maxHealth;
 
         isAlive = true;
@@ -52,7 +52,6 @@ public class Health : YmirComponent
 
     public void Update()
     {
-        //Debug.Log("QUE cono pasa 2 " + GetCurrentHealth());
         if (player != null && player.godMode)
         {
             if (Input.GetKey(YmirKeyCode.F3) == KeyState.KEY_DOWN)
@@ -100,6 +99,8 @@ public class Health : YmirComponent
     {
         if (player != null && !player.godMode)
         {
+            player.TakeDMG();
+
             currentHealth -= (dmg + armor); // reduce damage with amount of armor
 
             if (currentHealth > maxHealth)
@@ -128,7 +129,13 @@ public class Health : YmirComponent
     public bool DeathScreen()
     {
         if (deathCanvas != null) { deathCanvas.SetActive(true); UI.SetFirstFocused(deathCanvas); }
-        if (player != null) { player.gameObject.SetActive(false); }
+        if (player != null)
+        {
+            player.itemsList.Clear();
+            player.SavePlayer();
+            player.gameObject.SetActive(false);
+        }
+
         isAlive = false;
         Audio.StopAllAudios();
 

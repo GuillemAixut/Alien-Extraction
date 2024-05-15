@@ -49,9 +49,6 @@ public class QueenXenomorphClawAttack : YmirComponent
             Debug.Log("[ERROR] CLAW");
             healthScript.TakeDmg(damage);
             destroyed = true;
-
-            player.GetComponent<Player>().TakeDMG();
         }
     }
-
 }

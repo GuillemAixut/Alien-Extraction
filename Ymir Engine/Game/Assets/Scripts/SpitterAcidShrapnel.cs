@@ -49,8 +49,6 @@ public class SpitterAcidShrapnel : YmirComponent
         {
             healthScript.TakeDmg(damage);
             destroyed = true;
-
-            player.GetComponent<Player>().TakeDMG();
         }
     }
 }

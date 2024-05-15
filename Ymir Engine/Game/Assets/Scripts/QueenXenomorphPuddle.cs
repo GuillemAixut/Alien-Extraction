@@ -50,8 +50,6 @@ public class QueenXenomorphPuddle : YmirComponent
             Debug.Log("[ERROR] ACID PUDDLE");
             healthScript.TakeDmg(damage);
             puddleTimer = 0f;
-
-            player.GetComponent<Player>().TakeDMG();
         }
     }
 }

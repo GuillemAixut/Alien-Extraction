@@ -60,9 +60,6 @@ public class SpitterAcidSpit : YmirComponent
         {
             healthScript.TakeDmg(damage);
             destroyed = true;
-
-            player.GetComponent<Player>().TakeDMG();
         }
     }
-
 }
