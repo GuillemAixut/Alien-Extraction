@@ -512,7 +512,7 @@ void EmitterSpawner::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 {
-	bool spawnFromStart = true;
+	bool spawnFromStart = false;
 	bool countParticles = false;
 	switch (startMode)
 	{
