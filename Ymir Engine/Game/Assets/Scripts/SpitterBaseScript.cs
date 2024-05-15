@@ -130,6 +130,23 @@ public class SpitterBaseScript : Enemy
         life = 450f;
         armor = 0.15f;
 
+        rarity = random.Next(101);
+
+        Debug.Log("[ERROR]: " + rarity);
+
+        if (rarity >= 90)
+        {
+            rarity = 2;
+        }
+        else if (rarity >= 70)
+        {
+            rarity = 1;
+        }
+        else
+        {
+            rarity = 0;
+        }
+
         //Enemy rarity stats
         if (rarity == 1)
         {
@@ -167,7 +184,6 @@ public class SpitterBaseScript : Enemy
 
     public void Update()
     {
-        Debug.Log("[ERROR]: " + xenoState);
         if (CheckPause())
         {
             SetPause(true);
@@ -305,7 +321,7 @@ public class SpitterBaseScript : Enemy
                     xenoState = XenoState.IDLE_AGGRO;
                 }
 
-                if (acidSpitCooldownTime >= acidSpitCooldown)
+                if (acidSpitCooldownTime >= acidSpitCooldown && xenoState != XenoState.DEAD)
                 {
                     acidSpitCooldownTime = 0f;
                     timeCounter = 0f;
@@ -319,7 +335,7 @@ public class SpitterBaseScript : Enemy
                     acidExplosiveCooldownTime -= 1.5f;
                     LookAt(player.transform.globalPosition);
                 }
-                else if (acidExplosiveCooldownTime >= acidExplosiveCooldown)
+                else if (acidExplosiveCooldownTime >= acidExplosiveCooldown && xenoState != XenoState.DEAD)
                 {
                     acidExplosiveCooldownTime = 0f;
                     timeCounter = 0f;
@@ -426,7 +442,7 @@ public class SpitterBaseScript : Enemy
             //Walk backwards
             if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, tooCloseRange) && aggro == true)
             {
-                if (xenoState != XenoState.ACID_SPIT && xenoState != XenoState.ACID_REBOUND)
+                if (xenoState != XenoState.ACID_SPIT && xenoState != XenoState.ACID_REBOUND && xenoState != XenoState.DEAD)
                 {
                     timeCounter = 0f;
                     timeLimit = 0.8f;
@@ -448,7 +464,7 @@ public class SpitterBaseScript : Enemy
             {
                 outOfRangeTimer += Time.deltaTime;
 
-                if (outOfRangeTimer >= 3f)
+                if (outOfRangeTimer >= 3f && xenoState != XenoState.DEAD)
                 {
                     outOfRangeTimer = 0f;
                     timeCounter = 0f;
@@ -495,13 +511,16 @@ public class SpitterBaseScript : Enemy
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             Animation.PlayAnimation(gameObject, "Idle_Spiter");
             walkAni = false;
-            xenoState = XenoState.IDLE;
+            if (xenoState != XenoState.DEAD)
+            {
+                xenoState = XenoState.IDLE;
+            }
         }
     }
 
     private void isDeath()
     {
-        if (life <= 0)
+        if (life <= 0 && xenoState != XenoState.DEAD)
         {
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             itemPos = gameObject.transform.globalPosition;
@@ -519,7 +538,7 @@ public class SpitterBaseScript : Enemy
 
         if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange) && acidSpitCooldownTime >= acidSpitCooldown)
         {
-            if (xenoState != XenoState.ACID_REBOUND)
+            if (xenoState != XenoState.ACID_REBOUND && xenoState != XenoState.DEAD)
             {
                 acidSpitCooldownTime = 0f;
                 timeCounter = 0f;
@@ -536,7 +555,7 @@ public class SpitterBaseScript : Enemy
         }
         else if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange) && acidExplosiveCooldownTime >= acidExplosiveCooldown)
         {
-            if (xenoState != XenoState.ACID_SPIT)
+            if (xenoState != XenoState.ACID_SPIT && xenoState != XenoState.DEAD)
             {
                 acidExplosiveCooldownTime = 0f;
                 timeCounter = 0f;

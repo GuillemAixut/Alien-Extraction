@@ -70,7 +70,7 @@ public class Enemy : YmirComponent
     protected float epicProb;
 
     protected Vector3 itemPos = Vector3.zero;
-    Random random = new Random();
+    public Random random = new Random();
 
 
 

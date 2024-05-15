@@ -112,6 +112,23 @@ public class FaceHuggerBaseScript : Enemy
         life = 100f;
         armor = 0f;
 
+        rarity = random.Next(101);
+
+        Debug.Log("[ERROR]: " + rarity);
+
+        if (rarity >= 90)
+        {
+            rarity = 2;
+        }
+        else if (rarity >= 70)
+        {
+            rarity = 1;
+        }
+        else
+        {
+            rarity = 0;
+        }
+
         //Enemy rarity stats
         if (rarity == 1)
         {
