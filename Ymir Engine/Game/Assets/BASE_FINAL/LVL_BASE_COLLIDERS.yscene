@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1466980670,
+            "UID": 2017551328,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -55,7 +55,7 @@
             "UID": 1211565987,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2661,7 +2661,7 @@
             "UID": 1950834715,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10773,7 +10773,7 @@
             "UID": 1023082808,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13508,7 +13508,7 @@
             "UID": 812841453,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13545,7 +13545,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -16023,7 +16023,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -23583,7 +23583,7 @@
             "UID": 365492027,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -25445,7 +25445,7 @@
             "UID": 2098616738,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -54238,7 +54238,7 @@
             "UID": 869362369,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -54265,8 +54265,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 956,
-                    "Height": 435,
+                    "Width": 1918,
+                    "Height": 1175,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -54298,11 +54298,14 @@
                 369905588,
                 633310999,
                 1323418078,
+                1922294571,
                 973145517,
                 1648966489,
+                1308399246,
                 807582257,
                 467350589,
-                2040852358
+                764407502,
+                1639033827
             ]
         },
         {
@@ -54588,8 +54591,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 956,
-                    "Height": 435,
+                    "Width": 1918,
+                    "Height": 1175,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -54608,7 +54611,7 @@
                     "cols": 1,
                     "leftGridName": "Plasma Upgrade",
                     "rightGridName": "Shotgun Upgrade",
-                    "downGridName": "Sub Upgrade End",
+                    "downGridName": "Sub Upgrade 3",
                     "upGridName": " ",
                     "naviagteX": true,
                     "naviagteY": true,
@@ -55256,7 +55259,7 @@
             ]
         },
         {
-            "Name": "Sub Upgrade End",
+            "Name": "Sub Upgrade 3",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1323418078,
@@ -55289,9 +55292,9 @@
                     "Active": 1,
                     "UID": 0,
                     "rows": 1,
-                    "cols": 2,
-                    "leftGridName": "Plasma Upgrade",
-                    "rightGridName": "Shotgun Upgrade",
+                    "cols": 1,
+                    "leftGridName": "",
+                    "rightGridName": "Sub Upgrade 4",
                     "downGridName": " ",
                     "upGridName": "Sub Upgrade",
                     "naviagteX": true,
@@ -55304,8 +55307,7 @@
                 }
             ],
             "Children UID": [
-                1508460498,
-                726324725
+                1508460498
             ]
         },
         {
@@ -55498,13 +55500,65 @@
             ]
         },
         {
+            "Name": "Sub Upgrade 4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1922294571,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 869362369,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": "Sub Upgrade 3",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": "Sub Upgrade",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 2
+                }
+            ],
+            "Children UID": [
+                726324725
+            ]
+        },
+        {
             "Name": "Upgrade 4",
             "Static": false,
             "Tag": "Untagged",
             "UID": 726324725,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1323418078,
+            "Parent UID": 1922294571,
             "Components": [
                 {
                     "Type": "Transform",
@@ -55720,8 +55774,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 956,
-                    "Height": 435,
+                    "Width": 1918,
+                    "Height": 1175,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -55740,7 +55794,7 @@
                     "cols": 1,
                     "leftGridName": "Sub Upgrade",
                     "rightGridName": "Plasma Upgrade",
-                    "downGridName": "Shotgun Upgrade End",
+                    "downGridName": "Shotgun Upgrade 3",
                     "upGridName": " ",
                     "naviagteX": true,
                     "naviagteY": true,
@@ -56388,7 +56442,7 @@
             ]
         },
         {
-            "Name": "Shotgun Upgrade End",
+            "Name": "Shotgun Upgrade 3",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1648966489,
@@ -56421,9 +56475,9 @@
                     "Active": 1,
                     "UID": 0,
                     "rows": 1,
-                    "cols": 2,
-                    "leftGridName": "Sub Upgrade",
-                    "rightGridName": "Plasma Upgrade",
+                    "cols": 1,
+                    "leftGridName": "",
+                    "rightGridName": "Shotgun Upgrade 4",
                     "downGridName": " ",
                     "upGridName": "Shotgun Upgrade",
                     "naviagteX": true,
@@ -56436,8 +56490,7 @@
                 }
             ],
             "Children UID": [
-                584746059,
-                1182897050
+                584746059
             ]
         },
         {
@@ -56630,13 +56683,65 @@
             ]
         },
         {
+            "Name": "Shotgun Upgrade 4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1308399246,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 869362369,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": "Shotgun Upgrade 3",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": "Shotgun Upgrade",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 2
+                }
+            ],
+            "Children UID": [
+                1182897050
+            ]
+        },
+        {
             "Name": "Upgrade 4 (1)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1182897050,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1648966489,
+            "Parent UID": 1308399246,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56852,8 +56957,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 420,
-                    "Height": 337,
+                    "Width": 1918,
+                    "Height": 1175,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -56872,7 +56977,7 @@
                     "cols": 1,
                     "leftGridName": "Shotgun Upgrade",
                     "rightGridName": "Sub Upgrade",
-                    "downGridName": "Plasma Upgrade End",
+                    "downGridName": "Plasma Upgrade 3",
                     "upGridName": " ",
                     "naviagteX": true,
                     "naviagteY": true,
@@ -57458,7 +57563,7 @@
             ]
         },
         {
-            "Name": "Text",
+            "Name": "Text (23)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 147491104,
@@ -57520,7 +57625,7 @@
             ]
         },
         {
-            "Name": "Plasma Upgrade End",
+            "Name": "Plasma Upgrade 3",
             "Static": false,
             "Tag": "Untagged",
             "UID": 467350589,
@@ -57553,9 +57658,9 @@
                     "Active": 1,
                     "UID": 0,
                     "rows": 1,
-                    "cols": 2,
-                    "leftGridName": "Shotgun Upgrade",
-                    "rightGridName": "Sub Upgrade",
+                    "cols": 1,
+                    "leftGridName": "",
+                    "rightGridName": "Plasma Upgrade 4",
                     "downGridName": " ",
                     "upGridName": "Plasma Upgrade",
                     "naviagteX": true,
@@ -57568,13 +57673,11 @@
                 }
             ],
             "Children UID": [
-                717679600,
-                1417957922,
-                1639033827
+                717679600
             ]
         },
         {
-            "Name": "Upgrade 3   (2)",
+            "Name": "Upgrade 3",
             "Static": false,
             "Tag": "Untagged",
             "UID": 717679600,
@@ -57763,13 +57866,65 @@
             ]
         },
         {
-            "Name": "Upgrade 4 (2)",
+            "Name": "Plasma Upgrade 4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 764407502,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 869362369,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 1,
+                    "leftGridName": "Plasma Upgrade 3",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": "Plasma Upgrade",
+                    "naviagteX": true,
+                    "naviagteY": true,
+                    "bounceX": false,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 2
+                }
+            ],
+            "Children UID": [
+                1417957922
+            ]
+        },
+        {
+            "Name": "Upgrade 3 (2)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1417957922,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 467350589,
+            "Parent UID": 764407502,
             "Components": [
                 {
                     "Type": "Transform",
@@ -57958,7 +58113,7 @@
             "UID": 1639033827,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 467350589,
+            "Parent UID": 869362369,
             "Components": [
                 {
                     "Type": "Transform",
@@ -58014,91 +58169,13 @@
             ]
         },
         {
-            "Name": "WeaponUpgradeAnim",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2040852358,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 869362369,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 1920,
-                    "Height": 1080,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        1920,
-                        1080
-                    ],
-                    "Path": "Assets\/UI\/SpriteSheets\/WeaponUpgradeSpritesheet.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 2,
-                    "Columns": 7,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Animation.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "loop": false,
-                    "pingpongWIP": false,
-                    "backwards": false,
-                    "animState": true,
-                    "delay": 0.05000000074505806,
-                    "loopCount": 0,
-                    "totalFrames": 14,
-                    "currentIndex": 0,
-                    "disableOnFinish": true
-                }
-            ]
-        },
-        {
             "Name": "Npc_Dialogue",
             "Static": false,
             "Tag": "Untagged",
             "UID": 297696942,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -58843,7 +58920,7 @@
             "UID": 369438965,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71305,7 +71382,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71846,7 +71923,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -72199,7 +72276,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -72312,7 +72389,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
@@ -78119,7 +78196,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1466980670,
+            "Parent UID": 2017551328,
             "Components": [
                 {
                     "Type": "Transform",
