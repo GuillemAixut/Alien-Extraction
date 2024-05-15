@@ -77,18 +77,17 @@ public class SpitterBaseScript : Enemy
         aggro = false;
         detectionRadius = 120f;
         wanderRange = 100f;
-        //backwardsCooldownTime = 0f;
 
         //Acid spit
         acidSpitCooldown = 4f;
-        acidSpitCooldownTime = 0f;
+        acidSpitCooldownTime = 3.5f;
         acidSpitRange = 100f;
 
         tooCloseRange = 60f;
 
-        //Tail
+        //Explosive spit
         acidExplosiveCooldown = 10f;
-        acidExplosiveCooldownTime = 0f;
+        acidExplosiveCooldownTime = 5f;
 
         //Time
         timeCounter = 0f;
@@ -97,9 +96,8 @@ public class SpitterBaseScript : Enemy
         //Out of range timer
         outOfRangeTimer = 0f;
 
-        //Life
-        life = 450f;
         paused = false;
+
         //Drop items
         keys = "Nombre:,Probabilidad:";
         path = "Assets/Loot Tables/spitter_loot.csv";
@@ -129,6 +127,24 @@ public class SpitterBaseScript : Enemy
                 break;
         }
 
+        life = 450f;
+        armor = 0.15f;
+
+        //Enemy rarity stats
+        if (rarity == 1)
+        {
+            life = 1050;
+            armor = 0.325f;
+            agent.speed = 1700f;
+        }
+        else if (rarity == 2)
+        {
+            life = 1650;
+            armor = 0.45f;
+            agent.speed = 1800f;
+        }
+
+
         //Animations
         Animation.SetLoop(gameObject, "Idle_Spiter", true);
         Animation.SetLoop(gameObject, "Move_Spiter", true);
@@ -151,6 +167,7 @@ public class SpitterBaseScript : Enemy
 
     public void Update()
     {
+        Debug.Log("[ERROR]: " + xenoState);
         if (CheckPause())
         {
             SetPause(true);
@@ -288,6 +305,35 @@ public class SpitterBaseScript : Enemy
                     xenoState = XenoState.IDLE_AGGRO;
                 }
 
+                if (acidSpitCooldownTime >= acidSpitCooldown)
+                {
+                    acidSpitCooldownTime = 0f;
+                    timeCounter = 0f;
+                    //ANIMATION DURATION HERE!!!
+                    timeLimit = 0.8f;
+                    Animation.PlayAnimation(gameObject, "Atack_1_Spiter");
+                    walkAni = false;
+                    Audio.PlayAudio(gameObject, "XS_Spit");
+                    acidDone = false;
+                    xenoState = XenoState.ACID_SPIT;
+                    acidExplosiveCooldownTime -= 1.5f;
+                    LookAt(player.transform.globalPosition);
+                }
+                else if (acidExplosiveCooldownTime >= acidExplosiveCooldown)
+                {
+                    acidExplosiveCooldownTime = 0f;
+                    timeCounter = 0f;
+                    //ANIMATION DURATION HERE!!!
+                    timeLimit = 0.8f;
+                    Animation.PlayAnimation(gameObject, "Atack_2_Spiter");
+                    walkAni = false;
+                    Audio.PlayAudio(gameObject, "XS_Rebound");
+                    explosionDone = false;
+                    xenoState = XenoState.ACID_REBOUND;
+                    acidSpitCooldownTime -= 1.5f;
+                    LookAt(player.transform.globalPosition);
+                }
+
                 break;
             case XenoState.KNOCKBACK:
 
@@ -380,16 +426,18 @@ public class SpitterBaseScript : Enemy
             //Walk backwards
             if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, tooCloseRange) && aggro == true)
             {
-                timeCounter = 0f;
-                timeLimit = 0.8f;
-                Animation.SetBackward(gameObject, "Move_Spiter", true);
-                if (walkAni == false)
+                if (xenoState != XenoState.ACID_SPIT && xenoState != XenoState.ACID_REBOUND)
                 {
-                    Animation.PlayAnimation(gameObject, "Move_Spiter");
-                    walkAni = true;
+                    timeCounter = 0f;
+                    timeLimit = 0.8f;
+                    Animation.SetBackward(gameObject, "Move_Spiter", true);
+                    if (walkAni == false)
+                    {
+                        Animation.PlayAnimation(gameObject, "Move_Spiter");
+                        walkAni = true;
+                    }
+                    xenoState = XenoState.MOVE_BACKWARDS;
                 }
-                xenoState = XenoState.MOVE_BACKWARDS;
-
             }
 
             //Check attacks

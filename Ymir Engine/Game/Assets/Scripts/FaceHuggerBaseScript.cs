@@ -61,7 +61,6 @@ public class FaceHuggerBaseScript : Enemy
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         agent = gameObject.GetComponent<PathFinding>();
-        movementSpeed = 25f;
         knockBackSpeed = 200;
         knockBackTimer = 0.2f;
         stopedDuration = 1f;
@@ -106,24 +105,26 @@ public class FaceHuggerBaseScript : Enemy
 
         cumTimer = cumDuration2;
 
+        agent.stoppingDistance = 2f;
+        agent.speed = 1500f;
+        agent.angularSpeed = 10f;
+
+        life = 100f;
+        armor = 0f;
+
         //Enemy rarity stats
         if (rarity == 1)
         {
             life = 350;
             armor = 0.1f;
-            movementSpeed = 21.5f;
+            agent.speed = 1650f;
         }
         else if (rarity == 2)
         {
             life = 600;
             armor = 0.2f;
-            movementSpeed = 23f;
+            agent.speed = 1800f;
         }
-
-        agent.stoppingDistance = 2f;
-        agent.speed = 1500f;
-        agent.angularSpeed = 10f;
-
 
         // Animations
 
