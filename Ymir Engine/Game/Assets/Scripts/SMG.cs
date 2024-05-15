@@ -28,6 +28,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_1:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL1");
                 ammo = 35;
                 fireRate = 0.05f;
                 damage = 9;
@@ -36,6 +37,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_2:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL2");
                 ammo = 40;
                 fireRate = 0.05f;
                 damage = 11;
@@ -44,6 +46,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_3_ALPHA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3A");
                 ammo = 110;
                 fireRate = 0.04f;
                 damage = 13;
@@ -52,6 +55,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_3_BETA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3B");
                 ammo = 40;
                 fireRate = 0.02f;
                 damage = 10;
@@ -93,20 +97,27 @@ public class SMG : Weapon
 
                 if (aux != null)
                 {
-                    aux.life -= damage;
+                    aux.TakeDmg(damage);
                 }
 
                 DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
                 if (aux2 != null)
                 {
-                    aux2.life -= damage;
+                    aux2.TakeDmg(damage);
                 }
 
                 QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
                 if (aux3 != null)
                 {
-                    aux3.life -= damage;
+                    aux3.TakeDmg(damage);
                 }
+
+                SpitterBaseScript aux4 = target.GetComponent<SpitterBaseScript>();
+                if (aux4 != null)
+                {
+                    aux4.TakeDmg(damage);
+                }
+
                 Debug.Log("[ERROR] HIT ENEMY");
                 //-----------------------------------------------------------------------------------
             }

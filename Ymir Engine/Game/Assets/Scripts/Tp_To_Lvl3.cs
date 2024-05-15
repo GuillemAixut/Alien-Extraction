@@ -49,6 +49,7 @@ public class Tp_To_Lvl3 : YmirComponent
             }
 
             loadScene = true;
+            Globals.GetPlayerScript().SavePlayer();
         }
     }
 }

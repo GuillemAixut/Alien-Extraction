@@ -80,7 +80,7 @@ bool ModuleScene::Start()
 #ifdef _RELEASE
 	
 	//LoadScene("Assets/Main Character", "Alpha3 test");
-	LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
+	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets", "Enemigo player");
 	//LoadScene("Assets/UI/Inventory", "InventoryScene");
 	//LoadScene("Assets", "Enemigo player");
@@ -96,7 +96,7 @@ bool ModuleScene::Start()
 
 	// -------------------- FINAL MAPS -------------------- \\
 	
-	//LoadScene("Assets/UI/Scenes", "StartScene");
+	LoadScene("Assets/UI/Scenes", "StartScene");
 	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");

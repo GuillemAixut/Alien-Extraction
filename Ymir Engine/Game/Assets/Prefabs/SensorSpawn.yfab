@@ -7,19 +7,19 @@
             "UID": 208637195,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 379278140,
+            "Parent UID": 798699882,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        17.371269226074219,
-                        148.07044982910156
+                        -38.259319305419922,
+                        110.82719421386719,
+                        275.00390625
                     ],
                     "Rotation": [
                         -0,
-                        0,
+                        89.440826416015625,
                         -0
                     ],
                     "Scale": [
@@ -68,74 +68,9 @@
                     "ScriptName": "SpawnSensor.cs",
                     "Active": 1,
                     "UID": 0,
-                    "spawner": 1484304711
-                }
-            ],
-            "Children UID": [
-                1103778917
-            ]
-        },
-        {
-            "Name": "1981179967",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1103778917,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "",
-            "Parent UID": 208637195,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1728623793,
-                    "Vertex Count": 24,
-                    "Index Count": 36
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
+                    "spawner1": 1484304711,
+                    "spawner2": 362525347,
+                    "spawner3": 26138637
                 }
             ]
         }

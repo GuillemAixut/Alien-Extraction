@@ -7,7 +7,7 @@
             "UID": 1237068732,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1579443324,
+            "Parent UID": 669089984,
             "Components": [
                 {
                     "Type": "Transform",
@@ -195,6 +195,7 @@
                 {
                     "Type": "ParticleSystem",
                     "Active": 1,
+                    "ShowEmitters": true,
                     "NumEmitters": 1,
                     "Emitters": [
                         {
@@ -812,7 +813,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1225145048,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1237068732,
             "Components": [
@@ -841,8 +842,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1932,
-                    "Height": 1040,
+                    "Width": 1524,
+                    "Height": 841,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -872,7 +873,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 278230482,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1225145048,
             "Components": [
@@ -935,7 +936,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1769519281,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1225145048,
             "Components": [
@@ -998,7 +999,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1621892092,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1225145048,
             "Components": [
@@ -1051,7 +1052,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1656679832,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1621892092,
             "Components": [
@@ -1126,10 +1127,10 @@
                     "Is interactable": true,
                     "Text": 1333584116,
                     "Image": 1656679832,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidUnselected.png",
                     "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Buttons.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
                     "Release": "Assets\/penguin.png",
                     "Disabled": "Assets\/Lava.png",
                     "Focused color": [
@@ -1175,7 +1176,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1333584116,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1656679832,
             "Components": [
@@ -1237,7 +1238,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 683157146,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1621892092,
             "Components": [
@@ -1312,10 +1313,10 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 683157146,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidUnselected.png",
                     "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
                     "Release": "Assets\/penguin.png",
                     "Disabled": "Assets\/Lava.png",
                     "Focused color": [
@@ -1361,7 +1362,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1594104480,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 683157146,
             "Components": [
@@ -1423,7 +1424,7 @@
             "Static": false,
             "Tag": "Untagged",
             "UID": 1031375599,
-            "Active": false,
+            "Active": true,
             "Element_Type": "None",
             "Parent UID": 1225145048,
             "Components": [

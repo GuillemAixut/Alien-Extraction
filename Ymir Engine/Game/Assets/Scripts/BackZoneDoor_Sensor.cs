@@ -14,7 +14,7 @@ public class BackZoneDoor_Sensor : YmirComponent
     {
         if (other.Tag == "Player" && active)
         {
-            gameObject.parent.GetComponent<Horizontal_Door_OneWay>().ChangeDoorState();
+            gameObject.parent.GetComponent<BackZoneDoor>().ChangeDoorState();
         }
     }
 }

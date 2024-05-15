@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1532331217,
+            "UID": 669089984,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -33,9 +33,9 @@
                 1676754095,
                 1398847280,
                 1827062016,
-                1237068732,
                 1484304711,
-                1806365249
+                1806365249,
+                1237068732
             ]
         },
         {
@@ -45,7 +45,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1532331217,
+            "Parent UID": 669089984,
             "Components": [
                 {
                     "Type": "Transform",
@@ -398,7 +398,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1532331217,
+            "Parent UID": 669089984,
             "Components": [
                 {
                     "Type": "Transform",
@@ -425,8 +425,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1932,
-                    "Height": 1040,
+                    "Width": 1524,
+                    "Height": 841,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -2872,7 +2872,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1532331217,
+            "Parent UID": 669089984,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3407,13 +3407,2155 @@
             ]
         },
         {
+            "Name": "Cube",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1484304711,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 669089984,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        185.71821594238281,
+                        1,
+                        188.17506408691406
+                    ]
+                }
+            ],
+            "Children UID": [
+                1981179967
+            ]
+        },
+        {
+            "Name": "1981179967",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1981179967,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "",
+            "Parent UID": 1484304711,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1728623793,
+                    "Vertex Count": 24,
+                    "Index Count": 36
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        5,
+                        5,
+                        5
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Prefab-Player",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1806365249,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 669089984,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                598771385,
+                2086505483
+            ]
+        },
+        {
+            "Name": "Main Camera (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 598771385,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -58.784080505371094,
+                        111.64328002929688,
+                        63.155529022216797
+                    ],
+                    "Rotation": [
+                        120.00008392333984,
+                        25.000032424926758,
+                        -141.99998474121094
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999994039535522,
+                        1.0000001192092896
+                    ]
+                },
+                {
+                    "Type": "Audio listener",
+                    "Active": 1,
+                    "Default Listener": 1
+                },
+                {
+                    "Type": "Camera",
+                    "Active": 1,
+                    "Right": [
+                        0.7141801118850708,
+                        -0.01942114531993866,
+                        0.69969272613525391
+                    ],
+                    "Up": [
+                        0.55797886848449707,
+                        0.61933737993240356,
+                        -0.5523412823677063
+                    ],
+                    "Front": [
+                        0.42261877655982971,
+                        -0.7848847508430481,
+                        -0.4531550407409668
+                    ],
+                    "FOV": 60.000003814697266,
+                    "Near Plane": 1,
+                    "Far Plane": 1000,
+                    "Frustum Culling": 1,
+                    "Draw Bounding Boxes": 0,
+                    "Game Camera": true
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SceneManager.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "",
+                    "Event Name": "",
+                    "Event ID": 0
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        10,
+                        10,
+                        10
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "CameraRot.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "constDelay": 0
+                }
+            ]
+        },
+        {
+            "Name": "Player",
+            "Static": false,
+            "Tag": "Player",
+            "UID": 2086505483,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 1806365249,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.10000000149011612,
+                        0.10000000149011612,
+                        0.10000000149011612
+                    ]
+                },
+                {
+                    "Type": "Animation",
+                    "Active": 1,
+                    "NumPaths": 10,
+                    "Paths": [
+                        ".\/Assets\/Raisen_BaseIdle.yanim",
+                        ".\/Assets\/Raisen_BaseWalk.yanim",
+                        ".\/Assets\/Raisen_Death.yanim",
+                        ".\/Assets\/Raisen_Damage.yanim",
+                        ".\/Assets\/Raisen_Shooting.yanim",
+                        ".\/Assets\/Raisen_Spin.yanim",
+                        ".\/Assets\/Raisen_Spit.yanim",
+                        "Assets\/Raisen_Idle.yanim",
+                        "Assets\/Raisen_Dash.yanim",
+                        "Assets\/Raisen_Walk.yanim"
+                    ],
+                    "UIDs": [
+                        1345596970,
+                        1515990403,
+                        746412495,
+                        1210516057,
+                        915183694,
+                        168875129,
+                        1123326600,
+                        548608041,
+                        1399667080,
+                        989388580
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        50,
+                        200,
+                        50
+                    ],
+                    "Physics Type": 0,
+                    "Mass": 1,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": true,
+                    "IsSensor": false,
+                    "LockX": true,
+                    "LockY": false,
+                    "LockZ": true,
+                    "Offset": [
+                        0,
+                        10,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Health.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "currentHealth": 0,
+                    "maxHealth": 1200,
+                    "armor": 0,
+                    "isAlive": false,
+                    "debugDmg": 100
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Bullets.cs",
+                    "Active": 1,
+                    "UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Player.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "saveName": "Player",
+                    "currentState": -1,
+                    "movementSpeed": 35,
+                    "deathAnimFinish": false,
+                    "godMode": false,
+                    "weaponType": 0,
+                    "upgradeType": 0,
+                    "damageMultiplier": 0,
+                    "vulnerable": true,
+                    "itemsList": 0,
+                    "currentResinVessels": 0,
+                    "maxResinVessels": 0,
+                    "resinHealing": 0,
+                    "dashDuration": 0.25,
+                    "dashDistance": 200,
+                    "swipeTimer": 0,
+                    "acidicTimer": 0,
+                    "currentLvl": 0,
+                    "lastUnlockedLvl": 0,
+                    "currentMenu": "",
+                    "hasTalkedIscariot": true,
+                    "w_SMG_0": 1248383492,
+                    "w_SMG_1": 795223045,
+                    "w_SMG_2": 879879892,
+                    "w_SMG_3a": 1554789927,
+                    "w_SMG_3b": 343038288,
+                    "w_Shotgun_0": 529397923,
+                    "w_Shotgun_1": 1976702640,
+                    "w_Shotgun_2": 302481411,
+                    "w_Shotgun_3a": 1340879312,
+                    "w_Shotgun_3b": 858196141,
+                    "w_Plasma_0": 1845772668,
+                    "w_Plasma_1": 1853496771,
+                    "w_Plasma_2": 1770635885,
+                    "w_Plasma_3a": 261074920,
+                    "w_Plasma_3b": 349639525
+                }
+            ],
+            "Children UID": [
+                891365532,
+                2124835933,
+                1159266445,
+                1140505418,
+                1248383492,
+                529397923,
+                1845772668,
+                795223045,
+                1976702640,
+                1853496771,
+                1554789927,
+                1340879312,
+                261074920,
+                879879892,
+                302481411,
+                1770635885,
+                343038288,
+                858196141,
+                349639525
+            ]
+        },
+        {
+            "Name": "Eyes",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 891365532,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 507120053,
+                    "Vertex Count": 718,
+                    "Index Count": 2592
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 59,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Eyes_D.png",
+                    "Diffuse_UID": 1183093054
+                }
+            ]
+        },
+        {
+            "Name": "Backpack",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 2124835933,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 312310824,
+                    "Vertex Count": 1830,
+                    "Index Count": 3114
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 44,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_backpack_D.png",
+                    "Diffuse_UID": 29044413
+                }
+            ]
+        },
+        {
+            "Name": "Body",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1159266445,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 609231113,
+                    "Vertex Count": 10039,
+                    "Index Count": 36885
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 46,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Body_D.png",
+                    "Diffuse_UID": 685050207
+                }
+            ]
+        },
+        {
+            "Name": "Tail",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1140505418,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        0.99999988079071045,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1519679296,
+                    "Vertex Count": 263,
+                    "Index Count": 660
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 42,
+                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Tail_D.png",
+                    "Diffuse_UID": 114520890
+                }
+            ]
+        },
+        {
+            "Name": "W_SMG_0",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1248383492,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 86199386,
+                    "Vertex Count": 1017,
+                    "Index Count": 1806
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 47,
+                    "Diffuse_Path": "Assets\/Main Character\/Weapons\/Textures\/TEX_PROP_Submachine_D.png",
+                    "Diffuse_UID": 1686728857
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SMG.cs",
+                    "Active": 1,
+                    "_type": 0,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Shotgun_0",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 529397923,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1689804666,
+                    "Vertex Count": 1038,
+                    "Index Count": 2286
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 51,
+                    "Diffuse_Path": "Assets\/Main Character\/Weapons\/Textures\/TEX_PROP_Shotgun_D.png",
+                    "Diffuse_UID": 719040583
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Shotgun.cs",
+                    "Active": 1,
+                    "_type": 1,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "ammoInChamber": 0,
+                    "dispersion": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Plasma_0",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1845772668,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1068740230,
+                    "Vertex Count": 2007,
+                    "Index Count": 4134
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 55,
+                    "Diffuse_Path": "Assets\/Main Character\/Weapons\/Textures\/TEX_PROP_PlasmaCanon_D.png",
+                    "Diffuse_UID": 31579900
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Plasma.cs",
+                    "Active": 1,
+                    "_type": 2,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "damageEscalation": 0,
+                    "currentDamage": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_SMG_1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 795223045,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 86199386,
+                    "Vertex Count": 1017,
+                    "Index Count": 1806
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SMG.cs",
+                    "Active": 1,
+                    "_type": 0,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Shotgun_1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1976702640,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1689804666,
+                    "Vertex Count": 1038,
+                    "Index Count": 2286
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Shotgun.cs",
+                    "Active": 1,
+                    "_type": 1,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "ammoInChamber": 0,
+                    "dispersion": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Plasma_1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1853496771,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1068740230,
+                    "Vertex Count": 2007,
+                    "Index Count": 4134
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Plasma.cs",
+                    "Active": 1,
+                    "_type": 2,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "damageEscalation": 0,
+                    "currentDamage": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_SMG_3a",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1554789927,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 86199386,
+                    "Vertex Count": 1017,
+                    "Index Count": 1806
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SMG.cs",
+                    "Active": 1,
+                    "_type": 0,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Shotgun_3a",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1340879312,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1689804666,
+                    "Vertex Count": 1038,
+                    "Index Count": 2286
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Shotgun.cs",
+                    "Active": 1,
+                    "_type": 1,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "ammoInChamber": 0,
+                    "dispersion": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Plasma_3a",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 261074920,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1068740230,
+                    "Vertex Count": 2007,
+                    "Index Count": 4134
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Plasma.cs",
+                    "Active": 1,
+                    "_type": 2,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "damageEscalation": 0,
+                    "currentDamage": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_SMG_2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 879879892,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 86199386,
+                    "Vertex Count": 1017,
+                    "Index Count": 1806
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SMG.cs",
+                    "Active": 1,
+                    "_type": 0,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Shotgun_2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 302481411,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1689804666,
+                    "Vertex Count": 1038,
+                    "Index Count": 2286
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Shotgun.cs",
+                    "Active": 1,
+                    "_type": 1,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "ammoInChamber": 0,
+                    "dispersion": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Plasma_2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1770635885,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1068740230,
+                    "Vertex Count": 2007,
+                    "Index Count": 4134
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Plasma.cs",
+                    "Active": 1,
+                    "_type": 2,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "damageEscalation": 0,
+                    "currentDamage": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_SMG_3b",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 343038288,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 86199386,
+                    "Vertex Count": 1017,
+                    "Index Count": 1806
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "SMG.cs",
+                    "Active": 1,
+                    "_type": 0,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Shotgun_3b",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 858196141,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1689804666,
+                    "Vertex Count": 1038,
+                    "Index Count": 2286
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Shotgun.cs",
+                    "Active": 1,
+                    "_type": 1,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "ammoInChamber": 0,
+                    "dispersion": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
+            "Name": "W_Plasma_3b",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 349639525,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
+            "Parent UID": 2086505483,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1068740230,
+                    "Vertex Count": 2007,
+                    "Index Count": 4134
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": false,
+                            "transparency": 1,
+                            "setColor": true,
+                            "weaponColor": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ],
+                    "Diffuse_ID": 0,
+                    "Diffuse_Path": "Checker Image",
+                    "Diffuse_UID": 0
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Plasma.cs",
+                    "Active": 1,
+                    "_type": 2,
+                    "_upgrade": -1,
+                    "ammo": 0,
+                    "fireRate": 0,
+                    "damage": 0,
+                    "reloadTime": 0,
+                    "range": 0,
+                    "currentAmmo": 0,
+                    "fireRateTimer": 0,
+                    "reloadTimer": 0,
+                    "damageEscalation": 0,
+                    "currentDamage": 0
+                },
+                {
+                    "Type": "Audio source",
+                    "Active": 1,
+                    "Bank Name": "Player",
+                    "Event Name": "",
+                    "Event ID": 0
+                }
+            ]
+        },
+        {
             "Name": "PROP_Beacon",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1237068732,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1532331217,
+            "Parent UID": 669089984,
             "Components": [
                 {
                     "Type": "Transform",
@@ -3471,9 +5613,10 @@
                 },
                 {
                     "Type": "Script",
-                    "ScriptName": "Tp_Beacon.cs",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
                     "Active": 1,
-                    "UID": 0
+                    "UID": 0,
+                    "goName": "Image_Go_Base"
                 }
             ],
             "Children UID": [
@@ -3484,7 +5627,6 @@
                 680972477,
                 1336640618,
                 881752622,
-                1781007999,
                 1225145048
             ]
         },
@@ -3564,6 +5706,137 @@
                     "Emissive_ID": 364,
                     "Emissive_Path": "Assets\/Prefabs\/Meshes\/Beacon\/TEX_PROP_Beacon_E.png",
                     "Emissive_UID": 1200225566
+                }
+            ],
+            "Children UID": [
+                1862344415
+            ]
+        },
+        {
+            "Name": "Particle System",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1862344415,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 1106680737,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        2.4000000953674316,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "ParticleSystem",
+                    "Active": 1,
+                    "ShowEmitters": true,
+                    "NumEmitters": 1,
+                    "Emitters": [
+                        {
+                            "ModulesSize": 6,
+                            "EmitterUID": 579029639,
+                            "Settings": [
+                                {
+                                    "Type": 0,
+                                    "Lifetime": 1,
+                                    "Lifetime2": 5,
+                                    "RandomLT": true,
+                                    "Position": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "DistanceLimit": 0,
+                                    "HasDistanceLimit": false,
+                                    "BaseRotation": 0,
+                                    "BaseShape": 1,
+                                    "PositiveBoxPoints": [
+                                        1,
+                                        1,
+                                        1
+                                    ],
+                                    "NegativeBoxPoints": [
+                                        -1,
+                                        -1,
+                                        -1
+                                    ],
+                                    "RadiusHollow": 0,
+                                    "RadiusBase": 2.809999942779541,
+                                    "RadiusTop": 5.9900608062744141,
+                                    "Heigth": 10.010000228881836
+                                },
+                                {
+                                    "Type": 1,
+                                    "SpawnMode": 1,
+                                    "StartMode": 0,
+                                    "NumParticles": 5,
+                                    "SpawnRatio": 0.10300000011920929,
+                                    "NumParticlesToStop": 100,
+                                    "PointingUID": 0,
+                                    "ConditionForSpawn": 1,
+                                    "SubemitterMaxLifetime": 0,
+                                    "SubemitterMinLifetime": 1
+                                },
+                                {
+                                    "Type": 5,
+                                    "Progressive": false,
+                                    "Loop": false,
+                                    "Color1": [
+                                        0.87610620260238647,
+                                        0.74430263042449951,
+                                        0,
+                                        1
+                                    ],
+                                    "Color2": [
+                                        0,
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "TimeStart": 0,
+                                    "TimeStop": 1
+                                },
+                                {
+                                    "Type": 3,
+                                    "AligmentMode": 1,
+                                    "WorldOrientation": 3,
+                                    "AxisOrientation": 3,
+                                    "FreeRotation": [
+                                        0,
+                                        0,
+                                        0
+                                    ]
+                                },
+                                {
+                                    "Type": 4,
+                                    "Progressive": false,
+                                    "Loop": false,
+                                    "Size1": 2.5,
+                                    "Size2": 1,
+                                    "TimeStart": 0,
+                                    "TimeStop": 1
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/IMAGES\/particleExample.png"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -4084,119 +6357,6 @@
             ]
         },
         {
-            "Name": "Loading Scene Canvas",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1781007999,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1237068732,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        27.979991912841797,
-                        -3.6057915687561035,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 2145,
-                    "Height": 1097,
-                    "UI Type": 0,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        524,
-                        250
-                    ]
-                }
-            ],
-            "Children UID": [
-                1138588084
-            ]
-        },
-        {
-            "Name": "Load Scene Img",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1138588084,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1781007999,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -167.87995910644531,
-                        21.634748458862305,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 1920,
-                    "Height": 1080,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        1920,
-                        1080
-                    ],
-                    "Path": "Assets\/UI\/LoadingScenes\/Base.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
             "Name": "Image_Go_Base",
             "Static": false,
             "Tag": "Untagged",
@@ -4230,8 +6390,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1932,
-                    "Height": 1040,
+                    "Width": 1524,
+                    "Height": 841,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -4253,7 +6413,6 @@
                 278230482,
                 1769519281,
                 1621892092,
-                1594104480,
                 1031375599
             ]
         },
@@ -4468,15 +6627,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 645,
-                    "Position Y": 481,
+                    "Position X": 644,
+                    "Position Y": 446,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        617.02001953125,
-                        569.00579833984375,
+                        616.02001953125,
+                        534.00579833984375,
                         300,
                         50
                     ],
@@ -4516,10 +6675,10 @@
                     "Is interactable": true,
                     "Text": 1333584116,
                     "Image": 1656679832,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidUnselected.png",
                     "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Buttons.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
                     "Release": "Assets\/penguin.png",
                     "Disabled": "Assets\/Lava.png",
                     "Focused color": [
@@ -4561,7 +6720,7 @@
             ]
         },
         {
-            "Name": "Text (1)",
+            "Name": "Text (3)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1333584116,
@@ -4592,19 +6751,19 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 717,
-                    "Position Y": 515,
+                    "Position X": 757,
+                    "Position Y": 480,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        689.02001953125,
-                        603.00579833984375,
+                        729.02001953125,
+                        568.00579833984375,
                         300,
                         50
                     ],
-                    "Text": "GO BASE",
+                    "Text": "YES",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 21,
@@ -4654,15 +6813,15 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 996,
-                    "Position Y": 481,
+                    "Position X": 1006,
+                    "Position Y": 446,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 1,
                     "UI State": 1,
                     "Drag Limits": [
-                        968.02001953125,
-                        569.00579833984375,
+                        978.02001953125,
+                        534.00579833984375,
                         300,
                         50
                     ],
@@ -4702,10 +6861,10 @@
                     "Is interactable": true,
                     "Text": 4294967295,
                     "Image": 683157146,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidUnselected.png",
                     "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
                     "Release": "Assets\/penguin.png",
                     "Disabled": "Assets\/Lava.png",
                     "Focused color": [
@@ -4741,23 +6900,26 @@
                     "menu": "Image_Go_Base",
                     "active": false
                 }
+            ],
+            "Children UID": [
+                1594104480
             ]
         },
         {
-            "Name": "Text",
+            "Name": "Text (4)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1594104480,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1225145048,
+            "Parent UID": 683157146,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
                         27.979991912841797,
-                        -3.6057915687561035,
+                        -88.005790710449219,
                         0
                     ],
                     "Rotation": [
@@ -4775,22 +6937,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 566,
-                    "Position Y": 474,
+                    "Position X": 1105,
+                    "Position Y": 570,
                     "Width": 200,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        566,
-                        474,
+                        1105,
+                        570,
                         200,
                         50
                     ],
-                    "Text": "",
+                    "Text": "NO",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 30,
+                    "Font size": 21,
                     "Line Spacing": 1,
                     "Color": [
                         0,
@@ -4806,7 +6968,7 @@
             ]
         },
         {
-            "Name": "Text (2)",
+            "Name": "Text (5)",
             "Static": false,
             "Tag": "Untagged",
             "UID": 1031375599,
@@ -4837,22 +6999,22 @@
                     "Type": "UI",
                     "Active": 1,
                     "Draggeable": false,
-                    "Position X": 1099,
-                    "Position Y": 514,
+                    "Position X": 604,
+                    "Position Y": 374,
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 2,
                     "UI State": 1,
                     "Drag Limits": [
-                        1071.02001953125,
-                        602.00579833984375,
+                        576.02001953125,
+                        462.00579833984375,
                         300,
                         50
                     ],
-                    "Text": "STAY\n",
+                    "Text": "DO YOU WANT TO EXTRACT?\n",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
-                    "Font size": 21,
+                    "Font size": 35,
                     "Line Spacing": 1,
                     "Color": [
                         1,
@@ -4864,2159 +7026,6 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Cube",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1484304711,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 1532331217,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        185.71821594238281,
-                        1,
-                        188.17506408691406
-                    ]
-                }
-            ],
-            "Children UID": [
-                1981179967
-            ]
-        },
-        {
-            "Name": "1981179967",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1981179967,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "",
-            "Parent UID": 1484304711,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1728623793,
-                    "Vertex Count": 24,
-                    "Index Count": 36
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/MyShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": true,
-                            "transparency": 1
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        5,
-                        5,
-                        5
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": false,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                }
-            ]
-        },
-        {
-            "Name": "Prefab-Player",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1806365249,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1532331217,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                }
-            ],
-            "Children UID": [
-                598771385,
-                2086505483
-            ]
-        },
-        {
-            "Name": "Main Camera (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 598771385,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1806365249,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        -58.784080505371094,
-                        111.64328002929688,
-                        63.155529022216797
-                    ],
-                    "Rotation": [
-                        120.00008392333984,
-                        25.000032424926758,
-                        -141.99998474121094
-                    ],
-                    "Scale": [
-                        1,
-                        0.99999994039535522,
-                        1.0000001192092896
-                    ]
-                },
-                {
-                    "Type": "Audio listener",
-                    "Active": 1,
-                    "Default Listener": 1
-                },
-                {
-                    "Type": "Camera",
-                    "Active": 1,
-                    "Right": [
-                        0.7141801118850708,
-                        -0.01942114531993866,
-                        0.69969272613525391
-                    ],
-                    "Up": [
-                        0.55797886848449707,
-                        0.61933737993240356,
-                        -0.5523412823677063
-                    ],
-                    "Front": [
-                        0.42261877655982971,
-                        -0.7848847508430481,
-                        -0.4531550407409668
-                    ],
-                    "FOV": 60.000003814697266,
-                    "Near Plane": 1,
-                    "Far Plane": 1000,
-                    "Frustum Culling": 1,
-                    "Draw Bounding Boxes": 0,
-                    "Game Camera": true
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SceneManager.cs",
-                    "Active": 1,
-                    "UID": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "",
-                    "Event Name": "",
-                    "Event ID": 0
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        10,
-                        10,
-                        10
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "CameraRot.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "constDelay": 0
-                }
-            ]
-        },
-        {
-            "Name": "Player",
-            "Static": false,
-            "Tag": "Player",
-            "UID": 2086505483,
-            "Active": true,
-            "Element_Type": "Model",
-            "Parent UID": 1806365249,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        0.10000000149011612,
-                        0.10000000149011612,
-                        0.10000000149011612
-                    ]
-                },
-                {
-                    "Type": "Animation",
-                    "Active": 1,
-                    "NumPaths": 10,
-                    "Paths": [
-                        ".\/Assets\/Raisen_BaseIdle.yanim",
-                        ".\/Assets\/Raisen_BaseWalk.yanim",
-                        ".\/Assets\/Raisen_Death.yanim",
-                        ".\/Assets\/Raisen_Damage.yanim",
-                        ".\/Assets\/Raisen_Shooting.yanim",
-                        ".\/Assets\/Raisen_Spin.yanim",
-                        ".\/Assets\/Raisen_Spit.yanim",
-                        "Assets\/Raisen_Idle.yanim",
-                        "Assets\/Raisen_Dash.yanim",
-                        "Assets\/Raisen_Walk.yanim"
-                    ],
-                    "UIDs": [
-                        1345596970,
-                        1515990403,
-                        746412495,
-                        1210516057,
-                        915183694,
-                        168875129,
-                        1123326600,
-                        548608041,
-                        1399667080,
-                        989388580
-                    ]
-                },
-                {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        50,
-                        200,
-                        50
-                    ],
-                    "Physics Type": 0,
-                    "Mass": 1,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": true,
-                    "IsSensor": false,
-                    "LockX": true,
-                    "LockY": false,
-                    "LockZ": true,
-                    "Offset": [
-                        0,
-                        10,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Health.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentHealth": 0,
-                    "maxHealth": 1200,
-                    "armor": 0,
-                    "isAlive": false,
-                    "debugDmg": 100
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Bullets.cs",
-                    "Active": 1,
-                    "UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Player.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "saveName": "Player",
-                    "currentState": -1,
-                    "movementSpeed": 35,
-                    "deathAnimFinish": false,
-                    "godMode": false,
-                    "weaponType": 0,
-                    "upgradeType": 0,
-                    "damageMultiplier": 0,
-                    "currentResinVessels": 0,
-                    "maxResinVessels": 0,
-                    "resinHealing": 0,
-                    "vulnerable": true,
-                    "dashDuration": 0.25,
-                    "dashDistance": 200,
-                    "swipeTimer": 0,
-                    "acidicTimer": 0,
-                    "currentLvl": 0,
-                    "lastUnlockedLvl": 0,
-                    "currentMenu": "",
-                    "setHover": false,
-                    "itemsListString": 0,
-                    "itemsList": 0,
-                    "w_SMG_0": 1248383492,
-                    "w_SMG_1": 795223045,
-                    "w_SMG_2": 879879892,
-                    "w_SMG_3a": 1554789927,
-                    "w_SMG_3b": 343038288,
-                    "w_Shotgun_0": 529397923,
-                    "w_Shotgun_1": 1976702640,
-                    "w_Shotgun_2": 302481411,
-                    "w_Shotgun_3a": 1340879312,
-                    "w_Shotgun_3b": 858196141,
-                    "w_Plasma_0": 1845772668,
-                    "w_Plasma_1": 1853496771,
-                    "w_Plasma_2": 1770635885,
-                    "w_Plasma_3a": 261074920,
-                    "w_Plasma_3b": 349639525
-                }
-            ],
-            "Children UID": [
-                891365532,
-                2124835933,
-                1159266445,
-                1140505418,
-                1248383492,
-                529397923,
-                1845772668,
-                795223045,
-                1976702640,
-                1853496771,
-                1554789927,
-                1340879312,
-                261074920,
-                879879892,
-                302481411,
-                1770635885,
-                343038288,
-                858196141,
-                349639525
-            ]
-        },
-        {
-            "Name": "Eyes",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 891365532,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 507120053,
-                    "Vertex Count": 718,
-                    "Index Count": 2592
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 59,
-                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Eyes_D.png",
-                    "Diffuse_UID": 1183093054
-                }
-            ]
-        },
-        {
-            "Name": "Backpack",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 2124835933,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 312310824,
-                    "Vertex Count": 1830,
-                    "Index Count": 3114
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 44,
-                    "Diffuse_Path": "Assets\/Main Character\/TEX_backpack_D.png",
-                    "Diffuse_UID": 29044413
-                }
-            ]
-        },
-        {
-            "Name": "Body",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1159266445,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 609231113,
-                    "Vertex Count": 10039,
-                    "Index Count": 36885
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 46,
-                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Body_D.png",
-                    "Diffuse_UID": 685050207
-                }
-            ]
-        },
-        {
-            "Name": "Tail",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1140505418,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        0.99999988079071045,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1519679296,
-                    "Vertex Count": 263,
-                    "Index Count": 660
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 42,
-                    "Diffuse_Path": "Assets\/Main Character\/TEX_CHAR_Tail_D.png",
-                    "Diffuse_UID": 114520890
-                }
-            ]
-        },
-        {
-            "Name": "W_SMG_0",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1248383492,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 86199386,
-                    "Vertex Count": 1017,
-                    "Index Count": 1806
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 47,
-                    "Diffuse_Path": "Assets\/Main Character\/Weapons\/Textures\/TEX_PROP_Submachine_D.png",
-                    "Diffuse_UID": 1686728857
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SMG.cs",
-                    "Active": 1,
-                    "_type": 0,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Shotgun_0",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 529397923,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1689804666,
-                    "Vertex Count": 1038,
-                    "Index Count": 2286
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 51,
-                    "Diffuse_Path": "Assets\/Main Character\/Weapons\/Textures\/TEX_PROP_Shotgun_D.png",
-                    "Diffuse_UID": 719040583
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Shotgun.cs",
-                    "Active": 1,
-                    "_type": 1,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "ammoInChamber": 0,
-                    "dispersion": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Plasma_0",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1845772668,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1068740230,
-                    "Vertex Count": 2007,
-                    "Index Count": 4134
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 55,
-                    "Diffuse_Path": "Assets\/Main Character\/Weapons\/Textures\/TEX_PROP_PlasmaCanon_D.png",
-                    "Diffuse_UID": 31579900
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Plasma.cs",
-                    "Active": 1,
-                    "_type": 2,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_SMG_1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 795223045,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 86199386,
-                    "Vertex Count": 1017,
-                    "Index Count": 1806
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SMG.cs",
-                    "Active": 1,
-                    "_type": 0,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Shotgun_1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1976702640,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1689804666,
-                    "Vertex Count": 1038,
-                    "Index Count": 2286
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Shotgun.cs",
-                    "Active": 1,
-                    "_type": 1,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "ammoInChamber": 0,
-                    "dispersion": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Plasma_1",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1853496771,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1068740230,
-                    "Vertex Count": 2007,
-                    "Index Count": 4134
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Plasma.cs",
-                    "Active": 1,
-                    "_type": 2,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_SMG_3a",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1554789927,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 86199386,
-                    "Vertex Count": 1017,
-                    "Index Count": 1806
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SMG.cs",
-                    "Active": 1,
-                    "_type": 0,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Shotgun_3a",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1340879312,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1689804666,
-                    "Vertex Count": 1038,
-                    "Index Count": 2286
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Shotgun.cs",
-                    "Active": 1,
-                    "_type": 1,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "ammoInChamber": 0,
-                    "dispersion": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Plasma_3a",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 261074920,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1068740230,
-                    "Vertex Count": 2007,
-                    "Index Count": 4134
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Plasma.cs",
-                    "Active": 1,
-                    "_type": 2,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_SMG_2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 879879892,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 86199386,
-                    "Vertex Count": 1017,
-                    "Index Count": 1806
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SMG.cs",
-                    "Active": 1,
-                    "_type": 0,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Shotgun_2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 302481411,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1689804666,
-                    "Vertex Count": 1038,
-                    "Index Count": 2286
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Shotgun.cs",
-                    "Active": 1,
-                    "_type": 1,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "ammoInChamber": 0,
-                    "dispersion": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Plasma_2",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1770635885,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1068740230,
-                    "Vertex Count": 2007,
-                    "Index Count": 4134
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Plasma.cs",
-                    "Active": 1,
-                    "_type": 2,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_SMG_3b",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 343038288,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 86199386,
-                    "Vertex Count": 1017,
-                    "Index Count": 1806
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "SMG.cs",
-                    "Active": 1,
-                    "_type": 0,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Shotgun_3b",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 858196141,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1689804666,
-                    "Vertex Count": 1038,
-                    "Index Count": 2286
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Shotgun.cs",
-                    "Active": 1,
-                    "_type": 1,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "ammoInChamber": 0,
-                    "dispersion": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
-                }
-            ]
-        },
-        {
-            "Name": "W_Plasma_3b",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 349639525,
-            "Active": true,
-            "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/Main Character\/FBX_Raisen_Weapon.fbx",
-            "Parent UID": 2086505483,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Mesh",
-                    "Active": 1,
-                    "UID": 1068740230,
-                    "Vertex Count": 2007,
-                    "Index Count": 4134
-                },
-                {
-                    "Type": "Material",
-                    "Active": 1,
-                    "Shader": "Assets\/Shaders\/AnimationShader.glsl",
-                    "Uniforms": [
-                        {
-                            "lightDir": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "lightInt": 1,
-                            "lightColor": [
-                                0,
-                                0,
-                                0
-                            ],
-                            "numLights": 1,
-                            "displayNormalMap": false,
-                            "transparency": 1,
-                            "setColor": true,
-                            "weaponColor": [
-                                0,
-                                0,
-                                0
-                            ]
-                        }
-                    ],
-                    "Diffuse_ID": 0,
-                    "Diffuse_Path": "Checker Image",
-                    "Diffuse_UID": 0
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Plasma.cs",
-                    "Active": 1,
-                    "_type": 2,
-                    "_upgrade": -1,
-                    "ammo": 0,
-                    "fireRate": 0,
-                    "damage": 0,
-                    "reloadTime": 0,
-                    "range": 0,
-                    "currentAmmo": 0,
-                    "fireRateTimer": 0,
-                    "reloadTimer": 0,
-                    "upgrade": 0,
-                    "damageEscalation": 0
-                },
-                {
-                    "Type": "Audio source",
-                    "Active": 1,
-                    "Bank Name": "Player",
-                    "Event Name": "",
-                    "Event ID": 0
                 }
             ]
         }
