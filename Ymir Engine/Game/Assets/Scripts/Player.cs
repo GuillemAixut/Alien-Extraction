@@ -1344,6 +1344,7 @@ public class Player : YmirComponent
     private void StartReload()
     {
         currentWeapon.Reload();
+        csBullets.UseBullets();
     }
 
     private void SetWeapon()
