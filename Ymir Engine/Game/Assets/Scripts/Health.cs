@@ -100,6 +100,8 @@ public class Health : YmirComponent
     {
         if (player != null && !player.godMode)
         {
+            player.TakeDMG();
+
             currentHealth -= (dmg + armor); // reduce damage with amount of armor
 
             if (currentHealth > maxHealth)
