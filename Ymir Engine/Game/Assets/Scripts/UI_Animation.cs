@@ -24,6 +24,8 @@ public class UI_Animation : YmirComponent
 
     private float _timer = 0;
 
+    public bool disableOnFinish = false;
+
     public void Start()
     {
         image = gameObject;
@@ -100,6 +102,12 @@ public class UI_Animation : YmirComponent
 
                 UI.SetImageCurrentFrame(image, (int)currentFrame.x, (int)currentFrame.y);
             }
+        }
+
+        if (disableOnFinish && HasFinished())
+        {
+            Reset();
+            gameObject.SetActive(false);
         }
 
         return;

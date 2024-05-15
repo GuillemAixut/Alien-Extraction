@@ -338,7 +338,7 @@ public class UI_Inventory : YmirComponent
     public void LogInventoryItems()
     {
         GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
-        
+
         Debug.Log("Inventory");
 
         for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
@@ -358,4 +358,3 @@ public class UI_Inventory : YmirComponent
         }
     }
 }
-

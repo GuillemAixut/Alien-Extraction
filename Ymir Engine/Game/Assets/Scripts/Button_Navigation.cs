@@ -95,11 +95,12 @@ public class Button_Navigation : YmirComponent
 
         // Weapons
         SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Current weapon", 0);
-        //SaveLoad.SaveInt(Globals.saveGameDir, saveName, "Weapon upgrade", (int)upgradeType);
         SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Upgrade " + WEAPON_TYPE.SMG.ToString(), (int)UPGRADE.LVL_0);
         SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Upgrade " + WEAPON_TYPE.SHOTGUN.ToString(), (int)UPGRADE.LVL_0);
         SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Upgrade " + WEAPON_TYPE.PLASMA.ToString(), (int)UPGRADE.LVL_0);
-
+        
+        // Others
+        SaveLoad.SaveBool(Globals.saveGameDir, fileName, "Iscariot dialogue", false);
 
         // Stats
         SaveLoad.SaveFloat(Globals.saveGameDir, fileName, "Health", 1200);

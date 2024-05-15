@@ -68,6 +68,8 @@ public class UI_Item_Button : YmirComponent
                 if (!item.isEquipped)
                 {
                     item.isEquipped = true;
+                    item.inInventory = true;
+
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
                 }
@@ -78,6 +80,7 @@ public class UI_Item_Button : YmirComponent
                 {
                     item.isEquipped = false;
                     item.inInventory = false;
+
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
                 }
