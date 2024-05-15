@@ -388,7 +388,7 @@ public class SpitterBaseScript : Enemy
                 {
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 15;
-                    InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
+                    //InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
                     InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Projectile-SpitterAcidSpit", pos);
                     acidDone = true;
                 }
