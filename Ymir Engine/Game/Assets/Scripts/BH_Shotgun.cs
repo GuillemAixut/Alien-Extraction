@@ -45,19 +45,19 @@ public class BH_Shotgun : YmirComponent
             DroneXenomorphBaseScript aux2 = other.GetComponent<DroneXenomorphBaseScript>();
             if (aux2 != null)
             {
-                aux.TakeDmg(player.currentWeapon.damage);
+                aux2.TakeDmg(player.currentWeapon.damage);
             }
 
             QueenXenomorphBaseScript aux3 = other.GetComponent<QueenXenomorphBaseScript>();
             if (aux3 != null)
             {
-                aux.TakeDmg(player.currentWeapon.damage);
+                aux3.TakeDmg(player.currentWeapon.damage);
             }
 
             SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
             if (aux4 != null)
             {
-                aux.TakeDmg(player.currentWeapon.damage);
+                aux4.TakeDmg(player.currentWeapon.damage);
             }
 
             Debug.Log("[ERROR] HIT ENEMy");
