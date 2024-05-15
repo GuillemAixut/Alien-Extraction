@@ -1,31 +1,31 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -38.232196807861328,
-        66.799758911132812,
-        -14.789669036865234
+        -14.341177940368652,
+        100.79401397705078,
+        -124.07044219970703
     ],
     "Editor Camera Right (X)": [
-        0.52513766288757324,
-        -8.9406967163085938e-08,
-        0.85101497173309326
+        -0.568206787109375,
+        -1.0281801223754883e-06,
+        0.82288682460784912
     ],
     "Editor Camera Up (Y)": [
-        0.66669905185699463,
-        0.62149637937545776,
-        -0.41140136122703552
+        0.70279401540756226,
+        0.5201752781867981,
+        0.48528283834457397
     ],
     "Editor Camera Front (Z)": [
-        0.5289037823677063,
-        -0.78341680765151978,
-        -0.32637187838554382
+        0.42804482579231262,
+        -0.85406029224395752,
+        0.29556566476821899
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 2015857031,
+            "UID": 1273010133,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -55,7 +55,7 @@
             "UID": 1211565987,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2661,7 +2661,7 @@
             "UID": 1950834715,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -10773,7 +10773,7 @@
             "UID": 1023082808,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11641,6 +11641,41 @@
                     "Emissive_ID": 1874,
                     "Emissive_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Mother Room\/Chair\/Texturas\/PROP_Base_Mother_Chair_E.png",
                     "Emissive_UID": 1350032348
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        11.243000030517578,
+                        20.511157989501953,
+                        22.590999603271484
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        26.765151977539062,
+                        10.272922515869141,
+                        -94.637802124023438
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        -0.30000001192092896,
+                        0,
+                        1
+                    ]
                 }
             ]
         },
@@ -11675,19 +11710,53 @@
                 }
             ],
             "Children UID": [
-                838558846,
-                534508000
+                1315014702,
+                1231247254
             ]
         },
         {
-            "Name": "Mesher7",
+            "Name": "EXT_BASE",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 838558846,
+            "UID": 1315014702,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 392199369,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1471760316,
+                1718106813
+            ]
+        },
+        {
+            "Name": "EXT_Floor_01",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1471760316,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_Base.fbx",
-            "Parent UID": 392199369,
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/EXT_BASE.fbx",
+            "Parent UID": 1315014702,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11711,9 +11780,9 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 757606758,
-                    "Vertex Count": 2085,
-                    "Index Count": 2085
+                    "UID": 2003773398,
+                    "Vertex Count": 1095,
+                    "Index Count": 4749
                 },
                 {
                     "Type": "Material",
@@ -11737,33 +11806,33 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 1894,
-                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior01\/TEX_PROP_Exterior01_D.png",
-                    "Diffuse_UID": 1758557785,
-                    "Specular_ID": 1906,
-                    "Specular_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior01\/TEX_PROP_Exterior01_S.png",
-                    "Specular_UID": 391510043,
-                    "Normal_ID": 1902,
-                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior01\/TEX_PROP_Exterior01_N.png",
-                    "Normal_UID": 735721602,
-                    "Height_ID": 1898,
-                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior01\/TEX_PROP_Exterior01_H.png",
-                    "Height_UID": 472599255,
-                    "Ambient_ID": 1890,
-                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior01\/TEX_PROP_Exterior01_A.png",
-                    "Ambient_UID": 1242237576
+                    "Diffuse_ID": 3166,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 01\/TEX_PROP_Exterior01_D.png",
+                    "Diffuse_UID": 1829729877,
+                    "Specular_ID": 3178,
+                    "Specular_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 01\/TEX_PROP_Exterior01_S.png",
+                    "Specular_UID": 1317061141,
+                    "Normal_ID": 3174,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 01\/TEX_PROP_Exterior01_N.png",
+                    "Normal_UID": 1994244521,
+                    "Height_ID": 3170,
+                    "Height_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 01\/TEX_PROP_Exterior01_H.png",
+                    "Height_UID": 1087084479,
+                    "Ambient_ID": 3162,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 01\/TEX_PROP_Exterior01_A.png",
+                    "Ambient_UID": 1410173284
                 }
             ]
         },
         {
-            "Name": "Mesher8",
+            "Name": "Ext_Floor_2",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 534508000,
+            "UID": 1718106813,
             "Active": true,
             "Element_Type": "Mesh",
-            "Origin_Path": "Assets\/BASE_FINAL\/New_Props_Base.fbx",
-            "Parent UID": 392199369,
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/EXT_BASE.fbx",
+            "Parent UID": 1315014702,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11787,9 +11856,9 @@
                 {
                     "Type": "Mesh",
                     "Active": 1,
-                    "UID": 1082481800,
-                    "Vertex Count": 2085,
-                    "Index Count": 2085
+                    "UID": 1652908115,
+                    "Vertex Count": 1129,
+                    "Index Count": 4722
                 },
                 {
                     "Type": "Material",
@@ -11813,21 +11882,1516 @@
                             "transparency": 1
                         }
                     ],
-                    "Diffuse_ID": 1914,
-                    "Diffuse_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior02\/TEX_PROP_Exterior02_D.png",
-                    "Diffuse_UID": 28388928,
-                    "Specular_ID": 1926,
-                    "Specular_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior02\/TEX_PROP_Exterior02_S.png",
-                    "Specular_UID": 934663639,
-                    "Normal_ID": 1922,
-                    "Normal_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior02\/TEX_PROP_Exterior02_N.png",
-                    "Normal_UID": 1924629108,
-                    "Height_ID": 1918,
-                    "Height_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior02\/TEX_PROP_Exterior02_H.png",
-                    "Height_UID": 919553856,
-                    "Ambient_ID": 1910,
-                    "Ambient_Path": "Assets\/Textures\/ALL_TEXTURES_ALPHA_3\/BASE\/Base Exterior\/TEX_Exterior02\/TEX_PROP_Exterior02_A.png",
-                    "Ambient_UID": 345802512
+                    "Diffuse_ID": 3186,
+                    "Diffuse_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 02\/TEX_PROP_Exterior02_D.png",
+                    "Diffuse_UID": 1542543707,
+                    "Specular_ID": 3198,
+                    "Specular_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 02\/TEX_PROP_Exterior02_S.png",
+                    "Specular_UID": 765523361,
+                    "Normal_ID": 3194,
+                    "Normal_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 02\/TEX_PROP_Exterior02_N.png",
+                    "Normal_UID": 1467077192,
+                    "Height_ID": 3190,
+                    "Height_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 02\/TEX_PROP_Exterior02_H.png",
+                    "Height_UID": 1770076535,
+                    "Ambient_ID": 3182,
+                    "Ambient_Path": "Assets\/BASE_FINAL\/Base_Textures\/Exterior\/TEX Exterior 02\/TEX_PROP_Exterior02_A.png",
+                    "Ambient_UID": 318300744
+                }
+            ]
+        },
+        {
+            "Name": "Rocks_Base",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1231247254,
+            "Active": true,
+            "Element_Type": "Model",
+            "Parent UID": 392199369,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ],
+            "Children UID": [
+                1482366538,
+                413382411,
+                903620319,
+                1400156036,
+                83026593,
+                845240571,
+                1330306894,
+                228971805,
+                715963464,
+                1046081751,
+                1578882304,
+                1381904135,
+                360849522,
+                1608491039,
+                304453411,
+                763044246,
+                1535694027,
+                1349188945,
+                1819249189
+            ]
+        },
+        {
+            "Name": "Rock_01_1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1482366538,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1048419673,
+                    "Vertex Count": 1414,
+                    "Index Count": 6900
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                16.196561813354492,
+                                -3.8318030834197998
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3202,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock01\/TEX_PROP_Rock1_D.png",
+                    "Diffuse_UID": 2112694936,
+                    "Specular_ID": 3208,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock01\/TEX_PROP_Rock1_S.png",
+                    "Specular_UID": 132975409,
+                    "Normal_ID": 3206,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock01\/TEX_PROP_Rock1_N.png",
+                    "Normal_UID": 1274024626,
+                    "Height_ID": 3204,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock01\/TEX_PROP_Rock1_H.png",
+                    "Height_UID": 1108269478,
+                    "Ambient_ID": 3200,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock01\/TEX_PROP_Rock1_A.png",
+                    "Ambient_UID": 398602728
+                }
+            ]
+        },
+        {
+            "Name": "Rock_02_2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 413382411,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1123418899,
+                    "Vertex Count": 5354,
+                    "Index Count": 5358
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3212,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_D.png",
+                    "Diffuse_UID": 938315400,
+                    "Specular_ID": 3218,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_S.png",
+                    "Specular_UID": 148139910,
+                    "Normal_ID": 3216,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_N.png",
+                    "Normal_UID": 1348813818,
+                    "Height_ID": 3214,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_H.png",
+                    "Height_UID": 1587821084,
+                    "Ambient_ID": 3210,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_A.png",
+                    "Ambient_UID": 1927993144
+                }
+            ]
+        },
+        {
+            "Name": "Rock_02_1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 903620319,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 284001409,
+                    "Vertex Count": 5354,
+                    "Index Count": 5358
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                16.196561813354492,
+                                -3.8318030834197998
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3212,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_D.png",
+                    "Diffuse_UID": 938315400,
+                    "Specular_ID": 3218,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_S.png",
+                    "Specular_UID": 148139910,
+                    "Normal_ID": 3216,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_N.png",
+                    "Normal_UID": 1348813818,
+                    "Height_ID": 3214,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_H.png",
+                    "Height_UID": 1587821084,
+                    "Ambient_ID": 3210,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_A.png",
+                    "Ambient_UID": 1927993144
+                }
+            ]
+        },
+        {
+            "Name": "Rock_02_3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1400156036,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 674407345,
+                    "Vertex Count": 5354,
+                    "Index Count": 5358
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3212,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_D.png",
+                    "Diffuse_UID": 938315400,
+                    "Specular_ID": 3218,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_S.png",
+                    "Specular_UID": 148139910,
+                    "Normal_ID": 3216,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_N.png",
+                    "Normal_UID": 1348813818,
+                    "Height_ID": 3214,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_H.png",
+                    "Height_UID": 1587821084,
+                    "Ambient_ID": 3210,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock02\/TEX_PROP_Rock2_A.png",
+                    "Ambient_UID": 1927993144
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_15",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 83026593,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 844415729,
+                    "Vertex Count": 230,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_14",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 845240571,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 157284197,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_13",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1330306894,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 525301011,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_12",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 228971805,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 100566683,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_11",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 715963464,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 989706538,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_10",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1046081751,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1306751243,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_9",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1578882304,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1018376366,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_8",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1381904135,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1191320552,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_7",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 360849522,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 492628157,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_6",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1608491039,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1443730898,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_5",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 304453411,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 286082858,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_4",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 763044246,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1673964889,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_3",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1535694027,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1122643906,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1349188945,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 1829063782,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
+                }
+            ]
+        },
+        {
+            "Name": "Rock_03_2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1819249189,
+            "Active": true,
+            "Element_Type": "Mesh",
+            "Origin_Path": "Assets\/BASE_FINAL\/Lvl-0 Base\/Exterior\/Rocks_Base.fbx",
+            "Parent UID": 1231247254,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Mesh",
+                    "Active": 1,
+                    "UID": 268028940,
+                    "Vertex Count": 226,
+                    "Index Count": 870
+                },
+                {
+                    "Type": "Material",
+                    "Active": 1,
+                    "Shader": "Assets\/Shaders\/MyShader.glsl",
+                    "Uniforms": [
+                        {
+                            "lightDir": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "lightInt": 1,
+                            "lightColor": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "numLights": 1,
+                            "displayNormalMap": true,
+                            "transparency": 1
+                        }
+                    ],
+                    "Diffuse_ID": 3222,
+                    "Diffuse_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_D.png",
+                    "Diffuse_UID": 412433760,
+                    "Specular_ID": 3228,
+                    "Specular_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_S.png",
+                    "Specular_UID": 1723643827,
+                    "Normal_ID": 3226,
+                    "Normal_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_N.png",
+                    "Normal_UID": 1488634945,
+                    "Height_ID": 3224,
+                    "Height_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_H.png",
+                    "Height_UID": 228578739,
+                    "Ambient_ID": 3220,
+                    "Ambient_Path": "Assets\/LVL1_FINAL\/LVL1_Textures\/Rocks Textures\/Textures_Rock03\/TEX_PROP_Rock03_A.png",
+                    "Ambient_UID": 2120957446
                 }
             ]
         },
@@ -11944,7 +13508,7 @@
             "UID": 812841453,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11981,7 +13545,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -12008,8 +13572,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1877,
-                    "Height": 1010,
+                    "Width": 474,
+                    "Height": 625,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -14455,7 +16019,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -21936,7 +23500,7 @@
             "UID": 365492027,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -23718,7 +25282,7 @@
             "UID": 2098616738,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52432,7 +53996,7 @@
             "UID": 869362369,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56213,7 +57777,7 @@
             "UID": 297696942,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -56958,7 +58522,7 @@
             "UID": 369438965,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -69341,7 +70905,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -69882,7 +71446,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70235,7 +71799,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70348,7 +71912,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
@@ -76155,7 +77719,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 2015857031,
+            "Parent UID": 1273010133,
             "Components": [
                 {
                     "Type": "Transform",
