@@ -32,7 +32,7 @@ public class PickUp : YmirComponent
                 if (player.currentResinVessels < player.maxResinVessels)
                 {
                     gameObject.SetActive(false);
-                    Debug.Log("Pick up " + gameObject.Name);
+                    Debug.Log("Pick up resin");
                     player.currentResinVessels++;
 
                     if (player.resinText != null)
@@ -62,15 +62,12 @@ public class PickUp : YmirComponent
                 {
                     Audio.PlayEmbedAudio(gameObject);
 
-                    //TODO: Hacer que el item se destruya/elimine
                     gameObject.SetActive(false);
                     Debug.Log("Pick up " + gameObject.Name);
                     player.itemsList.Add(Globals.SearchItemInDictionary(gameObject.Name));
 
-                    //player.itemsListString.Add(gameObject.Name);
-
-                    InternalCalls.Destroy(gameObject);
                     picked = true;
+                    InternalCalls.Destroy(gameObject);
                 }
                 else
                 {
