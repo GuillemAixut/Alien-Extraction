@@ -45,8 +45,6 @@ public class UI_Upgrade_Button : YmirComponent
 
         _setFocused = false;
 
-        LoadWeaponUpgrade();
-        ManageStart();
 
         GameObject go = InternalCalls.GetGameObjectByName("Upgrade Station");
 
@@ -59,6 +57,9 @@ public class UI_Upgrade_Button : YmirComponent
         {
             _parent = InternalCalls.GetGameObjectByName(stationName + " End");
         }
+
+        LoadWeaponUpgrade();
+        ManageStart();
     }
 
     public void Update()
@@ -111,14 +112,14 @@ public class UI_Upgrade_Button : YmirComponent
                             GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
                             UI.SetUIState(go4, (int)UI_STATE.DISABLED);
 
-                            upgrade.upgradeType = UPGRADE.LVL_3_ALPHA;
+                            upgrade.upgradeType = UPGRADE.LVL_3_BETA;
                         }
                         else
                         {
                             GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
                             UI.SetUIState(go3, (int)UI_STATE.DISABLED);
 
-                            upgrade.upgradeType = UPGRADE.LVL_3_BETA;
+                            upgrade.upgradeType = UPGRADE.LVL_3_ALPHA;
                         }
 
                         currentStation.currentScore -= upgrade.cost;
@@ -161,29 +162,117 @@ public class UI_Upgrade_Button : YmirComponent
     {
         int num = (name.Contains("0") ? 0 : name.Contains("1") ? 1 : name.Contains("2") ? 2 : name.Contains("3") ? 3 : 4);
 
-        if (num <= (int)upgrade.upgradeType && num < 3)
-        {
-            upgrade.isUnlocked = true;
-            UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
-        }
-        else if (num == (int)upgrade.upgradeType && num >= 3)
-        {
-            upgrade.isUnlocked = true;
-            UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
-        }
-        else
-        {
-            upgrade.isUnlocked = false;
-            UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
-        }
+        //if (num < 4)
+        //{
+        //    if ((int)upgrade.upgradeType >= num)
+        //    {
+        //        upgrade.isUnlocked = true;
+        //        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+        //    }
+        //    else if ((int)upgrade.upgradeType >= (num - 1))
+        //    {
+        //        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+        //    }
+        //    else
+        //    {
+        //        upgrade.isUnlocked = false;
+        //        UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
+        //    }
+        //}
+        //else
+        //{
+        //    if ((int)upgrade.upgradeType == 4)
+        //    {
+        //        upgrade.isUnlocked = true;
+        //        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+        //    }
+        //    else if ((int)upgrade.upgradeType == 2)
+        //    {
+        //        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+        //    }
+        //    else
+        //    {
+        //        upgrade.isUnlocked = false;
+        //        UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
+        //    }
+        //}
 
-        if (num == (int)upgrade.upgradeType && num == 2)
+        switch (num)
         {
-            GameObject go3 = InternalCalls.GetChildrenByName(_parent, "Upgrade 3");
-            GameObject go4 = InternalCalls.GetChildrenByName(_parent, "Upgrade 4");
-
-            UI.SetUIState(go3, (int)UI_STATE.NORMAL);
-            UI.SetUIState(go4, (int)UI_STATE.NORMAL);
+            case 0:
+                {
+                    upgrade.isUnlocked = true;
+                    UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                }
+                break;
+            case 1:
+                {
+                    if ((int)upgrade.upgradeType >= 1)
+                    {
+                        upgrade.isUnlocked = true;
+                        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                    }
+                    else if ((int)upgrade.upgradeType == 0)
+                    {
+                        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                    }
+                    else
+                    {
+                        upgrade.isUnlocked = false;
+                        UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
+                    }
+                }
+                break;
+            case 2:
+                {
+                    if ((int)upgrade.upgradeType >= 2)
+                    {
+                        upgrade.isUnlocked = true;
+                        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                    }
+                    else
+                    {
+                        upgrade.isUnlocked = false;
+                        UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
+                    }
+                }
+                break;
+            case 3:
+                {
+                    if ((int)upgrade.upgradeType == 3)
+                    {
+                        upgrade.isUnlocked = true;
+                        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                    }
+                    else if ((int)upgrade.upgradeType == 2)
+                    {
+                        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                    }
+                    else
+                    {
+                        upgrade.isUnlocked = false;
+                        UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
+                    }
+                }
+                break;
+            case 4:
+                {
+                    if ((int)upgrade.upgradeType == 4)
+                    {
+                        upgrade.isUnlocked = true;
+                        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                    }
+                    else if ((int)upgrade.upgradeType == 2)
+                    {
+                        UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+                    }
+                    else
+                    {
+                        upgrade.isUnlocked = false;
+                        UI.SetUIState(gameObject, (int)UI_STATE.DISABLED);
+                    }
+                }
+                break;
         }
     }
 }
