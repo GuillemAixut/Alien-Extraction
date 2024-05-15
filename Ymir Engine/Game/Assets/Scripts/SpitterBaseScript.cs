@@ -150,14 +150,14 @@ public class SpitterBaseScript : Enemy
         //Enemy rarity stats
         if (rarity == 1)
         {
-            life = 1050;
-            armor = 0.325f;
+            life = 750; //1050
+            armor = 0.0f; //0.325f
             agent.speed = 1700f;
         }
         else if (rarity == 2)
         {
-            life = 1650;
-            armor = 0.45f;
+            life = 1050; //1650
+            armor = 0.0f; // 0.45f
             agent.speed = 1800f;
         }
 
