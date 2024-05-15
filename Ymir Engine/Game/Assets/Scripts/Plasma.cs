@@ -22,6 +22,7 @@ public class Plasma : Weapon
         {
             case UPGRADE.LVL_0:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaDefault");
                 ammo = 200;
                 fireRate = 0.03f;
                 damage = 2.4f;
@@ -31,6 +32,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_1:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL1");
                 ammo = 200;
                 fireRate = 0.03f;
                 damage = 3;
@@ -40,6 +42,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_2:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL2");
                 ammo = 300;
                 fireRate = 0.02f;
                 damage = 3.6f;
@@ -49,6 +52,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_3_ALPHA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL3A");
                 ammo = 300;
                 fireRate = 0.015f;
                 damage = 5f;
@@ -58,6 +62,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_3_BETA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL3B");
                 ammo = 200;
                 fireRate = 0.02f;
                 damage = 4f;
@@ -78,6 +83,10 @@ public class Plasma : Weapon
         fireRateTimer = fireRate;
 
         Audio.PlayAudio(gameObject, "W_PlasmaShot");
+        Particles.ParticleShoot(particlesGO, gameObject.transform.GetForward());
+        //TODO TONI: Cambiar el max distance segun el largo del raycast del laser (variable range)
+        //Particles.SetMaxDistance(particlesGO, range);
+        Particles.PlayParticlesTrigger(particlesGO);
 
         GameObject target = null;
 
