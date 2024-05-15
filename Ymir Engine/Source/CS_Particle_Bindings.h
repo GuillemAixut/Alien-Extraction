@@ -255,37 +255,37 @@ void RestartParticles(MonoObject* go) {
 	}
 }
 
-void ParticlesSetDirection(MonoObject* go, float range)
-{
-	if (External == nullptr) return;
-
-	//Game object del player
-	//Se necesita para sacar el componente particula y por ende su EmitterPosition
-	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
-	if (GO == nullptr)
-	{
-		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
-		return;
-	}
-
-	CParticleSystem* particleSystem = dynamic_cast<CParticleSystem*>(GO->GetComponent(ComponentType::PARTICLE));
-
-	//TODO TONI: Optimizar esto, todos los emitters tienen base asi que el if que mira si es igual a base no sirve
-	//solo es mirar si base->hasDistanceLimit y cambiarlo
-	if (particleSystem != nullptr)
-	{
-		for (int j = 0; j < particleSystem->allEmitters.size(); j++)
-		{
-			EmitterBase* base = (EmitterBase*)particleSystem->allEmitters.at(j)->modules.at(0);
-
-			if (base->hasDistanceLimit)
-			{
-				base->distanceLimit = range;
-			}
-		}
-	}
-	else
-	{
-		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
-	}
-}
+//void ParticlesSetDirection(MonoObject* go, float range)
+//{
+//	if (External == nullptr) return;
+//
+//	//Game object del player
+//	//Se necesita para sacar el componente particula y por ende su EmitterPosition
+//	GameObject* GO = External->moduleMono->GameObject_From_CSGO(go);
+//	if (GO == nullptr)
+//	{
+//		LOG("[ERROR] No Particle Game Object found (be sure the name is correct!)");
+//		return;
+//	}
+//
+//	CParticleSystem* particleSystem = dynamic_cast<CParticleSystem*>(GO->GetComponent(ComponentType::PARTICLE));
+//
+//	//TODO TONI: Optimizar esto, todos los emitters tienen base asi que el if que mira si es igual a base no sirve
+//	//solo es mirar si base->hasDistanceLimit y cambiarlo
+//	if (particleSystem != nullptr)
+//	{
+//		for (int j = 0; j < particleSystem->allEmitters.size(); j++)
+//		{
+//			EmitterBase* base = (EmitterBase*)particleSystem->allEmitters.at(j)->modules.at(0);
+//
+//			if (base->hasDistanceLimit)
+//			{
+//				base->distanceLimit = range;
+//			}
+//		}
+//	}
+//	else
+//	{
+//		LOG("[WARNING] Couldn't play the particle effect %s. Component was null pointer");
+//	}
+//}
