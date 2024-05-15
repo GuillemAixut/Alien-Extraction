@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 313407273,
+            "UID": 1043264100,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -41,7 +41,7 @@
             "UID": 1624412438,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 313407273,
+            "Parent UID": 1043264100,
             "Components": [
                 {
                     "Type": "Transform",
@@ -52,9 +52,9 @@
                         54
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         40.000007629394531,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1,
@@ -79,17 +79,17 @@
                     "Active": 1,
                     "Right": [
                         0.76604437828063965,
-                        -1.4361705780174816e-07,
+                        1.4361705780174816e-07,
                         0.64278769493103027
                     ],
                     "Up": [
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         1,
-                        1.4361705780174816e-07
+                        -1.4361705780174816e-07
                     ],
                     "Front": [
                         0.64278769493103027,
-                        6.696972576492044e-08,
+                        -6.696972576492044e-08,
                         -0.76604437828063965
                     ],
                     "FOV": 60.000003814697266,
@@ -108,7 +108,7 @@
             "UID": 818596370,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 313407273,
+            "Parent UID": 1043264100,
             "Components": [
                 {
                     "Type": "Transform",
@@ -135,8 +135,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1925,
-                    "Height": 1058,
+                    "Width": 1912,
+                    "Height": 1046,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -148,7 +148,8 @@
                 }
             ],
             "Children UID": [
-                823313709
+                823313709,
+                483488929
             ]
         },
         {
@@ -223,8 +224,71 @@
                     "maxFrames": 10,
                     "hasFinished": false,
                     "introScene": false,
-                    "winScene": true,
-                    "loseScene": false
+                    "winScene1": true,
+                    "winScene2": false
+                }
+            ]
+        },
+        {
+            "Name": "Button_A",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 483488929,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 818596370,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        0.68999999761581421,
+                        0.68999999761581421,
+                        0.68999999761581421
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1725,
+                    "Position Y": 821,
+                    "Width": 123,
+                    "Height": 123,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1725,
+                        821,
+                        123,
+                        123
+                    ],
+                    "Path": "Assets\/CutScenes\/asdf.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0.30000001192092896,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
                 }
             ]
         }

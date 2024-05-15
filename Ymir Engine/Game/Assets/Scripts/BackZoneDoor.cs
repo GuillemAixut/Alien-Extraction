@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 using YmirEngine;
 
-public class Horizontal_Door_OneWay : YmirComponent
+public class BackZoneDoor : YmirComponent
 {
     public enum DoorState
     {
@@ -21,6 +21,8 @@ public class Horizontal_Door_OneWay : YmirComponent
     /// se desbloquee el poder abrirla por el otro lado
     /// </summary>
     public bool unlockAfterOpen = true;
+    public bool lockRight = false;
+    public bool lockLeft = true;
 
     private GameObject doorCollider;
     private GameObject doorSensor1;
@@ -48,7 +50,9 @@ public class Horizontal_Door_OneWay : YmirComponent
         doorCollider = InternalCalls.CS_GetChild(gameObject, 5);
         doorSensor1 = InternalCalls.CS_GetChild(gameObject, 6);
         doorSensor2 = InternalCalls.CS_GetChild(gameObject, 7);
-        doorSensor2.GetComponent<BackZoneDoor_Sensor>().active = false;
+
+        if (lockRight) doorSensor1.GetComponent<BackZoneDoor_Sensor>().active = false;
+        if (lockLeft) doorSensor2.GetComponent<BackZoneDoor_Sensor>().active = false;
 
         initialPos_lDoor = lDoor.transform.localPosition;
         initialPos_rDoor = rDoor.transform.localPosition;
@@ -92,7 +96,7 @@ public class Horizontal_Door_OneWay : YmirComponent
                 }
                 break;
             case DoorState.CLOSED:
-                // Puerta cerrada, no hay acción necesaria
+
                 break;
 
         }
@@ -101,13 +105,15 @@ public class Horizontal_Door_OneWay : YmirComponent
     public void ChangeDoorState()
     {
         if (!doorSensor2.GetComponent<BackZoneDoor_Sensor>().active && unlockAfterOpen) doorSensor2.GetComponent<BackZoneDoor_Sensor>().active = true;
+        if (!doorSensor1.GetComponent<BackZoneDoor_Sensor>().active && unlockAfterOpen) doorSensor1.GetComponent<BackZoneDoor_Sensor>().active = true;
+
+        if (doorCollider != null) { InternalCalls.Destroy(doorCollider); }
 
         if (currentState == DoorState.CLOSED)
         {
             currentState = DoorState.OPENING;
             timer = 0;
 
-            if (doorCollider != null) { InternalCalls.Destroy(doorCollider); }
         }
         else if (currentState == DoorState.CLOSING)
         {
