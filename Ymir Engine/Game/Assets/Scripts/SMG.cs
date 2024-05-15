@@ -22,7 +22,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgDefault");
                 ammo = 35;
                 fireRate = 0.06f;
-                damage = 5;
+                damage = 15;
                 reloadTime = 1.8f;
 
                 break;
@@ -31,7 +31,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL1");
                 ammo = 35;
                 fireRate = 0.05f;
-                damage = 9;
+                damage = 30;
                 reloadTime = 1.6f;
 
                 break;
@@ -40,7 +40,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL2");
                 ammo = 40;
                 fireRate = 0.05f;
-                damage = 11;
+                damage = 40;
                 reloadTime = 1.5f;
 
                 break;
@@ -49,7 +49,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3A");
                 ammo = 110;
                 fireRate = 0.04f;
-                damage = 13;
+                damage = 50;
                 reloadTime = 1.3f;
 
                 break;
@@ -58,7 +58,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3B");
                 ammo = 40;
                 fireRate = 0.02f;
-                damage = 10;
+                damage = 40;
                 reloadTime = 1.5f;
 
                 break;
