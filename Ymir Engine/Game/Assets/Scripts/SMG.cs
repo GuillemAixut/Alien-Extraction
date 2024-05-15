@@ -97,24 +97,32 @@ public class SMG : Weapon
 
                 if (aux != null)
                 {
+                    GameObject FaceHuggerDamageParticles = InternalCalls.GetChildrenByName(aux.gameObject, "ParticlesDamageFaceHugger");
+                    if(FaceHuggerDamageParticles != null) Particles.PlayParticlesTrigger(FaceHuggerDamageParticles);
                     aux.TakeDmg(damage);
                 }
 
                 DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
                 if (aux2 != null)
                 {
+                    GameObject DroneDamageParticles = InternalCalls.GetChildrenByName(aux2.gameObject, "ParticlesDamageDrone");
+                    if(DroneDamageParticles != null) Particles.PlayParticlesTrigger(DroneDamageParticles);
                     aux2.TakeDmg(damage);
                 }
 
                 QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
                 if (aux3 != null)
                 {
+                    GameObject QueenDamageParticles = InternalCalls.GetChildrenByName(aux3.gameObject, "ParticlesDamageQueen");
+                    if (QueenDamageParticles != null) Particles.PlayParticlesTrigger(QueenDamageParticles);
                     aux3.TakeDmg(damage);
                 }
 
                 SpitterBaseScript aux4 = target.GetComponent<SpitterBaseScript>();
                 if (aux4 != null)
                 {
+                    GameObject SpitterDamageParticles = InternalCalls.GetChildrenByName(aux4.gameObject, "ParticlesDamageSpitter");
+                    if (SpitterDamageParticles != null) Particles.PlayParticlesTrigger(SpitterDamageParticles);
                     aux4.TakeDmg(damage);
                 }
 

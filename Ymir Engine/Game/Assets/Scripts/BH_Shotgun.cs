@@ -39,24 +39,32 @@ public class BH_Shotgun : YmirComponent
 
             if (aux != null)
             {
+                GameObject FaceHuggerDamageParticles = InternalCalls.GetChildrenByName(aux.gameObject, "ParticlesDamageFaceHugger");
+                if (FaceHuggerDamageParticles != null) Particles.PlayParticlesTrigger(FaceHuggerDamageParticles);
                 aux.TakeDmg(player.currentWeapon.damage);
             }
 
             DroneXenomorphBaseScript aux2 = other.GetComponent<DroneXenomorphBaseScript>();
             if (aux2 != null)
             {
+                GameObject DroneDamageParticles = InternalCalls.GetChildrenByName(aux2.gameObject, "ParticlesDamageDrone");
+                if (DroneDamageParticles != null) Particles.PlayParticlesTrigger(DroneDamageParticles);
                 aux2.TakeDmg(player.currentWeapon.damage);
             }
 
             QueenXenomorphBaseScript aux3 = other.GetComponent<QueenXenomorphBaseScript>();
             if (aux3 != null)
             {
+                GameObject QueenDamageParticles = InternalCalls.GetChildrenByName(aux3.gameObject, "ParticlesDamageQueen");
+                if (QueenDamageParticles != null) Particles.PlayParticlesTrigger(QueenDamageParticles);
                 aux3.TakeDmg(player.currentWeapon.damage);
             }
 
             SpitterBaseScript aux4 = other.GetComponent<SpitterBaseScript>();
             if (aux4 != null)
             {
+                GameObject SpitterDamageParticles = InternalCalls.GetChildrenByName(aux4.gameObject, "ParticlesDamageSpitter");
+                if (SpitterDamageParticles != null) Particles.PlayParticlesTrigger(SpitterDamageParticles);
                 aux4.TakeDmg(player.currentWeapon.damage);
             }
 
