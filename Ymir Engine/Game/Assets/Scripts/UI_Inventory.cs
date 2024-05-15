@@ -77,11 +77,17 @@ public class UI_Inventory : YmirComponent
         ResetMenuSlots();
 
         UpdateTextStats();
+
         SetSlots();
     }
 
     public void Update()
     {
+        if (Input.GetKey(YmirKeyCode.T) == KeyState.KEY_DOWN)
+        {
+            LogInventoryItems();
+        }
+
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
         UI_Item_Button cs_UI_Item_Button = focusedGO.GetComponent<UI_Item_Button>();
@@ -133,7 +139,7 @@ public class UI_Inventory : YmirComponent
                 {
                     //Delete item from player list
                     player.itemsList.Remove(cs_UI_Item_Button.item);
-                   
+
                     // Change current item to an empty one
                     cs_UI_Item_Button.item.itemType = ITEM_SLOT.NONE;
                     cs_UI_Item_Button.itemType = ITEM_SLOT.NONE;
@@ -298,7 +304,7 @@ public class UI_Inventory : YmirComponent
 
                             if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
                             {
-                                player.itemsList[i].inInventory = true;
+                                //player.itemsList[i].inInventory = true;
                                 Debug.Log("button name " + button.Name);
                                 break;
                             }
@@ -318,7 +324,7 @@ public class UI_Inventory : YmirComponent
         {
             GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
 
-            if (gameObject != null)
+            if (button != null)
             {
                 if (button.GetComponent<UI_Item_Button>().item != null)
                 {
@@ -328,5 +334,27 @@ public class UI_Inventory : YmirComponent
             }
         }
     }
-}
 
+    public void LogInventoryItems()
+    {
+        GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+
+        Debug.Log("Inventory");
+
+        for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))                                                                                                              //Debug.Log("button name " + button.Name);
+
+            if (button != null)
+            {
+                button.GetComponent<UI_Item_Button>().item.LogStats();
+                //Debug.Log("Inventory item " + inv.ToString() + " name " + button.GetComponent<UI_Item_Button>().item.name);
+            }
+        }
+
+        for (int i = 0; i < player.itemsList.Count; i++)
+        {
+            Debug.Log("Player list item: " + player.itemsList[i].name);
+        }
+    }
+}

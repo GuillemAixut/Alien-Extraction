@@ -66,6 +66,8 @@ public class Tp_Beacon : YmirComponent
             Audio.StopAllAudios();
             image_go_base.SetActive(true);
             loadScene = true;
+
+            Globals.GetPlayerScript().SavePlayer();
         }
     }
 

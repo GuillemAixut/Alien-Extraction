@@ -505,6 +505,7 @@ MonoObject* ModuleMonoManager::GoToCSGO(GameObject* inGo) const
 		//LOG("[WARNING] GoTOCSGO inGo doesn't exist");
 		return nullptr;
 	}
+
 	MonoClass* goClass = mono_class_from_name(image, YMIR_SCRIPTS_NAMESPACE, "GameObject");
 	uintptr_t goPtr = reinterpret_cast<uintptr_t>(inGo);
 

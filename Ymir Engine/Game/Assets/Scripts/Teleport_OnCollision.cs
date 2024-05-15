@@ -52,6 +52,7 @@ public class Teleport_OnCollision : YmirComponent
             }
 
             loadScene = true;
+            Globals.GetPlayerScript().SavePlayer();
         }
     }
 }

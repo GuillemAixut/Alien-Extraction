@@ -34,7 +34,7 @@ public class UI_Crafting_Recipe : YmirComponent
 
     public void Check() // Check if all slots are filled to craft item
     {
-        int count = 0; 
+        int count = 0;
 
         for (int i = 0; i < InternalCalls.CS_GetChildrenSize(gameObject) - 1; i++) // Don't check last element (item to create)
         {
@@ -127,7 +127,7 @@ public class UI_Crafting_Recipe : YmirComponent
         }
 
         Debug.Log(item.name);
-        InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().SetItem(item); 
+        InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().SetItem(item);
 
         player.itemsList.Add(InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(gameObject, InternalCalls.CS_GetChildrenSize(gameObject) - 1), 2).GetComponent<UI_Item_Button>().item);
 
@@ -143,5 +143,4 @@ public class UI_Crafting_Recipe : YmirComponent
             player = gameObject.GetComponent<Player>();
         }
     }
-
 }

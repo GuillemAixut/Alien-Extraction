@@ -19,6 +19,8 @@ public class UI_Item_Button : YmirComponent
     private GameObject _menuReference;
     public bool updateStats = false;
 
+    private Player player;
+
     // Debug
     public string name = "";
     public ITEM_SLOT itemType;
@@ -29,6 +31,7 @@ public class UI_Item_Button : YmirComponent
     public void Start()
     {
         _menuReference = InternalCalls.GetGameObjectByName(menuName);
+        player = Globals.GetPlayerScript();
 
         updateStats = false;
 
@@ -65,6 +68,8 @@ public class UI_Item_Button : YmirComponent
                 if (!item.isEquipped)
                 {
                     item.isEquipped = true;
+                    item.inInventory = true;
+
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
                 }
@@ -74,6 +79,8 @@ public class UI_Item_Button : YmirComponent
                 if (item.isEquipped)
                 {
                     item.isEquipped = false;
+                    item.inInventory = false;
+
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
                 }
@@ -327,11 +334,14 @@ public class UI_Item_Button : YmirComponent
 
     public void ResetSlot()
     {
-        currentSlot = SetType(enumSlot);
+        //enumSlot = "NONE";
+        currentSlot = ITEM_SLOT.NONE;
         itemType = ITEM_SLOT.NONE;
+        itemRarity = ITEM_RARITY.NONE;
 
-        item.inInventory = false;
-        item.inStash = false;
-        item.inCraft = false;
+        item = null;
+        //item.inInventory = false;
+        //item.inStash = false;
+        //item.inCraft = false;
     }
 }

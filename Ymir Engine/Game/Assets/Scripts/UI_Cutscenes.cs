@@ -75,7 +75,7 @@ public class UI_Cutscenes : YmirComponent
             {
                 button.SetActive(true);
 
-                if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
+                if (Input.GetKey(YmirKeyCode.A) == KeyState.KEY_DOWN)
                 {
                     currentFrame++;
                     finishTimer = timer;
