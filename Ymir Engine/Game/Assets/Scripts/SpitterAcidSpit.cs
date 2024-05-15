@@ -21,6 +21,9 @@ public class SpitterAcidSpit : YmirComponent
 
     private float destroyTimer;
 
+    private bool impulseDone = false;
+
+    Vector3 direction;
 
     public void Start()
 	{
@@ -29,17 +32,19 @@ public class SpitterAcidSpit : YmirComponent
         healthScript = player.GetComponent<Health>();
         destroyed = false;
         destroyTimer = 0f;
-        Vector3 direction = gameObject.transform.globalPosition - player.transform.globalPosition;
+        direction = gameObject.transform.globalPosition - player.transform.globalPosition;
         Quaternion rotation = Quaternion.LookRotation(direction);
-        Debug.Log("[ERROR] ROTATIONNN " + gameObject.transform.globalRotation);
-        gameObject.transform.localRotation = rotation;
         gameObject.SetRotation(rotation);
-        gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
-        Debug.Log("[ERROR] ROTATIONNN " + gameObject.transform.globalRotation);
     }
 
     public void Update()
 	{
+        if (impulseDone == false)
+        {
+            gameObject.SetImpulse(direction.normalized * -movementSpeed * Time.deltaTime);
+            impulseDone = true; ;
+        }
+
         destroyTimer += Time.deltaTime;
 
         if (destroyed || destroyTimer >= 2f) 
