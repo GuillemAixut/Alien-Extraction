@@ -18,8 +18,8 @@ public class UI_Cutscenes : YmirComponent
 
     public bool hasFinished = false;
     public bool introScene = false;
-    public bool winScene = false;
-    public bool loseScene = false;
+    public bool winScene1 = false;
+    public bool winScene2 = false;
 
     private float timer = 2f;
     private float finishTimer = 2f;
@@ -50,7 +50,14 @@ public class UI_Cutscenes : YmirComponent
     {
         if (loadScene)
         {
-            InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
+            if (introScene)
+            {
+                InternalCalls.LoadScene("Assets/BASE_FINAL/LVL_BASE_COLLIDERS");
+            }
+            if (winScene1)
+            {
+                InternalCalls.LoadScene("Assets/UI/Scenes/StartScene");
+            }
             loadScene = false;
 
             return;
@@ -68,7 +75,7 @@ public class UI_Cutscenes : YmirComponent
             {
                 button.SetActive(true);
 
-                if (Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
+                if (Input.GetKey(YmirKeyCode.A) == KeyState.KEY_DOWN)
                 {
                     currentFrame++;
                     finishTimer = timer;
@@ -79,6 +86,15 @@ public class UI_Cutscenes : YmirComponent
                         hasFinished = true;
 
                         if (introScene)
+                        {
+                            if (loadSceneImg != null)
+                            {
+                                loadSceneImg.SetActive(true);
+                            }
+
+                            loadScene = true;
+                        }
+                        if (winScene1)
                         {
                             if (loadSceneImg != null)
                             {
