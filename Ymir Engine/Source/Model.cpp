@@ -442,6 +442,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 	// Process Texture Maps
 
+	/*
 	if (mesh->mMaterialIndex >= 0)
 	{
 		CMaterial* cmaterial = new CMaterial(linkGO);
@@ -742,7 +743,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 		linkGO->AddComponent(cmaterial);
 
 	}
-
+	*/
 }
 
 void Model::GenerateModelMetaFile()
