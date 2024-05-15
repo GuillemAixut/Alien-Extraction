@@ -417,7 +417,8 @@ public class SpitterBaseScript : Enemy
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 15;
                     pos.z -= 10;
-                    InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
+                    //InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
+                    InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Projectile-SpitterExplosive", pos);
                     explosionDone = true;
                     //GameObject particles = GetParticles(gameObject, "ParticlesAcidicEnemy");
                     //Particles.PlayParticlesTrigger(particles);

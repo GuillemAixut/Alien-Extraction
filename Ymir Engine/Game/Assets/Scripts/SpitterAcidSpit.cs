@@ -41,7 +41,7 @@ public class SpitterAcidSpit : YmirComponent
 	{
         if (impulseDone == false)
         {
-            gameObject.SetImpulse(direction.normalized * -movementSpeed * Time.deltaTime);
+            gameObject.SetImpulse(direction.normalized * -movementSpeed * Time.deltaTime + new Vector3(0,0.1f,0));
             impulseDone = true; ;
         }
 
