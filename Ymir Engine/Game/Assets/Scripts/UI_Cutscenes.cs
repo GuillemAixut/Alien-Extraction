@@ -75,12 +75,13 @@ public class UI_Cutscenes : YmirComponent
             {
                 button.SetActive(true);
 
-                if (Input.GetKey(YmirKeyCode.A) == KeyState.KEY_DOWN)
+                if (Input.GetKey(YmirKeyCode.A) == KeyState.KEY_DOWN || Input.GetGamepadButton(GamePadButton.A) == KeyState.KEY_DOWN)
                 {
                     currentFrame++;
                     finishTimer = timer;
                     UI.ChangeImageUI(img, imgPath + imgName + "(" + currentFrame.ToString() + ")" + ".png", (int)UI_STATE.NORMAL);
                     Debug.Log(imgPath + imgName + "(" + currentFrame.ToString() + ")" + ".png");
+
                     if (currentFrame == maxFrames)
                     {
                         hasFinished = true;

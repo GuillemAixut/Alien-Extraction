@@ -24,7 +24,7 @@ public class SpitterAcidShrapnel : YmirComponent
 
     public void Start()
     {
-        movementSpeed = 3000f;
+        movementSpeed = 1000f;
         player = InternalCalls.GetGameObjectByName("Player");
         healthScript = player.GetComponent<Health>();
         gameObject.SetImpulse(gameObject.transform.GetForward() * movementSpeed * Time.deltaTime);
