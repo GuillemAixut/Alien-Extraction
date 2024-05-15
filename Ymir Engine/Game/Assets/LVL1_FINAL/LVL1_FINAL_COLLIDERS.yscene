@@ -1,31 +1,31 @@
 {
     "NavMesh": "Assets\/LVL1_FINAL\/LVL1_FINAL_COLLIDERS.nav",
     "Editor Camera Position": [
-        226.67222595214844,
-        121.89826202392578,
-        -34.4810791015625
+        892.3603515625,
+        88.180648803710938,
+        -105.91712951660156
     ],
     "Editor Camera Right (X)": [
-        -0.98613554239273071,
-        1.0430812835693359e-07,
-        -0.16594678163528442
+        0.15165714919567108,
+        3.9301812648773193e-07,
+        0.988433837890625
     ],
     "Editor Camera Up (Y)": [
-        -0.078058198094367981,
-        0.88246351480484009,
-        0.4638599157333374
+        0.15896745026111603,
+        0.98698258399963379,
+        -0.024391047656536102
     ],
     "Editor Camera Front (Z)": [
-        -0.14644181728363037,
-        -0.47038275003433228,
-        0.87022733688354492
+        0.97556686401367188,
+        -0.16082762181758881,
+        -0.14968287944793701
     ],
     "Hierarchy": [
         {
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1489674504,
+            "UID": 1675005753,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -57,7 +57,8 @@
                 1259328255,
                 981719170,
                 523345040,
-                1085187284
+                1085187284,
+                1225145048
             ]
         },
         {
@@ -67,7 +68,7 @@
             "UID": 265396639,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11124,16 +11125,16 @@
                 }
             ],
             "Children UID": [
-                1546517868,
+                204981792,
                 1237068732,
-                1735509106
+                21708715
             ]
         },
         {
-            "Name": "PROP_Beacon",
+            "Name": "PROP_Beacon (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1546517868,
+            "UID": 204981792,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1416056091,
@@ -11142,19 +11143,19 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        1008.8198852539062,
-                        3.6057932376861572,
-                        -116.59803009033203
+                        307.28677368164062,
+                        3.605787992477417,
+                        176.48103332519531
                     ],
                     "Rotation": [
-                        180,
-                        -75.439453125,
-                        180
+                        -0,
+                        0,
+                        -0
                     ],
                     "Scale": [
-                        1.000001072883606,
                         1,
-                        1.000001072883606
+                        1,
+                        1
                     ]
                 },
                 {
@@ -11181,9 +11182,9 @@
                     "LockY": false,
                     "LockZ": false,
                     "Offset": [
-                        -0.80000001192092896,
-                        4.6999998092651367,
-                        3
+                        3.2999999523162842,
+                        5.1999998092651367,
+                        0.30000001192092896
                     ],
                     "Offset Rotation": [
                         0,
@@ -11201,25 +11202,24 @@
                 }
             ],
             "Children UID": [
-                1464571528,
-                87702199,
-                23056202,
-                1082993967,
-                1133767621,
-                1849075765,
-                1519385920,
-                1952375083
+                866231792,
+                30570671,
+                1444361182,
+                943930236,
+                1486033061,
+                735073481,
+                1837098488
             ]
         },
         {
-            "Name": "Base (1)",
+            "Name": "Base (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1464571528,
+            "UID": 866231792,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1546517868,
+            "Parent UID": 204981792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11290,17 +11290,17 @@
                 }
             ],
             "Children UID": [
-                1862344415
+                1222529732
             ]
         },
         {
-            "Name": "Particle System",
+            "Name": "Particle System (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1862344415,
+            "UID": 1222529732,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1464571528,
+            "Parent UID": 866231792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11422,14 +11422,14 @@
             ]
         },
         {
-            "Name": "Cable (1)",
+            "Name": "Cable (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 87702199,
+            "UID": 30570671,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1546517868,
+            "Parent UID": 204981792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11501,14 +11501,14 @@
             ]
         },
         {
-            "Name": "Antenna1 (1)",
+            "Name": "Antenna1 (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 23056202,
+            "UID": 1444361182,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1546517868,
+            "Parent UID": 204981792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11580,14 +11580,14 @@
             ]
         },
         {
-            "Name": "Antenna2 (1)",
+            "Name": "Antenna2 (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1082993967,
+            "UID": 943930236,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1546517868,
+            "Parent UID": 204981792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11659,14 +11659,14 @@
             ]
         },
         {
-            "Name": "Antenna3 (1)",
+            "Name": "Antenna3 (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1133767621,
+            "UID": 1486033061,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1546517868,
+            "Parent UID": 204981792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11738,14 +11738,14 @@
             ]
         },
         {
-            "Name": "Light (1)",
+            "Name": "Light (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1849075765,
+            "UID": 735073481,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1546517868,
+            "Parent UID": 204981792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11859,14 +11859,14 @@
             ]
         },
         {
-            "Name": "Top (1)",
+            "Name": "Top (3)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1519385920,
+            "UID": 1837098488,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1546517868,
+            "Parent UID": 204981792,
             "Components": [
                 {
                     "Type": "Transform",
@@ -11938,712 +11938,6 @@
             ]
         },
         {
-            "Name": "Empty (18)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1952375083,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1546517868,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        224.37300109863281,
-                        -3.6058149337768555,
-                        947.1051025390625
-                    ],
-                    "Rotation": [
-                        180,
-                        75.439483642578125,
-                        180
-                    ],
-                    "Scale": [
-                        0.99999898672103882,
-                        1,
-                        0.99999886751174927
-                    ]
-                }
-            ],
-            "Children UID": [
-                1225145048
-            ]
-        },
-        {
-            "Name": "Image_Go_Base",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1225145048,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1952375083,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 406,
-                    "Height": 567,
-                    "UI Type": 0,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        0,
-                        1887,
-                        1045
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "OpenMenu_OnCollision.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "goName": "Image_Go_Base"
-                }
-            ],
-            "Children UID": [
-                278230482,
-                1769519281,
-                1621892092,
-                1031375599
-            ]
-        },
-        {
-            "Name": "Image (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 278230482,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1225145048,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 2000,
-                    "Height": 1100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        35.724365234375,
-                        -4.3153762817382812e-05,
-                        2000,
-                        1100
-                    ],
-                    "Path": "Assets\/UI\/Fondo.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        -0.30000001192092896
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Image",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1769519281,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1225145048,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        27.979991912841797,
-                        -3.6057915687561035,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 516,
-                    "Position Y": 327,
-                    "Width": 868,
-                    "Height": 336,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        579.704345703125,
-                        323.3941650390625,
-                        868,
-                        336
-                    ],
-                    "Path": "Assets\/UI\/FondoBeacon.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Grid",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1621892092,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1225145048,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        84.400001525878906,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Inventory_Grid.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "rows": 1,
-                    "cols": 2,
-                    "leftGridName": " ",
-                    "rightGridName": " ",
-                    "downGridName": " ",
-                    "upGridName": " ",
-                    "naviagteX": true,
-                    "naviagteY": false,
-                    "bounceX": true,
-                    "bounceY": false,
-                    "empty": false,
-                    "childX": 0,
-                    "childY": 0
-                }
-            ],
-            "Children UID": [
-                1656679832,
-                683157146
-            ]
-        },
-        {
-            "Name": "Go_Base",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1656679832,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1621892092,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 644,
-                    "Position Y": 446,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        679.724365234375,
-                        530.39996337890625,
-                        300,
-                        50
-                    ],
-                    "Path": "Assets\/Lava.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        -0.20000000298023224,
-                        -0.20000000298023224,
-                        -0.20000000298023224,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 3,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        84.400001525878906,
-                        300,
-                        50
-                    ],
-                    "Is interactable": true,
-                    "Text": 1333584116,
-                    "Image": 1656679832,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Buttons.png",
-                    "Release": "Assets\/penguin.png",
-                    "Disabled": "Assets\/Lava.png",
-                    "Focused color": [
-                        0,
-                        1,
-                        0,
-                        1
-                    ],
-                    "Pressed color": [
-                        1,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Selected color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "Button_GoToScene.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS",
-                    "time": 5
-                }
-            ],
-            "Children UID": [
-                1333584116
-            ]
-        },
-        {
-            "Name": "Text (3)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1333584116,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1656679832,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 757,
-                    "Position Y": 480,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        792.724365234375,
-                        564.39996337890625,
-                        300,
-                        50
-                    ],
-                    "Text": "YES",
-                    "Font name": "NK57 Monospace Se Bd.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Stay_On_Map",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 683157146,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1621892092,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1006,
-                    "Position Y": 446,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1041.724365234375,
-                        530.39996337890625,
-                        300,
-                        50
-                    ],
-                    "Path": "Assets\/Lava.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        -0.20000000298023224,
-                        -0.20000000298023224,
-                        -0.20000000298023224,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 3,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        0,
-                        84.400001525878906,
-                        300,
-                        50
-                    ],
-                    "Is interactable": true,
-                    "Text": 4294967295,
-                    "Image": 683157146,
-                    "Normal": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Pressed": "Assets\/UI\/Teleport Buttons\/BotonPressed.png",
-                    "Selected": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
-                    "Release": "Assets\/penguin.png",
-                    "Disabled": "Assets\/Lava.png",
-                    "Focused color": [
-                        0,
-                        1,
-                        0,
-                        1
-                    ],
-                    "Pressed color": [
-                        1,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Selected color": [
-                        0,
-                        0,
-                        1,
-                        1
-                    ],
-                    "Disabled color": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_ToggleMenu.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "menu": "Image_Go_Base",
-                    "active": false
-                }
-            ],
-            "Children UID": [
-                1594104480
-            ]
-        },
-        {
-            "Name": "Text (4)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1594104480,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 683157146,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        27.979991912841797,
-                        -88.005790710449219,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 1105,
-                    "Position Y": 570,
-                    "Width": 200,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        1168.704345703125,
-                        566.3941650390625,
-                        200,
-                        50
-                    ],
-                    "Text": "NO",
-                    "Font name": "NK57 Monospace Se Bd.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 21,
-                    "Line Spacing": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
-            "Name": "Text (5)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1031375599,
-            "Active": true,
-            "Element_Type": "None",
-            "Parent UID": 1225145048,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        84.400001525878906,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 604,
-                    "Position Y": 374,
-                    "Width": 300,
-                    "Height": 50,
-                    "UI Type": 2,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        639.724365234375,
-                        458.39996337890625,
-                        300,
-                        50
-                    ],
-                    "Text": "DO YOU WANT TO EXTRACT?\n",
-                    "Font name": "NK57 Monospace Se Bd.otf",
-                    "Font path": "Assets\\Fonts",
-                    "Font size": 35,
-                    "Line Spacing": 1,
-                    "Color": [
-                        1,
-                        1,
-                        1,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 2
-                }
-            ]
-        },
-        {
             "Name": "PROP_Beacon (1)",
             "Static": false,
             "Tag": "Untagged",
@@ -12656,19 +11950,19 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        305.28756713867188,
-                        3.5476703643798828,
-                        176.60441589355469
+                        604.76031494140625,
+                        3.6057629585266113,
+                        72.4478759765625
                     ],
                     "Rotation": [
-                        -0,
                         0,
-                        -0
+                        -78.889472961425781,
+                        0
                     ],
                     "Scale": [
+                        1.0000016689300537,
                         1,
-                        1,
-                        1
+                        1.0000016689300537
                     ]
                 },
                 {
@@ -12695,9 +11989,9 @@
                     "LockY": false,
                     "LockZ": false,
                     "Offset": [
-                        3.2999999523162842,
+                        0,
                         5.1999998092651367,
-                        0.30000001192092896
+                        3.4000000953674316
                     ],
                     "Offset Rotation": [
                         0,
@@ -12803,14 +12097,14 @@
                 }
             ],
             "Children UID": [
-                335337022
+                1562973258
             ]
         },
         {
             "Name": "Particle System (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 335337022,
+            "UID": 1562973258,
             "Active": true,
             "Element_Type": "None",
             "Parent UID": 1106680737,
@@ -13454,7 +12748,7 @@
             "Name": "PROP_Beacon (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1735509106,
+            "UID": 21708715,
             "Active": true,
             "Element_Type": "Model",
             "Parent UID": 1416056091,
@@ -13463,19 +12757,19 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        605.154541015625,
-                        3.605764627456665,
-                        72.958953857421875
+                        1010.2525634765625,
+                        3.605832576751709,
+                        -118.60525512695312
                     ],
                     "Rotation": [
-                        0,
-                        -83.939384460449219,
-                        0
+                        180,
+                        -88.398681640625,
+                        180
                     ],
                     "Scale": [
+                        1.0000003576278687,
                         1,
-                        1,
-                        1
+                        1.0000003576278687
                     ]
                 },
                 {
@@ -13502,9 +12796,9 @@
                     "LockY": false,
                     "LockZ": false,
                     "Offset": [
-                        -0.10000000149011612,
-                        4.9000000953674316,
-                        3
+                        -1.5,
+                        5.1999998092651367,
+                        2.2000000476837158
                     ],
                     "Offset Rotation": [
                         0,
@@ -13522,24 +12816,24 @@
                 }
             ],
             "Children UID": [
-                1472147639,
-                101942190,
-                1508689236,
-                1974660832,
-                1712078688,
-                249118691,
-                172993399
+                1831075820,
+                11933305,
+                1400164188,
+                1754626146,
+                1337741859,
+                43666321,
+                999381665
             ]
         },
         {
             "Name": "Base (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1472147639,
+            "UID": 1831075820,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1735509106,
+            "Parent UID": 21708715,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13610,17 +12904,17 @@
                 }
             ],
             "Children UID": [
-                1959480373
+                911671615
             ]
         },
         {
             "Name": "Particle System (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1959480373,
+            "UID": 911671615,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1472147639,
+            "Parent UID": 1831075820,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13745,11 +13039,11 @@
             "Name": "Cable (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 101942190,
+            "UID": 11933305,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1735509106,
+            "Parent UID": 21708715,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13824,11 +13118,11 @@
             "Name": "Antenna1 (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1508689236,
+            "UID": 1400164188,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1735509106,
+            "Parent UID": 21708715,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13903,11 +13197,11 @@
             "Name": "Antenna2 (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1974660832,
+            "UID": 1754626146,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1735509106,
+            "Parent UID": 21708715,
             "Components": [
                 {
                     "Type": "Transform",
@@ -13982,11 +13276,11 @@
             "Name": "Antenna3 (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1712078688,
+            "UID": 1337741859,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1735509106,
+            "Parent UID": 21708715,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14061,11 +13355,11 @@
             "Name": "Light (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 249118691,
+            "UID": 43666321,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1735509106,
+            "Parent UID": 21708715,
             "Components": [
                 {
                     "Type": "Transform",
@@ -14182,11 +13476,11 @@
             "Name": "Top (2)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 172993399,
+            "UID": 999381665,
             "Active": true,
             "Element_Type": "Mesh",
             "Origin_Path": "Assets\/Prefabs\/Meshes\/Beacon\/PROP_Beacon.fbx",
-            "Parent UID": 1735509106,
+            "Parent UID": 21708715,
             "Components": [
                 {
                     "Type": "Transform",
@@ -51277,9 +50571,9 @@
                         -235.35862731933594
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         80.725616455078125,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000009536743164,
@@ -55454,9 +54748,9 @@
                         27.983339309692383
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -41.699909210205078,
-                        -180
+                        180
                     ],
                     "Scale": [
                         1.0000087022781372,
@@ -62607,7 +61901,7 @@
             "UID": 493464378,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -62672,7 +61966,7 @@
             "UID": 1161519485,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -62846,7 +62140,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        2.5000536441802979,
+                        2.5000541210174561,
                         -0
                     ],
                     "Scale": [
@@ -63461,7 +62755,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        31.327005386352539,
+                        31.327001571655273,
                         -0
                     ],
                     "Scale": [
@@ -63526,7 +62820,7 @@
                     ],
                     "Rotation": [
                         0,
-                        -31.649328231811523,
+                        -31.649332046508789,
                         0
                     ],
                     "Scale": [
@@ -63656,7 +62950,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        29.194103240966797,
+                        29.194099426269531,
                         -0
                     ],
                     "Scale": [
@@ -63786,7 +63080,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        27.591020584106445,
+                        27.591018676757812,
                         -0
                     ],
                     "Scale": [
@@ -64631,7 +63925,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        32.775016784667969,
+                        32.775012969970703,
                         -0
                     ],
                     "Scale": [
@@ -65801,7 +65095,7 @@
                     ],
                     "Rotation": [
                         -0,
-                        33.035987854003906,
+                        33.035991668701172,
                         -0
                     ],
                     "Scale": [
@@ -66924,7 +66218,7 @@
             "UID": 1495121981,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67086,7 +66380,7 @@
             "UID": 484997781,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67097,9 +66391,9 @@
                         -58.960765838623047
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -46.375835418701172,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.050000566989183426,
@@ -67404,7 +66698,7 @@
             "UID": 1545695842,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -67415,9 +66709,9 @@
                         -224.14338684082031
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -44.601146697998047,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.050000213086605072,
@@ -67722,7 +67016,7 @@
             "UID": 142531611,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -68040,7 +67334,7 @@
             "UID": 1768177679,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -68051,9 +67345,9 @@
                         271.76446533203125
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -46.605636596679688,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.050000283867120743,
@@ -68358,7 +67652,7 @@
             "UID": 2061990119,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -68455,7 +67749,7 @@
             "UID": 1570706478,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -68492,7 +67786,7 @@
             "UID": 227903904,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70305,7 +69599,7 @@
             "UID": 900338210,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70461,7 +69755,7 @@
                         -144.62565612792969
                     ],
                     "Rotation": [
-                        5.2373807193362154e-06,
+                        5.2373811740835663e-06,
                         -47.000064849853516,
                         2.3910420168249402e-06
                     ],
@@ -70842,9 +70136,9 @@
                         -96.881149291992188
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         0,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.91000956296920776,
@@ -70876,9 +70170,9 @@
                         16.260398864746094
                     ],
                     "Rotation": [
-                        -1.2392070857458748e-05,
+                        -1.239207176695345e-05,
                         43.000034332275391,
-                        3.9892503991723061e-05
+                        3.9892507629701868e-05
                     ],
                     "Scale": [
                         7.4380626678466797,
@@ -70951,9 +70245,9 @@
                         -95.504554748535156
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -44.999961853027344,
-                        -180
+                        180
                     ],
                     "Scale": [
                         0.91000056266784668,
@@ -71321,7 +70615,7 @@
             "UID": 728359170,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71348,8 +70642,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 406,
-                    "Height": 567,
+                    "Width": 1908,
+                    "Height": 1054,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -71626,7 +70920,7 @@
             "UID": 147559574,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71807,7 +71101,7 @@
             "UID": 813229651,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -71818,9 +71112,9 @@
                         -116.03627777099609
                     ],
                     "Rotation": [
-                        -180,
+                        180,
                         -77.631927490234375,
-                        -180
+                        180
                     ],
                     "Scale": [
                         3.1198809146881104,
@@ -71988,7 +71282,7 @@
             "UID": 367980240,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -72169,7 +71463,7 @@
             "UID": 1932512867,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -75158,7 +74452,7 @@
             "UID": 1398847280,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -75185,8 +74479,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 406,
-                    "Height": 567,
+                    "Width": 1908,
+                    "Height": 1054,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -77696,7 +76990,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -85177,7 +84471,7 @@
             "UID": 1676754095,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -85530,7 +84824,7 @@
             "UID": 1827062016,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -86071,7 +85365,7 @@
             "UID": 1806365249,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -91878,7 +91172,7 @@
             "UID": 1781007999,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -91991,7 +91285,7 @@
             "UID": 728169813,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -92721,7 +92015,7 @@
             "UID": 1259328255,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -93047,7 +92341,7 @@
             "UID": 981719170,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -93373,7 +92667,7 @@
             "UID": 523345040,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -93699,7 +92993,7 @@
             "UID": 1085187284,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1489674504,
+            "Parent UID": 1675005753,
             "Components": [
                 {
                     "Type": "Transform",
@@ -94015,6 +93309,679 @@
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "Name": "Image_Go_Base",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1225145048,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1675005753,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1908,
+                    "Height": 1054,
+                    "UI Type": 0,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        1887,
+                        1045
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "OpenMenu_OnCollision.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "goName": "Image_Go_Base"
+                }
+            ],
+            "Children UID": [
+                278230482,
+                1769519281,
+                1621892092,
+                1031375599
+            ]
+        },
+        {
+            "Name": "Image (1)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 278230482,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1225145048,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1920,
+                    "Height": 1080,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        1920,
+                        1080
+                    ],
+                    "Path": "Assets\/UI\/Fondo.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        -0.30000001192092896
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1769519281,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1225145048,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        27.979991912841797,
+                        -3.6057915687561035,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 516,
+                    "Position Y": 327,
+                    "Width": 868,
+                    "Height": 336,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        543.97998046875,
+                        323.39419555664062,
+                        868,
+                        336
+                    ],
+                    "Path": "Assets\/UI\/FondoBeacon.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Grid",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1621892092,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1225145048,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        84.400001525878906,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Inventory_Grid.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "rows": 1,
+                    "cols": 2,
+                    "leftGridName": " ",
+                    "rightGridName": " ",
+                    "downGridName": " ",
+                    "upGridName": " ",
+                    "naviagteX": true,
+                    "naviagteY": false,
+                    "bounceX": true,
+                    "bounceY": false,
+                    "empty": false,
+                    "childX": 0,
+                    "childY": 0
+                }
+            ],
+            "Children UID": [
+                1656679832,
+                683157146
+            ]
+        },
+        {
+            "Name": "Go_Base",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1656679832,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1621892092,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 644,
+                    "Position Y": 446,
+                    "Width": 300,
+                    "Height": 50,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        644,
+                        530.4000244140625,
+                        300,
+                        50
+                    ],
+                    "Path": "Assets\/Lava.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        -0.20000000298023224,
+                        -0.20000000298023224,
+                        -0.20000000298023224,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 300,
+                    "Height": 50,
+                    "UI Type": 3,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        84.400001525878906,
+                        300,
+                        50
+                    ],
+                    "Is interactable": true,
+                    "Text": 1333584116,
+                    "Image": 1656679832,
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
+                    "Release": "Assets\/penguin.png",
+                    "Disabled": "Assets\/Lava.png",
+                    "Focused color": [
+                        0,
+                        1,
+                        0,
+                        1
+                    ],
+                    "Pressed color": [
+                        1,
+                        0,
+                        1,
+                        1
+                    ],
+                    "Selected color": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "Disabled color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "Button_GoToScene.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "sceneName": "BASE_FINAL\/LVL_BASE_COLLIDERS",
+                    "time": 5
+                }
+            ],
+            "Children UID": [
+                1333584116
+            ]
+        },
+        {
+            "Name": "Text (3)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1333584116,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1656679832,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 757,
+                    "Position Y": 480,
+                    "Width": 300,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        757,
+                        564.4000244140625,
+                        300,
+                        50
+                    ],
+                    "Text": "YES",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Stay_On_Map",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 683157146,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1621892092,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1006,
+                    "Position Y": 446,
+                    "Width": 300,
+                    "Height": 50,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1006,
+                        530.4000244140625,
+                        300,
+                        50
+                    ],
+                    "Path": "Assets\/Lava.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        -0.20000000298023224,
+                        -0.20000000298023224,
+                        -0.20000000298023224,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 300,
+                    "Height": 50,
+                    "UI Type": 3,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        84.400001525878906,
+                        300,
+                        50
+                    ],
+                    "Is interactable": true,
+                    "Text": 4294967295,
+                    "Image": 683157146,
+                    "Normal": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidUnselected.png",
+                    "Focused": "Assets\/UI\/Teleport Buttons\/BotonHover.png",
+                    "Pressed": "Assets\/UI\/Teleport Buttons\/New Buttons\/GoToRaidPressed.png",
+                    "Selected": "Assets\/UI\/Teleport Buttons\/New Buttons\/BotonSelected.png",
+                    "Release": "Assets\/penguin.png",
+                    "Disabled": "Assets\/Lava.png",
+                    "Focused color": [
+                        0,
+                        1,
+                        0,
+                        1
+                    ],
+                    "Pressed color": [
+                        1,
+                        0,
+                        1,
+                        1
+                    ],
+                    "Selected color": [
+                        0,
+                        0,
+                        1,
+                        1
+                    ],
+                    "Disabled color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_ToggleMenu.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "menu": "Image_Go_Base",
+                    "active": false
+                }
+            ],
+            "Children UID": [
+                1594104480
+            ]
+        },
+        {
+            "Name": "Text (4)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1594104480,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 683157146,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        27.979991912841797,
+                        -88.005790710449219,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 1105,
+                    "Position Y": 570,
+                    "Width": 200,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        1132.97998046875,
+                        566.39422607421875,
+                        200,
+                        50
+                    ],
+                    "Text": "NO",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 21,
+                    "Line Spacing": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "Text (5)",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1031375599,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1225145048,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        84.400001525878906,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 604,
+                    "Position Y": 374,
+                    "Width": 300,
+                    "Height": 50,
+                    "UI Type": 2,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        604,
+                        458.39999389648438,
+                        300,
+                        50
+                    ],
+                    "Text": "DO YOU WANT TO EXTRACT?\n",
+                    "Font name": "NK57 Monospace Se Bd.otf",
+                    "Font path": "Assets\\Fonts",
+                    "Font size": 35,
+                    "Line Spacing": 1,
+                    "Color": [
+                        1,
+                        1,
+                        1,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 2
                 }
             ]
         }
