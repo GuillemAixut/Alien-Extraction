@@ -132,7 +132,7 @@ public class Health : YmirComponent
         if (player != null)
         {
             player.itemsList.Clear();
-            player.SavePlayer();
+            player.SaveItems();
             player.gameObject.SetActive(false);
         }
 
