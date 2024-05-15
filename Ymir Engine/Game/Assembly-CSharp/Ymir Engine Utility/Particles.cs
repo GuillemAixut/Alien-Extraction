@@ -27,5 +27,8 @@ namespace YmirEngine
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void ParticlesSetDirection(object go, object vec, int emitter);
 
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        public static extern void SetMaxDistance(object go, float range);
+
     }
 }

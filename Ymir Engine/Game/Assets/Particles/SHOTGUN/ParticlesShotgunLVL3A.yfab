@@ -7,15 +7,15 @@
             "UID": 1930662483,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1804673821,
+            "Parent UID": 1340879312,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        115.84111785888672,
-                        109.90365600585938
+                        -44.507999420166016,
+                        138.52099609375,
+                        108.60900115966797
                     ],
                     "Rotation": [
                         -0,
@@ -31,6 +31,7 @@
                 {
                     "Type": "ParticleSystem",
                     "Active": 1,
+                    "ShowEmitters": true,
                     "NumEmitters": 6,
                     "Emitters": [
                         {
@@ -536,7 +537,7 @@
                             ]
                         },
                         {
-                            "ModulesSize": 6,
+                            "ModulesSize": 7,
                             "EmitterUID": 1555967858,
                             "Settings": [
                                 {
@@ -607,7 +608,7 @@
                                     ],
                                     "NormalizedBaseDirection": false,
                                     "Accelerates": false,
-                                    "Speed1": 24.799999237060547,
+                                    "Speed1": 400,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -646,6 +647,10 @@
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/IMAGES\/light_03.png"
                                 }
                             ]
                         }
