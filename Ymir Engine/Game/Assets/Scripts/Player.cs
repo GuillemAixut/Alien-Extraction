@@ -1999,7 +1999,6 @@ public class Player : YmirComponent
         weaponType = (WEAPON_TYPE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Current weapon");       
         upgradeType = (UPGRADE)SaveLoad.LoadInt(Globals.saveGameDir, saveName, "Upgrade " + weaponType.ToString());
 
-        upgradeType = 0;
         SetWeapon();
 
         // Stats
