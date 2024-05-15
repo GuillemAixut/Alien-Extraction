@@ -1,21 +1,21 @@
 {
     "Prefab": [
         {
-            "Name": "ParticlesShotgunLVL3B",
+            "Name": "ParticlesShotgunLVL3A",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 727482716,
+            "UID": 1930662483,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1804673821,
+            "Parent UID": 1340879312,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        0,
-                        101.30345916748047,
-                        95.165596008300781
+                        -44.507999420166016,
+                        138.52099609375,
+                        108.60900115966797
                     ],
                     "Rotation": [
                         -0,
@@ -31,6 +31,7 @@
                 {
                     "Type": "ParticleSystem",
                     "Active": 1,
+                    "ShowEmitters": true,
                     "NumEmitters": 6,
                     "Emitters": [
                         {
@@ -82,7 +83,7 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 60,
+                                    "Size1": 60.5,
                                     "Size2": 61.169998168945312,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -103,9 +104,9 @@
                                     "Progressive": false,
                                     "Loop": false,
                                     "Color1": [
-                                        0.13712899386882782,
-                                        0.72647678852081299,
                                         0.91150444746017456,
+                                        0.13712899386882782,
+                                        0.87724018096923828,
                                         1
                                     ],
                                     "Color2": [
@@ -197,9 +198,9 @@
                                     "Progressive": false,
                                     "Loop": false,
                                     "Color1": [
-                                        0.72549021244049072,
-                                        0.93440920114517212,
                                         1,
+                                        0.89380532503128052,
+                                        0.98684316873550415,
                                         1
                                     ],
                                     "Color2": [
@@ -267,9 +268,9 @@
                                     "Progressive": false,
                                     "Loop": false,
                                     "Color1": [
-                                        0.10149582475423813,
-                                        0.39277642965316772,
-                                        0.84955751895904541,
+                                        0.83048701286315918,
+                                        0.18131804466247559,
+                                        0.83628320693969727,
                                         1
                                     ],
                                     "Color2": [
@@ -380,8 +381,8 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 65,
-                                    "Size2": 68.884002685546875,
+                                    "Size1": 6.5,
+                                    "Size2": 6.8839998245239258,
                                     "TimeStart": 0,
                                     "TimeStop": 1
                                 },
@@ -405,9 +406,9 @@
                                     "Progressive": false,
                                     "Loop": false,
                                     "Color1": [
-                                        0.1194690465927124,
-                                        0.69610011577606201,
                                         1,
+                                        0.1194690465927124,
+                                        0.98441529273986816,
                                         1
                                     ],
                                     "Color2": [
@@ -536,7 +537,7 @@
                             ]
                         },
                         {
-                            "ModulesSize": 6,
+                            "ModulesSize": 7,
                             "EmitterUID": 1555967858,
                             "Settings": [
                                 {
@@ -607,7 +608,7 @@
                                     ],
                                     "NormalizedBaseDirection": false,
                                     "Accelerates": false,
-                                    "Speed1": 24.799999237060547,
+                                    "Speed1": 100,
                                     "Speed2": 0,
                                     "ChangeSpeedMode": 0,
                                     "NewDirection": [
@@ -624,9 +625,9 @@
                                     "Progressive": false,
                                     "Loop": false,
                                     "Color1": [
-                                        0.12831860780715942,
-                                        0.74543821811676025,
                                         1,
+                                        0.12831860780715942,
+                                        0.93828803300857544,
                                         1
                                     ],
                                     "Color2": [
@@ -646,6 +647,10 @@
                                     "Size2": 1,
                                     "TimeStart": 0,
                                     "TimeStop": 1
+                                },
+                                {
+                                    "Type": 6,
+                                    "Path": "Assets\/Particles\/IMAGES\/light_03.png"
                                 }
                             ]
                         }

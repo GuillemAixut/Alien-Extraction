@@ -28,6 +28,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_1:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL1");
                 ammo = 35;
                 fireRate = 0.05f;
                 damage = 9;
@@ -36,6 +37,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_2:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL2");
                 ammo = 40;
                 fireRate = 0.05f;
                 damage = 11;
@@ -44,6 +46,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_3_ALPHA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3A");
                 ammo = 110;
                 fireRate = 0.04f;
                 damage = 13;
@@ -52,6 +55,7 @@ public class SMG : Weapon
                 break;
             case UPGRADE.LVL_3_BETA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3B");
                 ammo = 40;
                 fireRate = 0.02f;
                 damage = 10;
