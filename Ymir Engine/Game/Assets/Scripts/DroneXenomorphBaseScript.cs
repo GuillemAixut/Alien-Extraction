@@ -150,14 +150,14 @@ public class DroneXenomorphBaseScript : Enemy
         //Enemy rarity stats
         if (rarity == 1)
         {
-            life = 750;
-            armor = 0.4f;
+            life = 550; //750
+            armor = 0.0f; // 0.4f
             agent.speed = 880f;
         }
         else if (rarity == 2)
         {
-            life = 1200;
-            armor = 0.5f;
+            life = 800; //1200
+            armor = 0.0f; // 0.5f
             agent.speed = 960f;
         }
 

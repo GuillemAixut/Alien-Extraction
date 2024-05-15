@@ -22,7 +22,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgDefault");
                 ammo = 35;
                 fireRate = 0.06f;
-                damage = 5;
+                damage = 15;
                 reloadTime = 1.8f;
 
                 break;
@@ -31,7 +31,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL1");
                 ammo = 35;
                 fireRate = 0.05f;
-                damage = 9;
+                damage = 30;
                 reloadTime = 1.6f;
 
                 break;
@@ -40,7 +40,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL2");
                 ammo = 40;
                 fireRate = 0.05f;
-                damage = 11;
+                damage = 40;
                 reloadTime = 1.5f;
 
                 break;
@@ -49,7 +49,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3A");
                 ammo = 110;
                 fireRate = 0.04f;
-                damage = 13;
+                damage = 50;
                 reloadTime = 1.3f;
 
                 break;
@@ -58,7 +58,7 @@ public class SMG : Weapon
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesSmgLVL3B");
                 ammo = 40;
                 fireRate = 0.02f;
-                damage = 10;
+                damage = 40;
                 reloadTime = 1.5f;
 
                 break;
@@ -99,7 +99,7 @@ public class SMG : Weapon
                 {
                     GameObject FaceHuggerDamageParticles = InternalCalls.GetChildrenByName(aux.gameObject, "ParticlesDamageFaceHugger");
                     if(FaceHuggerDamageParticles != null) Particles.PlayParticlesTrigger(FaceHuggerDamageParticles);
-                    aux.TakeDmg(damage);
+                    aux.TakeDmg(damage*3);
                 }
 
                 DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
@@ -107,7 +107,7 @@ public class SMG : Weapon
                 {
                     GameObject DroneDamageParticles = InternalCalls.GetChildrenByName(aux2.gameObject, "ParticlesDamageDrone");
                     if(DroneDamageParticles != null) Particles.PlayParticlesTrigger(DroneDamageParticles);
-                    aux2.TakeDmg(damage);
+                    aux2.TakeDmg(damage*3);
                 }
 
                 QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
@@ -115,7 +115,7 @@ public class SMG : Weapon
                 {
                     GameObject QueenDamageParticles = InternalCalls.GetChildrenByName(aux3.gameObject, "ParticlesDamageQueen");
                     if (QueenDamageParticles != null) Particles.PlayParticlesTrigger(QueenDamageParticles);
-                    aux3.TakeDmg(damage);
+                    aux3.TakeDmg(damage*3);
                 }
 
                 SpitterBaseScript aux4 = target.GetComponent<SpitterBaseScript>();
@@ -123,7 +123,7 @@ public class SMG : Weapon
                 {
                     GameObject SpitterDamageParticles = InternalCalls.GetChildrenByName(aux4.gameObject, "ParticlesDamageSpitter");
                     if (SpitterDamageParticles != null) Particles.PlayParticlesTrigger(SpitterDamageParticles);
-                    aux4.TakeDmg(damage);
+                    aux4.TakeDmg(damage*3);
                 }
 
                 Debug.Log("[ERROR] HIT ENEMY");
