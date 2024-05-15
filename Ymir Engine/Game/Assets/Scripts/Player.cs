@@ -45,6 +45,7 @@ public class Player : YmirComponent
         I_SHOOT,
         I_SHOOT_END,
         I_RELOAD,
+        I_RELOAD_END,
         I_DEAD,
         I_JUMP,
         I_JUMP_END,
@@ -353,6 +354,9 @@ public class Player : YmirComponent
 
     public void Update()
     {
+        if (Input.GetKey(YmirKeyCode.P) == KeyState.KEY_REPEAT)
+            Debug.Log("Player State: " + currentState);
+
         GameObject bottomRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetUp() * -1, 3f);
         GameObject forwardRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward(), 3f);
         GameObject behindRaycast = gameObject.RaycastHit(gameObject.transform.globalPosition, gameObject.transform.GetForward() * -1, 3f);
@@ -962,12 +966,10 @@ public class Player : YmirComponent
                             currentState = STATE.SHOOTING;
                             StartShooting();
                             break;
-
                         case INPUT.I_RELOAD:
                             currentState = STATE.RELOADING;
                             StartReload();
                             break;
-
                         case INPUT.I_DEAD:
                             currentState = STATE.DEAD;
                             StartDeath();
@@ -1115,38 +1117,42 @@ public class Player : YmirComponent
                             StartHit();
                             break;
 
-                        case INPUT.I_MOVE:
-                            currentState = STATE.MOVE;
-                            StartMove();
-                            break;
+                        //case INPUT.I_MOVE:
+                        //    currentState = STATE.MOVE;
+                        //    StartMove();
+                        //    break;
 
-                        case INPUT.I_STOP:
-                            currentState = STATE.STOP;
-                            StopPlayer();
-                            break;
+                        //case INPUT.I_STOP:
+                        //    currentState = STATE.STOP;
+                        //    StopPlayer();
+                        //    break;
 
-                        case INPUT.I_DASH:
-                            currentState = STATE.DASH;
-                            StartDash();
-                            break;
+                        //case INPUT.I_DASH:
+                        //    currentState = STATE.DASH;
+                        //    StartDash();
+                        //    break;
 
-                        case INPUT.I_PRED_END:
-                            EndPredRush();
-                            break;
+                        //case INPUT.I_PRED_END:
+                        //    EndPredRush();
+                        //    break;
 
-                        case INPUT.I_JUMP:
-                            currentState = STATE.JUMP;
-                            StartJump();
-                            break;
+                        //case INPUT.I_JUMP:
+                        //    currentState = STATE.JUMP;
+                        //    StartJump();
+                        //    break;
 
                         case INPUT.I_SHOOTING:
                             currentState = STATE.SHOOTING;
                             StartShooting();
                             break;
-
-                        case INPUT.I_RELOAD:
-                            currentState = STATE.RELOADING;
-                            StartReload();
+                        //case INPUT.I_RELOAD:
+                        //    currentState = STATE.RELOADING;
+                        //    StartReload();
+                        //    break;
+                        case INPUT.I_RELOAD_END:
+                            currentState = STATE.IDLE;
+                            EndReload();
+                            Debug.Log("Reload End");
                             break;
 
                         case INPUT.I_DEAD:
@@ -1265,6 +1271,7 @@ public class Player : YmirComponent
                 UpdateShooting();
                 break;
             case STATE.RELOADING:
+                UpdateReload();
                 break;
             case STATE.SHOOT:
                 break;
@@ -1331,8 +1338,22 @@ public class Player : YmirComponent
     }
     private void StartReload()
     {
-        currentWeapon.Reload();
+        currentWeapon.StartReload();
+        Debug.Log("Start Realod");
     }
+
+    private void UpdateReload()
+    {
+        if (!currentWeapon.Reloading())
+            inputsList.Add (INPUT.I_RELOAD_END);
+    }
+
+    private void EndReload()
+    {
+        currentWeapon.Reload();
+        Debug.Log("Reaload Complete");
+    }
+
 
     private void SetWeapon()
     {
