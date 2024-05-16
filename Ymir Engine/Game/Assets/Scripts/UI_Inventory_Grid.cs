@@ -15,7 +15,7 @@ public class UI_Inventory_Grid : YmirComponent
 
     private GameObject leftGrid;
     private GameObject rightGrid;
-    private GameObject downGrid;
+    public GameObject downGrid; // Public required for Upgrade station
     private GameObject upGrid;
     public string leftGridName = " ";
     public string rightGridName = " ";
@@ -42,7 +42,7 @@ public class UI_Inventory_Grid : YmirComponent
         downGrid = InternalCalls.GetGameObjectByName(downGridName);
         upGrid = InternalCalls.GetGameObjectByName(upGridName);
         _timer = 0.0f;
-        _time = 0.3f;
+        _time = 0.1f;
     }
 
     public void Update()

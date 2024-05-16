@@ -17,6 +17,7 @@
 
 #include "External/Optick/include/optick.h"
 
+#include "Tracy.h"
 #include "External/mmgr/mmgr.h"
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
@@ -137,6 +138,10 @@ bool ModuleRenderer3D::Init()
 	glEnable(GL_DEBUG_OUTPUT);
 	glDebugMessageCallback(MessageCallback, 0);
 #endif // _DEBUG
+
+#ifdef TRACY_ENABLE
+	TracyGpuContext;
+#endif // TRACY_ENABLE
 
 	// Initializing DevIL
 	ilInit();
@@ -302,6 +307,11 @@ static bool started = false; // Sorry
 // PostUpdate present buffer to screen
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
+#ifdef TRACY_ENABLE
+	ZoneScoped;
+	TracyGpuZone("OpenGL Render");
+#endif // TRACY_ENABLE
+
 	OPTICK_EVENT();
 
 #ifdef _STANDALONE // Sorry for doing this, it was necessary (Francesc) :(
@@ -436,6 +446,10 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 #endif // !_STANDALONE
 
 	SDL_GL_SwapWindow(App->window->window);
+
+#ifdef TRACY_ENABLE
+	TracyGpuCollect;
+#endif // TRACY_ENABLE
 
 	return UPDATE_CONTINUE;
 }
@@ -815,7 +829,7 @@ void ModuleRenderer3D::DrawParticles(ParticleEmitter* emitter)
 bool ModuleRenderer3D::DrawParticlesShapeDebug(CParticleSystem* pSystem)
 {
 	bool ret = true;
-	if (pSystem->allEmitters.empty())
+	if (pSystem->allEmitters.empty() || !pSystem->showEmitters)
 	{
 		return false;;
 	}

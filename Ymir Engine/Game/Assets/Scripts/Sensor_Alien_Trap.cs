@@ -8,7 +8,6 @@ using YmirEngine;
 
 public class Sensor_Alien_Trap : YmirComponent
 {
-
     public float timerSensor = 5f;
     private bool active = false;
     private bool hitPlayer = false;
@@ -17,7 +16,6 @@ public class Sensor_Alien_Trap : YmirComponent
 
     public void Start()
     {
-        Debug.Log("HelloWorld");
         originalPosition = gameObject.transform.globalPosition;
     }
 
@@ -27,10 +25,8 @@ public class Sensor_Alien_Trap : YmirComponent
         {
             if (active)
             {
-
                 gameObject.SetPosition(Vector3.negativeInfinity * Time.deltaTime * 1f);
                 time += Time.deltaTime;
-
 
                 if (time >= timerSensor)
                 {
@@ -41,9 +37,7 @@ public class Sensor_Alien_Trap : YmirComponent
                 }
             }
         }
-
     }
-
 
     public void OnCollisionStay(GameObject other)
     {
@@ -52,8 +46,6 @@ public class Sensor_Alien_Trap : YmirComponent
             active = true;
             hitPlayer = true;
             InternalCalls.GetGameObjectByName("Alien_Trap").SetActive(true);
-
-
         }
     }
 }

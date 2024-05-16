@@ -88,12 +88,27 @@ public class Button_Navigation : YmirComponent
 
         // Player
         SaveLoad.CreateSaveGameFile(Globals.saveGameDir, fileName);
-        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Last unlocked Lvl", 0);
 
+        // Lvls
+        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Current Lvl", 0);
+        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Last unlocked Lvl", 1);
+
+        // Weapons
         SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Current weapon", 0);
-        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Weapon upgrade", 0);
+        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Upgrade " + WEAPON_TYPE.SMG.ToString(), (int)UPGRADE.LVL_0);
+        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Upgrade " + WEAPON_TYPE.SHOTGUN.ToString(), (int)UPGRADE.LVL_0);
+        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Upgrade " + WEAPON_TYPE.PLASMA.ToString(), (int)UPGRADE.LVL_0);
+        
+        // Others
+        SaveLoad.SaveBool(Globals.saveGameDir, fileName, "Iscariot dialogue", false);
 
+        // Stats
         SaveLoad.SaveFloat(Globals.saveGameDir, fileName, "Health", 1200);
+
+        // Resin vessels
+        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Current potties", 2);
+        SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Max potties", 2);
+        SaveLoad.SaveFloat(Globals.saveGameDir, fileName, "Potties healing", 400);
 
         SaveLoad.SaveInt(Globals.saveGameDir, fileName, "Items num", 0);
     }

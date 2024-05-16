@@ -259,6 +259,8 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.Particles::StopParticles", StopParticles);
 	mono_add_internal_call("YmirEngine.Particles::RestartParticles", RestartParticles);
 	mono_add_internal_call("YmirEngine.Particles::ParticlesForward", ParticlesForward);
+	mono_add_internal_call("YmirEngine.Particles::ParticlesSetDirection", ParticlesSetDirection);
+	mono_add_internal_call("YmirEngine.Particles::SetMaxDistance", SetMaxDistance);
 
 #pragma endregion
 
@@ -500,9 +502,10 @@ void ModuleMonoManager::DebugAllMethods(const char* nsName, const char* classNam
 MonoObject* ModuleMonoManager::GoToCSGO(GameObject* inGo) const
 {
 	if (inGo == nullptr) {
-		LOG("[WARNING] GoTOCSGO inGo doesn't exist");
+		//LOG("[WARNING] GoTOCSGO inGo doesn't exist");
 		return nullptr;
 	}
+
 	MonoClass* goClass = mono_class_from_name(image, YMIR_SCRIPTS_NAMESPACE, "GameObject");
 	uintptr_t goPtr = reinterpret_cast<uintptr_t>(inGo);
 

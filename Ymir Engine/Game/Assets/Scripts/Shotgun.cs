@@ -8,17 +8,12 @@ using YmirEngine;
 
 public class Shotgun : Weapon
 {
-
-    public int upgrade = 0;
-
     public int ammoInChamber;
     public int dispersion;
     public Shotgun() : base(WEAPON_TYPE.SHOTGUN) { }
 
     public override void Start()
     {
-        _upgrade = (UPGRADE)upgrade;
-
         switch (_upgrade)
         {
             case UPGRADE.LVL_0:
@@ -27,7 +22,7 @@ public class Shotgun : Weapon
                 ammo = 16;
                 ammoInChamber = 2;
                 fireRate = 1.3f;
-                damage = 55;
+                damage = 110; //55
                 reloadTime = 2.7f;
                 range = 10.5f;
                 dispersion = 100;
@@ -35,10 +30,11 @@ public class Shotgun : Weapon
                 break;
             case UPGRADE.LVL_1:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL1");
                 ammo = 26;
                 ammoInChamber = 2;
                 fireRate = 1.2f;
-                damage = 70;
+                damage = 140; //70
                 reloadTime = 2.6f;
                 range = 10.5f;
                 dispersion = 100;
@@ -46,10 +42,11 @@ public class Shotgun : Weapon
                 break;
             case UPGRADE.LVL_2:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL2");
                 ammo = 26;
                 ammoInChamber = 2;
                 fireRate = 1.2f;
-                damage = 75;
+                damage = 150; //75
                 reloadTime = 2.5f;
                 range = 21f;
                 dispersion = 80;
@@ -57,10 +54,11 @@ public class Shotgun : Weapon
                 break;
             case UPGRADE.LVL_3_ALPHA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL3A");
                 ammo = 28;
                 ammoInChamber = 2;
                 fireRate = 0.7f;
-                damage = 80;
+                damage = 160; //80
                 reloadTime = 2.1f;
                 range = 21f;
                 dispersion = 80;
@@ -68,12 +66,13 @@ public class Shotgun : Weapon
                 break;
             case UPGRADE.LVL_3_BETA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL3B");
                 ammo = 28;
                 ammoInChamber = 4;
                 fireRate = 1.3f;
-                damage = 80;
+                damage = 320; //80
                 reloadTime = 2.5f;
-                range = 21;
+                range = 21f;
                 dispersion = 80;
 
                 break;
@@ -86,7 +85,14 @@ public class Shotgun : Weapon
 
     public override void Shoot()
     {
+        //currentAmmo=-ammoInChamber;
         currentAmmo--;
+        currentAmmo--;
+        if(ammoInChamber == 4) 
+        {
+            currentAmmo--;
+            currentAmmo--;
+        }
         fireRateTimer = fireRate;
 
         Audio.PlayAudio(gameObject, "W_FSADShot");
@@ -96,7 +102,7 @@ public class Shotgun : Weapon
         Quaternion rot = gameObject.transform.globalRotation * new Quaternion(0.7071f, 0.0f, 0.0f, -0.7071f); // <- -90º Degree Quat
 
 
-        InternalCalls.CreateShotgunSensor(gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * range * 4), rot, 70, 15, gameObject.transform.GetRight());
+        InternalCalls.CreateShotgunSensor(gameObject.transform.globalPosition + offset + (gameObject.transform.GetForward() * range), rot, 70, 15, gameObject.transform.GetRight());
 
         switch (_upgrade)
         {

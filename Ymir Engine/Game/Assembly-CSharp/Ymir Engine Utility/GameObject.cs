@@ -209,7 +209,7 @@ namespace YmirEngine
         /// Check if a gameObject has collided with a raycast
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]
-        public extern bool RaycastTest(object origin, object direction, float rayLenght, object gameObject);
+        public extern bool RaycastTest(object origin, object direction, float rayLenght);
         /// Make the GO look at the camera
         /// </summary>
         [MethodImplAttribute(MethodImplOptions.InternalCall)]

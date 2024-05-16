@@ -243,9 +243,8 @@ float Animator::CalculatePreviousTime(ResourceAnimation* lastAnimation, float tr
 		float timeDecimals = time - (int)time; // Illegal code
 		time = (int)time % (int)lastAnimation->duration;
 		time += timeDecimals;
-
-		return time;
 	}
+	return time;
 }
 
 bool Animator::CheckBlendMap(ResourceAnimation* animation, std::string animationBlend) {

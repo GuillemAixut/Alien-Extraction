@@ -118,8 +118,8 @@ enum ParticlesSpawnEnabeling
 
 enum SpawnConditionSubemitter
 {
-	PAR_LESS_THAN,
-	PAR_MORE_THAN,
+	PAR_NEW_SPAWN,
+	PAR_DIE,
 	PAR_INBETWEEN_OF,
 	PAR_END_SPAWN_CONDITION,
 };

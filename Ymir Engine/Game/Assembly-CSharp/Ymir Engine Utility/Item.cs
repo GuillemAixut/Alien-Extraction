@@ -53,7 +53,14 @@ namespace YmirEngine
         public string description = ""; // item description, name not included so that the font of the name can be different from the description, include stats
         public bool isEquipped = false;
 
+        // Save item when die
+        public bool inSave = false;
+
+        // Menus management
         public bool inInventory = false;
+        //public bool inStash = false;
+        public bool inCraft = false;
+
         public string dictionaryName = "";
 
         public Item(
@@ -74,6 +81,25 @@ namespace YmirEngine
             this.description = (itemRarity != ITEM_RARITY.NONE) ? ("Rarity: " + itemRarity.ToString() + "\n" + description) : "";
             this.imagePath = imagePath;
             this.dictionaryName = dictionaryName;
+        }
+
+        // Copy constructor for Item
+        public Item(Item other)
+        {
+            currentSlot = other.currentSlot;
+            itemType = other.itemType;
+            itemRarity = other.itemRarity;
+            imagePath = other.imagePath;
+            name = other.name;
+            description = other.description;
+
+            isEquipped = other.isEquipped;
+            inSave = other.inSave;
+
+            inInventory = other.inInventory;
+            //inStash = other.inStash;
+            inCraft = other.inCraft;
+            dictionaryName = other.dictionaryName;
         }
 
         public virtual void UpdateStats()
@@ -133,6 +159,17 @@ namespace YmirEngine
             this.fireRate = fireRate;
             this.reloadSpeed = reloadSpeed;
             this.damageMultiplier = damageMultiplier;
+        }
+
+        // Copy constructor for I_Equippable
+        public I_Equippable(I_Equippable other) : base(other)
+        {
+            HP = other.HP;
+            armor = other.armor;
+            speed = other.speed;
+            fireRate = other.fireRate;
+            reloadSpeed = other.reloadSpeed;
+            damageMultiplier = other.damageMultiplier;
         }
 
         public override void UpdateStats()
@@ -207,6 +244,14 @@ namespace YmirEngine
             this.time = time;
         }
 
+        // Copy constructor for I_Consumables
+        public I_Consumables(I_Consumables other) : base(other)
+        {
+            dmg = other.dmg;
+            area = other.area;
+            time = other.time;
+        }
+
         public override void UpdateStats()
         {
         }
@@ -229,7 +274,9 @@ namespace YmirEngine
         public string name, description;
         public int cost;
         public bool isUnlocked;
-        //UPGRADE upgrade;
+
+        public WEAPON_TYPE type = WEAPON_TYPE.NONE;
+        public UPGRADE upgradeType = UPGRADE.NONE;
 
         public Upgrade(string name, string description, int cost, bool isUnlocked)
         {

@@ -18,7 +18,7 @@ public class UI_Crafting : YmirComponent
     private bool _startCheck = false;
 
     public void Start()
-	{
+    {
         focusedGO = UI.GetFocused();
         _selectedGO = UI.GetSelected();
 
@@ -35,34 +35,14 @@ public class UI_Crafting : YmirComponent
         // TODO: Very bad postupdate, fix
         _startCheck = false;
 
-        //GetPlayerScript();
-        //GetHealthScript();
+        player = Globals.GetPlayerScript();
 
-        //SetSlots();
+        ResetMenuSlots();
+        SetSlots();
     }
 
-	public void Update()
+    public void Update()
 	{
-        if (player == null)
-        {
-            GetPlayerScript();
-        }
-
-        if (player != null && player.setHover)
-        {
-            goDescription.SetActive(false);// TODO: when menu opened
-            goText.SetActive(false);
-            goName.SetActive(false);
-
-            player.setHover = false;
-        }
-
-        // TODO: treure
-        if (focusedGO == null)
-        {
-            UI.SetFirstFocused(gameObject);
-        }
-
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
 
         if (_startCheck)
@@ -157,7 +137,7 @@ public class UI_Crafting : YmirComponent
         }
     }
 
-    void UpdateTextPos() // Place the descrition game object on the selected GO
+    void UpdateTextPos() // Place the description game object on the selected GO
     {
         UI.SetUIPosWithOther(goDescription, focusedGO.parent);// TODO: ARREGLAR - HO, FER SIGUI PARE TEXT
         UI.SetUIPosWithOther(goText, focusedGO.parent);
@@ -171,13 +151,48 @@ public class UI_Crafting : YmirComponent
         goName.SetActive(isActive);
     }
 
-    private void GetPlayerScript()
+    private void SetSlots()
     {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Player");
-
-        if (gameObject != null)
+        for (int i = 0; i < player.itemsList.Count; i++)
         {
-            player = gameObject.GetComponent<Player>();
+            if (!player.itemsList[i].inCraft)
+            {
+                GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+
+                for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
+                {
+                    GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))
+
+                    if (gameObject != null)
+                    {
+                        if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
+                        {
+                            player.itemsList[i].inCraft = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void ResetMenuSlots()
+    {
+        // Reset Slots to null to update
+        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
+
+        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+            if (gameObject != null)
+            {
+                if (button.GetComponent<UI_Item_Button>().item != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
+                }
+            }
         }
     }
 }

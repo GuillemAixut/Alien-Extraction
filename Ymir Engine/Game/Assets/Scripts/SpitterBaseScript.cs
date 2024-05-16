@@ -21,7 +21,7 @@ public enum XenoState
     PAUSED
 }
 
-public class SpitterBaseScript : YmirComponent
+public class SpitterBaseScript : Enemy
 {
     public GameObject thisReference = null;
 
@@ -55,29 +55,6 @@ public class SpitterBaseScript : YmirComponent
 
     private float outOfRangeTimer;
 
-    //DELETE WHEN FIXED
-    protected PathFinding agent;
-    public GameObject player = null;
-
-    public Health healthScript;
-    public float movementSpeed;
-    public float knockBackTimer;
-    public float knockBackSpeed;
-
-    protected WanderState wanderState;
-    public float timePassed = 0f;
-    public float life = 100f;
-
-    //This may change depending on enemy rarity
-    public float armor = 0;
-
-    //0 = Common, 1 = Rare, 2 = Elite
-    public int rarity = 0;
-
-    public float wanderRange = 10f;
-
-    public float detectionRadius = 80f;
-    public bool paused = false;
     private bool walkAni = false;
     private bool acidDone = false;
     private bool explosionDone = false;
@@ -100,18 +77,17 @@ public class SpitterBaseScript : YmirComponent
         aggro = false;
         detectionRadius = 120f;
         wanderRange = 100f;
-        //backwardsCooldownTime = 0f;
 
         //Acid spit
         acidSpitCooldown = 4f;
-        acidSpitCooldownTime = 0f;
+        acidSpitCooldownTime = 3.5f;
         acidSpitRange = 100f;
 
         tooCloseRange = 60f;
 
-        //Tail
+        //Explosive spit
         acidExplosiveCooldown = 10f;
-        acidExplosiveCooldownTime = 0f;
+        acidExplosiveCooldownTime = 5f;
 
         //Time
         timeCounter = 0f;
@@ -120,13 +96,71 @@ public class SpitterBaseScript : YmirComponent
         //Out of range timer
         outOfRangeTimer = 0f;
 
-        //Life
-        life = 450f;
+        paused = false;
 
         //Drop items
-        //keys = "Nombre:,Probabilidad:";
-        //path = "Assets/Loot Tables/spitter_loot.csv";
-        //numFields = 2;
+        keys = "Nombre:,Probabilidad:";
+        path = "Assets/Loot Tables/spitter_loot.csv";
+        numFields = 2;
+        level = InternalCalls.GetCurrentMap();
+        switch (level)
+        {
+            case 1:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+            case int i when (i == 2 || i == 3):
+                commonProb = 20.0f;
+                rareProb = 50.0f;
+                epicProb = 30.0f;
+                break;
+            case int i when (i == 4 || i == 5):
+                commonProb = 10.0f;
+                rareProb = 30.0f;
+                epicProb = 60.0f;
+                break;
+            default:
+                commonProb = 60.0f;
+                rareProb = 25.0f;
+                epicProb = 15.0f;
+                break;
+        }
+
+        life = 450f;
+        armor = 0.15f;
+
+        rarity = random.Next(101);
+
+        Debug.Log("[ERROR]: " + rarity);
+
+        if (rarity >= 90)
+        {
+            rarity = 2;
+        }
+        else if (rarity >= 70)
+        {
+            rarity = 1;
+        }
+        else
+        {
+            rarity = 0;
+        }
+
+        //Enemy rarity stats
+        if (rarity == 1)
+        {
+            life = 750; //1050
+            armor = 0.0f; //0.325f
+            agent.speed = 1700f;
+        }
+        else if (rarity == 2)
+        {
+            life = 1050; //1650
+            armor = 0.0f; // 0.45f
+            agent.speed = 1800f;
+        }
+
 
         //Animations
         Animation.SetLoop(gameObject, "Idle_Spiter", true);
@@ -150,8 +184,8 @@ public class SpitterBaseScript : YmirComponent
 
     public void Update()
     {
-
-        if (CheckPause()) {
+        if (CheckPause())
+        {
             SetPause(true);
             paused = true;
             return;
@@ -287,6 +321,35 @@ public class SpitterBaseScript : YmirComponent
                     xenoState = XenoState.IDLE_AGGRO;
                 }
 
+                if (acidSpitCooldownTime >= acidSpitCooldown && xenoState != XenoState.DEAD)
+                {
+                    acidSpitCooldownTime = 0f;
+                    timeCounter = 0f;
+                    //ANIMATION DURATION HERE!!!
+                    timeLimit = 0.8f;
+                    Animation.PlayAnimation(gameObject, "Atack_1_Spiter");
+                    walkAni = false;
+                    Audio.PlayAudio(gameObject, "XS_Spit");
+                    acidDone = false;
+                    xenoState = XenoState.ACID_SPIT;
+                    acidExplosiveCooldownTime -= 1.5f;
+                    LookAt(player.transform.globalPosition);
+                }
+                else if (acidExplosiveCooldownTime >= acidExplosiveCooldown && xenoState != XenoState.DEAD)
+                {
+                    acidExplosiveCooldownTime = 0f;
+                    timeCounter = 0f;
+                    //ANIMATION DURATION HERE!!!
+                    timeLimit = 0.8f;
+                    Animation.PlayAnimation(gameObject, "Atack_2_Spiter");
+                    walkAni = false;
+                    Audio.PlayAudio(gameObject, "XS_Rebound");
+                    explosionDone = false;
+                    xenoState = XenoState.ACID_REBOUND;
+                    acidSpitCooldownTime -= 1.5f;
+                    LookAt(player.transform.globalPosition);
+                }
+
                 break;
             case XenoState.KNOCKBACK:
 
@@ -325,7 +388,8 @@ public class SpitterBaseScript : YmirComponent
                 {
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 15;
-                    InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
+                    //InternalCalls.CreateSpitterAcidSpit(pos, gameObject.transform.globalRotation);
+                    InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Projectile-SpitterAcidSpit", pos);
                     acidDone = true;
                 }
 
@@ -353,10 +417,11 @@ public class SpitterBaseScript : YmirComponent
                     Vector3 pos = gameObject.transform.globalPosition;
                     pos.y += 15;
                     pos.z -= 10;
-                    InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
+                    //InternalCalls.CreateSpitterAcidExplosive(pos, gameObject.transform.globalRotation);
+                    InternalCalls.CreateGOFromPrefab("Assets/Prefabs", "Projectile-SpitterExplosive", pos);
                     explosionDone = true;
-                    GameObject particles = GetParticles(gameObject, "ParticlesAcidicEnemy");
-                    Particles.PlayParticlesTrigger(particles);
+                    //GameObject particles = GetParticles(gameObject, "ParticlesAcidicEnemy");
+                    //Particles.PlayParticlesTrigger(particles);
                 }
 
                 break;
@@ -366,7 +431,7 @@ public class SpitterBaseScript : YmirComponent
 
                 if (timePassed >= 1.4f)
                 {
-                   // DropItem();
+                    DropItem();
                     InternalCalls.Destroy(gameObject);
                 }
 
@@ -379,16 +444,18 @@ public class SpitterBaseScript : YmirComponent
             //Walk backwards
             if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, tooCloseRange) && aggro == true)
             {
-                timeCounter = 0f;
-                timeLimit = 0.8f;
-                Animation.SetBackward(gameObject, "Move_Spiter", true);
-                if (walkAni == false)
+                if (xenoState != XenoState.ACID_SPIT && xenoState != XenoState.ACID_REBOUND && xenoState != XenoState.DEAD)
                 {
-                    Animation.PlayAnimation(gameObject, "Move_Spiter");
-                    walkAni = true;
+                    timeCounter = 0f;
+                    timeLimit = 0.8f;
+                    Animation.SetBackward(gameObject, "Move_Spiter", true);
+                    if (walkAni == false)
+                    {
+                        Animation.PlayAnimation(gameObject, "Move_Spiter");
+                        walkAni = true;
+                    }
+                    xenoState = XenoState.MOVE_BACKWARDS;
                 }
-                xenoState = XenoState.MOVE_BACKWARDS;
-               
             }
 
             //Check attacks
@@ -399,7 +466,7 @@ public class SpitterBaseScript : YmirComponent
             {
                 outOfRangeTimer += Time.deltaTime;
 
-                if (outOfRangeTimer >= 3f)
+                if (outOfRangeTimer >= 3f && xenoState != XenoState.DEAD)
                 {
                     outOfRangeTimer = 0f;
                     timeCounter = 0f;
@@ -431,7 +498,6 @@ public class SpitterBaseScript : YmirComponent
         }
     }
 
-
     public void IsReached1(Vector3 position, Vector3 destintion)
     {
         Vector3 roundedPosition = new Vector3(Mathf.Round(position.x),
@@ -447,15 +513,19 @@ public class SpitterBaseScript : YmirComponent
             gameObject.SetVelocity(new Vector3(0, 0, 0));
             Animation.PlayAnimation(gameObject, "Idle_Spiter");
             walkAni = false;
-            xenoState = XenoState.IDLE;
+            if (xenoState != XenoState.DEAD)
+            {
+                xenoState = XenoState.IDLE;
+            }
         }
     }
 
     private void isDeath()
     {
-        if (life <= 0)
+        if (life <= 0 && xenoState != XenoState.DEAD)
         {
             gameObject.SetVelocity(new Vector3(0, 0, 0));
+            itemPos = gameObject.transform.globalPosition;
             Animation.PlayAnimation(gameObject, "Death_Spiter");
             Audio.PlayAudio(gameObject, "XS_Death");
             xenoState = XenoState.DEAD;
@@ -470,7 +540,7 @@ public class SpitterBaseScript : YmirComponent
 
         if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange) && acidSpitCooldownTime >= acidSpitCooldown)
         {
-            if (xenoState != XenoState.ACID_REBOUND)
+            if (xenoState != XenoState.ACID_REBOUND && xenoState != XenoState.DEAD)
             {
                 acidSpitCooldownTime = 0f;
                 timeCounter = 0f;
@@ -487,7 +557,7 @@ public class SpitterBaseScript : YmirComponent
         }
         else if (CheckDistance(player.transform.globalPosition, gameObject.transform.globalPosition, acidSpitRange) && acidExplosiveCooldownTime >= acidExplosiveCooldown)
         {
-            if (xenoState != XenoState.ACID_SPIT)
+            if (xenoState != XenoState.ACID_SPIT && xenoState != XenoState.DEAD)
             {
                 acidExplosiveCooldownTime = 0f;
                 timeCounter = 0f;
@@ -511,7 +581,7 @@ public class SpitterBaseScript : YmirComponent
 
     private void SetPause(bool pause)
     {
-        if (pause)
+        if (pause && !paused)
         {
             pausedState = xenoState;
             xenoState = XenoState.PAUSED;
@@ -527,74 +597,74 @@ public class SpitterBaseScript : YmirComponent
     }
 
     //DELETE WHEN FIXED
-    public void TakeDmg(float dmg)
-    {
-        life -= dmg * armor;
-    }
+    //public void TakeDmg(float dmg)
+    //{
+    //    life -= dmg * armor;
+    //}
 
-    public void LookAt(Vector3 pointToLook)
-    {
+    //public void LookAt(Vector3 pointToLook)
+    //{
 
-        Vector3 direction = pointToLook - gameObject.transform.globalPosition;
-        direction = direction.normalized;
-        float angle = (float)Math.Atan2(direction.x, direction.z);
+    //    Vector3 direction = pointToLook - gameObject.transform.globalPosition;
+    //    direction = direction.normalized;
+    //    float angle = (float)Math.Atan2(direction.x, direction.z);
 
-        //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
+    //    //Debug.Log("Desired angle: " + (angle * Mathf.Rad2Deg).ToString());
 
-        if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
-            return;
+    //    if (Math.Abs(angle * Mathf.Rad2Deg) < 1.0f)
+    //        return;
 
-        Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
+    //    Quaternion dir = Quaternion.RotateAroundAxis(Vector3.up, angle);
 
-        float rotationSpeed = Time.deltaTime * agent.angularSpeed;
+    //    float rotationSpeed = Time.deltaTime * agent.angularSpeed;
 
 
-        Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
+    //    Quaternion desiredRotation = Quaternion.Slerp(gameObject.transform.localRotation, dir, rotationSpeed);
 
-        gameObject.SetRotation(desiredRotation);
-    }
+    //    gameObject.SetRotation(desiredRotation);
+    //}
 
-    public void KnockBack(float speed)
-    {
+    //public void KnockBack(float speed)
+    //{
 
-        Vector3 knockbackDirection = player.transform.globalPosition - gameObject.transform.globalPosition;
-        knockbackDirection = knockbackDirection.normalized;
-        knockbackDirection.y = 0f;
-        gameObject.SetVelocity(knockbackDirection * -speed);
+    //    Vector3 knockbackDirection = player.transform.globalPosition - gameObject.transform.globalPosition;
+    //    knockbackDirection = knockbackDirection.normalized;
+    //    knockbackDirection.y = 0f;
+    //    gameObject.SetVelocity(knockbackDirection * -speed);
 
-    }
+    //}
 
-    public bool CheckPause()
-    {
-        if (player.GetComponent<Player>().currentState == Player.STATE.STOP || player.GetComponent<Player>().currentState == Player.STATE.DEAD)
-        {
-            return true;
-        }
-        return false;
-    }
+    //public bool CheckPause()
+    //{
+    //    if (player.GetComponent<Player>().currentState == Player.STATE.STOP || player.GetComponent<Player>().currentState == Player.STATE.DEAD)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
-    public void MoveToCalculatedPos(float speed)
-    {
-        Vector3 pos = gameObject.transform.globalPosition;
-        Vector3 destination = agent.GetDestination();
-        Vector3 direction = destination - pos;
+    //public void MoveToCalculatedPos(float speed)
+    //{
+    //    Vector3 pos = gameObject.transform.globalPosition;
+    //    Vector3 destination = agent.GetDestination();
+    //    Vector3 direction = destination - pos;
 
-        gameObject.SetVelocity(direction.normalized * speed * Time.deltaTime);
-    }
+    //    gameObject.SetVelocity(direction.normalized * speed * Time.deltaTime);
+    //}
 
-    public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
-    {
-        float deltaX = Math.Abs(first.x - second.x);
-        float deltaY = Math.Abs(first.y - second.y);
-        float deltaZ = Math.Abs(first.z - second.z);
+    //public bool CheckDistance(Vector3 first, Vector3 second, float checkRadius)
+    //{
+    //    float deltaX = Math.Abs(first.x - second.x);
+    //    float deltaY = Math.Abs(first.y - second.y);
+    //    float deltaZ = Math.Abs(first.z - second.z);
 
-        return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
-    }
-    public void DestroyEnemy()
-    {
-        Audio.PlayAudio(gameObject, "XS_Death");
-        InternalCalls.Destroy(gameObject);
-    }
+    //    return deltaX <= checkRadius && deltaY <= checkRadius && deltaZ <= checkRadius;
+    //}
+    //public void DestroyEnemy()
+    //{
+    //    Audio.PlayAudio(gameObject, "XS_Death");
+    //    InternalCalls.Destroy(gameObject);
+    //}
 
     private GameObject GetParticles(GameObject go, string pName)
     {

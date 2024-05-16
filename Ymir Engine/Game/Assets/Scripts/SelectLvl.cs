@@ -36,7 +36,7 @@ public class SelectLvl : YmirComponent
     {
         if (!isLocked)
         {
-            GameObject gameObject0 = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
+            GameObject gameObject0 = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl) + ")");
             GameObject gameObject1 = InternalCalls.GetGameObjectByName("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
 
             //Debug.Log("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
@@ -48,12 +48,12 @@ public class SelectLvl : YmirComponent
             {
                 levelSelector.selectedLvl = (LEVEL)lvl;
             }
-            else
-            {
-                levelSelector.selectedLvl = LEVEL.NONE;
-                UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
-                //UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
-            }
+            //else
+            //{
+            //    levelSelector.selectedLvl = LEVEL.NONE;
+            //    UI.ChangeImageUI(gameObject0, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
+            //    //UI.SetUIState(gameObject, (int)UI_STATE.NORMAL);
+            //}
 
             if (gameObject0 != null)
             {

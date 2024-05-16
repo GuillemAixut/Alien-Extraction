@@ -230,7 +230,7 @@ namespace YmirEngine
                 /*item type*/       ITEM_SLOT.MATERIAL,
                 /*itemRarity*/      ITEM_RARITY.COMMON,
                 /*isEquipped*/      false,
-                /*name*/            "Alien Aluminum Bone",
+                /*name*/            "Alien Aluminium Bone",
                 /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_common"
@@ -242,7 +242,7 @@ namespace YmirEngine
                 /*item type*/       ITEM_SLOT.MATERIAL,
                 /*itemRarity*/      ITEM_RARITY.RARE,
                 /*isEquipped*/      false,
-                /*name*/            "Alien Aluminum Bone",
+                /*name*/            "Alien Aluminium Bone",
                 /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_rare"
@@ -255,7 +255,7 @@ namespace YmirEngine
                 /*item type*/       ITEM_SLOT.MATERIAL,
                 /*itemRarity*/      ITEM_RARITY.EPIC,
                 /*isEquipped*/      false,
-                /*name*/            "Alien Aluminum Bone",
+                /*name*/            "Alien Aluminium Bone",
                 /*description*/     "\nIt is light, soft,\nmalleable, and a good\nconductor of both\nelectricity and heat\n\n\n-Material-",
                 /*imagePath*/       "Assets/UI/Items Slots/Iconos/BoneIconColor.png",
                 /*dictionaryName*/  "bone_epic"
@@ -542,7 +542,23 @@ namespace YmirEngine
 
         public static Item SearchItemInDictionary(string name)
         {
-            return itemsDictionary[name];
+            string[] parts = name.Split(' ');
+
+            string itemName = parts[0];
+
+            Item _item = itemsDictionary[itemName];
+
+            if (_item.itemType == ITEM_SLOT.ARMOR || _item.itemType == ITEM_SLOT.CHIP)
+            {
+                return new I_Equippable((I_Equippable)_item);
+            }
+
+            else if (_item.itemType == ITEM_SLOT.CONSUMABLE)
+            {
+                return new I_Consumables((I_Consumables)_item);
+            }
+
+            return new Item(_item);
         }
         #endregion
     }

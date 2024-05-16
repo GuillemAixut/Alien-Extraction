@@ -96,7 +96,7 @@ bool ModuleScene::Start()
 
 	// -------------------- FINAL MAPS -------------------- \\
 	
-	//LoadScene("Assets/UI/Scenes", "StartScene");
+	LoadScene("Assets/UI/Scenes", "StartScene");
 	//LoadScene("Assets/BASE_FINAL", "LVL_BASE_COLLIDERS");
 	//LoadScene("Assets/LVL1_FINAL", "LVL1_FINAL_COLLIDERS");
 	//LoadScene("Assets/LVL2_LAB_PART1_FINAL", "LVL2_LAB_PART1_COLLIDERS");
@@ -461,6 +461,8 @@ void ModuleScene::LoadScene(const std::string& dir, const std::string& fileName)
 {
 	OPTICK_EVENT();
 
+	godMode = false; // Reset God Mode when scene changes
+
 	if (dir != External->fileSystem->libraryScenesPath)
 	{
 		App->scene->currentSceneDir = dir;
@@ -523,7 +525,10 @@ void ModuleScene::SavePrefab(GameObject* prefab, const std::string& dir, const s
 GameObject* ModuleScene::LoadPrefab(const std::string& dir, const std::string& fileName)
 {
 	TimeManager::gameTimer.Pause();
-	ClearVec(vTempComponents);
+	if (!vTempComponents.empty())
+	{
+		ClearVec(vTempComponents);
+	}
 	
 	std::unique_ptr<JsonFile> prefabToLoad = JsonFile::GetJSON(dir + "/" + fileName + ".yfab");
 

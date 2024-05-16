@@ -73,6 +73,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)\Source\External;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -195,6 +196,7 @@
     <ClInclude Include="Source\External\RecastNavigation\Recast\Recast.h" />
     <ClInclude Include="Source\External\RecastNavigation\Recast\RecastAlloc.h" />
     <ClInclude Include="Source\External\RecastNavigation\Recast\RecastAssert.h" />
+    <ClInclude Include="Source\External\Tracy\tracy\Tracy.hpp" />
     <ClInclude Include="Source\External\Wwise\AK\Comm\AkCommunication.h" />
     <ClInclude Include="Source\External\Wwise\AK\SoundEngine\Common\AkAtomic.h" />
     <ClInclude Include="Source\External\Wwise\AK\SoundEngine\Common\AkBytesCount.h" />
@@ -485,6 +487,7 @@
     <ClInclude Include="Source\Texture.h" />
     <ClInclude Include="Source\TimeManager.h" />
     <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\Tracy.h" />
     <ClInclude Include="Source\UI_Button.h" />
     <ClInclude Include="Source\UI_Canvas.h" />
     <ClInclude Include="Source\UI_CheckBox.h" />
@@ -566,6 +569,7 @@
     <ClCompile Include="Source\External\RecastNavigation\Recast\RecastMeshDetail.cpp" />
     <ClCompile Include="Source\External\RecastNavigation\Recast\RecastRasterization.cpp" />
     <ClCompile Include="Source\External\RecastNavigation\Recast\RecastRegion.cpp" />
+    <ClCompile Include="Source\External\Tracy\TracyClient.cpp" />
     <ClCompile Include="Source\External\Wwise\low_level_IO\Common\AkDefaultLowLevelIODispatcher.cpp" />
     <ClCompile Include="Source\External\Wwise\low_level_IO\Common\AkFileLocationBase.cpp" />
     <ClCompile Include="Source\External\Wwise\low_level_IO\Common\AkFilePackage.cpp" />

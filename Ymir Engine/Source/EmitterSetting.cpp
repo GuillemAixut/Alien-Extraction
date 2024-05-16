@@ -491,7 +491,7 @@ EmitterSpawner::EmitterSpawner()
 
 	pointingEmitter = nullptr;
 	pointingUID = 0;
-	conditionForSpawn = SpawnConditionSubemitter::PAR_MORE_THAN;
+	conditionForSpawn = SpawnConditionSubemitter::PAR_DIE;
 	subMaxLifetime = 0.0f;
 	subMinLifetime = 1.0f;
 	positionParticleForSub = { 0,0,0 };
@@ -512,7 +512,7 @@ void EmitterSpawner::Spawn(ParticleEmitter* emitter, Particle* particle)
 
 void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 {
-	bool spawnFromStart = true;
+	bool spawnFromStart = false;
 	bool countParticles = false;
 	switch (startMode)
 	{
@@ -539,8 +539,8 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 			{
 				switch (conditionForSpawn)
 				{
-				case PAR_LESS_THAN:
-					if (pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
+				case SpawnConditionSubemitter::PAR_NEW_SPAWN:
+					if (pointingEmitter->listParticles.at(i)->lifetime <= (0.0f + dt)) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
 						switch (spawnMode)
@@ -599,8 +599,8 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 						}
 					}
 					break;
-				case PAR_MORE_THAN:
-					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime) //Cumple condicion para spawn
+				case SpawnConditionSubemitter::PAR_DIE:
+					if (pointingEmitter->listParticles.at(i)->lifetime >= (1.0f-dt) || (pointingEmitter->listParticles.at(i)->diesByDistance && (math::Distance3(float4(pointingEmitter->listParticles.at(i)->position, 0.0f), float4(pointingEmitter->listParticles.at(i)->initialPosition, 0.0f))) > (pointingEmitter->listParticles.at(i)->distanceLimit))) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
 						switch (spawnMode)
@@ -659,7 +659,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 						}
 					}
 					break;
-				case PAR_INBETWEEN_OF:
+				case SpawnConditionSubemitter::PAR_INBETWEEN_OF:
 					if (pointingEmitter->listParticles.at(i)->lifetime >= subMinLifetime && pointingEmitter->listParticles.at(i)->lifetime <= subMaxLifetime) //Cumple condicion para spawn
 					{
 						positionParticleForSub = pointingEmitter->listParticles.at(i)->position;
@@ -719,7 +719,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 						}
 					}
 					break;
-				case PAR_END_SPAWN_CONDITION:
+				case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION:
 					break;
 				default:
 					break;
@@ -759,7 +759,7 @@ void EmitterSpawner::Update(float dt, ParticleEmitter* emitter)
 		break;
 	}
 
-	if((spawnFromStart || playTriggered) && numParticlesSpawned < numParticlesForStop)
+	if((spawnFromStart || playTriggered) && numParticlesSpawned < numParticlesForStop && startMode != ParticlesSpawnEnabeling::PAR_WAIT_SUBEMITTER)
 	{
 		switch (spawnMode)
 		{
@@ -1019,8 +1019,8 @@ void EmitterSpawner::OnInspector(ParticleEmitter* thisEmitter)
 
 			switch (conditionForSpawn)
 			{
-			case SpawnConditionSubemitter::PAR_LESS_THAN: spawnCon = "Less Than";	break;
-			case SpawnConditionSubemitter::PAR_MORE_THAN: spawnCon = "More Than";	break;
+			case SpawnConditionSubemitter::PAR_NEW_SPAWN: spawnCon = "Less Than";	break;
+			case SpawnConditionSubemitter::PAR_DIE: spawnCon = "More Than";	break;
 			case SpawnConditionSubemitter::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
 			case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
 			default:
@@ -1033,8 +1033,8 @@ void EmitterSpawner::OnInspector(ParticleEmitter* thisEmitter)
 				{
 					switch ((SpawnConditionSubemitter)i)
 					{
-					case SpawnConditionSubemitter::PAR_LESS_THAN: spawnCon = "Less Than";	break;
-					case SpawnConditionSubemitter::PAR_MORE_THAN: spawnCon = "More Than";	break;
+					case SpawnConditionSubemitter::PAR_NEW_SPAWN: spawnCon = "Less Than";	break;
+					case SpawnConditionSubemitter::PAR_DIE: spawnCon = "More Than";	break;
 					case SpawnConditionSubemitter::PAR_INBETWEEN_OF: spawnCon = "In Between Of";	break;
 					case SpawnConditionSubemitter::PAR_END_SPAWN_CONDITION: spawnCon = "";	break;
 					}
@@ -1049,14 +1049,14 @@ void EmitterSpawner::OnInspector(ParticleEmitter* thisEmitter)
 
 			switch (conditionForSpawn)
 			{
-			case SpawnConditionSubemitter::PAR_LESS_THAN:
+			case SpawnConditionSubemitter::PAR_NEW_SPAWN:
 			{
-				ImGui::DragFloat("Maximun Time ## SUBEMITTER", &subMaxLifetime, 0.05f, 0.0f, 1.0f);
+				//ImGui::DragFloat("Maximun Time ## SUBEMITTER", &subMaxLifetime, 0.05f, 0.0f, 1.0f);
 			}
 			break;
-			case SpawnConditionSubemitter::PAR_MORE_THAN:
+			case SpawnConditionSubemitter::PAR_DIE:
 			{
-				ImGui::DragFloat("Minimun Time ## SUBEMITTER", &subMinLifetime, 0.05f, 0.0f, 1.0f);
+				//ImGui::DragFloat("Minimun Time ## SUBEMITTER", &subMinLifetime, 0.05f, 0.0f, 1.0f);
 			}
 			break;
 			case SpawnConditionSubemitter::PAR_INBETWEEN_OF:

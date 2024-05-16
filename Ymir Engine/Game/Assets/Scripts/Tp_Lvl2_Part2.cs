@@ -48,7 +48,8 @@ public class Tp_Lvl2_Part2 : YmirComponent
                 loadSceneImg.SetActive(true);
             }
 
-            loadScene = true;
+            loadScene = true; 
+            Globals.GetPlayerScript().SavePlayer();
         }
     }    
 }

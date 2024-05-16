@@ -27,7 +27,7 @@ public class SelectWeapon : YmirComponent
 
     public void OnClickButton()
     {
-        GameObject gameObject = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl + 1) + ")");
+        GameObject gameObject0 = InternalCalls.GetGameObjectByName("Lvl (" + ((int)levelSelector.selectedLvl) + ")");
         GameObject gameObject1 = InternalCalls.GetGameObjectByName("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
 
         //Debug.Log("Weapon (" + ((int)levelSelector.selectedWeapon + 1) + ")");
@@ -39,15 +39,15 @@ public class SelectWeapon : YmirComponent
         {
             levelSelector.selectedWeapon = (WEAPON_TYPE)weapon;
         }
-        else
-        {
-            levelSelector.selectedWeapon = WEAPON_TYPE.NONE;
-            UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
-        }
+        //else
+        //{
+        //    levelSelector.selectedWeapon = WEAPON_TYPE.NONE;
+        //    UI.ChangeImageUI(gameObject0, "Assets/UI/Teleport Buttons/BotonUnselected.png", (int)UI_STATE.NORMAL);
+        //}
 
-        if (gameObject != null/* && levelSelector.selectedLvl != selectedLvlPrev*/)
+        if (gameObject0 != null/* && levelSelector.selectedLvl != selectedLvlPrev*/)
         {
-            UI.ChangeImageUI(gameObject, "Assets/UI/Teleport Buttons/BotonHover.png", (int)UI_STATE.NORMAL);
+            UI.ChangeImageUI(gameObject0, "Assets/UI/Teleport Buttons/BotonHover.png", (int)UI_STATE.NORMAL);
         }
 
         if (gameObject1 != null)

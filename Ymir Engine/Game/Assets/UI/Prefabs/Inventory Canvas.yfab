@@ -7,7 +7,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 507940931,
+            "Parent UID": 95556909,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1894,
-                    "Height": 1056,
+                    "Width": 429,
+                    "Height": 490,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -56,7 +56,8 @@
                 923526943,
                 1927575898,
                 670316680,
-                413940744
+                413940744,
+                572532483
             ]
         },
         {
@@ -209,14 +210,14 @@
                 }
             ],
             "Children UID": [
-                1380538973
+                554361400
             ]
         },
         {
             "Name": "Armor Slot",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1380538973,
+            "UID": 554361400,
             "Active": false,
             "Element_Type": "None",
             "Parent UID": 1507391557,
@@ -242,145 +243,19 @@
                 }
             ],
             "Children UID": [
-                1480989850,
-                1302960606,
-                1526688955
+                463981516,
+                553207789,
+                1110638304
             ]
         },
         {
-            "Name": "Image Background (15)",
+            "Name": "Image Background",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1480989850,
+            "UID": 463981516,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 1380538973,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        775,
-                        312,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0.5
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Image Item (15)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1302960606,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1380538973,
-            "Components": [
-                {
-                    "Type": "Transform",
-                    "Active": 1,
-                    "Translation": [
-                        0,
-                        0,
-                        0
-                    ],
-                    "Rotation": [
-                        -0,
-                        0,
-                        -0
-                    ],
-                    "Scale": [
-                        1,
-                        1,
-                        1
-                    ]
-                },
-                {
-                    "Type": "UI",
-                    "Active": 1,
-                    "Draggeable": false,
-                    "Position X": 0,
-                    "Position Y": 0,
-                    "Width": 100,
-                    "Height": 100,
-                    "UI Type": 1,
-                    "UI State": 1,
-                    "Drag Limits": [
-                        775,
-                        312,
-                        100,
-                        100
-                    ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
-                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
-                    "Current Frame X": 0,
-                    "Current Frame Y": 0,
-                    "Rows": 1,
-                    "Columns": 1,
-                    "Color": [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "Type": "UI Transform",
-                    "Component reference": 1
-                }
-            ]
-        },
-        {
-            "Name": "Armor (1)",
-            "Static": false,
-            "Tag": "Untagged",
-            "UID": 1526688955,
-            "Active": false,
-            "Element_Type": "None",
-            "Parent UID": 1380538973,
+            "Parent UID": 554361400,
             "Components": [
                 {
                     "Type": "Transform",
@@ -427,7 +302,133 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0.5
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Image Item",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 553207789,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 554361400,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 100,
+                    "Height": 100,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        775,
+                        312,
+                        100,
+                        100
+                    ],
+                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                }
+            ]
+        },
+        {
+            "Name": "Item Button",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1110638304,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 554361400,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 100,
+                    "Height": 100,
+                    "UI Type": 1,
+                    "UI State": 2,
+                    "Drag Limits": [
+                        775,
+                        312,
+                        100,
+                        100
+                    ],
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 1,
+                    "Columns": 1,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
                     ]
                 },
                 {
@@ -452,7 +453,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 1526688955,
+                    "Image": 1110638304,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -494,7 +495,7 @@
                     "enumSlot": "ARMOR",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -504,7 +505,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -639,7 +640,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -775,7 +776,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -842,7 +843,7 @@
                     "enumSlot": "CHIP",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -852,7 +853,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -987,7 +988,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1106,7 +1107,7 @@
                     "Width": 100,
                     "Height": 100,
                     "UI Type": 1,
-                    "UI State": 1,
+                    "UI State": 2,
                     "Drag Limits": [
                         885,
                         457,
@@ -1139,7 +1140,7 @@
                     "Width": 300,
                     "Height": 50,
                     "UI Type": 3,
-                    "UI State": 1,
+                    "UI State": 2,
                     "Drag Limits": [
                         885,
                         457,
@@ -1190,7 +1191,7 @@
                     "enumSlot": "CHIP",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -1200,7 +1201,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -1335,7 +1336,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1471,7 +1472,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -1538,7 +1539,7 @@
                     "enumSlot": "CONSUMABLE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -1548,7 +1549,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -1683,7 +1684,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -1819,7 +1820,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -1886,7 +1887,7 @@
                     "enumSlot": "CONSUMABLE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -1896,7 +1897,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -2031,7 +2032,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2167,7 +2168,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -2234,7 +2235,7 @@
                     "enumSlot": "SAVE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -2244,7 +2245,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -2297,7 +2298,7 @@
                 }
             ],
             "Children UID": [
-                554361400,
+                1380538973,
                 141907602,
                 440803347,
                 1264572485,
@@ -2318,7 +2319,7 @@
             "Name": "Item (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 554361400,
+            "UID": 1380538973,
             "Active": false,
             "Element_Type": "None",
             "Parent UID": 670316680,
@@ -2344,19 +2345,19 @@
                 }
             ],
             "Children UID": [
-                463981516,
-                553207789,
-                1110638304
+                1480989850,
+                1302960606,
+                1526688955
             ]
         },
         {
-            "Name": "Image Background",
+            "Name": "Image Background (15)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 463981516,
+            "UID": 1480989850,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1380538973,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2393,7 +2394,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Rarities\/CommonRarity.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2413,13 +2414,13 @@
             ]
         },
         {
-            "Name": "Image Item",
+            "Name": "Image Item (15)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 553207789,
+            "UID": 1302960606,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1380538973,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2456,7 +2457,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Iconos\/ArmorIconColor.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2476,13 +2477,13 @@
             ]
         },
         {
-            "Name": "Item Button",
+            "Name": "Armor (1)",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1110638304,
+            "UID": 1526688955,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 554361400,
+            "Parent UID": 1380538973,
             "Components": [
                 {
                     "Type": "Transform",
@@ -2529,7 +2530,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -2554,7 +2555,7 @@
                     ],
                     "Is interactable": true,
                     "Text": 4294967295,
-                    "Image": 1110638304,
+                    "Image": 1526688955,
                     "Normal": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Focused": "Assets\/UI\/Items Slots\/onHover.png",
                     "Pressed": "Assets\/UI\/Items Slots\/onPressed.png",
@@ -2586,28 +2587,28 @@
                         1
                     ]
                 },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "enumItem": "NONE",
-                    "enumSlot": "NONE",
-                    "enumRarity": "",
-                    "menuName": "Inventory Menu",
-                    "updateStats": true,
-                    "name": "",
-                    "itemType": 0,
-                    "itemRarity": 0,
-                    "HP": 0,
-                    "armor": 0,
-                    "speed": 0,
-                    "fireRate": 0,
-                    "reloadSpeed": 0,
-                    "damageMultiplier": 0,
-                    "isEquipped": true
-                }
+              {
+                "Type": "Script",
+                "ScriptName": "UI_Item_Button.cs",
+                "Active": 1,
+                "UID": 0,
+                "currentSlot": 0,
+                "enumItem": "NONE",
+                "enumSlot": "NONE",
+                "enumRarity": "",
+                "menuName": "Inventory Menu",
+                "updateStats": false,
+                "name": "",
+                "itemType": 0,
+                "itemRarity": 0,
+                "HP": 0,
+                "armor": 0,
+                "speed": 0,
+                "fireRate": 0,
+                "reloadSpeed": 0,
+                "damageMultiplier": 0,
+                "isEquipped": false
+              }
             ]
         },
         {
@@ -2689,7 +2690,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -2825,7 +2826,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -2892,7 +2893,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -2902,7 +2903,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -2985,7 +2986,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3121,7 +3122,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -3188,7 +3189,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -3198,7 +3199,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -3281,7 +3282,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3417,7 +3418,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -3484,7 +3485,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -3494,7 +3495,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -3577,7 +3578,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -3713,7 +3714,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -3780,7 +3781,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -3790,7 +3791,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -3873,7 +3874,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4009,7 +4010,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -4076,7 +4077,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4086,7 +4087,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -4169,7 +4170,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4305,7 +4306,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -4372,7 +4373,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4382,7 +4383,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -4465,7 +4466,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4601,7 +4602,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -4668,7 +4669,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4678,7 +4679,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -4761,7 +4762,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -4897,7 +4898,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -4964,7 +4965,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -4974,7 +4975,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -5057,7 +5058,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5193,7 +5194,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -5260,7 +5261,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -5270,7 +5271,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -5353,7 +5354,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5489,7 +5490,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -5556,7 +5557,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -5566,7 +5567,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -5649,7 +5650,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -5785,7 +5786,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -5852,7 +5853,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -5862,7 +5863,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -5945,7 +5946,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -6081,7 +6082,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -6148,7 +6149,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -6158,7 +6159,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -6241,7 +6242,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -6377,7 +6378,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -6444,7 +6445,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -6454,7 +6455,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -6537,7 +6538,7 @@
                         100,
                         100
                     ],
-                    "Path": "Assets\/UI\/Inventory Buttons\/New Buttons\/Unselected.png",
+                    "Path": "Assets\/UI\/Items Slots\/Unselected.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -6673,7 +6674,7 @@
                         0,
                         0,
                         0,
-                        0.20000000298023224
+                        0
                     ]
                 },
                 {
@@ -6740,7 +6741,7 @@
                     "enumSlot": "NONE",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
-                    "updateStats": true,
+                    "updateStats": false,
                     "name": "",
                     "itemType": 0,
                     "itemRarity": 0,
@@ -6750,7 +6751,7 @@
                     "fireRate": 0,
                     "reloadSpeed": 0,
                     "damageMultiplier": 0,
-                    "isEquipped": true
+                    "isEquipped": false
                 }
             ]
         },
@@ -6841,7 +6842,7 @@
                         197,
                         77
                     ],
-                    "Path": "Assets\/UI\/Upgrade Buttons\/Smg.png",
+                    "Path": "Assets\\UI\\HUD Buttons\\Icons\\ShotgunHUD.png",
                     "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
                     "Current Frame X": 0,
                     "Current Frame Y": 0,
@@ -6904,7 +6905,7 @@
                         200,
                         50
                     ],
-                    "Text": "69",
+                    "Text": "540",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
@@ -6966,7 +6967,7 @@
                         200,
                         50
                     ],
-                    "Text": "420.69",
+                    "Text": "0",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
@@ -7028,7 +7029,7 @@
                         200,
                         50
                     ],
-                    "Text": "420",
+                    "Text": "35",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
@@ -7090,7 +7091,7 @@
                         200,
                         50
                     ],
-                    "Text": "656566",
+                    "Text": "2,1%",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
@@ -7152,7 +7153,7 @@
                         200,
                         50
                     ],
-                    "Text": "6.9",
+                    "Text": "0%",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
@@ -7214,7 +7215,7 @@
                         200,
                         50
                     ],
-                    "Text": "475",
+                    "Text": "0,7",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
@@ -7276,7 +7277,7 @@
                         200,
                         50
                     ],
-                    "Text": "323233",
+                    "Text": "0",
                     "Font name": "NK57 Monospace Se Bd.otf",
                     "Font path": "Assets\\Fonts",
                     "Font size": 14.699999809265137,
@@ -7478,6 +7479,84 @@
                 {
                     "Type": "UI Transform",
                     "Component reference": 2
+                }
+            ]
+        },
+        {
+            "Name": "InventoryAnim",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 572532483,
+            "Active": false,
+            "Element_Type": "None",
+            "Parent UID": 1904908806,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "Type": "UI",
+                    "Active": 1,
+                    "Draggeable": false,
+                    "Position X": 0,
+                    "Position Y": 0,
+                    "Width": 1920,
+                    "Height": 1080,
+                    "UI Type": 1,
+                    "UI State": 1,
+                    "Drag Limits": [
+                        0,
+                        0,
+                        1920,
+                        1080
+                    ],
+                    "Path": "Assets\/UI\/SpriteSheets\/InventorySpritesheet.png",
+                    "Shader Path": "Assets\/Shaders\/UI Shader.glsl",
+                    "Current Frame X": 0,
+                    "Current Frame Y": 0,
+                    "Rows": 3,
+                    "Columns": 6,
+                    "Color": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "Type": "UI Transform",
+                    "Component reference": 1
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "UI_Animation.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "loop": false,
+                    "pingpongWIP": false,
+                    "backwards": false,
+                    "animState": true,
+                    "delay": 0.05000000074505806,
+                    "loopCount": 0,
+                    "totalFrames": 18,
+                    "currentIndex": 0,
+                    "disableOnFinish": true
                 }
             ]
         }

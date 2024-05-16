@@ -1,9 +1,9 @@
 {
     "NavMesh": "",
     "Editor Camera Position": [
-        -35.895042419433594,
-        47.860057830810547,
-        99.708450317382812
+        -35.271476745605469,
+        47.028633117675781,
+        97.976318359375
     ],
     "Editor Camera Right (X)": [
         0.94088733196258545,
@@ -25,7 +25,7 @@
             "Name": "Scene",
             "Static": false,
             "Tag": "Untagged",
-            "UID": 1648158839,
+            "UID": 1685696721,
             "Active": true,
             "Element_Type": "None",
             "Components": [],
@@ -41,7 +41,7 @@
             "UID": 1624412438,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1648158839,
+            "Parent UID": 1685696721,
             "Components": [
                 {
                     "Type": "Transform",
@@ -108,7 +108,7 @@
             "UID": 818596370,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 1648158839,
+            "Parent UID": 1685696721,
             "Components": [
                 {
                     "Type": "Transform",
@@ -135,8 +135,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 1922,
-                    "Height": 1012,
+                    "Width": 1914,
+                    "Height": 1049,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -221,11 +221,11 @@
                     "imgPath": "Assets\\Cutscenes\\Intro\\",
                     "imgName": "Image ",
                     "currentFrame": 0,
-                    "maxFrames": 7,
+                    "maxFrames": 8,
                     "hasFinished": false,
                     "introScene": true,
-                    "winScene": false,
-                    "loseScene": false
+                    "winScene1": false,
+                    "winScene2": false
                 }
             ]
         },

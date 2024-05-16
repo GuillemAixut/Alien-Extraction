@@ -8,23 +8,21 @@ using YmirEngine;
 
 public class Plasma : Weapon
 {
-
-    public int upgrade = 0;
-
     public float damageEscalation;
+
+    public float currentDamage;
 
     public Plasma() : base(WEAPON_TYPE.PLASMA) { }
 
     public override void Start()
     {
-        _upgrade = (UPGRADE)upgrade;
-
         range = 200;
 
         switch (_upgrade)
         {
             case UPGRADE.LVL_0:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaDefault");
                 ammo = 200;
                 fireRate = 0.03f;
                 damage = 2.4f;
@@ -34,6 +32,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_1:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL1");
                 ammo = 200;
                 fireRate = 0.03f;
                 damage = 3;
@@ -43,6 +42,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_2:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL2");
                 ammo = 300;
                 fireRate = 0.02f;
                 damage = 3.6f;
@@ -52,6 +52,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_3_ALPHA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL3A");
                 ammo = 300;
                 fireRate = 0.015f;
                 damage = 5f;
@@ -61,6 +62,7 @@ public class Plasma : Weapon
                 break;
             case UPGRADE.LVL_3_BETA:
 
+                particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesPlasmaLVL3B");
                 ammo = 200;
                 fireRate = 0.02f;
                 damage = 4f;
@@ -72,14 +74,18 @@ public class Plasma : Weapon
                 break;
         }
 
+        currentDamage = damage;
         currentAmmo = ammo;
-    }
+    } 
     public override void Shoot()
     {
         currentAmmo--;
         fireRateTimer = fireRate;
 
         Audio.PlayAudio(gameObject, "W_PlasmaShot");
+        Particles.ParticleShoot(particlesGO, gameObject.transform.GetForward());
+        Particles.SetMaxDistance(particlesGO, range);
+        Particles.PlayParticlesTrigger(particlesGO);
 
         GameObject target = null;
 
@@ -120,30 +126,52 @@ public class Plasma : Weapon
 
                 if (aux != null)
                 {
-                    aux.life -= damage;
+                    GameObject FaceHuggerDamageParticles = InternalCalls.GetChildrenByName(aux.gameObject, "ParticlesDamageFaceHugger");
+                    if (FaceHuggerDamageParticles != null) Particles.PlayParticlesTrigger(FaceHuggerDamageParticles);
+                    aux.TakeDmg(currentDamage*3);
                 }
 
                 DroneXenomorphBaseScript aux2 = target.GetComponent<DroneXenomorphBaseScript>();
                 if (aux2 != null)
                 {
-                    aux2.life -= damage;
+                    GameObject DroneDamageParticles = InternalCalls.GetChildrenByName(aux2.gameObject, "ParticlesDamageDrone");
+                    if (DroneDamageParticles != null) Particles.PlayParticlesTrigger(DroneDamageParticles);
+                    aux2.TakeDmg(currentDamage * 3);
                 }
 
                 QueenXenomorphBaseScript aux3 = target.GetComponent<QueenXenomorphBaseScript>();
                 if (aux3 != null)
                 {
-                    aux3.life -= damage;
+                    GameObject QueenDamageParticles = InternalCalls.GetChildrenByName(aux3.gameObject, "ParticlesDamageQueen");
+                    if (QueenDamageParticles != null) Particles.PlayParticlesTrigger(QueenDamageParticles);
+                    aux3.TakeDmg(currentDamage * 3);
                 }
+
+                SpitterBaseScript aux4 = target.GetComponent<SpitterBaseScript>();
+                if (aux4 != null)
+                {
+                    GameObject SpitterDamageParticles = InternalCalls.GetChildrenByName(aux4.gameObject, "ParticlesDamageSpitter");
+                    if (SpitterDamageParticles != null) Particles.PlayParticlesTrigger(SpitterDamageParticles);
+                    aux4.TakeDmg(currentDamage * 3);
+                }
+
                 Debug.Log("[ERROR] HIT ENEMy");
                 //-----------------------------------------------------------------------------------
             }
         }
+
+        currentDamage += currentDamage * damageEscalation;
     }
     public override void Reload()
     {
         currentAmmo = ammo;
 
         Audio.PlayAudio(gameObject, "W_PlasmaReload");
+    }
+
+    public void ResetDamage()
+    {
+        currentDamage = damage;
     }
 
 }

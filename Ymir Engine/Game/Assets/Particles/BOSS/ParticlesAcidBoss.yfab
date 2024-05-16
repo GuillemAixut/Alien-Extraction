@@ -7,15 +7,15 @@
             "UID": 1567615056,
             "Active": true,
             "Element_Type": "None",
-            "Parent UID": 571463237,
+            "Parent UID": 427225322,
             "Components": [
                 {
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        8.2604227066040039,
-                        23.998149871826172,
-                        18.436004638671875
+                        0,
+                        0,
+                        0
                     ],
                     "Rotation": [
                         -0,
@@ -31,6 +31,7 @@
                 {
                     "Type": "ParticleSystem",
                     "Active": 1,
+                    "ShowEmitters": true,
                     "NumEmitters": 3,
                     "Emitters": [
                         {
@@ -121,7 +122,7 @@
                                     "Type": 4,
                                     "Progressive": false,
                                     "Loop": false,
-                                    "Size1": 12,
+                                    "Size1": 81.5,
                                     "Size2": 0,
                                     "TimeStart": 0.85100001096725464,
                                     "TimeStop": 1
@@ -162,7 +163,7 @@
                                     "RandomLT": false,
                                     "Position": [
                                         0,
-                                        -24,
+                                        0,
                                         39.5
                                     ],
                                     "DistanceLimit": 0,
@@ -211,7 +212,7 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": false,
-                                    "Size1": 47,
+                                    "Size1": 105,
                                     "Size2": 0,
                                     "TimeStart": 0,
                                     "TimeStop": 1
@@ -357,7 +358,7 @@
                                     "Type": 4,
                                     "Progressive": true,
                                     "Loop": true,
-                                    "Size1": 2.5,
+                                    "Size1": 3.5,
                                     "Size2": 1,
                                     "TimeStart": 0.75300002098083496,
                                     "TimeStop": 1

@@ -16,6 +16,8 @@
 #pragma comment (lib, "Source/External/Optick/lib/releaseLib/OptickCore.lib") 
 #endif // _DEBUG
 
+#include "Tracy.h"
+
 #include "External/mmgr/mmgr.h"
 
 enum main_states
@@ -26,6 +28,13 @@ enum main_states
 	MAIN_FINISH,
 	MAIN_EXIT
 };
+
+// Force the use of the discrete GPU
+extern "C"
+{
+	__declspec(dllexport) DWORD NvOptimusEnablement = 1;
+	__declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+}
 
 void DumpMemoryLeaks(void)
 {
@@ -82,8 +91,11 @@ int main(int argc, char ** argv)
 				state = MAIN_FINISH;
 			}
 
+#ifdef TRACY_ENABLE
+			FrameMark;
+#endif // TRACY_ENABLE
+			
 			break;
-
 		}
 
 		case MAIN_FINISH:

@@ -7,7 +7,7 @@
             "UID": 737864527,
             "Active": true,
             "Element_Type": "Model",
-            "Parent UID": 1612282923,
+            "Parent UID": 1020865750,
             "Components": [
                 {
                     "Type": "Transform",
@@ -70,45 +70,13 @@
                     "Emissive_UID": 406262089
                 },
                 {
-                    "World gravity": [
-                        0,
-                        -10,
-                        0
-                    ],
-                    "Type": "Physics",
-                    "Active": true,
-                    "Collider Type": 0,
-                    "Size": [
-                        60,
-                        30,
-                        30
-                    ],
-                    "Physics Type": 2,
-                    "Mass": 0,
-                    "Friction": 0,
-                    "Angular Friction": 0,
-                    "UseGravity": false,
-                    "IsSensor": true,
-                    "LockX": false,
-                    "LockY": false,
-                    "LockZ": false,
-                    "Offset": [
-                        0,
-                        15,
-                        0
-                    ],
-                    "Offset Rotation": [
-                        0,
-                        0,
-                        0,
-                        1
-                    ]
-                },
-                {
                     "Type": "Script",
-                    "ScriptName": "Door_Horizontal.cs",
+                    "ScriptName": "BackZoneDoor.cs",
                     "Active": 1,
                     "UID": 0,
+                    "unlockAfterOpen": true,
+                    "lockFront": false,
+                    "lockBack": false,
                     "fraction": 0
                 }
             ],
@@ -117,7 +85,10 @@
                 553706122,
                 1775831597,
                 353273149,
-                2061335501
+                2061335501,
+                1186450617,
+                331677704,
+                646399621
             ]
         },
         {
@@ -163,15 +134,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -69.390953063964844,
+                                16.196561813354492,
+                                -75.571304321289062
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
@@ -242,15 +213,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -69.390953063964844,
+                                16.196561813354492,
+                                -75.571304321289062
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
@@ -321,15 +292,15 @@
                     "Uniforms": [
                         {
                             "lightDir": [
-                                0,
-                                0,
-                                0
+                                -69.390953063964844,
+                                16.196561813354492,
+                                -75.571304321289062
                             ],
                             "lightInt": 1,
                             "lightColor": [
-                                0,
-                                0,
-                                0
+                                1,
+                                1,
+                                1
                             ],
                             "numLights": 1,
                             "displayNormalMap": true,
@@ -370,9 +341,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.42399999499320984,
+                        -0.42399978637695312,
                         17,
-                        31
+                        22.423101425170898
                     ],
                     "Rotation": [
                         -0,
@@ -400,9 +371,9 @@
                     "Type": "Transform",
                     "Active": 1,
                     "Translation": [
-                        -0.42399999499320984,
+                        -0.42399978637695312,
                         17,
-                        -31
+                        -22.048166275024414
                     ],
                     "Rotation": [
                         -0,
@@ -414,6 +385,215 @@
                         1,
                         1
                     ]
+                }
+            ]
+        },
+        {
+            "Name": "DoorCollider",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 1186450617,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 737864527,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        0,
+                        18.564413070678711,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        19.399999618530273,
+                        43.5,
+                        53.900001525878906
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": false,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "Sensor1",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 331677704,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 737864527,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        20.225837707519531,
+                        18,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        31.600000381469727,
+                        39.400001525878906,
+                        39.099998474121094
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "BackZoneDoor_Sensor.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "active": true
+                }
+            ]
+        },
+        {
+            "Name": "Sensor2",
+            "Static": false,
+            "Tag": "Untagged",
+            "UID": 646399621,
+            "Active": true,
+            "Element_Type": "None",
+            "Parent UID": 737864527,
+            "Components": [
+                {
+                    "Type": "Transform",
+                    "Active": 1,
+                    "Translation": [
+                        -19.945144653320312,
+                        18,
+                        0
+                    ],
+                    "Rotation": [
+                        -0,
+                        0,
+                        -0
+                    ],
+                    "Scale": [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                {
+                    "World gravity": [
+                        0,
+                        -10,
+                        0
+                    ],
+                    "Type": "Physics",
+                    "Active": true,
+                    "Collider Type": 0,
+                    "Size": [
+                        31,
+                        39,
+                        39
+                    ],
+                    "Physics Type": 2,
+                    "Mass": 0,
+                    "Friction": 0,
+                    "Angular Friction": 0,
+                    "UseGravity": false,
+                    "IsSensor": true,
+                    "LockX": false,
+                    "LockY": false,
+                    "LockZ": false,
+                    "Offset": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "Offset Rotation": [
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "Type": "Script",
+                    "ScriptName": "BackZoneDoor_Sensor.cs",
+                    "Active": 1,
+                    "UID": 0,
+                    "active": true
                 }
             ]
         }

@@ -19,6 +19,8 @@ public class UI_Item_Button : YmirComponent
     private GameObject _menuReference;
     public bool updateStats = false;
 
+    private Player player;
+
     // Debug
     public string name = "";
     public ITEM_SLOT itemType;
@@ -29,6 +31,7 @@ public class UI_Item_Button : YmirComponent
     public void Start()
     {
         _menuReference = InternalCalls.GetGameObjectByName(menuName);
+        player = Globals.GetPlayerScript();
 
         updateStats = false;
 
@@ -60,9 +63,13 @@ public class UI_Item_Button : YmirComponent
         {
             if (item.currentSlot != ITEM_SLOT.NONE && item.currentSlot != ITEM_SLOT.SAVE)
             {
+                item.inSave = false;
+
                 if (!item.isEquipped)
                 {
                     item.isEquipped = true;
+                    item.inInventory = true;
+
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
                 }
@@ -72,6 +79,8 @@ public class UI_Item_Button : YmirComponent
                 if (item.isEquipped)
                 {
                     item.isEquipped = false;
+                    item.inInventory = false;
+
                     item.UpdateStats();
                     _menuReference.GetComponent<UI_Inventory>().UpdateTextStats();
                 }
@@ -238,14 +247,14 @@ public class UI_Item_Button : YmirComponent
         //Debug.Log("isEquipped: " + _item.isEquipped.ToString());
         //Debug.Log("Rarity: " + _item.itemRarity.ToString());
 
-        // is empty // is equipped // can be placed
-        if (item.itemType == ITEM_SLOT.NONE &&
-            ((_item.isEquipped && _item.itemType == item.currentSlot) ||
-            item.currentSlot == ITEM_SLOT.NONE || item.currentSlot == ITEM_SLOT.MATERIAL))
+        // is empty && (is not equipped and not inventory || is equipped and in inventory && can be placed)
+        if (item.itemType == ITEM_SLOT.NONE && ((!_item.isEquipped && !Equals(menuName, "Inventory Menu")) ||
+            ((_item.isEquipped && _item.itemType == item.currentSlot ||
+            item.currentSlot == ITEM_SLOT.NONE || item.currentSlot == ITEM_SLOT.MATERIAL) && Equals(menuName, "Inventory Menu"))))
         {
             if (_item.isEquipped)
             {
-                _item.currentSlot = item.currentSlot;
+                _item.currentSlot = _item.itemType;
             }
 
             item = _item;
@@ -279,10 +288,9 @@ public class UI_Item_Button : YmirComponent
 
             //item.LogStats();
 
-            Debug.Log("aaa " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
+            //Debug.Log("currentSlot " + currentSlot.ToString() + " item: " + _item.itemType.ToString());
         }
 
-        //Debug.Log("return: " + ret.ToString());
         return ret;
     }
 
@@ -308,63 +316,6 @@ public class UI_Item_Button : YmirComponent
             /*imagePath*/ "");
         }
 
-        // TODO: DEBUG MATERIAL, delete when crafting is linked to inventory
-        else if (itemType == ITEM_SLOT.MATERIAL)
-        {
-            string path = "";
-            switch (name)
-            {
-                case "Alien Skin":
-                    path = "Assets/UI/Items Slots/Iconos/SkinIconColor.png";
-                    break;
-                case "Alien Exocranium":
-                    path = "Assets/UI/Items Slots/Iconos/ExocraniumIconColor.png";
-                    break;
-                case "Alien Acid Vesicle":
-                    path = "Assets/UI/Items Slots/Iconos/AcidVesicleIconColor.png";
-                    break;
-                case "Alien Tail tip":
-                    path = "Assets/UI/Items Slots/Iconos/TailIconColor.png";
-                    break;
-                case "Alien Aluminium Bone":
-                    path = "Assets/UI/Items Slots/Iconos/BoneIconColor.png";
-                    break;
-                case "Alien Claw":
-                    path = "Assets/UI/Items Slots/Iconos/ClawIconColor.png";
-                    break;
-                default:
-                    break;
-            }
-
-            _item = new Item(currentSlot, itemType, itemRarity, isEquipped,
-            /*name*/name,
-            /*description*/ "Empty",
-            /*imagePath*/ path);
-
-            switch (_item.itemRarity)
-            {
-                case ITEM_RARITY.COMMON:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/CommonRarity.png", (int)UI_STATE.NORMAL); ;
-                    break;
-                case ITEM_RARITY.RARE:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/RareRarity.png", (int)UI_STATE.NORMAL);
-                    break;
-                case ITEM_RARITY.EPIC:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/EpicRarity.png", (int)UI_STATE.NORMAL);
-                    break;
-                case ITEM_RARITY.MYTHIC:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Rarities/MythicRarity.png", (int)UI_STATE.NORMAL);
-                    break;
-                case ITEM_RARITY.NONE:
-                    UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 0), "Assets/UI/Items Slots/Unselected.png", (int)UI_STATE.NORMAL);
-                    break;
-                default:
-                    break;
-            }
-
-            UI.ChangeImageUI(InternalCalls.CS_GetChild(gameObject.parent, 1), _item.imagePath, (int)UI_STATE.NORMAL);
-        }
-
         else
         {
             _item = new Item(currentSlot, itemType, itemRarity, isEquipped,
@@ -379,5 +330,18 @@ public class UI_Item_Button : YmirComponent
         //item.LogStats();    
 
         return _item;
+    }
+
+    public void ResetSlot()
+    {
+        //enumSlot = "NONE";
+        currentSlot = ITEM_SLOT.NONE;
+        itemType = ITEM_SLOT.NONE;
+        itemRarity = ITEM_RARITY.NONE;
+
+        item = null;
+        //item.inInventory = false;
+        //item.inStash = false;
+        //item.inCraft = false;
     }
 }

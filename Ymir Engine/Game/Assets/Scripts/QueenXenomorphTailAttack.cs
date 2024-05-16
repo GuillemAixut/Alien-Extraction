@@ -48,9 +48,6 @@ public class QueenXenomorphTailAttack : YmirComponent
         {
             healthScript.TakeDmg(damage);
             destroyed = true;
-
-            player.GetComponent<Player>().TakeDMG();
         }
     }
-
 }

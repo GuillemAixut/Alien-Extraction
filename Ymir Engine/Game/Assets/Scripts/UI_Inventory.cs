@@ -74,20 +74,18 @@ public class UI_Inventory : YmirComponent
         _textRate = InternalCalls.GetGameObjectByName("Text Rate");
         _textResin = InternalCalls.GetGameObjectByName("Text Resin");
 
+        ResetMenuSlots();
+
         UpdateTextStats();
+
         SetSlots();
     }
 
     public void Update()
     {
-        if (player != null && player.setHover)
+        if (Input.GetKey(YmirKeyCode.T) == KeyState.KEY_DOWN)
         {
-            Debug.Log("set first");
-            goDescription.SetActive(false);// TODO: when menu opened
-            goText.SetActive(false);
-            goName.SetActive(false);
-
-            player.setHover = false;
+            LogInventoryItems();
         }
 
         focusedGO = UI.GetFocused();// call this when menu starts or when changed, not efficient rn
@@ -135,10 +133,13 @@ public class UI_Inventory : YmirComponent
                 //
 
                 if (((cs_UI_Item_Button.item.itemType != ITEM_SLOT.NONE ||
-                                cs_UI_Item_Button.item.itemType != ITEM_SLOT.SAVE) &&
-                                cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
-                                Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
+                    cs_UI_Item_Button.item.itemType != ITEM_SLOT.SAVE) &&
+                    cs_UI_Item_Button.item.currentSlot == ITEM_SLOT.NONE) &&
+                    Input.GetGamepadButton(GamePadButton.LEFTSHOULDER) == KeyState.KEY_DOWN)
                 {
+                    //Delete item from player list
+                    player.itemsList.Remove(cs_UI_Item_Button.item);
+
                     // Change current item to an empty one
                     cs_UI_Item_Button.item.itemType = ITEM_SLOT.NONE;
                     cs_UI_Item_Button.itemType = ITEM_SLOT.NONE;
@@ -256,17 +257,16 @@ public class UI_Inventory : YmirComponent
             }
 
             UI.TextEdit(_textDamage, player.damageMultiplier.ToString() + "%");
-            UI.TextEdit(_textResin, player.resin.ToString());
+            UI.TextEdit(_textResin, player.currentResinVessels.ToString());
         }
     }
 
     private void SetSlots() // Place the items from player to inventory
     {
-        bool isInventory;
+        bool isInventory = false;
 
         for (int i = 0; i < player.itemsList.Count; i++)
         {
-            Debug.Log("setslots ");
             //player.itemsList[i].LogStats();
 
             if (!player.itemsList[i].inInventory)
@@ -300,9 +300,11 @@ public class UI_Inventory : YmirComponent
 
                         if (button != null)
                         {
+                            //button.GetComponent<UI_Item_Button>().ResetSlot();
+
                             if (button.GetComponent<UI_Item_Button>().SetItem(player.itemsList[i]))
                             {
-                                player.itemsList[i].inInventory = true;
+                                //player.itemsList[i].inInventory = true;
                                 Debug.Log("button name " + button.Name);
                                 break;
                             }
@@ -312,5 +314,47 @@ public class UI_Inventory : YmirComponent
             }
         }
     }
-}
 
+    private void ResetMenuSlots()
+    {
+        // Reset Slots to null to update
+        GameObject inv = InternalCalls.CS_GetChild(gameObject, 2);
+
+        for (int c = 0; c < InternalCalls.CS_GetChildrenSize(inv); c++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inv, c), 2);  // (Grid (Slot (Button)))
+
+            if (button != null)
+            {
+                if (button.GetComponent<UI_Item_Button>().item != null)
+                {
+                    button.GetComponent<UI_Item_Button>().ResetSlot();
+                    button.GetComponent<UI_Item_Button>().item = button.GetComponent<UI_Item_Button>().CreateItemBase();
+                }
+            }
+        }
+    }
+
+    public void LogInventoryItems()
+    {
+        GameObject inventory = InternalCalls.CS_GetChild(gameObject, 2);
+
+        Debug.Log("Inventory");
+
+        for (int inv = 0; inv < InternalCalls.CS_GetChildrenSize(inventory); inv++)
+        {
+            GameObject button = InternalCalls.CS_GetChild(InternalCalls.CS_GetChild(inventory, inv), 2);  // (Slot (Button)))                                                                                                              //Debug.Log("button name " + button.Name);
+
+            if (button != null)
+            {
+                button.GetComponent<UI_Item_Button>().item.LogStats();
+                //Debug.Log("Inventory item " + inv.ToString() + " name " + button.GetComponent<UI_Item_Button>().item.name);
+            }
+        }
+
+        for (int i = 0; i < player.itemsList.Count; i++)
+        {
+            Debug.Log("Player list item: " + player.itemsList[i].name);
+        }
+    }
+}

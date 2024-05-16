@@ -28,6 +28,7 @@ public:
 
 	//Bool to init the particles from inspector
 	bool localPlay = false;
+	bool showEmitters = false;
 
 	CParticleSystem();
 	CParticleSystem(GameObject* own); 
@@ -56,7 +57,7 @@ public:
 
 private:
 
-	bool looping = false;
+	
 
 	//Timer for local play
 	Timer timer;

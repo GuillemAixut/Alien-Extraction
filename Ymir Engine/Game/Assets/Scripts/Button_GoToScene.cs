@@ -15,6 +15,7 @@ public class Button_GoToScene : YmirComponent
     private bool loadScene = false;
 
     public float time = 10;
+    public bool saveGame = true;
 
     public void Start()
     {
@@ -57,6 +58,9 @@ public class Button_GoToScene : YmirComponent
             loadScene = true;
         }
 
-        Globals.GetPlayerScript().SavePlayer();
+        if (saveGame)
+        {
+            Globals.GetPlayerScript().SavePlayer();
+        }
     }
 }
