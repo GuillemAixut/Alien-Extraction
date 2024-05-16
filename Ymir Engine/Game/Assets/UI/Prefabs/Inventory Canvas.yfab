@@ -7,7 +7,7 @@
             "UID": 1904908806,
             "Active": false,
             "Element_Type": "None",
-            "Parent UID": 361230450,
+            "Parent UID": 95556909,
             "Components": [
                 {
                     "Type": "Transform",
@@ -34,8 +34,8 @@
                     "Draggeable": false,
                     "Position X": 0,
                     "Position Y": 0,
-                    "Width": 2024,
-                    "Height": 1116,
+                    "Width": 429,
+                    "Height": 490,
                     "UI Type": 0,
                     "UI State": 1,
                     "Drag Limits": [
@@ -446,8 +446,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        1147,
-                        387,
+                        775,
+                        312,
                         300,
                         50
                     ],
@@ -492,7 +492,7 @@
                     "UID": 0,
                     "currentSlot": 0,
                     "enumItem": "NONE",
-                    "enumSlot": "NONE",
+                    "enumSlot": "ARMOR",
                     "enumRarity": "",
                     "menuName": "Inventory Menu",
                     "updateStats": false,
@@ -2548,8 +2548,8 @@
                     "UI Type": 3,
                     "UI State": 1,
                     "Drag Limits": [
-                        775,
-                        312,
+                        1147,
+                        387,
                         300,
                         50
                     ],
@@ -2587,28 +2587,28 @@
                         1
                     ]
                 },
-                {
-                    "Type": "Script",
-                    "ScriptName": "UI_Item_Button.cs",
-                    "Active": 1,
-                    "UID": 0,
-                    "currentSlot": 0,
-                    "enumItem": "ARMOR",
-                    "enumSlot": "ARMOR",
-                    "enumRarity": "",
-                    "menuName": "Inventory Menu",
-                    "updateStats": false,
-                    "name": "",
-                    "itemType": 0,
-                    "itemRarity": 0,
-                    "HP": 0,
-                    "armor": 0,
-                    "speed": 0,
-                    "fireRate": 0,
-                    "reloadSpeed": 0,
-                    "damageMultiplier": 0,
-                    "isEquipped": true
-                }
+              {
+                "Type": "Script",
+                "ScriptName": "UI_Item_Button.cs",
+                "Active": 1,
+                "UID": 0,
+                "currentSlot": 0,
+                "enumItem": "NONE",
+                "enumSlot": "NONE",
+                "enumRarity": "",
+                "menuName": "Inventory Menu",
+                "updateStats": false,
+                "name": "",
+                "itemType": 0,
+                "itemRarity": 0,
+                "HP": 0,
+                "armor": 0,
+                "speed": 0,
+                "fireRate": 0,
+                "reloadSpeed": 0,
+                "damageMultiplier": 0,
+                "isEquipped": false
+              }
             ]
         },
         {
