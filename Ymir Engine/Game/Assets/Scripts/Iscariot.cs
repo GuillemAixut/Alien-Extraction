@@ -107,6 +107,13 @@ public class Iscariot : YmirComponent
         ID_71,
         ID_72,
         ID_73,
+        ID_74,
+        ID_75,
+        ID_76,
+        ID_77,
+        ID_78,
+        ID_79,
+        ID_80,
 
     }
 
@@ -125,7 +132,7 @@ public class Iscariot : YmirComponent
         Abutton = InternalCalls.GetGameObjectByName("buttonA");
         Xbutton = InternalCalls.GetGameObjectByName("buttonX");
 
-        popup = InternalCalls.CS_GetChild(gameObject, 0);
+        popup = InternalCalls.CS_GetChild(gameObject, 1);
 
         //Animation - WIP
         //Animation.SetLoop(InternalCalls.CS_GetChild(gameObject, 0), "Caius_Idle", true);
@@ -146,10 +153,13 @@ public class Iscariot : YmirComponent
                 popup.SetActive(false);
             }
 
+            DialogueManager();
+
             //Interacciones - Respuestas
             //player.PlayerStopState(true);
             //IFs de todas las interacciones:
             {
+                
                 //ID 1
                 if (Input.GetGamepadButton(GamePadButton.Y) == KeyState.KEY_DOWN && dialogue_ == Dialogue_id.ID_1)
                 {
@@ -435,7 +445,7 @@ public class Iscariot : YmirComponent
                 }
             }
 
-            DialogueManager();
+            
         }
         else
         {
@@ -445,11 +455,13 @@ public class Iscariot : YmirComponent
     }
     public void DialogueManager()
     {
+
         //Visual - Diálogos + Respuestas
         switch (dialogue_)
         {
-            case Dialogue_id.ID_0:
 
+            case Dialogue_id.ID_0:
+                dialogue_ = Dialogue_id.ID_1;
                 break;
 
             case Dialogue_id.ID_1:
@@ -458,130 +470,231 @@ public class Iscariot : YmirComponent
                 UI.TextEdit(Ybutton, dialogue[2].Text);
                 UI.TextEdit(Bbutton, dialogue[3].Text);
                 UI.TextEdit(Abutton, dialogue[4].Text);
-                UI.TextEdit(Xbutton, " ");
+                UI.TextEdit(Xbutton, dialogue[5].Text);
                 break;
-            case Dialogue_id.ID_5:
-                UI.TextEdit(name_Npc, dialogue[5].Name);
-                UI.TextEdit(dialogue_Npc, dialogue[5].Text);
-                UI.TextEdit(Ybutton, dialogue[6].Text);
+            case Dialogue_id.ID_6:
+                UI.TextEdit(name_Npc, dialogue[6].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[6].Text);
+                UI.TextEdit(Ybutton, dialogue[7].Text);
                 UI.TextEdit(Bbutton, dialogue[8].Text);
-                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Abutton, dialogue[9].Text);
                 UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
-                break;
-            case Dialogue_id.ID_7:
-                UI.TextEdit(name_Npc, dialogue[7].Name);
-                UI.TextEdit(dialogue_Npc, dialogue[7].Text);
-                UI.TextEdit(Ybutton, " ");
-                UI.TextEdit(Bbutton, " ");
-                UI.TextEdit(Abutton, " ");
-                UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
-                break;
-            case Dialogue_id.ID_9:
-                UI.TextEdit(name_Npc, dialogue[9].Name);
-                UI.TextEdit(dialogue_Npc, dialogue[9].Text);
-                UI.TextEdit(Ybutton, " ");
-                UI.TextEdit(Bbutton, " ");
-                UI.TextEdit(Abutton, " ");
-                UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
                 break;
             case Dialogue_id.ID_10:
                 UI.TextEdit(name_Npc, dialogue[10].Name);
                 UI.TextEdit(dialogue_Npc, dialogue[10].Text);
                 UI.TextEdit(Ybutton, dialogue[11].Text);
-                UI.TextEdit(Bbutton, dialogue[17].Text);
-                UI.TextEdit(Abutton, dialogue[23].Text);
-                UI.TextEdit(Xbutton, " ");
-                break;
-            case Dialogue_id.ID_12:
-                UI.TextEdit(name_Npc, dialogue[12].Name);
-                UI.TextEdit(dialogue_Npc, dialogue[12].Text);
-                UI.TextEdit(Ybutton, dialogue[13].Text);
-                UI.TextEdit(Bbutton, dialogue[15].Text);
-                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Bbutton, dialogue[12].Text);
+                UI.TextEdit(Abutton, dialogue[13].Text);
                 UI.TextEdit(Xbutton, " ");
                 break;
             case Dialogue_id.ID_14:
                 UI.TextEdit(name_Npc, dialogue[14].Name);
                 UI.TextEdit(dialogue_Npc, dialogue[14].Text);
-                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Ybutton, dialogue[15].Text);
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
                 break;
             case Dialogue_id.ID_16:
                 UI.TextEdit(name_Npc, dialogue[16].Name);
                 UI.TextEdit(dialogue_Npc, dialogue[16].Text);
-                UI.TextEdit(Ybutton, " ");
+                UI.TextEdit(Ybutton, dialogue[17].Text);
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
                 break;
             case Dialogue_id.ID_18:
                 UI.TextEdit(name_Npc, dialogue[18].Name);
                 UI.TextEdit(dialogue_Npc, dialogue[18].Text);
                 UI.TextEdit(Ybutton, dialogue[19].Text);
-                UI.TextEdit(Bbutton, dialogue[21].Text);
+                UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
                 break;
             case Dialogue_id.ID_20:
                 UI.TextEdit(name_Npc, dialogue[20].Name);
                 UI.TextEdit(dialogue_Npc, dialogue[20].Text);
-                UI.TextEdit(Ybutton, " ");
-                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Ybutton, dialogue[21].Text);
+                UI.TextEdit(Bbutton, dialogue[22].Text);
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
                 break;
-            case Dialogue_id.ID_22:
-                UI.TextEdit(name_Npc, dialogue[22].Name);
-                UI.TextEdit(dialogue_Npc, dialogue[22].Text);
-                UI.TextEdit(Ybutton, " ");
+            case Dialogue_id.ID_23:
+                UI.TextEdit(name_Npc, dialogue[23].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[23].Text);
+                UI.TextEdit(Ybutton, dialogue[24].Text);
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
                 break;
-            case Dialogue_id.ID_24:
-                UI.TextEdit(name_Npc, dialogue[24].Name);
-                UI.TextEdit(dialogue_Npc, dialogue[24].Text);
-                UI.TextEdit(Ybutton, " ");
+            case Dialogue_id.ID_25:
+                UI.TextEdit(name_Npc, dialogue[25].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[25].Text);
+                UI.TextEdit(Ybutton, dialogue[26].Text);
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
                 break;
-            case Dialogue_id.ID_26:
-                UI.TextEdit(name_Npc, dialogue[26].Name);
-                UI.TextEdit(dialogue_Npc, dialogue[26].Text);
-                UI.TextEdit(Ybutton, " ");
+            case Dialogue_id.ID_27:
+                UI.TextEdit(name_Npc, dialogue[27].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[27].Text);
+                UI.TextEdit(Ybutton, dialogue[28].Text);
                 UI.TextEdit(Bbutton, " ");
                 UI.TextEdit(Abutton, " ");
                 UI.TextEdit(Xbutton, " ");
-                player.PlayerStopState(false);
-                active_Dialogue = false;
-                canvas_Iscariot.SetActive(false);
+                break;
+            case Dialogue_id.ID_29:
+                UI.TextEdit(name_Npc, dialogue[29].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[29].Text);
+                UI.TextEdit(Ybutton, dialogue[30].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_31:
+                UI.TextEdit(name_Npc, dialogue[31].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[31].Text);
+                UI.TextEdit(Ybutton, dialogue[32].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_33:
+                UI.TextEdit(name_Npc, dialogue[33].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[33].Text);
+                UI.TextEdit(Ybutton, dialogue[34].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_73:
+                UI.TextEdit(name_Npc, dialogue[73].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[73].Text);
+                UI.TextEdit(Ybutton, dialogue[43].Text);
+                UI.TextEdit(Bbutton, dialogue[74].Text);
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_44:
+                UI.TextEdit(name_Npc, dialogue[44].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[44].Text);
+                UI.TextEdit(Ybutton, dialogue[45].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_46:
+                UI.TextEdit(name_Npc, dialogue[46].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[46].Text);
+                UI.TextEdit(Ybutton, dialogue[47].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_48:
+                UI.TextEdit(name_Npc, dialogue[48].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[48].Text);
+                UI.TextEdit(Ybutton, dialogue[49].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_50:
+                UI.TextEdit(name_Npc, dialogue[50].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[50].Text);
+                UI.TextEdit(Ybutton, dialogue[51].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_35:
+                UI.TextEdit(name_Npc, dialogue[35].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[35].Text);
+                UI.TextEdit(Ybutton, dialogue[36].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_37:
+                UI.TextEdit(name_Npc, dialogue[37].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[37].Text);
+                UI.TextEdit(Ybutton, dialogue[38].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_39:
+                UI.TextEdit(name_Npc, dialogue[39].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[39].Text);
+                UI.TextEdit(Ybutton, dialogue[40].Text);
+                UI.TextEdit(Bbutton, dialogue[41].Text);
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_42:
+                UI.TextEdit(name_Npc, dialogue[42].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[42].Text);
+                UI.TextEdit(Ybutton, dialogue[43].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_51:
+                UI.TextEdit(name_Npc, dialogue[51].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[51].Text);
+                UI.TextEdit(Ybutton, dialogue[21].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_53:
+                UI.TextEdit(name_Npc, dialogue[53].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[53].Text);
+                UI.TextEdit(Ybutton, dialogue[54].Text);
+                UI.TextEdit(Bbutton, dialogue[55].Text);
+                UI.TextEdit(Abutton, dialogue[56].Text);
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_57:
+                UI.TextEdit(name_Npc, dialogue[57].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[57].Text);
+                UI.TextEdit(Ybutton, dialogue[58].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_59:
+                UI.TextEdit(name_Npc, dialogue[59].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[59].Text);
+                UI.TextEdit(Ybutton, dialogue[60].Text);
+                UI.TextEdit(Bbutton, dialogue[63].Text);
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_64:
+                UI.TextEdit(name_Npc, dialogue[64].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[64].Text);
+                UI.TextEdit(Ybutton, dialogue[2].Text);
+                UI.TextEdit(Bbutton, dialogue[66].Text);
+                UI.TextEdit(Abutton, dialogue[67].Text);
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_68:
+                UI.TextEdit(name_Npc, dialogue[68].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[68].Text);
+                UI.TextEdit(Ybutton, dialogue[69].Text);
+                UI.TextEdit(Bbutton, " ");
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
+                break;
+            case Dialogue_id.ID_71:
+                UI.TextEdit(name_Npc, dialogue[71].Name);
+                UI.TextEdit(dialogue_Npc, dialogue[71].Text);
+                UI.TextEdit(Ybutton, dialogue[62].Text);
+                UI.TextEdit(Bbutton, dialogue[63].Text);
+                UI.TextEdit(Abutton, " ");
+                UI.TextEdit(Xbutton, " ");
                 break;
 
         }
