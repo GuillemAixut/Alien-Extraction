@@ -153,7 +153,7 @@ public class Iscariot : YmirComponent
                 popup.SetActive(false);
             }
 
-            DialogueManager();
+            
 
             //Interacciones - Respuestas
             //player.PlayerStopState(true);
@@ -445,7 +445,8 @@ public class Iscariot : YmirComponent
                 }
             }
 
-            
+            DialogueManager();
+
         }
         else
         {
