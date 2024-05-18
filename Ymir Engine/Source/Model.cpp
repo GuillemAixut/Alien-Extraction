@@ -444,6 +444,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 
 	CMaterial* cmaterial = new CMaterial(linkGO);
 
+	/*
 	if (mesh->mMaterialIndex > 0)
 	{
 		aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
@@ -740,7 +741,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, GameObject* linkGO, 
 		}
 
 	}
-
+	*/
 	linkGO->AddComponent(cmaterial);
 	
 }
