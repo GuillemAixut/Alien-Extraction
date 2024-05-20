@@ -128,7 +128,7 @@ public class DroneXenomorphBaseScript : Enemy
         }
 
         life = 300f;
-        armor = 0.2f;
+        armor = 0.0f;
 
         rarity = random.Next(101);
 
@@ -150,14 +150,14 @@ public class DroneXenomorphBaseScript : Enemy
         //Enemy rarity stats
         if (rarity == 1)
         {
-            life = 550; //750
-            armor = 0.0f; // 0.4f
+            life = 600; //750
+            armor = 0.1f; // 0.4f
             agent.speed = 880f;
         }
         else if (rarity == 2)
         {
             life = 800; //1200
-            armor = 0.0f; // 0.5f
+            armor = 0.2f; // 0.5f
             agent.speed = 960f;
         }
 

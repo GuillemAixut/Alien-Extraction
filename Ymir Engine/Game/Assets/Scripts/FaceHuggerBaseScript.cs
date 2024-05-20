@@ -132,14 +132,14 @@ public class FaceHuggerBaseScript : Enemy
         //Enemy rarity stats
         if (rarity == 1)
         {
-            life = 250; //450
-            armor = 0.0f; //0.1f
+            life = 330; //450
+            armor = 0.1f; //0.1f
             agent.speed = 1650f;
         }
         else if (rarity == 2)
         {
-            life = 400; //600
-            armor = 0.0f; //0.2f
+            life = 440; //600
+            armor = 0.2f; //0.2f
             agent.speed = 1800f;
         }
 
