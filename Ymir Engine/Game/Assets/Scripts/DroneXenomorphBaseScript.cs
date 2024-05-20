@@ -106,24 +106,24 @@ public class DroneXenomorphBaseScript : Enemy
         switch (level)
         {
             case 1:
-                commonProb = 60.0f;
-                rareProb = 25.0f;
-                epicProb = 15.0f;
+                commonProb = 93.0f;
+                rareProb = 5.0f;
+                epicProb = 2.0f;
                 break;
             case int i when (i == 2 || i == 3):
-                commonProb = 20.0f;
-                rareProb = 50.0f;
-                epicProb = 30.0f;
+                commonProb = 93.0f;
+                rareProb = 5.0f;
+                epicProb = 2.0f;
                 break;
             case int i when (i == 4 || i == 5):
-                commonProb = 10.0f;
-                rareProb = 30.0f;
-                epicProb = 60.0f;
+                commonProb = 93.0f;
+                rareProb = 5.0f;
+                epicProb = 2.0f;
                 break;
             default:
-                commonProb = 60.0f;
-                rareProb = 25.0f;
-                epicProb = 15.0f;
+                commonProb = 93.0f;
+                rareProb = 5.0f;
+                epicProb = 2.0f;
                 break;
         }
 
