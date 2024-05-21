@@ -138,6 +138,7 @@ ModuleMonoManager::ModuleMonoManager(Application* app, bool start_enabled) : Mod
 	mono_add_internal_call("YmirEngine.GameObject::ClearForces", ClearForces);
 	mono_add_internal_call("YmirEngine.GameObject::RaycastHit", RaycastHit);
 	mono_add_internal_call("YmirEngine.GameObject::RaycastTest", RaycastTest);
+	mono_add_internal_call("YmirEngine.GameObject::SetColliderActive", SetColliderActive);
 
 #pragma endregion
 

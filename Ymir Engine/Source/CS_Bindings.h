@@ -531,6 +531,17 @@ bool RaycastTest(MonoObject* obj, MonoObject* origin, MonoObject* direction, flo
 	return External->physics->RaycastTest(fOrigin, fdirection, rayLenght);
 }
 
+void SetColliderActive(MonoObject* obj, bool isActive)
+{
+	if (External == nullptr)
+		return;
+
+	GameObject* cpp_gameObject = External->moduleMono->GameObject_From_CSGO(obj);
+	CCollider* rigidbody = dynamic_cast<CCollider*>(cpp_gameObject->GetComponent(ComponentType::PHYSICS));
+
+	rigidbody->isActive = isActive;
+}
+
 MonoObject* SendPosition(MonoObject* obj) //Allows to send float3 as "objects" in C#, should find a way to move Vector3 as class
 {
 	//return mono_value_box(External->moduleMono->domain, vecClass, External->moduleMono->Float3ToCS(C_Script::runningScript->GetGO()->transform->position)); //Use this method to send "object" types
