@@ -80,7 +80,6 @@ public class UI_Cutscenes : YmirComponent
                     currentFrame++;
                     finishTimer = timer;
                     UI.ChangeImageUI(img, imgPath + imgName + "(" + currentFrame.ToString() + ")" + ".png", (int)UI_STATE.NORMAL);
-                    Debug.Log(imgPath + imgName + "(" + currentFrame.ToString() + ")" + ".png");
 
                     if (currentFrame == maxFrames)
                     {
