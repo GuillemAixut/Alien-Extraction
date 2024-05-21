@@ -24,7 +24,7 @@ public class Shotgun : Weapon
             case UPGRADE.LVL_0:
 
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunDefault");
-                ammo = 16;
+                ammo = 4; //16
                 ammoInChamber = 2;
                 fireRate = 1.3f;
                 damage = 110; //55
@@ -35,7 +35,7 @@ public class Shotgun : Weapon
             case UPGRADE.LVL_1:
 
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL1");
-                ammo = 26;
+                ammo = 8; //26
                 ammoInChamber = 2;
                 fireRate = 1.2f;
                 damage = 140; //70
@@ -46,7 +46,7 @@ public class Shotgun : Weapon
             case UPGRADE.LVL_2:
 
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL2");
-                ammo = 26;
+                ammo = 8; //26
                 ammoInChamber = 2;
                 fireRate = 1.2f;
                 damage = 150; //75
@@ -57,7 +57,7 @@ public class Shotgun : Weapon
             case UPGRADE.LVL_3_ALPHA:
 
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL3A");
-                ammo = 28;
+                ammo = 12; //28
                 ammoInChamber = 2;
                 fireRate = 0.7f;
                 damage = 160; //80
@@ -68,7 +68,7 @@ public class Shotgun : Weapon
             case UPGRADE.LVL_3_BETA:
 
                 particlesGO = InternalCalls.GetChildrenByName(gameObject, "ParticlesShotgunLVL3B");
-                ammo = 28;
+                ammo = 8; //28
                 ammoInChamber = 4;
                 fireRate = 1.3f;
                 damage = 320; //80
