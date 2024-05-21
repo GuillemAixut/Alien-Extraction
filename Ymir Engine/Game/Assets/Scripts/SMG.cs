@@ -16,6 +16,7 @@ public class SMG : Weapon
         player = playerObject.GetComponent<Player>();
 
         range = 100;
+        reloadTime = 1.5f;
 
         switch (_upgrade)
         {
@@ -25,7 +26,6 @@ public class SMG : Weapon
                 ammo = 35;
                 fireRate = 0.06f;
                 damage = 15;
-                reloadTime = 1.8f;
 
                 break;
             case UPGRADE.LVL_1:
@@ -34,7 +34,6 @@ public class SMG : Weapon
                 ammo = 35;
                 fireRate = 0.05f;
                 damage = 30;
-                reloadTime = 1.6f;
 
                 break;
             case UPGRADE.LVL_2:
@@ -43,7 +42,6 @@ public class SMG : Weapon
                 ammo = 40;
                 fireRate = 0.05f;
                 damage = 40;
-                reloadTime = 1.5f;
 
                 break;
             case UPGRADE.LVL_3_ALPHA:
@@ -52,7 +50,6 @@ public class SMG : Weapon
                 ammo = 110;
                 fireRate = 0.04f;
                 damage = 50;
-                reloadTime = 1.3f;
 
                 break;
             case UPGRADE.LVL_3_BETA:
@@ -61,7 +58,6 @@ public class SMG : Weapon
                 ammo = 40;
                 fireRate = 0.02f;
                 damage = 40;
-                reloadTime = 1.5f;
 
                 break;
             default:
@@ -137,6 +133,13 @@ public class SMG : Weapon
     public override void Reload()
     {
         currentAmmo = ammo;
+
+        //Audio.PlayAudio(gameObject, "W_FirearmReload");
+    }
+    public override void StartReload()
+    {
+        reloading = true;
+        reloadTimer = reloadTime;
 
         Audio.PlayAudio(gameObject, "W_FirearmReload");
     }

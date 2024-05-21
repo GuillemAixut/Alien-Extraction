@@ -714,9 +714,6 @@ public class Player : YmirComponent
                 if (Input.GetGamepadRightTrigger() > 0)
                 {
                     inputsList.Add(INPUT.I_SHOOTING);
-
-                    // Interrump Reaload
-                    currentWeapon.InterruptReload();
                 }
                 else
                 {
@@ -1266,7 +1263,8 @@ public class Player : YmirComponent
 
     private void StartShooting()
     {
-
+        // Interrump Reaload
+        currentWeapon.InterruptReload();
     }
     private void StartShoot()
     {

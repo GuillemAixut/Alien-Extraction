@@ -42,7 +42,7 @@ public abstract class Weapon : YmirComponent
     public int currentAmmo;
     protected float fireRateTimer;
     protected float reloadTimer;
-    private bool reloading;
+    protected bool reloading;
 
     public GameObject playerObject;
     protected Player player;
@@ -98,6 +98,9 @@ public abstract class Weapon : YmirComponent
                 player.csBullets.UseBullets();
             }
         }
+
+        Debug.Log("CurrentAmmo:" + currentAmmo);
+
     }
     public bool ShootAvailable()
     {
@@ -109,14 +112,12 @@ public abstract class Weapon : YmirComponent
         return (reloadTimer <= 0 && currentAmmo < ammo) ? true : false;
     }
 
-    public void StartReload()
-    {
-        reloading = true;
-        reloadTimer = reloadTime;
-    }
+    public abstract void StartReload();
     public void InterruptReload()
     {
         reloading = false;
         reloadTimer = 0;
+
+        Audio.StopAudio(gameObject);
     }
 }

@@ -17,6 +17,8 @@ public class Shotgun : Weapon
         playerObject = InternalCalls.GetGameObjectByName("Player");
         player = playerObject.GetComponent<Player>();
 
+        reloadTime = 2.5f;
+
         switch (_upgrade)
         {
             case UPGRADE.LVL_0:
@@ -26,7 +28,6 @@ public class Shotgun : Weapon
                 ammoInChamber = 2;
                 fireRate = 1.3f;
                 damage = 110; //55
-                reloadTime = 2.7f;
                 range = 10.5f;
                 dispersion = 100;
 
@@ -38,7 +39,6 @@ public class Shotgun : Weapon
                 ammoInChamber = 2;
                 fireRate = 1.2f;
                 damage = 140; //70
-                reloadTime = 2.6f;
                 range = 10.5f;
                 dispersion = 100;
 
@@ -50,7 +50,6 @@ public class Shotgun : Weapon
                 ammoInChamber = 2;
                 fireRate = 1.2f;
                 damage = 150; //75
-                reloadTime = 2.5f;
                 range = 21f;
                 dispersion = 80;
 
@@ -62,7 +61,6 @@ public class Shotgun : Weapon
                 ammoInChamber = 2;
                 fireRate = 0.7f;
                 damage = 160; //80
-                reloadTime = 2.1f;
                 range = 21f;
                 dispersion = 80;
 
@@ -74,7 +72,6 @@ public class Shotgun : Weapon
                 ammoInChamber = 4;
                 fireRate = 1.3f;
                 damage = 320; //80
-                reloadTime = 2.5f;
                 range = 21f;
                 dispersion = 80;
 
@@ -88,14 +85,7 @@ public class Shotgun : Weapon
 
     public override void Shoot()
     {
-        //currentAmmo=-ammoInChamber;
-        currentAmmo--;
-        currentAmmo--;
-        if(ammoInChamber == 4) 
-        {
-            currentAmmo--;
-            currentAmmo--;
-        }
+        currentAmmo -= ammoInChamber;
         fireRateTimer = fireRate;
 
         Audio.PlayAudio(gameObject, "W_FSADShot");
@@ -131,6 +121,14 @@ public class Shotgun : Weapon
     public override void Reload()
     {
         currentAmmo = ammo;
+
+        //Audio.PlayAudio(gameObject, "W_FSADReload");
+    }
+
+    public override void StartReload()
+    {
+        reloading = true;
+        reloadTimer = reloadTime;
 
         Audio.PlayAudio(gameObject, "W_FSADReload");
     }
