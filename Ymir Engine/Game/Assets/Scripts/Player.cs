@@ -23,7 +23,6 @@ public class Player : YmirComponent
         STOP,
         DASH,
         SHOOTING,
-        RELOADING,
         SHOOT,
         DEAD,
         JUMP,
@@ -45,7 +44,6 @@ public class Player : YmirComponent
         I_SHOOT,
         I_SHOOT_END,
         I_RELOAD,
-        I_RELOAD_END,
         I_DEAD,
         I_JUMP,
         I_JUMP_END,
@@ -66,6 +64,8 @@ public class Player : YmirComponent
     //--------------------- State ---------------------\\
     public STATE currentState = STATE.IDLE;   //NEVER SET THIS VARIABLE DIRECTLLY, ALLWAYS USE INPUTS
     private List<INPUT> inputsList = new List<INPUT>();
+
+    public bool reloading;
 
     //--------------------- Movement ---------------------\\
     //public float rotationSpeed = 2.0f;
@@ -702,6 +702,9 @@ public class Player : YmirComponent
                 if (Input.GetGamepadRightTrigger() > 0)
                 {
                     inputsList.Add(INPUT.I_SHOOTING);
+
+                    // Interrump Reaload
+                    currentWeapon.InterruptReload();
                 }
                 else
                 {
@@ -719,6 +722,9 @@ public class Player : YmirComponent
                     csUI_AnimationDash.Reset();
                     csUI_AnimationDash.backwards = false;
                     csUI_AnimationDash.SetAnimationState(true);
+
+                    // Interrump Reaload
+                    currentWeapon.InterruptReload();
                 }
 
                 //----------------- Acidic Spit (Skill 1) -----------------\\
@@ -731,6 +737,9 @@ public class Player : YmirComponent
                     csUI_AnimationAcid.Reset();
                     csUI_AnimationAcid.backwards = false;
                     csUI_AnimationAcid.SetAnimationState(true);
+
+                    // Interrump Reaload
+                    currentWeapon.InterruptReload();
                 }
 
                 //----------------- Predatory Rush (Skill 2) -----------------\\
@@ -743,6 +752,9 @@ public class Player : YmirComponent
                     csUI_AnimationPredatory.Reset();
                     csUI_AnimationPredatory.backwards = false;
                     csUI_AnimationPredatory.SetAnimationState(true);
+
+                    // Interrump Reaload
+                    currentWeapon.InterruptReload();
                 }
 
                 //----------------- Swipe (Skill 3) -----------------\\
@@ -755,6 +767,9 @@ public class Player : YmirComponent
                     csUI_AnimationSwipe.Reset();
                     csUI_AnimationSwipe.backwards = false;
                     csUI_AnimationSwipe.SetAnimationState(true);
+
+                    // Interrump Reaload
+                    currentWeapon.InterruptReload();
                 }
 
                 //----------------- Reload -----------------\\
@@ -900,14 +915,14 @@ public class Player : YmirComponent
                             StartShooting();
                             break;
 
-                        case INPUT.I_RELOAD:
-                            currentState = STATE.RELOADING;
-                            StartReload();
-                            break;
-
                         case INPUT.I_DEAD:
                             currentState = STATE.DEAD;
                             StartDeath();
+                            break;
+
+                        case INPUT.I_RELOAD:
+
+                            StartReload();
                             break;
                     }
                     break;
@@ -966,14 +981,17 @@ public class Player : YmirComponent
                             currentState = STATE.SHOOTING;
                             StartShooting();
                             break;
-                        case INPUT.I_RELOAD:
-                            currentState = STATE.RELOADING;
-                            StartReload();
-                            break;
+
                         case INPUT.I_DEAD:
                             currentState = STATE.DEAD;
                             StartDeath();
                             break;
+
+                        case INPUT.I_RELOAD:
+
+                            StartReload();
+                            break;
+
                     }
                     break;
 
@@ -1067,11 +1085,6 @@ public class Player : YmirComponent
                             StartShoot();
                             break;
 
-                        case INPUT.I_RELOAD:
-                            currentState = STATE.RELOADING;
-                            StartReload();
-                            break;
-
                         case INPUT.I_DEAD:
                             currentState = STATE.DEAD;
                             StartDeath();
@@ -1100,59 +1113,6 @@ public class Player : YmirComponent
 
                         case INPUT.I_PRED_END:
                             EndPredRush();
-                            break;
-
-                        case INPUT.I_DEAD:
-                            currentState = STATE.DEAD;
-                            StartDeath();
-                            break;
-                    }
-                    break;
-
-                case STATE.RELOADING:
-                    switch (input)
-                    {
-                        case INPUT.I_HIT:
-                            currentState = STATE.HIT;
-                            StartHit();
-                            break;
-
-                        //case INPUT.I_MOVE:
-                        //    currentState = STATE.MOVE;
-                        //    StartMove();
-                        //    break;
-
-                        //case INPUT.I_STOP:
-                        //    currentState = STATE.STOP;
-                        //    StopPlayer();
-                        //    break;
-
-                        //case INPUT.I_DASH:
-                        //    currentState = STATE.DASH;
-                        //    StartDash();
-                        //    break;
-
-                        //case INPUT.I_PRED_END:
-                        //    EndPredRush();
-                        //    break;
-
-                        //case INPUT.I_JUMP:
-                        //    currentState = STATE.JUMP;
-                        //    StartJump();
-                        //    break;
-
-                        case INPUT.I_SHOOTING:
-                            currentState = STATE.SHOOTING;
-                            StartShooting();
-                            break;
-                        //case INPUT.I_RELOAD:
-                        //    currentState = STATE.RELOADING;
-                        //    StartReload();
-                        //    break;
-                        case INPUT.I_RELOAD_END:
-                            currentState = STATE.IDLE;
-                            EndReload();
-                            Debug.Log("Reload End");
                             break;
 
                         case INPUT.I_DEAD:
@@ -1270,9 +1230,6 @@ public class Player : YmirComponent
             case STATE.SHOOTING:
                 UpdateShooting();
                 break;
-            case STATE.RELOADING:
-                UpdateReload();
-                break;
             case STATE.SHOOT:
                 break;
             case STATE.DEAD:
@@ -1341,20 +1298,6 @@ public class Player : YmirComponent
         currentWeapon.StartReload();
         Debug.Log("Start Realod");
     }
-
-    private void UpdateReload()
-    {
-        if (!currentWeapon.Reloading())
-            inputsList.Add (INPUT.I_RELOAD_END);
-    }
-
-    private void EndReload()
-    {
-        currentWeapon.Reload();
-        Debug.Log("Reaload Complete");
-    }
-
-
     private void SetWeapon()
     {
         // Set all GO weapons to not active
