@@ -12,6 +12,8 @@ public class SMG : Weapon
 
     public override void Start()
     {
+        playerObject = InternalCalls.GetGameObjectByName("Player");
+        player = playerObject.GetComponent<Player>();
 
         range = 100;
 

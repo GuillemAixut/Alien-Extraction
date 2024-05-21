@@ -182,7 +182,7 @@ public class Player : YmirComponent
     private GameObject cameraObject;
 
     //--------------------- External Scripts ---------------------\\
-    private UI_Bullets csBullets;
+    public UI_Bullets csBullets;
     private Health csHealth;
 
     private UI_Animation csUI_AnimationDash;
@@ -1308,7 +1308,7 @@ public class Player : YmirComponent
     private void StartReload()
     {
         currentWeapon.StartReload();
-        Debug.Log("Start Realod");
+        Debug.Log("Start Reloading");
     }
     private void SetWeapon()
     {

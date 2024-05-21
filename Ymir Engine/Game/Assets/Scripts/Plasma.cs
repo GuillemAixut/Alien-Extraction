@@ -16,6 +16,9 @@ public class Plasma : Weapon
 
     public override void Start()
     {
+        playerObject = InternalCalls.GetGameObjectByName("Player");
+        player = playerObject.GetComponent<Player>();
+
         range = 200;
 
         switch (_upgrade)

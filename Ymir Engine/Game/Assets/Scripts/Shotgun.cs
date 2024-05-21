@@ -14,6 +14,9 @@ public class Shotgun : Weapon
 
     public override void Start()
     {
+        playerObject = InternalCalls.GetGameObjectByName("Player");
+        player = playerObject.GetComponent<Player>();
+
         switch (_upgrade)
         {
             case UPGRADE.LVL_0:

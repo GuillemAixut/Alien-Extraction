@@ -94,6 +94,8 @@ public abstract class Weapon : YmirComponent
             {
                 Reload();
                 reloading = false;
+
+                player.csBullets.UseBullets();
             }
         }
     }
