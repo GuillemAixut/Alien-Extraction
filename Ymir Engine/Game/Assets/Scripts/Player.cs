@@ -795,7 +795,7 @@ public class Player : YmirComponent
                     Debug.Log("Resin used");
 
                     currentResinVessels--;
-                    csHealth.TakeDmg(-resinHealing);
+                    csHealth.Heal(-resinHealing);
 
                     if (resinText != null)
                     {
