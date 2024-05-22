@@ -349,6 +349,8 @@ public class Player : YmirComponent
             weaponType = WEAPON_TYPE.NONE;
             SetWeapon();
 
+            currentResinVessels = maxResinVessels;
+
             LoadLvlInfo();
             LoadItems();
         }
