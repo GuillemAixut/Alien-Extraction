@@ -42,7 +42,6 @@ public class BaseTeleporter : YmirComponent
 
     public void Update()
     {
-
         if (Input.GetGamepadButton(GamePadButton.B) == KeyState.KEY_DOWN)
         {
             csPlayer.PlayerStopState(false);
