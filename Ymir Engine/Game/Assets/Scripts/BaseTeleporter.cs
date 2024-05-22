@@ -55,7 +55,7 @@ public class BaseTeleporter : YmirComponent
             UI.SetUIState(button, (int)UI_STATE.NORMAL);
             //UI.SetFirstFocused(button.parent);
 
-            _grid.GetComponent<UI_Inventory_Grid>().naviagteY = true;
+            _grid.GetComponent<UI_Inventory_Grid>().navigateY = true;
 
             _setNormal = true;
 
@@ -69,7 +69,7 @@ public class BaseTeleporter : YmirComponent
             Debug.Log("Lvl: " + selectedLvl.ToString() + " Weapon: " + selectedWeapon.ToString());
 
             UI.SetUIState(button, (int)UI_STATE.DISABLED);
-            _grid.GetComponent<UI_Inventory_Grid>().naviagteY = false;
+            _grid.GetComponent<UI_Inventory_Grid>().navigateY = false;
 
             _setNormal = false;
         }
